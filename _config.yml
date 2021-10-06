@@ -13,8 +13,8 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://wilenwu.gitee.io  
-# root: /                        # 网站的根目录
+url: https://wilenwu.gitee.io
+#root: /                        # 网站的根目录
 #文章永久链接的形成模版。每一篇文章都有唯一的url。
 permalink: posts/:title/
 permalink_defaults:            # 文章永久链接中，各部分的默认值。
@@ -38,12 +38,12 @@ skip_render:                 # 忽略文档(根目录 source_dir/)，不做改�
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
-titlecase: false # Transform title into titlecase
+titlecase: false # 首字母大写
 external_link: # 外链设置
   enable: true # Open external links in new tab
   field: site # Apply to the whole site|post
   exclude: ''
-filename_case: 0
+filename_case: 0  # 把文件名称转换为小写(1)、大写(2)或不变(0)
 render_drafts: false
 post_asset_folder: false
 relative_link: false
@@ -142,11 +142,11 @@ search:
 
 # 配置豆瓣
 douban:
-  user: '206186342'
+  user: 206186342
   builtin: true
   movie:
-    title: 'This is my movie title'
-    quote: 'This is my movie quote'
+    title: '电影'
+    quote: '那些年，那些电影'
     meta: true
     comments: true
     top_img: 
@@ -195,13 +195,7 @@ baidusitemap:
 # 百度主动提交
 baidu_url_submit:
   count: 100                        # 提交最新链接数
-  host: https://wilenwu.gitee.io    # 在百度站长平台中注册的域名
-  token:            # 密钥
   #host: https://wilenwu.github.io  
-  #token: P8wBelFwcBp0yS8z           
+  host: https://wilenwu.gitee.io    # 在百度站长平台中注册的域名
+  token: P8wBelFwcBp0yS8z           # 密钥
   path: baidu_urls.txt              # 文本文档的地址，新链接会保存在此文本文档里
-
-# 中文转拼音
-permalink_pinyin:
-  enable: true 
-  separator: '-'

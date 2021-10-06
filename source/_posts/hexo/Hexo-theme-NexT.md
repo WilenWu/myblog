@@ -472,7 +472,7 @@ vendors:
   plugins: unpkg
 ```
 
-# 自定义样式支持
+# 自定义样式
 
 NexT 建议大家使用 Hexo 官方推荐的 Data Files 系统（Hexo 3.x 及以上）来分离个人配置，这样就可以在尽可能少地修改 NexT 工程代码的情况下进行个性化配置，方便主题升级。
 
@@ -499,10 +499,10 @@ NexT 建议大家使用 Hexo 官方推荐的 Data Files 系统（Hexo 3.x 及以
 主题配置文件取消注释
 ```sh next\_config.yml
 custom_file_path:
-  postBodyEnd: source/_data/post-body-end.swig
+  postBodyEnd: source/_data/post-body-end.njk
 ```
 
-在路径 `/source/_data` 下创建/修改 `post-body-end.swig`文件，并添加以下内容
+在路径 `/source/_data` 下创建/修改 `post-body-end.njk`文件，并添加以下内容
 ```sh
 <div>
     {% if not is_index %}
@@ -523,11 +523,11 @@ custom_file_path:
 ```stylus
 // 添加背景 url(https://source.unsplash.com/random/1600x900); 
 body {
-    background:url(/images/background6.jpg);
+    background:url(/images/background.jpg);
     background-repeat: no-repeat;
     background-attachment:fixed;
     background-position:50% 50%;
-    background-size:cover;
+    background-size:cover;  // 填充
 }
 
 // 修改主体透明度
@@ -562,6 +562,11 @@ body {
     margin-top: 10px;
     font-size: 13px;
     color: #ffffff;
+}
+
+//侧边框
+.sidebar {
+  border-radius: 10px;
 }
 ```
 
@@ -611,6 +616,10 @@ $table-cell-border-right-color  = $gainsboro;
 $table-cell-border-bottom-color = $gray-lighter;
 $table-row-odd-bg-color         = #f9f9f9;
 $table-row-hover-bg-color       = $whitesmoke;
+
+// 圆角设置
+$border-radius-inner = 10px 10px 10px 10px;
+$border-radius = 10px;
 ```
 
 ------

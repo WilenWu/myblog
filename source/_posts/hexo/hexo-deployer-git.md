@@ -106,6 +106,15 @@ deploy:
       ignore_pattern:
           public: .
   ```
+  ```yaml
+  deploy:
+    type: git
+    repo: 
+         github: git@github.com:<username>/<username>.github.io.git
+         coding: git@git.coding.net:<username>/<username>.coding.me.git
+         gitee: git@gitee.com:<username>/<username>.git
+    branch: master
+  ```
 
 ## 使用令牌部署
 

@@ -431,7 +431,7 @@ footer:
 
 # Baidu Analytics
 # https://tongji.baidu.com/web/welcome/login
-baidu_analytics: 873a3ba02856122b60c91114a489f967
+baidu_analytics: 654e7415ab55bed7c9c2bc6d665f03c5
 
 # Google Analytics
 # https://analytics.google.com/analytics/web/
@@ -477,7 +477,7 @@ site_verification:
   # - name: google-site-verification
   #   content: xxxxxx
   - name: baidu-site-verification
-    content: code-GVJdDpdQ7p
+    content: code-vC49GDmA6B
 
 # Beautify/Effect (美化/效果)
 # --------------------------------------
@@ -703,7 +703,7 @@ runtimeshow:
 
 # Aside widget - Newest Comments
 newest_comments:
-  enable: true 
+  enable: false  
   sort_order: # Don't modify the setting unless you know how it works
   limit: 6
   storage: 10 # unit: mins, save data to localStorage
