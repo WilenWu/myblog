@@ -1,0 +1,71 @@
+- class_name: 博客框架
+  class_desc: 
+  link_list:
+    - name: Hexo
+      link: https://hexo.io/zh-cn/
+      avatar: /img/hexo-logo.svg
+      descr: 快速、简洁且高效的博客框架
+    - name: Butterfly 
+      link: https://butterfly.js.org/
+      avatar: /img/butterfly-logo.png
+      descr: 今日事，今日毕
+    - name: NexT
+      link: https://theme-next.js.org/
+      avatar: /img/next-logo.svg
+      descr: Stay Simple. Stay NexT.
+
+- class_name: 托管平台
+  class_desc: 
+  link_list:
+    - name: Github
+      link: https://github.com/
+      avatar: /img/github.svg
+      descr: Where the world builds software
+    - name: Gitlab
+      link: https://about.gitlab.com/
+      avatar: /img/gitlab.svg
+      descr: Iterate faster, innovate together
+    - name: Gitee
+      link: https://gitee.com/
+      avatar: /img/gitee.svg
+      descr: 基于 Git 的代码托管和研发协作平台
+    - name: Coding
+      link: https://coding.net/
+      avatar: /img/CODING.svg
+      descr: 一站式软件研发管理平台
+    - name: Gitbook
+      link: https://www.gitbook.com/
+      avatar: /img/gitbook.svg
+      descr: Where software teams break knowledge silos.
+
+- class_name: 网站
+  class_desc: 值得推荐的网站
+  link_list:
+    - name: Iconfont
+      link: https://www.iconfont.cn/
+      avatar: /img/iconfont.svg
+      descr: 阿里巴巴矢量图标库
+    - name: 维基百科
+      link: https://zh.wiki.hancel.org/wiki/
+      avatar: /img/wiki.svg
+      descr: 自由百科全书
+    - name: Bilibili
+      link: https://www.bilibili.com/
+      avatar: /img/bilibili.svg
+      descr: 阿里巴巴矢量图标库
+    - name: ApacheCN
+      link: https://github.com/apachecn
+      avatar: /img/apachecn.png
+      descr: 阿里巴巴矢量图标库
+    - name: tuna
+      link: https://mirror.tuna.tsinghua.edu.cn/
+      avatar: /img/tuna.png
+      descr: 清华大学开源软件镜像站
+
+- class_name: 友情链接
+  class_desc: 大神博客
+  link_list:
+    - name: DreamyTZK
+      link: https://www.antmoe.com/
+      avatar: https://cdn.jsdelivr.net/npm/kang-static@latest/avatar.jpg
+      descr: 
