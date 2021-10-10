@@ -6,7 +6,7 @@ tags:
 categories:
 keywords:
 description:
-top_img:
+top_img: '#66CCFF'
 comments:
 cover:
 katex:

@@ -33,7 +33,7 @@ code_dir: downloads/code     # 代码页所在的文件夹(根目录
 i18n_dir: :lang              # 国际语言所在的文件夹
 skip_render:                 # 忽略文档(根目录 source_dir/)，不做改动地输出到 public 目录
   - "gitbook/**"
-  - "Next-tag-plugins.md"
+  - "_drafts/**"
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -143,13 +143,13 @@ search:
 # 配置豆瓣
 douban:
   user: 206186342
-  builtin: true
+  builtin: false 
   movie:
     title: '电影'
     quote: '那些年，那些电影'
     meta: true
     comments: true
-    top_img: 
+    top_img: /img/marvel.jpeg
     aside: true
     path: movies
     limit:

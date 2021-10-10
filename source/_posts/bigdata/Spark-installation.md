@@ -1,12 +1,11 @@
 ---
 ID: a296ec8f1cfcbeefff30974c495436c8
 title: 大数据手册(Spark)--Spark安装配置
-tags: [大数据,Spark]
-mathjax: false
-copyright: true
 date: 2018-06-24 21:52:29
-categories: [Big Data]
-sticky: false
+categories: [大数据]
+tags: [大数据,Spark]
+cover: /img/pyspark-in.png
+top_img: /img/spark2.png
 ---
 Apache Spark 是专为大规模数据处理而设计的快速通用的计算引擎。
 
@@ -106,6 +105,22 @@ bash pyspark        # 启动python shell
 bash sparkR         # 启动R shell
 #启动时若Java版本报错，安装需要的版本即可
 sudo apt-get install openjdk-8-jdk
+
+# 启动成功会出现
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ '/ __/  '_/
+   /___/ .__/\_,_/_/ /_/\_\   version 2.3.1
+      /_/
+
+Using Scala version 2.10.4 (Java HotSpot(TM) 64-Bit Server VM, Java 1.7.0_71)
+Type in expressions to have them evaluated.
+Type :help for more information.
+….
+18/06/17 23:17:53 INFO BlockManagerMaster: Registered BlockManager
+18/06/17 23:17:53 INFO SparkILoop: Created spark context..
+Spark context available as sc.
 ```
 
 # Spark集群配置免密钥登陆

@@ -3,39 +3,39 @@
   link_list:
     - name: Hexo
       link: https://hexo.io/zh-cn/
-      avatar: /img/hexo-logo.svg
+      avatar: /img/logo/hexo-logo.svg
       descr: 快速、简洁且高效的博客框架
     - name: Butterfly 
       link: https://butterfly.js.org/
-      avatar: /img/butterfly-logo.png
+      avatar: /img/logo/butterfly.png
       descr: 今日事，今日毕
     - name: NexT
       link: https://theme-next.js.org/
-      avatar: /img/next-logo.svg
+      avatar: /img/logo/next-logo.svg
       descr: Stay Simple. Stay NexT.
 
-- class_name: 托管平台
+- class_name: 平台
   class_desc: 
   link_list:
     - name: Github
       link: https://github.com/
-      avatar: /img/github.svg
+      avatar: /img/logo/github.svg
       descr: Where the world builds software
     - name: Gitlab
       link: https://about.gitlab.com/
-      avatar: /img/gitlab.svg
+      avatar: /img/logo/gitlab.svg
       descr: Iterate faster, innovate together
     - name: Gitee
       link: https://gitee.com/
-      avatar: /img/gitee.svg
+      avatar: /img/logo/gitee.svg
       descr: 基于 Git 的代码托管和研发协作平台
     - name: Coding
       link: https://coding.net/
-      avatar: /img/CODING.svg
+      avatar: /img/logo/CODING.svg
       descr: 一站式软件研发管理平台
     - name: Gitbook
       link: https://www.gitbook.com/
-      avatar: /img/gitbook.svg
+      avatar: /img/logo/gitbook.svg
       descr: Where software teams break knowledge silos.
 
 - class_name: 网站
@@ -43,28 +43,45 @@
   link_list:
     - name: Iconfont
       link: https://www.iconfont.cn/
-      avatar: /img/iconfont.svg
+      avatar: /img/logo/iconfont.svg
       descr: 阿里巴巴矢量图标库
     - name: Font Awesome 中文网
       link: http://www.fontawesome.com.cn/
-      avatar: /img/font-awesome.svg
+      avatar: /img/logo/font-awesome.svg
       descr: 字体图标
     - name: 维基百科
       link: https://zh.wiki.hancel.org/wiki/
-      avatar: /img/wiki.svg
+      avatar: /img/logo/wiki.svg
       descr: 自由百科全书
-    - name: Bilibili
-      link: https://www.bilibili.com/
-      avatar: /img/bilibili.svg
-      descr: 阿里巴巴矢量图标库
     - name: ApacheCN
       link: https://github.com/apachecn
-      avatar: /img/apachecn.png
-      descr: 阿里巴巴矢量图标库
-    - name: tuna
+      avatar: /img/logo/apachecn.png
+      descr: 由 iBooker 建立的公益性文档和教程翻译项目
+    - name: 清华大学 TUNA 协会
       link: https://mirror.tuna.tsinghua.edu.cn/
-      avatar: /img/tuna.png
+      avatar: /img/logo/tuna.png
       descr: 清华大学开源软件镜像站
+    - name: TensorFlow
+      link: https://tensorflow.google.cn/tutorials?hl=zh-cn
+      avatar: /img/logo/tensorflow.svg
+      descr: TensorFlow 中文教程
+
+
+- class_name: 数据
+  class_desc: 科学数据库
+  link_list:
+    - name: NIST
+      link: https://www.nist.gov/
+      avatar: /img/logo/science.svg
+      descr: 美国国家标准与技术研究院，从事物理、生物和化学等方面的基础研究
+    - name: BRENDA
+      link: https://www.brenda-enzymes.org/index.php
+      avatar: /img/logo/dna.svg
+      descr: 酶数据和代谢信息
+    - name: 中国科技资源共享网
+      link: https://escience.org.cn/
+      avatar: /img/logo/escience.png
+      descr: 中国科技资源共享网
 
 - class_name: 友情链接
   class_desc: 大神博客
@@ -75,7 +92,7 @@
       descr: 
     - name: Easy Hexo
       link: https://easyhexo.com/
-      avatar: /img/easy-hexo.png
+      avatar: /img/logo/easy-hexo.jpg
       descr: 
     - name: ConstOwn
       link: https://blog.juanertu.com/
