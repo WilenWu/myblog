@@ -32,7 +32,7 @@ pyspark  --master <master-url> # python
 ```bash
 spark-submit --master <master-url> code.py [*args]
 ```
-  
+
  **环境初始化**
 
 默认情况下，Spark 交互式环境已经为 SparkContext 创建了名为 sc 的变量，因此创建新的环境变量将不起作用。但是，在独立spark 应用程序中，需要自行创建SparkContext 对象。
@@ -238,8 +238,6 @@ defaultdict(<type 'int'>,{('b',2):1,('a',2):1,('a',7):1})
 `rdd.coalesce(n)`|将RDD中的分区减至n个
 `rdd.partitionBy(key,func)`|自定义分区
 
-
-
 **文件系统读写**
 ```python
 # 读取
@@ -333,9 +331,9 @@ df.write.saveAsTable(name,mode='overwrite',partitionBy=None)
 **操作hive表**
 `df.write` 有两种方法操作hive表
 - `saveAsTable()`
-如果hive中不存在该表，则spark会自动创建此表匹。
-如果表已存在，则匹配插入数据和原表 schema(数据格式，分区等)，只要有区别就会报错
-若是分区表可以调用`partitionBy`指定分区，使用`mode`方法调整数据插入方式：
+  如果hive中不存在该表，则spark会自动创建此表匹。
+  如果表已存在，则匹配插入数据和原表 schema(数据格式，分区等)，只要有区别就会报错
+  若是分区表可以调用`partitionBy`指定分区，使用`mode`方法调整数据插入方式：
    > Specifies the behavior when data or table already exists. Options include:
    >  - `overwrite`: 覆盖原始数据(包括原表的格式，注释等)
    >  - `append`: 追加数据(需要严格匹配)
@@ -344,8 +342,8 @@ df.write.saveAsTable(name,mode='overwrite',partitionBy=None)
 
    `df.write.partitionBy('dt').mode('append').saveAsTable('tb2')`
 - `insertInto()`
-无关schema，只按数据的顺序插入，如果原表不存在则会报错
-对于分区表，先==开启Hive动态分区==，则不需要指定分区字段，如果有一个分区，那么默认为数据中最后一列为分区字段，有两个分区则为最后两列为分区字段，以此类推
+  无关schema，只按数据的顺序插入，如果原表不存在则会报错
+  对于分区表，先==开启Hive动态分区==，则不需要指定分区字段，如果有一个分区，那么默认为数据中最后一列为分区字段，有两个分区则为最后两列为分区字段，以此类推
    ```
    sqlContext.setConf("hive.exec.dynamic.partition", "true")
    sqlContext.setConf("hive.exec.dynamic.partition.mode", "nonstrict")

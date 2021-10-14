@@ -1360,7 +1360,7 @@ SELECT col1, col2 FROM t1 DISTRIBUTE BY col1 SORT BY col1 ASC, col2 DESC;
 
 
 
-<img src="20181223145448951.jpg" alt="join" width="60%" />
+<img src="https://gitee.com/WilenWu/images/raw/master/common/hive_join.png" alt="join" width="80%" />
 
 **连接语法**
 

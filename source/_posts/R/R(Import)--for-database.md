@@ -8,8 +8,9 @@ cover: /img/tidyverse3.png
 top_img: 
 ---
 
-# DBI: definition for communication between R and RDBMSs
+# DBI
 
+DBI: definition for communication between R and RDBMSs
 DBI只使用 "front-end" API  ,通过调用”drivers”（其他包）与特定的 DBMSs (SQLite, MySQL, PostgreSQL, MonetDB, etc.) 通信 
 
 <!-- more -->

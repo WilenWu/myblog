@@ -74,7 +74,7 @@ katex: true
 **一致收敛**(uniform convergence)
 <kbd>定义1</kbd>设函数序列$\{u_n(x)\}$在收敛域D上逐点收敛于$u(x)$，如果对于任意$ϵ>0$ ，存在只依赖于$ϵ$ 的正整数N，使得当$n>N$时，恒有$|u_n(x)-u(x)|<ϵ,∀ x\in D$，则称函数序列$\{u_n(x)\}$在D上一致收敛于函数$u(x)$
 <kbd>定义2</kbd>设函数项级数$\displaystyle\sum_{n=1}^{∞}u_n(x)在I$上的和函数为$S(x)$ ，若其部分和函数序列$\{S_n(x)\}在I$上一致收敛于$S(x)$，则称函数项级数$\displaystyle\sum_{n=1}^{∞}u_n(x)在I$ 上一致收敛于和函数$S(x)$.
-![一致收敛](https://img-blog.csdnimg.cn/2019051517363731.png =300x)
+![一致收敛](https://img-blog.csdnimg.cn/2019051517363731.png)
 <kbd>定理</kbd>（魏尔斯特拉斯判别法）：如果函数项级数$\displaystyle\sum_{n=1}^{∞}u_n(x)在区间I$满足条件：
 (1) $∀ x\in I,|u_n(x)|⩽ M_n(n=1,2,\cdots)$
 (2)正项级数$\displaystyle\sum_{n=1}^{∞}M_n$收敛
@@ -102,7 +102,7 @@ $R$通常叫做==收敛半径==；开区间$(-R,R)$ 叫做==收敛区间==，再
 **收敛半径的计算**
 <kbd>定理 3</kbd> 对于幂级数$\displaystyle\sum_{n=0}^{∞}a_nx^n$，若$\lim\limits_{n\to∞}|\dfrac{a_{n+1}}{a_n}|=ρ或\lim\limits_{n\to∞}\sqrt[n]{|a_n|}=ρ$，其中$ρ⩾0$，则该幂级数的收敛半径为$R=\dfrac{1}{ρ}$
 一般幂级数的收敛半径：对于一般幂级数$\displaystyle\sum_{n=0}^{∞}a_n(x-x_0)^n$，除收敛域为$\{x_0\}$或$(-∞,+∞)$两种情形，一定存在正数$R$的收敛半径。
-![收敛半径](https://img-blog.csdnimg.cn/20190516091508122.png =500x)
+![收敛半径](https://img-blog.csdnimg.cn/20190516091508122.png)
 
 
 **幂级数的四则运算**
@@ -159,7 +159,7 @@ $\sin x=\displaystyle\sum_{n=0}^{∞}\dfrac{(-1)^n}{(2n+1)!}x^{2n+1},x\in(-∞,+
 $\cos x=\displaystyle\sum_{n=0}^{∞}\dfrac{(-1)^n}{(2n)!}x^{2n},x\in(-∞,+∞)$
 $\dfrac{1}{1+x}=\displaystyle\sum_{n=0}^{∞}(-x)^n,x\in(-1,1)$
 $\ln (1+x)=\displaystyle\sum_{n=0}^{∞}\dfrac{(-1)^n}{n+1}x^{n+1},x\in(-1,1]$
-![](https://img-blog.csdnimg.cn/20200502142842441.PNG =250x)
+![](https://img-blog.csdnimg.cn/20200502142842441.PNG)
 
 ## 傅里叶级数
 **三角级数**(trigonometric series)：形如$\dfrac{a_0}{2}+\displaystyle\sum_{n=1}^{∞}(a_n\cos nx+b_n\sin nx),\boxed{T=2π}$ 的级数叫三角级数，其中$a_0,a_n,b_n(n=1,2,\cdots)$是三角级数的系数
@@ -203,11 +203,12 @@ f(x) & x为连续点 \\
 用同样的方法也可为定义在$[0,π]$或$[-π,0]$的函数==奇（偶）延拓==
 
 **吉布斯现象** (Gibbs phenomenon)
-![吉布斯现象](https://img-blog.csdnimg.cn/20190517150917224.png =500x)
+![吉布斯现象](https://img-blog.csdnimg.cn/20190517150917224.png)
 在间断点附近部分和函数的图形出现大幅度波动，波动的区间随着项数的增加越来越小，但幅度似乎是一样的！
 傅里叶级数在函数间断点处的上述现象称为==吉布斯现象==(Gibbs phenomenon)
 
 ## 一般周期函数的傅里叶级数
+
 - **任意周期函数的傅里叶级数展开方法**
 设函数 $f(x)$ 周期为 $2l$，令 $x=\frac{l}{π}t$
 则函数 $F(t)=f(x)=f(\frac{l}{π}t)$ 周期为2π

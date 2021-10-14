@@ -4,14 +4,16 @@ title: Python手册(Visualise)--matplotlib
 tags: [python,可视化]
 date: 2018-05-20 15:52:03
 categories: [python,可视化]
+cover: /img/matplotlib-logo.svg
 ---
+
 [Matplotlib][mt] 是一个Python 2D绘图库，它可以在各种平台上以各种硬拷贝格式和交互式环境生成出具有出版品质的图形。 Matplotlib可用于Python脚本，Python和IPython shell，Jupyter笔记本，Web应用程序服务器和四个图形用户界面工具包
 
 [mt]: https://matplotlib.org/api/index.html
 
 <!-- more -->
 
-![figure](/images/matplotlib/figure.png)
+<img src="https://gitee.com/WilenWu/images/raw/master/matplotlib/figure.jpg" alt="figure" style="zoom:67%;" />
 
 
 # Pyplot
@@ -42,7 +44,8 @@ import matploblib.pyplot as plt
 ```
 
 ## Figure and Axes
-![figure2](/images/matplotlib/figure2.png)
+
+![figure2](https://gitee.com/WilenWu/images/raw/master/matplotlib/figure-parts.png)
 一般通过`get_<part>`方法获得组件属性，`set_<part>`方法重设组件。
 
 ## Create Figure
@@ -81,7 +84,7 @@ ax4 = plt.subplot2grid((3,3), (2, 0))
 ax5 = plt.subplot2grid((3,3), (2, 1))  
 plt.suptitle("subplot2grid")  
 ```
-![subplot2grid](/images/matplotlib/subplot2grid.png)
+![subplot2grid](https://gitee.com/WilenWu/images/raw/master/matplotlib/subplot2grid.png)
 
 **plt.subplots**
 `plt.subplots(nrows=1, ncols=1, sharex=False, sharey=False,...)` Create a figure and a set of subplots
@@ -132,7 +135,7 @@ axes[1,0].axhline(0.5)
 axes[0,1].fill(x,y,color='blue')
 axes[1,1].fill_between(x,y,color='yellow')
 ```
-![图形](/images/matplotlib/img.png)
+![](https://gitee.com/WilenWu/images/raw/master/matplotlib/img.png)
 
 ```python
 import numpy as np
@@ -149,7 +152,7 @@ C = plt.contour(X, Y, Height, 8,colors = 'black') # 绘制等高线
 plt.clabel(C, inline = True, fontsize = 10) # 显示各等高线的数据标签
 plt.show()
 ```
-![等高线](/images/matplotlib/contourf.png)
+![等高线](https://gitee.com/WilenWu/images/raw/master/matplotlib/contourf.png)
 
 ## Parts of Axes
 
@@ -205,9 +208,8 @@ ax.spines['bottom'].set_position(('outward',10) # 使底层线条外移10
 
 `ax.text(x, y, s, fontdict=None, withdash=False)`
 
-
-
 ## Save and Show
+
 ```python
 fig.savefig(fname) # or plt.savefig
 fig.show(warn=True) # or plt.show
@@ -284,9 +286,10 @@ ax.set_title('Lagrange Mean Value Theorem',fontsize=15)
 
 plt.show()
 ```
-![拉格朗日中值定理](/images/matplotlib/lagrange.png)
+![拉格朗日中值定理](https://gitee.com/WilenWu/images/raw/master/matplotlib/lagrange.png)
 
 # Patches
+
 ```python
 from matplotlib import patches #图块
 ```
@@ -301,8 +304,6 @@ Polygon|多边形
 Rectangle|矩形
 RegularPolygon|正多边形
 Shadow|阴影
-
-
 
 # Path
 ```python
@@ -330,9 +331,10 @@ ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.viridis)
 plt.show()
 ```
 
-![3D](/images/matplotlib/3d.png)
+![3D](https://gitee.com/WilenWu/images/raw/master/matplotlib/3d.png)
 
 # Animation
+
 ```python
 import matplotlib.animation as animation
 
@@ -349,3 +351,4 @@ ani = animation.FuncAnimation(
     fig, animate, init_func=init, interval=2, blit=True, save_count=50)
 plt.show()
 ```
+

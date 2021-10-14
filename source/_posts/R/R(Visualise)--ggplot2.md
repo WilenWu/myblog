@@ -83,7 +83,7 @@ a + geom_path(lineend="butt", linejoin="round", linemitre=1)+
   ggtitle('geom_path')
 ```
 
-![](/images/ggplot2/geom_lines.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/one_var.png)
 
 ## 单变量
 
@@ -116,7 +116,7 @@ c + geom_freqpoly()+
   ggtitle('geom_freqpoly')
 ```
 
-![](/images/ggplot2/one_var.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/geom_lines.png)
 
 
 ## 双变量
@@ -151,7 +151,7 @@ e + geom_smooth()+
   them_blank+
   ggtitle('geom_smooth')
 ```
-![](/images/ggplot2/two_vars.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/two_vars.png)
 
 
 两连续变量分布图|参数|说明
@@ -176,7 +176,7 @@ h + geom_density2d() +
   ggtitle('geom_density2d')
 ```
 
-![](/images/ggplot2/two_con.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/two_con_fun.png)
 
 两连续变量函数图|参数|说明
 -----|-----|-----
@@ -198,7 +198,7 @@ p + geom_step(direction = "hv") +
   ggtitle('geom_step')
 ```
 
-![](/images/ggplot2/two_con_fun.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/two_con.png)
 
 discrete x <br />continuous y  |参数|说明
 :---|:---|:---
@@ -228,7 +228,7 @@ p +ggforce::geom_sina()+
   ggtitle('geom_sina')
 ```
 
-![](/images/ggplot2/two_dis.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/two_dis.png)
 
 discrete x<br />discrete y |参数|说明
 :---|:---|:---
@@ -239,7 +239,7 @@ ggplot(diamonds, aes(cut, color))+
   geom_count()
 ```
 
-![](/images/ggplot2/two_dis_count.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/two_dis_count.png)
 
 
 ## 三变量
@@ -268,7 +268,7 @@ p + geom_raster(aes(fill = density)) +
   ggtitle('raster+contour') #图层顺序很重要
 ```
 
-![](/images/ggplot2/three_vars.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/three_vars.png)
 
 ## 文本
 
@@ -303,7 +303,7 @@ e + geom_text(aes(label = t)) +
   ggtitle('geom_text')
 ```
 
-![](/images/ggplot2/text.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/error.png)
 
 ## 误差可视化
 
@@ -339,7 +339,7 @@ p +geom_pointrange(position = dodge) +
   ggtitle('geom_pointrange')
 ```
 
-![](/images/ggplot2/error.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/text.png)
 
 ## 地图
 
@@ -368,7 +368,7 @@ ggplot(data, aes(fill = murder))+
   expand_limits(x = map$long, y = map$lat)
 ```
 
-![](/images/ggplot2/geom_map.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/geom_map.png)
 
 ------
 
@@ -385,22 +385,22 @@ ggplot2还提供一种替代方案，建立一个图层用`stat`计算新变量 
 stat_bin(binwidth, origin)|x, y |..count.., ..ncount.., ..density.., ..ndensity.. 
 stat_count(width = 1)|x, y|  ..count.., ..prop.. 
 stat_density(adjust = 1, kernel = “gaussian") |x, y|..count.., ..density.., ..scaled.. 
-------|------|------|------
+|||
 stat_bin_2d(bins, drop = TRUE)|x, y, fill |  ..count.., ..density.. 
 stat_bin_hex(bins) |x, y, fill |  ..count.., ..density.. 
 stat_density_2d(contour = TRUE, n = 100)|x, y, color, size |  ..level.. 
 stat_ellipse(level, segments, type = "t") |||计算正常置信度椭圆
-------|------|------|------
+|||
 stat_contour(aes(z)) |x, y, z, order |  ..level.. 
 stat_summary_hex(aes(z), bins, fun = max)|x, y, z, fill |  ..value.. |六边形
 stat_summary_2d(aes(z), bins, fun = mean)|x, y, z, fill |  ..value.. |矩形
 stat_boxplot(coef) |x, y |  ..lower..,  ..middle.., ..upper.., ..width.. , ..ymin.., ..ymax.. 
 stat_ydensity(kernel = "gaussian", scale = “area") |x, y |  ..density.., ..scaled.., ..count.., ..n.., ..violinwidth.., ..width.. 
-------|------|------|------
+|||
 stat_ecdf(n) |x, y |  ..x.., ..y.. |计算经验累积分布
 stat_quantile(quantiles = c(0.1, 0.9), formula = y ~ log(x), method = "rq")  |x, y | ..quantile.. 
 stat_smooth(method = "lm", formula = y ~ x, se=T, level=0.95) |x, y | ..se.., ..x.., ..y.., ..ymin.., ..ymax.. 
-------|------|------|------
+|||
 stat_function(aes(x = -3:3), n = 99,  fun = dnorm, args = list(sd=0.5)) |x |  ..x.., ..y.. |计算每个x值的函数
 stat_identity(na.rm = TRUE)|||保持原样
 stat_qq(aes(sample=1:100), dist = qt, dparam=list(df=5)) |sample, x, y |  ..sample.., ..theoretical.. 
@@ -425,7 +425,7 @@ ggplot(faithful, aes(waiting, eruptions, color = eruptions > 3)) +
   ggtitle('stat_ellipse')
 ```
 
-![](/images/ggplot2/stats.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/stats.png)
 
 # Scales
 
@@ -444,7 +444,7 @@ p + scale_fill_manual(
   name = "fuel") #legend/axis 标题
 ```
 
-![](/images/ggplot2/scale_fill.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/scale_fill.png)
 
 ##  常用标尺格式
 
@@ -513,9 +513,9 @@ p +scale_fill_gradientn(colours=topo.colors(6)) +
   ggtitle('scale_fill_gradientn')
 ```
 
-![](/images/ggplot2/scale_fill_con.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/scale_fill_con.png)
 
-![](/images/ggplot2/scale_fill_dis.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/scale_fill_dis.png)
 
 ## Shape and size scales
 
@@ -528,7 +528,7 @@ p +scale_fill_gradientn(colours=topo.colors(6)) +
 | scale_radius(range)        | 半径 |
 
 **shape:**
-![shape](/images/ggplot2/shape_scale.png)
+![shape](https://gitee.com/WilenWu/images/raw/master/ggplot2/shape_scale.png)
 
 ```r
 df <- data.frame(x=1:10,y=sample(1:10,10),
@@ -564,7 +564,7 @@ worldmap <- ggplot(world, aes(x = long, y = lat, group = group)) +
 worldmap + coord_map("ortho", orientation = c(41, -74, 0))
 ```
 
-![](/images/ggplot2/coord_polar.png)  ![](/images/ggplot2/coord_map.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/facet_grid.png)  ![](https://gitee.com/WilenWu/images/raw/master/ggplot2/coord_map.png)
 
 # Position Adjustments 
 
@@ -603,7 +603,7 @@ p +   geom_bar(position = "stack")+
   ggtitle('position = "stack"')
 ```
 
-![](/images/ggplot2/geom_bar.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/geom_bar.png)
 
 # Themes
 
@@ -647,13 +647,13 @@ ggplot(iris, aes(Petal.Length, Petal.Width, colour = Species)) +
     ggforce::facet_zoom(x = Species == "versicolor")
 ```
 
-![](/images/ggplot2/facet_grid.png)![](/images/ggplot2/facet_zoom.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/coord_polar.png)![](https://gitee.com/WilenWu/images/raw/master/ggplot2/facet_zoom.png)
 
 **scales参数：**坐标刻度自由
 "fixed"(default，坐标尺度统一), "free"(坐标尺度自由)，"free_x","free_y"
 
 **labeller参数**: 调整刻面标签
-![](/images/ggplot2/labeller.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/labeller.png)
 
 # Annotations and Labels 
 

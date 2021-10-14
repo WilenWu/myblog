@@ -17,8 +17,8 @@ Hadoop的MapReduce及Spark SQL等只能进行离线计算，无法满足实时�
 Spark Streaming用于进行实时流数据的处理，它具有高扩展、高吞吐率及容错机制。
 
 如下图所示，Spark Streaming 把流式计算当做一系列连续的小规模批处理(batch)来对待。Spark Streaming 接收输入数据流，并在内部将数据流按均匀的时间间隔分为多个较小的batch。然后再将这部分数据交由Spark引擎进行处理，处理完成后将结果输出到外部文件。
-![](https://img-blog.csdnimg.cn/20191210152228365.png)
-Spark Streaming的主要抽象是离散流（DStream），它代表了前面提到的构成数据流的那些batch。DStream可以看作是多个有序的RDD组成，因此它也只通过map, reduce, join and window等操作便可完成实时数据处理。，另外一个非常重要的点便是，Spark Streaming可以与Spark MLlib、Graphx等结合起来使用，功能十分强大，似乎无所不能。
+![](https://gitee.com/WilenWu/images/raw/master/spark/DStream.PNG)
+Spark Streaming的主要抽象是离散流（DStream)，它代表了前面提到的构成数据流的那些batch。DStream可以看作是多个有序的RDD组成，因此它也只通过map, reduce, join and window等操作便可完成实时数据处理。，另外一个非常重要的点便是，Spark Streaming可以与Spark MLlib、Graphx等结合起来使用，功能十分强大，似乎无所不能。
 
 目前，围绕Spark Streaming有四种广泛的场景：
 - streaming ETL：将数据推入下游系统之前对其进行持续的清洗和聚合。这么做通常可以减少最终数据存储中的数据量。  
@@ -27,15 +27,13 @@ Spark Streaming的主要抽象是离散流（DStream），它代表了前面提�
 - 复杂会话和持续学习：与实时流相关联的多组事件被持续分析，以更新机器学习模型。例如与在线游戏相关联的用户活动流，允许我们更好地做用户分类。
 
 下图提供了Spark driver、workers、streaming源与目标间的数据流：
-![](https://img-blog.csdnimg.cn/20200110153844382.PNG)
+<img src="https://gitee.com/WilenWu/images/raw/master/spark/Spark-Streaming.png" style="zoom:80%;" />
 Spark Streaming内置了一系列receiver，可以接收很多来源的数据，最常见的是Apache Kafka、Flume、HDFS/S3、Kinesis和Twitter。
-
-
 
 ## 应用案例及数据源
 
 Spark Streaming可整合多种输入数据源，如Kafka、Flume、HDFS，甚至是普通的TCP套接字。经处理后的数据可存储至文件系统、数据库，或显示在仪表盘里。
-<img src="https://img-blog.csdnimg.cn/20200110174506829.PNG" height="50%" width="50%">
+<img src="https://gitee.com/WilenWu/images/raw/master/spark/DStream-demo.PNG" height="80%" width="80%" >
 
 编写Spark Streaming程序的基本步骤是：
 1. 通过创建输入DStream来定义输入源
@@ -104,8 +102,9 @@ lines = ssc.textFileStream('wordfile')
 ```
 
 **套接字流 (socket)**：从一个本地或远程主机的某个端口服务上读取数据。它无法提供端到端的容错保障，Socket源一般仅用于测试或学习用途。
-![](https://img-blog.csdnimg.cn/20200110174609434.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/spark/socket.PNG)
 创建DStream输入源示例
+
 ```python
 lines = ssc.socketTextStream("local", 9999)
 ```
@@ -116,14 +115,15 @@ lines = ssc.socketTextStream("local", 9999)
 在公司的大数据生态系统中，可以把Kafka作为数据交换枢纽，不同类型的分布式系统（关系数据库、NoSQL数据库、流处理系统、批处理系统等），可以统一接入到Kafka，实现和Hadoop各个组件之间的不同类型数据的实时高效交换。
 
 下图为kafka组成
-![](https://img-blog.csdnimg.cn/20200110174414434.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/spark/kafka.PNG)
+
 -   Broker：Kafka集群包含一个或多个服务器，这种服务器被称为broker
 -   Topic ：每条发布到Kafka集群的消息都有一个类别，这个类别被称为Topic。（物理上不同Topic的消息分开存储，逻辑上一个Topic的消息虽然保存于一个或多个broker上但用户只需指定消息的Topic即可生产或消费数据而不必关心数据存于何处）
 -   Partition：是物理上的概念，每个Topic包含一个或多个Partition.
 -   Producer：负责发布消息到Kafka broker
 -   Consumer：消息消费者，向Kafka broker读取消息的客户端。
 -   Consumer Group：每个Consumer属于一个特定的Consumer Group（可为每个Consumer指定group name，若不指定group name则属于默认的group）
-<img src="https://img-blog.csdnimg.cn/20200110174523894.PNG" height="80%" width="80%">
+<img src="https://gitee.com/WilenWu/images/raw/master/spark/kafka-broker.PNG" height="80%" width="80%">
 
 我们可以创建基于Kafka的DStream
 ```python
@@ -134,9 +134,9 @@ kvs = KafkaUtils.createStream(...)
 ## 转化操作
 
 **无状态转化操作**：把简单的RDDtransformation分别应用到每个批次上，每个批次的处理不依赖于之前的批次的数据。
-![](https://img-blog.csdnimg.cn/20200110174448432.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/spark/RDDtransformation.PNG)
 **有状态转化操作**：需要使用之前批次的数据或者中间结果来计算当前批次的数据。包括基于滑动窗口的转化操作，和追踪状态变化的转化操作(updateStateByKey)
-![](https://img-blog.csdnimg.cn/20200110175045240.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/spark/updateStateByKey.PNG)
 
 无状态转化操作|说明（同RDD转化类似）
 :---|:---
@@ -163,7 +163,7 @@ kvs = KafkaUtils.createStream(...)
 `reduceByKeyAndWindow(func, windowLength, slideInterval, [numTasks])` 应用到一个(K,V)键值对组成的DStream上时，会返回一个由(K,V)键值对组成的新的DStream。每一个key的值均由给定的reduce函数(func函数)进行聚合计算。注意：在默认情况下，这个算子利用了Spark默认的并发任务数去分组。可以通过numTasks参数的设置来指定不同的任务数。
 `reduceByKeyAndWindow(func, invFunc, windowLength, slideInterval, [numTasks])` **更加高效**的reduceByKeyAndWindow，每个窗口的reduce值，是基于先前窗口的reduce值进行增量计算得到的；它会对进入滑动窗口的新数据进行reduce操作，并对离开窗口的老数据进行“逆向reduce”操作。但是，只能用于“可逆reduce函数”，即那些reduce函数都有一个对应的“逆向reduce函数”（以InvFunc参数传入）。
 
-![](https://img-blog.csdnimg.cn/20200110174353557.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/spark/reduceByKeyAndWindow.PNG)
 ```python
 lines = ssc.socketTextStream("localhost", 9999)
 
@@ -178,9 +178,9 @@ counts.pprint()
 
 回到本章初的应用案例（无状态转化），1秒在nc端键入3个green和5个blue，2秒再键入1个gohawks，4秒再键入2个green。
 下图展示了lines DStream及其微批量数据：
-<img src="https://img-blog.csdnimg.cn/20200113153141223.jpg" height="60%" width="60%" >
+<img src="https://gitee.com/WilenWu/images/raw/master/spark/lines-DStream.jpg" height="60%" width="60%" >
 下图表示我们计算的是有状态的全局聚合：
-<img src="https://img-blog.csdnimg.cn/20200113153119218.jpg" height="60%" width="60%" >
+<img src="https://gitee.com/WilenWu/images/raw/master/spark/lines-DStream2.jpg" height="60%" width="60%" >
 
 代码如下
 ```python
@@ -222,12 +222,13 @@ ssc.awaitTermination()
 ```
 两者的主要区别在于使用了updateStateByKey方法，该方法将执行前面提到的执行加和的updateFunc。updateStateByKey是Spark Streaming的方法，用于对数据流执行计算，并以有利于性能的方式更新每个key的状态。通常在Spark 1.5及更早版本中使用updateStateByKey，这些有状态的全局聚合的性能与状态的大小成比例，从Spark 1.6起，应该使用mapWithState。
 
-
 # Structured Streaming
+
 ## 概述
 
 对于Spark 2.0，Apache Spark社区致力于通过引入结构化流（structured streaming）的概念来简化流，结构化流将Streaming概念与Dataset/DataFrame相结合。结构化流式引入的是增量，当处理一系列数据块时，结构化流不断地将执行计划应用在所接收的每个新数据块集合上。通过这种运行方式，引擎可以充分利用Spark DataFrame/Dataset所包含的优化功能，并将其应用于传入的数据流。
-![](https://img-blog.csdnimg.cn/20200110174102212.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/spark/data-stream.PNG)
+
 1. 微批处理：Structured Streaming默认使用微批处理执行模型，这意味着Spark流计算引擎会定期检查流数据源，并对自上一批次结束后到达的新数据执行批量查询。（数据到达和得到处理并输出结果之间的延时超过100毫秒）
 2. 持续处理：Spark从2.3.0版本开始引入了持续处理的试验性功能，可以实现流计算的毫秒级延迟。
 在持续处理模式下，Spark不再根据触发器来周期性启动任务，而是启动一系列的连续读取、处理和写入结果的长时间运行的任务。
@@ -240,7 +241,8 @@ ssc.awaitTermination()
 3. 启动流计算并输出结果
 
 我们来看一下使用updateStateByKey的有状态流的文字计数脚本，并将其改成一个Structured Streaming的文字计数脚本：
-![](https://img-blog.csdnimg.cn/20200110174332672.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/spark/Structured-Streaming-demo.PNG)
+
 ```python
 #!/usr/bin/env python3
 

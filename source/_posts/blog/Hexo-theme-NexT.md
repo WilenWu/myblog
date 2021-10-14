@@ -193,7 +193,8 @@ bookmark:
    {% endcode %}
 
 3. 主题配置文件修改 
-   {% code next\_config.yml %}
+   
+   ```yaml
    leancloud_visitors:
      enable: true
      app_id: <<your app id>>
@@ -203,12 +204,13 @@ bookmark:
    
      security: true
     betterPerformance: false
-   {% endcode %}
+   ```
    
 4. 控制台命令：在Leancloud数据库中注册用户以进行权限控制
-   {% code %}
+   
+   ```yaml
    hexo lc-counter register <<username>> <<password>>
-   {% endcode %}
+   ```
 
 ## 相关热门帖子
 

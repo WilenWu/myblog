@@ -71,7 +71,8 @@ $M\longleftrightarrow \mathbf r=\overrightarrow{OM}=x\mathbf i+y\mathbf j+z\math
 - **平面点法式方程**：已知平面上一点 $M_0(x_0,y_0,z_0)$ 和平面法向量(normal vector) $\mathbf=(A,B,C)$ 利用向量的垂直关系 
 $$
 \mathbf n\cdot\overrightarrow{M_0M}=0
-$$ 于是得到方程
+$$
+于是得到方程
 $$
 A(x-x_0)+B(y-y_0)+C(z-z_0)=0
 $$
@@ -97,13 +98,13 @@ $$
 $$
 \begin{cases} A_1x+B_1y+C_1z+D_1=0\\ A_2x+B_2y+C_2z+D_2=0 \end{cases}
 $$
-
 - **直线的对称式方程**(点向式方程)
 如果一个非零向量平行于已知直线，则称为==方向向量==(direction vector) 
 已知过直线上一点 $M_0(x_0,y_0,z_0)$ 和 它的方向向量 $\mathbf s=(m,n,p)$ ，由平行关系可知
 $$
 \mathbf s\times\overrightarrow{M_0M}=0
-$$ 于是可求得
+$$ 
+于是可求得
 $$
 \dfrac{x-x_0}{m}= \dfrac{y-y_0}{n}= \dfrac{z-z_0}{p}
 $$
@@ -111,22 +112,19 @@ $$
 很容易导出直线的参数方程，设 
 $$
 \dfrac{x-x_0}{m}= \dfrac{y-y_0}{n}= \dfrac{z-z_0}{p}=t
-$$ 
+$$
 于是**参数方程**为
 $$
 \begin{cases}x=x_0+mt \\y=y_0+nt\\z=z_0+pt\end{cases}
 $$
-
 - **两直线的夹角**：两直线方向向量的夹角 
 $$
 \cos\varphi=|\cos(\widehat{\mathbf s_1,\mathbf s_2})|
 $$
-
 -  **直线与平面的夹角**：直线与在平面上投影直线的夹角 
 $$
 \sin\varphi=|\cos(\widehat{\mathbf s,\mathbf n})|
 $$
-
 ## 曲面及其方程
 曲面(surface)的一般方程 $F(x,y,z)=0$
 曲面参数方程 $\begin{cases}x=x(s,t)\\ y=y(s,t)\\ z=z(s,t) \end{cases}$
@@ -135,10 +133,12 @@ $$
 设 $yOz$ 坐标面上有一曲线 $C$，方程为
 $$
 f(y,z)=0
-$$  绕  $z$ 轴旋转的曲面方程为
+$$  
+绕  $z$ 轴旋转的曲面方程为
 $$
 f(\pm\sqrt{x^2+y^2},z)=0
-$$  $x$轴、$y$ 轴同理
+$$  
+$x$轴、$y$ 轴同理
 ![](https://img-blog.csdnimg.cn/20200526170431201.PNG)
    (1) 圆锥曲面(conic surface)：$z^2=a^2(x^2+y^2)\quad a=\cot\alpha$
 ![](https://img-blog.csdnimg.cn/20200526170803955.PNG)
@@ -176,4 +176,5 @@ $$  $x$轴、$y$ 轴同理
 空间曲线 $C$ 一般方程消去 $z$ 得到 $H(x,y)=0$，由上节知道这是母线平行于 $z$ 轴的柱面，曲线 $C$ 的所有点满足方程，都在柱面上，此柱面叫做曲线 $C$ 在坐标平面 $xOy$上的投影柱面，投影曲线方程为
 $$
 \begin{cases}H(x,y)=0\\ z=0 \end{cases}
-$$ 其余坐标面类似。
+$$ 
+其余坐标面类似。

@@ -32,9 +32,16 @@ R Markdown是通过R语言制作动态文档的文件格式
 
 R Markdown主要由三部分组成： 
 1. YAML标头：文档开始部分，由`---`包围的`key:value`对
+
 2. Text：主要由Markdown语法书写的文本
+
 3. Knitr 处理 R代码块
-   <code>\`\`\`{r} <br />code <br />\`\`\`</code>
+
+   ~~~r
+   ```{r}
+   code
+   ```
+   ~~~
 
 # YAML Header
 
@@ -105,7 +112,7 @@ author: "Hadley Wickham"
 
 # Text
 
-更多语法请参考 [GitHub Flavored Markdown 规范](http://wilenwu.github.io/markdown/GitHub-Flavored-Markdown-Spec.thml)
+更多语法请参考 [GitHub Flavored Markdown 规范](/posts/GitHub-Flavored-Markdown-Spec/)
 
 # Embed code with knitr syntax
 

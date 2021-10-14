@@ -4,6 +4,7 @@ title: Python手册(Machine Learning)--sklearn
 tags: [python,机器学习]
 date: 2018-05-10 23:08:52
 categories: [python,机器学习]
+cover: /img/scikit-learn-logo.png
 ---
 
 [**Scikit-Learn**][sk] : The most popular and widely used library for machine learning in Python.
@@ -53,9 +54,10 @@ score=model.score(x_test,y_test) # 为模型进行打分
 ```
 
 #  数据集(Datasets)
-import sklearn.datasets
+`import sklearn.datasets`
 
 ## 加载示例数据集
+
 | 加载 | 适用类型|
 | ------ | ------- |
 | datasets.load_iris()   | 分类   |
@@ -218,9 +220,10 @@ import sklearn.datasets
 
 
 # 模型选择(ModelSelection)
-import sklearn.model_selection
+`import sklearn.model_selection`
 
 ## 数据集拆分(train_test_split)
+
 ```python
 from sklearn.model_selection  import train_test_split
 X_train, X_test, y_train,   y_test = train_test_split(X, y, test_size=None,train_size=None)
@@ -353,7 +356,7 @@ v_measure_score |聚类
 
 
 #  预处理(Pre-Processing)
-import sklearn.preprocessing
+`import sklearn.preprocessing`
 
 ## 标准化
 - 标准化
@@ -424,8 +427,6 @@ poly.fit_transform(X)
 > 参数：
 > degree=2：X   的特征从[X1,X2]转换为[1,X1,X2,X1^2,X1X2,X2^2]
 > interaction_only：只有交互项[1,X1,X2,X1X2]
-
-
 
 
 

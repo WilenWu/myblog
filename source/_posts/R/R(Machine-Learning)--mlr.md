@@ -10,8 +10,7 @@ categories: [R,机器学习]
 
 # Introduction
 
-[mlr官网链接](https://mlr-org.github.io/mlr/articles/mlr.html)
-mlr提供机器学习的统一接口：tasks, learners, hyperparameters, etc
+[mlr](https://mlr-org.github.io/mlr/articles/mlr.html) 提供机器学习的统一接口：tasks, learners, hyperparameters, etc
 
 - **Tasks**：建立任务，包括任务描述(classification, regression, clustering, etc)和数据集
 - **Learners**：建立学习者，指定机器学习算法(GLM, SVM, xgboost, etc)和参数
@@ -21,9 +20,8 @@ mlr提供机器学习的统一接口：tasks, learners, hyperparameters, etc
 - **Meastures**：模型评估指标(RMSE, logloss, AUC, etc)
 - **Resampling**：重抽样，通过分离训练集来拟合通用的模型，通常包括**holdout** 验证，K折交叉验证(**K-fold cross-validation**)，留一交叉验证(**LOOCV**)
 
-
 **Workflow**
-![wf](/images/mlr2.png)
+![](https://gitee.com/WilenWu/images/raw/master/mlr/Workflow.png)
 
 # Preprocessing data (预处理)
 
@@ -52,7 +50,7 @@ makeSurvTask(data=,target=c("time","event"))|生存分析
 makeCostSensTask(data=,costs=)|成本敏感的分类，分类中的标准目标是获得较高的预测准确度，即最小化分类器产生的错误数量
 **getTaskDesc(x)**|获得总的任务描述，查看positiv
 
-![task](/images/mlr3.png)
+![](https://gitee.com/WilenWu/images/raw/master/mlr/make-task.png)
 
 **task的其他参数：**
 
@@ -276,13 +274,11 @@ imputeNormal(mean=,sd=)|正态插补
 imputeHist(breaks=,use.mids=)|
 imputeLearner(learner=,features=)|模型插补
 
-
-
 # Feature Extraction (特征提取)
 
 ## Feature filtering(特征筛选)
 
-![filter](/images/mlr_ff.png)
+![filter](https://gitee.com/WilenWu/images/raw/master/mlr/filterFeatures.png)
 
 `filterFeatures(task=,method=,perc=,abs=,threshold=)`
 按特征的重要性进行排序，选择其中的top n percent(`perc=`), top n(`abs=`) or 设定阈值(`threshold=`)，返回task，没有被筛选的特征将会被删除。
@@ -298,7 +294,7 @@ imputeLearner(learner=,features=)|模型插补
 "variance"
 
 ## Feature selection(特征选择)
-![selection](/images/mlr_fs.png)
+![selection](https://gitee.com/WilenWu/images/raw/master/mlr/selectFeatures.png)
 
 `selectFeatures(learner=,task=, resampling=,measures=,control=)`
 用一个特征选择算法(`control`)重抽样和建立模型，反复选择不同的特征集，直到找到最好的特征集。返回FeatSelResult对象，包括最佳选择和最佳路径。
@@ -311,9 +307,9 @@ imputeLearner(learner=,features=)|模型插补
 - `makeFeatSelControlRandom(maxit=,prob=,max.features=)`随机抽取特征集(概率`prob`,default 0.5) 迭代(`maxit`,default 100)，返回其中最好的。
 - `makeFeatSelControlSequential(method=,maxit=,max.features=,alpha=,beta=)`用以下的迭代算法搜寻，评估：
  "sfs" forward search, "sffs" floating forward search,
-"sbs" backward search , "sfbs"  floating backward search,
-"alpha" 每次增加一个特征来改善评估，取最少特征集
-"beta" 每次移除一个特征来改善评估，取最少特征集
+  "sbs" backward search , "sfbs"  floating backward search,
+  "alpha" 每次增加一个特征来改善评估，取最少特征集
+  "beta" 每次移除一个特征来改善评估，取最少特征集
 - `makeFeatSelControlGA(maxit=,max.features=,mu=,lambda=,crossover.rate=,mutation.rate=)`随机特征向量的遗传算法，然后利用最佳性能的交叉来产生后代，代代相传，参数：
 mu是父系规模
 lambda 是子系规模
@@ -386,8 +382,8 @@ pred2 = predict(mod2, task = sonar.task, subset = test.set)
 df = generateThreshVsPerfData(list(lda = pred1, ksvm = pred2), measures = list(fpr, tpr))
 plotROCCurves(df)
 ```
-![阈值](/images/mlr_thresh.png)
-![roc](/images/mlr_roc.png)
+![](https://gitee.com/WilenWu/images/raw/master/mlr/thresh.png)
+![](https://gitee.com/WilenWu/images/raw/master/mlr/roc.png)
 
 Learning curve|学习曲线
 ---|---
@@ -406,7 +402,7 @@ r = generateLearningCurveData(
   show.info = FALSE)
 plotLearningCurve(r)
 ```
-![学习曲线](/images/mlr_lc.png)
+![学习曲线](https://gitee.com/WilenWu/images/raw/master/mlr/leaner.png)
 
 Feature importance|特征重要性
 ---|---
@@ -418,7 +414,7 @@ plotFilterValues(obj=)|可视化特征重要性，FilterValuesData对象
 fv = generateFilterValuesData(iris.task)
 plotFilterValues(fv)
 ```
-![](/images/mlr_mv.png)
+![](https://gitee.com/WilenWu/images/raw/master/mlr/fv.png)
 
 Hyperparameters tuning |超参数调优
 ---|---
@@ -440,7 +436,7 @@ res = resample(lrn, task = pid.task, resampling = cv2, extract = getTuneResult, 
 data = generateHyperParsEffectData(res)
 plotHyperParsEffect(data, x = "C", y = "acc.test.mean", plot.type = "line")
 ```
-![](/images/mlr_cv.png)
+![](https://gitee.com/WilenWu/images/raw/master/mlr/mlr_cv.png)
 
 Partial dependence |部分依赖
 ---|---
@@ -459,7 +455,7 @@ fit.classif = train(lrn.classif, iris.task)
 pd.classif = generatePartialDependenceData(fit.classif, iris.task, "Petal.Length", fun = median)
 plotPartialDependence(pd.classif)
 ```
-![reg](/images/mlr_reg.png)![calssfic](/images/mlr_calssfic.png)
+![reg](https://gitee.com/WilenWu/images/raw/master/mlr/mlr_reg.png)![calssfic](https://gitee.com/WilenWu/images/raw/master/mlr/mlr_calssfic.png)
 
 Benchmarking|基准点
 ---|---
@@ -474,12 +470,12 @@ plotCritDifferences(obj=)|临界点检验可视化
 generateCalibrationData(obj=)|评估概率预测与真实发生率的校准
 plotCalibration(obj=)|校准图
 
-![](/images/mlr4.png)![](/images/mlr5.png)
+![](https://gitee.com/WilenWu/images/raw/master/mlr/mlr4.png)![](https://gitee.com/WilenWu/images/raw/master/mlr/Calibration.png)
 
 # Wrappers (封装器)
 
 封装器使具有附加功能的学习者融合。mlr把带有封装器的learner看作一个单独的learner，超参数的封装也会与基础模型参数联合调谐。带包装的模型将应用于新数据。
-![wrappers](/images/mlr_wrappers.png)
+![wrappers](https://gitee.com/WilenWu/images/raw/master/mlr/mlr_wrappers.png)
 
 Preprocessing and imputation|预处理和插补
 ---|---

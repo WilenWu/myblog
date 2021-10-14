@@ -119,7 +119,7 @@ ui <- fluidPage(
  fluidRow(column(width = 12))
 )
 ```
-![](/images/shiny_fluid.png)
+![](https://gitee.com/WilenWu/images/raw/master/r-shiny/shiny_fluid.png)
 
 ```r
 # flowLayout
@@ -129,7 +129,7 @@ ui <- fluidPage(
 )
 ```
 
-![](/images/shiny_flow.png)
+![](https://gitee.com/WilenWu/images/raw/master/r-shiny/shiny_flow.png)
 
 ```r
 # sidebarLayout
@@ -140,7 +140,7 @@ ui <- fluidPage(
  )
 )
 ```
-![](/images/shiny_panel.png)
+![](https://gitee.com/WilenWu/images/raw/master/r-shiny/shiny_panel.png)
 ```r
 # splitLayout
 ui <- fluidPage(
@@ -149,7 +149,7 @@ ui <- fluidPage(
  )
 )
 ```
-![](/images/shiny_split.png)
+![](https://gitee.com/WilenWu/images/raw/master/r-shiny/shiny_split.png)
 ```r
 # verticalLayout
 ui <- fluidPage(
@@ -159,7 +159,7 @@ ui <- fluidPage(
  )
 )
 ```
-![](/images/shiny_vertical.png)
+![](https://gitee.com/WilenWu/images/raw/master/r-shiny/shiny_vertical.png)
 ```r
 # tabPanel
 ui <- fluidPage( tabsetPanel(
@@ -175,7 +175,7 @@ ui <- navbarPage(title = "Page",
  tabPanel("tab 2", "contents"),
  tabPanel("tab 3", "contents"))
 ```
-![](/images/shiny_tabs.png)
+![](https://gitee.com/WilenWu/images/raw/master/r-shiny/shiny_tabs.png)
 
 
 # Reactivity(反应)
@@ -188,3 +188,4 @@ isolate(expr)|抑制反应
 observeEvent(eventExpr, handlerExpr,...)|触发主观代码
 reactive(x, env, quoted,label, domain)|模块化反应机制
 eventReactive(eventExpr,valueExpr,...)|延迟反应
+

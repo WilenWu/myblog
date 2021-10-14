@@ -8,6 +8,8 @@ categories: [R,Tidy+Transform]
 
 缺失值是指粗糙数据中由于缺少信息而造成的数据的聚类、分组、删失或截断。它指的是现有数据集中某个或某些属性的值是不完全的。
 
+<!-- more -->
+
 缺失值从缺失的分布来讲可以分为完全随机缺失，随机缺失和完全非随机缺失。
 
 **完全随机缺失**（missing completely at random，MCAR）
@@ -18,8 +20,6 @@ categories: [R,Tidy+Transform]
 
 **完全非随机缺失**(missing not at random，MNAR)
 指的是数据的缺失依赖于不完全变量自身。
-
-<!-- more -->
 
 # naniar
 
@@ -56,8 +56,9 @@ data %>%bind_shadow() %>%
 
 ----------
 
+# simputation 
 
-# simputation : make imputation simpler for missing data
+simputation: make imputation simpler for missing data
 
 - 中位数插补：impute_median(dat, formula)
 	 	`formula:  <imputed variables> ~ <model object>`

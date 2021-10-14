@@ -137,7 +137,7 @@ list(data1,data2,data3) %>%
 
 **Nested Data**
 
-![nest](/images/nested_data.png)
+![](https://gitee.com/WilenWu/images/raw/master/common/nested_data.png)
 
 `tidyr::nest(data, ..., .key = data)`
 For grouped data, moves groups into cells as data frames.

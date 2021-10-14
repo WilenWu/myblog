@@ -7,14 +7,11 @@ tags: [数学,markdown,katex]
 katex: true
 cover: img/katex.png
 sticky: 1
-
 ---
 
-KaTeX 是一个快速，易于使用的JavaScript库，用于在Web上进行TeX数学渲染。
+[KaTeX](https://katex.org/docs/supported.html) 是一个快速，易于使用的JavaScript库，用于在Web上进行TeX数学渲染。
 KaTeX兼容所有主流浏览器，包括Chrome，Safari，Firefox，Opera，Edge和IE 9-11。
 KaTeX支持很多（但不是全部）LaTeX语法和许多LaTeX软件包。
-
-> [katex官方文档](https://katex.org/docs/supported.html)
 
 <!-- more -->
 
@@ -370,6 +367,5 @@ $\prec$|卡普可约|\prec|If L1 ≺ L2 and L2 ∈ P, <br>then L1 ∈ P
 $\succ$||\succ|
 $\mid$|分解|\mid|Since 15 = 3 × 5, <br>it is true that 3 \| 15 and 5 \| 15
 $\nmid$||\nmid|
-
 
 

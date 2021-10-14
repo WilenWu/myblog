@@ -4,9 +4,13 @@ title: Python手册(Data Analysis)--pandas
 tags: [python,数据清洗]
 date: 2018-05-10 23:00:51
 categories: [python,pandas]
+cover: /img/pandas-logo.png
 ---
 
 pandas兼具NumPy高性能的数组计算功能，提供高性能，易用的数据结构和数据分析工具。Pandas库有两个主要数据结构：Series和DataFrame。
+
+> [Pandas官方中文文档](https://www.pypandas.cn/)
+
 ```python
 import pandas as pd
 ```
@@ -139,7 +143,7 @@ import pandas as pd
 | `df.filter(items=None,like=None,regex=None, axis=None)` | 筛选方法，like: 字符列表 |
 |`df.query(expr,inplace=False)`|逻辑筛选<br>`df.query('c1=="auto" & c2>=5')`|
 
-![df](/images/df.png)
+![df](https://gitee.com/WilenWu/images/raw/master/common/python-dataframe.png)
 
 ## 方法 
 
@@ -524,7 +528,7 @@ In [129]: by_year.apply(regress, 'AAPL', ['SPX'])
 ## 创建分类变量(pandas.Categorical)
 
 - **`df.take`方法**
-`df.take(indices, axis=0, convert=True, is_copy=True, **kwargs)`
+  `df.take(indices, axis=0, convert=True, is_copy=True, **kwargs)`
   > **Parameters：**
   > indices : (list / array of ints) 字符变量
   > axis : int, default 0
@@ -538,8 +542,8 @@ cat=factor.take(values)
 ```
 
 - **`pd.Categorical`函数**
-`pd.Categorical(values, categories=None, ordered=False, fastpath=False)`
-`pd.Categorical.from_codes(codes, categories, ordered=False)`
+  `pd.Categorical(values, categories=None, ordered=False, fastpath=False)`
+  `pd.Categorical.from_codes(codes, categories, ordered=False)`
   > **Parameters:**
   > values : (list-like) 字符变量
   > codes: (array-like, integers) 编码变量
@@ -646,10 +650,6 @@ grid|显示网格线
 |autocorrelation_plot()|自相关图|
 |bootstrap_plot()|Bootstrap|
 |radviz()||
-
-
-
-
 
 # Pandas函数 
 
@@ -810,7 +810,6 @@ pd.crosstab(index, columns, values=None, rownames=None, colnames=None,
    - If passed 'index' will normalize over each row.
    - If passed 'columns' will normalize over each column.
    - If margins is `True`, will also normalize margin values.
-
 
 # 链式编程技术
 

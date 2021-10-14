@@ -68,7 +68,7 @@ us <- c(left = -125, bottom = 25.75, right = -67, top = 49)
 map <- get_stamenmap(us, zoom = 5, maptype = "toner-lite")
 ggmap(map)
 ```
-![](/images/ggplot2/us_map.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/qmplot2.png)
 
 **示例：qmplot作图**
 
@@ -103,7 +103,7 @@ qmplot(lon, lat, data = violent_crimes, geom = "blank",
   stat_density_2d(aes(fill = ..level..), geom = "polygon", alpha = .3, color = NA) +  #添加图层
   scale_fill_gradient2("Robbery\nPropensity", low = "white", mid = "yellow", high = "red", midpoint = 650) #设置标尺
 ```
-![](/images/ggplot2/qmplot.png)![](/images/ggplot2/qmplot2.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/ggmap1.png)![](https://gitee.com/WilenWu/images/raw/master/ggplot2/qmplot.png)
 
 ```r
 #刻面
@@ -114,7 +114,7 @@ qmplot(lon, lat, data = violent_crimes, maptype = "toner-background", color = of
 europe <- c(left = -12, bottom = 35, right = 30, top = 63)
 get_stamenmap(europe, zoom = 5) %>% ggmap()
 ```
-![](/images/ggplot2/ggmap1.png)![](/images/ggplot2/ggmap2.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/us_map.png)![](https://gitee.com/WilenWu/images/raw/master/ggplot2/ggmap2.png)
 
 
 ## 经纬度信息
@@ -205,7 +205,7 @@ getBaiduMap(location, width = 400, height = 400, zoom = 10, scale = 2,
 ```r
 getBaiduMap('中国',zoom = 4) %>% ggmap
 ```
-![china](/images/ggplot2/baidumap_china.png)
+![china](https://gitee.com/WilenWu/images/raw/master/ggplot2/baidumap_route.png)
 
 ## 搜索
 ```r
@@ -234,13 +234,9 @@ Done!
 >>> ggmap(bjMap) + 
        geom_path(data = df, aes(lon, lat), alpha = 0.5, col = 'red')
 ```
-![route](/images/ggplot2/baidumap_route.png)
+![route](https://gitee.com/WilenWu/images/raw/master/ggplot2/baidumap_china.png)
 
 ## 百度地理编码
 
 `geoconv(geocode, from = 3, to = 5)`  别的地理编码转化成百度地理编码
-
-
-
-
 

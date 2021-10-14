@@ -40,8 +40,6 @@ read_*(file, col_names = TRUE, col_types = NULL, locale = default_locale(), na =
 # read_* 函数共享这些参数
 ```
 
-![](/images/readr.png)
-
 规整类型|函数（示例）
 :------|:------
 Comma Delimited Files(逗号分隔)|read_csv("file.csv")

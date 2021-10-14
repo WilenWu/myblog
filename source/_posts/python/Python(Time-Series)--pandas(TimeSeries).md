@@ -309,7 +309,7 @@ Out[162]: Period('2007-01', 'M')
 In [163]: p.asfreq('M', how='end')
 Out[163]: Period('2007-12', 'M')
 ```
-![时期的频率转换](/images/period.png)
+![](https://gitee.com/WilenWu/images/raw/master/common/period-M.png)
 
 ## 按季度计算的时期频率
 
@@ -326,12 +326,13 @@ In [178]: p.asfreq('D', 'end')
 Out[178]: Period('2012-01-31', 'D')
 ```
 
-![按季度计算的时期频率](/images/period2.png)
+![](https://gitee.com/WilenWu/images/raw/master/common/period-Q.png)
 
 ## Timestamp和Period户型给转换
 
 `Timestamp.to_period(freq=None)`
 `Period.to_timestamp(freq,how)`
+
 > freq : string or DateOffset, default is 'D' 
 > how: str, default 'S' (start): 'Start', 'Finish', 'Begin', 'End'
 
@@ -418,9 +419,10 @@ ts.ewm(span=30).mean().plot()
 In [262]: corr = returns.rolling(125, min_periods=100).corr(spx_rets)
 In [263]: corr.plot()
 ```
-![二元移动窗口函数](/images/corr.png)
+![](https://gitee.com/WilenWu/images/raw/master/common/ts-rolling.png)
 
 ## 用户定义的移动窗口函数
+
 rolling_apply函数使你能够在移动窗口上应用自己设计的数组函数。唯一要求的就是：该函数要能从数组的各个片段中产生单个值（即约简）。
 ```python
 In [265]: from scipy.stats import percentileofscore

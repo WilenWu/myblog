@@ -4,16 +4,15 @@ title: R手册(Visualise)--leaflet+leafletCN
 tags: [R,可视化,地图]
 date: 2018-05-04 00:13:03
 categories: [R,可视化]
-cover: /img/leaflet.png
+cover: /img/leaf.png
+top_img: /img/leaflet-logo.png
+typora-root-url: ./
 ---
-
-
 
 # leaflet
 
-Leaflet是一个用于交互式地图的开源JavaScript库。这个R包可以很容易地从R创建Leaflet地图。
+[Leaflet](http://rstudio.github.io/leaflet/)是一个用于交互式地图的开源JavaScript库。这个R包可以很容易地从R创建Leaflet地图。
 语法：leaflet通过管道操作`%>%`叠加图层作图。
-[官网链接](http://rstudio.github.io/leaflet/)
 <!-- more -->
 
 ## 基本用法
@@ -34,7 +33,7 @@ m <- leaflet() %>%
 m  # Print the map
 ```
 
-![](/images/leaflet/map.png)
+![](https://gitee.com/WilenWu/images/raw/master/leaflet/map.png)
 
 ## Map Widget：地图控件
 
@@ -91,7 +90,7 @@ leaflet(data = mapStates) %>% addTiles() %>%
   addPolygons(fillColor = topo.colors(10, alpha = NULL), stroke = FALSE)
 ```
 
-![](/images/leaflet/us_map.png)
+![](https://gitee.com/WilenWu/images/raw/master/leaflet/us_map.png)
 
 ## Basemaps：底图
 
@@ -101,7 +100,7 @@ leaflet(data = mapStates) %>% addTiles() %>%
 > names(providers) : 查看所有第三方图块
 > 参数provider = c(providers$Stamen.Toner, CartoDB.Positron, Esri.NatGeoWorldMap)
 
-![](/images/leaflet/basemap.png)
+![](https://gitee.com/WilenWu/images/raw/master/leaflet/basemap.png)
 
 ## Markers：标记
 
@@ -136,7 +135,7 @@ data(quakes) # Show first 20 rows from the `quakes` dataset
 leaflet(data = quakes[1:20,]) %>% addTiles() %>%
   addMarkers(~long, ~lat, popup = ~as.character(mag), label = ~as.character(mag))
 ```
-![](/images/leaflet/marker1.png)
+![](https://gitee.com/WilenWu/images/raw/master/leaflet/marker1.png)
 
 
 **示例 2**
@@ -159,7 +158,7 @@ leaflet(data = quakes1) %>% addTiles() %>%
   addMarkers(~long, ~lat, icon = leafIcons)
 ```
 
-![](/images/leaflet/marker2.png)
+![](https://gitee.com/WilenWu/images/raw/master/leaflet/marker2.png)
 
 **示例 3**
 
@@ -169,7 +168,7 @@ leaflet(quakes) %>% addTiles() %>% addMarkers(
 )
 ```
 
-![cl](/images/leaflet/marker3.png)
+![](https://gitee.com/WilenWu/images/raw/master/leaflet/marker3.png)
 
 **2. Circle Markers** 
 
@@ -191,7 +190,7 @@ leaflet(df) %>% addTiles() %>%
   )
 ```
 
-![](/images/leaflet/marker4.png)
+![](https://gitee.com/WilenWu/images/raw/master/leaflet/marker4.png)
 
 ## Popups and Labels：弹出窗口和标签
 
@@ -218,7 +217,7 @@ leaflet() %>% addTiles() %>%
     options = popupOptions(closeButton = FALSE)
   )
 ```
-![](/images/leaflet/popup.png)
+![cl](https://gitee.com/WilenWu/images/raw/master/leaflet/popup.png)
 
 ## Lines and Shapes：线条和几何形状
 
@@ -257,7 +256,7 @@ leaflet(cities) %>% addTiles() %>%
     radius = ~sqrt(Pop) * 30, popup = ~City
   )
 ```
-![](/images/leaflet/circle.png)
+![](https://gitee.com/WilenWu/images/raw/master/leaflet/circle.png)
 
 ## 其他组件
 
@@ -327,10 +326,11 @@ leafletCN是一个基于leaflet的中国扩展包, 里面保存了一些适用�
 `demomap (mapName)` 传入地图名绘制地图，等同于(leaflet包， leaflet+addTiles +addPolygons)
 
 **示例**
+
 ```r
 demomap("上海")
 ```
-![sh](/images/leaflet/sh1.png)
+![](https://gitee.com/WilenWu/images/raw/master/leaflet/sh1.png)
 
 `geojsonMap(dat, mapName)` 底图+填色地图，dat赋值data.frame(regions,values)
 
@@ -339,7 +339,7 @@ sh = regionNames("上海")
 dat = data.frame(name = sh,value = rnorm(length(sh)))
 geojsonMap(dat,"上海")
 ```
-![sh2](/images/leaflet/sh2.png)
+![](https://gitee.com/WilenWu/images/raw/master/leaflet/sh2.png)
 
 ## 辅助函数
 
@@ -352,3 +352,4 @@ system.file("geojson/china.json",package = "leafletCN")%>%
   read.geoShape()%>%
   plot()
 ```
+

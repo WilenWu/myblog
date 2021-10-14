@@ -10,7 +10,9 @@ categories: [R,时间序列]
 
 <!-- more -->
 
-# forecast : for Time Series and Linear Models
+# forecast 
+
+forecast: for Time Series and Linear Models
 
 ## 时间序列分析
 

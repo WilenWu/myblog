@@ -4,16 +4,16 @@ title: R手册(Tidy+Transform)--dplyr and plyr
 tags: [R,tidyverse,数据清洗]
 date: 2018-05-01 20:01:45
 categories: [R,Tidy+Transform]
-cover: /img/dplyr.png
+cover: /img/dplyr-logo.png
 top_img: 
 ---
-
-dplyr: A Grammar of Data Manipulation
-A fast, consistent tool for working with data frame like objects, both in memory and out of memory.
 
 <!-- more -->
 
 # dplyr
+
+dplyr: A Grammar of Data Manipulation
+A fast, consistent tool for working with data frame like objects, both in memory and out of memory.
 
 ## 转换和添加变量
 
@@ -185,11 +185,12 @@ all_vars(expr),any_vars(expr)|Apply predicate to all variables
 **`vars()`**|Select variables
 **`funs()`**|Create a list of functions calls
 
+# plyr
 
-
-# plyr: Tools for Splitting, Applying and Combining Data
+plyr: Tools for Splitting, Applying and Combining Data
 
 **函数统一格式：**
+
 ```
 * * ply
 |  --->data structure be processed

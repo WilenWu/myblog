@@ -8,8 +8,7 @@ categories: [R,可视化]
 
 **REmap**:（简单动态地图）Create html maps by Echarts
 
-[REmap](http://langdawei.com/REmap/2015/07/intro)是一个基于 [Echarts](http://echarts.baidu.com) 的R包.主要的目的是为广大数据玩家提供一个简便的,可交互的地图数据可视化工具.目前托管在[github](https://github.com/lchiffon/REmap)
-
+[REmap](http://langdawei.com/REmap/2015/07/intro)是一个基于 [Echarts](http://echarts.baidu.com) 的R包。主要的目的是为广大数据玩家提供一个简便的，可交互的地图数据可视化工具。目前托管在[github](https://github.com/lchiffon/REmap)
 
 <!-- more -->
 
@@ -64,7 +63,7 @@ remapC(chinaIphone,
         markLineData = demoC,
         markPointData = demoC[,2])
 ```
-![](/images/echarts/remap_world.png)![](/images/echarts/remap_china.png)
+![](https://gitee.com/WilenWu/images/raw/master/r-echarts/remap_china.png)![](https://gitee.com/WilenWu/images/raw/master/r-echarts/baidumap.png)
 
 
 # 调用baiduAPI绘图
@@ -91,7 +90,7 @@ remapB(center = c(lon,lat)   #地图中心向量
 remapB(title = "Remap:  百度迁徙模拟", markPointData = demoC[,2])
 ```
 
-![](/images/echarts/baidumap.png)
+![](https://gitee.com/WilenWu/images/raw/master/r-echarts/remap_world.png)
 
 
 # For shiny

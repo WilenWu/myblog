@@ -54,7 +54,7 @@ str, bool, int和float也是函数，可以用来转换类型
 | **文档起始中文编码说明** | `# -*- coding: utf-8-*- `  |
 | `string[start:end:step]` | 切片（左闭右开区间）  |
 
-![hello](https://img-blog.csdnimg.cn/20191021135651986.png)
+![hello](https://gitee.com/WilenWu/images/raw/master/common/hello.png)
 
 # 运算符
 
@@ -378,38 +378,38 @@ result = switch.get('key','default_value') # 找不到'key'，返回默认值
 
 ## 内建函数
 
-| **输入输出**  |  |  |
-| :--- | :--- | --- |
-| input(prompt)  | 输入 |  |
-| print(values,sep=' ',end='\n') | 输出 |  |
+| **输入输出**  |  |
+| :--- | :--- |
+| input(prompt)  | 输入 |
+| print(values,sep=' ',end='\n') | 输出 |
 
-| **数学函数**  |  |  |
-| :--- | :--- | --- |
-| round(x,n)  | 四舍五入  |  |
-| abs(x)  |  |  |
-| len(obj)  | 序列元素数  |  |
-| max(obj)  |  |  |
-| min(obj)  |  |  |
-| pow()  |  |  |
-| divmod(a,b)  | 返回元组(a // b, a % b)  |  |
-| hex(x)  | 10进制转16进制，以字符表示（0x开头的格式，如0x10） |  |
-| int(x, base=10)  | 用于将一个字符串或数字转换为整型，默认十进制  |  |
-| oct(x)  | 将一个整数转换成8进制字符串  |  |
-| bin(x)  | 返回一个整数 int 或者长整数 long int 的二进制表示  |  |
-| complex(real, imag) | 返回复数  |  |
-| hash(object)  | 获取哈希值  |  |
+| **数学函数**  |  |
+| :--- | :--- |
+| round(x,n)  | 四舍五入  |
+| abs(x)  |  |
+| len(obj)  | 序列元素数  |
+| max(obj)  |  |
+| min(obj)  |  |
+| pow()  |  |
+| divmod(a,b)  | 返回元组(a // b, a % b)  |
+| hex(x)  | 10进制转16进制，以字符表示（0x开头的格式，如0x10） |
+| int(x, base=10)  | 用于将一个字符串或数字转换为整型，默认十进制  |
+| oct(x)  | 将一个整数转换成8进制字符串  |
+| bin(x)  | 返回一个整数 int 或者长整数 long int 的二进制表示  |
+| complex(real, imag) | 返回复数  |
+| hash(object)  | 获取哈希值  |
 
-| **面向对象**  |  |  |
-| :--- | :--- | --- |
-| type(obj)  | 输出对象类型  |  |
-| dir(object)  | 输出对象属性和方法  |  |
-| isinstance(obj,class_or_tuple)  | 判断对象类型('int', 'str',' list'...)  |  |
-| setattr(object, name, value)  | 设置对象属性  |  |
-| getattr(object, name[, default]) | 返回一个对象属性值  |  |
-| hasattr(object, name)  | 判断对象是否包含对应的属性  |  |
-| delattr(object, name)  | 删除属性  |  |
-| issubclass(class, classinfo)  | 判断是否子类  |  |
-| vars([object])  | 函数返回对象object的属性和属性值的字典对象 |  |
+| **面向对象**  |  |
+| :--- | :--- |
+| type(obj)  | 输出对象类型  |
+| dir(object)  | 输出对象属性和方法  |
+| isinstance(obj,class_or_tuple)  | 判断对象类型('int', 'str',' list'...)  |
+| setattr(object, name, value)  | 设置对象属性  |
+| getattr(object, name[, default]) | 返回一个对象属性值  |
+| hasattr(object, name)  | 判断对象是否包含对应的属性  |
+| delattr(object, name)  | 删除属性  |
+| issubclass(class, classinfo)  | 判断是否子类  |
+| vars([object])  | 函数返回对象object的属性和属性值的字典对象 |
 
 | **字符表达式**  | 说明  |
 | --- | --- |
@@ -647,6 +647,7 @@ another()
 这里的 another 就是一个闭包，闭包本质上是一个函数，它由两部分组成，printer 函数和变量 msg。闭包使得这些变量的值始终保存在内存中。
 
 **示例：**
+
 闭包常用于解偏微分方程，如下例：求解陨石运动轨迹
 
 运动半径：$r=\sqrt{x^2+y^2+z^2}$
@@ -688,7 +689,7 @@ motion=solve_ivp(fun=F,t_span=(t0,t1),y0=r0+v0, t_eval=np.linspace(t0,t1,1001))
 plt.plot(motion.y[0,:],motion.y[1,:])
 plt.show()
 ```
-![](https://img-blog.csdnimg.cn/20191021135843664.png)
+![](https://gitee.com/WilenWu/images/raw/master/common/motion.png)
 
 
 # 装饰器

@@ -9,17 +9,6 @@ keywords: [偏导数,全微分,重积分,曲线积分,曲面积分]
 katex: true
 ---
 
-
-@[toc](Table of Contents)
-
-------
-
-[高等数学(Calculus I)](https://blog.csdn.net/qq_41518277/article/details/89397964)
-[高等数学(Calculus II)](https://blog.csdn.net/qq_41518277/article/details/89761069)
-
-------
-
-
 # 多元函数微分法
 
 ## 多元函数
@@ -41,7 +30,7 @@ $$
 外点(exterior point)：$∃ U(P),U(P)∩ E=\empty$
 边界点(boundary point)：若点 $P$ 的任一邻域 $U(P)$中既含 $E$ 的点也含不是 $E$ 的点,则称为 $E$ 的==边界==，记作$∂E$
 聚点(point of accumulation)：对于 $∀δ>0$ ，点 $P$ 的去心邻域 $\mathring{U}(P,δ)$ 总有 $E$ 中的点。
-![](https://img-blog.csdnimg.cn/20200527114525656.PNG)
+![](img/points.png)
 
    (4) 定义一些重要的平面点集，设平面点集 $E$
 开集(open set)：$∀P\in E$，$P$ 都是 $E$ 的内点
@@ -113,7 +102,7 @@ $$
 (3) 偏导数的记号是一个整体记号，不能看作微商，和一元函数不一样。
 (4) 偏导数的几何意义：$f_x(x_0,y_0)$ 就是平面 $y=y_0$上的曲线 $z=f(x,y_0)$ 在点$(x_0,y_0)$处的切线对 $x$ 轴的斜率
 
-![](https://img-blog.csdnimg.cn/2020062616235747.PNG)
+![](img/partial-derivative.png)
 (5) 二阶偏导数
 $$
 \frac{∂}{∂x}(\frac{∂z}{∂x})=\frac{∂^2 z}{∂x^2}=f_{xx}(x,y), \quad 
@@ -229,7 +218,7 @@ $$
 $$
 \mathbf r=\mathbf f(t)=x(t)\mathbf i+y(t)\mathbf j+z(t)\mathbf k,\quad\mathbf f(t)⊂\R^3
 $$
-![](https://img-blog.csdnimg.cn/20200527155328460.PNG) ![](https://img-blog.csdnimg.cn/20200527160728601.PNG)
+![](img/vector-objective-function.png) ![](img/vector-objective-function-limit.png)
 ==极限== $\lim\limits_{t\to t_0}\mathbf f(t)=\mathbf r_0$
 ==连续== $\mathbf f(t)$ 在 $t_0$ 连续 $\iff\lim\limits_{t\to t_0}\mathbf f(t)=\mathbf f(t_0)$
 ==导数== 定义 $\mathbf f'(t)=\lim\limits_{Δt\to0}\dfrac{\mathbf f(t+Δt)-\mathbf f (t)}{Δt}$
@@ -261,7 +250,7 @@ $$
 $$
 
 - **曲面** $Σ$ 方程 $F(x,y,z)=0$，曲面上一点 $M(x_0,y_0,z_0)$
-![](https://img-blog.csdnimg.cn/20200527161219736.PNG)
+  ![](img/tangent-plane-fun.png)
    (1) 过点 $M$ 的切线形成的平面，==切平面==方程为
 $$
 F_x(x_0,y_0,z_0)(x-x_0)+F_y(x_0,y_0,z_0)(y-y_0)+F_z(x_0,y_0,z_0)(z-z_0)=0
@@ -285,7 +274,7 @@ $$
 \dfrac{∂f}{∂l}\Big|_{(x_0,y_0)}=f_x(x_0,y_0)\cosα+f_y(x_0,y_0)\cosβ
 $$
 其中 $\cosα,\cosβ$ 为 $l$ 的方向余弦[^cos]，同样二元以上函数的方向导数类似。
-![](https://img-blog.csdnimg.cn/20200527100040717.png)
+![](img/direction-cosine.png)
    证明：在 $P_0(x_0,y_0)$ 邻域内， $l$ 方向上任取一点 $P(x,y)$，由于函数在点 $P_0(x_0,y_0)$ 处可微，所以 
    增量 $f(P)-f(P_0)=Δz=f_x(x_0,y_0)Δx+f_x(x_0,y_0)Δy+o(ρ)$
    其中 $\rho=\sqrt{(Δx)^2+(Δy)^2}$ ，两边同除以 $ρ$ ，并取极限得到
@@ -310,7 +299,7 @@ $$
 
 ## 多元函数的极值
  <kbd>极值</kbd>：函数 $z=f(x,y)$定义域为 $D$，点 $P_0(x_0,y_0)$是 $D$ 的内点，对于 $∀ (x,y)\in\mathring{U}(P_0)$ 总有 $f(x,y)<f(x_0,y_0)$ 或 $f(x,y)>f(x_0,y_0)$，则称 $f(x_0,y_0)$ 是函数 $f(x,y)$ 的一个极大值或极小值，极大值和极小值统称为==极值==(extremum)，使函数取得极值的点称为==极值点==。
-   
+
 - **无条件极值** ：求函数 $z=f(x,y)$ 的极值
 
    ==(必要条件)==：设 $f(x,y)$ 在 $(x_0,y_0)$ 处有偏导数，$f(x_0,y_0)$ 为极值，则有
@@ -396,7 +385,7 @@ $R_n=\dfrac{1}{(n+1)!}(h\dfrac{∂}{∂x}+k\dfrac{∂}{∂y})^{n+1}f(x_0+θ h,y_
 - **引入意义**
 曲顶 $z=f(x,y)$柱体的体积 $V=\lim\limits_{λ\to0}\displaystyle\sum_{i=1}^{n}f(ξ_i,η_i)Δσ_i$
 密度为 $μ=μ(x,y)$平面薄片的质量 $m=\lim\limits_{λ\to0}\displaystyle\sum_{i=1}^{n}μ(ξ_i,η_i)Δσ_i$
-![](https://img-blog.csdnimg.cn/20200527163648692.PNG) ![](https://img-blog.csdnimg.cn/20200527163710591.PNG)
+![](img/double-integral-demo1.png) ![](img/double-integral-demo2.png)
 
 
 - **定义**：设$f(x,y)$ 是有界闭区域 $D$ 上的有界函数
@@ -455,7 +444,7 @@ $$
 $$
 \iint\limits_Df(x,y)\mathrm{d}σ=\int_a^b \mathrm{d}x\int_{y_1(x)}^{y_2(x)}f(x,y)\mathrm{d}y
 $$
-![](https://img-blog.csdnimg.cn/20200528092003380.PNG) ![](https://img-blog.csdnimg.cn/20200528092211176.PNG)
+![](img/quadratic-integral-X.png) ![](img/quadratic-integral-II.png)
 
    (2) 假设积分区域 $D$ 为 $Y$ 型区域，即可以用不等式表示为 
 $$
@@ -466,11 +455,11 @@ $$
 $$
 \iint\limits_Df(x,y)\mathrm{d}σ=\int_a^b \mathrm{d}y\int_{x_1(y)}^{x_2(y)}f(x,y)\mathrm{d}x
 $$
-![](https://img-blog.csdnimg.cn/20200528092444221.PNG)
+![](img/quadratic-integral-Y.png)
    (3) 如果积分区域既不是 $X$ 型区域，也不是 $Y$ 型区域，这时可以把 $D$ 分成几部分求和。
-![](https://img-blog.csdnimg.cn/20200528092505290.PNG)
+![](img/quadratic-integral-XY.png)
 **示例**：求两个底圆半径都是 $R$ 的直交圆柱面围成的立体的体积。
-![](https://img-blog.csdnimg.cn/20200528144514468.PNG)
+![](img/double-integral-demo3.png)
 解：设这两个圆柱面的方程为 
 $x^2+y^2=R^2$ 及 $x^2+z^2=R^2$
 利用直交立体关于坐标面的对称性，只求第一象限的体积即可。
@@ -500,7 +489,7 @@ $$
 $$
    ρ_1(θ)⩽ ρ ⩽ ρ_2(θ),α⩽θ⩽ β
 $$
-![](https://img-blog.csdnimg.cn/20200528092640176.PNG) ![](https://img-blog.csdnimg.cn/20200528092753669.PNG)
+![](img/double-integral-polar.png) ![](img/quadratic-integral-polar.png)
    二次积分的值为
 $$
 \iint\limits_Df(ρ\cosθ,ρ\sinθ)ρ \mathrm{d}ρ \mathrm{d}θ
@@ -527,7 +516,7 @@ $$
 $$
 \iint\limits_Df(x,y)\mathrm{d}x\mathrm{d}y=\iint\limits_{D'}f[x(u,v),y(u,v)]\ |J(u,v)|\ \mathrm{d}u\mathrm{d}v
 $$
-![](https://img-blog.csdnimg.cn/20200528092849622.PNG)
+![](img/double-integral-substitution.png)
 
 [^2]: 雅可比矩阵(Jacobian matrix) $J(x_1,\cdots,x_n)=\dfrac{∂(y_1,\cdots,y_m)}{∂(x_1,\cdots,x_n)}=\begin{pmatrix}\dfrac{∂y_1}{∂x_1}\cdots\dfrac{∂y_1}{∂x_n} \\ \vdots \ddots \vdots \\ \dfrac{∂y_m}{∂x_1}\cdots\dfrac{∂y_m}{∂x_n} \end{pmatrix}$
 
@@ -576,9 +565,9 @@ $$
 $$
 \iiint\limits_{Ω}f(x,y,z)\mathrm{d}v=\int_{c_1}^{c_2}\mathrm{d}z\iint\limits_{D_z}f(x,y,z)\mathrm{d}x\mathrm{d}y
 $$
-![](https://img-blog.csdnimg.cn/20200527181301575.PNG)  ![](https://img-blog.csdnimg.cn/20200528150534215.PNG)
+![](img/triple-integral-I.png)  ![](img/triple-integral-II.png)
 **示例**：求解 $\displaystyle\iiint\limits_{Ω}z^2dxdydz$ 其中 $Ω$ 是椭球 $\cfrac{x^2}{a^2}+\cfrac{y^2}{b^2}+\cfrac{z^2}{c^2}=1$ 所围成的空间闭区域。
-![](https://img-blog.csdnimg.cn/20200528150534261.PNG)
+![](img/triple-integral-demo.png)
 解：空间闭区域可表示为
 $Ω=\{(x,y,z)|\cfrac{x^2}{a^2}+\cfrac{y^2}{b^2}⩽1-\cfrac{z^2}{c^2},-c⩽z⩽c\}$
 于是 
@@ -590,14 +579,14 @@ $\displaystyle\iiint\limits_{Ω}z^2dxdydz=\int_{-z}^{z}z^2dz\iint\limits_{D_z}dx
 $$
 \iiint\limits_{Ω}f(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z=\iiint\limits_{Ω}f(ρ\cosθ,ρ\cosθ,z)ρ \mathrm{d}ρ \mathrm{d}θ \mathrm{d}z
 $$
-![](https://img-blog.csdnimg.cn/20200527181618132.PNG)  ![](https://img-blog.csdnimg.cn/20200527181618112.PNG)
+![](img/triple-integral-cylindrical-I.png)  ![](img/triple-integral-cylindrical-II.png)
 
 
 -  **利用球面坐标进行三重积分**[^3]：体积元素$\mathrm{d}v=r^2\sinϕ \mathrm{d}r \mathrm{d}ϕ \mathrm{d}θ$
 $$
 \iiint\limits_{Ω}f(x,y,z)\mathrm{d}x\mathrm{d}y\mathrm{d}z=\iiint\limits_{Ω}f(r\sinϕ\cosθ,r\sinϕ\sinθ,r\cosϕ)r^2\sinϕ \mathrm{d}r \mathrm{d}ϕ \mathrm{d}θ
 $$
-![](https://img-blog.csdnimg.cn/2020052718161845.PNG)  ![](https://img-blog.csdnimg.cn/20200527181618140.PNG)
+![](img/triple-integral-spherical-I.png)  ![](img/triple-integral-spherical-II.png)
 
 
 [^3]: 柱面坐标$(ρ,θ,z)$和直角坐标$(x,y,z)$的换算$\begin{cases}x=ρ\cosθ \\ y=ρ\sinθ \\ z=z\end{cases},ρ\in[0,+∞),θ\in[0,2π),z\in[0,+∞)$，球面坐标$(r,ϕ,θ)$和直角坐标$(x,y,z)$的换算$\begin{cases}x=r\sinϕ\cosθ \\ y=r\sinϕ\sinθ \\z=r\cosϕ\end{cases},ρ\in[0,+∞),ϕ\in[0,π),θ\in[0,2π)$
@@ -611,7 +600,7 @@ $$
 $$
 \displaystyle A=\iint\limits_D\sqrt{1+f_x^2(x,y)+f_y^2(x,y)}\mathrm{d}x\mathrm{d}y
 $$
-![](https://img-blog.csdnimg.cn/20200528094030946.PNG)![](https://img-blog.csdnimg.cn/20200528094017457.PNG)
+![](img/area-of-surface-I.png)![](img/area-of-surface-II.png)
 (2) 曲面的参数方程$\begin{cases}x=x(u,v)\\y=y(u,v)\\z=z(u,v) \end{cases}\quad (u,v)\in D$，且[^2]
 $\det\dfrac{∂(x,y)}{∂(u,v)}\cdot\det\dfrac{∂(x,z)}{∂(u,v)}\cdot\det\dfrac{∂(y,z)}{∂(u,v)}\neq0$
 面积公式 
@@ -696,13 +685,13 @@ $$
 ==余元公式==：$Γ(s)Γ(1-s)=\dfrac{π}{\sinπ s}$
 ==概率论常用积分==：
 $Γ(s)$换元推导出 $\displaystyle\int_0^{+∞}e^{-u^2}\mathrm{d}u=\dfrac{\sqrt π}{2}$
-![](https://img-blog.csdnimg.cn/20200526152147645.PNG)
+![](img/gamma-fun.png)
 
 # 曲线积分与曲面积分
 ## 对弧长的曲线积分(第一类曲线积分)
 - **引入意义**
 线密度$μ=μ(x,y)$构件在曲线$L$的质量 $m=\lim\limits_{λ\to0}\displaystyle\sum_{i=1}^{n}μ(ξ_i,η_i)Δs_i$
-![](https://img-blog.csdnimg.cn/20200528104815276.PNG)
+![](img/curvilinear-integral.png)
 
 - **概念**：设 $L$ 为$xOy$平面的一条光滑曲线弧，定义曲线积分(Curvilinear Integral )
 $$
@@ -733,7 +722,7 @@ $$
 - **引入意义**：求变力 $\mathbf F=P(x,y)\mathbf i+Q(x,y)\mathbf j$ 沿曲线 $L$所做的功
 $ΔW_i=\mathbf F(ξ_i,η_i)\cdot \overrightarrow{M_{i-1}M_i}=P(ξ_i,η_i)Δx_i+Q(ξ_i,η_i)Δy_i$
 $W=\displaystyle\sum_{i=1}^{n}ΔW_i=\lim\limits_{λ\to0}\displaystyle\sum_{i=1}^{n}[P(ξ_i,η_i)Δx_i+Q(ξ_i,η_i)Δy_i]$
-![](https://img-blog.csdnimg.cn/20200628092911316.PNG)
+![](img/curvilinear-integral-typeII.png)
 
 - **概念**：设 $L$ 为$xOy$平面上从点A到点B的一条有向光滑曲线弧，定义
 $$
@@ -787,9 +776,9 @@ $$
 ## 格林公式
 
 - **平面闭区域D的一些概念**
-(1) 若D内任一闭曲线所围成的区域都属于D，则D为单连通区域，否则为复连通区域。
-(2) 如图复连通区域，外边界曲线的正向为逆时针方向，内边界曲线的正向为顺时针方向
-![](https://img-blog.csdnimg.cn/20200626192717490.PNG)
+  (1) 若D内任一闭曲线所围成的区域都属于D，则D为单连通区域，否则为复连通区域。
+  (2) 如图复连通区域，外边界曲线的正向为逆时针方向，内边界曲线的正向为顺时针方向
+  ![](img/planar-region.png)
 
    <kbd>格林公式</kbd>(Green formula) 设闭区域 $D$ 由分段光滑曲线 $L$ 围成
 $$
@@ -804,11 +793,11 @@ $$
 (3) 对于区域内的任何光滑曲线$L$，均有 $\displaystyle\oint_LP\mathrm{d}x+Q\mathrm{d}y=0$ (如图$L_1+L_2^-$) 
 (4) 对于区域内的任何两点 $A, B$，积分$\displaystyle\int_{L_{AB}}P\mathrm{d}x+Q\mathrm{d}y$ 的值只与 $A, B$ 两点的位置有关，而与$L_{AB}$在区域 $G$内的==路径无关==
 ($\star$) 要求的所有条件都要满足，若区域 $G$ 内含有==奇点==（存在破坏函数$P,Q,\dfrac{∂ Q}{∂ x},\dfrac{∂ P}{∂ y}$连续性的点），则定理不成立
-![](https://img-blog.csdnimg.cn/20200528111041600.PNG)
+![](img/path-independence.png)
 
 ## 对面积的曲面积分(第一类曲面积分)
 - **引入意义**：求面密度为$μ=μ(x,y,z)$的曲面的质量$m=\lim\limits_{λ\to0}\displaystyle\sum_{i=1}^{n}μ(ξ_i,η_i,ζ_i)ΔS_i$
-![曲面积分](https://img-blog.csdnimg.cn/2019050816314880.png)
+![曲面积分](img/surface-integral-typeI.png)
 - **概念**：设曲面 $Σ$ 是光滑的，函数$f(x,y,z)在Σ$ 上有界，定义曲面积分(Surface Integral)
 $$
 \iint\limits_{Σ}f(x,y,z)\mathrm{d}s=\lim\limits_{λ\to0}\displaystyle\sum_{i=1}^{n}f(ξ_i,η_i,ζ_i)ΔS_i
@@ -829,7 +818,7 @@ $$
 
 - **引入意义**
 设稳定流动(流速与时间无关)不可压缩流体(假定密度为1)的速度场为$\mathbf v(x,y,z)=P(x,y,z)\mathbf i+Q(x,y,z)\mathbf j+R(x,y,z)\mathbf k$，求单位时间流过有向曲面 $Σ$ 指定侧的质量，即流量 $Φ$
-![](https://img-blog.csdnimg.cn/20200702161138563.png) ![](https://img-blog.csdnimg.cn/20200702161138558.png)
+![](img/oriented-surface1.png) ![](img/oriented-surface2.png)
 
 (1) 取$Σ$ 的一小块$ΔS_i$，单位法向量$\mathbf n_i=\cosα_i\mathbf i+\cosβ_i\mathbf j+\cosγ_i\mathbf j$，流量(流体质量)$ΔΦ_i=\mathbf v_i\cdot\mathbf n_iΔS_i$
 (2) 于是$Φ=\displaystyle\sum_{i=1}^{n}ΔΦ_i=\lim\limits_{λ\to0}\displaystyle\sum_{i=1}^{n}[P(ξ_i,η_i,ζ_i)\cosα_i+Q(ξ_i,η_i,ζ_i)\cosβ_i+R(ξ_i,η_i,ζ_i)\cosγ_i]ΔS_i$
@@ -878,7 +867,7 @@ $$
 \iint\limits_{Σ}P(x,y,z)\mathrm{d}y\mathrm{d}z=±\iint\limits_{D_{yz}}R[x(y,z),y,z]\mathrm{d}y\mathrm{d}z \\
 \iint\limits_{Σ}Q(x,y,z)\mathrm{d}x\mathrm{d}y=±\iint\limits_{D_{xz}}R[x,y(y,z),z]\mathrm{d}y\mathrm{d}z
 $$
-![](https://img-blog.csdnimg.cn/20200702162423117.jpg)
+![](img/surface-integral-typeII.png)
 - **两类曲面积分之间的联系**：空间有向曲面$Σ$两类曲面积分的关系
 $$
 \iint\limits_{Σ}P(x,y,z)\mathrm{d}y\mathrm{d}z=\iint\limits_{Σ}P(x,y,z)\cosα \mathrm{d}s \\
@@ -906,7 +895,7 @@ $$
 $$
 取闭曲面 $Σ$ 的外侧为正向，$\cosα,\cosβ,\cosγ$为曲面$Σ$在点$(x,y,z)$处的方向余弦[^cos]
 
-![](https://img-blog.csdnimg.cn/20200626185741541.PNG)
+![](img/Gauss-formula.png)
 
 引进矢量微分算子[^nabla]
 $$
@@ -930,7 +919,7 @@ $$
 (4) $∇\dfrac{u}{v}=\dfrac{v∇u-u∇v}{v^2}$
 
 **沿任意闭曲面的曲面积分为零的条件**：若空间区域$Ω$内任一闭曲面所围成的区域全属于$Ω$,则称$Ω$为空间==二维单连通域==，如图
-![](https://img-blog.csdnimg.cn/20200702162615521.png)
+![](img/2ds-simplyconnected-domain.png)
 <kbd>定理</kbd>：若空间闭区域$Ω$为二维单连通域，函数在闭区域上有一阶连续偏导数，则 $Ω$ 沿任意闭曲面的曲面积分为零的充要条件是
 $$
 \dfrac{∂P}{∂x}+\dfrac{∂Q}{∂y}+\dfrac{∂R}{∂z}=0 \quad (x,y,z)\inΩ
@@ -947,7 +936,7 @@ $$
 = & \oint_{Γ}P\mathrm{d}x+Q\mathrm{d}y+R\mathrm{d}z
 \end{aligned}
 $$
-![](https://img-blog.csdnimg.cn/20200702162918713.png) ![](https://img-blog.csdnimg.cn/20200702162918706.png)
+![](img/right-hand-rule.png) ![](img/Stokes-formula.png)
 
 
  为便于记忆，斯托克斯公式也可以写为
@@ -975,7 +964,7 @@ $$
 (2) 对G内任意分段光滑闭曲线$Γ$，有$\displaystyle\oint_{Γ}P\mathrm{d}x+Q\mathrm{d}y+R\mathrm{d}z$与路径无关
 (3) 在G内存在某一函数 $u(x,y,z),\mathrm{d}u=P\mathrm{d}x+Q\mathrm{d}y+R\mathrm{d}z$，这时可求得$\displaystyle u=\int_{(x_0,y_0,z_0)}^{(x,y,z)}P\mathrm{d}x+Q\mathrm{d}y+R\mathrm{d}z$ 如下图
 (4) 在G内处处有 $\dfrac{∂P}{∂y}=\dfrac{∂Q}{∂x},\dfrac{∂Q}{∂z}=\dfrac{∂R}{∂y},\dfrac{∂R}{∂x}=\dfrac{∂P}{∂z}$
-![](https://img-blog.csdnimg.cn/20200702163227903.png)
+![](img/space-path-independence.png)
 
 <kbd>曲线积分的基本定理</kbd>：设 $\mathbf A$ 是空间区域 $Ω$ 内的一个有势场，即存在数量函数满足  $∇f=\mathbf A$ ，则空间任意曲线积分 $\displaystyle \int_Γ\mathbf A\cdot \mathrm{d}\mathbf r$ 在 $Ω$ 内与路径无关，且
 $$
@@ -994,7 +983,7 @@ $$
 u(x,y,z)=c
 $$
 的所有点通常是一个曲面。在曲面上函数 $u$ 都取同一个常数 $c$ ，被称为==等值面==。例如温度场中等温面、三维等高线等。
-![](https://img-blog.csdnimg.cn/20200527162156801.PNG)
+![](img/isosurface.png)
 
 - **向量场线**：设 $L$ 为向量场中一条曲线，若 $L$ 上每点 $M$ 处的切线方向都与向量函数 $\mathbf A$ 在该点的方向一致，即
 $$
@@ -1069,7 +1058,7 @@ $$
 (2) 若 $\text{div }\mathbf{A}<0$，表明流体在该点被吸收，则称该点为==汇==； 
 (3) 若在向量场 $\mathbf A$ 中每一点 $\text{div }\mathbf{A}=0$，则称 $\mathbf A$ 为==无源场==(field without sources)。
 散度绝对值的大小反映了源的强度。
-![](https://img-blog.csdnimg.cn/2020070216334554.png)
+![](img/divergence.png)
    **散度的性质**：用微分算符表示 $\mathbf A$ 的散度是
 $$
 \text{div }\mathbf{A}=∇\cdot\mathbf A
@@ -1129,7 +1118,7 @@ $$
 (1) 旋度 $\text{rot }\mathbf{A}(M)$ 的方向是 $\mathbf A$  在 $M$ 处的环流量密度最大的方向；
 (2) $|\text{rot }\mathbf{A}(M)|$即为上述最大环流密度的数值。
 (3) 若在向量场 $\mathbf A$ 中每一点 $\text{rot }\mathbf{A}=0$，则称 $\mathbf A$ 为==无旋场==(irrotational field)。
-![](https://img-blog.csdnimg.cn/20200628150359752.PNG)
+![](img/rotation.png)
 
    **旋度的力学意义**：为了更好地认识旋度的物理意义及这一名称的来源，我们讨论刚体绕定轴旋转的问题。
    设某刚体绕定轴转动，角速度为 $\mathbf ω=(ω_x,ω_y,ω_z)$，如图，刚体上任一点 $M(x,y,z)$ 的线速度为
@@ -1146,7 +1135,7 @@ $$
 \text{rot }\mathbf{v}=∇×\mathbf v=(2ω_x,2ω_y,2ω_z)=2\mathbf ω
 $$
 这结果表明线速度 $\mathbf v$ 的旋度除相差一个常数因子外，就是旋转的角速度 $\mathbf ω$ 。这也说明了旋度这个名称的来源。
-![](https://img-blog.csdnimg.cn/20200702163500242.png)
+![](img/rotation-physics.png)
    **散度的性质**：用微分算符表示 $\mathbf A$ 的旋度是
 $$
 \text{rot }\mathbf{A}=∇×\mathbf A
@@ -1160,7 +1149,7 @@ $$
 其中 $Δ=∇\cdot∇=∇^2$ 称为拉普拉斯算符
 
 - **管量场**：若向量场 $\mathbf A$  的散度恒为零，即 $\text{div }\mathbf{A}=0$ 我们曾称 $\mathbf A$ 为无源场。由高斯公式我们知道，此时沿任何封闭曲面的曲面积分都等于零，我们又把 $\mathbf A$ 称为==管量场==。这是因为，若在向量场 $\mathbf A$ 中作一向量管（如图），即由向量线围成的管状的曲面。用断面 $S_1,S_2$ 去截它，以 $S_3$ 表示所截出的管的表面，这就得到了由 $S_1,S_2,S_3$ 所围成的封闭曲面 $S$ 。
-![](https://img-blog.csdnimg.cn/20200628153324358.PNG)
+![](img/tube-field.png)
 于是由高斯公式得到
 $$
 \iint\limits_{S_1外侧}\mathbf A\cdot \mathrm{d}\mathbf S+

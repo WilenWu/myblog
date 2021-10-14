@@ -11,7 +11,7 @@ cover: /img/R-C.jpg
 - **混淆矩阵**
 混淆矩阵(Confusion Matrix)也称误差矩阵，是表示精度评价的一种标准格式。
 
-![cm](/images/ConfusionMatrix.png)
+![](https://gitee.com/WilenWu/images/raw/master/common/ConfusionMatrix.png)
 > TP（实际为正预测为正），FP（实际为负但预测为正），TN（实际为负预测为负），FN（实际为正但预测为负）
 
 <!-- more -->
@@ -34,7 +34,7 @@ $G=\sqrt[]{Precision\times{Recall}}$
 ROC曲线描绘的是不同的截断点时，并以FPR(False Positive Rate)和TPR(True Positive Rate)为横纵坐标轴，描述随着截断点的变小，TPR随着FPR的变化。
 纵轴：$TPR=\Large \frac{TP}{TP+FN} \normalsize =Recall$
 横轴：$FPR=\Large \frac{FP}{FP+TN}$
-![roc](/images/roc.png)
+![roc](https://gitee.com/WilenWu/images/raw/master/common/roc.png)
 
 - **KS曲线，KS值**
 KS曲线和ROC曲线都用到了TPR，FPR。KS曲线是把TPR和FPR都作为纵坐标，而样本数作为横坐标。
@@ -46,8 +46,8 @@ Gain图是描述整体精准度的指标。
 $Gain=\Large \frac{TP}{TP+FP}$
 $Lift=\Large\frac{\frac{TP}{TP+FP}}{\frac{P}{P+N}}=\frac{Gain}{PR}$
 
-![lift](/images/lift.png)
-![gain](/images/gain.png)
+<img src="https://gitee.com/WilenWu/images/raw/master/common/lift.png" alt="lift" style="zoom: 50%;" />
+<img src="https://gitee.com/WilenWu/images/raw/master/common/gain.png" alt="gain" style="zoom:50%;" />
 
 参考链接：https://blog.csdn.net/shy19890510/article/details/79501582
 

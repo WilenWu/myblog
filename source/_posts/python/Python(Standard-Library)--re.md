@@ -16,8 +16,9 @@ re 模块也提供了与这些方法功能完全一致的函数，这些函数�
 
 # re模块
 
+## 匹配
 
-## 匹配：返回re对象 `MatchObject`
+返回re对象 `MatchObject`
 
 ```python 
 re.match(pattern,string,flags)        # 起始位置匹配

@@ -105,8 +105,7 @@ p=permutation*2
 
 # Perlin noise library for Python
 
-该包旨在为您提供简单易用的快速函数，用于
-在Python程序中生成Perlin噪声。
+该包旨在为您提供简单易用的快速函数，用于在Python程序中生成Perlin噪声。
 
 ## 安装
 
@@ -116,6 +115,7 @@ https://visualstudio.microsoft.com/downloads/
 下载 **Microsoft Visual C++ Redistributable for Visual Studio 2017**安装即可。
 
 **pip安装**
+
 ```python
 pip indtsll noise
 ```
@@ -267,7 +267,7 @@ earth=Sphere(radius=2)
 lon,lat,h=earth.create_sphere(octaves=10, persistence=0.5,multiplier=2,seed=57)
 earth.draw_sphere(lon,lat,h,map='ellipse')
 ```
-![map](map.png)
+![map](https://gitee.com/WilenWu/images/raw/master/common/perlin-map.png)
 
 
 

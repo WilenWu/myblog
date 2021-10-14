@@ -4,6 +4,7 @@ title: Python手册(IDE)--常用的Python IDE
 tags: [python,IDE]
 date: 2018-05-25 14:40:25
 categories: [python,Python基础]
+cover: /img/anaconda-logo.png
 ---
 
 集成开发环境（IDE，Integrated Development Environment ）是用于提供程序开发环境的应用程序，一般包括代码编辑器、编译器、调试器和图形用户界面等工具。
@@ -26,7 +27,7 @@ Komodo Edit|Canopy
 
 -------
 
-[**Python IDLE**](https://www.python.org/downloads/)<img src="/images/python.png" width="20%" height="20%" align="right"/>
+[**Python IDLE**](https://www.python.org/downloads/)<img src="https://gitee.com/WilenWu/images/raw/master/common/python.png" width="30%" height="30%" align="right"/>
 
 适用于
 
@@ -34,8 +35,7 @@ Komodo Edit|Canopy
 - 功能简单直接
 - 少量代码
 
-
-[**Sublime Text**](http://www.sublimetext.com/)<img src="/images/sublime.jpg" width="10%" height="10%" align="right"/>
+[**Sublime Text**](http://www.sublimetext.com/)<img src="https://gitee.com/WilenWu/images/raw/master/common/sublime.jpg" width="10%" height="10%" align="right"/>
 
 - 专为程序员开发的第三方专用编程工具
 - 专业编程体验（支持自动补全、提示、语法高亮等插件）
@@ -54,7 +54,7 @@ Komodo Edit|Canopy
    4. 打开工具 > 编译系统 ，选择新建号的 python3 
    5. 打开工具 > 编译或者快捷键 ctrl+B 即可运行脚本。**需特别注意，脚本必须保存到本地，否则会报错！**
 
-[**PyCharm**](https://www.jetbrains.com/pycharm/)<img src="/images/pc.jpg" width="10%" height="10%" align="right"/>
+[**PyCharm**](https://www.jetbrains.com/pycharm/)<img src="https://gitee.com/WilenWu/images/raw/master/common/pycharm.jpg" width="10%" height="10%" align="right"/>
 
 
 - JetBrains 公司开发，社区版免费
@@ -62,13 +62,13 @@ Komodo Edit|Canopy
 - 适合较复杂工程
 
 > **Linux系统自定义pycharm命令**
+>
 > 1. shell窗口打开配置文件`sudo ~/.bashrc`
 > 2. 添加语句`alias pycharm = "bash /download/pycharm-community-2018.1.4/bin/pycharm.sh"`(**pycharm.sh所在的路径**)
 > 3. 重新加载`source ~/.bashrc`
 > 4. shell命令行输入`pycharn`即可打开
 
-
-[**Anaconda**](https://www.anaconda.com/download/)<img src="/images/anaconda.png" width="15%" height="15%" align="right"/>
+[**Anaconda**](https://www.anaconda.com/download/)<img src="https://gitee.com/WilenWu/images/raw/master/common/anaconda.png" width="20%" height="20%" align="right"/>
 
 
 - 开源的Python发行版本。

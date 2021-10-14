@@ -10,9 +10,9 @@ R语言词云和中文词典包。
 
 <!-- more -->
 
-# jiebaR: for Chinese text segmentation
+# jiebaR
 
-[jiebaR中文官网](https://qinwenfeng.com/jiebaR/)
+[jiebaR](https://qinwenfeng.com/jiebaR/): for Chinese text segmentation
 
 ## Quick Start
 
@@ -137,9 +137,9 @@ vector_distance(c("今天","天气","真的","十分","不错","的","感觉"),
 
 `freq(x)`x为分词后的结果
 
-# cidian: Tools for Chinese Text Segmentation Dictionaries
+# cidian
 
-用来转换搜狗细胞词库
+cidian: Tools for Chinese Text Segmentation Dictionaries。用来转换搜狗细胞词库
 Windows 安装 RTools，设置好对应的环境变量
 
 - **安装**
@@ -173,7 +173,6 @@ userd = remove_words(userd, enc2utf8(c("测试","蓝翔")))
 write_dict(userd, jiebaR::USERPATH)
 (userd = load_user_dict(jiebaR::USERPATH))
 ```
-
 
 
 

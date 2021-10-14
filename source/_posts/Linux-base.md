@@ -150,11 +150,12 @@ tail [-n number]|显示后number行
 ## Linux文件权限
 
 Linux使用user和group控制使用者对文件的权限，每个文件或程序都有ower和group
-![file](https://img-blog.csdn.net/20180617190503602)
+![file](https://gitee.com/WilenWu/images/raw/master/common/linux-file.png)
 
 `ls -l` 显示文件详细信息
 `chmod [options]  mode file` 修改文件权限
 `chown [-R] user:group file` 修改所属用户与组 
+
 > mode参数 : 权限设定字串，`[ugoa...][+-=][rwxX]`
 > u 表示用户，g 表示群组，o 其他人，a 表示全部
 > `+` 表示增加权限，`-` 表示取消权限，`=` 表示唯一设定权限。
@@ -411,7 +412,7 @@ pycharm
 - **安装R包报错处理**
 安装R包报错时，通常都会显示错误信息，只要按提示的错误信息安装对应的软件包即可。
 `sudo apt-get install libxml2-dev`
-![](https://img-blog.csdn.net/20180617192240424)
+![](https://gitee.com/WilenWu/images/raw/master/common/liunx-apt-bug.png)
 
 - **pycharm**
 打开脚本报错Gtk-Message: Failed to load module "canberra-gtk-module"

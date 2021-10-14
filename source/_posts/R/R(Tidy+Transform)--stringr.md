@@ -11,7 +11,10 @@ top_img:
 
 
 <!-- more -->
-# stringr: Simple, Consistent Wrappers for Common String Operations
+
+# stringr
+
+stringr: Simple, Consistent Wrappers for Common String Operations
 
 函数|说明
 :---|---

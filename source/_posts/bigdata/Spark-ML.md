@@ -15,11 +15,10 @@ Apache Spark提供了一个名为  **MLlib**  的机器学习库，包含基于R
 MLlib概括了其公开三个核心机器学习功能：
 - 数据准备：特征提取、变换、选择、分类特征的散列和一些自然语言处理方法。
 - 机器学习算法：实现了一些流行和高级的回归，分类和聚类算法。
-- 实用程序：统计方法，如描述性统计、卡方检验、线性代数（稀疏稠密矩阵和向量）和模型评估方法。
+- 实用程序：统计方法，如描述性统计、卡方检验、线性代数（稀疏稠密矩阵和向量）和模型评估方法。  
 
-    
 
-**MLlib的抽象类**
+## MLlib的抽象类
 
 -   Vector：向量（mllib.linalg.Vectors）支持dense和sparse（稠密向量和稀疏向量）。区别在与前者的没一个数值都会存储下来，后者只存储非零数值以节约空间。
 -   LabeledPoint:（mllib.regression）表示带标签的数据点，包含一个特征向量与一个标签。注意，标签要转化成浮点型的，通过StringIndexer转化。
@@ -64,7 +63,7 @@ print  "Prediction for negative test examples: %g"  %model.predict(negTest)
 
 ML库提供了基于DataFrame的API，可以用来构建机器学习工作流（Pipeline），ML Pipeline弥补了原始MLlib库的不足，向用户提供了一个基于DataFrame的机器学习工作流套件。
 
-![](https://img-blog.csdnimg.cn/20200108172439749.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/spark/spark-ml.PNG)
 
 ML库提供了三个主要的抽象类：
 - 转换器(Transformer)：实现了一个方法.transform()，通常通过将一个或多个新列附加到DataFrame来转换为新的DataFrame。比如一个模型就是一个转换器，他可以把一个不包含预测标签的数据集打上标签。

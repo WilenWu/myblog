@@ -20,9 +20,9 @@ description: GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规
 
 ## Markdown In browser
 
-- [StackEdit](https://stackedit.io/app):  markdown editor
+- [~~StackEdit~~](https://stackedit.io/app):  markdown editor
 - [Modoko](https://www.madoko.net/): Write Beautiful Documents
-- [Markdown Here](https://markdown-here.com/):   这是一个Chrome浏览器插件
+- [~~Markdown Here~~](https://markdown-here.com/):   这是一个Chrome浏览器插件
 - [马克飞象](https://maxiang.io/): 专为印象笔记打造的Markdown编辑器（付费）
 - [小书匠](http://markdown.xiaoshujiang.com/): 支持第三方数据存储集成(evernote,印象笔记,github,dropbox等)。
 
@@ -30,7 +30,6 @@ description: GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规
 
 - [Typora](https://pc.qq.com/search.html#!keyword=Typora) (Win+Mac+Linux) : What You See Is What You Get
 - [Mou](http://25.io/mou/) (Mac): Markdown editor for developers.
-- [Macdown](http://macdown.uranusjr.com/) (Mac): MacDown is an  open source Markdown editor for OS X
 - [Bear](http://www.bear-writer.com/)(Mac): Write beautifully on iPhone, iPad, and Mac
 - [MarkdownPad](markdownpad.com)(Windows): MarkdownPad is a full-featured Markdown editor for Windows
 - [MarkPad](http://code52.org/MarkPadRT/): Markdown works better with MarkPad
@@ -39,7 +38,7 @@ description: GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规
 
 - [Atom](https://atom.io/) (all): A hackable text editor for the 21st Century
 - [Sublime Text](http://www.sublimetextcn.com/)  (all): 是程序员圈子里口口相传的「神器」级代码编辑器
-- [Notepad++](https://notepad-plus-plus.org/zh/) (Windows): Windows强大的轻量级文本编辑器
+- [~~Notepad++~~](https://notepad-plus-plus.org/zh/) (Windows): Windows强大的轻量级文本编辑器
 
 # [Markdown语法](https://help.github.com/cn/categories/writing-on-github)
 
@@ -428,6 +427,8 @@ tags: [Markdown]
 
 You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/).
 
+> 注意： Hexo-Butterfly 主题采用 `{% mermaid %}` 和 `{% endmermaid %}` 包裹代码块
+
 ~~~markdown
 ```mermaid
 sequenceDiagram
@@ -442,7 +443,7 @@ Alice->>John: Yes... John, how are you?
 ```
 ~~~
 
-```mermaid
+{% mermaid %}
 sequenceDiagram
 Alice ->> Bob: Hello Bob, how are you?
 Bob-->>John: How about you John?
@@ -452,7 +453,7 @@ Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text d
 
 Bob-->>Alice: Checking with John...
 Alice->>John: Yes... John, how are you?
-```
+{% endmermaid %}
 
 And this will produce a flow chart:
 
@@ -467,13 +468,13 @@ C --> D
 ```
 ~~~
 
-```mermaid
+{% mermaid %}
 graph LR
 A[Square Rect] -- Link text --> B((Circle))
 A --> C(Round Rect)
 B --> D{Rhombus}
 C --> D
-```
+{% endmermaid %}
 
 
 # 部分HTML语法
@@ -644,7 +645,7 @@ HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Mark
 ```
 你可以在各大视频网站的分享入口，找到嵌入的 HTML 代码。
 
-![video](https://www.runoob.com/wp-content/uploads/2013/07/36B8ED24-2F40-44EC-A751-2617F749447C.jpg)
+![video](https://gitee.com/wilenwu/images/raw/master/common/share.jpg))
 
 ## Font Awesome
 

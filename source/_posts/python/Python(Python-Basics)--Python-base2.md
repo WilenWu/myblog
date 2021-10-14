@@ -70,9 +70,9 @@ Python 标准库非常庞大，所提供的组件涉及范围十分广泛，正�
 或者关键字（attribute_name）,`str.format()`可通过关键字传递参数。
 
 - **format_spec**：`[width][.precision][type]`
-`width`：（数字）表示宽度
-`.precision`：（dot+数字）小数位数
-`type`：表示类型
+  `width`：（数字）表示宽度
+  `.precision`：（dot+数字）小数位数
+  `type`：表示类型
    `s`：表示字符格式
    `d`：十进制整数
    `f`：固定精度
@@ -122,12 +122,13 @@ f=open(file, mode='r', encoding=None)  # 返回file对象
 f.close()                              # 关闭
 ```
 mode参数:
-`r` 只读
-`r+` 读写
-`w` 写入
-`w+` 读写
-`a` 追加
-`a+` 读写追加
+
+- `r` 只读
+- `r+` 读写
+- `w` 写入
+- `w+` 读写
+- `a` 追加
+- `a+` 读写追加
 
 > 默认为文本模式，如果要以二进制模式打开，加上 `b` 。
 > 注意：使用 open() 方法一定要保证关闭文件对象，即调用 close() 方法。

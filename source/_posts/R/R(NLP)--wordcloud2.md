@@ -14,8 +14,7 @@ Wordcloud2主要包括两个函数：
 
 <!-- more -->
 
-
-# wordlcoud2函数
+# wordcloud2函数
 
 ```r
 wordcloud2(data, size = 1, minSize = 0, gridSize =  0,
@@ -65,7 +64,7 @@ figPath = system.file("examples/t.png",package = "wordcloud2")
 wordcloud2(demoFreq, figPath = figPath, size = 1.5,color = "skyblue") 
 ```
 
-<img src="/images/wordcloud2/Wordcloud1.png" style="zoom:50%;" /><img src="/images/wordcloud2/Wordcloud2.png"  style="zoom:50%;" /><img src="/images/wordcloud2/Wordcloud3.png" style="zoom:50%;" /><img src="/images/wordcloud2/Wordcloud4.png"  style="zoom:50%;" /><img src="/images/wordcloud2/Wordcloud5.png" style="zoom:50%;" />
+<img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud2.png" style="zoom:50%;" /><img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud1.png"  style="zoom:50%;" /><img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud6.png" style="zoom:50%;" /><img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud4.png"  style="zoom:50%;" /><img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud3.png" style="zoom:50%;" />
 
 # letterCloud函数
 
@@ -84,7 +83,7 @@ letterCloud(data, word, wordSize = 0, letterFont = NULL, ...)
 letterCloud(demoFreq, word = "WORDCLOUD2", wordSize = 1)
 ```
 
-![](/images/wordcloud2/Wordcloud6.png)
+![](https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud5.png)
 
 
 # shiny支持
