@@ -2,34 +2,18 @@
 title: 复变函数和积分变换(Integral Transform)
 date: 2019-07-24 13:09:37
 categories: [数学]
-tags: [数学]
+tags: [数学,复傅里叶变换,拉普拉斯变换]
 cover: 
 top_img: 
-keywords: [复傅里叶变换,拉普拉斯变换]
 katex: true
 ---
 
-
-
-
-
-
-@[Toc](数学物理方法)
-
-------
-
-[复变函数和积分变换(Complex Function  I)](https://blog.csdn.net/qq_41518277/article/details/89742631)
-[复变函数和积分变换(Complex Function II)](https://blog.csdn.net/qq_41518277/article/details/99679827)
-[复变函数和积分变换(Integral Transform)](https://blog.csdn.net/qq_41518277/article/details/97121991)
-
-------
 
 > 参考文献：
 > mooc国防科技大学《复变函数》
 > 王忠仁、张静《工程数学：复变函数和积分变换》
 > 焦红伟、尹景本《复变函数与积分变换》
 > 梁昆淼《数学物理方法》
-
 
 # Fourier 变换
 
@@ -40,7 +24,11 @@ katex: true
 - **周期函数的Fourier 级数**：设 $f_T(t)$ 是以T为周期的实值函数，在区间 $[-\frac{T}{2},\frac{T}{2}]$上满足狄利克雷(Dirichlet)条件：
 (1)连续或只有有限个第一类间断点；
 (2)只有有限个极值点
-则$f_T(t)$在连续点处可以展开成Fourier 级数：$$\displaystyle f_T(t)=\dfrac{a_0}{2}+\sum_{n=1}^{∞}(a_n\cos nω_0 t+b_n\sin nω_0 t) \tag{F0}$$ 在间断点处，上式左端为 $\frac{1}{2}[f_T(t^-)+f_T(t^+)]$
+则$f_T(t)$在连续点处可以展开成Fourier 级数：
+$$
+\displaystyle f_T(t)=\dfrac{a_0}{2}+\sum_{n=1}^{∞}(a_n\cos nω_0 t+b_n\sin nω_0 t) \tag{F0}
+$$
+在间断点处，上式左端为 $\frac{1}{2}[f_T(t^-)+f_T(t^+)]$
 其中 $\displaystyle ω_0=2\pi/T \\
 a_n=\frac 2T \int_{-T/2}^{T/2}f_T(t)\cos nω_0 t\text{d}t \quad(n=0,1,2,\cdots) \\
 b_n=\frac 2T \int_{-T/2}^{T/2}f_T(t)\sin nω_0 t\text{d}t \quad(n=1,2,3,\cdots)$
@@ -50,13 +38,23 @@ b_n=\frac 2T \int_{-T/2}^{T/2}f_T(t)\sin nω_0 t\text{d}t \quad(n=1,2,3,\cdots)$
 若周期函数 $f_T(t)$ 是奇函数，由展开式知 $a_0$ 及 $a_n$ 均为零，展开式称为
 $$
 \displaystyle f_T(t)=\sum_{n=1}^{∞}b_n\sin nω_0 t
-$$ 称为==傅里叶正弦级数==。
+$$
+称为==傅里叶正弦级数==。
 若周期函数 $f_T(t)$ 是偶函数，由展开式知 $b_n$ 均为零，展开式称为
 $$
 \displaystyle f_T(t)=\dfrac{a_0}{2}+\sum_{n=1}^{∞}a_n\cos nω_0 t
-$$ 称为==傅里叶余弦级数==。
+$$
+称为==傅里叶余弦级数==。
 
-- **Fourier 级数的指数形式**：利用欧拉公式 $\cosθ=\dfrac{e^{iθ}+e^{-iθ}}{2},\sinθ=\dfrac{e^{iθ}-e^{-iθ}}{2i}$ 将Fourier 级数转化为复指数形式， $$\displaystyle f_T(t)=c_0+\sum_{n=1}^{∞}(c_ne^{inω_0 t}+c_{-n}e^{-inω_0 t})=\sum_{n=-∞}^{∞}c_ne^{inω_0 t} \tag{F1}$$ 其中 $$\displaystyle c_n=\dfrac1T\int^{T/2}_{-T/2}f_T(t)e^{-inω_0 t}\text{d}t\quad(n=0,\pm1,\pm2,\cdots)\tag{F2}$$ 由 $c_n$与$a_n,b_n$的关系可知
+- **Fourier 级数的指数形式**：利用欧拉公式 $\cosθ=\dfrac{e^{iθ}+e^{-iθ}}{2},\sinθ=\dfrac{e^{iθ}-e^{-iθ}}{2i}$ 将Fourier 级数转化为复指数形式， 
+$$
+\displaystyle f_T(t)=c_0+\sum_{n=1}^{∞}(c_ne^{inω_0 t}+c_{-n}e^{-inω_0 t})=\sum_{n=-∞}^{∞}c_ne^{inω_0 t} \tag{F1}
+$$
+ 其中 
+$$
+ \displaystyle c_n=\dfrac1T\int^{T/2}_{-T/2}f_T(t)e^{-inω_0 t}\text{d}t\quad(n=0,\pm1,\pm2,\cdots)\tag{F2}
+$$
+  由 $c_n$与$a_n,b_n$的关系可知
 $\begin{cases}
 c_n=c_{-n}=\frac{1}{2}\sqrt{a_n^2+b_n^2}=\frac{1}{2}A_n \\
 \arg c_n=-\arg c_{-n}=θ_n \\
@@ -70,7 +68,7 @@ $\begin{aligned}
 \displaystyle f_T(t)&=A_0+\sum_{n=1}^{∞}A_n(\cosθ_n\cos nω_0 t+\sinθ_n\sin nω_0 t) \\
 &=A_0+\sum_{n=1}^{∞}A_n\cos(nω_0 t+θ_n)
 \end{aligned}$
-![关系图](https://img-blog.csdnimg.cn/20190819153220994.png)
+![关系图](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Fourier-series-physics.png)
 (1) 上式表明，周期信号可以分解为一系列固定频率的简谐波之和，这些简谐波的(角) ==频率(frequency)== 为一个==基频(fundamental frequency)== $ω_0$的倍数。
 ==振幅(amplitude)== $A_n$ 反映了在信号 $f_T(t)$ 中频率为 $nω_0$的简谐波所占有的份额；
 ==相位(phase)==  $nω_0 t+θ_n$反映了在信号 $f_T(t)$ 中频率为 $nω_0$的简谐波沿时间轴移动的大小，==初相位(Initial Phase)== 为$θ_n$。
@@ -83,13 +81,24 @@ $A_0$表示周期信号在一个周期内的平均值，也叫 ==直流分量(DC
 由Fourier 级数式(F1)和式(F2)有 $\displaystyle f(t)=\lim\limits_{T\to +∞}\sum_{n=-∞}^{∞}[\dfrac1T\int^{T/2}_{-T/2}f_T(τ)e^{-inω_0 τ}\text{d}τ]e^{inω_0 t}$
 记 $ω_n=nω_0$，间隔 $ω_0=Δω$，当n 取一切整数时， $ω_n$ 所对应的点便均匀地分布在整个数轴上，并由 $T=\dfrac{2\pi}{ω_0}=\dfrac{2\pi}{Δω}$ 得
 $\displaystyle f(t)=\dfrac{1}{2\pi}\lim\limits_{Δω\to0}\sum_{n=-∞}^{∞}[\int^{π​/Δω}_{-π​/Δω}f_T(τ)e^{-iω_n τ}\text{d}τ]e^{iω_n t}Δω$
-这是一个和式得极限，按照积分的定义，在一定条件下，上式可写成$$\displaystyle f(t)=\dfrac{1}{2\pi}\int_{-∞}^{+∞}[\int^{+∞}_{-∞}f(τ)e^{-iω τ}\text{d}τ]e^{iω t}\text{d}ω \tag{F3}$$ 这个公式称为函数 $f(t)$的==Fourier 积分公式==。应该指出，上式只是由式(F1)的右端从形式上推出来的，是不严格的.。至于一个非周期函数 $f(t)$在什么条件下，可以用Fourier 积分公式表示，有下面的定理。
+这是一个和式得极限，按照积分的定义，在一定条件下，上式可写成
+$$
+\displaystyle f(t)=\dfrac{1}{2\pi}\int_{-∞}^{+∞}[\int^{+∞}_{-∞}f(τ)e^{-iω τ}\text{d}τ]e^{iω t}\text{d}ω \tag{F3}
+$$
+ 这个公式称为函数 $f(t)$的==Fourier 积分公式==。应该指出，上式只是由式(F1)的右端从形式上推出来的，是不严格的.。至于一个非周期函数 $f(t)$在什么条件下，可以用Fourier 积分公式表示，有下面的定理。
 <kbd>Fourier 积分定理</kbd>：若 $f(t)$在 $\R$上满足：
 (1) 在任一有限区间上满足狄利克雷(Dirichlet)条件；
 (2) 在无限区间$(-∞,+∞)$上绝对可积 ( 即 $\int_{-∞}^{+∞}|f (t)| dt$ 收敛)
 则有(F3)式成立
 在间断点处，(F3)式左端为 $\frac{1}{2}[f(t^-)+f(t^+)]$
-<kbd>Fourier 变换</kbd>：如果函数 $f(t)$满足Fourier 积分定理，由式(F3)，令 $$\displaystyle F(ω)=\int^{+∞}_{-∞}f(τ)e^{-iω τ}\text{d}τ \tag{F4}$$ 则有 $$\displaystyle f(t)=\dfrac{1}{2\pi}\int_{-∞}^{+∞}F(ω)e^{iω t}\text{d}ω \tag{F5}$$ 
+<kbd>Fourier 变换</kbd>：如果函数 $f(t)$满足Fourier 积分定理，由式(F3)，令 
+$$
+\displaystyle F(ω)=\int^{+∞}_{-∞}f(τ)e^{-iω τ}\text{d}τ \tag{F4}
+$$
+ 则有 
+$$
+ \displaystyle f(t)=\dfrac{1}{2\pi}\int_{-∞}^{+∞}F(ω)e^{iω t}\text{d}ω \tag{F5}
+$$
 从上面两式可以看出，$f(t)$和 $F(ω)$通过确定的积分运算可以互相转换。  $F(ω)$称为 $f(t)$ ==Fourier 变换==(Fourier transform)，或==象函数==(image function)，记为$F(ω)=\mathcal{F}[f(t)]$ ；$f(t)$称为 $F(ω)$ ==Fourier 逆变换==(inverse Fourier transform)，或==象原函数==(original image function)，记为$f(t)=\mathcal{F}^{-1}[F(ω)]$ ；通常称$f(t)$与$F(ω)$构成一个==Fourier 变换对==(transform pair)，记作 $f(t)\lrarr F(ω)$
 
 - **傅里叶正弦变换和余弦变换**：和傅里叶级数的情形类似，奇函数 $f(x)$ 的傅里叶变换是傅里叶正弦变换
@@ -109,8 +118,6 @@ Fourier 积分公式表明非周期函数的频谱是连续取值的。
 像函数$F(ω)$反映的是函数 $f(t)$中各频率分量的分布密度，它为复值函数，故可表示为 $F(ω)=|F(ω)|e^{i\arg F(ω)}$
 称 $F(ω)$为 $f(t)$的==频谱(spectrum)==，$|F(ω)|$为==振幅谱(amplitude spectrum)==，$\arg F(ω)$为==相位谱(phase spectrum)==。
 不难证明当$f(t)$为实函数时，$|F(ω)|$为偶函数，$\arg F(ω)$为奇函数。
-
-
 
 **Fourier 变换的性质**
 1. ==线性性质==：$\mathcal{F}[αf_1(t)+βf_2(t)]=α\mathcal{F}[f_1(t)]+β\mathcal{F}[f_2(t)]$
@@ -137,7 +144,10 @@ $\mathcal F^{-1}[F_1(ω)\cdot F_2(ω)]=f_1*f_2$
 $\mathcal F[f_1\cdot f_2]=\frac{1}{2\pi}[F_1(ω)*F_2(ω)]$
 $\mathcal F^{-1}[F_1(ω)*F_2(ω)]=2\pi f_1f_2$
 
-[^1]: 卷积(Convolution)：设函数$f_1(t),f_2(t)$在$(-\infty,\infty)$上绝对可积，则积分$\displaystyle\int^{+\infty}_{-\infty}f_1(τ)f_2(t-τ)dτ$ 称为$f_1(t),f_2(t)$的卷积。记为$$\displaystyle f_1(t)*f_2(t)=\int^{+\infty}_{-\infty}f_1(τ)f_2(t-τ)dτ$$
+[^1]: 卷积(Convolution)：设函数$f_1(t),f_2(t)$在$(-\infty,\infty)$上绝对可积，则积分$\displaystyle\int^{+\infty}_{-\infty}f_1(τ)f_2(t-τ)dτ$ 称为$f_1(t),f_2(t)$的卷积。记为
+$$
+\displaystyle f_1(t)*f_2(t)=\int^{+\infty}_{-\infty}f_1(τ)f_2(t-τ)dτ
+$$
  [如何通俗易懂地解释卷积？——知乎](https://www.zhihu.com/question/22298352)
 根据定义，卷积满足如下性质：
 (1) 交换律：$f_1(t)*f_2(t)=f_2(t)*f_1(t)$
@@ -177,7 +187,7 @@ $$
 (1) 当 $t\neq 0$ 时，$δ(t)=0$
 (2) $\displaystyle\int_{-∞}^{+∞}δ(t)dt=1$
 由此，引例可表示为 $i(t)=q_0δ(t)$
-![delta函数](https://img-blog.csdnimg.cn/20190819165639374.png)
+![delta函数](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/delta-fun.png)
 **注意**：
 (1) 单位脉冲函数 $δ(t)$ 并不是经典意义下的函数，因此通常称其为广义函数(或者奇异函数)。
 (2) 它不能用常规意义下的值的对应关系来理解和使用，而总是通过它的定义和性质来使用它。
@@ -193,11 +203,12 @@ $δ_ε(t)=\begin{cases}
 对于任何一个在 $(-∞,+∞)$ 上无穷次可微的函数 $f(t)$ 如果满足
 $$
 \displaystyle\lim\limits_{ε\to 0}\int_{-∞}^{+∞}δ_ε(t)f(t)dt=\int_{-∞}^{+∞}δ(t)f(t)dt
-$$ 则称$δ_ε(t)$的极限为$δ(t)$，记为
+$$
+则称$δ_ε(t)$的极限为$δ(t)$，记为
 $$
 \lim\limits_{ε\to 0}δ_ε(t)=δ(t)
 $$
-![delat函数](https://img-blog.csdnimg.cn/20190807105604401.png)
+![delat函数](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/delta-fun2.png)
    <kbd>筛选性质(sifting property)</kbd>： 设函数 $f(t)$ 是定义在 $\R$上的有界函数，且在 $t = 0$ 处连续，则有
 $$
 \displaystyle\int_{-∞}^{+∞}δ(t)f(t)dt=f(0)
@@ -207,17 +218,17 @@ $$
 由微分中值定理有 $\displaystyle\frac{1}{ε}\int_{0}^{ε}f(t)dt=f(θε)\quad(0<θ<1)$
 从而 $\displaystyle\int_{-∞}^{+∞}δ(t)f(t)dt=\lim\limits_{ε\to 0}f(θε)=f(0)$
 
-   正是因为 $δ$ 函数并不是给出普通数值间的对应关系，因此，$δ$ 函数也不像普通函数那样具有唯一确定的表达式，事实上凡是具有
-   $$
+ 正是因为 $δ$ 函数并不是给出普通数值间的对应关系，因此，$δ$ 函数也不像普通函数那样具有唯一确定的表达式，事实上凡是具有
+$$
    \lim\limits_{ε\to 0}\int_{-∞}^{+∞}δ_ε(t)f(t)dt=f(0)
-   $$
+$$
  性质的函数序列 $δ_ε(t)$ ，或是具有
- $$
+$$
  \lim\limits_{n\to \infty}\int_{-∞}^{+∞}δ_n(t)f(t)dt=f(0)
- $$
+$$
  性质的函数序列 $δ_n(t)$，他们的极限都是 $δ$ 函数，例如
-![](https://img-blog.csdnimg.cn/20200525111531385.png =200x) ![](https://img-blog.csdnimg.cn/20200525111531294.png =200x)
-![](https://img-blog.csdnimg.cn/20200525111531180.png =200x) ![](https://img-blog.csdnimg.cn/20200525111530910.png =200x)
+<img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/delta-series-demo.png" style="zoom: 8%;" /> <img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/delta-series-demo2.png" style="zoom:8%;" />
+<img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/delta-series-demo3.png" style="zoom:8%;" /> <img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/delta-series-demo4.png" style="zoom:8%;" />
 
 - **δ函数的基本性质**：（这些性质的严格证明可参阅广义函数）
 (1) $δ(t)$ 和常数 $c$ 的乘积 $cδ(t)$
@@ -231,7 +242,8 @@ $$
 (3) 放大（或缩小）变换， $t\to at  \quad(a\neq 0)$
 $$
 \int_{-∞}^{+∞}δ(at)f(t)dt=δ(x)f(\frac{x}{a})\frac{dx}{|a|}=\frac{1}{|a|}f(0)
-$$ 由此可以得到
+$$
+由此可以得到
 $$
 δ(at)=\cfrac{1}{|a|}δ(t)\quad(a\neq 0)
 $$
@@ -249,7 +261,7 @@ $$
 (6) $δ$ 函数与普通函数的乘积 $g(t)δ(t)$
 $$
 \int_{-∞}^{+∞}[g(t)δ(t)]f(t)dt=\int_{-∞}^{+∞}[f(t)g(t)]δ(t)dt=f(0)g(0)
-$$ 
+$$
 即 
 $$
 f(t)δ(t)=f(0)δ(t)
@@ -259,23 +271,25 @@ $$
    (7) 单位阶跃函数[^unit]等于 $δ$ 函数的积分
 $$
 \displaystyle u(t)=\int_{-∞}^{t}δ(s)ds
-$$   由高数知识知，$δ$ 函数是单位阶跃函数的导数，即
+$$
+由高数知识知，$δ$ 函数是单位阶跃函数的导数，即
 $$
 \dfrac{\mathrm du(t)}{\mathrm dt}=δ(t)
 $$
- 
+
    (8) $δ$ 函数的卷积
-   $$
+$$
    f(t)*δ(t)=f(t)
-   $$
+$$
 一般的有 $f(t)*δ(t-t_0)=f(t-t_0)$
 
 [^unit]: 单位阶跃函数(unit step function)，也称Heaviside单位函数
+
 $$
 u(t)=\begin{cases}
 0 & t<0 \\ 1 &t>​0 \end{cases}
-$$  
-![单位阶跃函数](https://img-blog.csdnimg.cn/20190819170748742.png)
+$$
+![单位阶跃函数](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/unit-step-fun.png)
 按广义函数理论，定义为
 $$
 \displaystyle\int_{-∞}^{+∞}u(t)f(t)dt=\int_{0}^{+∞}f(t)dt
@@ -296,10 +310,10 @@ $\displaystyleδ(t)=\dfrac{1}{2\pi}\int_{-∞}^{+∞}\cosω t\text{d}ω
 我们可以得到 ：
 $$
 \begin{aligned}
-& δ(t) \lrarr 1 \\
-& δ(t-t_0)\lrarr e^{-iω t_0} \\
-& 1 \lrarr 2\pi δ(ω) \\
-& e^{-iω_0 t} \lrarr 2\pi δ (ω − ω_0 )
+δ(t) & \lrarr 1 \\
+δ(t-t_0) & \lrarr e^{-iω t_0} \\
+1 & \lrarr 2\pi δ(ω) \\
+e^{-iω_0 t} & \lrarr 2\pi δ (ω − ω_0 )
 \end{aligned}
 $$
 (2) 有许多重要的函数不满足Fourier 积分定理条件（绝对可积），例如常数、符号函数、单位阶跃函数、正弦函数和余弦函数等，但它们的广义Fourier 变换[^gf]也是存在的，利用单位脉冲函数及其Fourier 变换可以求出它们的Fourier 变换。
@@ -307,7 +321,11 @@ $$
 [^gf]: 在δ函数的Fourier变换中，其广义积分是根据δ函数的性质直接给出的，而不是按通常的积分方式得到的，称这种方式的Fourier 变换为==广义Fourier 变换==。
 
 - **周期函数的Fourier 变换**
-<kbd>定理</kbd>：设 $f(t)$ 以T 为周期，在 $[0,T]$ 上满足 Dirichlet 条件，则 $f(t)$的Fourier 变换为：$$\displaystyle F(ω)=2\pi\sum_{n=-∞}^{+∞}F(nω_0)δ (ω − nω_0)$$ 其中 $ω_0=2\pi/T,F(nω_0)$是 $f(t)$ 的离散频谱。
+<kbd>定理</kbd>：设 $f(t)$ 以T 为周期，在 $[0,T]$ 上满足 Dirichlet 条件，则 $f(t)$的Fourier 变换为：
+$$
+\displaystyle F(ω)=2\pi\sum_{n=-∞}^{+∞}F(nω_0)δ (ω − nω_0)
+$$
+ 其中 $ω_0=2\pi/T,F(nω_0)$是 $f(t)$ 的离散频谱。
 
 - **多维 $δ$ 函数**：例如位于三维空间的坐标原点质量为 $m$ 的质点，其密度函数可表示为 $mδ(\mathbf r)$。	在三维空间中的 $δ$ 函数定义如下：
 $$
@@ -325,10 +343,12 @@ $$
    三维空间点 $\mathbf r_0=(x_0,y_0,z_0)$ 处密度分布函数就是
 $$
 δ(\mathbf{r-r_0})=δ(x-x_0)δ(y-y_0)δ(z-z_0)
-$$ 换算到柱坐标系 $\mathbf r_0=(r_0,θ_0,z_0)$
+$$
+换算到柱坐标系 $\mathbf r_0=(r_0,θ_0,z_0)$
 $$
 δ(\mathbf{r-r_0})=\frac{1}{r_0}δ(r-r_0)δ(θ-θ_0)δ(z-z_0)
-$$ 换算到球坐标系 $\mathbf r_0=(r_0,θ_0,ϕ_0)$
+$$
+换算到球坐标系 $\mathbf r_0=(r_0,θ_0,ϕ_0)$
 $$
 δ(\mathbf{r-r_0})=\frac{1}{r_0^2\sinθ_0}δ(r-r_0)δ(θ-θ_0)δ(ϕ-ϕ_0)
 $$
@@ -340,13 +360,14 @@ $$
 位矢的微分：
 $$
 \Delta \frac{1}{r}=-4\piδ(\mathbf r)
-$$ 其中 $r=\sqrt{x^2+y^2+z^2}$ 
+$$
+其中 $r=\sqrt{x^2+y^2+z^2}$ 
 
 
 
 ## Fourier 变换的应用
 1. 求==矩形脉冲函数(rectangular pulse function)== $f(t)=\begin{cases}1&|t|<a \\ 0 &|t|>a \end{cases}$ 的Fourier 变换及其Fourier 积分表达式。
-![矩形脉冲](https://img-blog.csdnimg.cn/20190819160946857.png)
+![矩形脉冲](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/rectangular-pulse-fun.png)
 (1) Fourier 变换为
 $\begin{aligned}
 \displaystyle F(ω) &=\int^{+∞}_{-∞}f(t)e^{-iω t}\text{d}t=\int^{a}_{-a}e^{-iω t}\text{d}t \\
@@ -359,7 +380,7 @@ $\begin{aligned}
 0 &  \frac{2n\pi}{a}⩽|ω|⩽ \frac{2n\pi}{a}  \\
 \pi &\text{others}
 \end{cases}$
-![频谱](https://img-blog.csdnimg.cn/20190819161302323.png)
+![频谱](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/spectrum.png)
 (3) Fourier 积分表达式为
 $\begin{aligned}
 \displaystyle f(t) &=\mathcal{F}^{-1}[F(ω)] \\
@@ -382,7 +403,7 @@ $\displaystyle\boxed{\int_{-∞}^{+∞}\frac{\sin(ax)}{x}\text{d}x=
 
 
 2. 求==指数衰减函数(exponential decay function)== $f(t)=\begin{cases}
-0 & t<0 \\ e^{-a t} &t⩾​0 \end{cases}\quad(a>0)$ 的Fourier 变换及Fourier 积分表达式。
+0 & t<0 \\ e^{-a t} &t⩾0 \end{cases}\quad(a>0)$ 的Fourier 变换及Fourier 积分表达式。
 (1) Fourier 变换为
 $\begin{aligned}
 \displaystyle F(ω) &=\int^{+∞}_{-∞}f(t)e^{-iω t}\text{d}t=\int^{+∞}_{0}e^{-a t}e^{-iω t}\text{d}t \\
@@ -392,7 +413,7 @@ $\begin{aligned}
 (2) 振幅谱 $\displaystyle |F(ω)| =\frac{1}{\sqrt{a^2+ω^2}}$
 相位谱 $\arg F(ω)=-\arctan\dfrac{ω}{a}$
 
-![频谱图](https://img-blog.csdnimg.cn/20190819162815302.png)
+![频谱图](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/spectrum2.png)
 (3) Fourier 积分表达式为
 $\begin{aligned}
 \displaystyle f(t) &=\mathcal{F}^{-1}[F(ω)] \\
@@ -459,7 +480,11 @@ $\displaystyle \mathcal{F}[f(t)u(t)e^{-βt}] =\int^{+∞}_{-∞}f(t)u(t)e^{-βt}
    > [用幂级数推导出 “Laplace 变换”](https://baijiahao.baidu.com/s?id=1626062298972618369&wfr=spider&for=pc)
 
 - **Laplace变换**
-<kbd>Laplace变换</kbd>：设函数$f(t)$ 在$t\geqslant 0$时有定义，且积分$\displaystyle\int_{0}^{+∞}f(t)e^{-st}dt$在复数 s 的某一个区域内收敛，则此积分所确定的函数$$\displaystyle F(s)=\int^{+\infty}_{0}f(t)e^{-st}\text{d}t$$称为函数$f(t)$的Laplace 变换，记为$F(s)=\mathcal L[f(t)]$，函数 $F(s)$ 也可称为 $f(t)$的象函数。$f(t)=\mathcal L^{-1}[F(s)]$称为Laplace 逆变换。
+<kbd>Laplace变换</kbd>：设函数$f(t)$ 在$t\geqslant 0$时有定义，且积分$\displaystyle\int_{0}^{+∞}f(t)e^{-st}dt$在复数 s 的某一个区域内收敛，则此积分所确定的函数
+$$
+\displaystyle F(s)=\int^{+\infty}_{0}f(t)e^{-st}\text{d}t
+$$
+称为函数$f(t)$的Laplace 变换，记为$F(s)=\mathcal L[f(t)]$，函数 $F(s)$ 也可称为 $f(t)$的象函数。$f(t)=\mathcal L^{-1}[F(s)]$称为Laplace 逆变换。
 在Laplace 变换中，只要求$f(t)$在 $[0,+∞)$ 内有定义即可。为了研究方便，以后总假定在$(−∞,0)$ 内，$f(t)≡0$
 
    <kbd>Laplace变换存在定理</kbd>：设函数 $f(t)$满足
@@ -467,7 +492,10 @@ $\displaystyle \mathcal{F}[f(t)u(t)e^{-βt}] =\int^{+∞}_{-∞}f(t)u(t)e^{-βt}
 (2) 当 $t\to +∞$时，$f(t)$的增长速度不超过某指数函数，即 $\exists M>0,C⩾0$，使得 $|f(t)|⩽Me^{Ct}(t⩾0)$ 成立。
 则$f(t)$的Laplace 变换$F(s)$在半平面 $\text{Re }(s)>C$上一定存在，且是解析的。
 
-   **周期函数的Laplace变换**：设 $f(t)$是 $[0, +\infty)$ 内以T 为周期的函数，且逐段光滑，则$$\displaystyle\mathcal L[f(t)]=\frac{1}{1-e^{-sT}}\int^{T}_{0}f(t)e^{-st}\text{d}t$$
+   **周期函数的Laplace变换**：设 $f(t)$是 $[0, +\infty)$ 内以T 为周期的函数，且逐段光滑，则
+$$
+   \displaystyle\mathcal L[f(t)]=\frac{1}{1-e^{-sT}}\int^{T}_{0}f(t)e^{-st}\text{d}t
+$$
 
 **Laplace变换的性质**
 1. ==线性性质==：设$F_1(s)=\mathcal L[f_1(t)],F_2(s)=\mathcal L[f_2(t)]$
@@ -490,7 +518,7 @@ $\displaystyle\mathcal L[\frac{f(t)}{t^n}]= \mathcal L[\underbrace{\int^∞_sdt\
 
 5. ==延迟性质==：$\text{if } t>0,f(t)=0, \text{then }\forall t_0>0$
  $\mathcal L[f(t-t_0)]=e^{-st_0}F(s)$
-​ $\mathcal L^{-1}[e^{-st_0}F(s)]=f(t-t_0)u(t-t_0)$
+    ​ $\mathcal L^{-1}[e^{-st_0}F(s)]=f(t-t_0)u(t-t_0)$
 
 6. <kbd>卷积定理</kbd>[^1]：设  $F_1(s)=\mathcal{L}[f_1(t)],F_2(s)=\mathcal{L}[f_2(t)]$，则有
 $\mathcal L[f_1*f_2]=F_1(s)\cdot F_2(s) \\
@@ -504,10 +532,17 @@ $\displaystyle\mathcal L[f(t)]=\mathcal F[f(t)u(t)e^{-βt}]=\int_{−∞}^{+∞}
 $\displaystyle f(t)u(t)e^{-βt}=\dfrac{1}{2\pi}\int_{-∞}^{+∞}F(β+iω)e^{iω t}\text{d}ω$
 等式两边同乘 $e^{βt}$，并令 $s=β+iω$ 则有
 $\displaystyle f(t)u(t)=\dfrac{1}{2\pi i}\int_{β-iω}^{β+iω}F(s)e^{st}\text{d}s$
-因此 $$\displaystyle f(t)=\dfrac{1}{2\pi i}\int_{β-iω}^{β+iω}F(s)e^{st}\text{d}s \quad(t>0)$$
+因此 
+$$
+\displaystyle f(t)=\dfrac{1}{2\pi i}\int_{β-iω}^{β+iω}F(s)e^{st}\text{d}s \quad(t>0)
+$$
 
 - **利用留数计算反演积分**
-<kbd>定理</kbd>设 $F(s)$ 在复平面内只有有限个孤立奇点 $s_1,s_2,\cdots,s_n$ ，实数 β使这些奇点全在半平面 $\text{Re}(s)<β$ 内，且 $\lim\limits_{s\to∞}F(s)=0$ ，则有 $$\displaystyle f(t)=\sum_{k=1}^n\text{Res}[F(s)e^{st},s_k]\quad(t>0)$$![Laplace 逆变换](https://img-blog.csdnimg.cn/20190813165528429.png)
+<kbd>定理</kbd>设 $F(s)$ 在复平面内只有有限个孤立奇点 $s_1,s_2,\cdots,s_n$ ，实数 β使这些奇点全在半平面 $\text{Re}(s)<β$ 内，且 $\lim\limits_{s\to∞}F(s)=0$ ，则有 
+$$
+\displaystyle f(t)=\sum_{k=1}^n\text{Res}[F(s)e^{st},s_k]\quad(t>0)
+$$
+![Laplace 逆变换](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/inverse-Laplace-transform.png)
 证明：作半圆将所有奇点包围，设 $C=C_R+L$，由于 $e^{st}$在全平面解析，所以$F(s)e^{st}$的奇点就是 $F(s)$的奇点，由留数定理可得
 $\displaystyle 2\pi i\sum_{k=1}^n\text{Res}[F(s)e^{st},s_k]=\oint_{C}F(s)e^{st}ds=\int_{β-iR}^{β+iR}F(s)e^{st}ds+\int_{C_R}F(s)e^{st}ds$
 由若尔当引理，当 t>0 时，有 $\displaystyle\lim\limits_{R\to+\infty}\int_{C_R}F(s)e^{st}ds=0$
@@ -552,13 +587,12 @@ $\displaystyle \mathcal L[δ(t)]=\lim\limits_{τ\to0}\mathcal L[δ_τ(t)]=\lim\l
 用洛必达法则计算此极限 $\displaystyle\lim\limits_{τ\to0}\frac{1}{τs}(1-e^{-τs})=\lim\limits_{τ\to0}\frac{se^{-τs}}{s}=1$
 所以 $\mathcal L[δ(t)]=1$
 
-
 **微分方程的Laplace变换解法**：主要借助于Laplace变换的微分性质
 ​ $\displaystyle \mathcal L[f^{(n)}(t)]=s^nF(s)-\sum_{k=1}^{n} s^{n-k}f^{(k-1)}(0)$
 (1) 将微分方程(组)化为象函数的代数方程(组)；
 (2) 求解代数方程得到象函数；
 (3) 求Laplace 逆变换得到微分方程(组)的解。
-![微分方程](https://img-blog.csdnimg.cn/20190815132008682.png)
+![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/solving-DE.png)
 
 1. 求解微分方程 $y''+ω^2y=0$ 满足初始条件 $y(0)=0,y'(0)=ω$ 
 (1) 令$Y(s)=\mathcal L[y(t)]$ ，对方程两边取Laplace 变换
@@ -615,7 +649,7 @@ $ms^2X(s)=F_0\implies X(s)=\frac{F_0}{ms^2}$
 
 
 2. 质量为m的物体挂在弹簧系数为k 的弹簧一端(如图)，作用在物体上的外力为 $f(t)$。若物体自静止平衡位置 x = 0 处开始运动，求该物体的运动规律 $x(t)$ 。
-![动力学](https://img-blog.csdnimg.cn/20190815143231886.png)
+![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Laplace-transform-demo.png)
 (1) 根据 Newton 定律及 Hooke 定律，物体的运动规律 $x(t)$ 满足如下的微分方程：
 $mx''(t)+kx(t)=f(t);\quad x(0)=x'(0)$
 (2) 令$X(s)=\mathcal L[x(t)],F(s)=\mathcal L[f(t)]$ ，对方程两边取Laplace 变换，带入初始条件可得
@@ -694,7 +728,7 @@ $$
 $$
 s=(t-t_0)u(t-t_0)
 $$
-![](https://img-blog.csdnimg.cn/20200531160932216.PNG) ![](https://img-blog.csdnimg.cn/20200531160948786.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta.png) ![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta2.png)
 
 示例 2：求解边值问题（物体在 $t=a,b$ 时刻的位移为 0，在 $t_0$ 时刻受到瞬时冲量）
 $$
@@ -718,4 +752,4 @@ $$
 $$
 s=(t-t_0)u(t-t_0)-\frac{b-t_0}{b-a}(t-a)
 $$
-![](https://img-blog.csdnimg.cn/20200531161007225.PNG)![](https://img-blog.csdnimg.cn/20200531161036997.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta3.png)![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta4.png)

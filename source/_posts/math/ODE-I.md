@@ -9,18 +9,6 @@ keywords:
 katex: true
 ---
 
-
-@[toc](常微分方程)
-
-------
-
-[常微分方程(Ordinary Differential Equation I)](https://blog.csdn.net/qq_41518277/article/details/89703473)
-[常微分方程(Ordinary Differential Equation II)](https://blog.csdn.net/qq_41518277/article/details/105707514)
-[常微分方程(Ordinary Differential Equation III)](https://blog.csdn.net/qq_41518277/article/details/105707532)
-
-
-------
-
 # 微分方程基本概念
 
 **微分方程**：包含未知函数及其导数的方程叫做==微分方程==(Differential Equation)。未知函数导数的最高阶数称为该==微分方程的阶==(order)。

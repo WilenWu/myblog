@@ -1,12 +1,12 @@
 ---
 title: 高等数学(Calculus I)
 date: 2019-04-24 14:52:57
-categories: [数学]
-tags: [数学]
+categories: [数学,高等数学]
+tags: [数学,极限,导数,微分,积分]
 cover: 
 top_img: 
-keywords: [极限,导数,微分,积分]
 katex: true
+typora-root-url: 
 ---
 
 ------
@@ -69,7 +69,7 @@ y=f(x),x\in D
 $$
 
 $x$ 为自变量(independent variable)，$y$ 是因变量，$D$ 为定义域。
-示例：符号函数和狄利克雷函数：
+示例：符号函数(signum)和狄利克雷函数(dirichlet)：
 $$
 \text{sgn}=\begin{cases}
 1 &(x>0)\\
@@ -82,7 +82,7 @@ $$
 \end{cases}
 $$
 
-![](https://img-blog.csdnimg.cn/20200702170341611.png) ![](https://img-blog.csdnimg.cn/20200702170341605.png)
+![](https://gitee.com/WilenWu/images/raw/master/math/dirichlet-function.png) ![](https://gitee.com/WilenWu/images/raw/master/math/signum-function.png)
 
 **自然定义域**：函数表达式在实数域中有意义的所有自变量的集合
 **实际定义域**：问题的实际背景所要求的自变量的取值范围
@@ -93,7 +93,7 @@ $$
   偶函数(even)： $f(-x)=f(x)$
   奇函数(odd)： $f(-x)=-f(x)$
   周期函数(periodic function)： $f(x± T)=f(x)$
-  ![](img/inverse-fun.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/math/limit1.png)
 
 - **初等函数**(elementary function)：由常数和基本初等函数经有限次四则运算和有限次函数复合构成的函数，称为初等函数。
 
@@ -110,7 +110,7 @@ $$
   $(2)\lim\limits_{x \to ∞} f(x)=A  \iff ∀ ϵ>0, ∃δ>0,$ 当 $|x|>δ$ 时， 有 $|f(x)-A|<ϵ$
   $(\star)\lim\limits_{x \to x_0} f(x)=A  \iff \lim\limits_{x \to x_0^+} f(x)=\lim\limits_{x \to x_0^-} f(x)=A$
   极限的性质：若极限存在则唯一，函数局部有界且保号。
-  ![](img/limit1.png) ![](img/limit2.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/math/inverse-fun.png) ![](https://gitee.com/WilenWu/images/raw/master/math/limit2.png)
 
 - **极限运算**
   (1) 若 $\lim f(x)=A, \lim g(x)=B$
@@ -134,7 +134,7 @@ $$
 \lim\limits_{x\to 0} \dfrac{\sin x}{x}=1
 $$
 
-![](img/squeeze-theorem.png) ![](img/sin(x)_over_x.png)
+![](https://gitee.com/WilenWu/images/raw/master/math/sin(x)_over_x.png) ![](https://gitee.com/WilenWu/images/raw/master/math/squeeze-theorem.png)
 
    (2) ==准则二==
 若 $∃δ>0,x\in (x_0-δ,x_0)$时，$f(x)$单调有界 $\implies$左极限$f(x_0^-)$存在
@@ -143,7 +143,7 @@ $$
 \lim\limits_{x\to ∞} (1+\dfrac{1}{x})^x=e
 $$
 ($\star$) $f(x)$ 在点$x_0$处极限存在$\iff f(x_0^-)=f(x_0^+)$
-![](img/limit-absence.png)
+![](https://gitee.com/WilenWu/images/raw/master/math/limit-absence.png)
 
 - **无穷小和无穷大的概念**
   (1) $\lim f(x)=\begin{cases} 0 &\text{infinitesimal} \\ ∞ & \text{infinity}\end{cases}$
@@ -191,7 +191,7 @@ $$
   <kbd>零点定理</kbd>(zero theorem) 若$f(x)$在闭区间$[a,b]$上连续，且$f(a)\cdot f(b)<0$，则 至少存在一点$ξ\in(a,b)$，使$f(ξ)=0$
   <kbd>介值定理</kbd>(intermediate value theorem) 若$f(x)$在闭区间$[a,b]$上连续，$f(a)=A,f(b)=B$，则对 $∀ C\in(A,B),∃ ξ\in(a,b)$，使得$f(ξ)=C$
 
-![](img/zero-theorem.png)![](img/intermediate-value-theorem.png)
+![](https://gitee.com/WilenWu/images/raw/master/math/zero-theorem.png)![](https://gitee.com/WilenWu/images/raw/master/math/derivative.png)
 
 - **一致连续**(uniformly continuous)：若$f(x)在[a,b]$上连续，则$f(x)在[a,b]$上一致连续
 
@@ -200,7 +200,7 @@ $$
 ## 导数
 
 引例：切线的斜率，如图，需要寻找曲线 $f(x)$ 在其上任意一点 $P(x_0,y_0)$ 的切线 $PT$，可通过割线 $PQ$ 取极限获得。
-![](img/derivative.png)  
+![](https://gitee.com/WilenWu/images/raw/master/math/intermediate-value-theorem.png)  
 (1) 函数 $y=f(x)$ 在点 $(x_0,y_0)$ 的导数(derivative)定义为 
 $$
 y'\mid_{x=x_0}=\lim\limits_{Δx\to0}\dfrac{f(x_0+Δx)-f(x_0)}{Δx}
@@ -304,7 +304,7 @@ $ψ'(t)$ 与 $φ'(t)$ 之间相互依赖的变化率叫做相关(dependent)变�
 ## 微分
 
 - **微分的定义**
-  ![](img/differential.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/math/differential.png)
    (1) 若函数 $y=f(x)$ 在点$x_0$的增量 $Δy=f(x_0+Δx)-f(x_0)$ 可表示为 
 
 $$
@@ -375,7 +375,7 @@ $$
 $$
 Δy=f'(x+\thetaΔx)Δx\quad(0<\theta<1)
 $$
-![](img/Rolle-mean-value-theorem.png)   ![](img/Lagrange-mean-value-theorem.png)
+![](https://gitee.com/WilenWu/images/raw/master/math/Rolle-mean-value-theorem.png)   ![](https://gitee.com/WilenWu/images/raw/master/math/Lagrange-mean-value-theorem.png)
 
 3. **柯西中值定理**(Cauchy mean value theorem)：$f(x)$ 和 $F(x)$ 在 $[a,b]$ 上连续，$(a,b)$ 内可导，对 $∀ x\in(a,b),F'(x)\neq0$，则存在至少一点 $ξ\in(a,b)$ 使得
 
@@ -416,7 +416,7 @@ $$
 - **函数的单调性**(monotone)：$f(x)$ 在 $[a,b]$ 内连续，$(a,b)$ 内可导，$∀ x\in(a,b)\\
   f'(x)\begin{cases}⩾0,& f(x) 单调递增 \\ ⩽0,& f(x) 单调递减
   \end{cases} \quad(f'(x)\not\equiv0)$
-  ![](img/monotone.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/math/monotone.png)
 
 - **曲线的凹凸性**
   <kbd>定义</kbd>：$f(x)$ 在区间 $I$ 连续，$∀ x_1,x_2\in I$，恒有
@@ -430,7 +430,7 @@ $$
   f''(x)>0,&f(x)凹弧\\f''(x)<0,&f(x)凸弧\end{cases}$
 
    一般的，若函数经过点$(x_0,f(x_0))$函数的凹凸性改变了，点$(x_0,f(x_0))$ 就称为==拐点==(inflection point)。
-  ![](img/inflection-point.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/math/inflection-point.png)
 
 - **函数的极值**(extremum)
   <kbd>定义</kbd>：若函数 $f(x)$ 在点 $x_0$ 的某去心邻域内有定义，对 $∀ x\in\mathring{U}(x_0)$ 有 $f(x)<f(x_0)$ 或 $f(x)>f(x_0)$，称$f(x_0)$ 是函数的一个极大值(maximum)或极小值(minimum)
@@ -443,7 +443,7 @@ $$
   ==(第二充分条件)==：设 $f'(x_0)=0,f''(x_0)\neq0$ 若
   $f''(x_0)\begin{cases}<0,&f(x)在点x_0取得极大值\\>0,&f(x)在点x_0取得极小值
   \end{cases}$
-  ![](img/extremum.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/math/arc-differential.png)
 
 - [**方程的近似解**](https://jingyan.baidu.com/article/7f41ecec213810593d095c28.html)
 
@@ -458,7 +458,7 @@ $$
 \mathrm{d}s=\sqrt{1+y'^2}\mathrm{d}x
 $$
 
-![](img/arc-differential.png)   ![](img/curvature.png) 
+![](https://gitee.com/WilenWu/images/raw/master/math/extremum.png)   ![](https://gitee.com/WilenWu/images/raw/master/math/curvature.png) 
 
 [arcd]: https://jingyan.baidu.com/article/67508eb47596589cca1ce49f.html
 
@@ -474,7 +474,7 @@ $$
 
 
 - **曲率圆**(circle of curvature)：设下图中的内切圆半径为 $a$
-  ![](img/circle-of-curvature.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/math/circle-of-curvature.png)
   弧长 $Δs=aΔα \implies \cfrac{Δα}{Δs}=a$  ，取极限可得到曲率圆，半径 $ρ$ 叫曲率半径
 
 $$
@@ -489,7 +489,7 @@ y_0=y+\dfrac{1+y'^2}{y''}
 \end{cases}
 $$
 
-![](img/center-of-curvature.png)
+![](https://gitee.com/WilenWu/images/raw/master/math/center-of-curvature.png)
 
 - **渐屈线和渐伸线**：当点 $M$ 沿曲线 $f(x)$ 移动时，相应的曲率中心 $D$ 的轨迹曲线
   $G$ 称为 $f(x)$ 的渐屈线(evolute)，曲线 $f(x)$ 叫做曲线 $G$ 的渐伸线(involute)。
@@ -513,7 +513,7 @@ $$
 函数$f(x)$ 称为被积函数(integrand)，$x$为积分变量。
 
 - **几何意义**：称原函数 $y=F(x)$ 的几何图像是 $f(x)$ 的一条==积分曲线==(integral curve)，所有的积分曲线都是由一条积分曲线沿纵轴平移而得到的。
-  ![](img/integral-curve.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/math/integral-curve.png)
 
 ## 基本积分表
 
@@ -593,7 +593,7 @@ $\dfrac{1}{(x-a)^k}$ 和 $\dfrac{Ax+B}{(x^2+px+q)^l}$ ，其中 $p^2-4q<0$，分
 - **引入意义**
   曲边梯形 $y=f(x)$，在区间$x\in[a,b]$上的面积 $A=\lim\limits_{λ\to0}\displaystyle\sum_{i=1}^{n}f(ξ_i)Δx_i$
   变速 $v=v(t)$直线运动在时间段内$t\in[T_1,T_2]$的路程 $s=\lim\limits_{λ\to0}\displaystyle\sum_{i=1}^{n}v(τ_i)Δt_i$
-  ![](img/definite-Integral.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/math/definite-Integral.png)
 
 - **定义**：设函数 $f(x)$ 在区间 $[a,b]$上连续
   将区间$[a,b]$分成 $n$ 个子区间($x_0=a,x_n=b$)
@@ -723,22 +723,22 @@ $$
 
 - 求椭圆的面积：参数方程$\begin{cases}x=a\cos t \\ y=b\sin t\end{cases}$
   $\displaystyle A=4A_1=4\int_0^a y\mathrm{d}x=π ab$
-  ![](img/ellipse-calculus.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/math/ellipse-calculus.png)
 
 - 曲边扇形的面积（极坐标）：$ρ=ρ(θ)\quadθ\in[α,β]$
   $\displaystyle \mathrm{d}A=\dfrac{1}{2}ρ^2(θ)\mathrm{d}θ \implies A=\int_α^β\frac{1}{2}ρ^2(θ)dθ$
 
 - 计算阿基米德螺线的面积（极坐标）：$ρ=aθ\quad(a>0)$
   $\displaystyle \mathrm{d}A=\dfrac{1}{2}(aθ)^2\mathrm{d}θ \implies A=\int_0^{2π}\mathrm{d}A=\dfrac{4}{3}a^2π^3$
-  ![](img/sector-calculus.png) ![](img/rchimedean-spiral.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/math/sector-calculus.png) ![](https://gitee.com/WilenWu/images/raw/master/math/rchimedean-spiral.png)
 
 - 旋转体的体积：曲线$y=f(x)$
   $\displaystyle \mathrm{d}V=π[f(x)]^2\mathrm{d}x \implies  V=\int_a^b π[f(x)]^2\mathrm{d}x$
-  ![](img/revolution.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/math/revolution.png)
 
 - 平面曲线的弧长
   (1) 直角坐标 $\displaystyle y=f(x) \implies  s=\int_a^b\sqrt{1+y'^2}\mathrm{d}x$
   (2) 极坐标 $\displaystyle ρ=ρ(θ) \implies s=\int_{α}^{β}\sqrt{ρ^2(θ)+ρ'^2(θ)}\mathrm{d}θ$
   (3) 参数方程 $\displaystyle\begin{cases}x=x(t) \\ y=y(t) \end{cases} \implies s=\int_{α}^{β}\sqrt{x'^2(t)+y'^2(t)}\mathrm{d}t$
 
-  ![](img/arc-length.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/math/arc-length.png)

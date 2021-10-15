@@ -473,6 +473,8 @@ comments: true
 
 # <font color="red">数学</font>
 
+GeoGebra作图
+
 ## <font color="green">Foundational Math</font>
 
 - :ballot_box_with_check:   [初等数学公式](https://blog.csdn.net/qq_41518277/article/details/89397900) 

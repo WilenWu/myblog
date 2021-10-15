@@ -19,12 +19,16 @@ katex: true
 > 理解矩阵：  https://blog.csdn.net/myan/article/details/647511
 
 ## 矩阵及其运算
-**矩阵的概念**： $m× n$ 矩阵是指下列数表$$\begin{pmatrix}
+**矩阵的概念**： $m× n$ 矩阵是指下列数表
+$$
+\begin{pmatrix}
 a_{11}&a_{12}&\cdots&a_{1n} \\
 a_{21}&a_{22}&\cdots&a_{2n} \\
 \vdots&\vdots&\ddots&\vdots \\
 a_{m1}&a_{m2}&\cdots&a_{mn} \\
-\end{pmatrix}$$矩阵常用大写黑体字母表示，如$A$或$A_{m× n}$，有时也记 $(a_{ij})$或$(a_{ij})_{m× n}$ 。
+\end{pmatrix}
+$$
+矩阵常用大写黑体字母表示，如$A$或$A_{m× n}$，有时也记 $(a_{ij})$或$(a_{ij})_{m× n}$ 。
 其中$a_{ij}$叫做矩阵$A$中的$(i,j)$==元素==(entry)。
 根据矩阵的元素所属的数域，可以将矩阵分为复矩阵和实矩阵。
 
@@ -218,12 +222,16 @@ $\iff A^TA$是正定矩阵
 $\iff A$的行（列）向量组是 $\R^n$的一组基
 
 
-**伴随矩阵**(adjoint matrix)：由行列式$|A|$的各个元素的代数余子式$A_{ij}$，所构成的矩阵$$A^*=\begin{pmatrix}
+**伴随矩阵**(adjoint matrix)：由行列式$|A|$的各个元素的代数余子式$A_{ij}$，所构成的矩阵
+$$
+A^*=\begin{pmatrix}
 A_{11}&A_{21}&\cdots&A_{n1} \\
 A_{12}&A_{22}&\cdots&A_{n2} \\
 \vdots&\vdots&\ddots&\vdots \\
 A_{1n}&A_{2n}&\cdots&A_{nn} \\
-\end{pmatrix}$$叫做矩阵$A$的伴随矩阵。==$AA^*=A^*A=|A|E$==
+\end{pmatrix}
+$$
+叫做矩阵$A$的伴随矩阵。==$AA^*=A^*A=|A|E$==
 
 **逆矩阵的计算**
 (1) 利用初等行变换：$(A,E)\cong (E,A^{-1})$
@@ -262,7 +270,8 @@ a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2 \\
 \cdots \\
 a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n=b_m
 \end{cases} 
-$$当$b_1,b_2,\cdots,b_n$不全为零时称为==非齐次线性方程组==(system of non-homogeneous linear equations)，当$b_1=b_2=\cdots=b_m=0$时称为==齐次线性方程组==(system of homogeneous linear equations)
+$$
+当$b_1,b_2,\cdots,b_n$不全为零时称为==非齐次线性方程组==(system of non-homogeneous linear equations)，当$b_1=b_2=\cdots=b_m=0$时称为==齐次线性方程组==(system of homogeneous linear equations)
 (2) 如果存在n个常数$\begin{cases} 
 x_1=s_1 \\ 
 x_2=s_2 \\
@@ -319,12 +328,15 @@ a_{31} & a_{32} & a_{33}
 +a_{12}(-1)^{1+2}\begin{vmatrix} a_{11} & a_{13} \\ a_{31} & a_{33} \end{vmatrix}
 +a_{13}(-1)^{1+3}\begin{vmatrix} a_{21} & a_{22} \\ a_{31} & a_{32} \end{vmatrix}$
 n阶行列式：
-$$\begin{vmatrix}
+$$
+\begin{vmatrix}
 a_{11}&a_{12}&\cdots&a_{1n} \\
 a_{21}&a_{22}&\cdots&a_{2n} \\
 \vdots&\vdots&\ddots&\vdots \\
 a_{n1}&a_{n2}&\cdots&a_{nn} \\
-\end{vmatrix}=\displaystyle\sum_{k=1}^{n}a_{1k}A_{1k}$$其中，划去元$a_{ij}$所在的第$i$行与第$j$列的元，剩下的元不改变原来的顺序所构成的$n-1$阶行列式称为元$a_{ij}$的==余子式==(cofactor)，记为$M_{ij}$，元$a_{ij}$的==代数余子式== (algebraic cofactor) $A_{ij}=(-1)^{i+j}M_{ij}$
+\end{vmatrix}=\displaystyle\sum_{k=1}^{n}a_{1k}A_{1k}
+$$
+其中，划去元$a_{ij}$所在的第$i$行与第$j$列的元，剩下的元不改变原来的顺序所构成的$n-1$阶行列式称为元$a_{ij}$的==余子式==(cofactor)，记为$M_{ij}$，元$a_{ij}$的==代数余子式== (algebraic cofactor) $A_{ij}=(-1)^{i+j}M_{ij}$
 > 二三阶行列式计算满足对角线法则，四阶及以上行列式不满足对角线法则。
 
 **n阶行列式按行（列）展开**
@@ -388,14 +400,20 @@ $D_n=\begin{vmatrix}
   a_1^{n-1} &a_2^{n-1}&\cdots  &a_n^{n-1} 
 \end{vmatrix}=\displaystyle\prod_{1⩽ i<j⩽ n}(a_j-a_i)$
 
-**克拉默法则**(Cramer rule)：如果n元线性方程组$$
+**克拉默法则**(Cramer rule)：如果n元线性方程组
+$$
 \begin{cases} 
 a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n=b_1 \\ 
 a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n=b_2 \\
 \cdots \\
 a_{n1}x_1+a_{n2}x_2+\cdots+a_{nn}x_n=b_n
 \end{cases} 
-$$的系数行列式$D\neq0$，那么他有唯一解$$x_j=\frac{D_j}{D},(j=1,2,\cdots,n)$$其中$D_j$是把系数行列式$D$中的第$j$列换成常数项 $b_1,b_2,\cdots,b_n$ 所得的行列式
+$$
+的系数行列式$D\neq0$，那么他有唯一解
+$$
+x_j=\frac{D_j}{D},(j=1,2,\cdots,n)
+$$
+其中$D_j$是把系数行列式$D$中的第$j$列换成常数项 $b_1,b_2,\cdots,b_n$ 所得的行列式
 
 # n维向量(N-dimensional Vector)
 ## 向量的概念和运算
@@ -481,15 +499,25 @@ $L=\{\mathbf{x}=λ_1\mathbf{a_1}+λ_2\mathbf{a_2}+\cdots+λ_m\mathbf{a_m}|λ_1,�
 
 **坐标**(coordinate)：如果在 向量空间$V$中选定一组基 $\mathbf{a_1},\mathbf{a_2},\cdots,\mathbf{a_r}$，那么空间中任意一向量可唯一表示为 $\mathbf{x}=λ_1\mathbf{a_1}+λ_2\mathbf{a_2}+\cdots+λ_r\mathbf{a_r}$，其中数组$λ_1,λ_2,\cdots,λ_r$称为向量$\mathbf{x}$在基$\mathbf{a_1},\mathbf{a_2},\cdots,\mathbf{a_r}$中的坐标。并记作 $\mathbf{x}=(λ_1,λ_2,\cdots,λ_r)^T$
 ## 基变换与坐标变换
-**基变换(change of bases)**：设$\mathbf{α_1,α_2,\cdots,α_n}$及$\mathbf{β_1,β_2,\cdots,β_n}$是$V_n$的两组基，他们之间的关系式$$(\mathbf{β_1,β_2,\cdots,β_n})=(\mathbf{α_1,α_2,\cdots,α_n})P$$称为由$\mathbf{α_1,α_2,\cdots,α_n}$到$\mathbf{β_1,β_2,\cdots,β_n}$的==基变换公式==，$n$维可逆矩阵 $P$ 为由基$\mathbf{α_1,α_2,\cdots,α_n}$到基$\mathbf{β_1,β_2,\cdots,β_n}$的==过渡矩阵==(transition matrix)，显然 $P^{-1}$ 为由基$\mathbf{β_1,β_2,\cdots,β_n}$到基$\mathbf{α_1,α_2,\cdots,α_n}$的==过渡矩阵==。
-**坐标变换**(coordinate transformation)：设 $\mathbf{a}\in V_n$，它的基$\mathbf{α_1,α_2,\cdots,α_n}$与基$\mathbf{β_1,β_2,\cdots,β_n}$下的坐标分别为$(x_1,x_2,\cdots,x_n)^T$与$(x'_1,x'_2,\cdots,x'_n)^T$，则有==坐标变换公式==$$\begin{pmatrix} x_1  \\ x_2 \\ \vdots\\ x_n \end{pmatrix}
+**基变换(change of bases)**：设$\mathbf{α_1,α_2,\cdots,α_n}$及$\mathbf{β_1,β_2,\cdots,β_n}$是$V_n$的两组基，他们之间的关系式
+$$
+(\mathbf{β_1,β_2,\cdots,β_n})=(\mathbf{α_1,α_2,\cdots,α_n})P
+$$
+称为由$\mathbf{α_1,α_2,\cdots,α_n}$到$\mathbf{β_1,β_2,\cdots,β_n}$的==基变换公式==，$n$维可逆矩阵 $P$ 为由基$\mathbf{α_1,α_2,\cdots,α_n}$到基$\mathbf{β_1,β_2,\cdots,β_n}$的==过渡矩阵==(transition matrix)，显然 $P^{-1}$ 为由基$\mathbf{β_1,β_2,\cdots,β_n}$到基$\mathbf{α_1,α_2,\cdots,α_n}$的==过渡矩阵==。
+**坐标变换**(coordinate transformation)：设 $\mathbf{a}\in V_n$，它的基$\mathbf{α_1,α_2,\cdots,α_n}$与基$\mathbf{β_1,β_2,\cdots,β_n}$下的坐标分别为$(x_1,x_2,\cdots,x_n)^T$与$(x'_1,x'_2,\cdots,x'_n)^T$，则有==坐标变换公式==
+$$
+\begin{pmatrix} x_1  \\ x_2 \\ \vdots\\ x_n \end{pmatrix}
 =P\begin{pmatrix} x'_1  \\ x'_2 \\ \vdots\\ x'_n \end{pmatrix}\ 或\ 
 \begin{pmatrix} x'_1  \\ x'_2 \\ \vdots\\ x'_n \end{pmatrix}
-=P^{-1}\begin{pmatrix} x_1  \\ x_2 \\ \vdots\\ x_n \end{pmatrix}$$
+=P^{-1}\begin{pmatrix} x_1  \\ x_2 \\ \vdots\\ x_n \end{pmatrix}
+$$
 
 
 ## 向量的内积、长度与正交性
-**内积**(inner products)：设$n$维实向量 $\mathbf{x}=(x_1,x_2,\cdots,x_n),\mathbf{y}=(y_1,y_2,\cdots,y_n)$，定义内积为$$\mathbf{[x,y]}=x_1y_1+x_2y_2+\cdots+x_ny_n=\mathbf{xy}^T$$
+**内积**(inner products)：设$n$维实向量 $\mathbf{x}=(x_1,x_2,\cdots,x_n),\mathbf{y}=(y_1,y_2,\cdots,y_n)$，定义内积为
+$$
+\mathbf{[x,y]}=x_1y_1+x_2y_2+\cdots+x_ny_n=\mathbf{xy}^T
+$$
 性质|表达式
 :---|:---
 对称性|$\mathbf{[x,y]}=\mathbf{[y,x]}$
@@ -552,7 +580,11 @@ $\|\mathbf{y}\|=\sqrt{[\mathbf{y,y}]}=\sqrt{\mathbf{y^Ty}} \\
 # 相似矩阵(Similar Matrix)
 ## 矩阵的特征值和特征向量
 **定义**
-(1) 设$A$是$n$阶矩阵，如果数$λ$和$n$维非零向量$\mathbf{x}$满足$$A\mathbf{x}=λ \mathbf{x}$$,则这样的数$λ$称为矩阵$A$的==特征值==(eigenvalues)，向量$\mathbf{x}$称为$A$的对应于特征值$λ$的==特征向量==(eigenvectors)。
+(1) 设$A$是$n$阶矩阵，如果数$λ$和$n$维非零向量$\mathbf{x}$满足
+$$
+A\mathbf{x}=λ \mathbf{x}
+$$
+则这样的数$λ$称为矩阵$A$的==特征值==(eigenvalues)，向量$\mathbf{x}$称为$A$的对应于特征值$λ$的==特征向量==(eigenvectors)。
 $A\mathbf{x}=λ \mathbf{x} \iff (A-λ E)\mathbf{x}=0$有非零解$\iff |A-λ E|=0$
 (2) 以$λ$为未知数的一元n次方程$|A-λ E|=0$称为A的==特征方程==(characteristic equation)。矩阵A的特征值就是它的特征方程的根.
 (3) $f(λ)=|A-λ E|$称为矩阵Ａ的==特征多项式==(characteristic polynomial)

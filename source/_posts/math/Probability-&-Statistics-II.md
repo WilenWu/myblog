@@ -81,28 +81,51 @@ $D(\bar X)=D(\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}X_i)=\dfrac{1}{n^2}\displays
 **抽样分布**(sampling distribution)：统计量的分布被称为抽样分布
 当总体$X$服从一般分布（如指数分布、均匀分布等），要得出统计量的分布是很困难的。当总体$X$服从正态分布时，统计量 $\bar X,S^2$是可以计算的，本节主要介绍与标准正态总体相关的抽样分布。
 
-==$χ^2$ 分布==(chi-square distribution)：设 $X_1,X_2,…,X_n$ 相互独立，且都服从标准正态分布 $N(0, 1)$ ，则称随机变量 $$χ^2=\displaystyle\sum_{i=1}^{n}X_i^2$$ 服从自由度为 $n$ 的 $χ^2$ 分布，记为 $χ^2∼ χ^2(n)$，自由度指包含的独立变量的个数。
-$χ^2$ 分布的概率密度为：$$f_n(x)=\begin{cases}
+==$χ^2$ 分布==(chi-square distribution)：设 $X_1,X_2,…,X_n$ 相互独立，且都服从标准正态分布 $N(0, 1)$ ，则称随机变量 
+$$
+χ^2=\displaystyle\sum_{i=1}^{n}X_i^2
+$$
+ 服从自由度为 $n$ 的 $χ^2$ 分布，记为 $χ^2∼ χ^2(n)$，自由度指包含的独立变量的个数。
+$χ^2$ 分布的概率密度为：
+$$
+f_n(x)=\begin{cases}
 \dfrac{1}{2Γ(n/2)}(\dfrac{x}{2})^{n/2-1}e^{-x/2},\quad x>0 \\
 0,\quad x⩽0
-\end{cases}$$ 其中 $Γ(x)=\displaystyle\int_{0}^{+∞}t^{x-1}e^{-t}\mathrm{d}t$
+\end{cases}
+$$
+ 其中 $Γ(x)=\displaystyle\int_{0}^{+∞}t^{x-1}e^{-t}\mathrm{d}t$
 ![卡方分布](https://img-blog.csdnimg.cn/20190604114737263.png)
 性质：
 (1) 设 $Y∼ χ^2(n)$，则 $E(Y)=n,D(Y)=2n$
 (2) 分布的可加性：设 $Y_1∼ χ^2(n_1),Y_2∼ χ^2(n_2)$，且$Y_1,Y_2$相互独立，则 $Y_1+Y_2∼ χ^2(n_1+n_2)$
 推广：设$Y_1,Y_2,\cdots,Y_m$相互独立，且 $Y_i∼ χ^2(n_i)$，则 $\displaystyle\sum_{i=1}^{m}Y_i∼ χ^2(\sum_{i=1}^{m}n_i)$
 
-==t 分布==(t-distribution)：设 $X∼ N(0,1),Y∼ χ^2(n)$，且 X与 Y 相互独立，则称随机变量$$T=\dfrac{X}{\sqrt{Y/n}}$$服从自由度为 n 的 t 分布，记为 $T∼ t(n)$
-$t(n)$分布的概率密度为：$$f_n(x)=\dfrac{Γ(\frac{n+1}{2})}{\sqrt{nπ}Γ(\frac{n}{2})}(1+\dfrac{x^2}{n})^{-\frac{n+1}{2}},\quad x\in\R$$
+==t 分布==(t-distribution)：设 $X∼ N(0,1),Y∼ χ^2(n)$，且 X与 Y 相互独立，则称随机变量
+$$
+T=\dfrac{X}{\sqrt{Y/n}}
+$$
+服从自由度为 n 的 t 分布，记为 $T∼ t(n)$
+$t(n)$分布的概率密度为：
+$$
+f_n(x)=\dfrac{Γ(\frac{n+1}{2})}{\sqrt{nπ}Γ(\frac{n}{2})}(1+\dfrac{x^2}{n})^{-\frac{n+1}{2}},\quad x\in\R
+$$
 特别地，$n=1$ 的 t 分布就是柯西分布 $f(x)=\dfrac{1}{π(1+x^2)},x\in\R$
 $\lim\limits_{n\to∞}f_n(x)=\dfrac{1}{\sqrt{2π}}e^{-x^2/2},x\in\R$
 ![t分布](https://img-blog.csdnimg.cn/20190604123728569.png)
 
-==F 分布==(F-distribution)：设 $X∼ χ^2(n_1),Y∼ χ^2(n_2)$，且 X与 Y 相互独立，则称随机变量$$F=\dfrac{X/n_1}{Y/n_2}$$服从自由度为 $(n_1,n_2)$ 的 F 分布，记为 $F∼ F(n_1,n_2)$，其中 $n_1$称为第一自由度, $n_2$称为第二自由度。
-$F(n_1,n_2)$分布的概率密度为：$$f(x)=\begin{cases}
+==F 分布==(F-distribution)：设 $X∼ χ^2(n_1),Y∼ χ^2(n_2)$，且 X与 Y 相互独立，则称随机变量
+$$
+F=\dfrac{X/n_1}{Y/n_2}
+$$
+服从自由度为 $(n_1,n_2)$ 的 F 分布，记为 $F∼ F(n_1,n_2)$，其中 $n_1$称为第一自由度, $n_2$称为第二自由度。
+$F(n_1,n_2)$分布的概率密度为：
+$$
+f(x)=\begin{cases}
 \dfrac{(n_1/n_2)^{\frac{n_1}{2}}}{B(\frac{n_1}{2},\frac{n_2}{2})}x^{\frac{n_1}{2}-1}(1+\frac{n_1}{n_2}x)^{-\frac{n_1+n_2}{2}},x>0 \\
 0,\quad x⩽ 0
-\end{cases}$$其中 $B(a,b)=\displaystyle\int_0^1x^{a-1}(1-x)^{b-1}\mathrm{d}x=\dfrac{Γ(a)Γ(b)}{Γ(a+b)}$
+\end{cases}
+$$
+其中 $B(a,b)=\displaystyle\int_0^1x^{a-1}(1-x)^{b-1}\mathrm{d}x=\dfrac{Γ(a)Γ(b)}{Γ(a+b)}$
 ![F分布](https://img-blog.csdnimg.cn/20190604131851601.png)
 重要性质：若 $F∼ F(n_1,n_2)$，则$\dfrac{1}{F}∼ F(n_2,n_1)$
 
@@ -160,11 +183,30 @@ $\hat μ=\bar X,\hatσ^2=\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}(X_i-\bar X)^2 \
 
 **极大似然估计法**(Maximum Likelihood Estimate,MLE)
 Fisher的极大似然思想：
-假设总体 $X$ 是离散型随机变量，其分布律为 $P\{X=x\}=p(x;θ),θ\in Θ$，θ未知，$X_1,X_2,…,X_n$为样本，其观察值为 $x_1,x_2,…,x_n$，则事件 $\{X_1=x_1,X_2=x_2,\cdots,X_n=x_n\}$发生的概率（联合分布律）为$$L(θ)=L(x_1,x_2,…,x_n;θ)=\displaystyle\prod_{i=1}^{n} p(x_i;θ),θ\in Θ$$这一概率随θ的取值而改变，我们自然的认为使概率取得最大值的θ值较为合理，$L(θ)$称为样本的==似然函数==(likelihood function)，方程$$L(\hat θ)=\displaystyle\max_{θ\in Θ} L(θ),\hat θ=\hat θ(x_1,x_2,…,x_n)$$的解 $\hat θ$称为极大似然估计值，统计量 $\hat θ=\hat θ(X_1,X_2,…,X_n)$为θ 的==极大似然估计量==(MLE)
-连续型随机变量 $X$的概率密度函数为 $f(x;θ),θ\in Θ$，可取得似然函数为$$L(θ)=L(x_1,x_2,…,x_n;θ)=\displaystyle\prod_{i=1}^{n} f(x_i;θ),θ\in Θ$$
+假设总体 $X$ 是离散型随机变量，其分布律为 $P\{X=x\}=p(x;θ),θ\in Θ$，θ未知，$X_1,X_2,…,X_n$为样本，其观察值为 $x_1,x_2,…,x_n$，则事件 $\{X_1=x_1,X_2=x_2,\cdots,X_n=x_n\}$发生的概率（联合分布律）为
+$$
+L(θ)=L(x_1,x_2,…,x_n;θ)=\displaystyle\prod_{i=1}^{n} p(x_i;θ),θ\in Θ
+$$
+这一概率随θ的取值而改变，我们自然的认为使概率取得最大值的θ值较为合理，$L(θ)$称为样本的==似然函数==(likelihood function)，方程
+$$
+L(\hat θ)=\displaystyle\max_{θ\in Θ} L(θ),\hat θ=\hat θ(x_1,x_2,…,x_n)
+$$
+的解 $\hat θ$称为极大似然估计值，统计量 $\hat θ=\hat θ(X_1,X_2,…,X_n)$为θ 的==极大似然估计量==(MLE)
+连续型随机变量 $X$的概率密度函数为 $f(x;θ),θ\in Θ$，可取得似然函数为
+$$
+L(θ)=L(x_1,x_2,…,x_n;θ)=\displaystyle\prod_{i=1}^{n} f(x_i;θ),θ\in Θ
+$$
 
-在许多情况下，$p(x;θ),f(x;θ)$关于θ可微，这时 $\hat θ$常可从方程 $\dfrac{\mathrm{d}}{\mathrm{d}θ}L(θ)=0$解得，又因 $L(θ)$和 $\ln L(θ)$在同一处取得极值，因此$\hat θ$也可从方程$$\dfrac{\mathrm{d}}{\mathrm{d}θ}\ln L(θ)=0$$求得，这一方程被称作==对数似然方程==。
-极大似然估计法同样适用于分布中含多个参数 $θ_1, θ_2,…, θ_m$的情况，这时似然函数L是这些未知参数的函数，分别令 $\dfrac{∂}{∂θ_i}L=0,i=1,2,\cdots,m$或$$\dfrac{∂}{∂θ_i}\ln L=0,i=1,2,\cdots,m$$解上述由m个方程组成的方程组即可，上式称为==对数似然方程组==。
+在许多情况下，$p(x;θ),f(x;θ)$关于θ可微，这时 $\hat θ$常可从方程 $\dfrac{\mathrm{d}}{\mathrm{d}θ}L(θ)=0$解得，又因 $L(θ)$和 $\ln L(θ)$在同一处取得极值，因此$\hat θ$也可从方程
+$$
+\dfrac{\mathrm{d}}{\mathrm{d}θ}\ln L(θ)=0
+$$
+求得，这一方程被称作==对数似然方程==。
+极大似然估计法同样适用于分布中含多个参数 $θ_1, θ_2,…, θ_m$的情况，这时似然函数L是这些未知参数的函数，分别令 $\dfrac{∂}{∂θ_i}L=0,i=1,2,\cdots,m$或
+$$
+\dfrac{∂}{∂θ_i}\ln L=0,i=1,2,\cdots,m
+$$
+解上述由m个方程组成的方程组即可，上式称为==对数似然方程组==。
 设总体$X∼ N(μ,σ^2)\implies\hat μ=\bar X,\hatσ^2=\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}(X_i-\bar X)^2 \triangleq \tilde S^2$
 设总体$X∼ U(a,b)\implies\hat a=\min\{X_1,X_2,\cdots,X_n\}=X_{(1)},\hat b=\max\{X_1,X_2,\cdots,X_n\}=X_{(n)}$
 
@@ -214,7 +256,11 @@ $\lim\limits_{n\to∞}E(\tilde S^2)=σ^2$，$\tilde S^2$是方差的渐进无偏
 对于一个未知量，根据具体样本观测值，点估计提供一个明确的数值。还希望根据所给的样本确定一个随机区间， 使其包含参数真值的概率达到指定的要求。
 
 **置信区间**(Confidence Intervals)：设总体 $X∼ F(x;θ),θ\inΘ$，若对
-给定的$α(0<α<1)$，由来自 $X$的样本确定的两个统计量 $\hat θ_L=\hat θ_L(X_1,X_2,…,X_n),\hat θ_U=\hat θ_U(X_1,X_2,…,X_n)(\hatθ_L<\hatθ_U)$，对于$∀ θ\inΘ$，满足$$P\{\hatθ_L<θ<\hatθ_U\}⩾ 1-α$$则称随机区间$(\hatθ_L,\hatθ_U)$为θ的置信度为 $1-α$ 的==置信区间==(confidence interval)。$\hatθ_L,\hatθ_U$分别称为置信下限和置信上限， $1-α$称为==置信度==或==置信水平==(confidence level)。
+给定的$α(0<α<1)$，由来自 $X$的样本确定的两个统计量 $\hat θ_L=\hat θ_L(X_1,X_2,…,X_n),\hat θ_U=\hat θ_U(X_1,X_2,…,X_n)(\hatθ_L<\hatθ_U)$，对于$∀ θ\inΘ$，满足
+$$
+P\{\hatθ_L<θ<\hatθ_U\}⩾ 1-α
+$$
+则称随机区间$(\hatθ_L,\hatθ_U)$为θ的置信度为 $1-α$ 的==置信区间==(confidence interval)。$\hatθ_L,\hatθ_U$分别称为置信下限和置信上限， $1-α$称为==置信度==或==置信水平==(confidence level)。
 说明：
 (1) 参数θ虽然未知，但是确定的值。置信区间$(\hatθ_L,\hatθ_U)$是随机的，依赖于样本，样本不同，算出的区间也不同。对于有些样本观察值，区间覆盖θ，但对于另一些样本观察值，区间则不能覆盖。反复抽样多次(各次样本容量相同)，按伯努利大数定律，在这些区间中，包含真值的比例约为 $1-α$
 (2) 相同的置信水平也可以得到不同的区间估计。称置信区间$(\hatθ_L,\hatθ_U)$的平均长度$E(\hatθ_U-\hatθ_L)$为区间的==精确度==(accuracy)（长度最短，精度最高），精确度的一半为==误差限==(error limit)。在给定的样本容量下，置信水平和精确度是相互制约的。
@@ -284,13 +330,17 @@ $σ^2_1/σ^2_1$|$μ$未知| $\dfrac{S_1^2/S_2^2}{σ_1^2/σ_2^2}∼ F(n_1-1,n_2-1
 (2) 然而，由于样本的随机性，当实际上 $H_0$为真时，仍有可能拒绝原假设（这种可能性是无法消除的），犯这种错误的概率记为 $P_{μ\in H_0}\{拒绝H_0\}=P\{\rm type\ I\ error\}$。
 为了确定常数 $k$，我们希望犯这类错误的最大概率为 $α\in(0,1)$，令$P\{\rm type\ I\ error\}=P\{\left|\dfrac{\bar X-μ_0}{σ/\sqrt{n}}\right|⩾ k\}=α$，由于 $H_0$为真时，$Z=\dfrac{\bar X-μ_0}{σ/\sqrt{n}}∼ N(0,1)$
 由正态分布分位点的定义知，$k=z_{α/2}$，当$|z|⩾ z_{α/2}$时，拒绝原假设。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190611121318308.png)
+![](https://img-blog.csdnimg.cn/20190611121318308.png)
 
 
 
 **综述**
 上例统计量  $Z=\dfrac{\bar X-μ_0}{σ/\sqrt{n}}$ 称为==检验统计量==(test statistic)，数 $α$ 称为==显著水平==(significance level)，一般$α$很小 $(α=0.01,α=0.05,α=0.1)$。当检验统计量取某个区域 C 中的值，我们拒绝原假设，则称区域 C 为==拒绝域==(rejection region)，他的补集称为接受域，拒绝域的边界点称为==临界点==(critical point)。
-前面的检验问题叙述成：在显著性水平 $α$ 下，检验$$H_0: μ=μ_0,\quad H_1: μ\neqμ_0$$$H_0$称为==原假设(零假设 null hypothesis)== ，$H_1$称为==备择假设(对立假设 alternative hypothesis)== 。
+前面的检验问题叙述成：在显著性水平 $α$ 下，检验
+$$
+H_0: μ=μ_0,\quad H_1: μ\neqμ_0
+$$
+$H_0$称为==原假设(零假设 null hypothesis)== ，$H_1$称为==备择假设(对立假设 alternative hypothesis)== 。
 
 原假设与备择假设是不对称的！决定谁是原假设，依赖于立场、惯例、方便性。
 (1) 保护原假设。如果错误地拒绝假设A比错误地拒绝假设B带来更严重的后果——A选作原假设。例如：2013年禽流感期间，一旦出现高烧一般先假定为禽流感患者
@@ -329,7 +379,11 @@ $H_0: μ=μ_0,\quad H_1: μ=μ_1>μ_0$，拒绝域$\bar X⩾ C$
 ## 置信区间和假设检验的关系(The relationship between confidence intervals and hypothesis testing)
 置信区间和假设检验之间有明显的关联，先考察置信区间和双边检验的关系
 设总体 $X∼ F(x;θ),θ\inΘ$， $X_1,X_2,\cdots,X_n$是来自总体的样本， $x_1,x_2,\cdots,x_n$是样本值
-(1) 设区间$(\hatθ_L,\hatθ_U)$为θ的置信水平为 $1-α$ 的置信区间。则对于$∀ θ\inΘ$，满足$$P\{\hatθ_L<θ<\hatθ_U\}⩾ 1-α \tag{1}$$其中 $\hat θ_L=\hat θ_L(X_1,X_2,…,X_n),\hat θ_U=\hat θ_U(X_1,X_2,…,X_n)(\hatθ_L<\hatθ_U)$
+(1) 设区间$(\hatθ_L,\hatθ_U)$为θ的置信水平为 $1-α$ 的置信区间。则对于$∀ θ\inΘ$，满足
+$$
+P\{\hatθ_L<θ<\hatθ_U\}⩾ 1-α \tag{1}
+$$
+其中 $\hat θ_L=\hat θ_L(X_1,X_2,…,X_n),\hat θ_U=\hat θ_U(X_1,X_2,…,X_n)(\hatθ_L<\hatθ_U)$
 (2) 考虑显著性水平为 $α$ 的双边检验 $H_0: θ=θ_0,\quad H_1: θ\neq θ_0$，由(1)式得 $P\{θ_0⩽ \hatθ_L∪ θ_0⩾ \hatθ_U\}⩽ α$，则假设检验的拒绝域为 $θ_0⩽ \hatθ_L∪ θ_0⩾ \hatθ_U$，接受域为 $\hatθ_L<θ_0<\hatθ_U$
 这就是说当我们做上述假设检验时，先求出θ的置信区间，若 $θ_0\in(\hatθ_L,\hatθ_U)$则接受原假设 $H_0$，若 $θ_0\not\in(\hatθ_L,\hatθ_U)$则拒绝原假设 $H_0$
 反之，显著水平为 $α$ 的双边检验也是置信水平为 $1-α$ 的置信区间。
@@ -639,7 +693,11 @@ $F_A∼ F(r-1,rs(t-1)) \\
 设随机变量 $Y$(因变量)与普通变量 $x$(自变量)存在着相关关系，对于 $x$的确定值， $Y$有他的分布（图中$C_1,C_2$分别是 $x_1,x_2$处 $Y$ 的概率密度曲线），用 $F(y|x)$ 表示 $Y$的分布函数，然而此函数讨论过于复杂，我们转而讨论 $E(Y)=μ(x)$与$x$的关系，称为 $Y$ 关于 $x$ 的==回归函数==(regression function)。同时以回归函数作为 $Y$ 的近似，其均方误差 $E[Y-μ(x)]^2$ 最小。
 ![一元回归](https://img-blog.csdnimg.cn/20190624145653732.png)
 
-对从整体 $(x,Y)$ 中抽取的一个样本 $(x_1,Y_1),(x_2,Y_2),\cdots,(x_n,Y_n)$，样本值为 $(x_1,y_1),(x_2,y_2),\cdots,(x_n,y_n)$，若 $μ(x)$ 为线性函数 $μ(x)=a+bx$，此时的问题称为一元线性回归问题。$Y∼ N(a+bx,σ^2)$，设 $ϵ=Y-(a+bx)$则$$Y=a+bx+ϵ,\quad ϵ∼ N(0,σ^2)$$其中 $a,b,σ^2$ 都是不依赖于 $x$ 的未知参数，因变量 $Y$ 由线性函数和随机误差 $ϵ$ 组成。
+对从整体 $(x,Y)$ 中抽取的一个样本 $(x_1,Y_1),(x_2,Y_2),\cdots,(x_n,Y_n)$，样本值为 $(x_1,y_1),(x_2,y_2),\cdots,(x_n,y_n)$，若 $μ(x)$ 为线性函数 $μ(x)=a+bx$，此时的问题称为一元线性回归问题。$Y∼ N(a+bx,σ^2)$，设 $ϵ=Y-(a+bx)$则
+$$
+Y=a+bx+ϵ,\quad ϵ∼ N(0,σ^2)
+$$
+其中 $a,b,σ^2$ 都是不依赖于 $x$ 的未知参数，因变量 $Y$ 由线性函数和随机误差 $ϵ$ 组成。
 一元线性回归要解决的问题：
 参数估计：$\begin{cases} 
 a,b 的估计 \\ 
@@ -655,13 +713,21 @@ Y 的点预测
 (1) $a,b$ 的估计：最小二乘法
 由一元线性回归模型得 $Y_i=a+bx_i+ϵ,\quad ϵ_i∼ N(0,σ^2)$且相互独立，用最大似然法来估计未知参数。只需函数取$Q(a,b)=\displaystyle\sum_{i=1}^{n}(y_i-a-bx_i)^2$取最小值，若 $Y$ 不是正态分布，使 $Y$ 的观察值 $y_i$ 与 $a+bx_i$ 偏差的平方和为最小，这种方法叫==最小二乘法==(least square method)。
 求估计值 $\hat a,\hat b$ ，使$\displaystyle Q(\hat a,\hat b)=\min_{a,b}Q(a,b)$
-$\dfrac{∂ Q}{∂ a}=0,\dfrac{∂ Q}{∂ b}=0$得方程组$$\begin{cases} 
+$\dfrac{∂ Q}{∂ a}=0,\dfrac{∂ Q}{∂ b}=0$得方程组
+$$
+\begin{cases} 
 \displaystyle na+(\sum_{i=1}^{n}x_i)b=\sum_{i=1}^{n}y_i \\ 
 \displaystyle (\sum_{i=1}^{n}x_i)a+(\sum_{i=1}^{n}x_i^2)b=\sum_{i=1}^{n}x_iy_i
-\end{cases}$$称为==正规方程组==(normal system of equations)。由于 $x_i$不全相同，系数行列式不为零，故上述方程有唯一解。则估计值为 $$\begin{cases} 
+\end{cases}
+$$
+称为==正规方程组==(normal system of equations)。由于 $x_i$不全相同，系数行列式不为零，故上述方程有唯一解。则估计值为 
+$$
+\begin{cases} 
 \hat b=\dfrac{S_{xy}}{S_{xx}} \\
 \hat a=\bar y-\hat b\bar x
-\end{cases}$$其中 $\displaystyle
+\end{cases}
+$$
+其中 $\displaystyle
 S_{xx}=\sum_{i=1}^{n}(x_i-\bar x)^2 \\
 S_{yy}=\sum_{i=1}^{n}(y_i-\bar y)^2 \\
 S_{xy}=\sum_{i=1}^{n}(x_i-\bar x)(y_i-\bar y) \\
@@ -722,14 +788,30 @@ Y=\dfrac{θ_1}{1+exp(θ_2+θ_3^x)}+ϵ\quad(Logistic 模型)$
 
 
 ## 多元线性回归(Multiple Linear Regression)
-在实际问题中，随机变量 $Y$ 往往与多个变量 $x_1,x_2,\cdots,x_p(p>1)$ 有关，若 $Y$ 的数学期望存在，记为$μ(x_1,x_2,\cdots,x_p)$它就是 $Y$ 关于 $x$的回归函数为，再次，我们只讨论线性回归模型$$Y=b_0+b_1x_1+b_2x_2=\cdots+b_px_p+ϵ,\quad ϵ∼ N(0,σ^2)$$ 其中 $b_0,b_1,b_2,\cdots,b_p$ 都是与 $x_1,x_2,\cdots,x_p$ 无关的未知参数。
-设  $(x_{11},x_{12},\cdots,x_{1p}),\cdots,(x_{n1},x_{n2},\cdots,x_{np})$ 是一个样本，我们用最小二乘法来估计未知参数，只需函数$$Q(b_0,b_1,b_2,\cdots,b_p)=\displaystyle\sum_{i=1}^{n}[y_i-(b_0+b_1x_1+b_2x_2=\cdots+b_px_p)]^2$$取最小值，即估计值满足$$
-\displaystyle Q(\hat b_0,\hat b_1,\hat b_2,\cdots,\hat b_p)=\min Q(b_0,b_1,b_2,\cdots,b_p )$$求偏导数$\dfrac{∂ Q}{∂ b_0}=0,\dfrac{∂ Q}{∂ b_j}=0(j=1,2,\cdots,p)$得方程组$$\begin{cases} 
+在实际问题中，随机变量 $Y$ 往往与多个变量 $x_1,x_2,\cdots,x_p(p>1)$ 有关，若 $Y$ 的数学期望存在，记为$μ(x_1,x_2,\cdots,x_p)$它就是 $Y$ 关于 $x$的回归函数为，再次，我们只讨论线性回归模型
+$$
+Y=b_0+b_1x_1+b_2x_2=\cdots+b_px_p+ϵ,\quad ϵ∼ N(0,σ^2)
+$$
+ 其中 $b_0,b_1,b_2,\cdots,b_p$ 都是与 $x_1,x_2,\cdots,x_p$ 无关的未知参数。
+设  $(x_{11},x_{12},\cdots,x_{1p}),\cdots,(x_{n1},x_{n2},\cdots,x_{np})$ 是一个样本，我们用最小二乘法来估计未知参数，只需函数
+$$
+Q(b_0,b_1,b_2,\cdots,b_p)=\displaystyle\sum_{i=1}^{n}[y_i-(b_0+b_1x_1+b_2x_2=\cdots+b_px_p)]^2
+$$
+取最小值，即估计值满足
+$$
+\displaystyle Q(\hat b_0,\hat b_1,\hat b_2,\cdots,\hat b_p)=\min Q(b_0,b_1,b_2,\cdots,b_p )
+$$
+求偏导数$\dfrac{∂ Q}{∂ b_0}=0,\dfrac{∂ Q}{∂ b_j}=0(j=1,2,\cdots,p)$得方程组
+$$
+\begin{cases} 
 \displaystyle b_0n+b_1\sum_{i=1}^{n}x_{i1}+b_2\sum_{i=1}^{n}x_{i2}+\cdots+b_p\sum_{i=1}^{n}x_{ip}=\sum_{i=1}^{n}y_i \\ 
 \displaystyle b_0\sum_{i=1}^{n}x_{i1}+b_1\sum_{i=1}^{n}x_{i1}^2+b_2\sum_{i=1}^{n}x_{i1}\sum_{i=1}^{n}x_{i2}+\cdots+b_p\sum_{i=1}^{n}x_{i1}\sum_{i=1}^{n}x_{ip}=\sum_{i=1}^{n}x_{i1}y_i \\
 \cdots \\
 \displaystyle b_0\sum_{i=1}^{n}x_{ip}+b_1\sum_{i=1}^{n}x_{i1}\sum_{i=1}^{n}x_{ip}+b_2\sum_{i=1}^{n}x_{ip}\sum_{i=1}^{n}x_{i2}+\cdots+b_p\sum_{i=1}^{n}x_{ip}^2=\sum_{i=1}^{n}x_{ip}y_i
-\end{cases}$$称为==正规方程组==，引入矩阵 $$
+\end{cases}
+$$
+称为==正规方程组==，引入矩阵 
+$$
 \bf{X}=\begin{pmatrix}
 1&x_{11}&x_{12}&\cdots&x_{1p} \\
 1&x_{21}&x_{22}&\cdots&x_{2p} \\
@@ -748,7 +830,9 @@ b_1 \\
 \vdots \\
 b_p \\
 \end{pmatrix},
-$$因 $$
+$$
+因 
+$$
 \bf{X^TX}=\begin{pmatrix}
 n&\displaystyle \sum_{i=1}^{n}x_{i1}&\cdots&\displaystyle \sum_{i=1}^{n}x_{ip} \\
 \displaystyle \sum_{i=1}^{n}x_{i1} &\displaystyle \sum_{i=1}^{n}x_{i1}^2&\cdots&\displaystyle \sum_{i=1}^{n}x_{i1}x_{ip} \\
@@ -761,15 +845,21 @@ n&\displaystyle \sum_{i=1}^{n}x_{i1}&\cdots&\displaystyle \sum_{i=1}^{n}x_{ip} \
 \displaystyle\sum_{i=1}^{n}x_{i1}y_i \\
 \displaystyle\sum_{i=1}^{n}x_{ip}y_i
 \end{pmatrix}
-$$上式化为矩阵方程 $$\bf{X^TXB=X^TY}$$可求得其解为 $$
+$$
+上式化为矩阵方程 
+$$
+\bf{X^TXB=X^TY}
+$$
+可求得其解为 
+$$
 \bf{\hat B}=\begin{pmatrix}
 \hat b_0 \\
 \hat b_1 \\
 \vdots \\
 \hat b_p \\
 \end{pmatrix}=\bf{(X^TX)^{-1}X^TY}
-$$ 于是我们求得经验回归方程为 $\hat y=\hat b_0+\hat b_1x_1+\hat b_2x_2=\cdots+\hat b_px_p$
-
+$$
+于是我们求得经验回归方程为 $\hat y=\hat b_0+\hat b_1x_1+\hat b_2x_2=\cdots+\hat b_px_p$
 
 
 

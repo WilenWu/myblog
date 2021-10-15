@@ -2,24 +2,23 @@
 title: 高等数学(空间解析几何)
 date: 2019-05-03 11:22:02
 categories: [数学]
-tags: [数学]
+tags: [数学,向量代数,解析几何]
 cover: 
 top_img: 
-keywords: 
 katex: true
 ---
 
-
-@[toc](空间解析几何)
 # 向量代数
+
 ## 空间直角坐标系
+
 (1) 过空间中一定点，作三条互相垂直的数轴构成的坐标系称为空间直角坐标系 (space rectangular coordinate system)
 (2) 有序三元数组$(x,y,z)$称为点 $M$ 的坐标(coordinate)，也记为$M(x,y,z)$
 (3) 空间中的两点$M_1(x_1,y_1,z_1),M_1(x_1,y_1,z_1)$ 间距离(distance)公式
 $$
 |M_1M_2|=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2+(z_1-z_2)^2}
 $$
-![](https://img-blog.csdnimg.cn/20200526160318156.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/math/coordinate.png)
 
 ## 向量和线性运算 
 - **向量的记法**：加粗 (如 **a、b、u、v**)或者加小箭头（如 $\vec a,\vec b, \overrightarrow{AB}$）
@@ -27,11 +26,11 @@ $$
 - **向量的大小**：叫做向量的模(modulus)，记作 |**a**| ,$|\vec b|, |\overrightarrow{AB}|$，模等于1的向量叫做单位向量(unit vector)记作 $\vec e$ 或 **e**，模等于0的叫做零向量(zero vector)，记作 $\vec 0$ 或 **0**
 
 - **向量夹角**(vector angel)：$(\widehat{\mathbf a,\mathbf b})=\varphi,\varphi\in[0,\pi]$
-![](https://img-blog.csdnimg.cn/20200526160401609.PNG) 
+![](https://gitee.com/WilenWu/images/raw/master/math/vector-angel.png) 
 - **向量的线性运算**
 加法：$\mathbf{c=a+b}$ 遵循平行四边形法则（或三角形法则）
 数乘：$λ\mathbf a$ 方向与 $\mathbf a$ 相同，模 $|λ\mathbf a|=|λ||\mathbf a|$
-![](https://img-blog.csdnimg.cn/20200526160401613.PNG) ![](https://img-blog.csdnimg.cn/20200526160401648.PNG)  
+![](https://gitee.com/WilenWu/images/raw/master/math/parallelogram-law.png) ![](https://gitee.com/WilenWu/images/raw/master/math/triangle-law.png)  
 
 向量运算|表达式
 :---|:---
@@ -44,9 +43,9 @@ $$
 (1) 向量 $\mathbf a$ 平行于 $\mathbf b\iff$存在唯一的数 $\lambda$，使得 $\mathbf b=\lambda \mathbf a$
 (2) 点 $M$，向量 $\mathbf r$ 与三个有序实数对有一一对应关系
 $M\longleftrightarrow \mathbf r=\overrightarrow{OM}=x\mathbf i+y\mathbf j+z\mathbf k\longleftrightarrow (x,y,z)$
-![](https://img-blog.csdnimg.cn/20200526160401690.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/math/vector-coordinate.png)
 - **方向角和方向余弦**：向量 $\mathbf r$ 与三个坐标轴的夹角 $\alpha,\beta,\gamma$ 称为==方向角==，$\cosα,\cosβ,\cosγ$ 称为 $\mathbf r$ 的==方向余弦==。
-![](https://img-blog.csdnimg.cn/202005261621247.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/math/direction-cosine-math.png)
 
 坐标运算|$\mathbf a=(x_1,y_1,z_1),\mathbf b=(x_2,y_2,z_2),\mathbf c=(x_3,y_3,z_3)\\ \mathbf r=(x,y,z)$
 :---|:---
@@ -64,7 +63,7 @@ $M\longleftrightarrow \mathbf r=\overrightarrow{OM}=x\mathbf i+y\mathbf j+z\math
 (2) $\mathbf a \times\mathbf b=0 \iff \mathbf a\parallel\mathbf b$
 (2) $[\mathbf a\mathbf b\mathbf c]=0 \iff \mathbf a,\mathbf b,\mathbf c$ 共面
 
-![](https://img-blog.csdnimg.cn/20200526162816875.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/math/mixed-product.png)
 
 # 空间解析几何
 ## 平面及其方程
@@ -76,7 +75,7 @@ $$
 $$
 A(x-x_0)+B(y-y_0)+C(z-z_0)=0
 $$
-![](https://img-blog.csdnimg.cn/2020052616353884.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/math/plane-equation.png)
 - **平面一般方程** 
 $$
 Ax+By+Cz+D=0
@@ -85,13 +84,13 @@ $$
 $$
 \dfrac{x}{a}+\dfrac{y}{b}+\dfrac{z}{c}=0
 $$
-![](https://img-blog.csdnimg.cn/20200526164305512.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/math/intercept-form-equation.png)
 
 - **两平面的夹角**(included angle)：两平面法线的夹角。
 $$
 \cos\theta=|\cos(\widehat{\mathbf n_1,\mathbf n_2})|
 $$
-![](https://img-blog.csdnimg.cn/20200526164320413.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/math/plane-included-angle.png)
 
 ## 空间直线及其方程
 - **空间直线的一般方程**：两平面的交线
@@ -103,7 +102,7 @@ $$
 已知过直线上一点 $M_0(x_0,y_0,z_0)$ 和 它的方向向量 $\mathbf s=(m,n,p)$ ，由平行关系可知
 $$
 \mathbf s\times\overrightarrow{M_0M}=0
-$$ 
+$$
 于是可求得
 $$
 \dfrac{x-x_0}{m}= \dfrac{y-y_0}{n}= \dfrac{z-z_0}{p}
@@ -133,36 +132,36 @@ $$
 设 $yOz$ 坐标面上有一曲线 $C$，方程为
 $$
 f(y,z)=0
-$$  
+$$
 绕  $z$ 轴旋转的曲面方程为
 $$
 f(\pm\sqrt{x^2+y^2},z)=0
-$$  
+$$
 $x$轴、$y$ 轴同理
-![](https://img-blog.csdnimg.cn/20200526170431201.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/math/surface-of-revolution.png)
    (1) 圆锥曲面(conic surface)：$z^2=a^2(x^2+y^2)\quad a=\cot\alpha$
-![](https://img-blog.csdnimg.cn/20200526170803955.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/math/conic-surface.png)
 
    (2) 双曲面(hyperboloid)：$xOz$坐标面上的双曲线$\dfrac{x^2}{a^2}-\dfrac{z^2}{c^2}=1$
 旋转单叶双曲面：（绕 $z$ 轴旋转）$\dfrac{x^2+y^2}{a^2}-\dfrac{z^2}{c^2}=1$
 旋转双叶双曲面：（绕 $x$ 轴旋转）$\dfrac{x^2}{a^2}-\dfrac{y^2+z^2}{c^2}=1$
-![](https://img-blog.csdnimg.cn/2020052617080443.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/math/hyperboloid.png)
 
 - **柱面**(cylinder)：直线 $L$（母线）沿曲线 $C$（准线）平行移动形成的轨迹。
 一般的只含 $x,y$ 而缺 $z$ 的方程 $F(x,y)=0$ 表示母线平行于 $z$ 轴的柱面，其准线是 $xOy$ 平面上的曲线 $F(x,y)=0$，$x,y$ 轴类似。
-![](https://img-blog.csdnimg.cn/20200526171138801.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/math/cylinder.png)
 
 -  **二次曲面**(quadric surface)：与曲线类似，我们把三元二次方程形成的曲面叫做二次曲面，平面称为一次曲面。
 (1) 椭圆锥面(elliptic cone) $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=z^2$
-![](https://img-blog.csdnimg.cn/20200526171347950.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/math/elliptic-cone.png)
 (2) 椭球面(ellipsoid) $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1$
-![](https://img-blog.csdnimg.cn/20200526171434958.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/math/ellipsoid.png)
 (3) 单叶双曲面(hyperboloid of one sheet) $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2}=1$
 (4) 双叶双曲面(hyperboloid of two sheets) $\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}-\dfrac{z^2}{c^2}=1$
 (5) 椭圆抛物面(elliptic paraboloid) $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=z$
-![](https://img-blog.csdnimg.cn/20200526171558543.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/math/elliptic-paraboloid.png)
 (6) 双曲抛物面(hyperbolic paraboloid)（马鞍面） $\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=z$
-![](https://img-blog.csdnimg.cn/20200526171621498.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/math/hyperbolic-paraboloid.png)
 (7) 椭圆柱面(elliptic cylinder) $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$
 (8) 双曲柱面(hyperbolic cylinder) $\dfrac{x^2}{a^2}-\dfrac{y^2}{b^2}=1$
 (9) 抛物柱面(parabolic cylinder)  $x^2=ay$
@@ -171,10 +170,10 @@ $x$轴、$y$ 轴同理
 (1) 空间曲线(space curve)的一般方程 $\begin{cases}F(x,y,z)=0\\ G(x,y,z)=0 \end{cases}$
 (2) 曲线参数方程 $\begin{cases}x=x(t)\\ y=y(t)\\ z=z(t) \end{cases}$
 ==螺旋线==(helix) $\begin{cases}x=a\cos\omega t\\ y=a\sin\omega t\\ z=vt \end{cases}$ 或 $\begin{cases}x=a\cos\theta\\ y=a\sin\theta\\ z=b\theta\end{cases}$
-![](https://img-blog.csdnimg.cn/20200526171815985.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/math/helix.png)
 (3) 空间曲线在坐标面上的投影
 空间曲线 $C$ 一般方程消去 $z$ 得到 $H(x,y)=0$，由上节知道这是母线平行于 $z$ 轴的柱面，曲线 $C$ 的所有点满足方程，都在柱面上，此柱面叫做曲线 $C$ 在坐标平面 $xOy$上的投影柱面，投影曲线方程为
 $$
 \begin{cases}H(x,y)=0\\ z=0 \end{cases}
-$$ 
+$$
 其余坐标面类似。
