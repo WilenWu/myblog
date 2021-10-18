@@ -4,6 +4,7 @@ title: R手册(NLP)--wordcloud2
 tags: [R,NLP,可视化]
 date: 2018-05-28 18:41:43
 categories: [R,NLP]
+description: R interface to wordcloud for data visualization
 ---
 
 **wordcloud2** :R interface to wordcloud for data visualization
@@ -64,7 +65,8 @@ figPath = system.file("examples/t.png",package = "wordcloud2")
 wordcloud2(demoFreq, figPath = figPath, size = 1.5,color = "skyblue") 
 ```
 
-<img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud2.png" style="zoom:50%;" /><img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud1.png"  style="zoom:50%;" /><img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud6.png" style="zoom:50%;" /><img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud4.png"  style="zoom:50%;" /><img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud3.png" style="zoom:50%;" />
+<img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud1.png"  style="zoom:50%;" /><img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud2.png" style="zoom:80%;" /><img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud3.png" style="zoom:50%;" />
+<img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud4.png"  style="zoom:50%;" /><img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud5.png" style="zoom: 67%;" />
 
 # letterCloud函数
 
@@ -83,7 +85,7 @@ letterCloud(data, word, wordSize = 0, letterFont = NULL, ...)
 letterCloud(demoFreq, word = "WORDCLOUD2", wordSize = 1)
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud5.png)
+<img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud6.png" style="zoom:150%;" />
 
 
 # shiny支持

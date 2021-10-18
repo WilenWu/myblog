@@ -6,6 +6,7 @@ categories: [大数据]
 tags: [大数据,hive,SQL]
 cover: /img/apache-hive.jpg
 top_img: /img/hive-bg.png
+description: Hive 是一个基于Apache Hadoop的数据仓库基础设施
 ---
 
 Hive 是一个基于[Apache Hadoop](http://hadoop.apache.org/)的数据仓库基础设施。Hadoop 为商用硬件上的数据存储和处理提供了大规模的横向扩展和容错能力。

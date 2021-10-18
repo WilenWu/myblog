@@ -2,10 +2,10 @@
 title: 大数据手册(Spark)--Spark 流数据处理
 date: 2020-01-13 17:48:05
 categories: [大数据]
-tags: [大数据,Spark]
-sticky:
+tags: [大数据,Spark,数据流]
 cover: /img/spark_streaming_logo.png
 top_img: /img/pySpark.png
+description: 
 ---
 
 # Spark Streaming
@@ -17,7 +17,7 @@ Hadoop的MapReduce及Spark SQL等只能进行离线计算，无法满足实时�
 Spark Streaming用于进行实时流数据的处理，它具有高扩展、高吞吐率及容错机制。
 
 如下图所示，Spark Streaming 把流式计算当做一系列连续的小规模批处理(batch)来对待。Spark Streaming 接收输入数据流，并在内部将数据流按均匀的时间间隔分为多个较小的batch。然后再将这部分数据交由Spark引擎进行处理，处理完成后将结果输出到外部文件。
-![](https://gitee.com/WilenWu/images/raw/master/spark/DStream.PNG)
+<img src="https://gitee.com/WilenWu/images/raw/master/spark/Spark-Streaming.png" style="zoom:80%;" />
 Spark Streaming的主要抽象是离散流（DStream)，它代表了前面提到的构成数据流的那些batch。DStream可以看作是多个有序的RDD组成，因此它也只通过map, reduce, join and window等操作便可完成实时数据处理。，另外一个非常重要的点便是，Spark Streaming可以与Spark MLlib、Graphx等结合起来使用，功能十分强大，似乎无所不能。
 
 目前，围绕Spark Streaming有四种广泛的场景：
@@ -27,7 +27,7 @@ Spark Streaming的主要抽象是离散流（DStream)，它代表了前面提到
 - 复杂会话和持续学习：与实时流相关联的多组事件被持续分析，以更新机器学习模型。例如与在线游戏相关联的用户活动流，允许我们更好地做用户分类。
 
 下图提供了Spark driver、workers、streaming源与目标间的数据流：
-<img src="https://gitee.com/WilenWu/images/raw/master/spark/Spark-Streaming.png" style="zoom:80%;" />
+![](https://gitee.com/WilenWu/images/raw/master/spark/DStream.PNG)
 Spark Streaming内置了一系列receiver，可以接收很多来源的数据，最常见的是Apache Kafka、Flume、HDFS/S3、Kinesis和Twitter。
 
 ## 应用案例及数据源

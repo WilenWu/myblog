@@ -38,7 +38,7 @@ t <- hms::as.hms(85)
 
 - 识别出数据中 year (**y**), month (**m**), day (**d**), hour (**h**), minute (**m**) and second (**s**) 元素的顺序
 - 用下面的函数，函数的名字代表顺序，函数接收**多种多样**的输入形式
-![](https://gitee.com/WilenWu/images/raw/master/lubridate/am-pm.png)
+![](https://gitee.com/WilenWu/images/raw/master/lubridate/ymd-hms.png)
 
 **date_decimal**(decimal, tz = "UTC")  解析小数形式
 *date_decimal(2017.5)*
@@ -63,8 +63,9 @@ t <- hms::as.hms(85)
 >>> d 
 "2017-11-01"
 ```
-![](https://gitee.com/WilenWu/images/raw/master/lubridate/ymd-hms.png)
-![](https://gitee.com/WilenWu/images/raw/master/lubridate/floor_date.png)
+![floor](https://gitee.com/WilenWu/images/raw/master/lubridate/lubridate-parts.png)
+
+![](https://gitee.com/WilenWu/images/raw/master/lubridate/am-pm.png)
 
 **quarter**(x, with_year = FALSE, fiscal_start = 1)  季度
 **semester**(x, with_year = FALSE)  （尤指美国的大专院校的） 学期，半学年
@@ -84,13 +85,12 @@ ceiling_date(x, unit = "second",change_on_boundary = NULL) #向上滚动到最�
 rollback(dates, roll_to_first =FALSE, preserve_hms = TRUE) #滚动到上月最后一天或本月第一天
 ```
 **图示**
-![floor](https://gitee.com/WilenWu/images/raw/master/lubridate/lubridate-parts.png)     
+ ![](https://gitee.com/WilenWu/images/raw/master/lubridate/floor_date.png)
 `floor_date(dt, unit = "month")`
 ![round](https://gitee.com/WilenWu/images/raw/master/lubridate/ceiling_date.png)
 `round_date(dt, unit = "month")`
 ![ceiling](https://gitee.com/WilenWu/images/raw/master/lubridate/round_date.png)
 `ceiling_date(dt, unit = "month")`
-
 
 ## Stamp Date-times
 

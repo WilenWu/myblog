@@ -4,6 +4,7 @@ title: Python手册(Standard Library)--datetime+time+calendar
 tags: [python]
 date: 2018-05-09 22:49:26
 categories: [python,Python标准库]
+cover: /img/calendar.jpeg
 ---
 
 Python 程序能用很多方式处理日期和时间，转换日期格式是一个常见的功能。

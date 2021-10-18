@@ -1,25 +1,14 @@
 ---
 title: 偏微分方程(Partial Differential Equation II)
 date: 2020-05-15 17:54:41
-categories: [数学]
-tags: [数学,PDE,微分方程]
+categories: [数学,微分方程]
+tags: [数学,PDE,微分方程,贝塞尔函数,勒让德函数]
 cover: 
 top_img: 
-keywords: [贝塞尔函数,勒让德函数]
 katex: true
+description: false
 ---
 
-
-@[toc](数学物理方法)
-
-------
-
-[偏微分方程(Partial Differential Equation  I)](https://blog.csdn.net/qq_41518277/article/details/90295633)
-[偏微分方程(Partial Differential Equation  II)](https://blog.csdn.net/qq_41518277/article/details/106146720)
-[偏微分方程(Partial Differential Equation  III)](https://blog.csdn.net/qq_41518277/article/details/106144947)
-[偏微分方程(Partial Differential Equation  IV)](https://blog.csdn.net/qq_41518277/article/details/107254951)
-
-------
 
 > 参考文献：
 >
@@ -27,8 +16,6 @@ katex: true
 > 《数学物理方法》| 吴崇试
 > 《数学物理方法》| 梁昆淼
 > MOOC北京大学《数学物理方法》| 吴崇试 、高春媛
-
-
 
 # 正交曲面坐标系下的分离变量
 
@@ -41,7 +28,7 @@ x=r\cosϕ \\
 y=r\sinϕ
 \end{cases}
 $$
-![](https://img-blog.csdnimg.cn/20200515110437263.PNG =300x)
+<img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/plane-polar-coordinate.png" style="zoom: 80%;" />
 拉普拉斯算符 
 $$
 \begin{aligned}
@@ -53,7 +40,7 @@ $$
 $$
 \begin{cases}x=r\cosϕ \\y=r\sinϕ \\z=z \end{cases}
 $$
-![](https://img-blog.csdnimg.cn/20200515103348260.jpg =320x)
+![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/cylindrical-coordinates.png)
 拉普拉斯算符 
 $$
 \begin{aligned}
@@ -71,7 +58,7 @@ y=r\sinθ\sinϕ \\
 z=r\cosθ
 \end{cases}
 $$
-![](https://img-blog.csdnimg.cn/20200515103348361.png =300x)
+<img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/spherical-coordinates.png" style="zoom:67%;" />
 拉普拉斯算符 
 $$
 \begin{aligned}
@@ -400,7 +387,7 @@ l/2 & (l 为偶数)\\
 (l-1)/2 & (l 为奇数)
 \end{cases}
 $$
-<img src="https://img-blog.csdnimg.cn/2020051410265323.png"  width="50%" />
+<img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/Legendre-polynomial.png"  width="50%" />
 
 **勒让德多项式的微分表示**
 $$
@@ -885,7 +872,7 @@ $$
 (4) 第二类贝塞尔函数 $Y_ν(x)$ 的零点分布在 $(0,+\infty)$ 上，他与第一类贝塞尔函数零点有相似的结论。 
 (5) 虚宗量贝塞尔函数 $I_ν(x)$ 和虚宗量贝塞尔函数 $K_ν(x)$ 不存在实数零点。
 
-<img src="https://img-blog.csdnimg.cn/20200514094850678.jpg"  width="70%" /> <img src="https://img-blog.csdnimg.cn/20200514094047223.png"  width="60%" />
+<img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/Bessel-fun1.png"  width="70%" /> <img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/Bessel-fun2.png"  width="60%" />
 
 **贝塞尔函数的渐进展开**：一般用于判断自然边界条件进行取舍
 (1) 当 $x\to0$ 时，$J_0(x)\to1,\quad J_ν(x)\to0,\quad J_{-ν}(x)\to\infty \\

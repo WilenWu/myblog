@@ -6,6 +6,7 @@ katex: true
 categories: [大数据]
 tags: [大数据,二分类,混淆矩阵,ROC曲线]
 cover: /img/R-C.jpg
+description: false
 ---
 
 - **混淆矩阵**

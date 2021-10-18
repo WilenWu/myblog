@@ -83,7 +83,7 @@ a + geom_path(lineend="butt", linejoin="round", linemitre=1)+
   ggtitle('geom_path')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/one_var.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/geom_lines.png)
 
 ## 单变量
 
@@ -116,7 +116,7 @@ c + geom_freqpoly()+
   ggtitle('geom_freqpoly')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/geom_lines.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/one_var.png)
 
 
 ## 双变量
@@ -176,7 +176,7 @@ h + geom_density2d() +
   ggtitle('geom_density2d')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/two_con_fun.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/two_con.png)
 
 两连续变量函数图|参数|说明
 -----|-----|-----
@@ -198,7 +198,7 @@ p + geom_step(direction = "hv") +
   ggtitle('geom_step')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/two_con.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/two_con_fun.png)
 
 discrete x <br />continuous y  |参数|说明
 :---|:---|:---
@@ -303,7 +303,7 @@ e + geom_text(aes(label = t)) +
   ggtitle('geom_text')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/error.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/text.png)
 
 ## 误差可视化
 
@@ -339,7 +339,7 @@ p +geom_pointrange(position = dodge) +
   ggtitle('geom_pointrange')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/text.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/error.png)
 
 ## 地图
 
@@ -564,9 +564,9 @@ worldmap <- ggplot(world, aes(x = long, y = lat, group = group)) +
 worldmap + coord_map("ortho", orientation = c(41, -74, 0))
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/facet_grid.png)  ![](https://gitee.com/WilenWu/images/raw/master/ggplot2/coord_map.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/ggplot2/coord_polar.png)![](https://gitee.com/WilenWu/images/raw/master/ggplot2/coord_map.png)
 
-# Position Adjustments 
+# Position Adjustments
 
 Position adjustments 对geoms进行位置调整。
 
@@ -647,7 +647,9 @@ ggplot(iris, aes(Petal.Length, Petal.Width, colour = Species)) +
     ggforce::facet_zoom(x = Species == "versicolor")
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/coord_polar.png)![](https://gitee.com/WilenWu/images/raw/master/ggplot2/facet_zoom.png)
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/facet_grid.png)
+
+![](https://gitee.com/WilenWu/images/raw/master/ggplot2/facet_zoom.png)
 
 **scales参数：**坐标刻度自由
 "fixed"(default，坐标尺度统一), "free"(坐标尺度自由)，"free_x","free_y"
@@ -701,6 +703,21 @@ ggplot(iris, aes(Petal.Length, Petal.Width, colour = Species)) +
 gridExtra::grid.arrange(plot1,plot2,…,nrow,ncol)
 ```
 
-# [ggplot2 extensions](/gitbook/ggplot2-extensions/)
+# ggplot2 extensions
 
-ggplot2 now has an official extension mechanism. This means that others can now easily create their own stats, geoms and positions, and provide them in other packages. This should allow the ggplot2 community to flourish, even as less development work happens in ggplot2 itself. This page showcases these extensions.
+ggplot2现在具有官方扩展机制，[ggplot2 extensions官方站点](https://exts.ggplot2.tidyverse.org/gallery/)跟踪并列出了R用户在社区中开发的ggplot2扩展。目的是使R用户可以轻松找到已开发的扩展。部分扩展如下
+
+  - gganimate：用ggplot2创建简单的动画
+  - ggforce：饼图
+  - ggradar：雷达图
+  - plotROC ：ROC曲线
+  - ggiraph: html交互
+  - ggalt：为ggplot2补充Coordinate Systems, Geoms, Statistical Transformations, Scales & Fonts
+  - ggtree: 树状图
+  - geomnet: 网格图(关系图)
+  - ggthemes：主题
+  - ggtech：科技主题
+  - ggTimeSeries：时间序列可视化
+  - ggcorrplot: 基于ggplot2包以及corrplot包的相关系数矩阵可视化
+  - GGally：ggplot2扩展，矩阵图，生存图，网格图等
+  - survminer：ggplot2扩展，生存分析模型绘图

@@ -1,11 +1,12 @@
 ---
 title: 高等数学(无穷级数)
 date: 2019-05-15 17:17:52
-categories: [数学]
+categories: [数学,高等数学]
 tags: [数学,无穷级数,傅里叶级数,收敛]
-cover: 
+cover: /img/sigma.jpeg
 top_img: 
 katex: true
+description: false
 ---
 
 # 无穷级数
@@ -152,9 +153,10 @@ $\sin x=\displaystyle\sum_{n=0}^{∞}\dfrac{(-1)^n}{(2n+1)!}x^{2n+1},x\in(-∞,+
 $\cos x=\displaystyle\sum_{n=0}^{∞}\dfrac{(-1)^n}{(2n)!}x^{2n},x\in(-∞,+∞)$
 $\dfrac{1}{1+x}=\displaystyle\sum_{n=0}^{∞}(-x)^n,x\in(-1,1)$
 $\ln (1+x)=\displaystyle\sum_{n=0}^{∞}\dfrac{(-1)^n}{n+1}x^{n+1},x\in(-1,1]$
-![](https://gitee.com/WilenWu/images/raw/master/math/Maclaurin-series.png)
+<img src="https://gitee.com/WilenWu/images/raw/master/math/Maclaurin-series.png" style="zoom:67%;" />
 
 ## 傅里叶级数
+
 **三角级数**(trigonometric series)：形如$\dfrac{a_0}{2}+\displaystyle\sum_{n=1}^{∞}(a_n\cos nx+b_n\sin nx),\boxed{T=2π}$ 的级数叫三角级数，其中$a_0,a_n,b_n(n=1,2,\cdots)$是三角级数的系数
 
 **三角函数系**
@@ -196,7 +198,7 @@ f(x) & x为连续点 \\
 用同样的方法也可为定义在$[0,π]$或$[-π,0]$的函数==奇（偶）延拓==
 
 **吉布斯现象** (Gibbs phenomenon)
-![](https://gitee.com/WilenWu/images/raw/master/math/Gibbs-phenomenon.png)
+<img src="https://gitee.com/WilenWu/images/raw/master/math/Gibbs-phenomenon.png" style="zoom:67%;" />
 在间断点附近部分和函数的图形出现大幅度波动，波动的区间随着项数的增加越来越小，但幅度似乎是一样的！
 傅里叶级数在函数间断点处的上述现象称为==吉布斯现象==(Gibbs phenomenon)
 

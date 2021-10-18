@@ -4,17 +4,18 @@ title: 柏林噪声(Python)
 tags: [python,柏林噪声]
 date: 2018-09-19 22:35:52
 categories: [实用知识]
+cover: https://gitee.com/WilenWu/images/raw/master/common/perlin-map.png
 ---
 
 # 柏林噪声
 
-&emsp; Perlin Noise是Ken Perlin在1983年开发的一种梯度噪音，这是一种用于在计算机生成的表面上产生自然出现纹理的技术，使用Perlin噪声合成的纹理通常用于CGI，通过模仿自然界中纹理的受控随机外观，使计算机生成的视觉元素（如物体表面，火焰，烟雾或云）看起来更自然。[--_Wiki_](https://en.wikipedia.org/wiki/Perlin_noise)
+ Perlin Noise是Ken Perlin在1983年开发的一种梯度噪音，这是一种用于在计算机生成的表面上产生自然出现纹理的技术，使用Perlin噪声合成的纹理通常用于CGI，通过模仿自然界中纹理的受控随机外观，使计算机生成的视觉元素（如物体表面，火焰，烟雾或云）看起来更自然。[--_Wiki_](https://en.wikipedia.org/wiki/Perlin_noise)
 
 <!-- more -->
 
 # 理论知识链接
- [噪音 - Perlin](Noisehttp://www.cnblogs.com/babyrender/archive/2008/10/27/BabyRender.html)
- [一篇文章搞懂柏林噪声算法，附代码讲解]( https://www.cnblogs.com/leoin2012/p/7218033.html)
+ [噪音 - Perlin](http://www.cnblogs.com/babyrender/archive/2008/10/27/BabyRender.html)
+ [一篇文章搞懂柏林噪声算法，附代码讲解](https://www.cnblogs.com/leoin2012/p/7218033.html)
  http://libnoise.sourceforge.net/index.html
  [不只是噪声，更是数学美 ---浅谈Perlin Noise](https://blog.csdn.net/qq_34302921/article/details/80849139)（理论知识完美）
  [不只是噪音--知乎](https://zhuanlan.zhihu.com/p/22337544)（写的超棒！！）

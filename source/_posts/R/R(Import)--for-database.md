@@ -4,7 +4,7 @@ title: R手册(Import)--for database
 tags: [R,tidyverse]
 date: 2018-05-01 17:42:54
 categories: [R,Import]
-cover: /img/tidyverse3.png
+cover: /img/connectapi.png
 top_img: 
 ---
 

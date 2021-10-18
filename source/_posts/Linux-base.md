@@ -4,7 +4,6 @@ date: 2018-06-17 19:26:49
 categories:  [实用知识]
 tags: [linux]
 cover: /img/linux.jpg
-sticky: 
 ---
 
 # Linux简介

@@ -4,6 +4,7 @@ title: Python手册(Standard Library)--math+random
 tags: [python,科学计算]
 date: 2018-05-09 22:56:49
 categories: [python,Python标准库]
+cover: /img/random.jpg
 ---
 
 math & random

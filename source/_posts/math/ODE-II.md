@@ -1,24 +1,15 @@
 ---
 title: 常微分方程(Ordinary Differential Equation II)
 date: 2020-04-23 14:52:22
-categories: [数学]
+categories: [数学,微分方程]
 tags: [数学,ODE,微分方程]
 cover: 
 top_img: 
 keywords: 
 katex: true
+description: false
 ---
 
-
-@[toc](常微分方程)
-
-------
-
-[常微分方程(Ordinary Differential Equation I)](https://blog.csdn.net/qq_41518277/article/details/89703473)
-[常微分方程(Ordinary Differential Equation II)](https://blog.csdn.net/qq_41518277/article/details/105707514)
-[常微分方程(Ordinary Differential Equation III)](https://blog.csdn.net/qq_41518277/article/details/105707532)
-
-------
 
 
 # 高阶微分方程
@@ -325,8 +316,7 @@ e^{λ_1x} & e^{λ_2x} & \cdots & e^{λ_nx} \\
 $$
 y=c_1e^{λ_1x}+c_2e^{λ_2x}+\cdots+c_ne^{λ_nx}
 $$
-
-    (2) 如果 $λ_1,λ_2,\cdots,λ_n$ 中有复数，那么由方程的系数是实数知，复根必然成对共轭出现。设 $λ_k=a+ib$ 为一特征根，则 $\bar λ_k=a-ib$ 也是特征根。这两个根对应的解为 
+(2) 如果 $λ_1,λ_2,\cdots,λ_n$ 中有复数，那么由方程的系数是实数知，复根必然成对共轭出现。设 $λ_k=a+ib$ 为一特征根，则 $\bar λ_k=a-ib$ 也是特征根。这两个根对应的解为 
 $$
 e^{(a+ib)x}=e^{ax}(\cos bx+i\sin bx) \\e^{(a-ib)x}=e^{ax}(\cos bx-i\sin bx)
 $$

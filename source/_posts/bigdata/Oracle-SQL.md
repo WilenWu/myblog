@@ -5,6 +5,7 @@ categories: [大数据]
 tags: [大数据,oracle,SQL]
 cover: /img/sql-vector-image.jpg
 top_img: /img/SQL.png
+description: 
 ---
 
 结构化查询语言(Structured Query Language)简称SQL，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统（RDBMS）。

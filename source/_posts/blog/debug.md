@@ -5,6 +5,7 @@ categories: [博客搭建]
 tags: [Hexo]
 cover: /img/hexo-page.png
 noticeOutdate: true
+description: false
 ---
 
 # Hexo
@@ -68,9 +69,22 @@ search:
   由于`hexo douban` 和原始的部署命令 `hexo deploy` 均为 `d`开头，因此 `hexo d` 将不再适用，建议使用完整命令 `hexo deploy` 部署。
 - 如果 `hexo douban` 爬取不到任何数据，有可能是豆瓣官方开启了反爬虫机制。豆瓣每天对爬取次数有限制，超过限制则不再允许爬取，不过第二天便会恢复正常。
 
-## Hexo 编译 bug
+##  `{#`编译报错
 
 {% note warning %} Hexo 对 `{`+`#`连起来的文本不能正常编译 ，可在文档中加空格处理 `{ #`  {% endnote %}
+
+## KaTex 内的中文报错
+
+开启 `hexo-renderer-markdown-it-plus` 作为渲染器并且用 `katex` 进行公式解析时，如果 `$...$` 中有中文的话会报错
+
+```
+LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character "中" used in math mode [unicodeTextInMathMode]
+LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character "文" used in math mode [unicodeTextInMathMode]
+No character metrics for '中' in style 'Main-Regular'
+No character metrics for '文' in style 'Main-Regular'
+```
+
+这种情况的话在 `$...$` 中用 `\text{}` 对中文包裹应该可以解决这个问题，比如 `$\text{中文}$` 。另外这样的警告应该不会对渲染造成任何的影响，一定程度上可以忽视。
 
 # Gitbook
 

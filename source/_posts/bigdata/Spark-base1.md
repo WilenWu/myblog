@@ -2,9 +2,9 @@
 title: 大数据手册(Spark)--Spark 基础知识（一）
 date: 2020-01-03 16:10:18
 categories: [大数据]
-tags: [大数据,Spark]
-sticky:
+tags: [大数据,Spark,RDD]
 cover: /img/spark.png
+description: 
 ---
 
 
@@ -72,7 +72,7 @@ spark-submit提交Spark应用程序后，其执行流程如下：
 3. SparkContext启动DAGScheduler，将提交的作业（Job）转换成若干Stage，各Stage构成DAG（Directed Acyclic Graph有向无环图），各个Stage包含若干相task，这些task的集合被称为TaskSet
 4. TaskSet发送给TaskSet Scheduler，TaskSet Scheduler将Task发送给对应的Executor，同时SparkContext将应用程序代码发送到Executor，从而启动任务的执行
 5. Executor执行Task，完成后释放相应的资源。
-![](https://gitee.com/WilenWu/images/raw/master/spark/spark-dependency.png)
+![](https://gitee.com/WilenWu/images/raw/master/spark/spark-submit.png)
 
 - Job：一个Job包含多个RDD及作用于相应RDD上的各种操作构成的DAG图。
 - Stages：是Job的基本调度单位(DAGScheduler)，一个Job会分解为多组Stage，每组Stage包含多组任务(Task)，称为TaskSet，代表一组关联的，相互之间没有Shuffle依赖关系(最耗费资源)的任务组成的任务集。
@@ -94,7 +94,7 @@ RDD支持两种类型的操作：
 - **宽依赖**(wide dependency)：变换后的RDD的分区与父RDD所有的分区都有依赖关系（即存在shuffle过程，需要大量的节点传送数据），此时它们就是宽依赖的。
 
 如下图所示：
-![](https://gitee.com/WilenWu/images/raw/master/spark/spark-submit.png)
+![](https://gitee.com/WilenWu/images/raw/master/spark/spark-dependency.png)
 图中的实线空心矩形代表一个RDD，实线空心矩形中的带阴影的小矩形表示分区(partition)。从上图中可以看到， map,filter,union等transformation是窄依赖；而groupByKey是宽依赖；join操作存在两种情况，如果分区仅仅依赖于父RDD的某一分区，则是窄依赖的，否则就是宽依赖。
 
 **优化**：fork/join

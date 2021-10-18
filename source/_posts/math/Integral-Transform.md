@@ -1,11 +1,12 @@
 ---
 title: 复变函数和积分变换(Integral Transform)
 date: 2019-07-24 13:09:37
-categories: [数学]
+categories: [数学,复变函数]
 tags: [数学,复傅里叶变换,拉普拉斯变换]
 cover: 
 top_img: 
 katex: true
+description: false
 ---
 
 
@@ -728,7 +729,7 @@ $$
 $$
 s=(t-t_0)u(t-t_0)
 $$
-![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta.png) ![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta2.png)
+<img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta.png" style="zoom:67%;" /> <img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta2.png" style="zoom:67%;" />
 
 示例 2：求解边值问题（物体在 $t=a,b$ 时刻的位移为 0，在 $t_0$ 时刻受到瞬时冲量）
 $$
@@ -752,4 +753,4 @@ $$
 $$
 s=(t-t_0)u(t-t_0)-\frac{b-t_0}{b-a}(t-a)
 $$
-![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta3.png)![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta4.png)
+<img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta3.png" style="zoom:67%;" /><img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta4.png" style="zoom:67%;" />

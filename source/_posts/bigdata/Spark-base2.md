@@ -3,8 +3,8 @@ title: 大数据手册(Spark)--Spark 基础知识（二）
 date: 2020-01-03 16:20:25
 categories: [大数据]
 tags: [大数据,Spark]
-sticky:
-cover: /img/spark.png
+cover: /img/spark2.png
+description: false
 ---
 
 
@@ -251,7 +251,6 @@ rdd.saveAsTextFile('file_path') # hdfs路径
 rdd.saveAsTextFile('file:///local_file_path')
 ```
 
-
 # DataFrame
 
 **Spark SQL**
@@ -351,8 +350,6 @@ df.write.saveAsTable(name,mode='overwrite',partitionBy=None)
    ```
 - 同样也可以先==开启Hive动态分区==，用SQL语句直接运行
 `sql("insert into tb2 select * from tb1")`
-
-
 
 
 DataFrame信息|说明

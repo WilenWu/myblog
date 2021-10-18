@@ -2,21 +2,12 @@
 title: 概率论与数理统计(Probability & Statistics I)
 date: 2019-05-28 14:38:39
 categories: [数学]
-tags: [数学]
-cover: 
+tags: [数学,随机变量,分布,期望,方差]
+cover: /img/prob.jpg
 top_img: 
-keywords: [随机变量,分布]
 katex: true
+description: false
 ---
-
-
-
-@[toc](Table of Contents)
-
-------
-
-[概率论与数理统计(Probability & Statistics I)](https://blog.csdn.net/qq_41518277/article/details/90261253)
-[概率论与数理统计(Probability & Statistics II)](https://blog.csdn.net/qq_41518277/article/details/90733362)
 
 **Cheat Sheets:**
 [Probability Cheatsheet v2.0](https://www.sas.upenn.edu/~astocker/lab/teaching-files/PSYC739-2016/probability_cheatsheet.pdf)
@@ -46,7 +37,7 @@ $A-B\iff$称为事件A与B的差事件(difference of events)，表示事件A发�
 $\bar A=S-A \iff$称为A的对立事件(complementary events)，表示事件A不发生
 特别的， $S$ 称为必然事件(certain event)，$\varnothing$称为不可能事件(impossible event)，单点集 $\{s\}$ 称为基本事件(elementary event)
 若 $AB=\varnothing$，则称事件A与B互斥(mutually exclusive events)
-![并集](https://img-blog.csdnimg.cn/20190528163912518.png =200x)![交集](https://img-blog.csdnimg.cn/20190528163925103.png =200x)![互斥](https://img-blog.csdnimg.cn/20190528163752801.png =200x)
+![并集](https://gitee.com/WilenWu/images/raw/master/Probability/union.png)![交集](https://gitee.com/WilenWu/images/raw/master/Probability/intersection.png)![互斥](https://gitee.com/WilenWu/images/raw/master/Probability/exclusive.png)
 
 交换律|$A∪ B=B∪ A\\ A∩ B=B∩ A$
 :---|:---
@@ -87,7 +78,8 @@ $$
 称为是**A**发生条件下**B**发生的概率
 条件概率空间：原样本空间的缩减 $S\to A$
 条件概率：原概率的限制 $P(\cdot)\to P(\cdot|A)$
-![条件概率](https://img-blog.csdnimg.cn/20190529093313859.png =150x)
+![条件概率](https://gitee.com/WilenWu/images/raw/master/Probability/conditional-probability.png)
+
 - **条件概率性质**：$P(\cdot|A)$ 是概率，具有概率的所有性质
 非负性：$P(B|A)⩾ 0$
 规范性：$P(S|A)=1$
@@ -119,7 +111,8 @@ P(A)=\displaystyle\sum_{i=1}^{n}P(A|B_i)P(B_i)
 $$
 称 $S$ 的事件 $B_1,\cdots,B_n$ 为一个划分，指它们满足
 $(1)\ \displaystyle\bigcup_{i=1}^{n}B_i=S\quad (2)\ B_iB_j=\varnothing,(i,j=1,2,\cdots,n;\ i\neq j)$
-![全概率公式](https://img-blog.csdnimg.cn/20190529102727685.png =200x)
+![全概率公式](https://gitee.com/WilenWu/images/raw/master/Probability/complete-probability.png)
+
 - **贝叶斯公式(Bayes formula)**：全概率公式通过划分 $\{B_i |i=1,\cdots,n\}$ 来计算一个事件 $A$ 的概率，有时候需要弄清楚在A发生的条件下，每个 $B_i$ 发生的条件概率
 设 $B_1,\cdots,B_n$ 是 $S$ 的一个划分，$A$为事件，则对于$i=1,\cdots,n$，有
 $$
@@ -130,8 +123,9 @@ $$
 
 # 随机变量及其分布(Random Variable and Its Distribution)
 ## 随机变量(Random variable)
+
 - **随机变量**：设随机试验的样本空间为$S$，若$X=X(e)$为定义在 $S$上的实值单值函数，则称 $X(e)$ 为随机变量, 简写为 $X$
-![随机变量](https://img-blog.csdnimg.cn/20190529112510408.png =350x)
+![随机变量](https://gitee.com/WilenWu/images/raw/master/Probability/random-variable.png)
 说明：
 (1) 随机变量 $X(e):S\to R$ 为一映射，其自变量具有随机性；
 (2) 随机事件可以表示为 $A=\{e : X(e)\in I\}=\{X\in I\}, I⊂ \R$
@@ -145,6 +139,7 @@ $S=\{HHH,HHT,HTH,HTT,THH,THT,TTH,TTT\}$
 (4) 一般用大写英文字母 X,Y,Z 或希腊字母 $ξ,η$ 等来表示随机变量
 
 ## 离散型随机变量及分布律(Discrete random variable & distribution law)
+
 - **定义**：若随机变量X的取值为有限个或可数 , 则称 X 为离散(discrete)型随机变量。
 - **分布律** (distribution law)：离散随机变量在各特定取值上的概率，也称概率质量函数(probability mass function, PMF)
 $P\{X=x_k\}=p_k,\ k=1,2,\cdots$
@@ -152,6 +147,7 @@ $P\{X=x_k\}=p_k,\ k=1,2,\cdots$
  $X$ | $x_1\quad x_2 \quad \cdots\quad x_k\quad \cdots$|随机变量的所有可能取值
  :---|:---|---:
   $P$ | $p_1\quad p_2 \quad \cdots\quad p_k\quad \cdots$|取每个可能取值相应的概率
+
 分布律满足：$p_k⩾ 0,\ \displaystyle\sum_{k=1}^{+∞}p_k=1$
 
 - **几种重要的离散型随机变量**
@@ -213,7 +209,7 @@ $$
 1,\quad x>b
 \end{cases}$
 均匀分布具有等可能性：取值的概率只与小区间的长度有关，而与其位置无关。
-![均匀分布](https://img-blog.csdnimg.cn/20190529145650800.png =350x)
+![均匀分布](https://gitee.com/WilenWu/images/raw/master/Probability/uniform-distribution.png)
 ==指数分布==(exponential)：若X的概率密度函数为
 $$
 f(x)=\begin{cases}
@@ -242,8 +238,9 @@ $$
  μ 称为位置参数，决定对称轴位置
 (2) 当固定 μ 改变 σ 的大小时，图形的对称轴不变，而形状在改变， σ 越小图形越高越瘦，σ 越大图形越矮越胖；
 σ 称为尺度参数，决定曲线分散程度
-![正态分布](https://img-blog.csdnimg.cn/20190529152108352.png =200x)![正态](https://img-blog.csdnimg.cn/20190529153117838.png =200x)
+![正态分布](https://gitee.com/WilenWu/images/raw/master/Probability/normal-distribution.png)![](https://gitee.com/WilenWu/images/raw/master/Probability/normal-distribution2.png)
 应用：测量值与实际值的误差；分子热运动时每个分子的运动速率；
+
 > 若 $X∼ N(μ,σ^2), X$的分布函数 $F(x)=P\{X⩽ x\}=\int_{-∞}^{x}f(t)\mathrm{d}t$一般无解析解。
 
 ==标准正态分布==（standard normal  distribution）：若 $Z∼ N(0,1)$ 称 Z 服从标准正态分布
@@ -276,10 +273,11 @@ $$
 
 一般地，若随机变量 $X∼ N(μ,σ^2)$ 
 则 $Y=aX+b\implies Y∼ N(aμ+b,a^2σ^2)$
-![概率密度](https://img-blog.csdnimg.cn/20190529162853763.png =250x)
+![概率密度](https://gitee.com/WilenWu/images/raw/master/Probability/probability-density.png)
 
 # 多维随机变量及其分布(Multiple Random Variable and Its Distribution)
 ## 二维随机变量(Two-dimensional random variable)
+
 - **二维随机变量**：设E是一个随机试验，样本空间$S={e}$；设$X=X(e)$和$Y=Y(e)$是定义在S上的随机变量，由它们构成的向量$(X,Y)$称为二维随机向量或二维随机变量。
 **二维随机变量分布函数**：设 $(X,Y)$ 是二维随机变量，对于任意 $(x,y)\in\R^2$，二维函数$F(x,y)=P\{\{X⩽ x\}∩\{Y⩽ y\}\}\triangleq P\{X⩽ x,Y⩽ y\}$称为二维随机变量的==联合分布函数== ( joint distribution function,JDF)。
 性质：
@@ -289,7 +287,7 @@ F(+∞,+∞)=1,F(-∞,y)=F(x,-∞)=F(-∞,-∞)=0$
 3。$F(x, y)$关于$x,y$右连续，即：$\lim\limits_{ϵ\to 0^+}F(x+ϵ,y)=\lim\limits_{ϵ\to 0^+}F(x,y+ϵ)=F(x,y)$
 4。$x_1<x_2,y_1<y_2\\
 \implies P\{x_1<X ⩽ x_2,y_1<Y ⩽ y_2\}=F(x_2,y_2)-F(x_1,y_2)-F(x_2,y_1)+F(x_1,y_1) ⩾ 0$
-![二维随机变量](https://img-blog.csdnimg.cn/20190530113659102.png =150x) ![分布函数](https://img-blog.csdnimg.cn/20190530140652220.png =200x)
+![二维随机变量](https://gitee.com/WilenWu/images/raw/master/Probability/2ds-random-variable.png) ![分布函数](https://gitee.com/WilenWu/images/raw/master/Probability/2ds-distribution-function.png)
 
 - **二维离散型随机变量**：若二维随机变量$(X,Y)$全部可能取到的不同值是有限对或可列无限对，则称$(X,Y)$是二维离散型随机变量。
 **联合分布律**：设$(X,Y)$所有可能取值为$(X_i,Y_i)$，称$P\{X=x_i,Y=y_j\}=p_{ij},i,j=1,2,\cdots$为二维离散型随机变量$(X,Y)$的联合（概率）分布律。
@@ -305,7 +303,7 @@ $$
 2。$\int_{-∞}^{+∞}\int_{-∞}^{+∞}f(x,y)\mathrm{d}x\mathrm{d}y=1$
 3。在 $f ( x , y )$ 的连续点处，有 $\dfrac{∂ F(x,y)}{∂ x∂ y}=f(x,y)$
 4。对于任何$\R^2$上的区域G, 有 $P\{(X,Y)\in G\}=\iint\limits_G f(u,v)\mathrm{d}u\mathrm{d}v$
-![概率密度](https://img-blog.csdnimg.cn/201905301446402.png =250x)
+<img src="https://gitee.com/WilenWu/images/raw/master/Probability/2ds-probability-density.png" alt="概率密度" style="zoom:67%;" />
 
 ## 边缘分布(Marginal distribution)
 **边缘分布律**：对分布律为 $P\{X=x_i,Y=y_j\}=p_{ij}$ 的二维离散型随机变量
@@ -377,7 +375,7 @@ $|J|=\det A^{-1}=\dfrac{1}{σ_1σ_2\sqrt{1-ρ^2}}$
 
 由定义知若$ρ=0$ , 则 $X=σ_1Z_1+μ _1,Y=σ_2Z_2+μ _2$，即 X 与 Y 独立。从密度函数看，X 与Y 地位是对称的，决定了它们的分布特点是一致的.
 二维正态的定义的特点使得许多分布规律的计算十分简单。
-![二维正态分布](https://img-blog.csdnimg.cn/20190530154338177.png =200x)
+<img src="https://gitee.com/WilenWu/images/raw/master/Probability/2ds-normal-distribution.png" alt="二维正态分布" style="zoom:67%;" />
 **边缘概率密度**：因 $X=σ_1Z_1+μ _1$，故 $X∼ N(μ _1,σ_1^2)$，由对称性可知$Y∼ N(μ _2,σ_2^2)$，两个边缘分布均与ρ无关
 **条件概率密度**：由于$Z_1=\frac{x-μ _1}{σ_1}$，故$Y|_{X=x}∼ N(\frac{σ_2ρ}{σ_1}(x-μ _1),σ_2^2(1-ρ^2))$
 由对称性可知$X|_{Y=y}∼ N(\frac{σ_1ρ}{σ_2}(y-μ _2),σ_1^2(1-ρ^2))$
@@ -407,7 +405,7 @@ $f_Z(z)=\int_{-∞}^{+∞}f(z-y,y)\mathrm{d}y=\int_{-∞}^{+∞}f(x,z-x)\mathrm{
 特别, 若X与Y 独立, 则有
 $f_Z(z)=\int_{-∞}^{+∞}f_X(z-y)f_Y(y)\mathrm{d}y=\int_{-∞}^{+∞}f_Y(z-x)f_X(x)\mathrm{d}x$
 称 $f_Z$ 为 $f_X$ 与 $f_Y$ 的==卷积==，记为 $f_Z=f_X * f_Y$
-![z=x+y](https://img-blog.csdnimg.cn/2019053109191086.png)
+![](https://gitee.com/WilenWu/images/raw/master/Probability/Z=X+Y.png)
 对于一般的两独立正态随机变量 $X∼ N(μ _1,σ_1^2),Y∼ N(μ _2,σ_2^2)\implies Z=X+Y∼ N(μ _1+μ _2,σ_1^2+σ_2^2)$
 
 ==独立的离散型变量的和分布==
@@ -528,7 +526,7 @@ $$
 当$|ρ_{XY}|=1$时，表明X与Y之间以概率1存在线性关系； 
 当$ρ_{XY}=0$时，表明X与Y之间没有线性关系，称两个变量不相关。
 X,Y相互独立$\implies$ X,Y不相关；但X,Y不相关不能判断X,Y相互独立
-![相关](https://img-blog.csdnimg.cn/20190531163756928.png =300x)
+<img src="https://gitee.com/WilenWu/images/raw/master/Probability/corr.png" style="zoom:67%;" />
 
 ## 矩 (Moment)
 > 参考链接：https://www.zhihu.com/question/23236070/answer/143316942
@@ -630,13 +628,13 @@ $S(X)=\dfrac{ν_3}{ν_{2}^{3/2}}=\dfrac{E[X-E(X)]^3}{[Var(x)]^{3/2}}$
 $S<0$，向左偏斜（分布尾部在左侧较长，失效率数据常向左偏斜，如极少量的灯泡会立即烧坏）
 $S>0$，向右偏斜分布（分布尾部在右侧较长，工资数据往往以这种方式偏斜，大多数人所得工资较少）
 偏度无量纲，是描述分布偏离对称程度的一个特征数。
-![偏度](https://img-blog.csdnimg.cn/20190603175229150.jpg)
+![偏度](https://gitee.com/WilenWu/images/raw/master/Probability/skew.png)
 ==峰度==(kurtosis)：一般随机变量的峰度定义为其四阶中心矩与方差平方的比值再减3，减3是为了让正态分布峰度为0，这也被称为超值峰度。
 $K(X)=\dfrac{ν_4}{ν_{2}^{2}}-3=\dfrac{E[x-E(X)]^4}{Var^2(X)}-3$
 完全符合正态分布的数据峰度值为0，且正态分布曲线被称为基线。峰度无量纲，是相对于正态分布而言的超出量。
 $K>0$，标准化后的分布比标准正态分布剑鞘
 $K<0$，标准化后的分布比标准正态分布平坦
-![正峰度](https://img-blog.csdnimg.cn/20190603175317681.jpg =200x)![负峰度](https://img-blog.csdnimg.cn/20190603175358979.jpg =200x)
+![](https://gitee.com/WilenWu/images/raw/master/Probability/kurtosis.png)![](https://gitee.com/WilenWu/images/raw/master/Probability/kurtosis2.png)
 
 
 ## 协方差矩阵与多维正态分布(Covariance matrix and multivariate normal distribution)
@@ -683,7 +681,7 @@ $\iff C=\mathrm{diag}(c_{11},c_{22},\cdots,c_{nn})$(即C为对角阵)
 # 大数定律和中心极限定理(Law of Large Numbers & Central Limit Theorem)
 
 **依概率收敛** (convergence in probability)：回顾概率的概念是如何产生的? 
-![概率](https://img-blog.csdnimg.cn/20190602203145919.png =400x)
+![](https://gitee.com/WilenWu/images/raw/master/Probability/to-probability.png)
 设$n$次独立重复试验中事件$A$发生的次数为$n_A$则当$n$越来越大时，有
 $∀ ϵ>0,\lim\limits_{n\to∞}P\{|\dfrac{n_A}{n}-p|⩾ ϵ\}=0$这种收敛性称为依概率收敛。
 
@@ -692,7 +690,7 @@ $$
 Y_n\xrightarrow{P}c\quad (n\to∞)
 $$
 
- 
+
  ==性质==：若 $X_n\xrightarrow{P}a,Y_n\xrightarrow{P}b\quad (n\to∞)$，函$g(x,y)$在点$(a,b)$处连续，那么
  $g(X_n,Y_n)\xrightarrow{P}g(a,b)\quad (n\to∞)$
  特别的，若 $X_n\xrightarrow{P}a\quad (n\to∞)$，函数$f(x)$在点$a$处连续，那么$f(X_n)\xrightarrow{P}f(a)\quad (n\to∞)$

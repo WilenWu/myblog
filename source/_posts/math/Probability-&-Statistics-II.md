@@ -2,24 +2,17 @@
 title: 概率论与数理统计(Probability & Statistics II)
 date: 2019-06-01 20:57:44
 categories: [数学]
-tags: [数学]
-cover: 
+tags: [数学,参数估计,假设检验,方差分析,回归分析]
+cover: /img/prob.jpg
 top_img: 
-keywords: [参数估计,假设检验,方差分析,回归分析]
 katex: true
+description: false
 ---
-
-
-@[toc](Table of Contents)
-
-------
-
-[概率论与数理统计(Probability & Statistics I)](https://blog.csdn.net/qq_41518277/article/details/90261253)
-[概率论与数理统计(Probability & Statistics II)](https://blog.csdn.net/qq_41518277/article/details/90733362)
 
 ------
 
 # 样本与抽样分布(Sample and Sampling Distribution)
+
 ## 数理统计(Statistics)
 数理统计是以概率论为基础, 关于实验数据的收集、整理、分析与推断的一门科学与艺术。
 
@@ -94,7 +87,7 @@ f_n(x)=\begin{cases}
 \end{cases}
 $$
  其中 $Γ(x)=\displaystyle\int_{0}^{+∞}t^{x-1}e^{-t}\mathrm{d}t$
-![卡方分布](https://img-blog.csdnimg.cn/20190604114737263.png)
+![卡方分布](https://gitee.com/WilenWu/images/raw/master/Probability/chi-square.png)
 性质：
 (1) 设 $Y∼ χ^2(n)$，则 $E(Y)=n,D(Y)=2n$
 (2) 分布的可加性：设 $Y_1∼ χ^2(n_1),Y_2∼ χ^2(n_2)$，且$Y_1,Y_2$相互独立，则 $Y_1+Y_2∼ χ^2(n_1+n_2)$
@@ -111,7 +104,7 @@ f_n(x)=\dfrac{Γ(\frac{n+1}{2})}{\sqrt{nπ}Γ(\frac{n}{2})}(1+\dfrac{x^2}{n})^{-
 $$
 特别地，$n=1$ 的 t 分布就是柯西分布 $f(x)=\dfrac{1}{π(1+x^2)},x\in\R$
 $\lim\limits_{n\to∞}f_n(x)=\dfrac{1}{\sqrt{2π}}e^{-x^2/2},x\in\R$
-![t分布](https://img-blog.csdnimg.cn/20190604123728569.png)
+![t分布](https://gitee.com/WilenWu/images/raw/master/Probability/t.png)
 
 ==F 分布==(F-distribution)：设 $X∼ χ^2(n_1),Y∼ χ^2(n_2)$，且 X与 Y 相互独立，则称随机变量
 $$
@@ -126,7 +119,7 @@ f(x)=\begin{cases}
 \end{cases}
 $$
 其中 $B(a,b)=\displaystyle\int_0^1x^{a-1}(1-x)^{b-1}\mathrm{d}x=\dfrac{Γ(a)Γ(b)}{Γ(a+b)}$
-![F分布](https://img-blog.csdnimg.cn/20190604131851601.png)
+![F分布](https://gitee.com/WilenWu/images/raw/master/Probability/F.png)
 重要性质：若 $F∼ F(n_1,n_2)$，则$\dfrac{1}{F}∼ F(n_2,n_1)$
 
 
@@ -280,14 +273,13 @@ $F(n_1,n_2)$分布的α 分位点记作 $F_α(n_1,n_2)$
 如果$P\{\hatθ_L<θ\}⩾ 1-α$则称随机变量$\hatθ_L$为θ的置信度为 $1-α$ 的==单侧置信下限==(one-side confidence lower limit)。
 如果$P\{θ<\hatθ_U\}⩾ 1-α$则称随机变量$\hatθ_U$为θ的置信度为 $1-α$ 的==单侧置信上限==(two-side confidence lower limit)。
 
-
 **正态总体参数的区间估计示例**
 设总体 $X∼ N(μ,σ^2),X_1,X_2,…,X_n$为样本，$\bar X,S^2$分别为样本均值和样本方差，置信区间为 $1-α$
 (1) $σ^2$已知时，$\bar X$是 μ 的极大似然估计，取枢轴量 $G=\dfrac{\bar X-μ}{σ/\sqrt{n}}∼ N(0,1)$
 设常数 $a,b$满足： $P\{a<G<b\}⩾ 1-α$
 等价于$P\{\bar X-\dfrac{σ}{\sqrt{n}}b<μ<\bar X-\dfrac{σ}{\sqrt{n}}a\}⩾ 1-α$
 此时区间的长度为 $(b-a)σ/\sqrt{n}$
-![置信区间](https://img-blog.csdnimg.cn/20190606130143310.png)
+![置信区间](https://gitee.com/WilenWu/images/raw/master/Probability/CI.png)
 由正态分布的对称性知，$a=-b=-z_{α/2}$时，区间的长度达到最短 $L=z_{α/2}σ/\sqrt{n}$
 n固定，置信水平提高，即$1-α$增大，则 $z_{α/2}$增大，所以 $L$ 变大，精确度降低；反之亦然.
 所得 μ 双侧置信区间为 $(\bar X-\dfrac{σ}{\sqrt{n}}z_{α/2},\bar X+\dfrac{σ}{\sqrt{n}}z_{α/2})$
@@ -320,6 +312,7 @@ $σ^2_1/σ^2_1$|$μ$未知| $\dfrac{S_1^2/S_2^2}{σ_1^2/σ_2^2}∼ F(n_1-1,n_2-1
 # 假设检验(Hypothesis Testing)
 
 ## 假设检验的基本思想(The basic idea of hypothesis testing)
+
 假设检验是抽样推断中的一项重要内容。它是根据原资料作出一个总体指标是否等于某一个数值，某一随机变量是否服从某种概率分布的假设，然后利用样本资料采用一定的统计方法计算出有关检验的统计量，依据一定的概率原则，以较小的风险来判断估计数值与总体数值(或者估计分布与实际分布)是否存在显著差异，是否应当接受原假设选择的一种检验方法。
 
 某工厂生产袋装葡萄糖，每袋糖的净重是个随机变量，服从正态分布，机器正常时，每袋糖净重 $μ_0$ ，标准差为 $σ$ 。为了检验机器是否正常，随机抽取 n 袋，称得净重：$x_1,x_2,\cdots,x_n$
@@ -330,7 +323,7 @@ $σ^2_1/σ^2_1$|$μ$未知| $\dfrac{S_1^2/S_2^2}{σ_1^2/σ_2^2}∼ F(n_1-1,n_2-1
 (2) 然而，由于样本的随机性，当实际上 $H_0$为真时，仍有可能拒绝原假设（这种可能性是无法消除的），犯这种错误的概率记为 $P_{μ\in H_0}\{拒绝H_0\}=P\{\rm type\ I\ error\}$。
 为了确定常数 $k$，我们希望犯这类错误的最大概率为 $α\in(0,1)$，令$P\{\rm type\ I\ error\}=P\{\left|\dfrac{\bar X-μ_0}{σ/\sqrt{n}}\right|⩾ k\}=α$，由于 $H_0$为真时，$Z=\dfrac{\bar X-μ_0}{σ/\sqrt{n}}∼ N(0,1)$
 由正态分布分位点的定义知，$k=z_{α/2}$，当$|z|⩾ z_{α/2}$时，拒绝原假设。
-![](https://img-blog.csdnimg.cn/20190611121318308.png)
+![](https://gitee.com/WilenWu/images/raw/master/Probability/significance-level.png)
 
 
 
@@ -359,9 +352,9 @@ $\quad$|原假设为真|原假设不真
 ---|---|---
 根据样本**拒绝**原假设|**type Ⅰ error**|正确
 根据样本**接受**原假设|正确|**type Ⅱ error**
-设总体服从 $X∼ N(μ,1)$，则$\bar X∼ N(μ,1/n)$，
-$H_0: μ=μ_0,\quad H_1: μ=μ_1>μ_0$，拒绝域$\bar X⩾ C$
-![拒绝域](https://img-blog.csdnimg.cn/20190610171640761.png)
+设总体服从 $X∼ N(μ,1)$，则$\bar X∼ N(μ,1/n)$，||
+$H_0: μ=μ_0,\quad H_1: μ=μ_1>μ_0$，拒绝域$\bar X⩾ C$||
+![拒绝域](https://gitee.com/WilenWu/images/raw/master/Probability/rejection-region.png)||
 
 ## 正态总体下的假设检验(Hypothesis testing in a normal population)
 **正态总体均值和方差的检验法**（显著性水平为 $α$）
@@ -690,8 +683,9 @@ $F_A∼ F(r-1,rs(t-1)) \\
 变量之间的关系并不确定，而是表现为具有随机性的一种“趋势”。即对自变量 $x$ 的同一值，在不同的观测中，因变量$Y$可以取不同的值，而且取值是随机的，但对应 $x$在一定范围的不同值，对$Y$进行观测时，可以观察到$Y$随$x$的变化而呈现有一定趋势的变化。回归分析是研究相关关系得一种数学工具。
 
 ## 一元线性回归(Simple Linear Regression)
+
 设随机变量 $Y$(因变量)与普通变量 $x$(自变量)存在着相关关系，对于 $x$的确定值， $Y$有他的分布（图中$C_1,C_2$分别是 $x_1,x_2$处 $Y$ 的概率密度曲线），用 $F(y|x)$ 表示 $Y$的分布函数，然而此函数讨论过于复杂，我们转而讨论 $E(Y)=μ(x)$与$x$的关系，称为 $Y$ 关于 $x$ 的==回归函数==(regression function)。同时以回归函数作为 $Y$ 的近似，其均方误差 $E[Y-μ(x)]^2$ 最小。
-![一元回归](https://img-blog.csdnimg.cn/20190624145653732.png)
+![一元回归](https://gitee.com/WilenWu/images/raw/master/Probability/simple-linear-regression.png)
 
 对从整体 $(x,Y)$ 中抽取的一个样本 $(x_1,Y_1),(x_2,Y_2),\cdots,(x_n,Y_n)$，样本值为 $(x_1,y_1),(x_2,y_2),\cdots,(x_n,y_n)$，若 $μ(x)$ 为线性函数 $μ(x)=a+bx$，此时的问题称为一元线性回归问题。$Y∼ N(a+bx,σ^2)$，设 $ϵ=Y-(a+bx)$则
 $$

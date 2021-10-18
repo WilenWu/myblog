@@ -4,8 +4,8 @@ title: R手册(Common)--R6 and S4
 tags: [R,面向对象]
 date: 2018-05-01 17:37:07
 categories: [R,Common]
-cover: /img/r-purple.png
-top_img: 
+cover: /img/R6.png
+top_img: /img/r-purple.png
 ---
 
 R 主要面向统计计算，似乎很少会用到面向对象的编程方法。但在统计计算中，在下列情形中使用面向对象的编程方法可以编程更有效率。

@@ -4,6 +4,7 @@ title: Python手册(Standard Library)--re
 tags: [python,正则表达式]
 date: 2018-05-09 23:15:58
 categories: [python,Python标准库]
+cover: /img/regexp-demo.jpg
 ---
 
 re 模块使 Python 语言拥有全部的正则表达式功能。
@@ -53,7 +54,7 @@ re.split(pattern,string,maxsplit=0,flags) # 返回字符串列表，maxsplit为�
  ## flags标志
 
 | flags |说明|
-| ------------- | ------------- |
+| :------------- | :------------- |
 | re.I | 使匹配对大小写不敏感 |
 | re.L | 做本地语言识别（locale-aware）匹配|
 | re.M | 多行匹配，影响 ^ 和 $ |

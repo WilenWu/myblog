@@ -1,12 +1,14 @@
 ---
 ID: 6975fc45dd580e0ed3984abb6a23adb7
 title: R手册(Model Tools)--modelr
-tags: [R,机器学习]
+tags: [R,机器学习,tidyverse]
 date: 2018-05-04 00:43:41
 categories: [R,机器学习]
+cover: /img/modelr.png
+description: 辅助管道建模
 ---
 
-# modelr ：辅助管道建模
+# modelr 
 
 modelr软件包提供的功能可以帮助您在建模时创建精美的流水线。
 

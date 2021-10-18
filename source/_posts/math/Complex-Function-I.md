@@ -1,11 +1,12 @@
 ---
 title: 复变函数和积分变换(Complex Function I)
 date: 2019-05-28 14:28:06
-categories: [数学]
+categories: [数学,复变函数]
 tags: [数学,复变函数,解析函数,调和函数]
 cover: 
 top_img:
 katex: true
+description: false
 ---
 
 ------
@@ -18,7 +19,8 @@ katex: true
 
 
 # 复数与复变函数
-## 复数(Complex Number)
+## 复数
+
 ==复数==(Complex Number)：形如 $z=x+\text{i}y\quad (x,y\in\R)$，其中 $\text{i}$ 满足 $\text{i}^2=-1$ 称为虚数单位，$x$ 和 $y$ 分别称为复数的实部和虚部，记作$x=\text{Re }z,y=\text{Im }z$。
 如果$z=\text{i}y$ 称为纯虚数，$z=x$ 看做实数。
 如果两复数实部和虚部分别相等，则两复数相等。
@@ -102,7 +104,7 @@ $\implies az\bar z+\barβ z+β \bar z+d=0,\quadβ=\frac{1}{2}(b+\text{i}c)$
 ==过复平面上不同两点 $a,b$ 的直线==： $\text{Im }\dfrac{z-a}{z-b}=0$
 ==过不共线三点 $a,b,c$ 的圆的方程==：$\text{Im }(\dfrac{z-b}{z-a}\cdot\dfrac{c-a}{c-b})=0$
 
-## 平面点集(Planar Point Set)
+## 平面点集
 
 - **邻域(neighborhood)和去心邻域**：设 $z_0$为一个定点，$ρ>0$
 $U(z_0,ρ)=\{z∣|z−z_0|<ρ,z\in\Complex\} \\
@@ -145,8 +147,9 @@ $U(∞,ρ)=\{z||z|>ρ,z\in\Complex_{∞}\}$
 几何意义：表示曲线 $| z |= ρ$ 的外部。
 在扩充复平面上，若一个区域内的每一条Jordon 闭曲线的内部或外部(包含无穷远点)都属于这个区域，则称该区域为单连通区域．称不是单连通区域的区域为复连通区域。
 
-## 复变函数(Complex Function)
-- ==复变函数==：设 $E$ 为复平面上的点集 $w=f(z),z\in E$ ，定义域为$E$，值域为 $G$
+## 复变函数
+
+- ==复变函数==：(Complex Function) 设 $E$ 为复平面上的点集 $w=f(z),z\in E$ ，定义域为$E$，值域为 $G$
 若对映射 $f$ 只有一个确定的w与z 对应，则称 $w = f (z)$为单值函数，如 $w=z^2$。否则，称$w = f (z)$为多值函数，如 $w=\text{Arg }z,w=\sqrt{z}$。
 设 $z=x+iy,w=u+iv$，复变函数的实部与虚部均可用二元实值函数来表示 $w=f(z)=u(x,y)+iv(x,y)$
 因此，研究复变函数可以转化为研究二元实值函数
@@ -172,22 +175,23 @@ $\lim\limits_{z\to z_0}f(z)/g(z)=A/B$
 (2) $|f(z)|$ 在$\bar D$上能取到最大值与最小值，即有 $z_1,z_2\in\bar D$，$∀ z\in\bar D,|f(z_1)|⩽ |f(z)|⩽|f(z_2)|$
 (3) $f(z)$ 在 $\bar D$ 上一致连续，即$∀ϵ>0,∃δ>0$，使得当$|z_1-z_2|<δ(z_1,z_2\in\bar D)$时，有$|f(z_1)-f(z_2)|<ϵ$
 
-# 解析函数(Analytic Function)
+# 解析函数
+
 ## 导数和解析函数
 - **导数**(Derivative)
 (1) 复变函数 $w=f(z),z\in D$在 $z_0$处的导数定义为 
 $$
 \lim\limits_{Δ z\to0}\dfrac{f(z_0+Δ z)-f(z_0)}{Δ z}
 $$
- 可记作$f'(z_0), f'(z)|_{z=z_0},\dfrac{\mathrm{d}f(z)}{\mathrm{d}z}|_{z=z_0}$
- (2)  如果函数在定义域D内处处可导，则称函数在 D内可导
- (3) 与实函数的一致，复变函数的==微分== $\mathrm{d}w=f'(z)\mathrm{d}z$
- (4) 设 $u=u(z),v=v(z)$都可导
-$(u± v)'=u'± v'$
-$(uv)'=u'v+uv'$
-$(\dfrac{u}{v})'=\dfrac{u'v-uv'}{v^2}(v\neq0)$
-复合函数求导法则：$f'(z)=f'(w)g'(z),w=g(z)$
-反函数求导：$[f^{-1}(z)]'=\dfrac{1}{f'(z)}$，其中 $f(z)$为单值函数
+​    可记作$f'(z_0), f'(z)|_{z=z_0},\dfrac{\mathrm{d}f(z)}{\mathrm{d}z}|_{z=z_0}$
+​    (2)  如果函数在定义域D内处处可导，则称函数在 D内可导
+​    (3) 与实函数的一致，复变函数的==微分== $\mathrm{d}w=f'(z)\mathrm{d}z$
+​    (4) 设 $u=u(z),v=v(z)$都可导
+   $(u± v)'=u'± v'$
+   $(uv)'=u'v+uv'$
+   $(\dfrac{u}{v})'=\dfrac{u'v-uv'}{v^2}(v\neq0)$
+   复合函数求导法则：$f'(z)=f'(w)g'(z),w=g(z)$
+   反函数求导：$[f^{-1}(z)]'=\dfrac{1}{f'(z)}$，其中 $f(z)$为单值函数
 
 - **解析函数**(analytic function)
 (1) 设函数 $w=f(z),z\in D$，对于点 $z_0\in D$，若$∃ U(z_0,ρ)$，使得函数 $f (z)$ 在该邻域内处处可导，则称函数$f (z)$在点 $z_0$ ==解析==(analytic)。此时称点$z_0$为函数的==解析点==(analytic point)。若函数$f (z)$在点 $z_0$ 不解析，则称$z_0$为==奇点==(singular point)。
@@ -398,21 +402,24 @@ $\displaystyle\int_{C}zdz=\int_{C}xdx-ydy+i\int_{C}ydx+xdy=\frac{1}{2}(b^2-a^2)$
 设C 的参数方程为 $z=a+re^{iθ}\quad(0⩽θ⩽2π)$则
 $\displaystyle\oint_{C}\dfrac{1}{(z-a)^n}dz=\int_{0}^{2π}\dfrac{ire^{iθ}}{r^ne^{inθ}}dθ=\dfrac{i}{r^{n-1}}\int_{0}^{2π}e^{-i(n-1)θ}dθ$
 
-## 柯西积分定理(Cauchy Integral Theorem)
+## 柯西积分定理
 
 通过上节的例子可以发现，有的函数的积分只依赖于积分路径的起点与终点，而与积分路径的形状无关，而有的函数，其积分不仅与积分路径的起点与终点有关，而且与积分路径的形状也有关。深入观察后，可知，前一类函数是解析函数。
-- <kbd>柯西积分定理</kbd> 或称 <kbd>柯西－古萨定理</kbd>(Cauchy-Goursat Theorem)
+- <kbd>柯西积分定理</kbd> (Cauchy Integral Theorem) 或称 <kbd>柯西－古萨定理</kbd>(Cauchy-Goursat Theorem)
 如果函数$f(z)$在单连通区域D内解析，则$f(z)$在D内沿任一简单闭曲线$Γ$积分 
-$$
-\displaystyle\oint_{Γ}f(z)dz=0
-$$
- ![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Cauchy-Integral-Theorem.png)
-证：$\begin{aligned}
-\displaystyle\oint_{Γ}f(z)dz&=\oint_{Γ}udx-vdy+i\oint_{Γ}vdx+udy \\
-&\xlongequal[\text{formula}]{\text{Green}} -\iint_G(\dfrac{∂v}{∂x}+\dfrac{∂u}{∂y})+i\iint_G(\dfrac{∂u}{∂x}-\dfrac{∂v}{∂y}) \\
-&\xlongequal{\text{C-R}} 0
-\end{aligned}$
-<kbd>扩展</kbd>如果C是单连通区域D的边界，$f(z)$在D内解析，在 $\bar D=D\cup C$上连续，定理依旧成立。
+   $$
+   \displaystyle\oint_{Γ}f(z)dz=0
+   $$
+    <img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Cauchy-Integral-Theorem.png"    style="zoom: 80%;" />
+   
+   证明：    
+   $\begin{aligned} \displaystyle\oint_{Γ}f(z)dz
+   &=\oint_{Γ}udx-vdy+i\oint_{Γ}vdx+udy \\
+   &\xlongequal[\text{formula} ]{\text{Green}}  -\iint_G(\dfrac{∂v}{∂x}+\dfrac{∂u}{∂y})+i\iint_G(\dfrac{∂u}{∂x}   -\dfrac{∂v}{∂y}) \\
+   &\xlongequal{\text{C-R}}  0
+   \end{aligned}$
+
+   <kbd>扩展</kbd>如果C是单连通区域D的边界，$f(z)$在D内解析，在 $\bar D=D\cup C$上连续，定理依旧成立。
 
 - <kbd>复合闭路定理</kbd>——多连通区域上的柯西定理
 设有$n+1$条简单闭曲线$C_0,C_1,\cdots,C_n$，其中$C_1,\cdots,C_n$均在$C_0$的内区域内，而且它们既不包含也不想交。 $C_0$内部与$C_1,\cdots,C_n$外部围成多连通区域D， 称D的边界 $C=C_0+C_1^-+\cdots+C_n^-$为==复合闭路==(Compound closed path)。在外边界$C_0$，C的正向为逆时针方向，在内边界上，C的正向为顺时针方向。
@@ -460,7 +467,8 @@ $$
 则$F_0(z)$为$F(z)$在$Δ$内的一个解析分支
 ![原函数](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Primitive-Function2.png)
 
-## 柯西积分公式(Cauchy Integral Formula)
+## 柯西积分公式
+
 - **引述**：设$f(z)$在单连通区域D内解析，则函数$\dfrac{f(z)}{z-z_0}$在$z_0$处不解析。C为D内围绕$z_0$的闭曲线，所以积分$\displaystyle\oint_C \dfrac{f(z)}{z-z_0}dz$一般不为零。
 以$z_0$为中心，$ρ>0$为半径的正向圆周为积分曲线$C_ρ$，根据复合闭路定理，$\displaystyle \oint_C \dfrac{f(z)}{z-z_0}dz= \oint_{C_ρ} \dfrac{f(z)}{z-z_0}dz$
 由于$f(z)$的连续性，$f(z)\to f(z_0)\quad(ρ\to 0)$，因而可以猜想，积分
@@ -468,7 +476,7 @@ $\displaystyle  \oint_{C} \dfrac{f(z)}{z-z_0}dz\to  f(z_0)\oint_{C_ρ} \dfrac{1}
 当然，证明过程是复杂的，我们得到如下定理。
 
 
-- <kbd>柯西积分公式</kbd>：设区域D是以C为边界的单连通区域，函数$f(z)$在区域D内解析，在 $\bar D$连续，$z_0$是D内的任意一点则：
+- <kbd>柯西积分公式</kbd>：(Cauchy Integral Formula)设区域D是以C为边界的单连通区域，函数$f(z)$在区域D内解析，在 $\bar D$连续，$z_0$是D内的任意一点则：
 $$
 \displaystyle f(z_0)=\dfrac {1}{2π \text{i}}\oint_C \dfrac{f(z)}{z-z_0}dz
 $$
@@ -492,8 +500,8 @@ $$
 $|f'(z_0)|⩽\dfrac{M(ρ)}{ρ}⩽\dfrac{M}{ρ}\to 0\quad(ρ\to+\infty)$
 因此 $\forall z_0\in\Complex,f'(z_0)=0$，所以$f(z)$在复平面上为常数。
 
+## 调和函数
 
-## 调和函数(Harmonic Function)
 <kbd>定义</kbd>：设二元实函数 $φ(x, y)$在定义域D内有二阶连续偏导数，且满足二维拉普拉斯(Laplace)方程
 $$
 Δφ=\dfrac{∂^2φ}{∂x^2}+\dfrac{∂^2φ}{∂y^2}=0

@@ -5,7 +5,7 @@ tags: [R,tidyverse]
 date: 2018-05-01 17:40:30
 categories: [R,Import]
 cover: /img/readr.png
-top_img: 
+top_img: /img/readr-readxl.png
 ---
 
 R语言导入常用文件的包

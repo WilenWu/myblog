@@ -4,6 +4,8 @@ title: Python手册(Time Series)--pandas(Time Series)
 tags: [python,数据清洗,时间序列]
 date: 2018-05-12 00:49:34
 categories: [python,pandas]
+cover: /img/pandas-logo.png
+top_img: /img/pandas-bear.jpg
 ---
 
 时间序列（time series）数据是一种重要的结构化数据形式，具体的应用场景，主要有以下几种：

@@ -4,6 +4,7 @@ title: Python手册(Scientific Computing)--SciPy
 tags: [python,科学计算]
 date: 2018-05-10 23:04:50
 categories: [python,科学计算]
+cover: /img/scipy.svg
 ---
 
 **SciPy**（发音为`Sigh Pie`）是基于Python的Numpy扩展构建的数学算法和便利函数的集合，是一组专门解决科学计算中各种标准问题域的包的集合，主要包括下面这些包：

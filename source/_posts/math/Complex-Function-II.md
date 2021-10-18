@@ -1,11 +1,12 @@
 ---
 title: 复变函数和积分变换(Complex Function II)
 date: 2019-08-16 15:53:44
-categories: [数学]
+categories: [数学,复变函数]
 tags: [数学,级数,留数,共形映射]
 cover: 
 top_img: 
 katex: true
+description: false
 ---
 
 
@@ -356,8 +357,7 @@ $$
 (1) $\xi=\dfrac{1}{\bar z}=\dfrac{1}{r}e^{iθ}$ ，$|\xi||z|=1$，即 $z$ 和 $\xi$关于单位圆周 $|z|=1$对称[^2]
 (2) $w=\bar \xi=\dfrac{1}{r}e^{i(-θ)}$，$\xi$ 和 $w$关于实轴对称。
 
-[^2]: <kbd>圆周对称定义</kbd>：设圆周$C$的半径为$R$，$A,B$两点位于从圆心$O$出发的射线上，且$OA\cdot OB=R^2$，则称点 $A$与点$B$是关于该圆周的对称点。
-约定圆心的对称点为无穷远点 $∞$
+[^2]: <kbd>圆周对称定义</kbd>：设圆周$C$的半径为$R$，$A,B$两点位于从圆心$O$出发的射线上，且$OA\cdot OB=R^2$，则称点 $A$与点$B$是关于该圆周的对称点。约定圆心的对称点为无穷远点 $∞$
 ![圆周对称](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/circular-symmetrical.png)
 
 

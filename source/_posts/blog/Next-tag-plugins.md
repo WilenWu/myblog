@@ -6,6 +6,7 @@ tags: [Hexo]
 cover: /img/hexo-next.png
 top_img: /img/logo/next-logo.svg
 noticeOutdate: true
+description: false
 ---
 
 {% note warning%} 

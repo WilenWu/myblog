@@ -4,6 +4,7 @@ title: R手册(NLP)--jiebaR
 tags: [R,NLP,可视化]
 date: 2018-05-04 17:43:15
 categories: [R,NLP]
+description: R语言词云和中文词典包
 ---
 
 R语言词云和中文词典包。

@@ -5,6 +5,7 @@ categories: [博客搭建]
 tags: [Hexo]
 cover: /img/hexo-github.png
 noticeOutdate: true
+description: false
 ---
 
 

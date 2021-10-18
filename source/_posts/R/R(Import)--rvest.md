@@ -4,7 +4,7 @@ title: R手册(Import)--rvest
 tags: [R,tidyverse]
 date: 2018-05-01 17:49:56
 categories: [R,Import]
-cover: /img/tidyverse3.png
+cover: /img/rvest.png
 top_img: 
 ---
 

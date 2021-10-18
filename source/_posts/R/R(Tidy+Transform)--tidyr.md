@@ -6,6 +6,7 @@ date: 2018-05-28 16:33:39
 categories: [R,Tidy+Transform]
 cover: /img/tidyr.png
 top_img: 
+description: Easily tidy data with spread and gather functions
 ---
 
 **tidyr**: Easily tidy data with spread and gather functions.

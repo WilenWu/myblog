@@ -4,7 +4,8 @@ title: Python手册(Visualise)--seaborn
 tags: [python,可视化]
 date: 2018-05-10 23:20:12
 categories: [python,可视化]
-top_img: false
+cover: /img/seaborn-tall.svg
+top_img: /img/seaborn-wide.svg
 ---
 
 <img src="https://gitee.com/wilenwu/images/raw/master/seaborn/Seaborn.svg" width="100%;" />

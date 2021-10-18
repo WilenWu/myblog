@@ -4,9 +4,11 @@ title: R手册(Model Tools)--broom
 tags: [R,tidyverse,机器学习]
 date: 2018-05-04 00:43:40
 categories: [R,机器学习]
+cover: /img/broom.png
+description: Convert statistical analysis objects into tidy format
 ---
 
-# broom：Convert statistical analysis objects into tidy format
+# broom
 
 这个软件包提供了三种完成三种不同类型整理的S3方法：[GitHub链接](https://github.com/tidyverse/broom)
 

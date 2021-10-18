@@ -1,9 +1,10 @@
 ---
 ID: 870f196d599cfaa4bde163b80704c519
 title: Python手册(Python Basics)--RPy2
-tags: [python]
 date: 2018-12-23 22:05:50
 categories: [python,Python基础]
+tags: [python]
+cover: /img/pypi.svg
 ---
 
 # 概述

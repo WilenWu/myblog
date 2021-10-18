@@ -7,6 +7,7 @@ tags: [Hexo]
 cover: /img/hexo.jpg
 top_img: /img/logo/hexo-logo.svg
 noticeOutdate: true
+description: 
 ---
 「tag 插件」(Tag Plugin) 是 Hexo 提供的一种快速生成特定内容的方式，并不是标准的Markdown格式。 Hexo 内置来许多标签来帮助写作者可以更快的书写， [完整的标签列表](https://hexo.io/zh-cn/docs/tag-plugins) 可以参考 Hexo 官网。 另外，Hexo 也开放来接口给主题，使主题有可能提供给写作者更简便的写作方法。 
 

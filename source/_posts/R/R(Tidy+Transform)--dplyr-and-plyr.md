@@ -4,8 +4,9 @@ title: R手册(Tidy+Transform)--dplyr and plyr
 tags: [R,tidyverse,数据清洗]
 date: 2018-05-01 20:01:45
 categories: [R,Tidy+Transform]
-cover: /img/dplyr-logo.png
+cover: /img/dplyr.png
 top_img: 
+description: A Grammar of Data Manipulation
 ---
 
 <!-- more -->

@@ -5,9 +5,10 @@ tags: [python,机器学习]
 date: 2018-05-10 23:08:52
 categories: [python,机器学习]
 cover: /img/scikit-learn-logo.png
+description:  The most popular and widely used library for machine learning in Python.
 ---
 
-[**Scikit-Learn**][sk] : The most popular and widely used library for machine learning in Python.
+[**Scikit-Learn**][sk]: The most popular and widely used library for machine learning in Python.
 
 -   分类：SVM、近邻、随机森林、逻辑回归等等。
 -   回归：Lasso、岭回归等等。

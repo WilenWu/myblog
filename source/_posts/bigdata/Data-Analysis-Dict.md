@@ -125,7 +125,7 @@ $Y=βX+error$  （OLS最小二乘法，使ESS最小值）
 (1) $var(e)= σ^2$ , 误差方差=样本方差
 (2) $cov( e_i ,e_j )=0 (i  ≠ j)$ , 误差独立性 
 
-|**回归方程的显著性检验** ($H_0:  β_i=0$)  | t检验和F检验 |
+|回归方程的显著性检验| ($H_0:  β_i=0$)  | t检验和F检验 |
 | :----- | :------ | :----- |
 | 回归平方和| Residual Sum of Squares | $RSS=∑(y_i-mean(Y))^2$ |
 | 残差平方和| Explained Sum of Squares| ESS|

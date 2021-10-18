@@ -6,10 +6,9 @@ tags: [数学,极限,导数,微分,积分]
 cover: 
 top_img: 
 katex: true
-typora-root-url: 
+description: false
 ---
 
-------
 
 
 > 本文参考MOOC同济大学和国防科技大学《高等数学》课程。
@@ -93,7 +92,7 @@ $$
   偶函数(even)： $f(-x)=f(x)$
   奇函数(odd)： $f(-x)=-f(x)$
   周期函数(periodic function)： $f(x± T)=f(x)$
-  ![](https://gitee.com/WilenWu/images/raw/master/math/limit1.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/math/inverse-fun.png)
 
 - **初等函数**(elementary function)：由常数和基本初等函数经有限次四则运算和有限次函数复合构成的函数，称为初等函数。
 
@@ -110,7 +109,7 @@ $$
   $(2)\lim\limits_{x \to ∞} f(x)=A  \iff ∀ ϵ>0, ∃δ>0,$ 当 $|x|>δ$ 时， 有 $|f(x)-A|<ϵ$
   $(\star)\lim\limits_{x \to x_0} f(x)=A  \iff \lim\limits_{x \to x_0^+} f(x)=\lim\limits_{x \to x_0^-} f(x)=A$
   极限的性质：若极限存在则唯一，函数局部有界且保号。
-  ![](https://gitee.com/WilenWu/images/raw/master/math/inverse-fun.png) ![](https://gitee.com/WilenWu/images/raw/master/math/limit2.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/math/limit1.png) ![](https://gitee.com/WilenWu/images/raw/master/math/limit2.png)
 
 - **极限运算**
   (1) 若 $\lim f(x)=A, \lim g(x)=B$
@@ -134,7 +133,7 @@ $$
 \lim\limits_{x\to 0} \dfrac{\sin x}{x}=1
 $$
 
-![](https://gitee.com/WilenWu/images/raw/master/math/sin(x)_over_x.png) ![](https://gitee.com/WilenWu/images/raw/master/math/squeeze-theorem.png)
+![](https://gitee.com/WilenWu/images/raw/master/math/squeeze-theorem.png)![](https://gitee.com/WilenWu/images/raw/master/math/sin(x)_over_x.png) 
 
    (2) ==准则二==
 若 $∃δ>0,x\in (x_0-δ,x_0)$时，$f(x)$单调有界 $\implies$左极限$f(x_0^-)$存在
@@ -191,7 +190,7 @@ $$
   <kbd>零点定理</kbd>(zero theorem) 若$f(x)$在闭区间$[a,b]$上连续，且$f(a)\cdot f(b)<0$，则 至少存在一点$ξ\in(a,b)$，使$f(ξ)=0$
   <kbd>介值定理</kbd>(intermediate value theorem) 若$f(x)$在闭区间$[a,b]$上连续，$f(a)=A,f(b)=B$，则对 $∀ C\in(A,B),∃ ξ\in(a,b)$，使得$f(ξ)=C$
 
-![](https://gitee.com/WilenWu/images/raw/master/math/zero-theorem.png)![](https://gitee.com/WilenWu/images/raw/master/math/derivative.png)
+![](https://gitee.com/WilenWu/images/raw/master/math/zero-theorem.png)![](https://gitee.com/WilenWu/images/raw/master/math/intermediate-value-theorem.png)
 
 - **一致连续**(uniformly continuous)：若$f(x)在[a,b]$上连续，则$f(x)在[a,b]$上一致连续
 
@@ -200,7 +199,9 @@ $$
 ## 导数
 
 引例：切线的斜率，如图，需要寻找曲线 $f(x)$ 在其上任意一点 $P(x_0,y_0)$ 的切线 $PT$，可通过割线 $PQ$ 取极限获得。
-![](https://gitee.com/WilenWu/images/raw/master/math/intermediate-value-theorem.png)  
+
+![](https://gitee.com/WilenWu/images/raw/master/math/derivative.png)
+
 (1) 函数 $y=f(x)$ 在点 $(x_0,y_0)$ 的导数(derivative)定义为 
 $$
 y'\mid_{x=x_0}=\lim\limits_{Δx\to0}\dfrac{f(x_0+Δx)-f(x_0)}{Δx}
@@ -443,7 +444,7 @@ $$
   ==(第二充分条件)==：设 $f'(x_0)=0,f''(x_0)\neq0$ 若
   $f''(x_0)\begin{cases}<0,&f(x)在点x_0取得极大值\\>0,&f(x)在点x_0取得极小值
   \end{cases}$
-  ![](https://gitee.com/WilenWu/images/raw/master/math/arc-differential.png)
+  ![](https://gitee.com/WilenWu/images/raw/master/math/extremum.png)
 
 - [**方程的近似解**](https://jingyan.baidu.com/article/7f41ecec213810593d095c28.html)
 
@@ -458,7 +459,7 @@ $$
 \mathrm{d}s=\sqrt{1+y'^2}\mathrm{d}x
 $$
 
-![](https://gitee.com/WilenWu/images/raw/master/math/extremum.png)   ![](https://gitee.com/WilenWu/images/raw/master/math/curvature.png) 
+   ![](https://gitee.com/WilenWu/images/raw/master/math/arc-differential.png)![](https://gitee.com/WilenWu/images/raw/master/math/curvature.png) 
 
 [arcd]: https://jingyan.baidu.com/article/67508eb47596589cca1ce49f.html
 

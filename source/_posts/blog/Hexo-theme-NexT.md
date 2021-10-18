@@ -2,12 +2,12 @@
 ID: 5980ef6822399cf8ecb3c84fd29d6252
 title: NexT主题配置
 date: 2019-09-11 14:14:04
-updated: 2019-09-11 14:14:04
 categories: [博客搭建]
 tags: [Hexo]
 cover: /img/next-theme.png
 top_img: /img/logo/next-logo.svg
 noticeOutdate: true
+description: 
 ---
 
 [NexT](https://theme-next.js.org/) 是 [Hexo](http://hexo.io) 框架中最为流行的主题之一。精于心，简于形。

@@ -4,6 +4,7 @@ title: R手册(Parallel Computing)--foreach
 tags: [R,并行运算]
 date: 2018-05-04 00:34:33
 categories: [R,并行运算]
+description: foreach为R语言并行运算包
 ---
 
 foreach为R语言并行运算包

@@ -1,7 +1,7 @@
 ---
 ID: 589616204baeea3eca57bb16d1dc706f
 title: R手册(Tidy+Transform)--缺失数据处理(naniar and simputation)
-tags: [R,数据清洗]
+tags: [R,数据清洗,缺失值]
 date: 2018-05-01 23:37:57
 categories: [R,Tidy+Transform]
 ---

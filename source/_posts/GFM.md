@@ -6,7 +6,7 @@ categories: [实用知识]
 tags: [markdown]
 katex: true
 cover: /img/GFM.png
-top_img: 
+top_img:
 sticky: 2
 description: GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规范了markdown的语法和语义。
 ---
@@ -28,10 +28,10 @@ description: GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规
 
 ## Markdown Client
 
-- [Typora](https://pc.qq.com/search.html#!keyword=Typora) (Win+Mac+Linux) : What You See Is What You Get
+- [Typora](https://www.typora.io/) (Win+Mac+Linux) : What You See Is What You Get
 - [Mou](http://25.io/mou/) (Mac): Markdown editor for developers.
 - [Bear](http://www.bear-writer.com/)(Mac): Write beautifully on iPhone, iPad, and Mac
-- [MarkdownPad](markdownpad.com)(Windows): MarkdownPad is a full-featured Markdown editor for Windows
+- [~~MarkdownPad~~](http://markdownpad.com/)(Windows): MarkdownPad is a full-featured Markdown editor for Windows
 - [MarkPad](http://code52.org/MarkPadRT/): Markdown works better with MarkPad
 
 ## Text Editor
@@ -49,8 +49,8 @@ description: GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规
 要创建标题，请在标题文本前添加一至六个 `#` 符号。 您使用的 `#` 数量将决定标题的大小。
 
 ```markdown
-# Header 1 
-## Header 2 
+# Header 1
+## Header 2
 ... ...
 ##### Header 6
 ```
@@ -308,7 +308,7 @@ GitHub 自动从标准 URL 创建链接。如 http://www.baidu.com
 当然，有时markdown不能满足我们的需求，我们可以采用HTML语法。
 
 ```html
-<img src="img.jpg" alt="Optional title" width="20%" height="20%" align="right"/>
+<img src="img.jpg" alt="Optional title" width="20%;" height="20%;" align="right"/>
 ```
 
 > CSDN去图片水印的方法：上传图片后将图片URL后面的所有的参数去掉，就不显示水印了
@@ -343,16 +343,16 @@ typora 按Shift+Enter创建一个换行符。然而，大多数的编辑器会�
 HTML语法的段落标签为 `<p>paragraph </p>`
 
 ```markdown
-1.  This is a list item with two paragraphs. 
+1.  This is a list item with two paragraphs.
 
-    The second paragraph. 
+    The second paragraph.
 
 2.  Suspendisse id sem consectetuer libero luctus adipiscing.
 ```
 
-1. This is a list item with two paragraphs. 
+1. This is a list item with two paragraphs.
 
-   The second paragraph. 
+   The second paragraph.
 
 2. Suspendisse id sem consectetuer libero luctus adipiscing.
 
@@ -379,7 +379,7 @@ HTML语法的段落标签为 `<p>paragraph </p>`
 
 :sunny: :snowflake: :cloud: :zap: :heart: :heartbeat: :train2: :airplane: :bus: :taxi: :car: :ship: :white_check_mark: :white_medium_square: :white_large_square: :white_circle: :red_circle:
 
-有关可用表情符号和代码的完整列表，请查看 
+有关可用表情符号和代码的完整列表，请查看
 
 - [emoji-cheat-sheet.com](http://emoji-cheat-sheet.com/)
 -  [emoji中文网 - EmojiAll](https://www.emojiall.com/zh-hans)
@@ -655,4 +655,3 @@ HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Mark
 <i class="fa fa-home"></i> home
 ```
 <i class="fa fa-home"></i> home
-

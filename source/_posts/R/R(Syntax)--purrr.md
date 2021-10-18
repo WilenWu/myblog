@@ -6,7 +6,9 @@ tags: [R,tidyverse]
 categories: [R,语法]
 cover: /img/purrr.png
 top_img: 
+description: A functional programming(FP) toolkit for R
 ---
+
 **purrr** : A functional programming(FP) toolkit for R
 
 <!-- more -->

@@ -4,7 +4,7 @@ title: 正则表达式
 date: 2018-05-01 18:26:12
 categories:  [实用知识]
 tags: 正则表达式
-cover: https://gitee.com/WilenWu/images/raw/master/common/regexp.jpg
+cover: /img/regexp.jpeg
 sticky: 1
 ---
 

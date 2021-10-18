@@ -1,22 +1,14 @@
 ---
 title: 常微分方程(Ordinary Differential Equation III)
 date: 2020-04-23 14:53:26
-categories: [数学]
+categories: [数学,微分方程]
 tags: [数学,ODE,微分方程]
 cover: 
 top_img: 
 keywords: 
 katex: true
+description: false
 ---
-
-
-@[toc](常微分方程)
-
-------
-
-[常微分方程(Ordinary Differential Equation I)](https://blog.csdn.net/qq_41518277/article/details/89703473)
-[常微分方程(Ordinary Differential Equation II)](https://blog.csdn.net/qq_41518277/article/details/105707514)
-[常微分方程(Ordinary Differential Equation III)](https://blog.csdn.net/qq_41518277/article/details/105707532)
 
 
 ------

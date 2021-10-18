@@ -6,7 +6,6 @@ date: 2018-05-04 00:13:03
 categories: [R,可视化]
 cover: /img/leaf.png
 top_img: /img/leaflet-logo.png
-typora-root-url: ./
 ---
 
 # leaflet

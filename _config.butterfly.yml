@@ -98,7 +98,7 @@ avatar:
 disable_top_img: false
 
 # 主页的 top_img
-index_img: /img/two-yellows.jpg
+index_img: /img/cloud.jpeg
 
 # 默认的 top_img，当页面的 top_img 没有配置时，会显示 default_top_img
 default_top_img: false 
@@ -662,8 +662,8 @@ aside:
     content: 感谢访问本站，若喜欢请收藏^_^
   card_recent_post:
     enable: true
-    limit: 3 # if set 0 will show all
-    sort: updated # date or updated
+    limit: 5 # if set 0 will show all
+    sort: date # date or updated
     sort_order: # Don't modify the setting unless you know how it works
   card_categories:
     enable: true

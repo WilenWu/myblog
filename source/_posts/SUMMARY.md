@@ -4,7 +4,6 @@ date: 2019-10-08 13:04:44
 description: 个人书架
 top_img: false
 cover: /img/bookshelf.jpg
-comments: true
 ---
 
 本人依据个人爱好、工作需要等制定了一份详细的学习计划。依据本「书架」在博客不定时更新学习笔记。

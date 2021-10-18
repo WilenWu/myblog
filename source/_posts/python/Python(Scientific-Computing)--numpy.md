@@ -1,10 +1,12 @@
 ---
 ID: d859260c0fe970ebc86a3d154f116ebe
 title: Python手册(Scientific Computing)--NumPy
-tags: [python,科学计算]
 date: 2018-04-30 12:02:50
 categories: [python,科学计算]
+tags: [python,科学计算]
+cover: /img/numpy-logo.png
 ---
+
 NumPy（Numerical Python的简称）是Python数值计算最重要的基础包。大多数提供科学计算的包都是用NumPy的数组作为构建基础。
 
 <!-- more -->
@@ -146,8 +148,6 @@ accumulate(array, axis=0, dtype=None, out=None, keepdims=None)|保留所有局�
 reduceat(a, indices, axis=0, dtype=None, out=None)|分组约简
 outer(A, B, **kwargs)|Apply the ufunc `op` to all pairs (a, b) with a in `A` and b in `B`.<br>`ufunc.outer(A,B).ndim=A.ndim+B.ndim`
 np.frompyfunc(func, nin, nout)|nin : input(int), nout : output(int), return: ufunc
-
-
 
 # NumPy的random随机库（生成n维随机数组）
 

@@ -2,16 +2,13 @@
 title: 线性代数(Linear Algebra)
 date: 2019-05-23 15:39:34
 categories: [数学]
-tags: [数学]
+tags: [数学,行列式,矩阵,特征值,特征向量,二次型]
 cover: 
 top_img: 
-keywords: [行列式,矩阵,特征值,特征向量,二次型]
 katex: true
+description: false
 ---
 
-
-
-@[toc](Table of Contents)
 > 摘自MOOC东南大学和同济大学《线性代数》
 > 友情链接：[高等代数-简书](https://www.jianshu.com/c/862d6b86a56d)
 
@@ -547,7 +544,7 @@ $e_1=(1,0,0)^T,e_2=(0,1,0)^T,e_3=(0,0,1)^T$
  若$\mathbf{e_1},\mathbf{e_2},\cdots,\mathbf{e_r}$ 是向量空间$V$的一个规范正交基
  $∀\mathbf{x}\in V,\mathbf{x}=λ_1\mathbf{e_1}+λ_2\mathbf{e_2}+\cdots+λ_r\mathbf{e_r}\implies λ_i=\mathbf{e_i}^T\mathbf{x}=[\mathbf{x,e_i}]$
  这就是向量在规范正交基中的坐标的计算公式，利用这个公式能方便地求得向量的坐标.
- 
+
 **施密特正交化法**(Schimidt orthogonalization)
 设$\mathbf{α_1,α_2,\cdots,α_r}$是向量空间$Ｖ$的一个基，寻找向量空间的一个规范正交基。也就是要找一组两两正交的单位向量 $ξ_1,ξ_2,\cdots,ξ_r$与$\mathbf{α_1,α_2,\cdots,α_r}$等价。
 此问题称为把基 $\mathbf{α_1,α_2,\cdots,α_r}$ ==规范正交化==(orthonormalization)

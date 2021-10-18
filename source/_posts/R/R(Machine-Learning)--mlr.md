@@ -4,6 +4,7 @@ title: R手册(Machine Learning)--mlr
 tags: [R,机器学习]
 date: 2018-05-04 01:08:17
 categories: [R,机器学习]
+cover: /img/machine-learning.jpg
 ---
 
 <!-- more -->

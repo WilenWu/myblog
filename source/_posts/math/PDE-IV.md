@@ -1,23 +1,13 @@
 ---
 title: 偏微分方程(Partial Differential Equation IV)
 date: 2020-07-10 16:52:58
-categories: [数学]
-tags: [数学,PDE,微分方程]
+categories: [数学,微分方程]
+tags: [数学,PDE,微分方程,变分法]
 cover: 
 top_img: 
-keywords: [变分法]
 katex: true
+description: false
 ---
-
-
-@[toc](数学物理方法)
-
-------
-
-[偏微分方程(Partial Differential Equation  I)](https://blog.csdn.net/qq_41518277/article/details/90295633)
-[偏微分方程(Partial Differential Equation  II)](https://blog.csdn.net/qq_41518277/article/details/106146720)
-[偏微分方程(Partial Differential Equation  III)](https://blog.csdn.net/qq_41518277/article/details/106144947)
-[偏微分方程(Partial Differential Equation  IV)](https://blog.csdn.net/qq_41518277/article/details/107254951)
 
 ------
 
@@ -61,7 +51,7 @@ J[y]= & \int_{x_0}^{x_1}\cfrac{\mathrm ds}{\sqrt{2g(y_0-y)}} \\
 \end{aligned}
 $$
 这里，要求 $y(x)$ 一定通过端点 $(x_0,y_0)$ 和 $(x_1,y_1)$
-![](https://img-blog.csdnimg.cn/202007021559088.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/brachistochrone-problem.png)
 
 **示例 3**：（极小曲面问题）设在空间上的光滑曲面簇 $u(x,y)$ ，其曲面面积定义了泛函
 $$
@@ -77,7 +67,7 @@ $$
 
 **变分的概念**：对于函数 $f(x)$ 假设自变量 $x$ 不变，改变函数的形式得到一个与原函数稍有差别的新函数 $\bar f(x)=f(x)+δg(x)$ 。其中，$g(x)$ 是任意连续函数，$δ$ 是微小系数，即对于 $\forallϵ>0,|δy(x)|<ϵ$ 。
 对于函数的任意自变量，函数 $f(x)$ 由于**形式上的微小改变**而得到的改变量称为该函数的==变分==。自变函数的变分其实是自变量微分的推广。如下图，函数 $y(x)$ 的变分 $δy(x)$
-![](https://img-blog.csdnimg.cn/20200709092149735.PNG)
+![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/variation.png)
 
 以一元函数为例，总结变分的几条**运算性质**
 (1) 由于变分独立于函数自变量，所以变分与微分可以交换
@@ -262,7 +252,7 @@ F_z-\cfrac{\mathrm d}{\mathrm dx}F_{z'}+λ(x)G_z=0
 $$
 故得出了泛函条件极值的拉格朗日乘数法。
 
-[math2]: https://blog.csdn.net/qq_41518277/article/details/89761069 
+[math2]: /posts/Calculus-II/
 
 **等周问题**：在约束条件
 $$
@@ -406,5 +396,4 @@ $$
    \end{aligned}
    $$
    主要用于描述晶格点阵中的声传播。
-
 

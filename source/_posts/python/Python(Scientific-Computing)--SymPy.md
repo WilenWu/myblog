@@ -4,7 +4,7 @@ title: Python手册(Scientific Computing)--SymPy
 tags: [python,科学计算]
 date: 2018-10-10 22:06:53
 categories: [python,科学计算]
-sticky: false
+cover: /img/sympy.svg
 ---
 
 **SymPy**（Symbol Python的简称）是一个用于符号数学的Python库。它旨在成为一个功能齐全的计算机代数系统（CAS），同时保持代码尽可能简单，以便易于理解和易于扩展。SymPy完全用Python编写，不依赖于外部库。

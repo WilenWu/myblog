@@ -4,6 +4,7 @@ title: R手册(Communicate)--R Markdown
 tags: [R,markdown]
 date: 2018-04-30 15:45:28
 categories: [R,Communicate]
+cover: /img/rmarkdown.png
 ---
 
 R Markdown是通过R语言制作动态文档的文件格式
@@ -173,17 +174,17 @@ render("input.Rmd")
 render("input.md")
 ```
 
-> **render函数主要参数：**
-> input : file to render
-> output_format: 输出格式
-> output_options: 要渲染的选项list (in YAML)
-> output_file, output_dir : 输出文件名和路径
-> params： list of params to use
-> envir : environment to evaluate code chunks in
-> encoding - of input file
+**render函数主要参数：**
+input : file to render
+output_format: 输出格式
+output_options: 要渲染的选项list (in YAML)
+output_file, output_dir : 输出文件名和路径
+params： list of params to use
+envir : environment to evaluate code chunks in
+encoding - of input file
 
-> **Output Formats:** str or Output Format Function
-> all: 输出全部格式
+**Output Formats:** str or Output Format Function
+all: 输出全部格式
 *Output Format Functions：*
 html_document
 pdf_document
