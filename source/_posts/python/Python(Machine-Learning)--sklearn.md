@@ -4,7 +4,7 @@ title: Python手册(Machine Learning)--sklearn
 tags: [python,机器学习]
 date: 2018-05-10 23:08:52
 categories: [python,机器学习]
-cover: /img/scikit-learn-logo.png
+cover: /img/scikit-learn.svg
 description:  The most popular and widely used library for machine learning in Python.
 ---
 

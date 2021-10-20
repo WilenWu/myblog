@@ -4,7 +4,8 @@ title: Python手册(Scientific Computing)--NumPy
 date: 2018-04-30 12:02:50
 categories: [python,科学计算]
 tags: [python,科学计算]
-cover: /img/numpy-logo.png
+cover: /img/numpy.svg
+top_img: /img/numpy-logo.png
 ---
 
 NumPy（Numerical Python的简称）是Python数值计算最重要的基础包。大多数提供科学计算的包都是用NumPy的数组作为构建基础。

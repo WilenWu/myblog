@@ -3,7 +3,7 @@ title: 高等数学(空间解析几何)
 date: 2019-05-03 11:22:02
 categories: [数学,高等数学]
 tags: [数学,向量代数,解析几何]
-cover: 
+cover: /img/Nuvola_Math_and_Inf.svg
 top_img: 
 katex: true
 description: false

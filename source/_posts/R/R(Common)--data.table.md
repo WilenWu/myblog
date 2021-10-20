@@ -4,7 +4,7 @@ title: R手册(Common)--data.table
 tags: [R]
 date: 2018-05-01 17:32:24
 categories: [R,Common]
-cover: /img/r-logo.png
+cover: /img/r-logo.jpg
 top_img: 
 ---
 

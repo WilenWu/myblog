@@ -4,7 +4,7 @@ title: R手册(Common)--R语言基础包
 tags: [R]
 date: 2018-04-30 17:22:51
 categories: [R,Common]
-cover: /img/r-1.png
+cover: /img/r-report.jpg
 top_img: 
 ---
 

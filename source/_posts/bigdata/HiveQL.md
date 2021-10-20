@@ -4,7 +4,7 @@ title: 大数据手册(Hive)--HiveQL
 date: 2018-07-03 17:57:36
 categories: [大数据]
 tags: [大数据,hive,SQL]
-cover: /img/apache-hive.jpg
+cover: /img/apache-hive.png
 top_img: /img/hive-bg.png
 description: Hive 是一个基于Apache Hadoop的数据仓库基础设施
 ---

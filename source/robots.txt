@@ -2,7 +2,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wilenwu.gitee.io/sitemap.xml
-Sitemap: https://wilenwu.gitee.io/baidusitemap.xml
-Sitemap: https://wilenwu.github.io/sitemap.xml
-Sitemap: https://wilenwu.github.io/baidusitemap.xml
+sitemap: https://wilenwu.gitee.io/sitemap.xml
+sitemap: https://wilenwu.gitee.io/baidusitemap.xml
+sitemap: https://wilenwu.github.io/sitemap.xml
+itemap: https://wilenwu.github.io/baidusitemap.xml

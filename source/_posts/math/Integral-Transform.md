@@ -3,7 +3,7 @@ title: 复变函数和积分变换(Integral Transform)
 date: 2019-07-24 13:09:37
 categories: [数学,复变函数]
 tags: [数学,复傅里叶变换,拉普拉斯变换]
-cover: 
+cover: /img/oo-math.svg
 top_img: 
 katex: true
 description: false

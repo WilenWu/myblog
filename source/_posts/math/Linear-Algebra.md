@@ -3,8 +3,8 @@ title: 线性代数(Linear Algebra)
 date: 2019-05-23 15:39:34
 categories: [数学]
 tags: [数学,行列式,矩阵,特征值,特征向量,二次型]
-cover: 
-top_img: 
+cover: /img/linear.jpg
+top_img: /img/matrix.jpeg
 katex: true
 description: false
 ---

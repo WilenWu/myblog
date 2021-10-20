@@ -9,7 +9,7 @@
 menu:
   首页: / || fas fa-home
   文档||fa fa-th: 
-    目录: posts/toc/ || fa fa-list
+    目录: posts/SUMMARY/ || fa fa-list
     归档: /archives/ || fas fa-archive
     标签: /tags/ || fas fa-tags
     分类: /categories/ || fas fa-folder-open
@@ -30,7 +30,7 @@ highlight_theme: light #  darker / pale night / light / ocean / mac / mac light 
 highlight_copy: true # copy button
 highlight_lang: true # show the code language
 highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
-highlight_height_limit: 200 # unit: px or false 
+highlight_height_limit: 300 # unit: px or false 
 code_word_wrap: true    # 自动换行
 
 # copy settings
@@ -141,7 +141,7 @@ cover:
 # Replace Broken Images (替換無法顯示的圖片)
 error_img:
   flink: /img/friend_404.gif
-  post_page: /img/404.jpg
+  post_page: /img/404_moon.png
 
 # A simple 404 page
 error_404:

@@ -4,11 +4,13 @@ title: R手册(Syntax)--magrittr
 tags: [R,tidyverse]
 date: 2018-05-02 00:46:17
 categories: [R,语法]
-cover: /img/magrittr.png
+cover: /img/pipe.png
 top_img: 
 ---
 
 **magrittr**:  管道语法 (pipe)
+
+<img src="https://gitee.com/WilenWu/images/raw/master/common/workflows.png" style="zoom: 33%;" />
 
 <!-- more -->
 

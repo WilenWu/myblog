@@ -4,6 +4,7 @@ title: R手册(Visualise)--RColorBrewer and extrafont
 tags: [R,可视化]
 date: 2018-05-03 22:16:10
 categories: [R,可视化]
+cover: /img/palette.png
 ---
 
 # RColorBrewer：调色板

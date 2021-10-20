@@ -1,7 +1,7 @@
 ---
 title: 概率论与数理统计(Probability & Statistics II)
 date: 2019-06-01 20:57:44
-categories: [数学]
+categories: [数学,概率论]
 tags: [数学,参数估计,假设检验,方差分析,回归分析]
 cover: /img/prob.jpg
 top_img: 

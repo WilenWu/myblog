@@ -645,7 +645,7 @@ HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Mark
 ```
 你可以在各大视频网站的分享入口，找到嵌入的 HTML 代码。
 
-![video](https://gitee.com/wilenwu/images/raw/master/common/share.jpg))
+![video](https://gitee.com/wilenwu/images/raw/master/common/share.jpg)
 
 ## Font Awesome
 

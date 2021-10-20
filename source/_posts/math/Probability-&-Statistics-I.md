@@ -1,7 +1,7 @@
 ---
 title: 概率论与数理统计(Probability & Statistics I)
 date: 2019-05-28 14:38:39
-categories: [数学]
+categories: [数学,概率论]
 tags: [数学,随机变量,分布,期望,方差]
 cover: /img/prob.jpg
 top_img: 

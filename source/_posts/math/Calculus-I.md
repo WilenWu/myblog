@@ -3,13 +3,11 @@ title: 高等数学(Calculus I)
 date: 2019-04-24 14:52:57
 categories: [数学,高等数学]
 tags: [数学,极限,导数,微分,积分]
-cover: 
-top_img: 
+cover: /img/Calculus.jpg
+top_img: /img/Calculus-top.jpg
 katex: true
 description: false
 ---
-
-
 
 > 本文参考MOOC同济大学和国防科技大学《高等数学》课程。
 > 友情链接：[微积分常用英文词汇](https://wenku.baidu.com/view/d565de2ae2bd960590c67794.html)

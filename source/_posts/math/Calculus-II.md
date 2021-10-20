@@ -3,8 +3,8 @@ title: 高等数学(Calculus II)
 date: 2019-05-03 20:31:28
 categories: [数学,高等数学]
 tags: [数学,偏导数,全微分,重积分,曲线积分,曲面积分]
-cover: 
-top_img: 
+cover: /img/Calculus2.jpg
+top_img: /img/function.jpg
 katex: true
 description: false
 ---
