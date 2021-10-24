@@ -4,6 +4,8 @@ title: R手册(NLP)--wordcloud2
 tags: [R,NLP,可视化]
 date: 2018-05-28 18:41:43
 categories: [R,NLP]
+cover: /img/love-cloud.png
+top_img: /img/r-logo.svg
 description: R interface to wordcloud for data visualization
 ---
 

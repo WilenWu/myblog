@@ -6,6 +6,7 @@ date: 2018-05-04 00:13:03
 categories: [R,可视化]
 cover: /img/leaf.png
 top_img: /img/leaflet-logo.png
+description: 最流行的JavaScript库交互式地图之一，动态交互地图。  
 ---
 
 # leaflet

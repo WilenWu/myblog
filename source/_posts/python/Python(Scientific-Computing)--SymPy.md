@@ -1,9 +1,9 @@
 ---
 ID: 02dd517cfea3895c48f37fc4d0792827
 title: Python手册(Scientific Computing)--SymPy
-tags: [python,科学计算]
+tags: [Python,科学计算]
 date: 2018-10-10 22:06:53
-categories: [python,科学计算]
+categories: [Python,科学计算]
 cover: /img/sympy.svg
 ---
 

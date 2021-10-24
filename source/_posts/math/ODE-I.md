@@ -7,7 +7,7 @@ cover:
 top_img: 
 keywords: 
 katex: true
-description: 
+description: 一阶常微分方程
 ---
 
 # 微分方程基本概念

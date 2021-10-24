@@ -4,6 +4,9 @@ title: R手册(Time Series)--zoo
 tags: [R,时间序列,数据清洗]
 date: 2018-05-28 16:55:01
 categories: [R,时间序列]
+cover: /img/r-xts.png
+top_img: /img/r-logo.svg
+description: 定义了规则和不规则时间序列S3类
 ---
 
 zoo和xts是对日期型数据进行清洗的R包

@@ -6,7 +6,7 @@ tags: [数学,参数估计,假设检验,方差分析,回归分析]
 cover: /img/prob.jpg
 top_img: 
 katex: true
-description: false
+description: 数理统计
 ---
 
 ------

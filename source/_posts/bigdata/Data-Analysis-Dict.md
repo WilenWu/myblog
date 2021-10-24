@@ -5,7 +5,7 @@ date: 2018-05-09 21:31:41
 katex: true
 categories: [大数据]
 tags: [大数据]
-cover: /img/R-C.jpg
+cover: /img/data-trend.jpg
 description: 数据分析术语的简单说明
 ---
 

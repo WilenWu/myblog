@@ -6,7 +6,7 @@ tags: [数学,PDE,微分方程,变分法]
 cover: 
 top_img: 
 katex: true
-description: false
+description: 变分法、非线性偏微分方程
 ---
 
 ------

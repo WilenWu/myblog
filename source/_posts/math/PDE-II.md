@@ -6,7 +6,7 @@ tags: [数学,PDE,微分方程,贝塞尔函数,勒让德函数]
 cover: 
 top_img: 
 katex: true
-description: false
+description: 球函数、柱函数
 ---
 
 

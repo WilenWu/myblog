@@ -1,18 +1,18 @@
 ---
 ID: 667579e38e6f1d974c6c8f09efa072f4
 title: Python手册(IDE)--常用的Python IDE
-tags: [python,IDE]
+tags: [Python,IDE]
 date: 2018-05-25 14:40:25
-categories: [python,Python基础]
+categories: [Python,Python基础]
 cover: /img/jupyter-logo.png
-top_img: /img/anaconda-logo.png
+top_img: /img/anaconda-logo.svg
 ---
 
 集成开发环境（IDE，Integrated Development Environment ）是用于提供程序开发环境的应用程序，一般包括代码编辑器、编译器、调试器和图形用户界面等工具。
 
 <!-- more -->
 
-# IDE
+# 常用 IDE
 
 > 本文内容摘自MOOC.北京理工大学Python课程
 
@@ -26,9 +26,6 @@ Vim & Emacs|Visual Studio
 Atom|**Anaconda**
 Komodo Edit|Canopy
 
-
-
--------
 
 [**Python IDLE**](https://www.python.org/downloads/)<img src="https://gitee.com/WilenWu/images/raw/master/common/python.png" width="30%" height="30%" align="right"/>
 
@@ -63,13 +60,11 @@ Komodo Edit|Canopy
 - JetBrains 公司开发，社区版免费
 - 简单，集成度高
 - 适合较复杂工程
-
-> **Linux系统自定义pycharm命令**
->
-> 1. shell窗口打开配置文件`sudo ~/.bashrc`
-> 2. 添加语句`alias pycharm = "bash /download/pycharm-community-2018.1.4/bin/pycharm.sh"`(**pycharm.sh所在的路径**)
-> 3. 重新加载`source ~/.bashrc`
-> 4. shell命令行输入`pycharn`即可打开
+- **Linux系统自定义pycharm命令**
+   1. shell窗口打开配置文件`sudo ~/.bashrc`
+   2. 添加语句`alias pycharm = "bash /download/pycharm-community-2018.1.4/bin/pycharm.sh"`(**pycharm.sh所在的路径**)
+   3. 重新加载`source ~/.bashrc`
+   4. shell命令行输入`pycharn`即可打开
 
 [**Anaconda**](https://www.anaconda.com/download/)<img src="https://gitee.com/WilenWu/images/raw/master/common/anaconda.png" width="20%" height="20%" align="right"/>
 
@@ -81,9 +76,10 @@ Komodo Edit|Canopy
 - 适合数据计算领域开发
 
 # Anaconda
-Anaconda 是一个用于科学计算的 Python 发行版，支持 Linux, Mac, Windows, 包含了众多流行的科学计算、数据分析的 Python 包，还自带Spyder和Jupyter Notebook等IDE，不需要配置系统路径，安装后可直接运行。
 
-<!-- more -->
+## 简介
+
+Anaconda 是一个用于科学计算的 Python 发行版，支持 Linux, Mac, Windows, 包含了众多流行的科学计算、数据分析的 Python 包，还自带Spyder和Jupyter Notebook等IDE，不需要配置系统路径，安装后可直接运行。
 
 > 清华大学开源软件镜像站 [下载链接](https://mirror.tuna.tsinghua.edu.cn/help/anaconda/ )，下载速度快。
 > [win10+python3下Anaconda的安装及环境变量配置](https://blog.csdn.net/u013211009/article/details/78437098?locationNum=7&fps=1)
@@ -95,11 +91,11 @@ Anaconda作为管理平台，包含以下应用程序：
 - Anaconda Prompt：交互式命令终端，可以用来管理工具包和环境。
 - spyder ：一个使用Python语言、跨平台的、科学运算集成开发环境。
 
-![pro](https://gitee.com/WilenWu/images/raw/master/common/Anaconda-Navigator.png)
+![](https://gitee.com/WilenWu/images/raw/master/common/Anaconda-Navigator.png)
 
-**包管理**：在Shell窗口运行
+## 包管理
 
-| **conda**                         | conda将conda、python等都视为package |
+| conda (shell command)             | conda将conda、python等都视为package |
 | --------------------------------- | ----------------------------------- |
 | conda list                        | 查看已经安装的包                    |
 | conda install package_name        | 导入包                              |
@@ -108,16 +104,8 @@ Anaconda作为管理平台，包含以下应用程序：
 | conda update python               | 更新python                          |
 | conda update anaconda             | 更新anaconda                        |
 | **pip**                           |                                     |
-| pip installpackage_name           | 导入包                              |
-| pip install --upgradepackage_name | 更新包                              |
-
-**shell命令**：在Jupyter, windows cmd 或Linux Shell窗口运行
-
-| shell命令（部分） | 说明             |
-| ----------------- | ---------------- |
-| cd E:\Jupyter     | 修改工作目录     |
-| ls                | 展示目录下的文件 |
-| pwd               | 展示工作目录     |
+| pip install package_name           | 导入包                              |
+| pip install --upgrade package_name | 更新包                              |
 
 
 # Jupyter Notebook
@@ -132,6 +120,16 @@ Jupyter Notebook 的本质是一个 Web 应用程序，便于创建和共享文�
 > [3步实现Jupyter Notebook直接调用R](https://blog.csdn.net/blackrosetian/article/details/77939295)
 > [用jupyter notebook同时写python 和 R](https://blog.csdn.net/vincentluo91/article/details/76832264)
 
+## 安装和使用
+
+可以使用pip、conda安装Jupyter Lab
+
+```sh
+pip install notebook
+conda install -c conda-forge notebook
+```
+
+安装后可以在命令行使用 `jupyter notebook` 运行
 
 ## 快捷键
 
@@ -148,6 +146,7 @@ Jupyter Notebook 的本质是一个 Web 应用程序，便于创建和共享文�
 | Shift+M     | 合并选中的cells |
 
 ## 魔术命令
+
 1. Magic 关键字是可以在单元格中运行的特殊命令，能让你控制 notebook 本身或执行系统调用（例如更改目录）。
 2. Magic 命令的前面带有一个或两个百分号（% 或 %%），分别对应行 Magic 命令和单元格 Magic 命令。行 Magic 命令仅应用于编写 Magic 命令时所在的行，而单元格 Magic 命令应用于整个单元格。
 
@@ -168,3 +167,20 @@ Jupyter Notebook 的本质是一个 Web 应用程序，便于创建和共享文�
 | %timeitstatement   | 多次执行statement以计算系综平均执行时间。对那些执行时间非常小的代码很有用 |
 | %matplotlib inline | Jupyter Notebook中集成Matplotlib                             |
 | %matplotlib        | 直接调用matplotlib窗口弹出显示                               |
+
+# JupyterLab
+
+JupyterLab是Jupyter主推的最新数据科学生产工具，某种意义上，它的出现是为了取代Jupyter Notebook。不过不用担心Jupyter Notebook会消失，JupyterLab包含了Jupyter Notebook所有功能。
+
+JupyterLab作为一种基于web的集成开发环境，你可以使用它编写notebook、操作终端、编辑markdown文本、打开交互模式、查看csv文件及图片等功能。
+
+你可以使用pip、conda安装Jupyter Lab
+```sh
+pip install jupyterlab
+conda install -c conda-forge jupyterlab
+```
+
+在安装Jupyter Lab后，接下来要做的是运行它。
+你可以在命令行使用`jupyter-lab`或`jupyter lab`命令，然后默认浏览器会自动打开Jupyter Lab。
+
+![](https://gitee.com/WilenWu/images/raw/master/common/jupyterlab-example.png)

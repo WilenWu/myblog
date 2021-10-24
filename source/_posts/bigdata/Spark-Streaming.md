@@ -4,7 +4,7 @@ date: 2020-01-13 17:48:05
 categories: [大数据]
 tags: [大数据,Spark,数据流]
 cover: /img/spark_streaming_logo.png
-top_img: /img/pySpark.png
+top_img: /img/spark-logo.svg
 description: 
 ---
 

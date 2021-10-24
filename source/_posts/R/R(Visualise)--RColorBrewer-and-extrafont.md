@@ -5,6 +5,7 @@ tags: [R,可视化]
 date: 2018-05-03 22:16:10
 categories: [R,可视化]
 cover: /img/palette.png
+description: 调色板和字体配置
 ---
 
 # RColorBrewer：调色板

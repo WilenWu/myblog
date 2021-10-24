@@ -4,6 +4,9 @@ title: R手册(Visualise)--REmap
 tags: [R,地图,可视化]
 date: 2018-06-01 14:24:23
 categories: [R,可视化]
+cover: /img/remap-nanchang.png
+top_img: /img/world-map.jpeg
+description: 基于Echarts的简易动态交互地图
 ---
 
 **REmap**:（简单动态地图）Create html maps by Echarts

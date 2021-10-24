@@ -6,7 +6,7 @@ tags: [数学,复傅里叶变换,拉普拉斯变换]
 cover: /img/oo-math.svg
 top_img: 
 katex: true
-description: false
+description: 傅里叶变换、拉普拉斯变换
 ---
 
 

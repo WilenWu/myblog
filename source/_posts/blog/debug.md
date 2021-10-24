@@ -69,7 +69,7 @@ search:
   由于`hexo douban` 和原始的部署命令 `hexo deploy` 均为 `d`开头，因此 `hexo d` 将不再适用，建议使用完整命令 `hexo deploy` 部署。
 - 如果 `hexo douban` 爬取不到任何数据，有可能是豆瓣官方开启了反爬虫机制。豆瓣每天对爬取次数有限制，超过限制则不再允许爬取，不过第二天便会恢复正常。
 
-##  `{#`编译报错
+##  `{+#`编译报错
 
 {% note warning %} Hexo 对 `{`+`#`连起来的文本不能正常编译 ，可在文档中加空格处理 `{ #`  {% endnote %}
 
@@ -88,7 +88,7 @@ No character metrics for '文' in style 'Main-Regular'
 
 # Gitbook
 
-## 报错 "TypeError: cb.apply is not a function"
+## TypeError: cb.apply is not a function
 
 Gitbook 安装完毕后检查版本 `gitbook -V`的时候提示
 

@@ -1,9 +1,9 @@
 ---
 ID: 780de6f904e10557bb4f273bbf2f137c
 title: Python手册(Standard Library)--math+random
-tags: [python,科学计算]
+tags: [Python,科学计算]
 date: 2018-05-09 22:56:49
-categories: [python,Python标准库]
+categories: [Python,Python标准库]
 cover: /img/random.jpg
 ---
 

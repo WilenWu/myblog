@@ -1,21 +1,21 @@
 ---
 ID: 92968d580ae6ece91f4e4cc2ab6fce43
 title: Python手册(Data Analysis)--pandas
-tags: [python,数据清洗]
+tags: [Python,数据清洗]
 date: 2018-05-10 23:00:51
-categories: [python,pandas]
+categories: [Python,pandas]
 cover: /img/pandas-logo.png
 ---
 
 pandas兼具NumPy高性能的数组计算功能，提供高性能，易用的数据结构和数据分析工具。Pandas库有两个主要数据结构：Series和DataFrame。
+
+<!-- more -->
 
 > [Pandas官方中文文档](https://www.pypandas.cn/)
 
 ```python
 import pandas as pd
 ```
-
-<!-- more -->
 
 # Series
 
@@ -249,11 +249,20 @@ data.replace({-999: np.nan, -1000: 0})   #参数为字典
 | df.stack(level=-1, dropna=True)   | 把最内层列转换成行   |
 | df.unstack(level=-1, fill_value=None) | stack逆运算，把行转换成最内层列   |
 
+![](https://gitee.com/WilenWu/images/raw/master/common/reshaping_stack.png)
+![](https://gitee.com/WilenWu/images/raw/master/common/reshaping_unstack.png)
+
+![](https://gitee.com/WilenWu/images/raw/master/common/reshaping_unstack_0.png)
+![](https://gitee.com/WilenWu/images/raw/master/common/reshaping_unstack_1.png)
+
 |**融合和重构**||
 |:---|:---|
 |pd.melt(frame, id_vars, value_vars, var_name, value_name='value', col_level=None)|宽格式变长格式|
 |df.pivot(index=None, columns=None, values=None)|reshape|
 | df.apply(func,axis=0)| 单函数聚合|
+
+![](https://gitee.com/WilenWu/images/raw/master/common/reshaping_melt.png)
+![](https://gitee.com/WilenWu/images/raw/master/common/reshaping_pivot.png)
 
 |**分组和聚合**|(介绍分组时举例)|
 |:---|:---|
@@ -625,6 +634,8 @@ rot|旋转刻度标签（0：360）
 xsticks/ysticks|x/y刻度
 xlim/ylim|x/y界限
 grid|显示网格线
+
+![](https://gitee.com/WilenWu/images/raw/master/common/04_plot_overview.svg)
 
 
 | 可视化 |  |

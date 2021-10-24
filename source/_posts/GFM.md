@@ -15,8 +15,7 @@ description: GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规
 
 <!-- more -->
 
-
-# Markdown 免费编辑器推荐
+# 编辑器推荐
 
 ## Markdown In browser
 

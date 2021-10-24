@@ -1,9 +1,9 @@
 ---
 ID: 9649a92ed5b854587050bff6866df114
 title: Python手册(Visualise)--matplotlib
-tags: [python,可视化]
+tags: [Python,可视化]
 date: 2018-05-20 15:52:03
-categories: [python,可视化]
+categories: [Python,可视化]
 cover: /img/matplotlib-cover.png
 top_img: /img/matplotlib-top.jpeg
 ---

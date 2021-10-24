@@ -4,7 +4,9 @@ title: R手册(Visualise)-- geomnet(ggplot2 extensions)
 date: 2018-05-29 18:26:11
 categories: [R,可视化]
 tags: [R,ggplot2]
-cover: 
+cover: /img/geomnet-logo.png
+top_img: /img/ggplot2-wide.png
+description: 网格图(关系图)
 ---
 
 # geomnet

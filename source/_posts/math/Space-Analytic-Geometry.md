@@ -6,7 +6,7 @@ tags: [数学,向量代数,解析几何]
 cover: /img/Nuvola_Math_and_Inf.svg
 top_img: 
 katex: true
-description: false
+description: 向量代数和空间解析几何
 ---
 
 # 向量代数

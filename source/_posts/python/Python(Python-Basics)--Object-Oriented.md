@@ -1,10 +1,10 @@
 ---
 ID: d8c7d52bfa564e00185bfb5015e722e4
 title: Python手册(Python Basics)--Python面向对象
-tags: [python,面向对象]
+tags: [Python,面向对象]
 date: 2018-06-23 20:12:35
-categories: [python,Python基础]
-cover: /img/python-program.jpg
+categories: [Python,Python基础]
+cover: /img/pypi.svg
 top_img: 
 ---
 

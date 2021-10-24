@@ -4,6 +4,9 @@ title: R手册(Time Series)--forecast and prophet
 tags: [R,时间序列]
 date: 2018-05-04 17:02:36
 categories: [R,时间序列]
+cover: https://gitee.com/WilenWu/images/raw/master/common/ts-trend.png
+top_img: /img/prophet-wide.svg
+description: 时间序列建模和预测
 ---
 
 时间序列分析(Time-Series Analysis)是指将原来的数据分解为四部分来看——趋势、周期、时期和不稳定因素， 然后综合这些因素， 提出预测。
@@ -71,7 +74,13 @@ hybridModel(wineind, models = "aet", weights = "equal")%>%
 
 # prophet
 
+[prophet](https://github.com/facebook/prophet) 算法是基于非线性趋势时间序列分解（年、周和日等季节性以及假日影响）和机器学习的拟合来做的。prophet 可以处理时间序列存在一些异常值的情况，也可以处理部分缺失值的情形，还能够几乎全自动地预测时间序列未来的走势
+
+prophet 是由Facebook的核心数据科学团队发布的开源软件。同时提供了 R 语言和 Python 语言的接口。
+
 模型组成：Y(t)=Trend(t)+Seasonal(t)+Holiday(t)+Irregular(t)
+
+![](https://gitee.com/WilenWu/images/raw/master/common/ts-trend.png)
 
 ## 构建模型
 

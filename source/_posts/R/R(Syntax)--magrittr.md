@@ -6,6 +6,7 @@ date: 2018-05-02 00:46:17
 categories: [R,语法]
 cover: /img/pipe.png
 top_img: 
+description: 管道语法 (pipe)
 ---
 
 **magrittr**:  管道语法 (pipe)

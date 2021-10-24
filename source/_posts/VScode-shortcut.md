@@ -5,7 +5,7 @@ categories:  [实用知识]
 tags: IDE
 cover: /img/vscode-logo.png
 top_img: /img/vscode.png
-description: false
+description: 快捷键
 ---
 
 

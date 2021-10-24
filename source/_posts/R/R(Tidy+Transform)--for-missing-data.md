@@ -4,6 +4,9 @@ title: R手册(Tidy+Transform)--缺失数据处理(naniar and simputation)
 tags: [R,数据清洗,缺失值]
 date: 2018-05-01 23:37:57
 categories: [R,Tidy+Transform]
+cover: /img/naniar-sticker.svg
+top_img: 
+description: 缺失数据概述、可视化和插补
 ---
 
 缺失值是指粗糙数据中由于缺少信息而造成的数据的聚类、分组、删失或截断。它指的是现有数据集中某个或某些属性的值是不完全的。

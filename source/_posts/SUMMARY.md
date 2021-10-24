@@ -1,13 +1,14 @@
 ---
 title: SUMMARY
 date: 2019-10-08 13:04:44
-cover: /img/education.jpeg
-top_img: /img/bookshelf.jpg
-description: 
+cover: /img/education.jpg
+top_img: /img/computer.jpg
+description: 本人依据个人爱好、工作需要等制定了一份详细的学习计划
 ---
 
-本人依据个人爱好、工作需要等制定了一份详细的学习计划。依据本「书架」在博客不定时更新学习笔记。
+！[](/img/bookshelf.jpg)
 
+本人依据个人爱好、工作需要等制定了一份详细的学习计划。依据本「书架」在博客不定时更新学习笔记。
 <!-- more -->
 
 其中
@@ -15,53 +16,74 @@ description:
 - 标记 :white_large_square: 待定  
 - 标记 :heart: 是选修课  
 
+致谢，[ApacheCN 中文开源组织](http://www.apachecn.org/#)：致力于官方文档及AI书籍中文翻译。
+
 ------
 
 # <font color="red">实用知识</font>
 
 - :ballot_box_with_check:  [GitHub Flavored Markdown 规范][md]  
 - :ballot_box_with_check:  [KaTeX 数学符号列表][katex]  
-- :ballot_box_with_check:  [正则表达式][RegularExpression]
+- :ballot_box_with_check:  [正则表达式][RE]
 - :ballot_box_with_check:  [Linux基础知识][linux]  
 - :ballot_box_with_check:  [Linux Shell教程][shell]  
+- :ballot_box_with_check:  [VScode快捷键][VScode-shortcut]  
+- :ballot_box_with_check:  [Win10快捷键][Win10-shortcut]  
+- :white_large_square:  [柏林噪声(Python)][noise]
 
-[md]: /posts/markdown/GitHub-Flavored-Markdown-Spec/
-[katex]: /posts/markdown/KaTeX-Mathematical-Symbols/
-[RegularExpression]: /posts/regular-expression/
-[linux]: /posts/big-data/BigDataNotebook(Linux)--Linux-base/
-[shell]:  /posts/big-data/BigDataNotebook(Linux)--Linux-shell/
+[md]: /posts/GFM/
+[katex]: /posts/KaTeX/
+[RE]: /posts/regular-expression/
+[linux]: /posts/Linux-base/
+[shell]: /posts/Linux-shell/
+[VScode-shortcut]: /posts/VScode-shortcut/
+[Win10-shortcut]: /posts/Win10-shortcut/
+[noise]: /posts/python/PerlinNoise/
 
 # <font color="red">博客搭建</font>
 
-- :ballot_box_with_check:   [Hexo博客搭建及配置][hexo]    
-- :ballot_box_with_check:   [Hexo标签插件的使用][hexo_tags]    
-- :ballot_box_with_check:   [NexT主题进阶][NexT]    
+- :ballot_box_with_check: [Hexo博客搭建及配置][hexo]    
+- :ballot_box_with_check: [Hexo标签插件的使用][hexo_tags]    
+- :ballot_box_with_check: [NexT主题标签插件的使用][NexT_tags]    
+- :ballot_box_with_check: [NexT主题配置][NexT]    
+- :ballot_box_with_check: [建立博客时踩过的坑][debug]    
+- :ballot_box_with_check: [NPM 使用介绍][NPM]    
 
-[hexo]: /posts/hexo/Hexo-setup&configuration/
-[hexo_tags]: /posts/hexo/Hexo-tag-plugins/
-[NexT]: /posts/hexo/theme-NexT-advanced/
+[hexo]: /posts/blog/Hexo-cli/
+[hexo_tags]: /posts/blog/Hexo-tag-plugins/
+[NexT_tags]: /posts/blog/Next-tag-plugins/
+[NexT]:  /posts/blog/Next/
+[debug]: /posts/blog/debug/
+[NPM]: /posts/blog/NodeJS-NPM/ 
 
 
-# <font color="red">大数据</font>
+# <font color="red">大数据</font>  
 
-致谢，[ApacheCN 中文开源组织](http://www.apachecn.org/#)：致力于官方文档及AI书籍中文翻译。  
+## <font color="green">数据分析</font>
+
+- :ballot_box_with_check:   [二分类模型评价指标][DA_evaluation]  
+- :ballot_box_with_check:   [数据分析理论概览][DA_theory]  
+
+[DA_evaluation]: /posts/bigdata/classification-evaluation/
+[DA_theory]: /posts/bigdata/Data-Analysis-Dict/
 
 ## <font color="green">Hadoop</font>
 
 - :white_large_square:  Hadoop安装配置  
 - :white_large_square:  Hadoop基础知识  
-- :white_large_square:  Rhadoop：R语言完成MapReduce 算法，用来替代Java的MapReduce实现。  
+- :white_large_square:  [Hadoop生态概述及常见报错][hadoop]
+
+[hadoop]: /posts/bigdata/hadoop/
 
 ## <font color="green">Hive</font>  
 
 - :white_large_square:  Hive安装配置  
 - :ballot_box_with_check:   [Hive基础知识][hivebasic]  
-- :ballot_box_with_check:   [SQL手册][sql]  
-- :ballot_box_with_check:   [HiveQL][HiveQL]  
-- :white_large_square:  RHive：Apache Hive促进分布式计算的R扩展  
+- :ballot_box_with_check:   [Oracle SQL][sql]  
+- :ballot_box_with_check:   [HiveQL][HiveQL]   
 
-[sql]: /posts/big-data/SQLNotebook/
-[HiveQL]: /posts/big-data/BigDataNotebook(Hive)--HiveQL/
+[sql]: /posts/bigdata/Oracle-SQL/
+[HiveQL]: /posts/bigdata/HiveQL/
 [hivebasic]: https://blog.csdn.net/zhongqi2513/article/details/69388239
 
 ## <font color="green">Spark</font>
@@ -69,111 +91,86 @@ description:
 - :ballot_box_with_check:   [Spark安装配置][spark]  
 - :ballot_box_with_check:   [Spark基础知识][spark_base]  
 - :heart:  scala：spark 基础语言 
-- :heart:  sparkR： Apache Spark R API  
 - :heart:  sparklyr：来自RStudio的Apache Spark的R接口，提供dplyr后端  
-- :ballot_box_with_check:  [PySpark][PySpark] : Apache Spark Python API  
+- :ballot_box_with_check:  [PySpark 机器学习][pyspark_ml]: Spark ML 
+- :ballot_box_with_check:  [Spark 流数据处理][pyspark_sm]: Spark Streaming 
 - :white_large_square:  [Akka][akka]：Akka并发编程  
 
-[spark]: /posts/big-data/BigDataNotebook(Spark)--Spark-installation/
-[spark_base]: https://blog.csdn.net/qq_41518277/article/details/84558396
+[spark]: /posts/bigdata/Spark-installation/
+[spark_base]: /posts/bigdata/Spark-base1/
+[pyspark_ml]: /posts/bigdata/Spark-ML/
+[pyspark_sm]: /posts/bigdata/Spark-Streaming/
 [akka]: https://blog.csdn.net/lovehuangjiaju/article/details/51039985
-[PySpark]: https://blog.csdn.net/qq_41518277/article/details/96487035
-
-## <font color="green">Learning</font>
-
-
-
-
-# <font color="red">数据分析</font>
-
-- :ballot_box_with_check:   [二分类模型评价指标][DA_evaluation]  
-- :ballot_box_with_check:   [数据分析理论概览][DA_theory]  
-
-[DA_evaluation]: /posts/data-analysis/classification-evaluation/
-[DA_theory]: /posts/data-analysis/Overview-of-Data-Analysis-Theory/
 
 # <font color="red">Python手册</font>
 
-![](/img/pandas.png)  
-
-本手册所列包来自[Awesome-Python](https://awesome-python.com/) ，结合[GitHub](https://github.com/) 和官方文档  
-致谢，[ApacheCN 中文开源组织](http://www.apachecn.org/#/)：致力于官方文档及AI书籍中文翻译。  
-
-## <font color="green">IDE</font>
-
-- :white_large_square:  [常用的Python IDE][python_ide]  
-- :ballot_box_with_check:  [Jupyter Notebook][Jupyter]  
-
-[python_ide]: /posts/python/PythonNotebook(Python-Basics)--common-editor/
-[Jupyter]: /posts/python/PythonNotebook(Python-Basics)--Jupyter-Notebook/
+本手册所列包来自[Awesome-Python](https://awesome-python.com/) ，结合[GitHub](https://github.com/) 和官方文档。 
 
 ## <font color="green">Python Basics</font>
 
-- :ballot_box_with_check:  [Python基础][python_Base]: [Python 3 官方中文文档][python_base_doc]  
-- :ballot_box_with_check:  [Python进阶][Python_Standard_Library]
-- :ballot_box_with_check:  [Python面向对象][Python_Object_Oriented] 
-- :ballot_box_with_check: [Python Cookbook 3rd][cook] ：Python3 魔术语法
+- :white_large_square:  [常用的Python IDE][py_ide]  
+- :ballot_box_with_check:  [Python基础（一）][py_Base]: Python 基础语法
+- :ballot_box_with_check:  [Python基础（二）][py_Base2]: Python 标准库
+- :ballot_box_with_check:  [Python面向对象][Py_Object_Oriented] 
+- :ballot_box_with_check: [Python Cookbook 3rd][cook]：Python3 魔术语法
 - :heart:  [rpy2][rpy2]： Python 通过rpy2调用 R语言  
 
-[python_Base]: /posts/python/PythonNotebook(Python-Basics)--Python-base/
-[python_base_doc]: https://docs.python.org/zh-cn/3/
-[Python_Standard_Library]: /posts/python/PythonNotebook(Python-Basics)--Python-Standard-Library/
-[Python_Object_Oriented]: /posts/python/PythonNotebook(Python-Basics)--Python-Object-Oriented/
-[rpy2]: /posts/python/PythonNotebook(Python-Basics)--RPy2/
+[py_ide]: /posts/python/Python(Python-Basics)--IDE/
+[py_Base]: /posts/python/Python(Python-Basics)--Python-base/
+[py_Base2]: /posts/python/Python(Python-Basics)--Python-base2/
+[Py_Object_Oriented]: /posts/python/Python(Python-Basics)--Object-Oriented/
+[rpy2]: /posts/python/Python(Python-Basics)--RPy2/
 [cook]: https://python3-cookbook-personal.readthedocs.io/zh_CN/latest/
 
 ## <font color="green">Standard Library</font>
 
-- :ballot_box_with_check:  [datetime+time+calendar][datetime]  
-- :ballot_box_with_check:  [math+random][math]  
-- :ballot_box_with_check:  [re][re]：正则表达式调用库
-- :ballot_box_with_check:  [正则表达式][Regular Expression]：Regular Expression
-- :heart:  [tkinter][tk]：Python 的标准 GUI 库  
-- :white_large_square:  [threading][threading] ：多线程  
-- :white_large_square:  [multiprocessing][mul]： 多进程  
-- :heart:  [os][os]: 文件和目录处理库([CSDN][csdn_os]参考链接)  
-- :white_large_square:  [asyncio][asyncio]: 内置了对异步IO的支持   
+- :ballot_box_with_check:  [datetime+time+calendar][py_datetime]  
+- :ballot_box_with_check:  [math+random][py_math]  
+- :ballot_box_with_check:  [re][py_re]：正则表达式调用库
+- :heart:  [tkinter][py_tk]：Python 的标准 GUI 库  
+- :white_large_square:  [threading][py_threading] ：多线程  
+- :white_large_square:  [multiprocessing][py_mul]： 多进程  
+- :heart:  [os][py_os]: 文件和目录处理库 
+- :white_large_square:  asyncio: 内置了对异步IO的支持   
 
-[datetime]: /posts/python/PythonNotebook(Standard-Library)--datetime/
-[math]: /posts/python/PythonNotebook(Standard-Library)--math+random/
-[re]: /posts/python/PythonNotebook(Standard-Library)--re/
-[tk]: http://www.runoob.com/python/python-gui-tkinter/
-[threading]: http://www.runoob.com/python3/python3-multithreading/
-[mul]: http://python.jobbole.com/87760/
-[os]: http://www.runoob.com/python/os-file-methods/
-[csdn_os]: https://blog.csdn.net/jinxiaonian11/article/details/78314192
-[asyncio]: https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001432090954004980bd351f2cd4cc18c9e6c06d855c498000
+[py_datetime]: /posts/python/Python(Standard-Library)--datetime/
+[py_math]: /posts/python/Python(Standard-Library)--math+random/
+[py_re]: /posts/python/Python(Standard-Library)--re/
+[py_tk]: http://www.runoob.com/python/python-gui-tkinter/
+[py_threading]: http://www.runoob.com/python3/python3-multithreading/
+[py_mul]: http://python.jobbole.com/87760/
+[py_os]: http://www.runoob.com/python/os-file-methods/
+
 
 ## <font color="green">Scientific Computing</font>  
 
-- :ballot_box_with_check:  [NumPy][NumPy]：使用 Python 进行科学计算的基础包。  
+- :ballot_box_with_check:  [NumPy][numpy]：使用 Python 进行科学计算的基础包。  
 - :white_large_square:  PyDy：PyDy 是 Python Dynamics 的缩写，用来为动力学运动建模工作流程提供帮助， 基于NumPy, SciPy, IPython 和 matplotlib。  
-- :heart:  [SciPy][SciPy]：由一些基于 Python ，用于数学，科学和工程的开源软件构成的生态系统。  
+- :heart:  [SciPy][SciPy]：由一些基于 Python ，用于数学、科学和工程的开源软件构成的生态系统。  
 - :heart:  [SymPy][SymPy]：SymPy是一个符号计算的Python库  
 - :white_large_square:  astropy：一个天文学 Python 库。  
 - :heart:  [noise][noise]：柏林噪声(Python)  
 
-[NumPy]: /posts/python/PythonNotebook(Scientific-Computing)--numpy/
-[SciPy]: /posts/python/PythonNotebook(Scientific-Computing)--scipy/
-[SymPy]: /posts/python/PythonNotebook(Scientific-Computing)--SymPy/
-[noise]: /posts/python/PerlinNoise(Python)/
+[numpy]: /posts/python/Python(Scientific-Computing)--numpy/
+[SciPy]: /posts/python/Python(Scientific-Computing)--scipy/
+[SymPy]: /posts/python/Python(Scientific-Computing)--SymPy/
 
 ## <font color="green">Data Analysis</font>  
 
 - :ballot_box_with_check:  [pandas][pandas]：提供高性能，易用的数据结构和数据分析工具。  
-- :ballot_box_with_check:  [pandas(Time Series)][TimeSeries]: 时间序列数据处理工具。  
+- :ballot_box_with_check:  [pandas(Time Series)][pandas2]: 时间序列数据处理工具。  
 - :heart:  blaze：NumPy 和 Pandas 的大数据接口。  
 - :heart:  orange：通过可视化编程或 Python 脚本进行数据挖掘，数据可视化，分析和机器学习。  
 
-[pandas]: /posts/python/PythonNotebook(Data-Analysis)--pandas/
-[TimeSeries]: /posts/python/PythonNotebook(Time-Series)--pandas(TimeSeries)/
+[pandas]: /posts/python/Python(Data-Analysis)--pandas/
+[pandas2]: /posts/python/Python(Time-Series)--pandas(TimeSeries)/
 
 ## <font color="green">Web Crawling</font> 
 
 *The Website is the API(Application Programming Interface,应用程序编程接口)...*  
 
 - :ballot_box_with_check:  requests: 自动爬取HTML页面，自动网路请求提交。  
-- :ballot_box_with_check:  BeautifulSoup ：解析HTML页面（[中文官网][bs4]）。  
+- :ballot_box_with_check:  [BeautifulSoup][bs4]：解析HTML页面。  
 - :heart:  Scrapy：专业的网络爬虫框架。  
 - :white_large_square:  Selenium: 是一个用于Web应用程序测试的工具，能够模拟用户行为与浏览器交互。  
 
@@ -188,37 +185,32 @@ description:
 - :heart:  [ggplot][py_ggplot]：ggplot port for python  
 - :white_large_square:  plotly：协同 Python 和 matplotlib 工作的 web 绘图库。  
 - :white_large_square:  pyecharts：基于百度 Echarts 的数据可视化库。  
-- :heart:  missingno：缺失数据图示。  
 
-[matplotlib]: /posts/python/PythonNotebook(Visualise)--matplotlib/
-[seaborn]: /posts/python/PythonNotebook(Visualise)--seaborn/
+[matplotlib]: /posts/python/Python(Visualise)--matplotlib/
+[seaborn]: /posts/python/Python(Visualise)--seaborn/
 [py_ggplot]: http://yhat.github.io/ggpy/
 
 ## <font color="green">Machine Learning</font>  
 
-- :ballot_box_with_check:  [sklearn][scikit-learn]：基于 SciPy 构建的机器学习 Python 模块。  
+- :ballot_box_with_check:  [sklearn][sklearn]：基于 SciPy 构建的机器学习 Python 模块。  
 - :ballot_box_with_check:  [statsmodels][statsmodels]：统计建模和计量经济学。  
 - :heart:  [xgboost][xgboost]： 一种可扩展，可移植且分布式的渐变增强库  
 
-[scikit-learn]: /posts/python/PythonNotebook(Machine-Learning)--sklearn/
-[statsmodels]: /gitbook/PythonNotebook(Machine-Learning)--statsmodels/
+[sklearn]: /posts/python/Python(Machine-Learning)--sklearn/
+[statsmodels]: /posts/Python(Machine-Learning)--statsmodels/
 [xgboost]: http://xgboost.apachecn.org/#/
 
 ## <font color="green">Deep Learning</font>
 
 - :ballot_box_with_check:  [TensorFlow][TensorFlow]：Google开源的最受欢迎的深度学习框架。  
 - :white_large_square:  [PyTorch][PyTorch]: Facebook 的 AI 研究团队发布了一个 Python 工具包，专门针对 GPU 加速的深度神经网络（DNN）编程。  
-- :heart:  [Keras][Keras]: 以 tensorflow/theano/CNTK 为后端的深度学习封装库，快速上手神经网络。[莫烦PYTHON](https://morvanzhou.github.io/tutorials/machine-learning/theano/)  
+- :heart:  [Keras][Keras]: 以 tensorflow/theano/CNTK 为后端的深度学习封装库，快速上手神经网络。[(莫烦PYTHON)](https://morvanzhou.github.io/tutorials/machine-learning/theano/)  
 - :white_large_square:  [Theano][Theano]:  基于TensorFlow，用于快速数值计算的库。  
 
 [TensorFlow]: https://tensorflow.google.cn/tutorials/?hl=zh-cn
 [PyTorch]: https://blog.csdn.net/u010510350/article/details/72526821
 [Keras]: https://tensorflow.google.cn/guide/keras?hl=zh-cn
 [Theano]: http://deeplearning.net/software/theano/##
-
-## <font color="green">MapReduce</font>  
-
-- :ballot_box_with_check:  PySpark : Apache Spark Python API  
 
 ## <font color="green">NLP(Natural Language Processing)</font>  
 
@@ -231,40 +223,38 @@ description:
 - :white_large_square:  Python-Markdown2：纯 Python 实现的 Markdown 解析器，比 Python-Markdown 更快，更准确，可扩展  
 - :white_large_square:  PyYAML： implementations for Python.  
 - :white_large_square:  python-docx: for creating and updating Microsoft Word (.docx) files.  
-- :heart:  [openpyxl][op]: 全面，包括修改各种Excel格式，不能批量修改数据  
-- :white_large_square:   [xlwings][xw]: 批量实时修改Excel数据，和pandas,matplotlib完美对接，只能修改个别格式  
+- :heart:  [openpyxl][openpyxl]: 全面，包括修改各种Excel格式，不过不能批量修改数据  
+- :white_large_square:   [xlwings][xlwings]: 批量实时修改Excel数据，和pandas,matplotlib完美对接，只能修改个别格式  
 
-[op]: https://openpyxl.readthedocs.io/en/stable/usage/
-[xw]: http://docs.xlwings.org/en/stable/quickstart/
+[openpyxl]: https://openpyxl.readthedocs.io/en/stable/usage/
+[xlwings]: http://docs.xlwings.org/en/stable/quickstart/
 
 ## <font color="green">Learning Python </font> 
 
+- :ballot_box_with_check:  [Python3官方中文文档](https://docs.python.org/zh-cn/3/)
 - :ballot_box_with_check:  [Python基础中文教程](http://www.pythondoc.com/pythontutorial3/)  
+
+------
 
 # <font color="red">R手册</font>
 
-![](/img/r.png)  
-
-本手册所列包基本来自[AwesomeR][AwesomeR] ，结合[GitHub][GitHub]和`help(package="pk_name")`官方文档整理所得，有助于使用时下最实用的包对R进行深入的学习。  
-致谢，[ApacheCN 中文开源组织](http://www.apachecn.org/#/ )：致力于官方文档及AI书籍中文翻译。  
-
+本手册所列包基本来自[AwesomeR][AwesomeR] ，结合[GitHub][GitHub]和`help(package="pk_name")`官方文档整理所得，有助于使用时下最实用的包对R进行深入的学习。    
 
 ## <font color="green"> Common </font> 
 
 - :ballot_box_with_check: [R语言入门][R-base]: 包括Rstudio介绍，R的数据结构和基础语法等  
 - :ballot_box_with_check: [R语言基础包][R-basic-packages]：base, stats等基础包函数  
 - :ballot_box_with_check: [R6 and S4][R6]：面向对象  
-- :ballot_box_with_check: [tidyverse+tibble][tidyverse]：Hadley包集合，核心包(ggplot2,tibble,tidyr,readr,purrr,dplyr)  
+- :ballot_box_with_check: [tidyverse+tibble][tidyverse]：tidyverse包集合，核心包(ggplot2,tibble,tidyr,readr,purrr,dplyr)  
 - :ballot_box_with_check: [data.table][data.table]：简短的代码实现快速操作数据  
 - :heart:  devtools：使开发R包变得更简单(Hadley) (Update according to [cheat sheets][sheet])  
-- :heart:  [rpy2][rpy2]：Python 通过rpy2调用 R语言  
 
-[R-base]: /posts/R/RNotebook(Common)--R-base/
-[R-basic-packages]: /posts/R/RNotebook(Common)--R-basic-packages/
-[tidyverse]: /posts/R/RNotebook(Common)--tidyverse+tibble/
-[data.table]: /posts/R/RNotebook(Common)--data.table/
-[R6]: /posts/R/RNotebook(Common)--Object-Oriented(R6-and-S4)/
-[rpy2]: /posts/python/PythonNotebook(Python-Basics)--RPy2/
+[R-base]: /posts/R/R(Common)--R-base/
+[R-basic-packages]: /posts/R/R(Common)--R-basic-packages/
+[tidyverse]: /posts/R/R(Common)--tidyverse+tibble/
+[data.table]: /posts/R/R(Common)--data.table/
+[R6]: /posts/R/R(Common)--Object-Oriented/
+[rpy2]: /posts/python/Python(Python-Basics)--RPy2/
 
 
 ## <font color="green"> Syntax </font> 
@@ -274,8 +264,8 @@ description:
 - :ballot_box_with_check: [magrittr][magrittr]：Let’s pipe it  
 - :heart:  pipeR：多范式管道编程  
 
-[purrr]: /posts/R/RNotebook(Syntax)--purrr/
-[magrittr]: /posts/R/RNotebook(Syntax)--magrittr/
+[purrr]: /posts/R/R(Syntax)--purrr/
+[magrittr]: /posts/R/R(Syntax)--magrittr/
 
 ## <font color="green"> Import</font>  
 
@@ -286,17 +276,17 @@ description:
 - :white_large_square:  haven：for SPSS,SAS and Stata files.(Hadley)  
 - :heart:  feather：for sharing with Python and other languages.(Hadley)  
 
-[readr]: /posts/R/RNotebook(Import)--read-csv-xlsx-or-json/#readr:-read-rectangular-text-data
-[readxl]: /posts/R/RNotebook(Import)--read-csv-xlsx-or-json/#readxl:-for-excel
-[openxlsx]: /posts/R/RNotebook(Import)--read-csv-xlsx-or-json/#openxlsx:-xlsx-reading,-writing-and-editing
-[jsonlite]: /posts/R/RNotebook(Import)--read-csv-xlsx-or-json/#jsonlite:-for-json
+[readr]: /posts/R/R(Import)--read-csv-xlsx-or-json/#readr:-read-rectangular-text-data
+[readxl]: /posts/R/R(Import)--read-csv-xlsx-or-json/#readxl:-for-excel
+[openxlsx]: /posts/R/R(Import)--read-csv-xlsx-or-json/#openxlsx:-xlsx-reading,-writing-and-editing
+[jsonlite]: /posts/R/R(Import)--read-csv-xlsx-or-json/#jsonlite:-for-json
 
 *DATABASE MANAGEMENT*  
 
 - :heart:  [DBI][DBI]：数据库统一接口(Hadley)  
 - :heart:  RHive：通过Apache Hive促进分布式计算的R扩展  
 
-[DBI]: /posts/R/RNotebook(Import)--DBI/
+[DBI]: /posts/R/R(Import)--database/
 
 *WEB TECHNOLOGIES*  
 
@@ -306,7 +296,7 @@ description:
 - :ballot_box_with_check:  xml2：解析XML文件 (Hadley)  (Update according to GitHub)  
 
 [httr]: https://httr.r-lib.org/
-[rvest]: /posts/R/RNotebook(Import)--rvest/
+[rvest]: /posts/R/R(Import)--rvest/
 
 ## <font color="green"> Tidy+Transform</font>  
 
@@ -317,20 +307,19 @@ description:
 - :white_large_square:  rlist：用于list(非规整)数据操作工具箱  
 - :ballot_box_with_check: [stringr][stringr]：for strings.(Hadley)  
 - :white_large_square:  utf8：处理和修复R中的多种文本编码问题   
-- :ballot_box_with_check: [正则表达式][re]：Regular Expression 
 - :ballot_box_with_check: [lubridate+hms][lubridate]：for date and times(Hadley)  
 - :ballot_box_with_check: [forcats][forcats]：for factors(Hadley)  
 - :white_large_square:  sjmisc：各种实用功能的集合，支持数据重编码，缺失值处理等，与dplyr包无缝协作。  
 - :ballot_box_with_check: [naniar][naniar]：缺失数据概述和可视化  
 - :ballot_box_with_check: [simputation][simputation]：缺失数据插补框架  
 
-[tidyr]: /posts/R/RNotebook(Tidy+Transform)--tidyr/
-[dplyr]: /posts/R/RNotebook(Tidy+Transform)--dplyr-and-plyr/
-[stringr]: /posts/R/RNotebook(Tidy+Transform)--stringr/
-[lubridate]: /posts/R/RNotebook(Tidy+Transform)--lubridate+hms/
-[forcats]: /posts/R/RNotebook(Tidy+Transform)--forcats/
-[naniar]: /posts/R/RNotebook(Tidy+Transform)--for-missing-data(naniar-and-simputation)/
-[simputation]: /posts/R/RNotebook(Tidy+Transform)--for-missing-data(naniar-and-simputation)/
+[tidyr]: /posts/R/R(Tidy+Transform)--tidyr/
+[dplyr]: /posts/R/R(Tidy+Transform)--dplyr-and-plyr/
+[stringr]: /posts/R/R(Tidy+Transform)--stringr/
+[lubridate]: /posts/R/R(Tidy+Transform)--lubridate+hms/
+[forcats]: /posts/R/R(Tidy+Transform)--forcats/
+[naniar]: /posts/R/R(Tidy+Transform)--for-missing-data/
+[simputation]: /posts/R/R(Tidy+Transform)--for-missing-data/
 
 *LARGE DATASETS*  
 
@@ -347,12 +336,20 @@ description:
 - :heart:  corrplot：相关矩阵或一般矩阵的图形显示  
 - :white_large_square:  misc3d：处理3D图，等值面等  
 - :ballot_box_with_check: [ggplot2][ggplot2]：强大的绘图系统，并实现了许多扩展(Hadley)  
-- :ballot_box_with_check: [ggplot2 extensions][ggplot2 extensions]: ggplot2扩展，包括各种补充图形，坐标系统，主题等。  
+- :ballot_box_with_check: [ggplot2 extensions][ggplot2-extensions]: ggplot2扩展，包括各种补充图形，坐标系统，主题等。  
+   - :heart: geomnet: 网格图(关系图)
+   - :heart: GGally：矩阵图，生存图，网格图等
+   - :heart: gganimate：用ggplot2创建简单的动画
+   - :heart: ggforce：饼图
 
-[extrafont]: /posts/R/RNotebook(Visualise)--RColorBrewer-and-extrafont/
-[ggplot2]: /posts/R/RNotebook(Visualise)--ggplot2/
-[ggmap]: /posts/R/RNotebook(Visualise)--ggmap+baidumap/
-[ggplot2 extensions]: /gitbook/RNotebook(Visualise)--ggplot2-extensions/
+[extrafont]: /posts/R/R(Visualise)--RColorBrewer-and-extrafont/
+[ggplot2]: /posts/R/R(Visualise)--ggplot2/
+[ggmap]: /posts/R/R(Visualise)--ggmap+baidumap/
+[ggplot2-extensions]: /posts/R/R(Visualise)--ggplot2/#ggplot2-extensions
+[geomnet]: /posts/R/ggplot2-extensions/geomnet/
+[GGally]: /posts/R/ggplot2-extensions/GGally/
+[gganimate]: /posts/R/ggplot2-extensions/gganimate/
+[ggforce]: /posts/R/ggplot2-extensions/ggforce/
 
 *HTML WIDGETS*  
 
@@ -362,20 +359,17 @@ description:
 - :white_large_square:  DiagrammeR：在R中创建JS图形和流程图。  
 - :white_large_square:  rbokeh：R与Bokeh的接口。  
 - :heart:  plotly：R的交互式图形库，基于ggplot2 和shiny。  
+- :ballot_box_with_check: [shiny][shiny]：使用R语言开发交互式web应用程序的工具  
 
-[leaflet+leafletCN]: /posts/R/RNotebook(Visualise)--leaflet+leafletCN/
-[Remap]: /posts/R/RNotebook(Visualise)--REmap/
+[leaflet+leafletCN]: /posts/R/R(Visualise)--leaflet+leafletCN/
+[Remap]: /posts/R/R(Visualise)--REmap/
+[shiny]: /posts/R/R(Communicate)--shiny/
 
 ## <font color="green"> Parallel Computing</font> 
 
 - :heart:  [foreach][foreach]：在循环(loop)中并行化运算  
 
-[foreach]: /posts/R/RNotebook(Parallel-Computing)--foreach/
-
-## <font color="green"> MapReduce</font>  
-
-- :heart:  SparkR：Spark的R前端  
-- :heart:  sparklyr：来自RStudio的Apache Spark的R接口，提供dplyr后端  
+[foreach]: /posts/R/R(Parallel-Computing)--foreach/
 
 ## <font color="green"> Model Tools</font>  
 
@@ -383,8 +377,8 @@ description:
 - :ballot_box_with_check: [modelr][modelr]：管道建模辅助包(Hadley)  
 - :heart:  caret：分类和回归问题的数据训练综合工具包（包括交叉验证，网格搜索等）  
 
-[broom]: /posts/R/RNotebook(Model-Tools)--broom/
-[modelr]: /posts/R/RNotebook(Model-Tools)--modelr/
+[broom]: /posts/R/R(Model-Tools)--broom/
+[modelr]: /posts/R/R(Model-Tools)--modelr/
 
 
 ## <font color="green"> Machine Learning</font>  
@@ -396,27 +390,27 @@ description:
 - :white_large_square:  survival：生存分析模型  
 - :white_large_square:  nnet：神经网络  
 
-[mlr]: /posts/R/RNotebook(Machine-Learning)--mlr/
+[mlr]: /posts/R/R(Machine-Learning)--mlr/
 
 ## <font color="green"> Deep Learning</font>  
 
 - :heart:  tensorflow：Google开源的最受欢迎的深度学习框架  
-- :heart:  h2o：深度学习框架 (Update according to [cheat sheets][sheet])  
+- :heart:  h2o：深度学习框架 
 - :heart:  keras：以 tensorflow/theano/CNTK 为后端的深度学习封装库   
 
-## <font color="green"> NLP (Natural Language Processing)</font>  
+## <font color="green"> NLP(Natural Language Processing)</font>  
 
 - :ballot_box_with_check: [jiebaR][jiebaR]：中文分词包  
 - :white_large_square:  Rwordseg：中文分词包，安装复杂  
 - :ballot_box_with_check: [wordcloud2][wordcloud2]：词云  
 - :white_large_square:  tm： 一个全面的文本挖掘框架  
-- :heart:  quanteda：文本挖掘 (Update according to [cheat sheets][sheet])  
+- :heart:  quanteda：文本挖掘 
 - :heart:  tidytex：简单文本挖掘，结合dplyr，ggplot2和其他简洁工具  
 - :ballot_box_with_check: [text2vec][text2vec]：一个快速文本挖掘框架（jiebaR推荐包） (Update according to GitHub)  
 
-[jiebaR]: /posts/R/RNotebook(NLP)--jiebaR/
-[wordcloud2]: /posts/R/RNotebook(NLP)--wordcloud2/
-[text2vec]: /posts/R/RNotebook(NLP)--text2vec/
+[jiebaR]: /posts/R/R(NLP)--jiebaR/
+[wordcloud2]: /posts/R/R(NLP)--wordcloud2/
+[text2vec]: /posts/R/R(NLP)--text2vec/
 
 ## <font color="green"> Time Series</font>  
 
@@ -427,11 +421,11 @@ description:
 - :ballot_box_with_check: [forecastHybrid][forecastHybrid]：结合forcast包时间序列模型混合预测  
 - :white_large_square:  CausalImpact：使用贝叶斯结构时间序列模型进行因果推理  
 
-[zoo]: /posts/R/RNotebook(Time-Series)--zoo/
+[zoo]: /posts/R/R(Time-Series)--zoo/
 [xts]: http://joshuaulrich.github.io/xts/
-[prophet]: /posts/R/RNotebook(Time-Series)--forecast-and-prophet/
-[forecast]: /posts/R/RNotebook(Time-Series)--forecast-and-prophet/
-[forecastHybrid]: /posts/R/RNotebook(Time-Series)--forecast-and-prophet/
+[prophet]: /posts/R/R(Time-Series)--forecast-and-prophet/
+[forecast]: /posts/R/R(Time-Series)--forecast-and-prophet/
+[forecastHybrid]: /posts/R/R(Time-Series)--forecast-and-prophet/
 
 ## <font color="green"> Finance</font>  
 
@@ -442,13 +436,9 @@ description:
 
 - :ballot_box_with_check: [R Markdown][rmarkdown]：用于创建可重复性报告和动态文档  
 - :white_large_square:  rticles：提供了一套RMarkdown模板  
-- :white_large_square:  flexdashboard：基于rmarkdown，可以轻松的创建仪表盘  
-- :white_large_square:  slidify：从Rmarkdown生成可重现的html5幻灯片  
 - :white_large_square:  knitr：用于在PDF和HTML文档中嵌入R代码块  
-- :ballot_box_with_check: [shiny][shiny]：使用R语言开发交互式web应用程序的工具  
 
-[rmarkdown]: /posts/R/RNotebook(Communicate)--R-Markdown/
-[shiny]: /posts/R/RNotebook(Communicate)--shiny/
+[rmarkdown]: /posts/R/R(Communicate)--R-Markdown/
 
 ## <font color="green"> Learning R</font>  
 
@@ -472,42 +462,61 @@ description:
 
 # <font color="red">数学</font>
 
-GeoGebra作图
+> GeoGebra 是个不错的作图工具
 
 ## <font color="green">Foundational Math</font>
 
-- :ballot_box_with_check:   [初等数学公式](https://blog.csdn.net/qq_41518277/article/details/89397900) 
-- :ballot_box_with_check:   [高等数学 I][c1]：(数学分析) 实数集合、极限、一元函数微分、不定积分、定积分
-- :ballot_box_with_check:   [高等数学 II][c2]：(数学分析) 多元函数微积分，重积分、曲线积分和曲面积分、场论初步
-- :ballot_box_with_check:   [高等数学 III][c3]：(数学分析) 无穷级数、幂级数、傅里叶级数、三角级数
-- :ballot_box_with_check:   [高等数学 IV][sag]：(数学分析) 空间解析几何
-- :ballot_box_with_check:   [概率论与数理统计 I][ps1]：概率论
-- :ballot_box_with_check:   [概率论与数理统计 II][ps2]：数理统计
-- :ballot_box_with_check:   [复变函数与积分变换 I][cf1]：(数学物理方法) 复变函数、解析函数、积分
-- :ballot_box_with_check:   [复变函数与积分变换 II][cf2]：(数学物理方法) 级数、留数、共形映射
-- :ballot_box_with_check:   [复变函数与积分变换 III][cf3]：(数学物理方法) 傅里叶变换、拉普拉斯变换
-- :ballot_box_with_check:   [常微分方程 I][ode1] ：一阶常微分方程
-- :ballot_box_with_check:   [常微分方程 II][ode2] ：高阶常微分方程
-- :ballot_box_with_check:   [常微分方程 III][ode3] ：一阶线性常微分方程组
+- :ballot_box_with_check:   [初等数学常用公式][formula]
+- :ballot_box_with_check:   [高等数学(一)][Calculus1]：(数学分析) 实数集合、极限、一元函数微分、不定积分、定积分
+- :ballot_box_with_check:   [高等数学(二)][Calculus2]：(数学分析) 多元函数微积分，重积分、曲线积分和曲面积分、场论初步
+- :ballot_box_with_check:   [高等数学(无穷级数)][Calculus3]：(数学分析) 无穷级数、幂级数、傅里叶级数、三角级数
+- :ballot_box_with_check:   [高等数学(空间解析几何)][Calculus4]：(数学分析) 向量代数和空间解析几何
+- :ballot_box_with_check:   [概率论与数理统计(一)][prob1]：概率论
+- :ballot_box_with_check:   [概率论与数理统计(二)][prob2]：数理统计
+- :ballot_box_with_check:   [复变函数和积分变换(一)][complex1]：(数学物理方法) 复变函数、解析函数、积分
+- :ballot_box_with_check:   [复变函数和积分变换(二)][complex2]：(数学物理方法) 级数、留数、共形映射
+- :ballot_box_with_check:   [复变函数和积分变换(积分变换)][complex3]：(数学物理方法) 傅里叶变换、拉普拉斯变换
+- :ballot_box_with_check:   [常微分方程(一)][ode1] ：一阶常微分方程
+- :ballot_box_with_check:   [常微分方程(二)][ode2] ：高阶常微分方程
+- :ballot_box_with_check:   [常微分方程(三)][ode3] ：一阶线性常微分方程组
+
+[formula]: /img/math/Mathematical-Formula/
+[Calculus1]: /img/math/Calculus-I/
+[Calculus2]: /img/math/Calculus-II/
+[Calculus3]: /img/math/Infinite-Series/
+[Calculus4]: /img/math/Space-Analytic-Geometry
+[prob1]: /img/math/Probability-&-Statistics-I/
+[prob2]: /img/math/Probability-&-Statistics-II/
+[complex1]: /img/math/Complex-Function-I/
+[complex2]: /img/math/Complex-Function-II/
+[complex3]: /img/math/Integral-Transform/
+[ode1]: /img/math/ODE-I/
+[ode2]: /img/math/ODE-II/
+[ode3]: /img/math/ODE-III/
 
 ## <font color="green">Advanced Math</font> 
 
-- :ballot_box_with_check:   [线性代数][LinearAlgebra] ：矩阵，行列式，向量空间，二次型，线性变换
-- :ballot_box_with_check:   [偏微分方程 I][pde1]：(数学物理方法) （拟）线性偏微分方程、定解问题、分离变量法
-- :ballot_box_with_check:   [偏微分方程 II][pde2]：(数学物理方法) 球函数、柱函数
-- :ballot_box_with_check:   [偏微分方程 III][pde3]：(数学物理方法) 积分变换法、基本解和格林函数
-- :ballot_box_with_check:   [偏微分方程 IV][pde3]：(数学物理方法) 变分法、非线性偏微分方程
-- :ballot_box_with_check:   [抽象代数][Abstract algebra] ：(抽象代数) 群论、环论、伽罗瓦理论等
-- :ballot_box_with_check: 一般拓扑学：主要是点集拓扑
-- :ballot_box_with_check: 微分几何初步
+- :ballot_box_with_check: [线性代数][LinearAlgebra]：矩阵，行列式，向量空间，二次型，线性变换
+- :ballot_box_with_check: [偏微分方程(一)][pde1]：(数学物理方法) （拟）线性偏微分方程、定解问题、分离变量法
+- :ballot_box_with_check: [偏微分方程(二)][pde2]：(数学物理方法) 球函数、柱函数
+- :ballot_box_with_check: [偏微分方程(三)][pde3]：(数学物理方法) 积分变换法、基本解和格林函数
+- :ballot_box_with_check: [偏微分方程(四)][pde3]：(数学物理方法) 变分法、非线性偏微分方程
+- :ballot_box_with_check: [抽象代数][AbstractAlgebra] ：(抽象代数) 群论、环论、伽罗瓦理论等
+- :heart: 一般拓扑学：主要是点集拓扑
+- :heart: 微分几何初步
+- :heart: 泛函分析：研究的是一般无穷维的带有一定拓扑的线性空间
+- :heart: 微分拓扑：微分流形和可微映射
+- :heart: [微分几何][DifferentialGeometry]：包括曲线和曲面论、外微分形式和活动标架、黎曼几何
+- :heart: [张量分析][tensor]：包括流形上的张量分析
 
----
-- :heart:  泛函分析：研究的是一般无穷维的带有一定拓扑的线性空间
-- :ballot_box_with_check:  微分拓扑：微分流形和可微映射
-- :ballot_box_with_check:  [微分几何][Differential Geometry]：包括曲线和曲面论、外微分形式和活动标架、黎曼几何
-- :ballot_box_with_check:  [张量分析][tensor]：包括流形上的张量分析
-
-
+[LinearAlgebra]: /img/math/Linear-Algebra/
+[pde1]: /img/math/PDE-I/
+[pde2]: /img/math/PDE-II/
+[pde3]: /img/math/PDE-III/
+[pde4]: /img/math/PDE-IV/
+[AbstractAlgebra]: 404
+[DifferentialGeometry]: 404
+[tensor]: 404
 
 # <font color="red">物理</font>  
 
@@ -535,25 +544,24 @@ E -.-> F(万有理论)
 
 ## <font color="green">Foundational Physics</font>  
 
-- :ballot_box_with_check:   普通物理：力学，热学，光学，电磁学，振动和波等  
-- :ballot_box_with_check:   理论力学：静力学、运动学与动力学
-- :ballot_box_with_check:   电动力学：电磁现象的经典动力学理论，包括狭义相对论
-- :ballot_box_with_check:   统计力学：热力学与统计物理  
-- :ballot_box_with_check:   量子力学：研究物质世界微观粒子运动规律的物理学分支
- - :white_large_square:  固体物理：凝聚态物理学中最大的分支。它研究的对象是固体
-- :ballot_box_with_check:   《场论基础》：（作者-易中）从连续介质运动、非完整力学系统、电磁关系、引力场、量子效应、基本粒子构造、场的量子理论、场规范、随机场九个方面介绍了电磁场、引力场、量子场、规范场、统计场的初步知识。
+- :ballot_box_with_check: 普通物理：力学，热学，光学，电磁学，振动和波等  
+- :ballot_box_with_check: 理论力学：静力学、运动学与动力学
+- :ballot_box_with_check: 电动力学：电磁现象的经典动力学理论，包括狭义相对论
+- :ballot_box_with_check: 统计力学：热力学与统计物理  
+- :ballot_box_with_check: 量子力学：研究物质世界微观粒子运动规律的物理学分支
+- :white_large_square:  固体物理：凝聚态物理学中最大的分支。它研究的对象是固体
+- :ballot_box_with_check: 《场论基础》：（作者-易中）从连续介质运动、非完整力学系统、电磁关系、引力场、量子效应、基本粒子构造、场的量子理论、场规范、随机场九个方面介绍了电磁场、引力场、量子场、规范场、统计场的初步知识。
 
 ## <font color="green">Advanced Physics</font>  
 
-- :ballot_box_with_check:   高等量子力学：以五条基本公理+测量公理作为出发点，推出《量子力学》中解释的所有现象
-- :ballot_box_with_check:   高等统计力学：使用量子力学的语言，讲述量子统计物理的基本原理及其应用
-- :ballot_box_with_check:   量子场论[^QTF]：量子力学，狭义相对论和经典场论相结合的物理理论。
-- :ballot_box_with_check:   规范场论：强，弱相互作用的理论框架
-- :ballot_box_with_check:   广义相对论：是描述物质间引力相互作用的理论
-- :ballot_box_with_check:   量子引力：想要把广义相对论量子化，进而统一包括引力在内的四种基本力。当前主流尝试理论有弦理论/超弦理论/M理论、超引力、圈量子引力、扭量理论等。
-- :white_large_square:  凝聚态物理：是研究凝聚态物质的物理性质与微观结构以及它们之间的关系
+- :ballot_box_with_check: 高等量子力学：以五条基本公理+测量公理作为出发点，推出《量子力学》中解释的所有现象
+- :ballot_box_with_check: 高等统计力学：使用量子力学的语言，讲述量子统计物理的基本原理及其应用
+- :ballot_box_with_check: 量子场论[^QTF]：量子力学，狭义相对论和经典场论相结合的物理理论。[如何自学量子场论？](https://www.zhihu.com/question/24209758/answer/248307405)
+- :ballot_box_with_check: 规范场论：强，弱相互作用的理论框架
+- :ballot_box_with_check: 广义相对论：是描述物质间引力相互作用的理论
+- :ballot_box_with_check: 量子引力：想要把广义相对论量子化，进而统一包括引力在内的四种基本力。当前主流尝试理论有弦理论/超弦理论/M理论、超引力、圈量子引力、扭量理论等。
+- :white_large_square: 凝聚态物理：是研究凝聚态物质的物理性质与微观结构以及它们之间的关系
 
-------
 
-[^QTF]: 量子场论：(Quantum Field Theory, QFT) 目前已知的四种相互作用中，除去引力，另三种相互作用都找到了合适满足特定规范对称性的量子场论（或者说Yang-Mills场）来描述。强相互作用有量子色动力学（QCD，Quantum Chromodynamics)；电磁相互作用有量子电动力学（QED,Quantum Electrodynamics)；弱相互作用有四费米子点作用理论。后来弱相互作用和电磁相互作用实现了形式上的统一，由Yang-Mills（杨-米尔斯）场来描述，通过希格斯机制（Higgs Mechanism）产生质量，建立了弱电统一的量子规范理论，即GWS（Glashow, Weinberg, Salam）模型。[如何自学量子场论？](https://www.zhihu.com/question/24209758/answer/248307405)
+[^QTF]: 量子场论：(Quantum Field Theory, QFT) 目前已知的四种相互作用中，除去引力，另三种相互作用都找到了合适满足特定规范对称性的量子场论（或者说Yang-Mills场）来描述。强相互作用有量子色动力学（QCD，Quantum Chromodynamics)；电磁相互作用有量子电动力学（QED,Quantum Electrodynamics)；弱相互作用有四费米子点作用理论。后来弱相互作用和电磁相互作用实现了形式上的统一，由Yang-Mills（杨-米尔斯）场来描述，通过希格斯机制（Higgs Mechanism）产生质量，建立了弱电统一的量子规范理论，即GWS（Glashow, Weinberg, Salam）模型。
 

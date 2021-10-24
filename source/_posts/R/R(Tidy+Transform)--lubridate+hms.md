@@ -6,6 +6,7 @@ date: 2018-05-01 23:06:29
 categories: [R,Tidy+Transform]
 cover: /img/lubridate.png
 top_img: /img/lubridate-hms.png
+description: for date and times
 ---
 
 日期和时间变量处理包

@@ -6,7 +6,7 @@ tags: [数学,偏导数,全微分,重积分,曲线积分,曲面积分]
 cover: /img/Calculus2.jpg
 top_img: /img/function.jpg
 katex: true
-description: false
+description: 多元函数微积分，重积分、曲线积分和曲面积分、场论初步
 ---
 
 # 多元函数微分法

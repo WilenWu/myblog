@@ -4,6 +4,7 @@ title: R手册(NLP)--text2vec
 tags: [R,NLP]
 date: 2018-05-28 18:44:11
 categories: [R,NLP]
+cover: /img/socialmedia-nlp.jpg
 description: 这个 R 包提供了高性能和简洁的 API 来进行文本分析、自然语言处理
 ---
 

@@ -1,11 +1,12 @@
 ---
 ID: 6f76e0a00a67d556c3eefffd4d94bed5
 title: Python手册(Time Series)--pandas(Time Series)
-tags: [python,数据清洗,时间序列]
+tags: [Python,数据清洗,时间序列]
 date: 2018-05-12 00:49:34
-categories: [python,pandas]
+categories: [Python,pandas]
 cover: /img/pandas-logo.png
 top_img: /img/pandas-bear.jpg
+description: Pandas 时间序列数据处理工具
 ---
 
 时间序列（time series）数据是一种重要的结构化数据形式，具体的应用场景，主要有以下几种：
@@ -25,7 +26,7 @@ top_img: /img/pandas-bear.jpg
 下表显示了pandas可以处理的时间相关类的类型以及如何创建它们：
 
 Class|Remarks|How to create
-------|------|------
+:------|:------|:------
 Timestamp|Represents a single timestamp|to_datetime, Timestamp
 DatetimeIndex|Index of Timestamp|to_datetime, date_range, bdate_range, DatetimeIndex
 Period|Represents a single time span|Period

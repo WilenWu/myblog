@@ -2,9 +2,11 @@
 ID: 870f196d599cfaa4bde163b80704c519
 title: Python手册(Python Basics)--RPy2
 date: 2018-12-23 22:05:50
-categories: [python,Python基础]
-tags: [python]
-cover: /img/pypi.svg
+categories: [Python,Python基础]
+tags: [Python]
+cover: /img/rpy2-logo.png
+top_img: /img/python-logo-wide.svg
+description: Python 通过rpy2调用 R语言
 ---
 
 # 概述

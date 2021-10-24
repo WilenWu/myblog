@@ -10,7 +10,6 @@ top_img: /img/tidyverse-wide.png
 
 [tidyverse](https://www.tidyverse.org/)是一系列包的组合，构建了一套完整的数据分析生态链，提供了一套整洁的数据导入，分析和建模方法，刷新了R语言原有的数据科学体系。
 
-
 <!-- more -->
 
 # tidyverse

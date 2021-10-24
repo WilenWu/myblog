@@ -6,7 +6,7 @@ tags: [数学,PDE,微分方程,分离变量法]
 cover: 
 top_img:  
 katex: true
-description: false
+description: （拟）线性偏微分方程、定解问题、分离变量法
 ---
 
 

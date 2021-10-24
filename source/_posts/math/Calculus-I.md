@@ -6,7 +6,7 @@ tags: [数学,极限,导数,微分,积分]
 cover: /img/Calculus.jpg
 top_img: /img/Calculus-top.jpg
 katex: true
-description: false
+description: 实数集合、极限、一元函数微分、不定积分、定积分
 ---
 
 > 本文参考MOOC同济大学和国防科技大学《高等数学》课程。

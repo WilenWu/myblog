@@ -6,6 +6,7 @@ date: 2018-05-28 16:35:03
 categories: [R,Tidy+Transform]
 cover: /img/forcats.png
 top_img: 
+description: for factors
 ---
 
 forcats: 分类变量数据处理

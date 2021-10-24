@@ -6,15 +6,14 @@ date: 2018-05-01 22:35:55
 categories: [R,Tidy+Transform]
 cover: /img/stringr.png
 top_img: 
+description: Simple, Consistent Wrappers for Common String Operations
 ---
 
 
-
+stringr: Simple, Consistent Wrappers for Common String Operations
 <!-- more -->
 
 # stringr
-
-stringr: Simple, Consistent Wrappers for Common String Operations
 
 函数|说明
 :---|---

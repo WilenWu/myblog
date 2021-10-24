@@ -4,6 +4,9 @@ title: R手册(Visualise)--ggmap+baidumap
 tags: [R,ggplot2,可视化,地图]
 date: 2018-05-03 23:25:52
 categories: [R,可视化]
+cover: https://gitee.com/WilenWu/images/raw/master/ggplot2/baidumap_china.png
+top_img: /img/ggplot2-wide.png
+description: 使用ggplot2在R中绘制静态地图 
 ---
 
 # ggmap

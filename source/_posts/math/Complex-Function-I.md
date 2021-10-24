@@ -6,7 +6,7 @@ tags: [数学,复变函数,解析函数,调和函数]
 cover: 
 top_img:
 katex: true
-description: false
+description: 复变函数、解析函数、积分
 ---
 
 ------

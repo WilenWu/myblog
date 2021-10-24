@@ -4,7 +4,9 @@ title: R手册(Visualise)-- GGally(ggplot2 extensions)
 date: 2018-05-30 23:32:36
 categories: [R,可视化]
 tags: [R,ggplot2]
-cover: 
+cover: https://gitee.com/WilenWu/images/raw/master/ggplot2/ggpairs.png
+top_img: /img/ggplot2-wide.png
+description: 
 ---
 
 # GGally
@@ -166,6 +168,3 @@ ggscatmat(flea, columns = 2:4, color="species", alpha=0.8)
 ![](https://gitee.com/WilenWu/images/raw/master/ggplot2/ggscatmat.png)
 
 **其余函数待更新**
-
-
-

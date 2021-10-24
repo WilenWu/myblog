@@ -6,7 +6,7 @@ tags: [数学,行列式,矩阵,特征值,特征向量,二次型]
 cover: /img/linear.jpg
 top_img: /img/matrix.jpeg
 katex: true
-description: false
+description: 矩阵，行列式，向量空间，二次型，线性变换
 ---
 
 > 摘自MOOC东南大学和同济大学《线性代数》

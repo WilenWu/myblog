@@ -4,8 +4,9 @@ title: R手册(Common)--R语言入门
 tags: [R]
 date: 2018-05-26 19:29:50
 categories: [R,Common]
-cover: /img/rstudio.png
+cover: /img/r-logo.svg
 top_img: 
+description: 包括Rstudio介绍，R的数据结构和基础语法等
 ---
 
 说明：本节中大部分内容摘自书籍《R语言实战（第2版）》
@@ -261,7 +262,8 @@ R语言data.table包是自带包data.frame的升级版，用于数据框格式�
 
 tidyverse是一系列包的组合，构建了一套完整的数据分析生态链，提供了一套整洁的数据导入，分析和建模方法，刷新了R语言原有的数据科学体系。
 
-作者[**Hadley Wickham**][hd]在R语言数据科学领域是个鼎鼎有名的大人物，被称为**一个改变了R的人**。
+作者 [Hadley Wickham][hd] 在R语言数据科学领域是个鼎鼎有名的大人物，被称为**一个改变了R的人**。
+
 [hd]: http://hadley.nz/
 
 

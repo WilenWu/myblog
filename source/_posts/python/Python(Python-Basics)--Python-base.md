@@ -1,10 +1,11 @@
 ---
 ID: f60ac84d9061b41dcd04b167b62173f5
 title: Python手册(Python Basics)--Python基础（一）
-tags: [python]
+tags: [Python]
 date: 2018-05-09 00:10:30
-categories: [python,Python基础]
+categories: [Python,Python基础]
 cover:  /img/python.jpg
+top_img: /img/python-logo-wide.svg
 ---
 
 Python 是一种易于学习又功能强大的编程语言。它提供了高效的高层次的数据结构，还有简单有效的面向对象编程。Python 优雅的语法和动态类型，以及解释型语言的本质，使它成为在很多领域多数平台上写脚本和快速开发应用的理想语言。

@@ -7,7 +7,7 @@ cover:
 top_img: 
 keywords: 
 katex: true
-description: false
+description: 高阶常微分方程
 ---
 
 

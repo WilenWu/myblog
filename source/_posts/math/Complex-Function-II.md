@@ -6,7 +6,7 @@ tags: [数学,级数,留数,共形映射]
 cover: 
 top_img: 
 katex: true
-description: false
+description: 级数、留数、共形映射
 ---
 
 

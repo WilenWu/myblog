@@ -5,6 +5,7 @@ tags: [R,markdown]
 date: 2018-04-30 15:45:28
 categories: [R,Communicate]
 cover: /img/rmarkdown.png
+description: 用于创建可重复性报告和动态文档
 ---
 
 R Markdown是通过R语言制作动态文档的文件格式

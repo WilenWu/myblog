@@ -4,7 +4,9 @@ title: R手册(Visualise)--ggforce(ggplot2 extensions)
 date: 2018-05-29 18:24:52
 categories: [R,可视化]
 tags: [R,ggplot2]
-cover: 
+cover: /img/ggforce-logo.svg
+top_img: /img/ggplot2-wide.png
+description: 饼图
 ---
 
 # ggforce

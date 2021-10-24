@@ -6,6 +6,7 @@ date: 2018-05-01 17:49:56
 categories: [R,Import]
 cover: /img/rvest.png
 top_img: 
+description: Simple web scraping for R
 ---
 
 rvest: Simple web scraping for R

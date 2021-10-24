@@ -4,12 +4,16 @@ title: R手册(Visualise)--gganimate(ggplot2 extensions)
 date: 2018-05-28 16:45:17
 categories: [R,可视化]
 tags: [R,ggplot2]
-cover: 
+cover: /img/gganimate-logo.svg
+top_img: /img/ggplot2-wide.png
+description: 用ggplot2创建简单的动画
 ---
 
 # [gganimate][gganimate]: Create easy animations with ggplot2
 
 [gganimate]: https://github.com/dgrtwo/gganimate
+
+![gganimate-personifyr](https://gitee.com/WilenWu/images/raw/master/common/gganimate-personifyr.jpg)
 
 ## ggplot对象
 
@@ -41,7 +45,7 @@ geom必须设置aes(group)，group为frame的变量，用来指定时间维度
   gganimate(p, "output.swf", interval=.2)
 ```
 
-  
+  ![gganimate-demo](https://gitee.com/WilenWu/images/raw/master/ggplot2/gganimate-demo.gif)
 
 
 

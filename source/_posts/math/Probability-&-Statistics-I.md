@@ -6,7 +6,7 @@ tags: [数学,随机变量,分布,期望,方差]
 cover: /img/prob.jpg
 top_img: 
 katex: true
-description: false
+description: 概率论
 ---
 
 **Cheat Sheets:**

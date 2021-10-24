@@ -5,7 +5,7 @@ date: 2018-06-24 21:52:29
 categories: [大数据]
 tags: [大数据,Spark]
 cover: /img/pyspark-in.png
-top_img: /img/spark2.png
+top_img: /img/spark-logo.svg
 description: 
 ---
 Apache Spark 是专为大规模数据处理而设计的快速通用的计算引擎。

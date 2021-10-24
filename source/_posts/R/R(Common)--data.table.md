@@ -4,8 +4,8 @@ title: R手册(Common)--data.table
 tags: [R]
 date: 2018-05-01 17:32:24
 categories: [R,Common]
-cover: /img/r-logo.jpg
-top_img: 
+cover: /img/rdatatable.svg
+top_img: /img/r-logo.jpg
 ---
 
 R语言data.table包是自带包data.frame的升级版，用于数据框格式数据的处理，最大的特点快。

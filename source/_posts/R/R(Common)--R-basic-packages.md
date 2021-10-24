@@ -4,8 +4,9 @@ title: R手册(Common)--R语言基础包
 tags: [R]
 date: 2018-04-30 17:22:51
 categories: [R,Common]
-cover: /img/r-report.jpg
-top_img: 
+cover: /img/miniCRAN.svg
+top_img: /img/r-report.jpg
+description: base, stats等基础包函数
 ---
 
 R语言基础包：`base, stats`

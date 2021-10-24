@@ -6,7 +6,7 @@ tags: [数学,PDE,微分方程,格林函数,积分变换]
 cover: 
 top_img: 
 katex: true
-description: false
+description: 积分变换法、基本解和格林函数
 ---
 
 

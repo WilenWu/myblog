@@ -6,7 +6,7 @@ tags: [数学,无穷级数,傅里叶级数,收敛]
 cover: /img/sigma.jpeg
 top_img: 
 katex: true
-description: false
+description: 无穷级数、幂级数、傅里叶级数、三角级数
 ---
 
 # 无穷级数

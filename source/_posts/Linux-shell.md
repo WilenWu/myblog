@@ -4,7 +4,7 @@ title: Linux shell教程
 date: 2018-06-22 13:38:14
 categories: [实用知识]
 tags: [linux]
-cover: /img/shell.jpeg
+cover: /img/bash.jpg
 top_img:
 ---
 

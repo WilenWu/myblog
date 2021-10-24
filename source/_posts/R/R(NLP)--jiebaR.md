@@ -24,7 +24,7 @@ segment( "This is a good day!" , cutter )  #分词
 ## [1] "This" "is"   "a"    "good" "day"
 ```
 
-## `worker()`：初始化分词器
+## `worker`：初始化分词器
 
 **1. worker函数**
 ```r
@@ -77,7 +77,7 @@ cutter$symbol = FALSE #重设为不保留符号
 new_user_word(worker, words, tags = rep("n", length(words))) 
 ```
 
-## `segment()`：分词
+## `segment`：分词
 
 ```r
 segment(code, jiebar, mod = NULL)

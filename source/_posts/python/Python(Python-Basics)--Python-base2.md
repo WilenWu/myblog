@@ -2,9 +2,10 @@
 ID: 8abb5d61acdaebba851a62d7fb10954d
 title: Python手册(Python Basics)--Python基础（二）
 date: 2018-05-20 15:36:50
-categories: [python,Python基础]
-tags: [python]
-cover:  /img/python.jpg
+categories: [Python,Python基础]
+tags: [Python]
+cover:  /img/pycad.png
+top_img: /img/python-logo-wide.svg
 ---
 
 Python 标准库非常庞大，所提供的组件涉及范围十分广泛，正如以下内容目录所显示的。这个库包含了多个内置模块 (以 C 编写)，Python 程序员必须依靠它们来实现系统级功能。

@@ -7,11 +7,8 @@ cover:
 top_img: 
 keywords: 
 katex: true
-description: false
+description: 一阶线性常微分方程组
 ---
-
-
-------
 
 
 # 一阶线性微分方程组

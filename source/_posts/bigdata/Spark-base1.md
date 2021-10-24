@@ -4,6 +4,7 @@ date: 2020-01-03 16:10:18
 categories: [大数据]
 tags: [大数据,Spark,RDD]
 cover: /img/spark.png
+top_img: /img/spark-logo.svg
 description: 
 ---
 

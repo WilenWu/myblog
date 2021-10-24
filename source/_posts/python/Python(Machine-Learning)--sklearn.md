@@ -1,9 +1,9 @@
 ---
 ID: 2ce37637a214d0c04199cae53398ffdd
 title: Python手册(Machine Learning)--sklearn
-tags: [python,机器学习]
+tags: [Python,机器学习]
 date: 2018-05-10 23:08:52
-categories: [python,机器学习]
+categories: [Python,机器学习]
 cover: /img/scikit-learn.svg
 description:  The most popular and widely used library for machine learning in Python.
 ---
