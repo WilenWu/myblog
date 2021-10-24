@@ -3,7 +3,7 @@ title: About Me
 date: 2019-09-07 21:46:41
 type: "about"
 comments: true
-top_img: "blue"
+top_img: /img/sky.jpg
 ---
 
 本博客基于 Hexo 及 GitBook 配合搭建而成。
