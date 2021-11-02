@@ -3,22 +3,14 @@ title: 复变函数和积分变换(Complex Function I)
 date: 2019-05-28 14:28:06
 categories: [数学,复变函数]
 tags: [数学,复变函数,解析函数,调和函数]
-cover: 
-top_img:
+cover: /img/complex-cover.png
+top_img: /img/science.jpg
 katex: true
 description: 复变函数、解析函数、积分
 ---
 
-------
-
-> 参考文献：
-> mooc国防科技大学《复变函数》
-> 王忠仁、张静《工程数学：复变函数和积分变换》
-> 焦红伟、尹景本《复变函数与积分变换》
-> 梁昆淼《数学物理方法》
-
-
 # 复数与复变函数
+
 ## 复数
 
 ==复数==(Complex Number)：形如 $z=x+\text{i}y\quad (x,y\in\R)$，其中 $\text{i}$ 满足 $\text{i}^2=-1$ 称为虚数单位，$x$ 和 $y$ 分别称为复数的实部和虚部，记作$x=\text{Re }z,y=\text{Im }z$。
@@ -72,7 +64,7 @@ $\text{Arg }(z_1/z_2)=\text{Arg }z_1-\text{Arg }z_2$
 - **乘幂**(power)
 设复数 $z=|z|(\cos θ+i\sin θ)=|z|e^{iθ} \quad(θ=\text{Arg }z)$
 由三角函数的性质可知 $z^n=|z|^n[\cos(nθ)+i\sin(nθ)]=|z|^ne^{inθ}$
-特别的有 $(\cos θ+i\sin θ)^n=\cos(nθ)+i\sin(nθ)$ ，这就是<kbd>De Moivre formula</kbd>
+特别的有 $(\cos θ+i\sin θ)^n=\cos(nθ)+i\sin(nθ)$ ，这就是<kbd>**De Moivre formula**</kbd>
 - **n次方根**(n-th root)
 将满足 $z=w^n$ 的$w$称为$z$的$n$次方根，记为 $w=\sqrt[n]{z}\quad(n=1,2,\cdots)$
 $\begin{aligned} 
@@ -178,20 +170,21 @@ $\lim\limits_{z\to z_0}f(z)/g(z)=A/B$
 # 解析函数
 
 ## 导数和解析函数
+
 - **导数**(Derivative)
 (1) 复变函数 $w=f(z),z\in D$在 $z_0$处的导数定义为 
 $$
 \lim\limits_{Δ z\to0}\dfrac{f(z_0+Δ z)-f(z_0)}{Δ z}
 $$
-​    可记作$f'(z_0), f'(z)|_{z=z_0},\dfrac{\mathrm{d}f(z)}{\mathrm{d}z}|_{z=z_0}$
-​    (2)  如果函数在定义域D内处处可导，则称函数在 D内可导
-​    (3) 与实函数的一致，复变函数的==微分== $\mathrm{d}w=f'(z)\mathrm{d}z$
-​    (4) 设 $u=u(z),v=v(z)$都可导
-   $(u± v)'=u'± v'$
-   $(uv)'=u'v+uv'$
-   $(\dfrac{u}{v})'=\dfrac{u'v-uv'}{v^2}(v\neq0)$
-   复合函数求导法则：$f'(z)=f'(w)g'(z),w=g(z)$
-   反函数求导：$[f^{-1}(z)]'=\dfrac{1}{f'(z)}$，其中 $f(z)$为单值函数
+​可记作$f'(z_0), f'(z)|_{z=z_0},\dfrac{\mathrm{d}f(z)}{\mathrm{d}z}|_{z=z_0}$
+​(2)  如果函数在定义域D内处处可导，则称函数在 D内可导
+​(3) 与实函数的一致，复变函数的==微分== $\mathrm{d}w=f'(z)\mathrm{d}z$
+​(4) 设 $u=u(z),v=v(z)$都可导
+$(u± v)'=u'± v'$
+$(uv)'=u'v+uv'$
+$(\dfrac{u}{v})'=\dfrac{u'v-uv'}{v^2}(v\neq0)$
+复合函数求导法则：$f'(z)=f'(w)g'(z),w=g(z)$
+反函数求导：$[f^{-1}(z)]'=\dfrac{1}{f'(z)}$，其中 $f(z)$为单值函数
 
 - **解析函数**(analytic function)
 (1) 设函数 $w=f(z),z\in D$，对于点 $z_0\in D$，若$∃ U(z_0,ρ)$，使得函数 $f (z)$ 在该邻域内处处可导，则称函数$f (z)$在点 $z_0$ ==解析==(analytic)。此时称点$z_0$为函数的==解析点==(analytic point)。若函数$f (z)$在点 $z_0$ 不解析，则称$z_0$为==奇点==(singular point)。
@@ -218,19 +211,19 @@ $$
 f'(z)=\frac{∂u}{∂x}+i\frac{∂v}{∂x}= \frac{∂v}{∂y}-i\frac{∂u}{∂y}
 $$
 
+[^1]: 二元函数全微分：若函数$z=f(x,y)$​在点$(x,y)$​的全增量$Δ z=f(x+Δ x,y+Δ y)-f(x,y)$​可表示为
+    $$
+    Δz=AΔ x+BΔ y+o(ρ)
+    $$
+    其中A和B不依赖于$Δx和Δy$而仅与 $4x,y$ 有关，$ρ=\sqrt{(Δ x)^2+(Δ y)^2}$，则称函数在点$(x,y)$==可微分==，$AΔ x+BΔy$叫做==全微分==，记作$\mathrm{d}z$，即
+    $$
+    \mathrm{d}z=AΔx+BΔy
+    $$
+    <kbd>必要条件</kbd>$函数z=f(x,y)在(x,y)可微分，那该函数在(x,y)偏导数 \dfrac{∂z}{∂x}，\dfrac{∂z}{∂y}必定存在$，全微分
+    $$
+    \mathrm{d}z=\dfrac{∂ z}{∂ x}Δ x+\dfrac{∂ z}{∂ y}Δ y
+    $$
 
-[^1]: 二元函数全微分：若函数$z=f(x,y)$在点$(x,y)$的全增量$Δ z=f(x+Δ x,y+Δ y)-f(x,y)$可表示为
-$$
-Δ z=AΔ x+BΔ y+o(ρ)
-$$
-其中A和B不依赖于$Δ x和Δ y$而仅与x,y有关，$ρ=\sqrt{(Δ x)^2+(Δ y)^2}$，则称函数在点$(x,y)$==可微分==，$AΔ x+BΔ y$叫做==全微分==，记作$\mathrm{d}z$，即
-$$
-\mathrm{d}z=AΔ x+BΔ y
-$$
-<kbd>必要条件</kbd>$函数z=f(x,y)在(x,y)可微分，那该函数在(x,y)偏导数 \dfrac{∂ z}{∂ x}， \dfrac{∂ z}{∂ y}必定存在$，全微分
-$$
-\mathrm{d}z=\dfrac{∂ z}{∂ x}Δ x+\dfrac{∂ z}{∂ y}Δ y
-$$
 
 - **解析函数的像**(imag)
 设解析函数为 $f(z)=u(x,y)+iv(x,y)$ 的值域为 G
@@ -407,11 +400,11 @@ $\displaystyle\oint_{C}\dfrac{1}{(z-a)^n}dz=\int_{0}^{2π}\dfrac{ire^{iθ}}{r^ne
 通过上节的例子可以发现，有的函数的积分只依赖于积分路径的起点与终点，而与积分路径的形状无关，而有的函数，其积分不仅与积分路径的起点与终点有关，而且与积分路径的形状也有关。深入观察后，可知，前一类函数是解析函数。
 - <kbd>柯西积分定理</kbd> (Cauchy Integral Theorem) 或称 <kbd>柯西－古萨定理</kbd>(Cauchy-Goursat Theorem)
 如果函数$f(z)$在单连通区域D内解析，则$f(z)$在D内沿任一简单闭曲线$Γ$积分 
-   $$
+  $$
    \displaystyle\oint_{Γ}f(z)dz=0
-   $$
+  $$
     <img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Cauchy-Integral-Theorem.png"    style="zoom: 80%;" />
-   
+  
    证明：    
    $\begin{aligned} \displaystyle\oint_{Γ}f(z)dz
    &=\oint_{Γ}udx-vdy+i\oint_{Γ}vdx+udy \\
@@ -522,4 +515,10 @@ $\displaystyle v(x,y)=\int_{(x_0,y_0)}^{(x,y)}-u_ydx+u_xdy+C=\int_{x_0}^{x}-u_yd
 $f'(z)=u_x+iv_x=u_x-iu_y$，于是求$f'(z)$的原函数即可。这种方法称为==原函数法==。
 
 
+------
 
+> **参考文献：**
+> 《复变函数》.国防科技大学(mooc)
+> 王忠仁 张静.《工程数学：复变函数和积分变换》
+> 焦红伟 尹景本.《复变函数与积分变换》
+> 梁昆淼.《数学物理方法》

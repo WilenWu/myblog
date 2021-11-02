@@ -4,7 +4,7 @@ title: R手册(Import)--for database
 tags: [R,tidyverse]
 date: 2018-05-01 17:42:54
 categories: [R,Import]
-cover: /img/connectapi.png
+cover: /img/connectapi.svg
 top_img: 
 description: definition for communication between R and RDBMSs
 ---

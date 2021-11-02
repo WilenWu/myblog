@@ -9,13 +9,6 @@ katex: true
 description: 概率论
 ---
 
-**Cheat Sheets:**
-[Probability Cheatsheet v2.0](https://www.sas.upenn.edu/~astocker/lab/teaching-files/PSYC739-2016/probability_cheatsheet.pdf)
-[Probability Cheat Sheet](http://web.cs.elte.hu/~mesti/valszam/kepletek)
-
-------
-
-
 # 概率论的基本概念(The Basic Concept of Probability Theory)
 - **基本概念**
 ==概率论== (Theory of Probability)： 是一门揭示随机现象统计规律性的数学学科
@@ -37,7 +30,12 @@ $A-B\iff$称为事件A与B的差事件(difference of events)，表示事件A发�
 $\bar A=S-A \iff$称为A的对立事件(complementary events)，表示事件A不发生
 特别的， $S$ 称为必然事件(certain event)，$\varnothing$称为不可能事件(impossible event)，单点集 $\{s\}$ 称为基本事件(elementary event)
 若 $AB=\varnothing$，则称事件A与B互斥(mutually exclusive events)
-![并集](https://gitee.com/WilenWu/images/raw/master/Probability/union.png)![交集](https://gitee.com/WilenWu/images/raw/master/Probability/intersection.png)![互斥](https://gitee.com/WilenWu/images/raw/master/Probability/exclusive.png)
+
+<div class="main">
+<img src="https://gitee.com/WilenWu/images/raw/master/Probability/union.png" alt="并集" > 
+<img src="https://gitee.com/WilenWu/images/raw/master/Probability/intersection.png" alt="交集" > 
+<img src="https://gitee.com/WilenWu/images/raw/master/Probability/exclusive.png" alt="互斥">
+</div>
 
 交换律|$A∪ B=B∪ A\\ A∩ B=B∩ A$
 :---|:---
@@ -710,10 +708,9 @@ $\lim\limits_{n\to∞}P\{|\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}X_i-μ|⩾ ϵ\}
 (1) 给出了“频率稳定性”的严格数学解释.
 (2) 提供了通过试验来确定事件概率的方法.
 (3) 是数理统计中参数估计的重要理论依据之一.
-(4) 是Monte Carlo方法[^1]的主要数学理论基础.
+(4) 是Monte Carlo方法的主要数学理论基础.
 
-
-[^1]: Monte Carlo方法或称为计算机随机模拟方法、计算机仿真方法,是科学与工程中的一种重要工具。Monte Carlo 方法的原理主要基于大数定律.
+> Monte Carlo方法或称为计算机随机模拟方法、计算机仿真方法,是科学与工程中的一种重要工具。Monte Carlo 方法的原理主要基于大数定律.
 
 **中心极限定理**(Central Limit Theorem)
 
@@ -778,3 +775,10 @@ $$
 指数分布<br>$Exp(θ)$|$\frac{1}{θ}e^{-x/θ}$<br>$(x>0)$|$1-e^{-x/θ}$|$θ$|$θ^2$|$\dfrac{1}{1-θt}$
 正态分布<br>$N(μ,σ^2)$|$\dfrac{1}{\sqrt{2π}σ}e^{-\frac{(x-μ)^2}{2σ^2}}$<br>$(μ\in\R,σ>0)$||$μ$|$σ^2$|$\exp(μt+\frac{1}{2}σ^2t^2)$
 伽马分布<br>$Gamma(k,θ)$|$\dfrac{θ^k}{Γ(k)}x^{k-1}e^{-θx}$<br>$(x>0)$<br>$\displaystyleΓ(k)=\int_0^{∞}x^{k-1}e^{-x}\mathrm{d}x$||$kθ$|$kθ^2$|$(1-θt)^{-k}$<br>$(t<1/θ)$
+
+
+------
+
+> **Cheat Sheets:**
+> [Probability Cheatsheet v2.0](https://www.sas.upenn.edu/~astocker/lab/teaching-files/PSYC739-2016/probability_cheatsheet.pdf)
+> [Probability Cheat Sheet](http://web.cs.elte.hu/~mesti/valszam/kepletek)

@@ -1,5 +1,5 @@
 ---
-title: 高等数学(Calculus II)
+title: 数学分析(Calculus II)
 date: 2019-05-03 20:31:28
 categories: [数学,高等数学]
 tags: [数学,偏导数,全微分,重积分,曲线积分,曲面积分]
@@ -911,15 +911,15 @@ $$
 其中 $\mathbf A=(P,Q,R),\mathbf n=(\cosα,\cosβ,\cosγ),\mathrm{d}\mathbf S=\mathbf n\mathrm{d}s=\mathrm{d}y\mathrm{d}z\mathbf i+\mathrm{d}x\mathrm{d}z\mathbf j+\mathrm{d}x\mathrm{d}y\mathbf k$
 
 [^nabla]: 矢量微分算子
-$$
-∇=\dfrac{∂}{∂x}\mathbf i+\dfrac{∂}{∂y}\mathbf j+\dfrac{∂}{∂z}\mathbf k
-$$
-称为哈密顿算子(Hamiltonian)，读作nabla。
-哈密顿算子有如下基本性质：
-(1) $∇(cu)=c∇u$ 
-(2) $∇(u±v)=∇u+∇v$
-(3) $∇(uv)=u∇v+v∇u,\quad ∇(u^2)=2u(∇u)$
-(4) $∇\dfrac{u}{v}=\dfrac{v∇u-u∇v}{v^2}$
+    $$
+    ∇=\dfrac{∂}{∂x}\mathbf i+\dfrac{∂}{∂y}\mathbf j+\dfrac{∂}{∂z}\mathbf k
+    $$
+    称为哈密顿算子(Hamiltonian)，读作nabla。
+    哈密顿算子有如下基本性质：
+    (1) $∇(cu)=c∇u$ 
+    (2) $∇(u±v)=∇u+∇v$
+    (3) $∇(uv)=u∇v+v∇u,\quad ∇(u^2)=2u(∇u)$
+    (4) $∇\dfrac{u}{v}=\dfrac{v∇u-u∇v}{v^2}$
 
 **沿任意闭曲面的曲面积分为零的条件**：若空间区域$Ω$内任一闭曲面所围成的区域全属于$Ω$,则称$Ω$为空间==二维单连通域==，如图
 ![](https://gitee.com/WilenWu/images/raw/master/math/2ds-simplyconnected-domain.png)

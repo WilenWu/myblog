@@ -2,7 +2,7 @@
 ID: d097e5fc6d66b8ec546a7c44aa7f7c9b
 title: GitHub Flavored Markdown 规范
 date: 2018-04-30 13:57:37
-categories: [实用知识]
+categories: [Common]
 tags: [markdown]
 katex: true
 cover: /img/GFM.png
@@ -110,17 +110,34 @@ HTML 语法
 >
 > > Quoted text
 
+如果要在列表项目内放进引用，那 `>` 就需要缩进4 个空格或是 1 个制表符：
+
+```markdown
+*   A list item with a blockquote:
+    > This is a blockquote
+    > inside a list item.
+```
+
+- A list item with a blockquote:
+
+  > This is a blockquote
+  > inside a list item.
+
 ## 列表
 
-通过在一行或多行文本前面添加 `-` 或 `*` 可创建无序列表。
+通过在一行或多行文本前面添加 `-, +` 或 `*` 可创建无序列表。
 
 ```markdown
 - Item 1
 - Item 2
++ Item 1
++ Item 2
 ```
 
 - Item 1
 - Item 2
++ Item 1
++ Item 2
 
 要对列表排序，请在每行前面添加一个编号。
 
@@ -144,8 +161,7 @@ HTML 语法
 </form>
 
 
-
-通过在一个列表项下面缩进一个或多个其他列表项，可创建嵌套列表。
+只需在子列表中的选项前面添加四个空格即可创建嵌套列表
 
 ```markdown
 *   Abacus
@@ -238,15 +254,15 @@ $$
 
 ## 链接
 
-GFM支持行内链接、参考链接和锚点，快捷键为 <kbd>Ctrl + K</kbd>
+GFM支持行内链接、参考链接和锚点，快捷键为 <kbd>Ctrl + K</kbd>。
 
-行内链接：在`[]`里输入链接文本，在其后`()`输入 URL 和 `title`(可选)
+**行内链接**：在`[]`里输入链接文本，在其后`()`输入 URL 和 `title`(可选)
 
 ```markdown
 This is [an example](http://example.com/ "Title") inline link.
 ```
 
-参考链接
+**参考链接**：
 
 ```markdown
 This is [an example][id] reference-style link.
@@ -257,7 +273,7 @@ This is [an example][id] reference-style link.
 
 > 提示：链接文本不必一定是文本。图片或其他 HTML 元素都可以成为链接。
 
-锚点
+**锚点**：
 
 每一个标题都是一个锚点，也可以用HTML方式定义锚点，不过要注意引用标题锚点时：
 
@@ -354,19 +370,6 @@ HTML语法的段落标签为 `<p>paragraph </p>`
    The second paragraph.
 
 2. Suspendisse id sem consectetuer libero luctus adipiscing.
-
-如果要在列表项目内放进引用，那 `>` 就需要缩进4 个空格或是 1 个制表符：
-
-```markdown
-*   A list item with a blockquote:
-    > This is a blockquote
-    > inside a list item.
-```
-
-- A list item with a blockquote:
-
-  > This is a blockquote
-  > inside a list item.
 
 ## Emoji :smile:
 

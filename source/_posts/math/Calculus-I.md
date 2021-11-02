@@ -1,10 +1,10 @@
 ---
-title: 高等数学(Calculus I)
+title: 数学分析(Calculus I)
 date: 2019-04-24 14:52:57
 categories: [数学,高等数学]
 tags: [数学,极限,导数,微分,积分]
 cover: /img/Calculus.jpg
-top_img: /img/Calculus-top.jpg
+top_img: /img/function.jpg
 katex: true
 description: 实数集合、极限、一元函数微分、不定积分、定积分
 ---
@@ -146,21 +146,20 @@ $$
   (1) $\lim f(x)=\begin{cases} 0 &\text{infinitesimal} \\ ∞ & \text{infinity}\end{cases}$
   (2) 无穷小 ($0$) 和无穷大 ($∞$) 的关系：$∞=\dfrac{1}{0},0=\dfrac{1}{∞}$
   (3) 无穷小和函数极限的关系：
-
 $$
 \lim f(x)=A\iff f(x)=A+α(x)
 $$
 
-其中 $α(x)$ 是无穷小量.
-(4) 有限个无穷小的和是无穷小
-有限个无穷小的乘积是无穷小
-有界函数和无穷小的乘积是无穷小
+  其中 $α(x)$ 是无穷小量.
+  (4) 有限个无穷小的和是无穷小
+  有限个无穷小的乘积是无穷小
+  有界函数和无穷小的乘积是无穷小
 
 - **无穷小阶的比较**：设 $\lim f(x)=0,\lim g(x)=0$
   (1) 若 $\lim \dfrac{g(x)}{f(x)}=\begin{cases}0 & 则 g(x)是比f(x)高阶的无穷小,记作g(x)=o(f(x))\\
   ∞ & 则 g(x)是比f(x)低阶的无穷小 \\
   c\neq0 & 则 g(x)是与f(x)同阶的无穷小\\
-  1 & 则 g(x)是与f(x)等价的无穷小，记作f(x)∼ g(x)
+  1 & 则 g(x)是与f(x)等价的无穷小, 记作f(x)∼ g(x)
   \end{cases}$
   (2) 若 $\lim \dfrac{g(x)}{[f(x)]^k}=c\neq0  \implies g(x)是f(x)的k阶无穷小$
   (3) 设 $α,β$ 为无穷小

@@ -1,7 +1,7 @@
 ---
 title: 初等数学常用公式
 date: 2019-04-19 13:07:29
-categories: [数学]
+categories: [数学,Common]
 tags: [数学,三角函数,数列,因式分解,对数]
 cover: /img/math-formula.jpg
 top_img: 

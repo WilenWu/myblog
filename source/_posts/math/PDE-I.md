@@ -9,14 +9,6 @@ katex: true
 description: （拟）线性偏微分方程、定解问题、分离变量法
 ---
 
-
-> 参考文献：
->
-> 《数学物理方程》| 季孝达
-> 《数学物理方法》| 吴崇试
-> 《数学物理方法》| 梁昆淼
-> MOOC北京大学《数学物理方法》| 吴崇试 、高春媛
-
 #  偏微分方程的定解问题
 
 **偏微分方程** (Partial Differential Equations, PDE) ，是指含有多元未知函数及其若干阶偏导数的微分方程。
@@ -1050,19 +1042,20 @@ $$
 用同样的分离变量法也可解决热传导非齐次方程和齐次边界条件的定解问题、二维泊松方程的边界值问题。
 
 [^2]: 式 (2.3) 两端同乘以 $X_m(x)$ ，并逐项积分得
-$$
-\displaystyle\sum_{n=1}^{\infty}\int_0^lg_n(t)X_n(x)X_m(x)dx=
-\int_0^lf(x,t)X_m(x)dx
-$$
-根据本征函数的正交性，当 $n\neq m$ 时，$\displaystyle\int_0^lX_n(x)X_m(x)dx=0$ ，所以只留下 $n=m$ 项
-$$
-\displaystyle\int_0^lg_m(t)X^2_m(x)dx=
-\int_0^lf(x,t)X_m(x)dx
-$$
-将 $X_m$ 带入上式可求得
-$$
-\displaystyle g_n(t)=\cfrac{2}{l}\int_0^lf(x,t)\sin\cfrac{n\pi x}{l}dx
-$$
+    $$
+    \displaystyle\sum_{n=1}^{\infty}\int_0^lg_n(t)X_n(x)X_m(x)dx=
+    \int_0^lf(x,t)X_m(x)dx
+    $$
+    根据本征函数的正交性，当 $n\neq m$ 时，    $\displaystyle\int_0^lX_n(x)X_m(x)dx=0$ ，所以只留下 $n=m$ 项
+    $$
+    \displaystyle\int_0^lg_m(t)X^2_m(x)dx=
+    \int_0^lf(x,t)X_m(x)dx
+    $$
+    将 $X_m$ 带入上式可求得
+    $$
+    \displaystyle g_n(t)=\cfrac{2}{l}\int_0^lf(x,t)\sin\cfrac    {n\pi x}{l}dx
+    $$
+
 ## 非齐次边界条件的齐次化
 
 非齐次边界条件处理的原则是利用叠加原理，把非齐次边界条件问题转化为另一未知函数的齐次边界条件。
@@ -1272,3 +1265,12 @@ $$
 u_t-a^2Δu=f
 $$
 其中 $f=\cfrac{F}{\rho c}$
+
+
+------
+
+> **参考文献：**
+> 季孝达.《数学物理方程》.
+> 吴崇试.《数学物理方法》.
+> 梁昆淼.《数学物理方法》.
+> 吴崇试 高春媛.《数学物理方法》.北京大学(MOOC)

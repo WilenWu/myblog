@@ -12,49 +12,55 @@ description: 一阶常微分方程
 
 # 微分方程基本概念
 
+## 微分方程
+
 **微分方程**：包含未知函数及其导数的方程叫做==微分方程==(Differential Equation)。未知函数导数的最高阶数称为该==微分方程的阶==(order)。
 
 1. **常微分方程(ODE)**：若未知函数是一元函数的微分方程称为常微分方程(Ordinary Differential Equation, ODE)  。
-一般的 ==n 阶常微分方程==的形式(也称隐式表达式)为
-$$
-F(x,y,y',y'',\dots,y^{(n)})=0 \tag{1}
-$$
- 如果微分方程是关于未知函数及各阶导数的线性表达式 
-$$
-y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=f(x)\tag{2}
-$$
-  则称为 ==n 阶线性(linearity)常微分方程==。
+    一般的 ==n 阶常微分方程==的形式(也称隐式表达式)为
+    $$
+    F(x,y,y',y'',\dots,y^{(n)})=0 \tag{1}
+    $$
+     如果微分方程是关于未知函数及各阶导数的线性表达式 
+    $$
+    y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=f(x)\tag{2}
+    $$
+    则称为 ==n 阶线性(linearity)常微分方程==。
 
 2. **偏微分方程(PDE)**：若未知函数是多元函数，方程中含有自变量的偏微分，称之为偏微分方程(Partial Differential Equations, PDE)。
 如 $\cfrac{∂^2T}{∂x^2}+\cfrac{∂^2T}{∂y^2}+\cfrac{∂^2T}{∂z^2}=0$
 
-**微分方程的解**：如果将一个函数$y=φ(x)$其各阶导数代入微分方程 (1) 得到恒等式 
+## 微分方程的解
+
+如果将一个函数$y=φ(x)$其各阶导数代入微分方程 (1) 得到恒等式 
 $$
 F(x,φ(x),φ'(x),φ''(x),\dots,φ^{(n)}(x))\equiv0
 $$
  则称$y=φ(x)$为上述方程的一个==解==(solution)。
 
-1. **通解**：n 阶微分方程 (1) 的解 $y=φ(x,C_1,C_2,\cdots,C_n)$ 含有 n 个相互独立[^J]的任意常数 $C_1,C_2,\cdots,C_n$ ，则称为该微分方程的==通解==(general solution)。
+- **通解**：n 阶微分方程 (1) 的解 $y=φ(x,C_1,C_2,\cdots,C_n)$ 含有 n 个相互独立[^J]的任意常数 $C_1,C_2,\cdots,C_n$ ，则称为该微分方程的==通解==(general solution)。
 
 [^J]: 其中任意常数相互独立是指每一个常数对解的影响是其他常数所不能代替的，即雅克比行列式(Jacobian)满足 
-$$
-\cfrac{∂(φ,φ',\cdots,φ^{(n-1)})}{∂(C_1,C_2,\cdots,C_n)}=
-\begin{vmatrix}
-\frac{∂φ}{∂C_1} &\frac{∂φ}{∂C_2} & \cdots &\frac{∂φ}{∂C_n} \\ 
-\frac{∂φ'}{∂C_1} &\frac{∂φ'}{∂C_2} &\cdots &\frac{∂φ'}{∂C_n} \\ 
-\vdots &\vdots &\ddots &\vdots \\ 
-\frac{∂φ^{(n)}}{∂C_1} &\frac{∂φ^{(n)}}{∂C_2} &\cdots &\frac{∂φ^{(n)}}{∂C_n} \\ 
-\end{vmatrix}\neq 0
-$$
+    $$
+    \cfrac{∂(φ,φ',\cdots,φ^{(n-1)})}{∂(C_1,C_2,\cdots,C_n)}=
+    \begin{vmatrix}
+    \frac{∂φ}{∂C_1} &\frac{∂φ}{∂C_2} & \cdots &\frac{∂φ}{∂C_n} \\ 
+    \frac{∂φ'}{∂C_1} &\frac{∂φ'}{∂C_2} &\cdots &\frac{∂φ'}{∂C_n} \\ 
+    \vdots &\vdots &\ddots &\vdots \\ 
+    \frac{∂φ^{(n)}}{∂C_1} &\frac{∂φ^{(n)}}{∂C_2} &\cdots &\frac{∂φ^{(n)}}{∂C_n} \\ 
+    \end{vmatrix}\neq 0
+    $$
 
 
-2. **特解**：我们称不包含任意常数的解为==特解==(particular solution)。
-3. **初值问题**：通常为了解决实际问题，确定常数的值，需要引入初值条件(initial conditions)。初值条件联合微分方程组成==初值问题==(Initial Value Problem, IVP)，或称柯西问题。
+- **特解**：我们称不包含任意常数的解为==特解==(particular solution)。
+
+- **初值问题**：通常为了解决实际问题，确定常数的值，需要引入初值条件(initial conditions)。初值条件联合微分方程组成==初值问题==(Initial Value Problem, IVP)，或称柯西问题。
 一阶常微分方程的初值问题通常记作 $\begin{cases}y'=f(x,y) \\ 
 y(x_0)=y_0\end{cases}$
-4. **隐式解与隐式通解**：如果关系式 $\Phi(x,y)=0$ 所确定的隐函数 $y=φ(x)$ 为微分方程 (1) 的解，则称 $\Phi(x,y)=0$ 是方程的一个==隐式解==(implicit solution)。对于含有 n个相互独立常数的解  $\Phi(x,y,C_1,C_2,\cdots,C_n)=0$ 为隐式通解。
 
-**解的几何意义**
+- **隐式解与隐式通解**：如果关系式 $\Phi(x,y)=0$ 所确定的隐函数 $y=φ(x)$ 为微分方程 (1) 的解，则称 $\Phi(x,y)=0$ 是方程的一个==隐式解==(implicit solution)。对于含有 n个相互独立常数的解  $\Phi(x,y,C_1,C_2,\cdots,C_n)=0$ 为隐式通解。
+
+## 解的几何意义
 
 1. **积分曲线**：微分方程的解对应的曲线称为==积分曲线==(integral curve)。
 对于一阶微分方程初值问题 $\begin{cases}y'=f(x,y) \\ 
@@ -1070,8 +1076,9 @@ y=xp+f(p)
 作为例子，当 $f(p)=-\frac{1}{4}p^2$时，克莱罗微分方程的积分曲线簇见下图：
 ![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/Clairaut-demo.png)
 
-> 参考文献：
-> 《常微分方程教程》| 丁同仁
-> 《常微分方程》| 王高雄
-> MOOC《常微分方程》| 西北大学 | 窦霁虹、付英
-> MOOC《高等数学》| 国防科技大学
+
+> **参考文献：**
+> 丁同仁.《常微分方程教程》
+> 王高雄.《常微分方程》
+> 窦霁虹 付英《常微分方程》.西北大学(MOOC) 
+> 《高等数学》.国防科技大学(MOOC)

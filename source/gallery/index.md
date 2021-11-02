@@ -10,7 +10,7 @@ top_img:
 ---
 
 <div class="gallery-group-main">
-{% galleryGroup 'Rick and Morty' '关于瑞克和莫蒂大头照' '/gallery/rick-morty' /img/show-me.png %}
+{% galleryGroup 'Rick and Morty' '关于瑞克和莫蒂大头照' '/gallery/rick-morty' /img/header/rick-morty-b.jpg %}
 </div> 
 
 <div class="gallery-group-main">

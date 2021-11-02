@@ -2,10 +2,10 @@
 ID: 0fc43b4a2a174d30c697c74ea99b82a5
 title: Linux shell教程
 date: 2018-06-22 13:38:14
-categories: [实用知识]
+categories: [Common]
 tags: [linux]
 cover: /img/bash.jpg
-top_img:
+top_img: /img/bash-logo.png
 ---
 
 # Shell简介

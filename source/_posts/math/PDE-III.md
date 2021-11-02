@@ -9,14 +9,6 @@ katex: true
 description: 积分变换法、基本解和格林函数
 ---
 
-
-> 参考文献：
->
-> 《数学物理方程》| 季孝达
-> 《数学物理方法》| 吴崇试
-> 《数学物理方法》| 梁昆淼
-> MOOC北京大学《数学物理方法》| 吴崇试 、高春媛
-
 # 积分变换法
 
 在积分变换中我们曾用拉普拉斯变换方法求解常微分方程。经过变换，常微分方程变为代数方程，解出代数方程，再进行反演就得常微分方程的解。积分变换在数学物理方程中亦有广泛的应用。
@@ -240,11 +232,11 @@ u(x,t)=\frac{2u_0}{\pi}[\frac{\pi}{2}-\frac{\pi}{2}\mathrm{erf}(\frac{x}{2a\sqrt
 $$
 
 [^F2]: 这里要用到拉普拉斯变换得到的两个公式
-$$
-\int_0^{+\infty}\frac{\sin kx}{k}dk=\frac{\pi}{2} \\
-\int_0^{+\infty}\frac{\sin kx}{k}e^{-k^2a^2t}dk=
-\sqrt{\pi}\int_0^{x/2a\sqrt{t}}e^{-\xi^2}d\xi
-$$
+    $$
+    \int_0^{+\infty}\frac{\sin kx}{k}dk=\frac{\pi}{2} \\
+    \int_0^{+\infty}\frac{\sin kx}{k}e^{-k^2a^2t}dk=
+    \sqrt{\pi}\int_0^{x/2a\sqrt{t}}e^{-\xi^2}d\xi
+    $$
 
 **求三维无界空间中的波动问题**
 $$
@@ -325,13 +317,12 @@ u(x,t)=u_0\mathrm{erfc}(\frac{x}{2a\sqrt{t}})
 $$
 
 [^L]: 这里用到拉普拉斯反演公式
-
-$$
-\begin{aligned}
-& \mathcal F^{-1}[\cfrac{1}{\sqrt{s}}\exp(-a\sqrt{s})]=\cfrac{1}{\sqrt{\pi t}}\exp(-\cfrac{a^2}{4t}) \quad(a>0)\\
-& \mathcal F^{-1}[\cfrac{1}{s}\exp(-a\sqrt{s})]=\mathrm{erfc}(\cfrac{a}{2\sqrt{t}}) \quad(a>0)
-\end{aligned}
-$$
+    $$
+    \begin{aligned}
+    & \mathcal F^{-1}[\cfrac{1}{\sqrt{s}}\exp(-a\sqrt{s})]=\cfrac{1}{\sqrt{\pi t}}\exp(-\cfrac{a^2}{4t}) \quad(a>0)\\
+    & \mathcal F^{-1}[\cfrac{1}{s}\exp(-a\sqrt{s})]=\mathrm{erfc}(\cfrac{a}{2\sqrt{t}}) \quad(a>0)
+    \end{aligned}
+    $$
 
 **求长 $l$ 均匀细杆的热传导问题**
 $$
@@ -1401,22 +1392,22 @@ $$
 [^sr]: 立体角：常用字母 $Ω$ 表示。以观测点为球心，构造一个单位球面；任意物体投影到该单位球面上的投影面积，即为该物体相对于该观测点的立体角。 因此，立体角是单位球面上的一块面积，这和“平面角是单位圆上的一段弧长”类似。
 立体角的国际制单位是球面度 (steradian , sr) 
 在球坐标系中，任意球面的极小面积为：
-$$
-\mathrm dA=(r\sinθ\mathrm dϕ)\cdot(r\mathrm dθ)=r^2\sinθ\mathrm dθ\mathrm dϕ
-$$
-因此，极小立体角（单位球面上的极小面积）为：
-$$
-\mathrm dΩ=\cfrac{\mathrm dA}{r^2}=\sinθ\mathrm dθ\mathrm dϕ
-$$
-所以，立体角是投影面积与球半径平方值的比，这和“平面角是圆的弧长与半径的比”类似。 对极小立体角做曲面积分即可得立体角
-$$
-Ω=\iint\limits_S\mathrm dΩ=\iint\limits_S\sinθ\mathrm dθ\mathrm dϕ
-$$
- 一个完整的球面对于球内任意一点的立体角为 $4π$， 这个定理对所有封闭曲面皆成立。
-$$
-\oiint\limits_S\mathrm dΩ=\oiint\limits_S\sinθ\mathrm dθ\mathrm dϕ
-=\int_0^{\pi}\sinθ\mathrm dθ\int_0^{2\pi}\mathrm dϕ=4\pi
-$$
+    $$
+    \mathrm dA=(r\sinθ\mathrm dϕ)\cdot(r\mathrm dθ)=r^2\sinθ\mathrm dθ\mathrm dϕ
+    $$
+    因此，极小立体角（单位球面上的极小面积）为：
+    $$
+    \mathrm dΩ=\cfrac{\mathrm dA}{r^2}=\sinθ\mathrm dθ\mathrm dϕ
+    $$
+    所以，立体角是投影面积与球半径平方值的比，这和“平面角是圆的弧长与半径的比”类似。 对极小立体角做曲面积分即可得立体角
+    $$
+    Ω=\iint\limits_S\mathrm dΩ=\iint\limits_S\sinθ\mathrm dθ\mathrm dϕ
+    $$
+     一个完整的球面对于球内任意一点的立体角为 $4π$， 这个定理对所有封闭曲面皆成立。
+    $$
+    \oiint\limits_S\mathrm dΩ=\oiint\limits_S\sinθ\mathrm dθ\mathrm dϕ
+    =\int_0^{\pi}\sinθ\mathrm dθ\int_0^{2\pi}\mathrm dϕ=4\pi
+    $$
 
 ## 格林公式
 
@@ -1508,7 +1499,7 @@ $$
 **调和函数的极值原理**：设函数 $u(\mathbf r)$ 是区域 $V$ 内的调和函数，则 $u(\mathbf r)$ 必在 $V$ 的边界面上取得最大值最小值。
 证明：结合均值定理，可用反证法证明。
 
-## $δ$ 函数简介
+## δ 函数简介
 
 $δ$ 函数起源于集中分布物理量的描述。
 对于连续分布的物理量 $Q$ ，通常有两种描述方式，一种是局部性的，给出密度分布函数
@@ -1645,8 +1636,18 @@ $$
 $$
 由此可见，δ函数包含所有频率成份，且它们具有相等的幅度，称此为均匀频谱或白色频谱。
 我们可以得到 ：
+
+|        原函数 |          | 像函数            |
+| ------------: | :------: | :---------------- |
+|        $δ(t)$ | $\lrarr$ | $1$               |
+|    $δ(t-t_0)$ | $\lrarr$ | $e^{-iω t_0}$     |
+|           $1$ | $\lrarr$ | $2\pi δ(ω)$       |
+| $e^{-iω t_0}$ | $\lrarr$ | $2\pi δ(ω − ω_0)$ |
+|           $t$ | $\lrarr$ | $2\pi iδ'(ω)$     |
+
 $$
-\begin{aligned}& δ(t) \lrarr 1 \\& δ(t-t_0)\lrarr e^{-iω t_0} \\& 1 \lrarr 2\pi δ(ω) \\& e^{-iω_0 t} \lrarr 2\pi δ(ω − ω_0)  \\& t\lrarr 2\pi iδ'(ω) \\& \cos(ω_0t)=\pi[δ(ω + ω_0)+δ(ω − ω_0)]  \\& \sin(ω_0t)=i\pi[δ(ω + ω_0)-δ(ω − ω_0)]\end{aligned}
+\cos(ω_0t)=\pi[δ(ω + ω_0)+δ(ω − ω_0)]  \\ 
+\sin(ω_0t)=i\pi[δ(ω + ω_0)-δ(ω − ω_0)]
 $$
 (2) 有许多重要的函数不满足Fourier 积分定理条件（绝对可积），例如常数、符号函数、单位阶跃函数、正弦函数和余弦函数等，但它们的广义Fourier 变换[^gf]也是存在的，利用δ函数及其Fourier 变换可以求出它们的Fourier 变换。
 
@@ -1716,17 +1717,35 @@ $$
 其中 $H(x,y,z)=H(x)H(y)H(z)$ 为单位阶跃函数
 
 (5) 多重傅里叶变换
-$$
-δ(x,y,z)  \lrarr 1 \\1  \lrarr (2\pi)^3δ(λ,μ,ν) \\x  \lrarr (2\pi)^3i\cfrac{∂δ(λ,μ,ν)}{∂λ}  \\x^2+y^2+z^2  \lrarr (2\pi)^3δ(λ,μ,ν) \\e^{iax} \lrarr (2\pi)^3δ(λ-a,μ,ν)
-$$
+|原函数||像函数|
+|---:|:--:|:---|
+|$δ(x,y,z)$|$\lrarr$|$1$|
+|$1$|$\lrarr$|$(2\pi)^3δ(λ,μ,ν)$|
+|$x$|$\lrarr$|$(2\pi)^3i\cfrac{∂δ(λ,μ,ν)}{∂λ}$|
+|$x^2+y^2+z^2$|$\lrarr$|$(2\pi)^3δ(λ,μ,ν)$|
+|$e^{iax}$|$\lrarr$|$(2\pi)^3δ(λ-a,μ,ν)$|
+
 (6) 多重卷积定义
 $$
 f*g=\iiint\limits_{-\infty}^{+\infty} f(\mathbf r)g(\mathbf{r-r_0})\mathrm d\mathbf r_0
 $$
 性质如下
-$$
-δ*f=f \\\cfrac{∂δ}{∂x}*f=δ*\cfrac{∂f}{∂x}=\cfrac{∂f}{∂x} \\\cfrac{∂}{∂x}(f*g)=\cfrac{∂f}{∂x}*g=f*\cfrac{∂g}{∂x} \\L[f*g]=L[f]*g=f*L[g] \\\mathcal F(f*g)=\mathcal F(f)\cdot\mathcal F(g)
-$$
+
+| 等式                                                   |
+| :----------------------------------------------------- |
+| $δ*f=f$                                                |
+| $\cfrac{∂δ}{∂x}*f=δ*\cfrac{∂f}{∂x}=\cfrac{∂f}{∂x}$     |
+| $\cfrac{∂}{∂x}(f*g)=\cfrac{∂f}{∂x}*g=f*\cfrac{∂g}{∂x}$ |
+| $L[f*g]=L[f]*g=f*L[g]$                                 |
+| $\mathcal F(f*g)=\mathcal F(f)\cdot\mathcal F(g)$      |
 
 
 
+
+------
+
+> **参考文献：**
+> 季孝达.《数学物理方程》.
+> 吴崇试.《数学物理方法》.
+> 梁昆淼.《数学物理方法》.
+> 吴崇试 高春媛.《数学物理方法》.北京大学(MOOC)

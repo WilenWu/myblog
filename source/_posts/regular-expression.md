@@ -2,7 +2,7 @@
 ID: 168b7402946f2e7d5650790be4ca8226
 title: 正则表达式
 date: 2018-05-01 18:26:12
-categories:  [实用知识]
+categories:  [Common]
 tags: 正则表达式
 cover: /img/regexp.jpeg
 sticky: 1

@@ -6,7 +6,7 @@ top_img: /img/computer.jpg
 description: 本人依据个人爱好、工作需要等制定了一份详细的学习计划
 ---
 
-！[](/img/bookshelf.jpg)
+![](/img/bookshelf.jpg)
 
 本人依据个人爱好、工作需要等制定了一份详细的学习计划。依据本「书架」在博客不定时更新学习笔记。
 <!-- more -->
@@ -16,11 +16,11 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - 标记 :white_large_square: 待定  
 - 标记 :heart: 是选修课  
 
-致谢，[ApacheCN 中文开源组织](http://www.apachecn.org/#)：致力于官方文档及AI书籍中文翻译。
+致谢，[ApacheCN 中文开源组织](https://github.com/apachecn)：致力于官方文档及AI书籍中文翻译。
 
 ------
 
-# <font color="red">实用知识</font>
+# <font color="red">Common</font>
 
 - :ballot_box_with_check:  [GitHub Flavored Markdown 规范][md]  
 - :ballot_box_with_check:  [KaTeX 数学符号列表][katex]  
@@ -30,6 +30,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :ballot_box_with_check:  [VScode快捷键][VScode-shortcut]  
 - :ballot_box_with_check:  [Win10快捷键][Win10-shortcut]  
 - :white_large_square:  [柏林噪声(Python)][noise]
+- :white_large_square:  [电子书文件格式][ebook]
 
 [md]: /posts/GFM/
 [katex]: /posts/KaTeX/
@@ -39,6 +40,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 [VScode-shortcut]: /posts/VScode-shortcut/
 [Win10-shortcut]: /posts/Win10-shortcut/
 [noise]: /posts/python/PerlinNoise/
+[ebook]: /posts/eBook/
 
 # <font color="red">博客搭建</font>
 
@@ -108,12 +110,12 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 
 ## <font color="green">Python Basics</font>
 
-- :white_large_square:  [常用的Python IDE][py_ide]  
+- :heart:  [常用的Python IDE][py_ide]  
 - :ballot_box_with_check:  [Python基础（一）][py_Base]: Python 基础语法
 - :ballot_box_with_check:  [Python基础（二）][py_Base2]: Python 标准库
 - :ballot_box_with_check:  [Python面向对象][Py_Object_Oriented] 
 - :ballot_box_with_check: [Python Cookbook 3rd][cook]：Python3 魔术语法
-- :heart:  [rpy2][rpy2]： Python 通过rpy2调用 R语言  
+- :white_large_square:  [rpy2][rpy2]： Python 通过rpy2调用 R语言  
 
 [py_ide]: /posts/python/Python(Python-Basics)--IDE/
 [py_Base]: /posts/python/Python(Python-Basics)--Python-base/
@@ -131,7 +133,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :white_large_square:  [threading][py_threading] ：多线程  
 - :white_large_square:  [multiprocessing][py_mul]： 多进程  
 - :heart:  [os][py_os]: 文件和目录处理库 
-- :white_large_square:  asyncio: 内置了对异步IO的支持   
+- :white_large_square:  [asyncio][py_asyncio]: python标准库内置了对异步IO的支持   
 
 [py_datetime]: /posts/python/Python(Standard-Library)--datetime/
 [py_math]: /posts/python/Python(Standard-Library)--math+random/
@@ -139,8 +141,8 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 [py_tk]: http://www.runoob.com/python/python-gui-tkinter/
 [py_threading]: http://www.runoob.com/python3/python3-multithreading/
 [py_mul]: http://python.jobbole.com/87760/
-[py_os]: http://www.runoob.com/python/os-file-methods/
-
+[py_os]: http://www.runoob.com/python/os-file-methods.html
+[py_asyncio]: https://zhuanlan.zhihu.com/p/59621713
 
 ## <font color="green">Scientific Computing</font>  
 
@@ -238,7 +240,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 
 # <font color="red">R手册</font>
 
-本手册所列包基本来自[AwesomeR][AwesomeR] ，结合[GitHub][GitHub]和`help(package="pk_name")`官方文档整理所得，有助于使用时下最实用的包对R进行深入的学习。    
+本手册所列包基本来自[AwesomeR][AwesomeR] ，结合[GitHub](https://github.com/)和`help(package="pk_name")`官方文档整理所得，有助于使用时下最实用的包对R进行深入的学习。    
 
 ## <font color="green"> Common </font> 
 
@@ -467,10 +469,10 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 ## <font color="green">Foundational Math</font>
 
 - :ballot_box_with_check:   [初等数学常用公式][formula]
-- :ballot_box_with_check:   [高等数学(一)][Calculus1]：(数学分析) 实数集合、极限、一元函数微分、不定积分、定积分
-- :ballot_box_with_check:   [高等数学(二)][Calculus2]：(数学分析) 多元函数微积分，重积分、曲线积分和曲面积分、场论初步
-- :ballot_box_with_check:   [高等数学(无穷级数)][Calculus3]：(数学分析) 无穷级数、幂级数、傅里叶级数、三角级数
-- :ballot_box_with_check:   [高等数学(空间解析几何)][Calculus4]：(数学分析) 向量代数和空间解析几何
+- :ballot_box_with_check:   [数学分析(一)][Calculus1]：(微积分) 实数集合、极限、一元函数微分、不定积分、定积分
+- :ballot_box_with_check:   [数学分析(二)][Calculus2]：(微积分) 多元函数微积分，重积分、曲线积分和曲面积分、场论初步
+- :ballot_box_with_check:   [数学分析(无穷级数)][Calculus3]：(微积分) 无穷级数、幂级数、傅里叶级数、三角级数
+- :ballot_box_with_check:   [空间解析几何][Calculus4]：向量代数和空间解析几何
 - :ballot_box_with_check:   [概率论与数理统计(一)][prob1]：概率论
 - :ballot_box_with_check:   [概率论与数理统计(二)][prob2]：数理统计
 - :ballot_box_with_check:   [复变函数和积分变换(一)][complex1]：(数学物理方法) 复变函数、解析函数、积分
@@ -479,20 +481,22 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :ballot_box_with_check:   [常微分方程(一)][ode1] ：一阶常微分方程
 - :ballot_box_with_check:   [常微分方程(二)][ode2] ：高阶常微分方程
 - :ballot_box_with_check:   [常微分方程(三)][ode3] ：一阶线性常微分方程组
+- :ballot_box_with_check:   [常微分方程(四)][ode4] ：非线性微分方程、定性理论、边值问题
 
-[formula]: /img/math/Mathematical-Formula/
-[Calculus1]: /img/math/Calculus-I/
-[Calculus2]: /img/math/Calculus-II/
-[Calculus3]: /img/math/Infinite-Series/
-[Calculus4]: /img/math/Space-Analytic-Geometry
-[prob1]: /img/math/Probability-&-Statistics-I/
-[prob2]: /img/math/Probability-&-Statistics-II/
-[complex1]: /img/math/Complex-Function-I/
-[complex2]: /img/math/Complex-Function-II/
-[complex3]: /img/math/Integral-Transform/
-[ode1]: /img/math/ODE-I/
-[ode2]: /img/math/ODE-II/
-[ode3]: /img/math/ODE-III/
+[formula]: /posts/math/Mathematical-Formula/
+[Calculus1]: /posts/math/Calculus-I/
+[Calculus2]: /posts/math/Calculus-II/
+[Calculus3]: /posts/math/Infinite-Series/
+[Calculus4]: /posts/math/Space-Analytic-Geometry
+[prob1]: /posts/math/Probability-&-Statistics-I/
+[prob2]: /posts/math/Probability-&-Statistics-II/
+[complex1]: /posts/math/Complex-Function-I/
+[complex2]: /posts/math/Complex-Function-II/
+[complex3]: /posts/math/Integral-Transform/
+[ode1]: /posts/math/ODE-I/
+[ode2]: /posts/math/ODE-II/
+[ode3]: /posts/math/ODE-III/
+[ode4]: /posts/math/ODE-IV/
 
 ## <font color="green">Advanced Math</font> 
 
@@ -501,7 +505,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :ballot_box_with_check: [偏微分方程(二)][pde2]：(数学物理方法) 球函数、柱函数
 - :ballot_box_with_check: [偏微分方程(三)][pde3]：(数学物理方法) 积分变换法、基本解和格林函数
 - :ballot_box_with_check: [偏微分方程(四)][pde3]：(数学物理方法) 变分法、非线性偏微分方程
-- :ballot_box_with_check: [抽象代数][AbstractAlgebra] ：(抽象代数) 群论、环论、伽罗瓦理论等
+- :ballot_box_with_check: [抽象代数][AbstractAlgebra] ：(近世代数) 群论、环论、伽罗瓦理论等
 - :heart: 一般拓扑学：主要是点集拓扑
 - :heart: 微分几何初步
 - :heart: 泛函分析：研究的是一般无穷维的带有一定拓扑的线性空间
@@ -509,38 +513,16 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :heart: [微分几何][DifferentialGeometry]：包括曲线和曲面论、外微分形式和活动标架、黎曼几何
 - :heart: [张量分析][tensor]：包括流形上的张量分析
 
-[LinearAlgebra]: /img/math/Linear-Algebra/
-[pde1]: /img/math/PDE-I/
-[pde2]: /img/math/PDE-II/
-[pde3]: /img/math/PDE-III/
-[pde4]: /img/math/PDE-IV/
+[LinearAlgebra]: /posts/math/Linear-Algebra/
+[pde1]: /posts/math/PDE-I/
+[pde2]: /posts/math/PDE-II/
+[pde3]: /posts/math/PDE-III/
+[pde4]: /posts/math/PDE-IV/
 [AbstractAlgebra]: 404
 [DifferentialGeometry]: 404
 [tensor]: 404
 
 # <font color="red">物理</font>  
-
-{% mermaid %}
-graph TD
-C3(广义相对论) -.-> D2(量子引力<br />弦论, 圈量子引力等)
-C4(宇宙学) --> D2
-
-A1(量子力学) --> B1(QED<br />量子电动力学)
-A2(狭义相对论) --> B1
-A3(电磁场论) --> B1
-
-B1 --> C1(QWED<br />弱电统一理论)
-B2(弱相互作用) --规范场论--> C1
-B3(强相互作用) --规范场论--> C2(QCD<br />量子色动力学)
-
-C1 --> D1(QFD<br />量子场论)
-C2 --> D1
-
-D2 -.-> E(大统一理论)
-D1 -.-> E
-
-E -.-> F(万有理论)
-{% endmermaid %}
 
 ## <font color="green">Foundational Physics</font>  
 
@@ -556,7 +538,7 @@ E -.-> F(万有理论)
 
 - :ballot_box_with_check: 高等量子力学：以五条基本公理+测量公理作为出发点，推出《量子力学》中解释的所有现象
 - :ballot_box_with_check: 高等统计力学：使用量子力学的语言，讲述量子统计物理的基本原理及其应用
-- :ballot_box_with_check: 量子场论[^QTF]：量子力学，狭义相对论和经典场论相结合的物理理论。[如何自学量子场论？](https://www.zhihu.com/question/24209758/answer/248307405)
+- :ballot_box_with_check: 量子场论[^QTF]：量子力学，狭义相对论和经典场论相结合的物理理论，已被广泛的应用于粒子物理学和凝聚态物理学中。
 - :ballot_box_with_check: 规范场论：强，弱相互作用的理论框架
 - :ballot_box_with_check: 广义相对论：是描述物质间引力相互作用的理论
 - :ballot_box_with_check: 量子引力：想要把广义相对论量子化，进而统一包括引力在内的四种基本力。当前主流尝试理论有弦理论/超弦理论/M理论、超引力、圈量子引力、扭量理论等。

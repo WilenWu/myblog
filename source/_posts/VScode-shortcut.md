@@ -1,15 +1,15 @@
 ---
 title: VScode快捷键
 date: 2021-04-24 16:21:04
-categories:  [实用知识]
+categories:  [Common]
 tags: IDE
 cover: /img/vscode-logo.png
 top_img: /img/vscode.png
-description: 快捷键
+description: false
 ---
 
 
-快捷键转自[博客园](https://www.cnblogs.com/jpfss/p/10956650.html)
+> 本文章转自[博客园](https://www.cnblogs.com/jpfss/p/10956650.html)
 
 | 按 Press             | 功能 Function                       |
 | -------------------- | ----------------------------------- |

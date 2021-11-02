@@ -3,18 +3,11 @@ title: 复变函数和积分变换(Integral Transform)
 date: 2019-07-24 13:09:37
 categories: [数学,复变函数]
 tags: [数学,复傅里叶变换,拉普拉斯变换]
-cover: /img/oo-math.svg
+cover: /img/Gamma-3D.png
 top_img: 
 katex: true
 description: 傅里叶变换、拉普拉斯变换
 ---
-
-
-> 参考文献：
-> mooc国防科技大学《复变函数》
-> 王忠仁、张静《工程数学：复变函数和积分变换》
-> 焦红伟、尹景本《复变函数与积分变换》
-> 梁昆淼《数学物理方法》
 
 # Fourier 变换
 
@@ -146,14 +139,14 @@ $\mathcal F[f_1\cdot f_2]=\frac{1}{2\pi}[F_1(ω)*F_2(ω)]$
 $\mathcal F^{-1}[F_1(ω)*F_2(ω)]=2\pi f_1f_2$
 
 [^1]: 卷积(Convolution)：设函数$f_1(t),f_2(t)$在$(-\infty,\infty)$上绝对可积，则积分$\displaystyle\int^{+\infty}_{-\infty}f_1(τ)f_2(t-τ)dτ$ 称为$f_1(t),f_2(t)$的卷积。记为
-$$
-\displaystyle f_1(t)*f_2(t)=\int^{+\infty}_{-\infty}f_1(τ)f_2(t-τ)dτ
-$$
- [如何通俗易懂地解释卷积？——知乎](https://www.zhihu.com/question/22298352)
-根据定义，卷积满足如下性质：
-(1) 交换律：$f_1(t)*f_2(t)=f_2(t)*f_1(t)$
-(2) 结合律：$f_1*[f_2*f_3]=[f_1*f_2]*f_3$
-(3) 分配律：$f_1*[f_2+f_3]=f_1*f_2+f_1*f_3$
+    $$
+    \displaystyle f_1(t)*f_2(t)=\int^{+\infty}_{-\infty}f_1(τ)f_2(t-τ)dτ
+    $$
+    [如何通俗易懂地解释卷积？——知乎](https://www.zhihu.com/question/22298352)
+    根据定义，卷积满足如下性质：
+    (1) 交换律：$f_1(t)*f_2(t)=f_2(t)*f_1(t)$
+    (2) 结合律：$f_1*[f_2*f_3]=[f_1*f_2]*f_3$
+    (3) 分配律：$f_1*[f_2+f_3]=f_1*f_2+f_1*f_3$
 
 ## 多重傅里叶积分
 以三重傅里叶积分说明，首先将三维空间的非周期函数 $f(x,y,z)$ 按自变量 $x$ 展开为傅里叶积分，其傅里叶变换为 $F_1(k_1;y,z)$ ，其中 $y,z$ 作为参数出现。再将 $F_1(k_1;y,z)$ 按 $y$ 展开为傅里叶积分，得到 $F_2(k_1,k_2;z)$ ，最后将$F_2(k_1,k_2;z)$ 按 $z$ 展开为傅里叶积分。综合三次展开，得到 $f(x,y,z)$ 的三重傅里叶积分。
@@ -269,7 +262,7 @@ f(t)δ(t)=f(0)δ(t)
 $$
 例如：  $tδ(t)=0$
 
-   (7) 单位阶跃函数[^unit]等于 $δ$ 函数的积分
+(7) 单位阶跃函数[^unit]等于 $δ$ 函数的积分
 $$
 \displaystyle u(t)=\int_{-∞}^{t}δ(s)ds
 $$
@@ -285,20 +278,19 @@ $$
 一般的有 $f(t)*δ(t-t_0)=f(t-t_0)$
 
 [^unit]: 单位阶跃函数(unit step function)，也称Heaviside单位函数
-
-$$
-u(t)=\begin{cases}
-0 & t<0 \\ 1 &t>​0 \end{cases}
-$$
-![单位阶跃函数](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/unit-step-fun.png)
-按广义函数理论，定义为
-$$
-\displaystyle\int_{-∞}^{+∞}u(t)f(t)dt=\int_{0}^{+∞}f(t)dt
-$$
-单位阶跃函数的积分为：
-$$
-\int_{-\infty}^{t}u(\tau)\mathrm d\tau=tu(t)
-$$
+    $$
+    u(t)=\begin{cases}
+    0 & t<0 \\ 1 &t>​0 \end{cases}
+    $$
+    ![单位阶跃函数](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/unit-step-fun.png)
+    按广义函数理论，定义为
+    $$
+    \displaystyle\int_{-∞}^{+∞}u(t)f(t)dt=\int_{0}^{+∞}f(t)dt
+    $$
+    单位阶跃函数的积分为：
+    $$
+    \int_{-\infty}^{t}u(\tau)\mathrm d\tau=tu(t)
+    $$
 
 - **δ函数的Fourier 变换**：
 (1) 根据 $δ$ 函数筛选性质可得
@@ -413,7 +405,6 @@ $\begin{aligned}
 \end{aligned}$
 (2) 振幅谱 $\displaystyle |F(ω)| =\frac{1}{\sqrt{a^2+ω^2}}$
 相位谱 $\arg F(ω)=-\arctan\dfrac{ω}{a}$
-
 ![频谱图](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/spectrum2.png)
 (3) Fourier 积分表达式为
 $\begin{aligned}
@@ -481,7 +472,8 @@ $\displaystyle \mathcal{F}[f(t)u(t)e^{-βt}] =\int^{+∞}_{-∞}f(t)u(t)e^{-βt}
    > [用幂级数推导出 “Laplace 变换”](https://baijiahao.baidu.com/s?id=1626062298972618369&wfr=spider&for=pc)
 
 - **Laplace变换**
-<kbd>Laplace变换</kbd>：设函数$f(t)$ 在$t\geqslant 0$时有定义，且积分$\displaystyle\int_{0}^{+∞}f(t)e^{-st}dt$在复数 s 的某一个区域内收敛，则此积分所确定的函数
+
+    <kbd>Laplace变换</kbd>：设函数$f(t)$ 在$t\geqslant 0$时有定义，且积分$\displaystyle\int_{0}^{+∞}f(t)e^{-st}dt$在复数 s 的某一个区域内收敛，则此积分所确定的函数
 $$
 \displaystyle F(s)=\int^{+\infty}_{0}f(t)e^{-st}\text{d}t
 $$
@@ -495,7 +487,7 @@ $$
 
    **周期函数的Laplace变换**：设 $f(t)$是 $[0, +\infty)$ 内以T 为周期的函数，且逐段光滑，则
 $$
-   \displaystyle\mathcal L[f(t)]=\frac{1}{1-e^{-sT}}\int^{T}_{0}f(t)e^{-st}\text{d}t
+\displaystyle\mathcal L[f(t)]=\frac{1}{1-e^{-sT}}\int^{T}_{0}f(t)e^{-st}\text{d}t
 $$
 
 **Laplace变换的性质**
@@ -518,8 +510,8 @@ $\displaystyle\mathcal L[\frac{f(t)}{t}]=\int^{\infty}_sF(s)ds$
 $\displaystyle\mathcal L[\frac{f(t)}{t^n}]= \mathcal L[\underbrace{\int^∞_sdt\int^∞_sdt\cdots\int^∞_s}_{\text{n times}}F(s)ds]$
 
 5. ==延迟性质==：$\text{if } t>0,f(t)=0, \text{then }\forall t_0>0$
- $\mathcal L[f(t-t_0)]=e^{-st_0}F(s)$
-    ​ $\mathcal L^{-1}[e^{-st_0}F(s)]=f(t-t_0)u(t-t_0)$
+$\mathcal L[f(t-t_0)]=e^{-st_0}F(s)$
+$\mathcal L^{-1}[e^{-st_0}F(s)]=f(t-t_0)u(t-t_0)$
 
 6. <kbd>卷积定理</kbd>[^1]：设  $F_1(s)=\mathcal{L}[f_1(t)],F_2(s)=\mathcal{L}[f_2(t)]$，则有
 $\mathcal L[f_1*f_2]=F_1(s)\cdot F_2(s) \\
@@ -664,6 +656,7 @@ $x(t)=\mathcal L^{-1}[X(s)]=\dfrac{1}{mω_0}[\sinω_0t*f(t)]$
 $x(t)=\dfrac{1}{mω_0}[\sinω_0t*f(t)]=\dfrac{A}{mω_0}\sinω_0t$
 
 # 附录
+
 ## 积分变换表
 
 |$f(t)$|Fourier Transform|Laplace Transform|
@@ -695,7 +688,7 @@ $\text{sgn}(t)=\begin{cases}-1&t<0 \\ 1 &t >0 \end{cases}$|$\dfrac{2}{\text{i}ω
 |$e^{-a^2t^2}$|$\cfrac{\sqrt{\pi}}{a}\exp(-\cfrac{ω^2}{4a^2})$|
 |$\cfrac{\sinω_0t}{t}$|$\begin{cases} \pi & \vert ω \vert<ω_0 \\ 0 & \vert ω \vert>ω_0  \end{cases}$
 
-## 非齐次项为 $δ$ 函数的常微分方程
+## 非齐次项为 δ 函数的常微分方程
 
 在传统意义下，非齐次项为 $δ$ 函数的常微分方程没有意义。
 
@@ -754,3 +747,11 @@ $$
 s=(t-t_0)u(t-t_0)-\frac{b-t_0}{b-a}(t-a)
 $$
 <img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta3.png" style="zoom:67%;" /><img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta4.png" style="zoom:67%;" />
+
+------
+
+> **参考文献：**
+> 《复变函数》.国防科技大学(mooc)
+> 王忠仁 张静.《工程数学：复变函数和积分变换》
+> 焦红伟 尹景本.《复变函数与积分变换》
+> 梁昆淼.《数学物理方法》

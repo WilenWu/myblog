@@ -8,8 +8,8 @@
 
 menu:
   首页: / || fas fa-home
+  目录: /posts/SUMMARY/ || fa fa-list
   文档||fa fa-th: 
-    目录: posts/SUMMARY/ || fa fa-list
     归档: /archives/ || fas fa-archive
     标签: /tags/ || fas fa-tags
     分类: /categories/ || fas fa-folder-open
@@ -190,7 +190,7 @@ toc:
   style_simple: false
 
 post_copyright:
-  enable: true
+  enable: false 
   decode: false
   license: CC BY-NC-SA 4.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
@@ -318,7 +318,7 @@ gitalk:
   perPage: 10 # Pagination size, with maximum 100.
   distractionFreeMode: false # Facebook-like distraction free mode.
   pagerDirection: last # Comment sorting direction, available values are last and first.
-  createIssueManually: false # Gitalk will create a corresponding github issue for your every single page automatically
+  createIssueManually: true # Gitalk will create a corresponding github issue for your every single page automatically
   option:
 
 # valine
@@ -343,11 +343,11 @@ valine:
 # waline - A simple comment system with backend support fork from Valine
 # https://waline.js.org/
 waline:
-  serverURL: https://waline-vercel-hww19vlqd-wilenwu.vercel.app # Waline server address url
-  avatar: retro # gravatar style https://zh-tw.gravatar.com/site/implement/images/#default-image
+  serverURL: https://waline-vercel-k883j9dw0-wilenwu.vercel.app # Waline server address url
+  avatar: mp # gravatar style https://zh-tw.gravatar.com/site/implement/images/#default-image
   avatarCDN: # Gravatar CDN baseURL
   bg: # waline background
-  visitor: false
+  visitor: false  # Article reading statisti
   option:
 
 # utterances
@@ -601,8 +601,8 @@ beautify:
 font:
   global-font-size:
   code-font-size:
-  font-family:
-  code-font-family:
+  font-family: 
+  code-font-family: 
 
 # Font settings for the site title and site subtitle
 # 左上角網站名字 主頁居中網站名字

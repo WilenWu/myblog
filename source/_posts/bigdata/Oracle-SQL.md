@@ -1240,8 +1240,7 @@ SQL> connect by level <= 7;
 ```
 
 
-
-参考链接：
-[易百教程 - Oracle](https://www.yiibai.com/oracle)
-[PL/SQL教程](https://www.yiibai.com/plsql)
-[W3school 新学院 - Oracle](http://www.hechaku.com/Oracle/Sql_Oracle_info.html)
+> **参考文献：**
+> [易百教程 - Oracle](https://www.yiibai.com/oracle)
+> [PL/SQL教程](https://www.yiibai.com/plsql2)
+> [W3school 新学院 - Oracle](http://www.hechaku.com/Oracle/Sql_Oracle_info.htm3)

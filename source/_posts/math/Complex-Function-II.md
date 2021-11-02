@@ -3,22 +3,16 @@ title: 复变函数和积分变换(Complex Function II)
 date: 2019-08-16 15:53:44
 categories: [数学,复变函数]
 tags: [数学,级数,留数,共形映射]
-cover: 
-top_img: 
+cover: /img/complex-cover.png
+top_img: /img/science.jpg
 katex: true
 description: 级数、留数、共形映射
 ---
 
-
-> 参考文献：
-> mooc国防科技大学《复变函数》
-> 王忠仁、张静《工程数学：复变函数和积分变换》
-> 焦红伟、尹景本《复变函数与积分变换》
-> 梁昆淼《数学物理方法》
-
-
 # 级数(Series)
+
 ## 复变函数项级数
+
 - **复数项级数**(complex number series)：设$\{z_n\}=z_1,z_2,\cdots,z_n,\cdots$ 为一复数序列。
 (1) 称表达式$\displaystyle\sum_{n=1}^{∞}z_n=z_1+z_2+\cdots+z_n+\cdots$ 为复数项无穷级数。
 (2) 称$S_n=z_1+z_2+\cdots+z_n$为级数的部分和
@@ -253,6 +247,7 @@ $\displaystyle\oint_{C}\dfrac{ze^z}{z^2-1}dz=2π i[\text{Res}(f,1)+\text{Res}(f,
 ![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/residue-corollary1.png)
 
 <kbd>引理 2</kbd>：设函数$f(z)$在闭区域$D=\{z|α⩽\arg (z-z_0)⩽β(0⩽α⩽β⩽π),|z|⩽r_0\}$上连续，$C_r$为圆周 $C : |z-z_0| = r(r<r_0)$ 在D内的一段弧，若对$C_r$的任意的点 z 均有 $\lim\limits_{z\to z_0}(z-z_0)f(z)=k$，则 $\displaystyle\lim\limits_{r\to0}\int_{C_r}f(z)dz=k(β−α)i$
+
 ![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/residue-corollary2.png)
 
 <kbd>若尔当(Jordan)引理</kbd>：设函数$f(z)$在闭区域$D=\{z|α⩽\arg z⩽β(0⩽α⩽β⩽π),0<R_0⩽|z|<+ ∞\}$上连续，$C_R$为圆周 $C : |z| = R(R>R_0)$ 在D内的一段弧，若对$C_R$上的任意的点 z 均有 $\lim\limits_{z\to ∞}f(z)=0$，则对于任意 $a>0$有 $\displaystyle\lim\limits_{R\to∞}\int_{C_R}f(z)e^{iaz}dz=0$
@@ -293,7 +288,7 @@ $\displaystyle\int_{-∞}^{+∞}R(z)e^{iax}dz=2π i \sum_{k=1}^{n}\text{Res}[R(z
 $$
 \displaystyle\dfrac{1}{2π i }\oint_{C}\dfrac{f'(z)}{f(z)}dz=P-N
 $$
-这里P和N分别表示在D内零点[^1]及极点的总数， 而且每个k阶零点或极点分别算作k个零点或极点。
+这里P和N分别表示在D内零点 [^1] 及极点的总数， 而且每个k阶零点或极点分别算作k个零点或极点。
 上式左端称为函数 $f(z)$关于围线C的==对数留数(Logarithmic Residue)==，实际上 $\dfrac{f'(z)}{f(z)}=\dfrac{\text{d}}{\text{d}z}[\text{Ln }f(z)]$。它提供了一种计算复变函数沿围线积分的方法。
 
 <kbd>辐角原理</kbd>(Argument Principle)：设有闭曲线C及函数$f(z)$，满足定理 1 的条件，则
@@ -447,3 +442,11 @@ v=\frac{1}{2}(r-\frac{1}{r})\sinθ
 基于(1) 的讨论，知道这无穷个圆周的象是无穷个椭圆周，并且 $\lim\limits_{r\to 1}\frac{1}{2}(r+\frac{1}{r})=1,\lim\limits_{r\to 1}\frac{1}{2}(r-\frac{1}{r})=0$，即椭圆周的长半轴趋向1，而短半轴趋向0，因而相应的椭圆周便退化为w 平面上的线段$[-1,1]$
 又$\lim\limits_{r\to +∞}\frac{1}{2}(r+\frac{1}{r})=+∞,\lim\limits_{r\to +∞}\frac{1}{2}(r-\frac{1}{r})=+∞$，故能扫过除$[-1,1]$外的整个 w平面。
 ![茹科夫斯基变换](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Joukowsky-transform.png)
+
+------
+
+> **参考文献：**
+> 《复变函数》.国防科技大学(mooc)
+> 王忠仁 张静.《工程数学：复变函数和积分变换》
+> 焦红伟 尹景本.《复变函数与积分变换》
+> 梁昆淼.《数学物理方法》
