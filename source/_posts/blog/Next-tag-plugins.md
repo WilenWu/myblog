@@ -4,7 +4,7 @@ date: 2019-09-11 14:10:48
 categories: [博客搭建]
 tags: [Hexo]
 cover: /img/hexo-next.png
-top_img: /img/logo/next-logo.svg
+top_img: /img/next-logo.svg
 noticeOutdate: true
 description: false
 ---

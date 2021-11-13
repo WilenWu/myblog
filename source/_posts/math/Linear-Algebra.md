@@ -10,13 +10,16 @@ description: 矩阵，行列式，向量空间，二次型，线性变换
 ---
 
 > 摘自MOOC东南大学和同济大学《线性代数》
-> 友情链接：[高等代数-简书](https://www.jianshu.com/c/862d6b86a56d)
-> 理解矩阵：  https://blog.csdn.net/myan/article/details/647511
+> 友情链接：[高等代数-简书](https://www.jianshu.com/c/862d6b86a56d)  [MIT 18.06 线性代数笔记](https://linalg.apachecn.org/#/)
+
 
 # 矩阵(Matrix)
 
+> [理解矩阵](https://blog.csdn.net/myan/article/details/647511)
+
 ## 矩阵及其运算
-**矩阵的概念**： $m× n$ 矩阵是指下列数表
+
+**矩阵的概念**： $m×n$ 矩阵是指下列数表
 $$
 \begin{pmatrix}
 a_{11}&a_{12}&\cdots&a_{1n} \\

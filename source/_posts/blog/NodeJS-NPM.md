@@ -3,7 +3,8 @@ title: NPM 使用介绍
 date: 2021-09-21 09:32:20
 categories: [博客搭建]
 tags: [npm]
-cover: /img/node.png
+cover: /img/npm-cover.png
+top_img: /img/npm-text.svg
 noticeOutdate: true
 description: 
 ---

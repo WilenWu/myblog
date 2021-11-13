@@ -12,19 +12,91 @@ Python 是一种易于学习又功能强大的编程语言。它提供了高效�
 
 <!-- more -->
 
-**Tips**
+# Python 简介
 
-- Python中多行语句书写需在行末添加反斜杠`\`
-- 在`[]{}()`中的多行语句不需要使用反斜杠
-- `?` 显示对象的信息 
-  `??` 显示对象的源码 
-  `help()` 显示对象的帮助信息
+Python 是一种解释型、面向对象、动态数据类型的高级程序设计语言。
 
+## 运行 Python
 
-# 对象
+有三种方式可以运行Python：
 
-> python 中万物皆对象
-> `reset`关键字或`reset()`函数可清空所有对象
+- 交互式解释器：你可以通过命令行窗口进入 Python，并在交互式解释器中开始编写 Python 代码。
+
+  ```python
+  $ python # Unix/Linux
+  ```
+
+- 执行脚本：在命令行中执行Python脚本
+
+  ```python
+  $ python script.py # Unix/Linux
+  ```
+
+- IDE 中运行Python
+
+## 解释器及其环境
+
+对于大多数程序语言，第一个入门代码为例
+
+```python
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+print("Hello, World!")
+print( "你好，世界" )
+```
+
+- 关于脚本 `#!` 行（首行）只对 Linux/Unix 用户适用，用来指定该脚本用什么解释器来执行。有这句的，可以直接用 `./` 执行。有两种写法：
+
+    - `#!/usr/bin/python` 是告诉操作系统执行这个脚本的时候，调用 /usr/bin 下的 python 解释器。
+
+    - `#!/usr/bin/env python` 当系统看到这一行的时候，首先会到 env 设置里查找 python 的安装路径，再调用对应路径下的解释器程序完成操作。推荐这种写法，可以增强代码的可移植性。
+
+    调用 python 脚本时：
+
+    1. 如果调用脚本时使用 `python script.py` 第一行 `#!/usr/bin/python` 被忽略，等同于注释。
+    2. 如果调用脚本时使用 `./script.py ` 第一行 `#!/usr/bin/python` 指定解释器的路径。
+
+- Python 文件中如果未指定编码，在执行过程可能无法正确打印汉字：
+  在 `#!` 行（首行）后插入至少一行特殊的注释行来定义源文件的编码:
+   `# -\*- coding: UTF-8 -\*-` 或者 `# coding=utf-8` 
+
+  > 注意：`# coding=utf-8` 的 = 号两边不要空格。
+
+## 行和缩进
+
+学习 Python 与其他语言最大的区别就是，Python 的代码块不使用大括号 `{}` 来控制类，函数以及其他逻辑判断。python 最具特色的就是用缩进来写模块。
+
+缩进的空白数量是可变的，但是所有代码块语句必须包含相同的缩进空白数量，这个必须严格执行。
+
+Python 可以同一行显示多条语句，方法是用分号` ; `分开，如：
+
+```python
+$ print ('hello');print ('world');
+```
+
+Python语句中一般以新行作为语句的结束符。但是我们可以使用斜杠（ `\`）将一行的语句分为多行显示
+
+```python
+total = item_one + \
+        item_two + \
+        item_three
+```
+
+换行语句包含在 `[], {}, ()` 中就不需要使用多行连接符。如下实例：
+
+```python
+days = ['Monday', 'Tuesday', 'Wednesday',
+        'Thursday', 'Friday']
+```
+
+## 对象
+
+python 中万物皆对象。`reset`关键字或`reset()`函数可清空所有对象
+
+`?` 显示对象的信息 
+`??` 显示对象的源码 
+`help()` 显示对象的帮助信息
 
 **访问对象的属性和方法**
 
@@ -36,23 +108,22 @@ Python 是一种易于学习又功能强大的编程语言。它提供了高效�
 | 类型 | 说明|示例|
 | --- | :---|:---|
 | None  | 空值  |常常作为函数的默认参数|
-| str| 字符串，存有Unicode（UTF-8编码）字符串 ||
+| str| 字符串 |存有Unicode（UTF-8编码）字符串|
 | bytes | 原生ASCII字节  ||
-| float | 浮点数  |0.0, 10.3e-3|
-| int| 整数|10<br/> -0x260,0x69(0x开头的为16进制数字)<br/>0o69(0o开头的为八进制)<br/>0b1101(0b开头的为二进制)|
+| float | 浮点数  |0.0<br/>10.3e-3|
+| int| 整数|10<br/> -0x260 (0x开头的为16进制数字)<br/>0o69 (0o开头的为八进制)<br/>0b1101 (0b开头的为二进制)|
 | bool  | 布尔型   |True/False|
-|complex|复数|3+2i|
+|complex|复数|3+2j<br/>complex(3,2)|
 
-str, bool, int和float也是函数，可以用来转换类型
+{% note info %} str, bool, int和float也是函数，可以用来转换类型 {% endnote %}
 
 | 字符串  | 说明  |
 | :--- | :--- |
 | 单引号  | word = '字符串'  |
 | 双引号  | sentence = "这是一个句子"  |
 | 三引号  | 字符串换行  |
-| r'\n strings'  | `\`可以用来转义，前面加r(raw)则不发生转义 |
+| r'\n strings'  | `\`可以用来转义，前面加 `r(raw)` 则不发生转义 |
 | u'中文字符'  | 中文常加u(unicode)前缀编译  |
-| **文档起始中文编码说明** | `# -*- coding: utf-8-*- `  |
 | `string[start:end:step]` | 切片（左闭右开区间）  |
 
 ![hello](https://gitee.com/WilenWu/images/raw/master/common/hello.png)
@@ -720,11 +791,11 @@ def func():
 ```python
 try: 
   statements 
-except <Error(可选)>:  #try失败时执行，可以指定特定的Error或者Error元祖，例如(TypeError,ValueError)
+except <Error(可选)>:  # try失败时执行，可以指定特定的Error或者Error元祖，例如(TypeError,ValueError)
   statements 
-else:       #try成功时执行
+else:       # try成功时执行
   statements 
-finally:    #始终执行
+finally:    # 始终执行
   statements 
 ```
 
@@ -736,7 +807,3 @@ finally:    #始终执行
  from some_module import *  #将某个模块中的全部函数导入
  dir(some_module) #列出模块里的函数 
 ```
-参考链接：
-[python自定义包]( https://blog.csdn.net/lxy4239/article/details/79107008)
-[python模块官方文档](http://www.pythondoc.com/pythontutorial3/modules.html)
-[Python3 教程 | 菜鸟教程](http://www.runoob.com/python3/python3-module.html)

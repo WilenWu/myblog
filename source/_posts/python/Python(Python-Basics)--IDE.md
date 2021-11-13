@@ -19,12 +19,10 @@ top_img: /img/anaconda-logo.svg
 常用的 Python IDE 主要有以下几款（本文主要介绍其中四款）：
 文本工具类IDE| 集成工具类IDE
 :-------|:--------
-**Python IDLE**|**PyCharm**
-Notepad++|Wing
-**Sublime Text**|PyDev & Eclipse
-Vim & Emacs|Visual Studio
+Notepad++|**Python IDLE**
+Sublime Text|**PyCharm**
 Atom|**Anaconda**
-Komodo Edit|Canopy
+**VSCode**|
 
 
 [**Python IDLE**](https://www.python.org/downloads/)<img src="https://gitee.com/WilenWu/images/raw/master/common/python.png" width="30%" height="30%" align="right"/>

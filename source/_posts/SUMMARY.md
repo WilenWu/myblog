@@ -126,6 +126,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 
 ## <font color="green">Standard Library</font>
 
+- :ballot_box_with_check:  [string][py_str]：python3 字符串方法和格式化
 - :ballot_box_with_check:  [datetime+time+calendar][py_datetime]  
 - :ballot_box_with_check:  [math+random][py_math]  
 - :ballot_box_with_check:  [re][py_re]：正则表达式调用库
@@ -134,7 +135,10 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :white_large_square:  [multiprocessing][py_mul]： 多进程  
 - :heart:  [os][py_os]: 文件和目录处理库 
 - :white_large_square:  [asyncio][py_asyncio]: python标准库内置了对异步IO的支持   
+- :ballot_box_with_check:  [getopt+argparse][py_argparse]：命令行参数
+- :ballot_box_with_check:  [pdb][py_debug]：Python 代码调试工具
 
+[py_str]: /posts/python/Python(Standard-Library)--string/
 [py_datetime]: /posts/python/Python(Standard-Library)--datetime/
 [py_math]: /posts/python/Python(Standard-Library)--math+random/
 [py_re]: /posts/python/Python(Standard-Library)--re/
@@ -143,6 +147,8 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 [py_mul]: http://python.jobbole.com/87760/
 [py_os]: http://www.runoob.com/python/os-file-methods.html
 [py_asyncio]: https://zhuanlan.zhihu.com/p/59621713
+[py_argparse]: /posts/python/Python(Standard-Library)--getopt+argparse/
+[py_debug]: /posts/python/Python(Standard-Library)--debug/
 
 ## <font color="green">Scientific Computing</font>  
 
@@ -208,6 +214,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :white_large_square:  [PyTorch][PyTorch]: Facebook 的 AI 研究团队发布了一个 Python 工具包，专门针对 GPU 加速的深度神经网络（DNN）编程。  
 - :heart:  [Keras][Keras]: 以 tensorflow/theano/CNTK 为后端的深度学习封装库，快速上手神经网络。[(莫烦PYTHON)](https://morvanzhou.github.io/tutorials/machine-learning/theano/)  
 - :white_large_square:  [Theano][Theano]:  基于TensorFlow，用于快速数值计算的库。  
+- :white_large_square:  Caffe：卷积神经网络框架
 
 [TensorFlow]: https://tensorflow.google.cn/tutorials/?hl=zh-cn
 [PyTorch]: https://blog.csdn.net/u010510350/article/details/72526821
@@ -235,6 +242,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 
 - :ballot_box_with_check:  [Python3官方中文文档](https://docs.python.org/zh-cn/3/)
 - :ballot_box_with_check:  [Python基础中文教程](http://www.pythondoc.com/pythontutorial3/)  
+- :ballot_box_with_check:  [Python Cookbook 3rd Edition Documentatio](https://python3-cookbook-personal.readthedocs.io/zh_CN/latest/index.html) 
 
 ------
 

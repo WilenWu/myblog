@@ -50,7 +50,7 @@ butterfly 主题中使用 Katex 数学公式的时候，建议使用 `@upupming/
 
 本地搜索插件`hexo-generator-search`[官方说明](https://github.com/wzpan/hexo-generator-search)对根目录下站点配置 `_config.yml` 会造成编译错误，建议修改成
 
-```yaml
+```diff
 search:
   path: search.xml
   field: post
