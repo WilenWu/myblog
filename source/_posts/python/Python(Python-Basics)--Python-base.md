@@ -15,6 +15,11 @@ Python 是一种易于学习又功能强大的编程语言。它提供了高效�
 # Python 简介
 
 Python 是一种解释型、面向对象、动态数据类型的高级程序设计语言。
+python 中万物皆对象。`reset`关键字或`reset()`函数可清空所有对象
+
+`?` 显示对象的信息 
+`??` 显示对象的源码 
+`help()` 显示对象的帮助信息
 
 ## 运行 Python
 
@@ -90,43 +95,7 @@ days = ['Monday', 'Tuesday', 'Wednesday',
         'Thursday', 'Friday']
 ```
 
-## 对象
 
-python 中万物皆对象。`reset`关键字或`reset()`函数可清空所有对象
-
-`?` 显示对象的信息 
-`??` 显示对象的源码 
-`help()` 显示对象的帮助信息
-
-**访问对象的属性和方法**
-
-`obj.some_method(args)`
-`obj.attribute_name`
-
-# 标量
-
-| 类型 | 说明|示例|
-| --- | :---|:---|
-| None  | 空值  |常常作为函数的默认参数|
-| str| 字符串 |存有Unicode（UTF-8编码）字符串|
-| bytes | 原生ASCII字节  ||
-| float | 浮点数  |0.0<br/>10.3e-3|
-| int| 整数|10<br/> -0x260 (0x开头的为16进制数字)<br/>0o69 (0o开头的为八进制)<br/>0b1101 (0b开头的为二进制)|
-| bool  | 布尔型   |True/False|
-|complex|复数|3+2j<br/>complex(3,2)|
-
-{% note info %} str, bool, int和float也是函数，可以用来转换类型 {% endnote %}
-
-| 字符串  | 说明  |
-| :--- | :--- |
-| 单引号  | word = '字符串'  |
-| 双引号  | sentence = "这是一个句子"  |
-| 三引号  | 字符串换行  |
-| r'\n strings'  | `\`可以用来转义，前面加 `r(raw)` 则不发生转义 |
-| u'中文字符'  | 中文常加u(unicode)前缀编译  |
-| `string[start:end:step]` | 切片（左闭右开区间）  |
-
-![hello](https://gitee.com/WilenWu/images/raw/master/common/hello.png)
 
 # 运算符
 
@@ -174,8 +143,54 @@ False
 | `**=`  | 幂赋值运算符  | `c **= a 等效于 c = c ** a`  |
 | `//=`  | 取整除赋值运算符 | `c //= a 等效于 c = c // a`  |
 
-
 # 数据类型
+
+| 标量    | 说明          | 示例                                                         |
+| ------- | :------------ | :----------------------------------------------------------- |
+| None    | 空值          | 常常作为函数的默认参数                                       |
+| str     | 字符串        | 存有Unicode（UTF-8编码）字符串                               |
+| bytes   | 原生ASCII字节 |                                                              |
+| float   | 浮点数        | 0.0<br/>10.3e-3                                              |
+| int     | 整数          | 10<br/> -0x260 (0x开头的为16进制数字)<br/>0o69 (0o开头的为八进制)<br/>0b1101 (0b开头的为二进制) |
+| bool    | 布尔型        | True/False                                                   |
+| complex | 复数          | 3+2j<br/>complex(3,2)                                        |
+
+{% note info %} str, bool, int和float也是函数，可以用来转换类型 {% endnote %}
+
+## 字符串
+
+| 字符串                   | 说明                                          |
+| :----------------------- | :-------------------------------------------- |
+| 单引号                   | word = '字符串'                               |
+| 双引号                   | sentence = "这是一个句子"                     |
+| 三引号                   | 字符串换行                                    |
+| r'\n strings'            | `\`可以用来转义，前面加 `r(raw)` 则不发生转义 |
+| u'中文字符'              | 中文常加u(unicode)前缀编译                    |
+| `string[start:end:step]` | 切片（左闭右开区间）                          |
+
+![hello](https://gitee.com/WilenWu/images/raw/master/common/hello.png)
+
+- 字符串文本能够分成多行。一种方法是使用三引号：`"""..."""` 或者 `'''...'''`。行尾换行符会被自动包含到字符串中，但是可以在行尾加上 `\` 来避免这个行为。
+
+  ```python
+  >>> print("""\
+  ... Usage: thingy [OPTIONS]
+  ...      -h                        Display this usage message
+  ...      -H hostname               Hostname to connect to
+  ... """)
+  Usage: thingy [OPTIONS]
+       -h                        Display this usage message
+       -H hostname               Hostname to connect to
+  ```
+
+- 相邻的两个字符串文本自动连接在一起，它只用于两个字符串文本，不能用于字符串表达式。这个功能在你想切分很长的字符串的时候特别有用。
+
+  ```python
+  >>> text = ('Put several strings within parentheses '
+              'to have them joined together.')
+  >>> text
+  'Put several strings within parentheses to have them joined together.'
+  ```
 
 ## tuple (元祖)
 
@@ -334,7 +349,7 @@ a = set()  # 空集合，{} 只能用来创建空字典
 | a.clear()  | 清空a  |  |
 | a.update(b)  | 将b中元素融入a  | `a\=b`  |
 | a.union(b)  | a和b的不重复元素  | `a\b`  |
-| a.intersection(b | 交集  | `a&b`  |
+| a.intersection(b) | 交集  | `a&b`  |
 | a.difference(b)  | 差集（存在于a，不存在于b）  | `a-b`  |
 | a.issubset(b)  | if a∈b return True  |  |
 | a.issuperset(b)  | if b∈a return True  |  |
@@ -353,7 +368,6 @@ dict_comp = {key-expr :value-expr for value in collection if condition}
    if condition: 
      list_comp.append(expr) 
 ```
-
 
 ## iterator(迭代器) and generator(生成器)
 
@@ -381,21 +395,32 @@ for x in gen:
   print(x, end=' ') 
 ```
 
-# if 语句
+# 流程控制
+
+## if 语句
 
 ```python
 if expression:
   statements 
 elif expression: 
   statements
+... ...
 else:
   statements
 ```
 
-if 语句变体：`value=[false-expr,true-expr][condition]`（利用list索引判断）
-三元表达式：`value=true-expr if condition else false-expr`
+**if 语句变体**
 
-# 循环语句
+```python
+# 利用list索引判断
+value=[false-expr,true-expr][condition]
+```
+
+**三元表达式**
+
+```python
+value=true-expr if condition else false-expr
+```
 
 
 ## for循环

@@ -15,10 +15,19 @@ Python从设计之初就已经是一门面向对象的语言，正因为如此�
 # 面向对象(Object Oriented,OO)
 
 - **类(Class)**: 用来描述具有相同的属性和方法的对象的集合。对象是类的实例。
+
 - **属性和方法**：类中定义的变量和函数。加双下划线`__`私有化属性和方法，`__private_attrs`,`__private_method`
+
 - **继承**：派生类（derived class）自动共享基类（base class）数据结构和方法的机制，这是类之间的一种关系。python支持多继承性。
+
 - **多态**：指相同的操作或函数、过程可作用于多种类型的对象上并获得不同的结果。不同的对象，收到同一消息可以产生不同的结果，这种现象称为多态性。
+
 - `dir(object)`：输出类的属性列表
+
+- **访问对象的属性和方法**
+
+  `obj.some_method(args)`
+  `obj.attribute_name`
 
 [面向对象参考链接](http://www.runoob.com/python3/python3-class.html)
 
