@@ -143,3 +143,7 @@ git clone <gh-pages repo> .deploy_git
 ```shell
 $ rm -rf .deploy_git
 ```
+
+## 大小写敏感
+
+git 对大小写不敏感，因此仅修改文件名大小写在 Hexo 中并不会被重新部署，但是网页路径却对大小写敏感，这样常常会引起 404，对此只需删除`.deploy_git`下对应的文件夹即可。

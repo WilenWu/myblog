@@ -1,7 +1,7 @@
 ---
 title: SUMMARY
 date: 2019-10-08 13:04:44
-cover: /img/education.jpg
+cover: /img/books.jpg
 top_img: /img/computer.jpg
 description: 本人依据个人爱好、工作需要等制定了一份详细的学习计划
 ---
@@ -242,7 +242,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 
 - :ballot_box_with_check:  [Python3官方中文文档](https://docs.python.org/zh-cn/3/)
 - :ballot_box_with_check:  [Python基础中文教程](http://www.pythondoc.com/pythontutorial3/)  
-- :ballot_box_with_check:  [Python Cookbook 3rd Edition Documentatio](https://python3-cookbook-personal.readthedocs.io/zh_CN/latest/index.html) 
+- :ballot_box_with_check:  [Python Cookbook 3rd Edition Documentation](https://python3-cookbook-personal.readthedocs.io/zh_CN/latest/index.html) 
 
 ------
 

@@ -38,6 +38,7 @@ math & random
 | random.choice(seq) | 随机挑选一个元素 |
 | random.randrange(start,stop,step) | 从指定范围内，获取一个随机数 |
 | random.random() | 随机生成一个实数[0,1)  |
+| random.randint(a,b) | 随机生成一个整数[a,b]  |
 | random.uniform(x, y)  | 随机生成一个实数[x,y]  |
 | random.seed()| |
 | random.shuffle(lst)| 随机排序  |

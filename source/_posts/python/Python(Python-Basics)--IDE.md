@@ -14,24 +14,18 @@ top_img: /img/anaconda-logo.svg
 
 # 常用 IDE
 
-> 本文内容摘自MOOC.北京理工大学Python课程
+常用的 Python IDE 主要有以下几款：
 
-常用的 Python IDE 主要有以下几款（本文主要介绍其中四款）：
-文本工具类IDE| 集成工具类IDE
-:-------|:--------
-Notepad++|**Python IDLE**
-Sublime Text|**PyCharm**
-Atom|**Anaconda**
-**VSCode**|
+- **文本工具类**：Sublime Text、 Atom、 **VSCode**
+- **集成工具类**：**PyCharm**、**Anaconda**
+- **命令行交互式**：**IPython**
 
+[**IPython**](https://ipython.org/install.html)<img src="https://ipython.org/_static/IPy_header.png" width="35%" height="35%" align="right"/>
 
-[**Python IDLE**](https://www.python.org/downloads/)<img src="https://gitee.com/WilenWu/images/raw/master/common/python.png" width="30%" height="30%" align="right"/>
-
-适用于
-
-- Python入门
-- 功能简单直接
-- 少量代码
+- IPython 是一个 Python 交互式 shell
+- 支持代码高亮，自动补全，自动缩进，支持 bash shell 命令
+- 大家经常遇到的魔法命令，就是IPython的众多功能之一
+- 常会看到 IPython 中的`In[1]:`/`Out[1]:`形式的提示,它们并不仅仅是好看的装饰形式，还是包含输入、输出的变量。
 
 [**Sublime Text**](http://www.sublimetext.com/)<img src="https://gitee.com/WilenWu/images/raw/master/common/sublime.jpg" width="10%" height="10%" align="right"/>
 

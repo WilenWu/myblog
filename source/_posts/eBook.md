@@ -3,7 +3,7 @@ title: 电子书文件格式
 date: 2021-10-31 23:45:00
 categories: [Common]
 tags: [ePub]
-cover: /img/gitbook.svg
+cover: /img/education.jpg
 top_img: /img/epub-icon.jpg
 description: 
 ---

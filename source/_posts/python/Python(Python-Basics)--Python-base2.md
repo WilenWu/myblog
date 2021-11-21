@@ -161,7 +161,7 @@ JSON 类型和 python 类型对照表：
 | :----- | :--------------- |
 | object | dict             |
 | array  | list             |
-| string | unicode          |
+| string | str              |
 | number | int, long, float |
 | true   | True             |
 | false  | False            |
