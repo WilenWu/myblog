@@ -2,8 +2,8 @@
 ID: 7727a875a5d38f44eca00490ea1e8a42
 title: KaTeX 数学符号列表
 date: 2019-04-22 18:37:20
-categories:  [Common]
-tags: [数学,markdown,katex]
+categories:  [标记语言]
+tags: [标记语言,数学,markdown,katex]
 katex: true
 cover: img/katex.png
 sticky: 1

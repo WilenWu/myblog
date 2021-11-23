@@ -2,8 +2,8 @@
 ID: d097e5fc6d66b8ec546a7c44aa7f7c9b
 title: GitHub Flavored Markdown 规范
 date: 2018-04-30 13:57:37
-categories: [Common]
-tags: [markdown]
+categories: [标记语言]
+tags: [标记语言,markdown]
 katex: true
 cover: /img/GFM.png
 top_img:

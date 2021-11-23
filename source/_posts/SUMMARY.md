@@ -34,7 +34,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 
 [md]: /posts/GFM/
 [katex]: /posts/KaTeX/
-[RE]: /posts/regular-expression/
+[RE]: /posts/RE/
 [linux]: /posts/Linux-base/
 [shell]: /posts/Linux-shell/
 [VScode-shortcut]: /posts/VScode-shortcut/
