@@ -4,7 +4,7 @@ date: 2021-11-23 21:12:17
 tags: [标记语言,JSON]
 categories: [标记语言]
 description: False
-cover: /img/file-json-wide.svg
+cover: /img/json-data.png
 top_img: /img/json-logo-wide.svg
 ---
 
@@ -42,30 +42,31 @@ JSON基于两种结构：主要由对象 `{ }` 和数组 `[ ]` 组成
 
 ```json
 {
-     "firstName": "John",
+     "firstName": "John",    // 字符串
+     "middlename": null,     // 空值
      "lastName": "Smith",
      "sex": "male",
-     "age": 25,
-     "cars":[ "Porsche", "BMW", "Volvo" ],
-  "middlename":null,
-     "address": 
-     {
-         "streetAddress": "21 2nd Street",
-         "city": "New York",
-         "state": "NY",
-         "postalCode": "10021"
-     },
-     "phoneNumber": 
-     [
+     "age": 25,             // 数值
+     "married": true,       // 布尔
+     "cars":[ "Porsche", "BMW", "Volvo" ],    // 数组
+     "address":            // 对象
          {
-           "type": "home",
-           "number": "212 555-1234"
+             "streetAddress": "21 2nd Street",
+             "city": "New York",
+             "state": "NY",
+             "postalCode": "10021"
          },
-         {
-           "type": "fax",
-           "number": "646 555-4567"
-         }
-     ]
+     "phoneNumber":      // 对象数组
+         [
+             {
+               "type": "home",
+               "number": "212 555-1234"
+             },
+             {
+               "type": "fax",
+               "number": "646 555-4567"
+             }
+         ]
  }
 ```
 

@@ -22,8 +22,6 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 
 # <font color="red">Common</font>
 
-- :ballot_box_with_check:  [GitHub Flavored Markdown 规范][md]  
-- :ballot_box_with_check:  [KaTeX 数学符号列表][katex]  
 - :ballot_box_with_check:  [正则表达式][RE]
 - :ballot_box_with_check:  [Linux基础知识][linux]  
 - :ballot_box_with_check:  [Linux Shell教程][shell]  
@@ -32,8 +30,6 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :white_large_square:  [柏林噪声(Python)][noise]
 - :white_large_square:  [电子书文件格式][ebook]
 
-[md]: /posts/GFM/
-[katex]: /posts/KaTeX/
 [RE]: /posts/RE/
 [linux]: /posts/Linux-base/
 [shell]: /posts/Linux-shell/
@@ -41,6 +37,18 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 [Win10-shortcut]: /posts/Win10-shortcut/
 [noise]: /posts/python/PerlinNoise/
 [ebook]: /posts/eBook/
+
+# <font color="red">标记语言</font>
+
+- :heart:  [标记语言概览][markup]
+- :ballot_box_with_check:  [GitHub Flavored Markdown 规范][md]  
+- :ballot_box_with_check:  [KaTeX 数学符号列表][katex]  
+- :ballot_box_with_check:  [JSON 介绍][json] 
+
+[markup]: /posts/markup/markup/
+[md]: /posts/markup/GFM/
+[katex]: /posts/markup/KaTeX/
+[json]:  /posts/markup/JSON/
 
 # <font color="red">博客搭建</font>
 

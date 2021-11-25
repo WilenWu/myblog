@@ -46,8 +46,8 @@ copy:
 #   icon: link || the description
 social:
   iconfont icon-gitee2: https://gitee.com/wilenwu || Gitee
-  iconfont icon-github1: https://github.com/wilenwu || Github
-  iconfont icon-csdn2: https://blog.csdn.net/qq_41518277 || CSDN
+  iconfont icon-github: https://github.com/wilenwu || Github
+  iconfont icon-csdn: https://blog.csdn.net/qq_41518277 || CSDN
   iconfont icon-rss: atom.xml || RSS
   #iconfont icon-email: mailto:tiny.lei@qq.com || Email
 
@@ -847,7 +847,7 @@ css_prefix: true
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
 inject:
   head:
-    - <link rel="stylesheet" href="//at.alicdn.com/t/font_2849223_utxye847e8.css"> # 阿里图标
+    - <link rel="stylesheet" href="//at.alicdn.com/t/font_2849223_m4vqmlp48m.css"> # 阿里图标
   bottom:
     # - <script src="xxxx"></script>
 

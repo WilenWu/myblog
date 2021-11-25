@@ -37,14 +37,54 @@
       link: https://zh.wiki.hancel.org/wiki/
       avatar: /img/wiki.svg
       descr: 自由百科全书
-    - name: ApacheCN
-      link: https://github.com/apachecn
-      avatar: /img/apachecn.png
-      descr: 由 iBooker 建立的公益性文档和教程翻译项目
     - name: 清华大学 TUNA 协会
       link: https://mirror.tuna.tsinghua.edu.cn/
       avatar: /img/tuna.png
       descr: 清华大学开源软件镜像站
+    - name: 网易公开课
+      link: https://open.163.com/
+      avatar: /img/khan-open.svg
+      descr: 求知是人类的本性
+
+- class_name: 知识
+  class_desc: 学无止境
+  link_list:
+    - name: 哔哩哔哩
+      link: https://www.bilibili.com/
+      avatar: /img/bilibili-logo-fill.svg
+      descr:  (゜-゜)つロ 干杯~-bilibili
+    - name: 中国大学MOOC
+      link: https://www.icourse163.org/
+      avatar: /img/MOOC.svg
+      descr: 免费学习来自名校名师的精品课程
+    - name: 菜鸟教程
+      link: https://www.runoob.com/
+      avatar: /img/runoob.svg
+      descr: 当你想入门的时候，来这吧
+    - name: W3school
+      link: https://www.w3school.com.cn/
+      avatar: /img/w3school-logo.svg
+      descr: 完整的网站技术参考手册
+    - name: CSDN
+      link: https://www.csdn.net/
+      avatar: /img/csdn.svg
+      descr: 知名中文IT技术交流平台
+    - name: 简书
+      link: https://www.jianshu.com/
+      avatar: /img/jianshu.svg
+      descr: 国内优质原创内容输出平台
+    - name: ApacheCN
+      link: https://github.com/apachecn
+      avatar: /img/apachecn.png
+      descr: 由 iBooker 建立的公益性文档和教程翻译项目
+    - name: 慕课网
+      link: https://www.imooc.com/
+      avatar: /img/imooc-square.svg
+      descr: 程序员的梦工厂
+    - name: 虎克网
+      link: https://huke88.com/
+      avatar: /img/huke.svg
+      descr: 每天进步一点点
 
 - class_name: 人工智能
   class_desc: 
@@ -69,7 +109,7 @@
       link: https://docs.h2o.ai/driverless-ai/chinese-latest/docs/userguide/zh/introduction.html
       avatar: /img/h2o-logo.svg
       descr: H2O.ai API 中文文档
-    - name: Caffe
+    - name: Caffe2
       link: https://caffe2.ai/docs/getting-started.html
       avatar: /img/caffe2ai.svg
       descr: Caffe 官方文档
