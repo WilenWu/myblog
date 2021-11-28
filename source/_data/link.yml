@@ -39,20 +39,24 @@
       descr: 自由百科全书
     - name: 清华大学 TUNA 协会
       link: https://mirror.tuna.tsinghua.edu.cn/
-      avatar: /img/tuna.png
+      avatar: /img/tuna-logo.png
       descr: 清华大学开源软件镜像站
-    - name: 网易公开课
-      link: https://open.163.com/
-      avatar: /img/khan-open.svg
-      descr: 求知是人类的本性
+    - name: ApacheCN
+      link: https://github.com/apachecn/
+      avatar: /img/apachecn.png
+      descr: 由 iBooker 建立的公益性文档和教程翻译项目
 
 - class_name: 知识
   class_desc: 学无止境
   link_list:
+    - name: 网易公开课
+      link: https://open.163.com/
+      avatar: /img/khan-open.svg
+      descr: 求知是人类的本性
     - name: 哔哩哔哩
       link: https://www.bilibili.com/
       avatar: /img/bilibili-logo-fill.svg
-      descr:  (゜-゜)つロ 干杯~-bilibili
+      descr: (゜-゜)つロ 干杯~-bilibili
     - name: 中国大学MOOC
       link: https://www.icourse163.org/
       avatar: /img/MOOC.svg
@@ -60,7 +64,7 @@
     - name: 菜鸟教程
       link: https://www.runoob.com/
       avatar: /img/runoob.svg
-      descr: 当你想入门的时候，来这吧
+      descr: 菜鸟开始的地方
     - name: W3school
       link: https://www.w3school.com.cn/
       avatar: /img/w3school-logo.svg
@@ -73,10 +77,10 @@
       link: https://www.jianshu.com/
       avatar: /img/jianshu.svg
       descr: 国内优质原创内容输出平台
-    - name: ApacheCN
-      link: https://github.com/apachecn
-      avatar: /img/apachecn.png
-      descr: 由 iBooker 建立的公益性文档和教程翻译项目
+    - name: stackoverflow
+      link: https://stackoverflow.com/
+      avatar: /img/stackoverflow-fill.svg
+      descr: 全球知名的IT技术问答网站
     - name: 慕课网
       link: https://www.imooc.com/
       avatar: /img/imooc-square.svg
