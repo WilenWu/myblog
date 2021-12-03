@@ -242,7 +242,7 @@ php test.php
 source test.sh   #脚本中的变量可被引用
 ```
 
-## Shell 输入/输出重定向
+## Shell 输入输出重定向
 
 - 标准输入(stdin)，代码0 
 - 标准输出(stdout)是指令成功时返回的结果，代码是1
