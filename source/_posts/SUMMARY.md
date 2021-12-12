@@ -29,6 +29,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :ballot_box_with_check:  [Win10快捷键][Win10-shortcut]  
 - :white_large_square:  [柏林噪声(Python)][noise]
 - :white_large_square:  [电子书文件格式][ebook]
+- :ballot_box_with_check: [git 常用命令][git]
 
 [RE]: /posts/RE/
 [linux]: /posts/Linux-base/
@@ -37,6 +38,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 [Win10-shortcut]: /posts/Win10-shortcut/
 [noise]: /posts/python/PerlinNoise/
 [ebook]: /posts/eBook/
+[git]: /posts/git/
 
 # <font color="red">标记语言</font>
 
@@ -44,11 +46,24 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :ballot_box_with_check:  [GitHub Flavored Markdown 规范][md]  
 - :ballot_box_with_check:  [KaTeX 数学符号列表][katex]  
 - :ballot_box_with_check:  [JSON 介绍][json] 
+- :ballot_box_with_check:  [YAML基础语法][yaml]
+- :ballot_box_with_check:  [PyYAML][PyYAML]： implementations for Python. 
+- :heart:  [SVG][svg]：SVG是一种开放标准的矢量图形语言，基于XML标记语言
+
+- :heart:  [HTML][html]
+- :heart:  [XML][xml]
+- :heart:  [JavaScript][javascript]
 
 [markup]: /posts/markup/markup/
 [md]: /posts/markup/GFM/
 [katex]: /posts/markup/KaTeX/
 [json]:  /posts/markup/JSON/
+[yaml]: /posts/markup/YAML/
+[svg]: /posts/markup/SVG/
+[html]: /posts/markup/HTML/
+[xml]: /posts/markup/XML/
+[javascript]: /posts/markup/JavaScript/
+
 
 # <font color="red">博客搭建</font>
 
@@ -82,8 +97,12 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :white_large_square:  Hadoop安装配置  
 - :white_large_square:  Hadoop基础知识  
 - :white_large_square:  [Hadoop生态概述及常见报错][hadoop]
+- :white_large_square: [Apache-Sqoop][sqoop]
+- :white_large_square: [Apache-Kylin][kylin]
 
 [hadoop]: /posts/bigdata/hadoop/
+[sqoop]: /posts/bigdata/Apache-Sqoop/
+[kylin]: /posts/bigdata/Apache-Kylin/
 
 ## <font color="green">Hive</font>  
 
@@ -238,13 +257,14 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 
 - :white_large_square:  MkDocs ： Markdown友好的文档生成器。  
 - :white_large_square:  Python-Markdown2：纯 Python 实现的 Markdown 解析器，比 Python-Markdown 更快，更准确，可扩展  
-- :white_large_square:  PyYAML： implementations for Python.  
+- :ballot_box_with_check:  PyYAML： implementations for Python.  
 - :white_large_square:  python-docx: for creating and updating Microsoft Word (.docx) files.  
 - :heart:  [openpyxl][openpyxl]: 全面，包括修改各种Excel格式，不过不能批量修改数据  
 - :white_large_square:   [xlwings][xlwings]: 批量实时修改Excel数据，和pandas,matplotlib完美对接，只能修改个别格式  
 
 [openpyxl]: https://openpyxl.readthedocs.io/en/stable/usage/
 [xlwings]: http://docs.xlwings.org/en/stable/quickstart/
+[PyYAML]: /posts/Python(Documentation)--PyYAML/
 
 ## <font color="green">Learning Python </font> 
 
@@ -521,22 +541,22 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :ballot_box_with_check: [偏微分方程(二)][pde2]：(数学物理方法) 球函数、柱函数
 - :ballot_box_with_check: [偏微分方程(三)][pde3]：(数学物理方法) 积分变换法、基本解和格林函数
 - :ballot_box_with_check: [偏微分方程(四)][pde3]：(数学物理方法) 变分法、非线性偏微分方程
-- :ballot_box_with_check: [抽象代数][AbstractAlgebra] ：(近世代数) 群论、环论、伽罗瓦理论等
-- :heart: 一般拓扑学：主要是点集拓扑
-- :heart: 微分几何初步
-- :heart: 泛函分析：研究的是一般无穷维的带有一定拓扑的线性空间
-- :heart: 微分拓扑：微分流形和可微映射
-- :heart: [微分几何][DifferentialGeometry]：包括曲线和曲面论、外微分形式和活动标架、黎曼几何
-- :heart: [张量分析][tensor]：包括流形上的张量分析
+- :ballot_box_with_check: [抽象代数][AbstractAlgebra] ：(又称近世代数) 群论、环论、伽罗瓦理论等
+- :heart: [一般拓扑学][GeneralTopology]：也称点集拓扑学，主要研究拓扑空间以及定义在其上的数学结构的基本性质
+- :heart: [微分几何初步][DifferentialGeometry]：包括曲线和曲面论、外微分形式和活动标架、黎曼几何
+- :heart: [泛函分析][FunctionalAnalysis]：研究的是一般无穷维的带有一定拓扑的线性空间
+- :heart: *微分拓扑*：微分流形和可微映射
+- :heart: *张量分析*：包括流形上的张量分析
 
 [LinearAlgebra]: /posts/math/Linear-Algebra/
 [pde1]: /posts/math/PDE-I/
 [pde2]: /posts/math/PDE-II/
 [pde3]: /posts/math/PDE-III/
 [pde4]: /posts/math/PDE-IV/
-[AbstractAlgebra]: 404
-[DifferentialGeometry]: 404
-[tensor]: 404
+[AbstractAlgebra]: /posts/math/Abstract-Algebra/
+[GeneralTopology]: /posts/math/General-Topology/
+[DifferentialGeometry]: /posts/math/Differential-Geometry/
+[FunctionalAnalysis]:  /posts/math/Functional-Analysis/
 
 # <font color="red">物理</font>  
 

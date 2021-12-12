@@ -1,6 +1,6 @@
 ---
-title: NodeJS
-date: 
+title: apache-sqoop
+date: 2021-11-28 20:03:55
 updated:
 tags:
 categories:

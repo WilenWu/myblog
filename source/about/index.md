@@ -1,7 +1,7 @@
 ---
 title: About Me
 date: 2019-09-07 21:46:41
-type: "about"
+type: about
 comments: true
 top_img: /img/sky.jpg
 ---
@@ -16,16 +16,18 @@ top_img: /img/sky.jpg
 # <font color="green">兴趣爱好</font>
 
 {% mermaid %}
-graph LR
+graph TD
 A(( )) --elementary<br >school--> B(nature)
-A -.-> B1(drawing)
 B --junior middle<br >school--> C(math)
 C --senior middle<br >school--> D(physics)
-D -.-> E2(chaos)
 D --college--> E(theoretical physics)
-D -.-> E3(computer)
-E3 -.-> F3(data analysis)
+
+B -.-> E3(computer) -.working.-> F3(artificial<br>intelligence) 
+A -.-> B1(drawing) -.-> D1(vector<br>graphics) -.-> D2(animation)
+E3 -.-> D1
 {% endmermaid %}
 
-
 ![夜景](/img/china-night.jpg)
+
+
+
