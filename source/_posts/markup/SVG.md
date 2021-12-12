@@ -644,29 +644,35 @@ SVG Animation 是一种基于XML的开放标准矢量图形格式，可以通过
 
 第一个例子偏移一个矩形（带`<feOffset>`），然后混合偏移图像（含`<feBlend>`）：
 
-![](https://gitee.com/WilenWu/images/raw/master/common/SVG-offset.svg)
-
-```html
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
   <defs>
-    <filter id="f1" x="0" y="0" width="200%" height="200%">
+    <filter id="f2" x="0" y="0" width="200%" height="200%">
       <feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" />
       <feBlend in="SourceGraphic" in2="offOut" mode="normal" />
     </filter>
   </defs>
   <rect width="90" height="90" stroke="green" stroke-width="3"
-  fill="yellow" filter="url(#f1)" />
+  fill="yellow" filter="url(#f2)" />
+</svg>
+
+```html
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="f2" x="0" y="0" width="200%" height="200%">
+      <feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" />
+      <feBlend in="SourceGraphic" in2="offOut" mode="normal" />
+    </filter>
+  </defs>
+  <rect width="90" height="90" stroke="green" stroke-width="3"
+  fill="yellow" filter="url(#f2)" />
 </svg>
 ```
 
 模糊偏移对象，并为阴影涂上一层颜色：
 
-![](https://gitee.com/WilenWu/images/raw/master/common/SVG-shadow.svg)
-
-```html
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
   <defs>
-    <filter id="f1" x="0" y="0" width="200%" height="200%">
+    <filter id="f3" x="0" y="0" width="200%" height="200%">
       <feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" />
       <feColorMatrix result="matrixOut" in="offOut" type="matrix"
       values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" />
@@ -675,7 +681,22 @@ SVG Animation 是一种基于XML的开放标准矢量图形格式，可以通过
     </filter>
   </defs>
   <rect width="90" height="90" stroke="green" stroke-width="3"
-  fill="yellow" filter="url(#f1)" />
+  fill="yellow" filter="url(#f3)" />
+</svg>
+
+```html
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="f3" x="0" y="0" width="200%" height="200%">
+      <feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" />
+      <feColorMatrix result="matrixOut" in="offOut" type="matrix"
+      values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" />
+      <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="10" />
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+    </filter>
+  </defs>
+  <rect width="90" height="90" stroke="green" stroke-width="3"
+  fill="yellow" filter="url(#f3)" />
 </svg>
 ```
 
@@ -760,23 +781,23 @@ SVG Animation 是一种基于XML的开放标准矢量图形格式，可以通过
 
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
   <defs>
-    <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+    <radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
       <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0" />
       <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
     </radialGradient>
   </defs>
-  <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+  <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad2)" />
 </svg>
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
   <defs>
-    <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+    <radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
       <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0" />
       <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
     </radialGradient>
   </defs>
-  <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+  <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad2)" />
 </svg>
 ```
 
@@ -838,7 +859,7 @@ SVG的坐标变换方式主要分为五种，包括平移变换，旋转变换�
 
 - **nonzero**：字面意思是“非零”。按该规则，要判断一个点是否在图形内，从该点作任意方向的一条射线，然后检测射线与图形路径的交点情况。从0开始计数，路径从左向右穿过射线则计数加1，从右向左穿过射线则计数减1。得出计数结果后，如果结果是0，则认为点在图形外部，否则认为在内部。下图演示了nonzero规则
 
-  ![](https://gitee.com/WilenWu/images/raw/master/common/SVG-noozero.svg)
+  ![](https://gitee.com/WilenWu/images/raw/master/common/SVG-nonzero.svg)
 
 - **evenodd**：字面意思是“奇偶”。按该规则，要判断一个点是否在图形内，从该点作任意方向的一条射线，然后检测射线与图形路径的交点的数量。如果结果是奇数则认为点在内部，是偶数则认为点在外部。下图演示了evenodd 规则
 
