@@ -14,7 +14,7 @@ timezone: ''
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://wilenwu.gitee.io
-#root: /                        # 网站的根目录
+root: /                        # 网站的根目录
 #文章永久链接的形成模版。每一篇文章都有唯一的url。
 permalink: posts/:title/
 permalink_defaults:            # 文章永久链接中，各部分的默认值。
@@ -125,7 +125,7 @@ markdown_it_plus:
         strict: false
 
 # 激活leancloud插件
-leancloud_counter_security:
+leancloud_counter_security: 
   enable_sync: true
   app_id: uVMHtcFR2bEYRTuPIjJUT6b-MdYXbMMI 
   app_key: 6EzBICTWxLbjiGsbNAa8Fv2s
@@ -134,14 +134,14 @@ leancloud_counter_security:
   password: Wu31415926 # Recommmended to be left blank. Will be asked while deploying if is left blank
 
 # 配置 hexo-generator-search
-search:
+search: 
   path: search.xml
   field: post
   content: true
   format: html
 
 # 配置豆瓣
-douban:
+douban: 
   user: 206186342
   builtin: false 
   movie:
@@ -156,11 +156,11 @@ douban:
   timeout: 10000 
 
 # 配置音乐插件
-aplayer:
+aplayer: 
   asset_inject: false
 
 # RSS 配置
-feed:
+feed: 
   enable: true
   type: atom
   path: atom.xml
@@ -175,7 +175,7 @@ feed:
   template:
 
 # 有效地加强网站SEO和防止权重流失
-nofollow:
+nofollow: 
   enable: true
   field: site
   exclude:
@@ -183,19 +183,17 @@ nofollow:
     #- 'exclude2.com'
 
 # 生成sitemap的插件
-sitemap:
+sitemap: 
   path: sitemap.xml
-  rel: false
-  tags: true
-  categories: true
 
 baidusitemap:
   path: baidusitemap.xml
 
-# 百度主动提交
+
+# 主动推送百度，被百度收录
 baidu_url_submit:
-  count: 100                        # 提交最新链接数
-  #host: https://wilenwu.github.io  
-  host: https://wilenwu.gitee.io    # 在百度站长平台中注册的域名
-  token: P8wBelFwcBp0yS8z           # 密钥
-  path: baidu_urls.txt              # 文本文档的地址，新链接会保存在此文本文档里
+  count: 200                        # 提交最新的200个链接
+  # site=https://wilenwu.github.io&token=P8wBelFwcBp0yS8z
+  host: wilenwu.gitee.io            # 在百度站长平台中注册的域名
+  token: P8wBelFwcBp0yS8z           # 秘钥，百度站长平台 > 普通收录 > 接口调用地址中token字段
+  path: baidu_urls.txt              # 文本文档的地址， 新链接会保存在此文本文档里，不用改

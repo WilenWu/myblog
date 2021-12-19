@@ -1,0 +1,8 @@
+# hexo robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://wilenwu.gitee.io/sitemap.xml
+Sitemap: https://wilenwu.gitee.io/baidusitemap.xml
+Sitemap: https://wilenwu.github.io/sitemap.xml
+Sitemap: https://wilenwu.github.io/baidusitemap.xml

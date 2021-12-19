@@ -524,8 +524,8 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 [Calculus2]: /posts/math/Calculus-II/
 [Calculus3]: /posts/math/Infinite-Series/
 [Calculus4]: /posts/math/Space-Analytic-Geometry
-[prob1]: /posts/math/Probability-&-Statistics-I/
-[prob2]: /posts/math/Probability-&-Statistics-II/
+[prob1]: /posts/math/Probability-and-Statistics-I/
+[prob2]: /posts/math/Probability-and-Statistics-II/
 [complex1]: /posts/math/Complex-Function-I/
 [complex2]: /posts/math/Complex-Function-II/
 [complex3]: /posts/math/Integral-Transform/

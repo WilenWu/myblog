@@ -43,7 +43,7 @@
       descr: 清华大学开源软件镜像站
     - name: ApacheCN
       link: https://github.com/apachecn/
-      avatar: /img/apachecn.png
+      avatar: /img/apachecn.svg
       descr: 由 iBooker 建立的公益性文档和教程翻译项目
 
 - class_name: 知识
