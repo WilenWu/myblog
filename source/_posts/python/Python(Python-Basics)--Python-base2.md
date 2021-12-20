@@ -155,7 +155,7 @@ import json
 | json.dumps | 将 Python 对象编码成 JSON 字符串         |
 | json.loads | 将已编码的 JSON 字符串解码为 Python 对象 |
 
-JSON 类型和 python 类型对照表：
+JSON 类型和 python 类型对照表
 
 | JSON   | Python           |
 | :----- | :--------------- |

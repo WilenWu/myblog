@@ -47,7 +47,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :ballot_box_with_check:  [KaTeX 数学符号列表][katex]  
 - :ballot_box_with_check:  [JSON 介绍][json] 
 - :ballot_box_with_check:  [YAML基础语法][yaml]
-- :ballot_box_with_check:  [PyYAML][PyYAML]： implementations for Python. 
+- :ballot_box_with_check:  [PyYAML][PyYAML]： Python 的 YAML 解析器和发射器
 - :heart:  [SVG][svg]：SVG是一种开放标准的矢量图形语言，基于XML标记语言
 
 - :heart:  [HTML][html]
@@ -79,7 +79,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 [NexT_tags]: /posts/blog/Next-tag-plugins/
 [NexT]:  /posts/blog/Next/
 [debug]: /posts/blog/debug/
-[NPM]: /posts/blog/NodeJS-NPM/ 
+[NPM]: /posts/blog/NodeJS-NPM/
 
 
 # <font color="red">大数据</font>  
@@ -118,7 +118,8 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 ## <font color="green">Spark</font>
 
 - :ballot_box_with_check:   [Spark安装配置][spark]  
-- :ballot_box_with_check:   [Spark基础知识][spark_base]  
+- :ballot_box_with_check:   [Spark基础知识（一）][spark_base1]  
+- :ballot_box_with_check:   [Spark基础知识（二）][spark_base2]  
 - :heart:  scala：spark 基础语言 
 - :heart:  sparklyr：来自RStudio的Apache Spark的R接口，提供dplyr后端  
 - :ballot_box_with_check:  [PySpark 机器学习][pyspark_ml]: Spark ML 
@@ -126,7 +127,8 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :white_large_square:  [Akka][akka]：Akka并发编程  
 
 [spark]: /posts/bigdata/Spark-installation/
-[spark_base]: /posts/bigdata/Spark-base1/
+[spark_base1]: /posts/bigdata/Spark-base1/
+[spark_base2]: /posts/bigdata/Spark-base2/
 [pyspark_ml]: /posts/bigdata/Spark-ML/
 [pyspark_sm]: /posts/bigdata/Spark-Streaming/
 [akka]: https://blog.csdn.net/lovehuangjiaju/article/details/51039985
@@ -257,7 +259,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 
 - :white_large_square:  MkDocs ： Markdown友好的文档生成器。  
 - :white_large_square:  Python-Markdown2：纯 Python 实现的 Markdown 解析器，比 Python-Markdown 更快，更准确，可扩展  
-- :ballot_box_with_check:  PyYAML： implementations for Python.  
+- :ballot_box_with_check:  PyYAML：Python 的 YAML 解析器和发射器
 - :white_large_square:  python-docx: for creating and updating Microsoft Word (.docx) files.  
 - :heart:  [openpyxl][openpyxl]: 全面，包括修改各种Excel格式，不过不能批量修改数据  
 - :white_large_square:   [xlwings][xlwings]: 批量实时修改Excel数据，和pandas,matplotlib完美对接，只能修改个别格式  
