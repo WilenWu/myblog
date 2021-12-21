@@ -6,8 +6,8 @@ tags: [Python, 标记语言, YAML]
 categories: 
   - [Python, 文档]
   - [标记语言]
-cover:
-top_img: '#66CCFF'
+cover: /img/PyYAML.jpg
+top_img: /img/yaml-cover.jpg
 description: 
 ---
 
@@ -17,6 +17,8 @@ YAML 是一个可读性高，用来表达资料序列化的格式。特别适合
 
 <!-- more -->
 
+![](https://gitee.com/WilenWu/images/raw/master/common/yaml-overview.svg)
+
 # 安装和加载
 
 使用 pip 安装方法
@@ -25,13 +27,13 @@ YAML 是一个可读性高，用来表达资料序列化的格式。特别适合
 pip install PyYAML
 ```
 
-只需加载 yaml 即可
+一般情况下，只需加载 yaml 即可
 
 ```python
 import yaml
 ```
 
-# 加载 YAML
+# 导入 YAML
 
 `yaml.load` 将 YAML 文档转换为 Python 对象。`yaml.load` 接受字节字符串、Unicode 字符串、打开的二进制文件对象或打开的文本文件对象。
 
@@ -137,7 +139,9 @@ PyYAML允许构造任何类型的Python对象
 'bool': [True, False, True, False]}
 ```
 
-**注意：**由于 `yaml.load()` 能通过加载yaml文件构建任何类型的python对象，若加载的yaml文件来源不可信，则可能产生注入攻击的风险。
+{% note warning %}
+**注意**：由于 `yaml.load()` 能通过加载yaml文件构建任何类型的python对象，若加载的yaml文件来源不可信，则可能产生注入攻击的风险。
+{% endnote %}
 
 如果您不信任输入 YAML 流，则推荐使用 `yaml.safe_load()`，只能识别标准的 YAML 标记，不能构造任意 Python 对象。同样多文档推荐使用 `yaml.safe_load_all()`。
 
@@ -188,7 +192,8 @@ traits:
 ...
 ```
 
-`safe_dump(data, stream=None)` 将给定的 Python 对象序列化，仅生成标准 YAML 标记，不能表示任意 Python 对象。同样 `safe_dump_all(data, stream=None) `也可以将多个 Python 对象转为yaml，推荐使用`yaml.safe_dump_all(data, stream=None)`。
+`safe_dump(data, stream=None)` 将给定的 Python 对象序列化，仅生成标准 YAML 标记，不能表示任意 Python 对象。
+同样 `safe_dump_all(data, stream=None) `也可以将多个 Python 对象转为yaml，推荐使用`yaml.safe_dump_all(data, stream=None)`。
 
 
 
