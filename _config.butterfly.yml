@@ -4,7 +4,7 @@
 # format: name: link || icon
 # sub-menu
 # name || icon:
-#   name: link || icon
+# name: link || icon
 
 menu:
   首页: / || fas fa-home
@@ -14,9 +14,9 @@ menu:
     标签: /tags/ || fas fa-tags
     分类: /categories/ || fas fa-folder-open
   娱乐||fa fa-heartbeat:
-    #音乐: /music/ || fas fa-music
+    # 音乐: /music/ || fas fa-music
     照片: /gallery/ || fas fa-images
-    电影: /movies/ || fas fa-video
+    # 电影: /movies/ || fas fa-video
   收藏: /link/ || fas fa-star
   关于: /about/ || fas fa-heart
 

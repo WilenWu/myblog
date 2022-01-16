@@ -140,21 +140,6 @@ search:
   content: true
   format: html
 
-# 配置豆瓣
-douban: 
-  user: 206186342
-  builtin: false 
-  movie:
-    title: '电影'
-    quote: '那些年，那些电影'
-    meta: true
-    comments: true
-    top_img: /img/marvel.jpeg
-    aside: true
-    path: movies
-    limit:
-  timeout: 10000 
-
 # 配置音乐插件
 aplayer: 
   asset_inject: false

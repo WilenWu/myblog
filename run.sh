@@ -1,4 +1,1 @@
-hexo clean
-hexo g
-hexo douban
-hexo deploy
+hexo clean && hexo g -d

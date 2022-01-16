@@ -3,6 +3,7 @@ title: JSON 介绍
 date: 2021-11-23 21:12:17
 tags: [标记语言,JSON]
 categories: [标记语言]
+sticky: 2
 description: False
 cover: /img/json-cover.jpg
 top_img: /img/json-bg.jpg

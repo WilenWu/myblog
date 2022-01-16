@@ -1,5 +1,5 @@
 ---
-title: git
+title: git 常用命令
 date: 
 categories: [Common]
 tags: [git]

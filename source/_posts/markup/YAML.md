@@ -4,6 +4,7 @@ date: 2021-12-03 23:12:27
 updated:
 tags: [标记语言, YAML]
 categories: [标记语言]
+sticky: 2
 cover: /img/yaml-tutorial.png
 top_img: /img/yaml-cover.jpg
 description:

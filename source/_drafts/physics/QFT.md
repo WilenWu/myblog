@@ -4,7 +4,7 @@
 
 
 
-量子场论：(Quantum Field Theory, QFT) 目前已知的四种相互作用中，除去引力，另三种相互作用都找到了合适满足特定规范对称性的量子场论（或者说 Yang-Mills 场）来描述。强相互作用有量子色动力学（QCD，Quantum Chromodynamics)；电磁相互作用有量子电动力学（QED,Quantum Electrodynamics)；弱相互作用有四费米子点作用理论。后来弱相互作用和电磁相互作用实现了形式上的统一，由 Yang-Mills（杨 - 米尔斯）场来描述，通过希格斯机制（Higgs Mechanism）产生质量，建立了弱电统一的量子规范理论，即 GWS（Glashow, Weinberg, Salam）模型
+量子场论：(Quantum Field Theory, QFT) 目前已知的四种相互作用中，除去引力，另三种相互作用都找到了合适满足特定规范对称性的量子场论（或者说Yang-Mills场）来描述。强相互作用有量子色动力学（QCD，Quantum Chromodynamics)；电磁相互作用有量子电动力学（QED,Quantum Electrodynamics)；弱相互作用有四费米子点作用理论。后来弱相互作用和电磁相互作用实现了形式上的统一，由Yang-Mills（杨-米尔斯）场来描述，通过希格斯机制（Higgs Mechanism）产生质量，建立了弱电统一的量子规范理论，即GWS（Glashow, Weinberg, Salam）模型。
 
 [*如何自学量子场论？*](https://www.zhihu.com/question/24209758/answer/248307405)
 

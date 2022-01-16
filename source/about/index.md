@@ -17,17 +17,14 @@ top_img: /img/sky.jpg
 
 {% mermaid %}
 graph TD
-A(( )) --elementary<br >school--> B(nature)
-B --junior middle<br >school--> C(math)
-C --senior middle<br >school--> D(physics)
-D --college--> E(theoretical physics)
+A(( )) --小学--> B(自然)
+B --初中--> C(数学)
+C --高中--> D(物理)
+D --大学--> E(理论物理)
 
-B -.-> E3(computer) -.working.-> F3(artificial<br>intelligence) 
-A -.-> B1(drawing) -.-> D1(vector<br>graphics) -.-> D2(animation)
+B -.-> E3(计算机) -.工作.-> F3(AI) 
+A -.-> B1(绘画) -.-> D1(矢量图) -.-> D2(动画)
 E3 -.-> D1
 {% endmermaid %}
 
 ![夜景](/img/china-night.jpg)
-
-
-

@@ -50,9 +50,9 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :ballot_box_with_check:  [PyYAML][PyYAML]： Python 的 YAML 解析器和发射器
 - :heart:  [SVG][svg]：SVG是一种开放标准的矢量图形语言，基于XML标记语言
 
-- :heart:  [HTML][html]
-- :heart:  [XML][xml]
-- :heart:  [JavaScript][javascript]
+- :heart:  HTML
+- :heart:  XML
+- :heart:  JavaScript
 
 [markup]: /posts/markup/markup/
 [md]: /posts/markup/GFM/
@@ -60,9 +60,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 [json]:  /posts/markup/JSON/
 [yaml]: /posts/markup/YAML/
 [svg]: /posts/markup/SVG/
-[html]: /posts/markup/HTML/
-[xml]: /posts/markup/XML/
-[javascript]: /posts/markup/JavaScript/
+
 
 
 # <font color="red">博客搭建</font>
@@ -97,12 +95,10 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :white_large_square:  Hadoop安装配置  
 - :white_large_square:  Hadoop基础知识  
 - :white_large_square:  [Hadoop生态概述及常见报错][hadoop]
-- :white_large_square: [Apache-Sqoop][sqoop]
-- :white_large_square: [Apache-Kylin][kylin]
+- :white_large_square:  Apache-Sqoop
+- :white_large_square:  Apache-Kylin
 
 [hadoop]: /posts/bigdata/hadoop/
-[sqoop]: /posts/bigdata/Apache-Sqoop/
-[kylin]: /posts/bigdata/Apache-Kylin/
 
 ## <font color="green">Hive</font>  
 
@@ -504,7 +500,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 
 > GeoGebra 是个不错的作图工具
 
-## <font color="green">Foundational Math</font>
+## <font color="green">基础数学</font>
 
 - :ballot_box_with_check:   [初等数学常用公式][formula]
 - :ballot_box_with_check:   [数学分析(一)][Calculus1]：(微积分) 实数集合、极限、一元函数微分、不定积分、定积分
@@ -536,7 +532,7 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 [ode3]: /posts/math/ODE-III/
 [ode4]: /posts/math/ODE-IV/
 
-## <font color="green">Advanced Math</font> 
+## <font color="green">高等数学</font>
 
 - :ballot_box_with_check: [线性代数][LinearAlgebra]：矩阵，行列式，向量空间，二次型，线性变换
 - :ballot_box_with_check: [偏微分方程(一)][pde1]：(数学物理方法) （拟）线性偏微分方程、定解问题、分离变量法
@@ -546,9 +542,9 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :ballot_box_with_check: [抽象代数][AbstractAlgebra] ：(又称近世代数) 群论、环论、伽罗瓦理论等
 - :heart: [一般拓扑学][GeneralTopology]：也称点集拓扑学，主要研究拓扑空间以及定义在其上的数学结构的基本性质
 - :heart: [微分几何初步][DifferentialGeometry]：包括曲线和曲面论、外微分形式和活动标架、黎曼几何
+-  :ballot_box_with_check: 《张量分析》：(黄克智) 是微分几何中研究张量场的微分运算的一个分支。张量分析是用共变微分表示各种几何量和微分算子性质的运算方法，可以看作是微分流形上的“微分法”，是研究流形上的几何和分析的一种重要工具。
 - :heart: [泛函分析][FunctionalAnalysis]：研究的是一般无穷维的带有一定拓扑的线性空间
-- :heart: *微分拓扑*：微分流形和可微映射
-- :heart: *张量分析*：包括流形上的张量分析
+- :white_large_square: 微分拓扑：微分流形和可微映射
 
 [LinearAlgebra]: /posts/math/Linear-Algebra/
 [pde1]: /posts/math/PDE-I/
@@ -560,9 +556,11 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 [DifferentialGeometry]: /posts/math/Differential-Geometry/
 [FunctionalAnalysis]:  /posts/math/Functional-Analysis/
 
-# <font color="red">物理</font>  
+# <font color="red">物理</font>
 
-## <font color="green">Foundational Physics</font>  
+- :ballot_box_with_check: 《物理手册》：（斯托克）这本物理手册系统介绍了当代物理学的各种基本概念、定理、定律以及各种有用的实验方法，并收进了大量最新科学研究成果。
+
+## <font color="green">基础物理</font>
 
 - :ballot_box_with_check: 普通物理：力学，热学，光学，电磁学，振动和波等  
 - :ballot_box_with_check: 理论力学：静力学、运动学与动力学
@@ -570,18 +568,15 @@ description: 本人依据个人爱好、工作需要等制定了一份详细的�
 - :ballot_box_with_check: 统计力学：热力学与统计物理  
 - :ballot_box_with_check: 量子力学：研究物质世界微观粒子运动规律的物理学分支
 - :white_large_square:  固体物理：凝聚态物理学中最大的分支。它研究的对象是固体
-- :ballot_box_with_check: 《场论基础》：（作者-易中）从连续介质运动、非完整力学系统、电磁关系、引力场、量子效应、基本粒子构造、场的量子理论、场规范、随机场九个方面介绍了电磁场、引力场、量子场、规范场、统计场的初步知识。
+- :ballot_box_with_check: 《场论基础》：（易中）从连续介质运动、非完整力学系统、电磁关系、引力场、量子效应、基本粒子构造、场的量子理论、场规范、随机场九个方面介绍了电磁场、引力场、量子场、规范场、统计场的初步知识。
 
-## <font color="green">Advanced Physics</font>  
+## <font color="green">高等物理</font>
 
 - :ballot_box_with_check: 高等量子力学：以五条基本公理+测量公理作为出发点，推出《量子力学》中解释的所有现象
 - :ballot_box_with_check: 高等统计力学：使用量子力学的语言，讲述量子统计物理的基本原理及其应用
-- :ballot_box_with_check: 量子场论[^QTF]：量子力学，狭义相对论和经典场论相结合的物理理论，已被广泛的应用于粒子物理学和凝聚态物理学中。
+- :ballot_box_with_check: 量子场论：量子力学，狭义相对论和经典场论相结合的物理理论，已被广泛的应用于粒子物理学和凝聚态物理学中。
 - :ballot_box_with_check: 规范场论：强，弱相互作用的理论框架
 - :ballot_box_with_check: 广义相对论：是描述物质间引力相互作用的理论
 - :ballot_box_with_check: 量子引力：想要把广义相对论量子化，进而统一包括引力在内的四种基本力。当前主流尝试理论有弦理论/超弦理论/M理论、超引力、圈量子引力、扭量理论等。
-- :white_large_square: 凝聚态物理：是研究凝聚态物质的物理性质与微观结构以及它们之间的关系
-
-
-[^QTF]: 量子场论：(Quantum Field Theory, QFT) 目前已知的四种相互作用中，除去引力，另三种相互作用都找到了合适满足特定规范对称性的量子场论（或者说Yang-Mills场）来描述。强相互作用有量子色动力学（QCD，Quantum Chromodynamics)；电磁相互作用有量子电动力学（QED,Quantum Electrodynamics)；弱相互作用有四费米子点作用理论。后来弱相互作用和电磁相互作用实现了形式上的统一，由Yang-Mills（杨-米尔斯）场来描述，通过希格斯机制（Higgs Mechanism）产生质量，建立了弱电统一的量子规范理论，即GWS（Glashow, Weinberg, Salam）模型。
+- :white_large_square: 凝聚态物理：是研究凝聚态物质的物理性质与微观结构以及它们之间的关系。
 
