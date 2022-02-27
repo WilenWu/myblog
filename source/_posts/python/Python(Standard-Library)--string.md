@@ -1,11 +1,15 @@
 ---
 title: Python手册(Standard Library)--string
-date: 2021-11-13 22:23:11
-categories: [Python,Python标准库]
-tags: [Python]
+categories:
+  - Python
+  - Python标准库
+tags:
+  - Python
 cover: /img/sudoku.jpeg
-top_img: '#66CCFF'
+top_img: /img/python-top-img.svg
 description: Python3 字符串方法和格式化
+abbrlink: 64b738be
+date: 2021-11-13 22:23:11
 ---
 
 # 字符串方法

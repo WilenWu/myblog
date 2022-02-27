@@ -1,19 +1,24 @@
 ---
-ID: 30c49ba6e569e6086bd1ee4c36760044
 title: R手册(Time Series)--zoo
-tags: [R,时间序列,数据清洗]
+tags:
+  - R
+  - 时间序列
+  - 数据清洗
+categories:
+  - R
+  - 时间序列
+cover: /img/zoo-cover.png
+top_img: /img/r-top-img.svg
+description: zoo是对日期型数据进行清洗的R包
+abbrlink: 3b11488b
 date: 2018-05-28 16:55:01
-categories: [R,时间序列]
-cover: /img/r-xts.png
-top_img: /img/r-logo.svg
-description: 定义了规则和不规则时间序列S3类
 ---
-
-zoo和xts是对日期型数据进行清洗的R包
 
 <!-- more -->
 
 # zoo
+
+定义了规则和不规则时间序列S3类
 
 ## 基础对象
 
@@ -58,3 +63,4 @@ zoo和xts是对日期型数据进行清洗的R包
 
 `yearqtr`以年季度显示时间
 `yearmon`以年月显示时间
+

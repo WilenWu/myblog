@@ -1,14 +1,18 @@
 ---
-title: Python(Documentation)--PyYAML
+title: Python手册(Documentation)--PyYAML
+tags:
+  - Python
+  - 标记语言
+  - YAML
+categories:
+  - - Python
+    - 文档
+  - - 标记语言
+cover: /img/PyYAML-cover.png
+top_img: /img/python-top-img.svg
+abbrlink: 95bcc2fb
 date: 2021-12-20 18:52:12
 updated:
-tags: [Python, 标记语言, YAML]
-categories: 
-  - [Python, 文档]
-  - [标记语言]
-cover: /img/PyYAML.jpg
-top_img: /img/yaml-cover.jpg
-description: 
 ---
 
 YAML 是一个可读性高，用来表达资料序列化的格式。特别适合用来表达或编辑数据结构、各种配置文件、倾印调试内容、文件大纲。PyYAML是Python的YAML解析器和发射器。

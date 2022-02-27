@@ -1,0 +1,48 @@
+front-matter: 
+  title: 目录
+  date: 2019-10-08 13:04:44
+  type: toc
+  comments: true
+  top_img: /img/computer.jpg
+
+description: | 
+  ![](/img/bookshelf.jpg)
+  
+  本人依据个人爱好、工作需要等制定了一份详细的学习计划。依据本「导航页」在博客不定时更新学习笔记。
+  
+  其中
+  
+  - 标记 :ballot_box_with_check: 是必修
+  - 标记 :white_large_square: 待定  
+  - 标记 :heart: 是选修课  
+  
+  致谢，[ApacheCN 中文开源组织](https://github.com/apachecn)：致力于官方文档及AI书籍中文翻译。
+  ------
+
+categories: 
+  - h1: Python
+    description: 本手册所列包来自[Awesome-Python](https://awesome-python.com/) ，结合[GitHub](https://github.com/) 和官方文档。 
+  - h1: R
+    description: 本手册所列包基本来自[AwesomeR][AwesomeR] ，结合[GitHub](https://github.com/)和`help(package="pk_name")`官方文档整理所得，有助于使用时下最实用的包对R进行深入的学习。 
+
+incomplete-items: 
+  - name: HTML
+    url: 
+    categories: [标记语言]
+    description: 
+    emoji: heart
+  - name: XML
+    url: 
+    categories: [标记语言]
+    description: 
+    emoji: heart
+  - name: JavaScript
+    url: 
+    categories: [标记语言]
+    description: 
+    emoji: heart
+  - name: Hadoop安装配置
+    url: 
+    categories: [大数据, Hadoop]
+    description: 
+    emoji: heart

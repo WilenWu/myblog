@@ -1,11 +1,15 @@
 ---
 title: Python手册(Standard Library)--Python 代码调试工具
-date: 2021-11-13 22:23:11
-categories: [Python,Python标准库]
-tags: [Python]
+categories:
+  - Python
+  - Python标准库
+tags:
+  - Python
 cover: /img/python-debug.jpg
-top_img:  # /img/python-logo-wide.svg
-description: Python 代码调试工具快速入门
+description: assert, pdb, ipdb
+abbrlink: c924bbe
+date: 2021-11-13 22:23:11
+top_img: /img/python-top-img.svg
 ---
 
 # assert

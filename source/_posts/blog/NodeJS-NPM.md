@@ -1,12 +1,15 @@
 ---
-title: NPM 使用介绍
-date: 2021-09-21 09:32:20
-categories: [博客搭建]
-tags: [npm]
+title: NPM简单使用
+categories:
+  - 博客搭建
+tags:
+  - npm
 cover: /img/npm-cover.png
-top_img: /img/npm-text.svg
+top_img: /img/nodejs-white.svg
 noticeOutdate: true
-description: 
+abbrlink: e0446c8e
+date: 2021-09-21 09:32:20
+description:
 ---
 
 # 概要

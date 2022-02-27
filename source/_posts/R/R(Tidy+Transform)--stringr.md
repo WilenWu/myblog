@@ -1,16 +1,23 @@
 ---
-ID: d187e7427e3520e07030f4f7505ee5e0
 title: R手册(Tidy+Transform)--stringr
-tags: [R,tidyverse,数据清洗,正则表达式]
+tags:
+  - R
+  - tidyverse
+  - 数据清洗
+  - 正则表达式
+categories:
+  - R
+  - Tidy+Transform
+cover: /img/stringr-cover.png
+description: 'Simple, Consistent Wrappers for Common String Operations'
+abbrlink: c4e3d4d8
 date: 2018-05-01 22:35:55
-categories: [R,Tidy+Transform]
-cover: /img/stringr.png
-top_img: 
-description: Simple, Consistent Wrappers for Common String Operations
+top_img:
 ---
 
 
 stringr: Simple, Consistent Wrappers for Common String Operations
+
 <!-- more -->
 
 # stringr

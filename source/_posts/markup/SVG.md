@@ -1,13 +1,17 @@
 ---
 title: SVG 入门教程
-date: 2021-12-12 20:13:00
-updated: 
-tags: [标记语言, XML]
-categories: [标记语言]
+tags:
+  - 标记语言
+  - XML
+categories:
+  - 标记语言
 katex: true
-cover: /img/SVG-with-crown.svg
-top_img: img/svg-cover.jpeg
-description: 
+cover: /img/SVG-cover.svg
+top_img: /img/svg-top-img.jpeg
+abbrlink: c18c7e9b
+date: 2021-12-12 20:13:00
+updated:
+description: SVG是一种开放标准的矢量图形语言，基于XML标记语言
 ---
 
 # SVG 引言
@@ -1450,11 +1454,8 @@ Windows 系统默认是无法查看SVG图形文件的缩略图，很多时候我
 
 ![](https://gitee.com/WilenWu/images/raw/master/common/svg-see.png)
 
-## ApacheCN 图标
-
-<img src="https://wilenwu.gitee.io/img/apachecn.svg" width="50%"/>
 
 
 > **参考链接：**
-> [SVG 教程 | 菜鸟教程 (runoob.com)](https://www.runoob.com/svg/svg-tutorial.html)
+> [SVG 教程 | 菜鸟教程 (runoob.com)](https://www.runoob.com/svg/svg-tutorial.html)    
 > [SVG教程 - SVG | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial)

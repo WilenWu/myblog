@@ -1,13 +1,15 @@
 ---
-ID: a1430846c2de67ec1358768349bb2812
 title: Hexo5博客搭建及配置
-date: 2019-09-10 13:48:53
-categories: [博客搭建]
-tags: [Hexo]
-cover: /img/hexo-5.png
-top_img: /img/hexo-plus.png
+categories:
+  - 博客搭建
+tags:
+  - Hexo
+cover: /img/hexo-cover.png
+top_img: /img/hexo-top-img.png
 noticeOutdate: true
-description: 
+abbrlink: a31c2363
+date: 2019-09-10 13:48:53
+description:
 ---
 
 [Hexo](https://hexo.io/zh-cn/) 是高效的静态站点生成框架，基于 [Node.js](https://nodejs.org/)。 通过 Hexo 你可以轻松地使用 Markdown （或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 [tag 插件](https://hexo.io/zh-cn/docs/tag-plugins.html) 来快速的插入特定形式的内容。Hexo 还拥有丰富的主题和插件。
@@ -75,6 +77,7 @@ hexo clean && hexo g -d           # 清除缓存+生成+发布
 ├── _config.yml
 ├── package.json
 ├── scaffolds
+├── scripts
 ├── source
 |   ├── _drafts
 |   └── _posts
@@ -86,6 +89,7 @@ hexo clean && hexo g -d           # 清除缓存+生成+发布
 - package.json：应用程序的信息。[EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/) 和 [Markdown](http://daringfireball.net/projects/markdown/) renderer 已默认安装，您可以自由移除。
 - scaffolds：[模版](https://hexo.io/zh-cn/docs/writing) 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。
   Hexo的模板是指在新建的文章文件中默认填充的内容。例如，如果您修改scaffold/post.md中的Front-matter内容，那么每次新建一篇文章时都会包含这个修改。
+- scripts：脚本目录，此目录下的JavaScript文件会被自动执行
 - source：资源文件夹是存放用户资源的地方。除 `_posts` 文件夹之外，开头命名为 `_` (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 `public` 文件夹，而其他文件会被拷贝过去。
 - themes：[主题](https://hexo.io/zh-cn/docs/themes) 文件夹。Hexo 会根据主题来生成静态页面。
 
@@ -93,7 +97,7 @@ hexo clean && hexo g -d           # 清除缓存+生成+发布
 
 Hexo 框架主要配置两方面的内容：站点配置文件和主题配置文件。
 
-- **站点配置文件** `‪_config.yml`[中文官方文档](https://hexo.io/zh-cn/docs/configuration)
+- **站点配置文件** `_config.yml`[中文官方文档](https://hexo.io/zh-cn/docs/configuration)
 - **主题配置文件**：通常情况下，Hexo 主题是一个独立的项目，并拥有一个独立的 `_config.yml` 配置文件。除了自行维护独立的主题配置文件，你也可以在其它地方对主题进行配置。
 - **独立的 `_config.[theme].yml` 文件**：（该特性自 Hexo 5.0.0 起提供）
   你可将独立的主题配置文件应放置于站点根目录下命名为 `_config.[theme].yml` 。支持 `yml` 或 `json` 格式。需要配置站点 `_config.yml` 文件中的 `theme` 以供 Hexo 寻找 `_config.[theme].yml` 文件。
@@ -112,6 +116,16 @@ Hexo 提供了快速方便的[一键部署功能](https://hexo.io/zh-cn/docs/one
 当执行 hexo deploy 时，Hexo 会将 public 目录中的文件和目录推送至_config.yml 中指定的远端仓库和分支中，并且**完全覆盖**该分支下的已有内容。
 
 此外，如果您的 Github Pages 需要使用 CNAME 文件**自定义域名**，请将 CNAME 文件置于 source 目录下，只有这样 hexo deploy 才能将 CNAME 文件一并推送至部署分支。
+
+# 插件
+
+Hexo 有强大的插件系统，使您能轻松扩展功能而不用修改核心模块的源码。在 Hexo 中有两种形式的插件：
+
+- **脚本（Scripts）**：如果您的代码很简单，建议您编写脚本，您只需要把 JavaScript 文件放到 hexo 根目录下的 scripts 文件夹(如不存在，    可自行创建)，在启动时就会自动载入脚本。
+    scripts 其实就是一个迷你插件，它可以实现类似于插件的功能，同时可以无侵入式的增强我们的Hexo。
+    在scripts中我们可以尽情使用Hexo的Api。可参考博文[玩转Hexo的Scripts](https://blog.hvnobug.com/post/hexo-script.html)
+
+- **插件（Packages）**：下载已发布在 NPM 的hexo插件使用。
 
 # 附录
 

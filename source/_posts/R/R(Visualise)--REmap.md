@@ -1,17 +1,22 @@
 ---
-ID: 72a689c6504caa9db44e4f114cb3b23a
 title: R手册(Visualise)--REmap
-tags: [R,地图,可视化]
-date: 2018-06-01 14:24:23
-categories: [R,可视化]
-cover: /img/remap-nanchang.png
+tags:
+  - R
+  - 地图
+  - 可视化
+categories:
+  - R
+  - 可视化
+cover: /img/echarts-cover.png
 top_img: /img/world-map.jpeg
 description: 基于Echarts的简易动态交互地图
+abbrlink: 3c7fb28e
+date: 2018-06-01 14:24:23
 ---
 
 **REmap**:（简单动态地图）Create html maps by Echarts
 
-[REmap](http://langdawei.com/REmap/2015/07/intro)是一个基于 [Echarts](http://echarts.baidu.com) 的R包。主要的目的是为广大数据玩家提供一个简便的，可交互的地图数据可视化工具。目前托管在[github](https://github.com/lchiffon/REmap)
+[REmap](http://langdawei.com/REmap/)是一个基于 [Echarts](https://echarts.apache.org/zh/index.html) 的R包。主要的目的是为广大数据玩家提供一个简便的，可交互的地图数据可视化工具。目前托管在[github](https://github.com/lchiffon/REmap)
 
 <!-- more -->
 

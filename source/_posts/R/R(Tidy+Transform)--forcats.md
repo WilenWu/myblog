@@ -1,12 +1,17 @@
 ---
-ID: d5d0cbbdefbe44f680526a0de67493a1
 title: R手册(Tidy+Transform)--forcats
-tags: [R,tidyverse,数据清洗]
+tags:
+  - R
+  - tidyverse
+  - 数据清洗
+categories:
+  - R
+  - Tidy+Transform
+cover: /img/forcats-cover.png
+description: for factors.(Hadley)
+abbrlink: ea1d43b4
 date: 2018-05-28 16:35:03
-categories: [R,Tidy+Transform]
-cover: /img/forcats.png
-top_img: 
-description: for factors
+top_img:
 ---
 
 forcats: 分类变量数据处理

@@ -1,12 +1,16 @@
 ---
-ID: c7be577142716ed4cbac9d54f1022765
 title: R手册(Syntax)--purrr
+tags:
+  - R
+  - tidyverse
+categories:
+  - R
+  - 语法
+cover: /img/purrr-cover.png
+description: A functional programming(FP) toolkit for R (Hadley)
+abbrlink: d355c8c1
 date: 2018-05-02 00:46:18
-tags: [R,tidyverse]
-categories: [R,语法]
-cover: /img/purrr.png
-top_img: 
-description: A functional programming(FP) toolkit for R
+top_img:
 ---
 
 **purrr** : A functional programming(FP) toolkit for R

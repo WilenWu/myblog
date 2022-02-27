@@ -1,15 +1,17 @@
 ---
 title: 大数据手册(Spark)--Spark 基础知识（一）
+categories:
+  - 大数据
+tags:
+  - 大数据
+  - Spark
+  - RDD
+cover: /img/apache-spark-base1.png
+top_img: /img/apache-spark-top-img.svg
+abbrlink: 32722c50
 date: 2020-01-03 16:10:18
-categories: [大数据]
-tags: [大数据,Spark,RDD]
-cover: /img/spark.png
-top_img: /img/spark-logo.svg
-description: 
+description:
 ---
-
-
-# Spark 基础知识（一）
 
 Apache Spark是一个开源的、强大的分布式查询和处理引擎。
 Apache Spark允许用户读取、转换、聚合数据，还可以轻松地训练和部署复杂的统计模型。提供了简明、一致的Java、Scala、Python、R和SQL API。
@@ -19,7 +21,7 @@ Apache Spark允许用户读取、转换、聚合数据，还可以轻松地训�
 - 为图形处理提供的GraphX和GraphFrames
 - 以及Spark Streaming（DStream和Structured），基于微批量方式的计算和处理，可以用于处理实时的流数据。
 
-## Hadoop 生态
+# Hadoop 生态
 
 Hadoop是一个由Apache基金会所开发的分布式系统基础架构。用户可以在不了解分布式底层细节的情况下，开发分布式程序。充分利用集群的威力进行高速运算和存储。Hadoop实现了一个分布式文件系统（Hadoop Distributed File System），简称HDFS。
 ![hadoop](https://gitee.com/WilenWu/images/raw/master/common/hadoop-parts.PNG)
@@ -37,7 +39,7 @@ Hadoop是一个由Apache基金会所开发的分布式系统基础架构。用�
 - Flume：收集各个应用系统和框架的日志
 - Sqoop：将关系型数据库中的数据与 HDFS上的数据进行相互导入导出
 
-## Spark 生态
+# Spark 生态
 
 Apache Spark 是专为大规模数据处理而设计的快速通用的计算引擎。Spark 拥有Hadoop MapReduce所具有的优点，但不同的是Job中间输出结果可以保存在内存中，从而不再需要读写HDFS，因此Spark能更好地适用于数据挖掘与机器学习等需要迭代的MapReduce的算法。
 ![Spark](https://gitee.com/WilenWu/images/raw/master/spark/spark-sys.PNG)
@@ -48,7 +50,7 @@ Apache Spark 是专为大规模数据处理而设计的快速通用的计算引�
 - Spark MLLib：分布式环境下的机器学习库
 - Spark Graphx：控制图、并行图操作和计算的一组算法和工具的集合
 
-## Spark 基本架构
+# Spark 基本架构
 
 一个完整的Spark应用程序(Application)，在提交集群运行时，它涉及到如下图所示的组件。
 Spark 一般包括一个主节点（任务控制节点）和多个从节点（工作节点），每个任务(Job)会被切分成多个阶段(Stage)，每个阶段并发多线程执行，结束后返回到主节点。
@@ -62,7 +64,7 @@ Spark 一般包括一个主节点（任务控制节点）和多个从节点（�
 - Task：（任务）运行在Executor上的工作单元。
 
 
-## Spark运行基本流程
+# Spark运行基本流程
 
 RDD(Resilient Distributed Dataset)是Spark框架中的核心概念，它们是在多个节点上运行和操作以在集群上进行并行处理的元素。
 Spark通过分析各个RDD的依赖关系生成有向无环图DAG(Directed Acyclic Graph)，通过分析各个RDD中的分区之间的依赖关系来决定如何划分Stage进行任务优化。
@@ -79,7 +81,7 @@ spark-submit提交Spark应用程序后，其执行流程如下：
 - Stages：是Job的基本调度单位(DAGScheduler)，一个Job会分解为多组Stage，每组Stage包含多组任务(Task)，称为TaskSet，代表一组关联的，相互之间没有Shuffle依赖关系(最耗费资源)的任务组成的任务集。
 - Tasks：负责Stage的任务分发(TaskScheduler)，Task分发遵循基本原则：计算向数据靠拢，避免不必要的磁盘I/O开销。
 
-## 弹性分布式数据集(RDD)
+# 弹性分布式数据集(RDD)
 
 在Spark里，对数据的所有操作，基本上就是围绕RDD来的，譬如创建、转换、求值等等。某种意义上来说，RDD变换操作是惰性的，因为它们不立即计算其结果，RDD的转换操作会生成新的RDD，新的RDD的数据依赖于原来的RDD的数据，每个RDD又包含多个分区。那么一段程序实际上就构造了一个由相互依赖的多个RDD组成的有向无环图(DAG)。并通过在RDD上执行行动将这个有向无环图作为一个Job提交给Spark执行。
 该延迟执行会产生更多精细查询：DAGScheduler可以在查询中执行优化，包括能够避免shuffle数据。

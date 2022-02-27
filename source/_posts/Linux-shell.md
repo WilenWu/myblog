@@ -1,11 +1,13 @@
 ---
-ID: 0fc43b4a2a174d30c697c74ea99b82a5
 title: Linux shell教程
+categories:
+  - Common
+tags:
+  - linux
+cover: /img/linux-bash-cover.png
+top_img: /img/linux-tux-bg.jpg
+abbrlink: d30f8ab
 date: 2018-06-22 13:38:14
-categories: [Common]
-tags: [linux]
-cover: /img/bash.jpg
-top_img: /img/bash-logo.png
 ---
 
 # Shell简介

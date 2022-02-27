@@ -4,10 +4,11 @@ date: 2019-09-07 21:46:41
 type: about
 comments: true
 top_img: /img/sky.jpg
+toc: false
 ---
 
 本博客基于 Hexo 及 GitBook 配合搭建而成。
-其中博文依据个人爱好、工作需要等制定了一份详细的学习计划，并根据清单同步更新学习笔记，详情请查阅[「书架」](/posts/SUMMARY/)。
+其中博文依据个人爱好、工作需要等制定了一份详细的学习计划，并根据清单同步更新学习笔记，详情请查阅本博客[「导航页」](/guide/)。
 
 [Hexo](https://hexo.io/zh-cn/) 是高效的静态站点生成框架，基于 [Node.js](https://nodejs.org/)。 通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 [tag 插件](https://hexo.io/zh-cn/docs/tag-plugins.html) 来快速的插入特定形式的内容。Hexo 还拥有丰富的主题和插件。
 

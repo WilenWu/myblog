@@ -1,12 +1,18 @@
 ---
-ID: 8e8caf4837eb0cbdf947fb5ab876e402
 title: 二分类模型评价指标
-date: 2018-09-16 12:07:49
 katex: true
-categories: [大数据]
-tags: [大数据,二分类,混淆矩阵,ROC曲线]
-cover: /img/R-C.jpg
+categories:
+  - 大数据
+tags:
+  - 大数据
+  - 二分类
+  - 混淆矩阵
+  - ROC曲线
+cover: /img/data-analysis.png
+top_img: /img/data-chart3.jpg
 description: false
+abbrlink: cc734464
+date: 2018-09-16 12:07:49
 ---
 
 - **混淆矩阵**

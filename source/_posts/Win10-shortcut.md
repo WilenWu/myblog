@@ -1,12 +1,13 @@
 ---
-title: Win10快捷键
-date: 2021-04-24 14:38:11
-categories:  [Common]
+title: Win10 常用快捷键
+categories:
+  - Common
 tags: Windows
-cover: /img/win10.png
-top_img: 
+cover: /img/win10-cover.png
+top_img: /img/win10-top-img.png
 description: false
-
+abbrlink: eb0a36a4
+date: 2021-04-24 14:38:11
 ---
 
 1. ​常用快捷键

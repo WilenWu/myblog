@@ -1,12 +1,15 @@
 ---
-title: NexT 主题标签插件的使用
-date: 2019-09-11 14:10:48
-categories: [博客搭建]
-tags: [Hexo]
-cover: /img/hexo-next.png
-top_img: /img/next-logo.svg
+title: NexT主题标签插件的使用
+categories:
+  - 博客搭建
+tags:
+  - Hexo
+cover: /img/hexo-next-theme.png
+top_img: /img/hexo-top-img.png
 noticeOutdate: true
 description: false
+abbrlink: 7a9ce795
+date: 2019-09-11 14:10:48
 ---
 
 {% note warning%} 

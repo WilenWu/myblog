@@ -1,17 +1,17 @@
 ---
-ID: 46266b3c282a41b71bae70d35c6021f4
 title: R手册(Import)--rvest
-tags: [R,tidyverse]
+tags:
+  - R
+  - tidyverse
+categories:
+  - R
+  - Import
+cover: /img/rvest-cover.png
+description: Simple web scraping for R (Hadley) 
+abbrlink: d0598be7
 date: 2018-05-01 17:49:56
-categories: [R,Import]
-cover: /img/rvest.png
-top_img: 
-description: Simple web scraping for R
+top_img:
 ---
-
-rvest: Simple web scraping for R
-
-<!-- more -->
 
 
 # 解析html

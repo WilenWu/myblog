@@ -1,12 +1,15 @@
 ---
-title: Hexo 的 Git 部署插件
-date: 2021-09-20 18:37:20
-categories: [博客搭建]
-tags: [Hexo]
-cover: /img/git.svg
-top_img: /img/folder-git.png
+title: Hexo的Git部署插件
+categories:
+  - 博客搭建
+tags:
+  - Hexo
+cover: /img/hexo-deployer-cover.png
+top_img: /img/hexo-top-img.png
 noticeOutdate: true
 description: false
+abbrlink: 7682dd2b
+date: 2021-09-20 18:37:20
 ---
 
 

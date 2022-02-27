@@ -1,11 +1,16 @@
 ---
-ID: 9649a92ed5b854587050bff6866df114
 title: Python手册(Visualise)--matplotlib
-tags: [Python,可视化]
+tags:
+  - Python
+  - 可视化
+categories:
+  - Python
+  - 可视化
+cover: /img/matplotlib-top.jpeg
+top_img: /img/matplotlib-cover.svg
+abbrlink: f347fe66
 date: 2018-05-20 15:52:03
-categories: [Python,可视化]
-cover: /img/matplotlib-cover.png
-top_img: /img/matplotlib-top.jpeg
+scription: 是一个 Python 的 2D绘图库
 ---
 
 [Matplotlib][mt] 是一个Python 2D绘图库，它可以在各种平台上以各种硬拷贝格式和交互式环境生成出具有出版品质的图形。 Matplotlib可用于Python脚本，Python和IPython shell，Jupyter笔记本，Web应用程序服务器和四个图形用户界面工具包

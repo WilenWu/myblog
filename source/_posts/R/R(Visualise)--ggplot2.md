@@ -1,11 +1,18 @@
 ---
-ID: c0b20960bde2acb9d0731aebb9d2a8fb
 title: R手册(Visualise)--ggplot2
-tags: [R,可视化,ggplot2,tidyverse]
+tags:
+  - R
+  - 可视化
+  - ggplot2
+  - tidyverse
+categories:
+  - R
+  - 可视化
+cover: /img/ggplot2-cover.png
+top_img: /img/ggplot2-top-img.png
+abbrlink: 8f6de5fc
 date: 2018-05-03 16:26:14
-categories: [R,可视化]
-cover: /img/ggplot2.png
-top_img: /img/ggplot2-wide.png
+description: 强大的绘图系统，并实现了许多扩展(Hadley)
 ---
 
 # Overview

@@ -1,11 +1,15 @@
 ---
 title: 电子书文件格式
+categories:
+  - Common
+tags:
+  - ePub
+cover: /img/books.jpg
+top_img: /img/books.jpg
+abbrlink: 4fd8493d
 date: 2021-10-31 23:45:00
-categories: [Common]
-tags: [ePub]
-cover: /img/education.jpg
-top_img: /img/epub-icon.jpg
-description: 
+description:
+emoji: white_large_square
 ---
 
 # eBook FileType

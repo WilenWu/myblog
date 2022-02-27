@@ -1,11 +1,16 @@
 ---
-ID: 8a6b0cdf655c25dd3f11e361fcc8a0a8
 title: Python手册(Standard Library)--re
-tags: [Python,正则表达式]
-date: 2018-05-09 23:15:58
-categories: [Python,Python标准库]
+tags:
+  - Python
+  - 正则表达式
+categories:
+  - Python
+  - Python标准库
 cover: /img/regexp-demo.jpg
-top_img: /img/python-logo-wide.svg
+top_img: /img/python-top-img.svg
+abbrlink: cb9fa048
+date: 2018-05-09 23:15:58
+description: 正则表达式调用库
 ---
 
 re 模块使 Python 语言拥有全部的正则表达式功能。

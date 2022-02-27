@@ -1,12 +1,17 @@
 ---
-ID: 7727a875a5d38f44eca00490ea1e8a42
 title: KaTeX 数学符号列表
-date: 2019-04-22 18:37:20
-categories:  [标记语言]
-tags: [标记语言,数学,markdown,katex]
+categories:
+  - 标记语言
+tags:
+  - 标记语言
+  - 数学
+  - markdown
+  - katex
 katex: true
 cover: img/katex.png
 sticky: 1
+abbrlink: b9652820
+date: 2019-04-22 18:37:20
 ---
 
 [KaTeX](https://katex.org/docs/supported.html) 是一个快速，易于使用的JavaScript库，用于在Web上进行TeX数学渲染。

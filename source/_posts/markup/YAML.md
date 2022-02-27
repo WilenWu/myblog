@@ -1,13 +1,18 @@
 ---
-title:  YAML 基础语法
+title: YAML 基础语法
+tags:
+  - 标记语言
+  - YAML
+categories:
+  - 标记语言
+sticky: 
+cover: /img/yaml-tutorial.jpg
+top_img: /img/yaml-cover.jpg
+abbrlink: 6ab72750
 date: 2021-12-03 23:12:27
 updated:
-tags: [标记语言, YAML]
-categories: [标记语言]
-sticky: 2
-cover: /img/yaml-tutorial.png
-top_img: /img/yaml-cover.jpg
-description:
+description: 是一种开放标准的矢量图形语言，基于 XML 标记语言
+emoji: white_large_square
 ---
 
 **YAML** （发音 /ˈjæməl/ ）是 **Y**AML **A**in't a **M**arkup **L**anguage（YAML不是一种标记语言）的递归缩写。在开发的这种语言时，YAML 的意思其实是："Yet Another Markup Language"（仍是一种标记语言），但为了强调这种语言以数据做为中心，而不是以标记语言为重点，而用反向缩略语重命名。

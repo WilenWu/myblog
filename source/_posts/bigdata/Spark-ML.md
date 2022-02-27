@@ -1,11 +1,16 @@
 ---
 title: 大数据手册(Spark)--PySpark 机器学习
+categories:
+  - 大数据
+tags:
+  - 大数据
+  - Spark
+  - 机器学习
+cover: /img/apache-spark-ml.png
+top_img: /img/apache-spark-top-img.svg
+abbrlink: '75974533'
 date: 2020-01-09 16:29:34
-categories: [大数据]
-tags: [大数据,Spark,机器学习]
-cover: /img/ml.jpg
-top_img: /img/spark-logo.svg
-description: 
+description:
 ---
 
 

@@ -1,12 +1,16 @@
 ---
-ID: 93a63169509ac11fd77c443d5c8633e3
 title: 大数据手册(Hive)--HiveQL
-date: 2018-07-03 17:57:36
-categories: [大数据]
-tags: [大数据,hive,SQL]
-cover: /img/apache-hive.png
-top_img: /img/hive-bg.png
+categories:
+  - 大数据
+tags:
+  - 大数据
+  - hive
+  - SQL
+cover: /img/apache-hive-cover.svg
+top_img: /img/apache-hive-bg.png
 description: Hive 是一个基于Apache Hadoop的数据仓库基础设施
+abbrlink: 297bd708
+date: 2018-07-03 17:57:36
 ---
 
 Hive 是一个基于[Apache Hadoop](http://hadoop.apache.org/)的数据仓库基础设施。Hadoop 为商用硬件上的数据存储和处理提供了大规模的横向扩展和容错能力。

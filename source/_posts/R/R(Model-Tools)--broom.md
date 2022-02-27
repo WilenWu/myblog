@@ -1,11 +1,16 @@
 ---
-ID: d6f62644a1e9e76424deca9f72f3d51f
 title: R手册(Model Tools)--broom
-tags: [R,tidyverse,机器学习]
-date: 2018-05-04 00:43:40
-categories: [R,机器学习]
-cover: /img/broom.png
+tags:
+  - R
+  - tidyverse
+  - 机器学习
+categories:
+  - R
+  - 机器学习
+cover: /img/broom-cover.png
 description: Convert statistical analysis objects into tidy format
+abbrlink: 251f7bf9
+date: 2018-05-04 00:43:40
 ---
 
 # broom

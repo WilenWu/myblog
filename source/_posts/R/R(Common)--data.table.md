@@ -1,11 +1,15 @@
 ---
-ID: 5f0d539f9a62ccf11baac51b8b948686
 title: R手册(Common)--data.table
-tags: [R]
+tags:
+  - R
+categories:
+  - R
+  - Common
+cover: /img/rdatatable-cover.png
+top_img: /img/r-top-img.svg
+abbrlink: 4de35808
 date: 2018-05-01 17:32:24
-categories: [R,Common]
-cover: /img/rdatatable.svg
-top_img: /img/r-logo.svg
+description: 简短的代码实现快速操作数据
 ---
 
 R语言data.table包是自带包data.frame的升级版，用于数据框格式数据的处理，最大的特点快。

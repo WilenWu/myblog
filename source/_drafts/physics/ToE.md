@@ -1,10 +1,10 @@
 ---
 title: 万有理论概述
-date: ‎
+date: 
 katex: true
 ---
 
-[万有理论][toe]（英语：Theory of Everything或ToE）指的是假定存在的一种具有总括性、一致性的物理理论框架，能够解释宇宙的所有物理奥秘。
+[万有理论][toe](Theory of Everything, ToE) 指的是假定存在的一种具有总括性、一致性的物理理论框架，能够解释宇宙的所有物理奥秘。
 
 [toe]: https://baike.baidu.com/item/%E4%B8%87%E6%9C%89%E7%90%86%E8%AE%BA/630145?fr=aladdin
 

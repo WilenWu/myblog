@@ -1,11 +1,13 @@
 ---
-title: VScode快捷键
-date: 2021-04-24 16:21:04
-categories:  [Common]
+title: VScode 常用快捷键
+categories:
+  - Common
 tags: IDE
-cover: /img/vscode-logo.png
-top_img: /img/vscode.png
+cover: /img/vscode-cover.png
+top_img: /img/vscode-top-img.svg
 description: false
+abbrlink: af83e57c
+date: 2021-04-24 16:21:04
 ---
 
 

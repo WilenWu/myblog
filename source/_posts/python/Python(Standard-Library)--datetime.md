@@ -1,11 +1,15 @@
 ---
-ID: dafd70d96c47829db96c90f613a5c636
-title: Python手册(Standard Library)--datetime+time+calendar
-tags: [Python]
+title: Python手册(Standard Library)--日期时间模块
+tags:
+  - Python
+categories:
+  - Python
+  - Python标准库
+cover: /img/python-datetime-cover.png
+top_img: /img/python-top-img.svg
+abbrlink: 592885c8
 date: 2018-05-09 22:49:26
-categories: [Python,Python标准库]
-cover: /img/calendar.jpeg
-top_img: /img/calendar-bg.jpg
+description: 日基础包：datetime, time, calendar
 ---
 
 Python 程序能用很多方式处理日期和时间，转换日期格式是一个常见的功能。

@@ -1,11 +1,14 @@
 ---
 title: 标记语言概览
-date: 2021-11-23 21:13:52
-tags: [标记语言]
-categories: [标记语言]
-description: 
+tags:
+  - 标记语言
+categories:
+  - 标记语言
 cover: /img/markup-cover.jpg
 top_img: /img/markupdocs-ipad.jpg
+abbrlink: 2957012b
+date: 2021-11-23 21:13:52
+description:
 ---
 
 **标记语言**（markup language，ML）是一种将文本（Text）以及文本相关的其他信息结合起来，展现出关于文档结构和数据处理细节的计算机文字编码。标记语言广泛应用于网页和网络应用程序。标记最早用于出版业，是作者、编辑以及出版商之间用于描述出版作品的排版格式所使用的。

@@ -1,9 +1,13 @@
 ---
 title: Linux基础知识
+categories:
+  - Common
+tags:
+  - linux
+cover: /img/linux-base-cover.png
+top_img: /img/linux-tux-bg.jpg
+abbrlink: df41aea9
 date: 2018-06-17 19:26:49
-categories:  [Common]
-tags: [linux]
-cover: /img/linux.jpg
 ---
 
 # Linux简介

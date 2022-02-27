@@ -1,11 +1,15 @@
 ---
-ID: 11b8d05e5aa6fe786dcb6a1c308d1940
 title: Python手册(Visualise)--seaborn
-tags: [Python,可视化]
+tags:
+  - Python
+  - 可视化
+categories:
+  - Python
+  - 可视化
+cover: /img/seaborn-cover.svg
+description: 基于matplotlib封装的数据可视化库
+abbrlink: 49513cf1
 date: 2018-05-10 23:20:12
-categories: [Python,可视化]
-cover: /img/seaborn-tall.svg
-description: Seaborn是基于matplotlib的Python可视化库。它提供了一个高级界面来绘制有吸引力的统计图形
 ---
 
 <img src="https://gitee.com/wilenwu/images/raw/master/seaborn/Seaborn.svg" width="100%;" />

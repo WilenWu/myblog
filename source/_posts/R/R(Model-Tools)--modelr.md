@@ -1,11 +1,16 @@
 ---
-ID: 6975fc45dd580e0ed3984abb6a23adb7
 title: R手册(Model Tools)--modelr
-tags: [R,机器学习,tidyverse]
-date: 2018-05-04 00:43:41
-categories: [R,机器学习]
-cover: /img/modelr.png
+tags:
+  - R
+  - 机器学习
+  - tidyverse
+categories:
+  - R
+  - 机器学习
+cover: /img/modelr-cover.png
 description: 辅助管道建模
+abbrlink: 2e6782e
+date: 2018-05-04 00:43:41
 ---
 
 # modelr 

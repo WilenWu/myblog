@@ -1,10 +1,17 @@
 ---
-ID: 262471c6cc5c287729e86615692f08e5
 title: R手册(NLP)--jiebaR
-tags: [R,NLP,可视化]
-date: 2018-05-04 17:43:15
-categories: [R,NLP]
+tags:
+  - R
+  - NLP
+  - 可视化
+categories:
+  - R
+  - NLP
+cover: /img/NLP.jpg
+top_img: /img/NLP.jpg
 description: R语言词云和中文词典包
+abbrlink: cb53c844
+date: 2018-05-04 17:43:15
 ---
 
 R语言词云和中文词典包。

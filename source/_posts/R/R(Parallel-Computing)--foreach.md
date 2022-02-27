@@ -1,11 +1,17 @@
 ---
-ID: 19e03f0c094e5f23c7b1938746efa7a7
 title: R手册(Parallel Computing)--foreach
-tags: [R,并行运算]
-date: 2018-05-04 00:34:33
-categories: [R,并行运算]
-cover: /img/data-parallelism.jpg
+tags:
+  - R
+  - 并行运算
+categories:
+  - R
+  - 并行运算
+cover: /img/foreach-cover.png
+top_img: /img/r-top-img.svg
 description: 在循环(loop)中并行化运算
+abbrlink: a235a5ba
+date: 2018-05-04 00:34:33
+emoji: heart
 ---
 
 foreach为R语言并行运算包

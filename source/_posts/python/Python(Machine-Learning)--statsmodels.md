@@ -1,11 +1,16 @@
 ---
 title: Python手册(Machine Learning)--statsmodels
-date: 2018-05-10 23:12:43  
-categories: [Python,机器学习]  
-tags: [Python,机器学习]  
+categories:
+  - Python
+  - 机器学习
+tags:
+  - Python
+  - 机器学习
 cover: /img/statsmodels.svg
 katex: true
-description: statsmodels更关注统计推断，提供不确定估计和参数p-value。相反的，scikit-learn注重预测。
+description: 统计建模和计量经济学
+abbrlink: 6c94e349
+date: 2018-05-10 23:12:43
 ---
 
 与scikit-learn比较，statsmodels包含经典统计学和经济计量学的算法。包括如下子模块：  

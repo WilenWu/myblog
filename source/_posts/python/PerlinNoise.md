@@ -1,10 +1,14 @@
 ---
-ID: eb1a6cb0bf577319139c4023fd9fb4be
 title: 柏林噪声(Python)
-tags: [Python,柏林噪声]
+tags:
+  - Python
+  - 柏林噪声
+categories:
+  - 实用知识
+cover: /img/perlin-noise-cover.png
+top_img: /img/perlin-noise-top-img.png
+abbrlink: c38b4d63
 date: 2018-09-19 22:35:52
-categories: [实用知识]
-cover: https://gitee.com/WilenWu/images/raw/master/common/perlin-map.png
 ---
 
 # 柏林噪声

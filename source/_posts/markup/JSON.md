@@ -1,12 +1,16 @@
 ---
 title: JSON 介绍
-date: 2021-11-23 21:12:17
-tags: [标记语言,JSON]
-categories: [标记语言]
-sticky: 2
-description: False
+tags:
+  - 标记语言
+  - JSON
+categories:
+  - 标记语言
+sticky: 
+description: false
 cover: /img/json-cover.jpg
 top_img: /img/json-bg.jpg
+abbrlink: 17cdf739
+date: 2021-11-23 21:12:17
 ---
 
 # JSON 简介

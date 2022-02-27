@@ -1,10 +1,16 @@
 ---
-ID: 3bbb4331dce898699a6b620e8164d3af
 title: R手册(Machine Learning)--mlr
-tags: [R,机器学习]
+tags:
+  - R
+  - 机器学习
+categories:
+  - R
+  - 机器学习
+cover: /img/ml.jpg
+top_img: /img/r-top-img.svg
+abbrlink: '76507660'
 date: 2018-05-04 01:08:17
-categories: [R,机器学习]
-cover: /img/data-analysis.png
+description: 机器学习（分类，回归，生存分析，聚类等）的可扩展框架，提供了用于分析的整套工具，包括重抽样，缺失值插补，模型评估(cv,etc)，超参数调优(grid-search,etc)，特征选择，可视化(ROC,learnning-curve,etc)等
 ---
 
 <!-- more -->

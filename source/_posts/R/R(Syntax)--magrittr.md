@@ -1,15 +1,19 @@
 ---
-ID: 52cf326043a3c64c94c69027b0e8171a
 title: R手册(Syntax)--magrittr
-tags: [R,tidyverse]
+tags:
+  - R
+  - tidyverse
+categories:
+  - R
+  - 语法
+cover: /img/magrittr-cover.png
+description: Let’s pipe it (管道语法)  
+abbrlink: '71826e74'
 date: 2018-05-02 00:46:17
-categories: [R,语法]
-cover: /img/pipe.png
-top_img: 
-description: 管道语法 (pipe)
+top_img:
 ---
 
-**magrittr**:  管道语法 (pipe)
+**magrittr**:  管道语法
 
 <img src="https://gitee.com/WilenWu/images/raw/master/common/workflows.png" style="zoom: 33%;" />
 

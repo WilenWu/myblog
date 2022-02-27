@@ -1,11 +1,15 @@
 ---
-ID: 0fe5dfb16482659f111fe9e47fbb1386
 title: R手册(Communicate)--shiny
-tags: [R,可视化]
-date: 2018-05-23 23:44:24
-categories: [R,Communicate]
-cover: /img/shiny.png
+tags:
+  - R
+  - 可视化
+categories:
+  - R
+  - Communicate
+cover: /img/shiny-cover.png
 description: 使用R语言开发交互式web应用程序的工具
+abbrlink: 8217ddda
+date: 2018-05-23 23:44:24
 ---
 
 Shiny是来自RStudio的软件包，它使得用R构建交互式Web应用程序变得非常简单。

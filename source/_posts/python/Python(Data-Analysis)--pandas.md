@@ -1,10 +1,15 @@
 ---
-ID: 92968d580ae6ece91f4e4cc2ab6fce43
 title: Python手册(Data Analysis)--pandas
-tags: [Python,数据清洗]
+tags:
+  - Python
+  - 数据清洗
+categories:
+  - Python
+  - pandas
+cover: /img/pandas-cover.png
+abbrlink: 2a180ec0
 date: 2018-05-10 23:00:51
-categories: [Python,pandas]
-cover: /img/pandas-logo.png
+description: 提供高性能，易用的数据结构和数据分析工具
 ---
 
 pandas兼具NumPy高性能的数组计算功能，提供高性能，易用的数据结构和数据分析工具。Pandas库有两个主要数据结构：Series和DataFrame。

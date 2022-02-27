@@ -1,12 +1,17 @@
 ---
-ID: 79f604db157ddd75a6cc4c8ddfade5a6
 title: R手册(NLP)--wordcloud2
-tags: [R,NLP,可视化]
-date: 2018-05-28 18:41:43
-categories: [R,NLP]
+tags:
+  - R
+  - NLP
+  - 可视化
+categories:
+  - R
+  - NLP
 cover: /img/love-cloud.png
-top_img: /img/r-logo.svg
+top_img: /img/r-top-img.svg
 description: R interface to wordcloud for data visualization
+abbrlink: 28aaa9da
+date: 2018-05-28 18:41:43
 ---
 
 **wordcloud2** :R interface to wordcloud for data visualization

@@ -1,11 +1,15 @@
 ---
-ID: d8c7d52bfa564e00185bfb5015e722e4
 title: Python手册(Python Basics)--Python面向对象
-tags: [Python,面向对象]
-date: 2018-06-23 20:12:35
-categories: [Python,Python基础]
+tags:
+  - Python
+  - 面向对象
+categories:
+  - Python
+  - Python基础
 cover: /img/pypi.svg
-top_img: 
+abbrlink: 79a9fda5
+date: 2018-06-23 20:12:35
+top_img: /img/python-top-img.svg
 ---
 
 Python从设计之初就已经是一门面向对象的语言，正因为如此，在Python中创建一个类和对象是很容易的。本章节我们将详细介绍Python的面向对象编程。

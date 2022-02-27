@@ -11,7 +11,7 @@
       descr: Iterate faster, innovate together
     - name: Gitee
       link: https://gitee.com/
-      avatar: /img/gitee.svg
+      avatar: /img/gitee-circ.svg
       descr: 基于 Git 的代码托管和研发协作平台
     - name: Coding
       link: https://coding.net/
@@ -35,7 +35,7 @@
       descr: 字体图标
     - name: 维基百科
       link: https://zh.wiki.hancel.org/wiki/
-      avatar: /img/wiki.svg
+      avatar: /img/Wikipedia.svg
       descr: 自由百科全书
     - name: 清华大学 TUNA 协会
       link: https://mirror.tuna.tsinghua.edu.cn/
@@ -180,12 +180,12 @@
     - name: DreamyTZK
       link: https://www.antmoe.com/
       avatar: https://cdn.jsdelivr.net/npm/kang-static@latest/avatar.jpg
-      descr: 
+      descr: ''
     - name: Easy Hexo
       link: https://easyhexo.com/
       avatar: /img/easy-hexo.jpg
-      descr: 
+      descr: ''
     - name: ConstOwn
       link: https://blog.juanertu.com/
       avatar: https://blog.juanertu.com/images/avatar.png
-      descr: 
+      descr: ''

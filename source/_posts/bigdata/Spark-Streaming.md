@@ -1,10 +1,15 @@
 ---
-title: 大数据手册(Spark)--Spark 流数据处理
+title: 大数据手册(Spark)--PySpark 流数据处理
+categories:
+  - 大数据
+tags:
+  - 大数据
+  - Spark
+  - 数据流
+cover: /img/apache-spark-streaming.png
+top_img: /img/apache-spark-top-img.svg
+abbrlink: 34eba6aa
 date: 2020-01-13 17:48:05
-categories: [大数据]
-tags: [大数据,Spark,数据流]
-cover: /img/spark_streaming_logo.png
-top_img: /img/spark-logo.svg
 description: 
 ---
 

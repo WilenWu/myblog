@@ -1,17 +1,21 @@
 ---
 title: 大数据手册(Spark)--Spark 基础知识（二）
-date: 2020-01-03 16:20:25
-categories: [大数据]
-tags: [大数据,Spark]
-cover: /img/spark2.png
-top_img: /img/spark-logo.svg
+categories:
+  - 大数据
+tags:
+  - 大数据
+  - Spark
+cover: /img/apache-spark-base2.png
+top_img: /img/apache-spark-top-img.svg
 description: false
+abbrlink: 264c088
+date: 2020-01-03 16:20:25
 ---
-
 
 # Spark 初始化
 
-**spark 交互式执行环境**
+## spark 交互式执行环境
+
 ```bash
 spark-shell --master <master-url>  # scala
 pyspark  --master <master-url> # python
@@ -27,14 +31,13 @@ pyspark  --master <master-url> # python
 
 用户编写完Spark应用程序之后，需要将应用程序提交到集群中运行，提交时使用脚本spark-submit进行，spark-submit可以带多种参数
 
-
-**运行 spark 应用程序**
+## 运行 spark 应用程序
 
 ```bash
 spark-submit --master <master-url> code.py [*args]
 ```
 
- **环境初始化**
+## 环境初始化
 
 默认情况下，Spark 交互式环境已经为 SparkContext 创建了名为 sc 的变量，因此创建新的环境变量将不起作用。但是，在独立spark 应用程序中，需要自行创建SparkContext 对象。
 ```python
@@ -68,8 +71,7 @@ sc.stop()  # 终止SparkContext
 
 # 弹性分布式数据集 (RDD)
 
-
-**RDD创建**
+## RDD创建
 
 ```python
 # 从并行集合创建
@@ -107,6 +109,8 @@ mapReduce|说明
 >>> names.flatMap(lambda x:x.split(' ')).collect()
 ['Elon','Musk','Bill','Gates','Jim','Green']
 ```
+
+## RDD属性和方法
 
 提取|说明
 :---|:---
@@ -148,6 +152,32 @@ mapReduce|说明
 [('a',[7,2]),('b',[2])]
 ```
 
+| 统计                 | 说明                                             |
+| :------------------- | :----------------------------------------------- |
+| `rdd.count()`        | 返回RDD中的元素数                                |
+| `rdd.countByKey()`   | 按key计算RDD元素数量                             |
+| `rdd.countByValue()` | 按RDD元素计算数量                                |
+| `rdd.sum()`          | 求和                                             |
+| `rdd.mean()`         | 平均值                                           |
+| `rdd.max()`          | 最大值                                           |
+| `rdd.min()`          | 最小值                                           |
+| `rdd.stdev()`        | 标准差                                           |
+| `rdd.variance()`     | 方差                                             |
+| `rdd.histograme()`   | 分箱（Bin）生成直方图                            |
+| `rdd.stats()`        | 综合统计（计数、平均值、标准差、最大值和最小值） |
+
+
+```python
+>>> pairRDD.count()
+3
+>>> pairRDD.countByKey()
+defaultdict(<type 'int'>,{'a':2,'b':1})
+>>> pairRDD.countByValue()
+defaultdict(<type 'int'>,{('b',2):1,('a',2):1,('a',7):1})
+>>> rdd2.histogram(3)
+([0,33,66,99],[33,33,34])
+```
+
 
 选择数据|说明
 :---|:---
@@ -165,33 +195,6 @@ mapReduce|说明
 :---|:---
 `rdd.sortBy(func,ascending=True)`|按RDD元素变换后的值排序
 `rdd.sortByKey(ascending=True)`|按key排序
-
-
-统计|说明
-:---|:---
-`rdd.count()`|返回RDD中的元素数
-`rdd.countByKey()`|按key计算RDD元素数量
-`rdd.countByValue()`|按RDD元素计算数量
-`rdd.sum()`|求和
-`rdd.mean()`|平均值
-`rdd.max()`|最大值
-`rdd.min()`|最小值
-`rdd.stdev()`|标准差
-`rdd.variance()`|方差
-`rdd.histograme()`|分箱（Bin）生成直方图
-`rdd.stats()`|综合统计（计数、平均值、标准差、最大值和最小值）
-
-
-```python
->>> pairRDD.count()
-3
->>> pairRDD.countByKey()
-defaultdict(<type 'int'>,{'a':2,'b':1})
->>> pairRDD.countByValue()
-defaultdict(<type 'int'>,{('b',2):1,('a',2):1,('a',7):1})
->>> rdd2.histogram(3)
-([0,33,66,99],[33,33,34])
-```
 
 
 连接运算|说明
@@ -225,6 +228,8 @@ defaultdict(<type 'int'>,{('b',2):1,('a',2):1,('a',7):1})
 [('b',(2,'B'))]
 ```
 
+## 分区和缓存
+
 持久化|说明
 :---|:---
 `rdd.persist()`|标记为持久化
@@ -239,7 +244,8 @@ defaultdict(<type 'int'>,{('b',2):1,('a',2):1,('a',7):1})
 `rdd.coalesce(n)`|将RDD中的分区减至n个
 `rdd.partitionBy(key,func)`|自定义分区
 
-**文件系统读写**
+## 文件系统读写
+
 ```python
 # 读取
 rdd=sc.textFile('hdfs://file_path')  # 从hdfs集群读取
@@ -254,12 +260,12 @@ rdd.saveAsTextFile('file:///local_file_path')
 
 # DataFrame
 
-**Spark SQL**
+## Spark SQL
 
 Spark SQL用于对结构化数据进行处理，它提供了DataFrame的抽象，作为分布式平台数据查询引擎，可以在此组件上构建大数据仓库。DataFrame是一个分布式数据集，在概念上类似于传统数据库的表结构，数据被组织成命名的列，DataFrame的数据源可以是结构化的数据文件，也可以是Hive中的表或外部数据库，也还可以是现有的RDD。
 DataFrame的一个主要优点是，Spark引擎一开始就构建了一个逻辑执行计划，而且执行生成的代码是基于成本优化程序确定的物理计划。与Java或者Scala相比，Python中的RDD是非常慢的，而DataFrame的引入则使性能在各种语言中都保持稳定。
 
-**初始化**
+## 初始化
 
 在过去，你可能会使用SparkConf、SparkContext、SQLContext和HiveContext来分别执行配置、Spark环境、SQL环境和Hive环境的各种Spark查询。SparkSession现在是读取数据、处理元数据、配置会话和管理集群资源的入口。SparkSession本质上是这些环境的组合，包括StreamingContext。
 
@@ -273,7 +279,10 @@ spark=SparkSession \
 ```
 Spark 交互式环境下，默认已经创建了名为 spark 的 SparkSession 对象，不需要自行创建。
 
+## DataFrame创建
+
 **从RDD创建DataFrame**
+
 ```python
 # 推断schema
 from pyspark.sql import Row
@@ -296,12 +305,14 @@ schema = StructType([
     ])
 df=createDataFrame(parts, schema)
 ```
-> StructField包括以下方面的内容：
-> name：字段名
-> dataType：数据类型
-> nullable：此字段的值是否为空
+StructField 包括以下方面的内容：
+
+- name：字段名
+- dataType：数据类型
+- nullable：此字段的值是否为空
 
 **从文件系统创建DataFrame**
+
 ```python
 df = spark.read.json("customer.json")
 df = spark.read.load("customer.json", format="json")
@@ -309,7 +320,8 @@ df = spark.read.load("users.parquet")
 df = spark.read.text("users.txt")
 ```
 
-**输出和保存**
+## 输出和保存
+
 ```python
 df.rdd # df转化为RDD
 df.toJSON() # df转化为RDD字符串
@@ -322,25 +334,28 @@ df.write.json("users.json")
 df.write.text("users.txt")
 ```
 
-**数据库读写**
+## 数据库读写
+
 ```python
 df = spark.sql('select name,age,city from users') 
 df.createOrReplaceTempView(name) # 创建临时视图
 df.write.saveAsTable(name,mode='overwrite',partitionBy=None)
 ```
-**操作hive表**
-`df.write` 有两种方法操作hive表
+**操作hive表**：`df.write` 有两种方法操作hive表
+
 - `saveAsTable()`
   如果hive中不存在该表，则spark会自动创建此表匹。
   如果表已存在，则匹配插入数据和原表 schema(数据格式，分区等)，只要有区别就会报错
   若是分区表可以调用`partitionBy`指定分区，使用`mode`方法调整数据插入方式：
+  
    > Specifies the behavior when data or table already exists. Options include:
    >  - `overwrite`: 覆盖原始数据(包括原表的格式，注释等)
    >  - `append`: 追加数据(需要严格匹配)
    >  - `ignore`: ignore the operation (i.e. no-op).
    >  - `error` or `errorifexists`: default option, throw an exception at runtime.
-
+  
    `df.write.partitionBy('dt').mode('append').saveAsTable('tb2')`
+  
 - `insertInto()`
   无关schema，只按数据的顺序插入，如果原表不存在则会报错
   对于分区表，先==开启Hive动态分区==，则不需要指定分区字段，如果有一个分区，那么默认为数据中最后一列为分区字段，有两个分区则为最后两列为分区字段，以此类推
@@ -349,8 +364,11 @@ df.write.saveAsTable(name,mode='overwrite',partitionBy=None)
    sqlContext.setConf("hive.exec.dynamic.partition.mode", "nonstrict")
    df.write.insertInto('tb2')
    ```
+  
 - 同样也可以先==开启Hive动态分区==，用SQL语句直接运行
-`sql("insert into tb2 select * from tb1")`
+  `sql("insert into tb2 select * from tb1")`
+
+## DataFrame属性和方法
 
 
 DataFrame信息|说明
@@ -509,6 +527,8 @@ df=df.na.fill({'age':50,'name':'unknow'})
 df=df.na.drop()
 df=df.na.replace(['Alice','Bob'],['A','B'],'name')
 ```
+
+## 分区和缓存
 
 分区和缓存|说明
 :---|:---

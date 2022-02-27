@@ -1,12 +1,18 @@
 ---
-ID: 3a5d91e9124d3889c9afef5c3e331c0d
 title: R手册(Tidy+Transform)--tidyr
-tags: [R,tidyverse,数据清洗]
-date: 2018-05-28 16:33:39
-categories: [R,Tidy+Transform]
-cover: /img/tidyr.png
-top_img: 
+tags:
+  - R
+  - tidyverse
+  - 数据清洗
+categories:
+  - R
+  - Tidy+Transform
+cover: /img/tidyr-cover.png
 description: Easily tidy data with spread and gather functions
+abbrlink: a54cead0
+date: 2018-05-28 16:33:39
+top_img:
+description: 清理数据，reshape2替代版(Hadley)
 ---
 
 **tidyr**: Easily tidy data with spread and gather functions.
