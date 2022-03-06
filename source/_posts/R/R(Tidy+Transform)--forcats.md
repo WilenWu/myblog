@@ -6,7 +6,7 @@ tags:
   - 数据清洗
 categories:
   - R
-  - Tidy+Transform
+  - 数据清洗
 cover: /img/forcats-cover.png
 description: for factors.(Hadley)
 abbrlink: ea1d43b4

@@ -33,7 +33,10 @@ code_dir: downloads/code     # 代码页所在的文件夹(根目录
 i18n_dir: :lang              # 国际语言所在的文件夹
 skip_render:                 # 忽略文档(根目录 source_dir/)，不做改动地输出到 public 目录
   - "gitbook/**"
+  - "docs/**"
   - "_drafts/**"
+  - "**/*.py"
+
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -198,3 +201,89 @@ abbrlink:
   auto_title: false #enable auto title, it can auto fill the title by path
   auto_date: false #enable auto date, it can auto fill the date by time today
   force: false #enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink.
+
+# 统计图表，支持发布文章统计、发布日历、Top标签统计、分类统计、分类雷达。
+# see https://www.npmjs.com/package/hexo-butterfly-charts
+charts:
+  enable: true # 是否启用功能
+  postsChart:
+    title:  # 设置文章发布统计的标题，默认为空
+    interval: 0 # 横坐标间隔
+  tagsChart:
+    title: Top 10 标签统计 # 设置标签统计的标题，默认为空
+    interval: 0 # 横坐标间隔
+  postsCalendar_Title: 文章发布日历 # 设置发布日历的标题，默认为空
+  categoriesChart_Title: 文章分类统计 # 设置分类统计的标题，默认为空
+  categoriesRadar_Title: # 设置分类雷达的标题，默认为空
+
+# tag-plugins-plus
+# see https://akilar.top/posts/615e2dec/
+tag_plugins:
+  enable: true # 开关
+  priority: 5 #过滤器优先权
+  issues: false #issues标签依赖注入开关
+  link:
+    placeholder: /img/link.png #link_card标签默认的图标图片
+  CDN:
+    anima: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css #动画标签anima的依赖
+    jquery: https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js #issues标签依赖
+    issues: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/issues.js #issues标签依赖
+    iconfont: //at.alicdn.com/t/font_2032782_8d5kxvn09md.js #参看https://akilar.top/posts/d2ebecef/
+    carousel: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js
+    tag_plugins_css: https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css
+
+# hexo-butterfly-swiper
+# see https://akilar.top/posts/8e1264d1/
+swiper:
+  enable: true # 开关
+  priority: 6 #过滤器优先权
+  enable_page: / # 应用页面
+  timemode: date #date/updated
+  layout: # 挂载容器类型
+    type: id
+    name: recent-posts
+    index: 0
+  default_descr: 再怎么看我也不知道怎么描述它的啦！
+  swiper_css: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css #swiper css依赖
+  swiper_js: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js #swiper js依赖
+  custom_css: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css # 适配主题样式补丁
+  custom_js: https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js # swiper初始化方法
+
+# hexo-filter-gitcalendar
+# see https://akilar.top/posts/1f9c68c9/
+gitcalendar:
+  enable: true # 开关
+  priority: 5 #过滤器优先权
+  enable_page: / # 应用页面
+  # butterfly挂载容器
+  layout: # 挂载容器类型
+    type: id
+    name: recent-posts
+    index: 0
+  # volantis挂载容器
+  # layout:
+  #   type: class
+  #   name: l_main
+  #   index: 0
+  # matery挂载容器
+  # layout:
+  #   type: id
+  #   name: indexCard
+  #   index: 0
+  # mengd挂载容器
+  # layout:
+  #   type: class
+  #   name: content
+  #   index: 0
+  user: WilenWu #git用户名
+  apiurl: 'https://gitcalendar.akilar.top'
+  minheight:
+    pc: 280px #桌面端最小高度
+    mibile: 0px #移动端最小高度
+  # color: "['#e4dfd7', '#f9f4dc', '#f7e8aa', '#f7e8aa', '#f8df72', '#fcd217', '#fcc515', '#f28e16', '#fb8b05', '#d85916', '#f43e06']" #橘黄色调
+  # color: "['#ebedf0', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f']" #浅紫色调
+  color: "['#ebedf0', '#f0fff4', '#dcffe4', '#bef5cb', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620']" #翠绿色调
+  # color: "['#ebedf0', '#f1f8ff', '#dbedff', '#c8e1ff', '#79b8ff', '#2188ff', '#0366d6', '#005cc5', '#044289', '#032f62', '#05264c']" #天青色调
+  container: .recent-post-item(style='width:100%;height:auto;padding:10px;') #父元素容器，需要使用pug语法
+  gitcalendar_css: https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css
+  gitcalendar_js: https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js

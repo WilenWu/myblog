@@ -7,7 +7,7 @@ tags:
   - 正则表达式
 categories:
   - R
-  - Tidy+Transform
+  - 数据清洗
 cover: /img/stringr-cover.png
 description: 'Simple, Consistent Wrappers for Common String Operations'
 abbrlink: c4e3d4d8

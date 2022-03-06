@@ -12,6 +12,7 @@ description: GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规
 abbrlink: b6db1d88
 date: 2018-04-30 13:57:37
 top_img:
+swiper_index: 1
 ---
 
 **Markdown**是一种轻量级**标记语言**，它以纯文本形式编写文档，易读（看起来舒服）、易写（语法简单）、易更改，并最终以HTML格式发布。由于markdown没有明确指定语法，随着编译器不一样，实现方式有很大差异。GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规范了markdown的语法和语义。

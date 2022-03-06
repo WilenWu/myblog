@@ -8,14 +8,14 @@ import datetime
 import yaml 
 
 # 初始化
-pring('hexo clean')
+print('hexo clean')
 os.system('hexo clean')
 
 #------------------------------ 参数获取
 parser = argparse.ArgumentParser(description='更新目录文件')
 parser.add_argument('-p','--path', default='./source/_posts/',
                     help='posts文件路径')
-parser.add_argument('-o','--output', default='./source/toc/index.md',
+parser.add_argument('-o','--output', default='./source/user-guide/index.md',
                     help='目录文件路径')
 parser.add_argument('--permalink', default='posts/:abbrlink/',
                     help='文章永久链接模板')
@@ -24,7 +24,7 @@ args = parser.parse_args()
 print(f'开始更新 {args.output}')
 
 #----------------------------- 读取 toc 文件
-# toc_url = './source/toc/index.md'
+# toc_url = './source/user-guide/index.md'
 toc_url = args.output
 with open(toc_url , mode = 'r', encoding = 'utf-8') as f:
     toc = f.read()

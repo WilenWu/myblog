@@ -6,7 +6,7 @@ tags:
   - 数据清洗
 categories:
   - R
-  - Tidy+Transform
+  - 数据清洗
 cover: /img/dplyr-cover.png
 description: A Grammar of Data Manipulation
 abbrlink: 4d122cf

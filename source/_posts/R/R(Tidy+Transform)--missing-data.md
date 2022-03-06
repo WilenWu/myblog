@@ -6,7 +6,7 @@ tags:
   - 缺失值
 categories:
   - R
-  - Tidy+Transform
+  - 数据清洗
 cover: /img/naniar-cover.png
 description: 缺失数据概述、可视化和插补
 abbrlink: 71c316f2

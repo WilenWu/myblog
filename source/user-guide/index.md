@@ -1,14 +1,13 @@
 ---
-title: 目录
+title: 用户指南
 date: 2019-10-08 13:04:44
-type: toc
 comments: true
 top_img: /img/computer.jpg
 ---
 
 ![](/img/bookshelf.jpg)
 
-本人依据个人爱好、工作需要等制定了一份详细的学习计划。依据本「目录」在博客不定时更新学习笔记。
+本人依据个人爱好、工作需要等制定了一份详细的学习计划。依据本「指南」在博客不定时更新学习笔记。
 
 其中
 
@@ -20,15 +19,17 @@ top_img: /img/computer.jpg
 
 ------
 
+<!-- more -->
+
 # <font color="red">Common</font>
 
-- :ballot_box_with_check: [正则表达式][Regular_Expression]
-- :ballot_box_with_check: [Linux基础知识][Linux_base]
-- :ballot_box_with_check: [Linux shell教程][Linux_shell]
-- :ballot_box_with_check: [VScode 常用快捷键][VScode_shortcut]
-- :ballot_box_with_check: [Win10 常用快捷键][Win10_shortcut]
-- :white_large_square: [电子书文件格式][eBook]
-- :ballot_box_with_check: [git 常用命令][git]
+:ballot_box_with_check: [正则表达式][Regular_Expression]
+:ballot_box_with_check: [Linux基础知识][Linux_base]
+:ballot_box_with_check: [Linux shell教程][Linux_shell]
+:ballot_box_with_check: [VScode 常用快捷键][VScode_shortcut]
+:ballot_box_with_check: [Win10 常用快捷键][Win10_shortcut]
+:white_large_square: [电子书文件格式][eBook]
+:ballot_box_with_check: [git 常用命令][git]
 
 [Regular_Expression]: /posts/2f57a694/
 [Linux_base]: /posts/df41aea9/

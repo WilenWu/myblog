@@ -1,10 +1,10 @@
 ---
-title: 柏林噪声(Python)
+title: 柏林噪声
 tags:
   - Python
   - 柏林噪声
 categories:
-  - 实用知识
+  - Common
 cover: /img/perlin-noise-cover.png
 top_img: /img/perlin-noise-top-img.png
 abbrlink: c38b4d63

@@ -2,9 +2,9 @@
 title: 二分类模型评价指标
 katex: true
 categories:
-  - 大数据
+  - 机器学习
 tags:
-  - 大数据
+  - 机器学习
   - 二分类
   - 混淆矩阵
   - ROC曲线

@@ -6,13 +6,12 @@ tags:
   - 数据清洗
 categories:
   - R
-  - Tidy+Transform
+  - 数据清洗
 cover: /img/tidyr-cover.png
-description: Easily tidy data with spread and gather functions
+description: 清理数据，reshape2替代版(Hadley)
 abbrlink: a54cead0
 date: 2018-05-28 16:33:39
 top_img:
-description: 清理数据，reshape2替代版(Hadley)
 ---
 
 **tidyr**: Easily tidy data with spread and gather functions.

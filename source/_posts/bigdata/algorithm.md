@@ -2,9 +2,9 @@
 title: 数据分析算法概览
 katex: true
 categories:
-  - 大数据
+  - 机器学习
 tags:
-  - 大数据
+  - 机器学习
 cover: /img/data-analysis.png
 top_img: /img/data-chart3.jpg
 description: 数据分析术语的简单说明

@@ -128,11 +128,11 @@ npm install -g npm-check
 `npm-check` 命令会检查项目中没有使用过的包、有更新的包、推荐安装的包
 
 - `-u, --update` 出现一个**交互式更新界面**，我们可以根据需要更新并同步package.json
+
 - `-y, --update-all` 更新所有的依赖
+
 - `-g, --global` 全局模式，例如
 
   ```shell
   npm-check -gu
   ```
-
-  

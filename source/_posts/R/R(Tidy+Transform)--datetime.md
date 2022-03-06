@@ -7,7 +7,7 @@ tags:
   - 时间序列
 categories:
   - R
-  - Tidy+Transform
+  - 数据清洗
 cover: /img/r-datetime-cover.svg
 top_img: 
 description: for date and times.(Hadley)

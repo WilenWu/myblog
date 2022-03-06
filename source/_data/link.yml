@@ -1,26 +1,8 @@
-- class_name: 平台
-  class_desc: 
-  link_list:
-    - name: Github
-      link: https://github.com/
-      avatar: /img/github.svg
-      descr: Where the world builds software
-    - name: Gitlab
-      link: https://about.gitlab.com/
-      avatar: /img/gitlab.svg
-      descr: Iterate faster, innovate together
-    - name: Gitee
-      link: https://gitee.com/
-      avatar: /img/gitee-circ.svg
-      descr: 基于 Git 的代码托管和研发协作平台
-    - name: Coding
-      link: https://coding.net/
-      avatar: /img/CODING.svg
-      descr: 一站式软件研发管理平台
-    - name: Gitbook
-      link: https://www.gitbook.com/
-      avatar: /img/gitbook.svg
-      descr: Where software teams break knowledge silos.
+# - class_name: 在线工具
+#   class_desc: 
+
+
+# 速查手册，参考文档，素材资源，图片素材
 
 - class_name: 网站
   class_desc: 值得推荐的网站
@@ -29,8 +11,8 @@
       link: https://www.iconfont.cn/
       avatar: /img/iconfont.svg
       descr: 阿里巴巴矢量图标库
-    - name: Font Awesome 中文网
-      link: http://www.fontawesome.com.cn/
+    - name: Font Awesome
+      link: https://fontawesome.com/
       avatar: /img/font-awesome.svg
       descr: 字体图标
     - name: 维基百科
@@ -158,34 +140,118 @@
       avatar: /img/telescope.svg
       descr: 中国科技资源共享网
 
-- class_name: 博客框架
+- class_name: 托管平台
+  class_desc: 
+  link_list:
+    - name: Github
+      link: https://github.com/
+      avatar: /img/github.svg
+      descr: Where the world builds software
+    - name: Gitlab
+      link: https://about.gitlab.com/
+      avatar: /img/gitlab.svg
+      descr: Iterate faster, innovate together
+    - name: Gitee
+      link: https://gitee.com/
+      avatar: /img/gitee-circ.svg
+      descr: 基于 Git 的代码托管和研发协作平台
+    - name: Coding
+      link: https://coding.net/
+      avatar: /img/CODING.svg
+      descr: 一站式软件研发管理平台
+    - name: Gitbook
+      link: https://www.gitbook.com/
+      avatar: /img/gitbook.svg
+      descr: Where software teams break knowledge silos.
+
+- class_name: 博客文档
   class_desc: 
   link_list:
     - name: Hexo
       link: https://hexo.io/zh-cn/
       avatar: /img/hexo-logo.svg
       descr: 快速、简洁且高效的博客框架
-    - name: Butterfly 
-      link: https://butterfly.js.org/
-      avatar: /img/butterfly-logo.png
-      descr: 今日事，今日毕
-    - name: NexT
+    - name: Jekyll
+      link: https://www.jekyll.com.cn/
+      avatar: /img/jekyll.svg
+      descr: 将纯文本转化为静态网站和博客
+    - name: Hugo
+      link: https://gohugo.io/
+      avatar: /img/hugo-logo.png
+      descr: The world’s fastest framework for building websites
+    - name: MkDocs
+      link: https://mkdocs.zimoapps.com/
+      avatar: /img/mkdocs.svg
+      descr: 简洁胜于复杂
+    - name: Sphinx
+      link: https://www.sphinx.org.cn/
+      avatar: /img/Sphinx.svg
+      descr: 是一个基于 Python 的文档生成工具
+    - name: docsify
+      link: https://docsify.js.org/#/zh-cn/
+      avatar: /img/docsify-logo.svg
+      descr: 可以快速帮你生成文档网站
+
+    - name: NexT 主题
       link: https://theme-next.js.org/
       avatar: /img/next-logo.svg
       descr: Stay Simple. Stay NexT.
+    - name: Butterfly 主题
+      link: https://butterfly.js.org/
+      avatar: /img/butterfly-avatar.png
+      descr: 今日事，今日毕
+    - name: matery 主题
+      link: http://blinkfox.com/2018/09/28/qian-duan/hexo-bo-ke-zhu-ti-zhi-hexo-theme-matery-de-jie-shao/
+      avatar: /img/blinkfox-icon.png
+      descr: 这是一个采用Material Design和响应式设计的 Hexo 博客主题
 
-- class_name: 友情链接
-  class_desc: 大神博客
+    - name: Eureka 主题
+      link: https://www.wangchucheng.com/zh/docs/hugo-eureka/
+      avatar: /img/gopher-hero.svg
+      descr: 是一个功能丰富且可高度定制化的 Hugo 主题，由国人开发
+    - name: Docsy 主题
+      link: https://www.docsy.dev/
+      avatar: /img/docsy.svg
+      descr: 是 Hugo 技术文档集的主题，提供简单的导航、网站结构等
+    - name: LEARN 主题
+      link: https://learn.netlify.app/en/
+      avatar: /img/hugo-learn-logo.svg
+      descr: 是完全是为文档设计的主题
+
+    - name: ReadTheDocs 主题
+      link: https://github.com/cjsheets/mkdocs-rtd-dropdown
+      avatar: /img/readthedocs.svg
+      descr: ReadTheDocs 的修改版本
+    - name: Material 主题
+      link: https://squidfunk.github.io/mkdocs-material/
+      avatar: /img/theme-material-logo.svg
+      descr: Google 推行的 Material Design 风格
+    - name: book 主题
+      link: https://sphinx-themes.org/sample-sites/sphinx-book-theme/
+      avatar: /img/theme-book.svg
+      descr: a clean design, support for interactive content, and a modern book-like look and feel.
+
+- class_name: 大佬们
+  class_desc: 
   link_list:
     - name: DreamyTZK
       link: https://www.antmoe.com/
       avatar: https://cdn.jsdelivr.net/npm/kang-static@latest/avatar.jpg
-      descr: ''
-    - name: Easy Hexo
-      link: https://easyhexo.com/
-      avatar: /img/easy-hexo.jpg
-      descr: ''
+      descr: 一个收藏回忆与分享技术的地方
     - name: ConstOwn
       link: https://blog.juanertu.com/
       avatar: https://blog.juanertu.com/images/avatar.png
-      descr: ''
+      descr: 能与你一起成长，我荣幸之至。
+    - name: Akilarの糖果屋
+      link: https://akilar.top/
+      avatar: https://npm.elemecdn.com/akilar-candyassets/image/siteicon/favicon.png
+      descr: 期待您的光临！
+    - name: しゅふがく
+      link: https://zfe.one
+      avatar: https://zfe.space/images/headimage.png
+      descr: 做个有梦想的人！
+    - name: 小丁博客
+      link: https://tding.top/
+      avatar: https://tding.top/images/avatar.webp
+      descr: 世间所有的相遇，都是久别重逢
+
