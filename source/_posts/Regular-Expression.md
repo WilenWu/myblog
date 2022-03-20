@@ -1,7 +1,7 @@
 ---
 title: 正则表达式
 categories:
-  - Common
+  - General
 tags: 正则表达式
 cover: /img/regexp.jpeg
 sticky: 2

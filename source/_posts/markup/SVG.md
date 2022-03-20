@@ -12,6 +12,7 @@ abbrlink: c18c7e9b
 date: 2021-12-12 20:13:00
 updated:
 description: SVG是一种开放标准的矢量图形语言，基于XML标记语言
+emoji: heart
 ---
 
 # SVG 引言

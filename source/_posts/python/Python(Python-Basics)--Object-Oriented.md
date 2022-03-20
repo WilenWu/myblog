@@ -5,7 +5,7 @@ tags:
   - 面向对象
 categories:
   - Python
-  - Python基础
+  - General
 cover: /img/pypi.svg
 abbrlink: 79a9fda5
 date: 2018-06-23 20:12:35

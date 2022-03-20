@@ -8,7 +8,7 @@ categories:
   - NLP
 cover: /img/NLP.jpg
 top_img: /img/NLP.jpg
-description: 这个 R 包提供了高性能和简洁的 API 来进行文本分析、自然语言处理
+description: 这个 R 包提供了高性能和简洁的 API 来进行文本分析、自然语言处理（jiebaR推荐包）
 abbrlink: 94c7c255
 date: 2018-05-28 18:44:11
 ---

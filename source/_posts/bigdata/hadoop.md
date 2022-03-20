@@ -3,6 +3,7 @@ title: Hadoop生态概述及常见报错
 date: '2021-05-04 14:28:1'
 categories:
   - 大数据
+  - Hadoop
 tags:
   - 大数据
   - hadoop
@@ -10,7 +11,7 @@ tags:
   - HDFS
 cover: /img/apache-hadoop-cover.png
 top_img: /img/apache-hadoop-logo.svg
-description: Hadoop是一个开源框架来存储和处理大型数据在分布式环境中。它包含两个模块，一个是MapReduce，另外一个是Hadoop分布式文件系统（HDFS）。
+description: 
 abbrlink: c5386d49
 emoji: white_large_square
 ---

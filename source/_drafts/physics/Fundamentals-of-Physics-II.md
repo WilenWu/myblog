@@ -15,6 +15,8 @@ description:
 
 <!-- more -->
 
+[麦克斯韦方程组 (maxwells-equations.com)](https://www.maxwells-equations.com/)
+
 # 12 Electricity 静电学
 
 12-2 Electric Charge

@@ -4,7 +4,7 @@ tags:
   - R
 categories:
   - R
-  - Common
+  - General
 cover: /img/rdatatable-cover.png
 top_img: /img/r-top-img.svg
 abbrlink: 4de35808

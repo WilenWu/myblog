@@ -5,7 +5,7 @@ tags:
   - 数据清洗
 categories:
   - Python
-  - pandas
+  - 'Data Analysis'
 cover: /img/pandas-cover.png
 abbrlink: 2a180ec0
 date: 2018-05-10 23:00:51

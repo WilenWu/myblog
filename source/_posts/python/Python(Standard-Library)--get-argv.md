@@ -2,11 +2,11 @@
 title: Python手册(Python Basics)--命令行参数
 categories:
   - Python
-  - Python标准库
+  - 'Standard Library'
 tags:
   - Python
 cover: /img/python-argparse-cover.png
-description: 轻松编写更友好的命令行参数接口
+description: 轻松编写更友好的命令行参数接口，包括 sys.argv, getopt, argparse
 abbrlink: 97d915c4
 date: 2021-11-10 21:52:50
 top_img: /img/python-top-img.svg

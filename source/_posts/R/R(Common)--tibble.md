@@ -5,7 +5,7 @@ tags:
   - tidyverse
 categories:
   - R
-  - Common
+  - General
 cover: /img/tibble-cover.png
 top_img: /img/tibble-cover.png
 abbrlink: 2b3aa78e

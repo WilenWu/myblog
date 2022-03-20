@@ -1,5 +1,5 @@
 ---
-title: R手册(Tidy+Transform)--日期时间
+title: R手册(Data Cleaning)--日期时间
 tags:
   - R
   - tidyverse
@@ -7,7 +7,7 @@ tags:
   - 时间序列
 categories:
   - R
-  - 数据清洗
+  - 'Data Cleaning'
 cover: /img/r-datetime-cover.svg
 top_img: 
 description: for date and times.(Hadley)

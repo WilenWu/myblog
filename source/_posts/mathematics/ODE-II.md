@@ -2,7 +2,7 @@
 title: 常微分方程(二)
 categories:
   - 数学
-  - 微分方程
+  - 常微分方程
 tags:
   - 数学
   - ODE

@@ -5,7 +5,7 @@ tags:
   - 正则表达式
 categories:
   - Python
-  - Python标准库
+  - 'Standard Library'
 cover: /img/regexp-demo.jpg
 top_img: /img/python-top-img.svg
 abbrlink: cb9fa048

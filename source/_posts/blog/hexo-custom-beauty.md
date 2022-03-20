@@ -1,11 +1,14 @@
 ---
 title: Hexo 博客魔改优化方法
-top_img: '#66CCFF'
-abbrlink: 18fbd3bc
 date: 2022-03-06 14:26:06
-tags:
 categories:
+  - 博客搭建
+tags:
+  - Hexo
 cover:
+top_img: /img/hexo-top-img.png
+noticeOutdate: true
+abbrlink: 18fbd3bc
 description:
 swiper_index: 2
 ---

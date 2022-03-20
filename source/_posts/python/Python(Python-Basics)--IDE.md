@@ -5,7 +5,7 @@ tags:
   - IDE
 categories:
   - Python
-  - Python基础
+  - General
 cover: /img/jupyterlab-logo.png
 top_img: # /img/python-top-img.svg
 abbrlink: 62196d29

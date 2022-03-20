@@ -2,7 +2,7 @@
 title: Python手册(Standard Library)--string
 categories:
   - Python
-  - Python标准库
+  - 'Standard Library'
 tags:
   - Python
 cover: /img/sudoku.jpeg

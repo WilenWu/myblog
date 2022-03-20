@@ -3,6 +3,7 @@ title: 大数据手册(Oracle)--Oracle SQL
 date: '2021-05-03 16:18:01'
 categories:
   - 大数据
+  - Hive
 tags:
   - 大数据
   - oracle

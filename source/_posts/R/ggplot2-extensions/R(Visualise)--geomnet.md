@@ -2,7 +2,8 @@
 title: R手册(Visualise)--geomnet(ggplot2 extensions)
 categories:
   - R
-  - 可视化
+  - Visualise
+  - 'ggplot2 extensions'
 tags:
   - R
   - ggplot2

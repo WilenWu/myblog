@@ -11,7 +11,7 @@ top_img: /img/yaml-cover.jpg
 abbrlink: 6ab72750
 date: 2021-12-03 23:12:27
 updated:
-description: 是一种开放标准的矢量图形语言，基于 XML 标记语言
+description: 
 emoji: white_large_square
 swiper_index: 1
 ---

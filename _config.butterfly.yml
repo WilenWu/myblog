@@ -84,11 +84,11 @@ katex:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: /img/github-black.svg
+favicon: /img/favicon.svg
 
 # Avatar (頭像)
 avatar:
-  img: /img/morty2-header.jpg
+  img: /img/avatar.jpg
   effect: false
 
 # 不显示顶部图
@@ -98,28 +98,28 @@ disable_top_img: false
 index_img: /img/cloud.jpeg
 
 # 默认的 top_img，当页面的 top_img 没有配置时，会显示 default_top_img
-default_top_img: false 
+default_top_img: /img/computer.jpg 
 
 # 归档页面的 top_img
-archive_img: 
+archive_img: false 
 
 # tag 子页面的默认 top_img
 # note: tag page, not tags page (子標籤頁面的 top_img)
-tag_img: 
+tag_img: false 
 
 # tag 子页面的 top_img，可配置每个 tag 的 top_img
 # format:
 #  - tag name: xxxxx
-tag_per_img: 
+tag_per_img: false
 
 # category 子页面 的 默认 top_img
 # note: category page, not categories page (子分類頁面的 top_img)
-category_img: 
+category_img: false
 
 # category 子页面的 top_img，可配置每个 category 的 top_img
 # format:
 #  - category name: xxxxx
-category_per_img:
+category_per_img: false
   # python: /img/python-logo.jpg
   # R: /img/r-report.jpg
 
@@ -578,7 +578,7 @@ display_mode: light
 # Beautify (美化頁面顯示)
 beautify:
   enable: true
-  field: post # site/post
+  field: site # site/post
   title-prefix-icon: '\f0c1'
   title-prefix-icon-color: '#F47466'
 

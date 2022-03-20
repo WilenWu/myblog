@@ -8,7 +8,7 @@ tags:
   - ggmap
 categories:
   - R
-  - 可视化
+  - Visualise
 cover: /img/baidu-map-cover.png
 top_img: /img/ggplot2-top-img.png
 description: 使用ggplot2在R中绘制静态地图

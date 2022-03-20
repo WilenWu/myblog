@@ -6,7 +6,7 @@ tags:
   - 机器学习
 categories:
   - R
-  - 机器学习
+  - 'Model Tools'
 cover: /img/broom-cover.png
 description: Convert statistical analysis objects into tidy format
 abbrlink: 251f7bf9

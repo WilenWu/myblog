@@ -5,7 +5,7 @@ tags:
   - 面向对象
 categories:
   - R
-  - Common
+  - General
 cover: /img/r6-cover.png
 top_img: 
 abbrlink: '515e9855'

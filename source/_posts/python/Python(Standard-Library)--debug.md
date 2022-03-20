@@ -2,7 +2,7 @@
 title: Python手册(Standard Library)--Python 代码调试工具
 categories:
   - Python
-  - Python标准库
+  - 'Standard Library'
 tags:
   - Python
 cover: /img/python-debug.jpg

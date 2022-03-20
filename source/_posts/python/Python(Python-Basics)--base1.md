@@ -4,7 +4,7 @@ tags:
   - Python
 categories:
   - Python
-  - Python基础
+  - General
 cover: /img/python-base1-cover.png
 top_img: /img/python-top-img.svg
 abbrlink: dc3e0f7b
@@ -329,6 +329,13 @@ del d # 删除字典
 | dict.items() | 返回dict中所有的(key,val)元祖数组  |
 | dict.get(key,default=None) | 如果key存在，返回value，否则返回default  |
 | dict.setdefault(key, default=None) | 如果key存在，返回value，则插入 key 及设置的默认值 default，并返回 default |
+
+```python
+# 对字典进行排序
+In [150]: d = {'a':3, 'b':2, 'c':1}
+In [151]: sorted(d.items(),key=lambda x:x[1])
+Out[151]: [('c', 1), ('b', 2), ('a', 3)]
+```
 
 ## 集合
 
@@ -713,11 +720,18 @@ for i, value in enumerate(collection):
 - **sorted函数**
 ` sorted(list)` 返回排序好的list副本 
  `sorted(str)`  拆分str，返回排序好的list副本 
+`sorted` 也可使用 `key` 参数对字典进行排序
+
+```python
+In [150]: d = {'a':3, 'b':2, 'c':1}
+In [151]: sorted(d.items(),key=lambda x:x[1])
+Out[151]: [('c', 1), ('b', 2), ('a', 3)]
+```
 
 - **zip函数**
-`zip(seq1,seq2)` 可以将多个列表、元组或其它序列成对组合成一个元组对
-zip可以处理任意多的序列，元素的个数取决于最短的序列
-`zip(*tup)`逆转用法
+  `zip(seq1,seq2)` 可以将多个列表、元组或其它序列成对组合成一个元组对
+  zip可以处理任意多的序列，元素的个数取决于最短的序列
+  `zip(*tup)`逆转用法
 
 ```python
 In [89]: seq1 = ['foo', 'bar', 'baz'] 

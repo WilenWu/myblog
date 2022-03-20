@@ -11,12 +11,14 @@ tags:
 abbrlink: 9e8cfeb8
 date: 2022-03-06 12:11:11
 cover:
-top_img: '#66CCFF'
+top_img: /img/hexo-top-img.png
 description: false
 swiper_index: 2
 ---
 
 [Hexo还是Hugo？Typecho还是Wordpress？读完这篇或许你就有答案了！](https://blog.laoda.de/archives/blog-choosing)
+
+[Static Site Generators - Top Open Source SSGs | Jamstack](https://jamstack.org/generators/)
 
 # Hexo
 
@@ -34,7 +36,7 @@ swiper_index: 2
 ![hexo-next](https://gitee.com/WilenWu/images/raw/master/common/hexo-next.png)
 ![hexo-butterfly](https://gitee.com/WilenWu/images/raw/master/common/hexo-butterfly.png)
 ![hexo-doc](https://gitee.com/WilenWu/images/raw/master/common/hexo-doc.png)
-![hexo-blinkfox](http://static.blinkfox.com/matery-20181202-1.png)
+![hexo-blinkfox](https://gitee.com/WilenWu/images/raw/master/common/matery-20181202-1.png)
 
 # Jekyll
 
@@ -45,7 +47,9 @@ swiper_index: 2
 
 # Hugo
 
-[Hugo](https://gohugo.io/) 是一个用 Go 语言编写的静态网站生成器，号称世界上最快的构建网站工具
+[Hugo](https://gohugo.io/) 是一个基于 Go 语言开发的静态网站生成器，号称世界上最快的构建网站工具
+
+[Hugo 与 Hexo 的异同 - 云+社区 - 腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1578634)
 
 ## 主题
 

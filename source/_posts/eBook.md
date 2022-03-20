@@ -1,7 +1,7 @@
 ---
 title: 电子书文件格式
 categories:
-  - Common
+  - General
 tags:
   - ePub
 cover: /img/books.jpg

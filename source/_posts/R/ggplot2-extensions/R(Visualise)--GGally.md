@@ -2,7 +2,8 @@
 title: R手册(Visualise)--GGally(ggplot2 extensions)
 categories:
   - R
-  - 可视化
+  - Visualise
+  - 'ggplot2 extensions'
 tags:
   - R
   - ggplot2
@@ -10,7 +11,7 @@ cover: /img/ggally-cover.png
 top_img: /img/ggplot2-top-img.png
 abbrlink: 643fc063
 date: 2018-05-30 23:32:36
-description:
+description: 矩阵图，生存图，网格图等
 emoji: heart
 ---
 

@@ -2,7 +2,7 @@
 title: Python手册(Python Basics)--RPy2
 categories:
   - Python
-  - Python基础
+  - General
 tags:
   - Python
 cover: /img/rpy2-cover.png

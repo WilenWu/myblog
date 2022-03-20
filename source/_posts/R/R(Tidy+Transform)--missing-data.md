@@ -1,12 +1,12 @@
 ---
-title: R手册(Tidy+Transform)--naniar and simputation
+title: R手册(Data Cleaning)--naniar and simputation
 tags:
   - R
   - 数据清洗
   - 缺失值
 categories:
   - R
-  - 数据清洗
+  - 'Data Cleaning'
 cover: /img/naniar-cover.png
 description: 缺失数据概述、可视化和插补
 abbrlink: 71c316f2

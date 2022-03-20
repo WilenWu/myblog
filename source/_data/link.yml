@@ -1,11 +1,29 @@
-# - class_name: 在线工具
-#   class_desc: 
-
-
-# 速查手册，参考文档，素材资源，图片素材
-
 - class_name: 网站
   class_desc: 值得推荐的网站
+  link_list:
+    - name: 维基百科
+      link: https://zh.wiki.hancel.org/wiki/
+      avatar: /img/Wikipedia.svg
+      descr: 自由百科全书
+    - name: 国际数学日
+      link: https://www.idm314.org/
+      avatar: /img/idm314-pin-black.jpg
+      descr: The International Day of Mathematics (IDM) 
+    - name: WolframAlpha
+      link: https://www.wolframalpha.com/
+      avatar: /img/WolframAlpha.svg
+      descr: 科研必备计算搜索引擎
+    - name: Math is Fun
+      link: https://www.mathsisfun.com/index.htm
+      avatar:  /img/mathisfun-circ.svg
+      descr: 趣味数学自学网站
+    - name: 小码短链接
+      link: https://xiaomark.com/tool
+      avatar:  /img/xiaomark.png
+      descr: 运营工具大全
+
+- class_name: 素材资源
+  class_desc: 
   link_list:
     - name: Iconfont
       link: https://www.iconfont.cn/
@@ -15,10 +33,18 @@
       link: https://fontawesome.com/
       avatar: /img/font-awesome.svg
       descr: 字体图标
-    - name: 维基百科
-      link: https://zh.wiki.hancel.org/wiki/
-      avatar: /img/Wikipedia.svg
-      descr: 自由百科全书
+    - name: kindpng
+      link: https://www.kindpng.com/
+      avatar:  /img/kindpng-logo.png
+      descr: Millions Of High Quality PNG Images For Free Download
+    - name: WallpaperSafari
+      link: https://wallpapersafari.com/
+      avatar:  /img/WallpaperSafari.svg
+      descr: Your best friend in finding wallpapers and backgrounds
+    - name: Logo.wine
+      link: https://www.logo.wine/
+      avatar:  /img/logo.wine.svg
+      descr: Brand Logos Free Download in SVG Vector & PNG File Format
     - name: 清华大学 TUNA 协会
       link: https://mirror.tuna.tsinghua.edu.cn/
       avatar: /img/tuna-logo.png
@@ -27,9 +53,57 @@
       link: https://github.com/apachecn/
       avatar: /img/apachecn.svg
       descr: 由 iBooker 建立的公益性文档和教程翻译项目
+    - name: 网盘搜索
+      link: http://www.pan58.com/
+      avatar: /img/pan58-icon.png
+      descr: 百度云搜索引擎
+    - name: 扩展迷Extfans
+      link: https://www.extfans.com/
+      avatar: /img/Extfans.png
+      descr: Chrome插件扩展推荐与下载
 
-- class_name: 知识
-  class_desc: 学无止境
+- class_name: 在线工具
+  class_desc: 
+  link_list:
+    - name: remove.bg
+      link: https://www.remove.bg/zh
+      avatar: /img/removebg.svg
+      descr: 在线抠图，自动去除背景
+    - name: 稿定设计PS
+      link: https://ps.gaoding.com/#/
+      avatar: /img/gaoding-ps.svg
+      descr: 在线图片处理工具
+    - name: SVG 在线编辑器
+      link: https://c.runoob.com/more/svgeditor/
+      avatar:  /img/runoob-svgeditor.svg
+      descr: 菜鸟工具
+    - name: ico51
+      link: http://www.ico51.cn/
+      avatar:  /img/ico-logo.png
+      descr: 在线生成透明ICO图标——ICO图标制作
+    - name: docsmall
+      link: https://docsmall.com/image-compress
+      avatar:  /img/docsmall.png
+      descr: 在线图片压缩工具
+    - name: TinyPNG
+      link: https://tinypng.com/#go-pro
+      avatar:  /img/tinypng-icon.png
+      descr: Compress WebP, PNG and JPEG images intelligently
+    - name: iLovePDF
+      link: https://www.ilovepdf.com/zh-cn
+      avatar:  /img/ilovepdf-heart.svg
+      descr: 为PDF爱好者提供的PDF文件在线处理工具
+    - name: StrErr
+      link: https://www.strerr.com/bilibili.html
+      avatar:  /img/icon-googledr.svg
+      descr: b站封面下载
+    - name: latexlive
+      link: https://www.latexlive.com/
+      avatar:  /img/MommyTalk.webp
+      descr: LaTeX公式编辑器
+
+- class_name: 参考教程
+  class_desc: 每天进步一点点
   link_list:
     - name: 网易公开课
       link: https://open.163.com/
@@ -124,8 +198,8 @@
       avatar: /img/kaggle.svg
       descr: 机器学习竞赛社区
 
-- class_name: 数据
-  class_desc: 科学数据库
+- class_name: 科学数据库
+  class_desc: 
   link_list:
     - name: NIST
       link: https://www.nist.gov/

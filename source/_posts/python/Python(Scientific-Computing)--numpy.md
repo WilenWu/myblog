@@ -2,7 +2,7 @@
 title: Python手册(Scientific Computing)--NumPy
 categories:
   - Python
-  - 科学计算
+  - 'Scientific Computing'
 tags:
   - Python
   - 科学计算

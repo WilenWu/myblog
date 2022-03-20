@@ -2,6 +2,7 @@
 title: 大数据手册(Spark)--PySpark 机器学习
 categories:
   - 大数据
+  - Spark
 tags:
   - 大数据
   - Spark

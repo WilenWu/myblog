@@ -6,17 +6,18 @@ type: gallery
 comments:
 description:
 keywords:
-top_img:
+top_img: false
+aside: false 
 ---
 
 {% gallery %}
-![](/img/planets/earth.jpg)
-![](/img/planets/Jupiter.jpg)
-![](/img/planets/Mars.jpg)
 ![](/img/planets/Mercury.jpg)
-![](/img/planets/Neptune.jpg)
+![](/img/planets/Venus.jpg)
+![](/img/planets/earth.jpg)
+![](/img/planets/Mars.jpg)
+![](/img/planets/Jupiter.jpg)
 ![](/img/planets/Saturn.jpeg)
 ![](/img/planets/uranus.jpg)
-![](/img/planets/Venus.jpg)
+![](/img/planets/Neptune.jpg)
 {% endgallery %}
 

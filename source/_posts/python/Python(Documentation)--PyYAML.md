@@ -5,14 +5,13 @@ tags:
   - 标记语言
   - YAML
 categories:
-  - - Python
-    - 文档
-  - - 标记语言
+  - Python
+  - Documentation
 cover: /img/PyYAML-cover.png
 top_img: /img/python-top-img.svg
 abbrlink: 95bcc2fb
 date: 2021-12-20 18:52:12
-updated:
+description: Python 的 YAML 解析器和发射器
 ---
 
 YAML 是一个可读性高，用来表达资料序列化的格式。特别适合用来表达或编辑数据结构、各种配置文件、倾印调试内容、文件大纲。PyYAML是Python的YAML解析器和发射器。

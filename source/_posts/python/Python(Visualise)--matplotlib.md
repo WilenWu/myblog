@@ -5,7 +5,7 @@ tags:
   - 可视化
 categories:
   - Python
-  - 可视化
+  - Visualise
 cover: /img/matplotlib-top.jpeg
 top_img: /img/matplotlib-cover.svg
 abbrlink: f347fe66

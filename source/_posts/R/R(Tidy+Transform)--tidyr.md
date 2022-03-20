@@ -1,12 +1,12 @@
 ---
-title: R手册(Tidy+Transform)--tidyr
+title: R手册(Data Cleaning)--tidyr
 tags:
   - R
   - tidyverse
   - 数据清洗
 categories:
   - R
-  - 数据清洗
+  - 'Data Cleaning'
 cover: /img/tidyr-cover.png
 description: 清理数据，reshape2替代版(Hadley)
 abbrlink: a54cead0

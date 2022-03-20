@@ -2,6 +2,7 @@
 title: 初等数学常用公式
 categories:
   - 数学
+  - 初等数学
 tags:
   - 数学
   - 三角函数

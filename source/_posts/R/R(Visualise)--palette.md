@@ -5,7 +5,7 @@ tags:
   - 可视化
 categories:
   - R
-  - 可视化
+  - Visualise
 cover: /img/palette.png
 description: 调色板和字体配置
 abbrlink: 74875eb3

@@ -4,7 +4,7 @@ tags:
   - R
 categories:
   - R
-  - Common
+  - General
 cover: /img/miniCRAN-cover.png
 top_img: /img/r-top-img.svg
 description: 'base, stats等基础包函数'

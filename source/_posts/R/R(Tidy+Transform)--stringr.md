@@ -1,5 +1,5 @@
 ---
-title: R手册(Tidy+Transform)--stringr
+title: R手册(Data Cleaning)--stringr
 tags:
   - R
   - tidyverse
@@ -7,7 +7,7 @@ tags:
   - 正则表达式
 categories:
   - R
-  - 数据清洗
+  - 'Data Cleaning'
 cover: /img/stringr-cover.png
 description: 'Simple, Consistent Wrappers for Common String Operations'
 abbrlink: c4e3d4d8

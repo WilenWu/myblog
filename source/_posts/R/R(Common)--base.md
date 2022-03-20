@@ -4,7 +4,7 @@ tags:
   - R
 categories:
   - R
-  - Common
+  - General
 cover: /img/r-base-cover.png
 description: 包括Rstudio介绍，R的数据结构和基础语法等
 abbrlink: 81860df8

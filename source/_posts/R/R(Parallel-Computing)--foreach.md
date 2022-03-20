@@ -5,7 +5,7 @@ tags:
   - 并行运算
 categories:
   - R
-  - 并行运算
+  - 'Parallel Computing'
 cover: /img/foreach-cover.png
 top_img: /img/r-top-img.svg
 description: 在循环(loop)中并行化运算

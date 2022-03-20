@@ -1,12 +1,12 @@
 ---
-title: R手册(Tidy+Transform)--forcats
+title: R手册(Data Cleaning)--forcats
 tags:
   - R
   - tidyverse
   - 数据清洗
 categories:
   - R
-  - 数据清洗
+  - 'Data Cleaning'
 cover: /img/forcats-cover.png
 description: for factors.(Hadley)
 abbrlink: ea1d43b4

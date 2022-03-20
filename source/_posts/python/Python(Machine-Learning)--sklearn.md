@@ -5,7 +5,7 @@ tags:
   - 机器学习
 categories:
   - Python
-  - 机器学习
+  - 'Machine Learning'
 cover: /img/sklearn-cover.svg
 top_img: /img/sklearn-top-img.svg
 description: 基于 SciPy 构建的机器学习 Python 模块

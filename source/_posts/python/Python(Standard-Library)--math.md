@@ -5,7 +5,7 @@ tags:
   - 科学计算
 categories:
   - Python
-  - Python标准库
+  - 'Standard Library'
 cover: /img/random.jpg
 abbrlink: bb46152f
 date: 2018-05-09 22:56:49

@@ -5,9 +5,9 @@ tags:
   - tidyverse
 categories:
   - R
-  - 语法
+  - Syntax
 cover: /img/purrr-cover.png
-description: A functional programming(FP) toolkit for R (Hadley)
+description: A functional programming(FP, 函数化编程) toolkit for R (Hadley)
 abbrlink: d355c8c1
 date: 2018-05-02 00:46:18
 top_img:

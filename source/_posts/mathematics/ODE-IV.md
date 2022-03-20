@@ -2,13 +2,13 @@
 title: 常微分方程(四)
 categories:
   - 数学
-  - 微分方程
+  - 常微分方程
 tags:
   - 数学
   - ODE
   - 微分方程
 katex: true
-description: 非线性微分方程
+description: 非线性微分方程、定性理论、边值问题
 abbrlink: 3689ee12
 date: 2021-10-30 21:58:00
 cover:

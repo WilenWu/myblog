@@ -1,7 +1,7 @@
 ---
 title: 文章数据统计
 date: 2022-03-04 22:21:10
-top_img: '#66CCFF' 
+top_img: false
 comments: 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Win10 常用快捷键
 categories:
-  - Common
+  - General
 tags: Windows
 cover: /img/win10-cover.png
 top_img: /img/win10-top-img.png

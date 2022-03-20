@@ -5,10 +5,10 @@ tags:
   - 时间序列
 categories:
   - R
-  - 时间序列
+  - 'Time Series'
 cover: /img/r-ts-cover.png
 top_img: /img/prophet-wide.svg
-description: 
+description: 线性或非线性模型高质量时间序列预测
 abbrlink: 810a7dca
 date: 2018-05-04 17:02:36
 ---

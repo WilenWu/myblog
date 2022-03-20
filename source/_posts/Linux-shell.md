@@ -1,7 +1,7 @@
 ---
 title: Linux shell教程
 categories:
-  - Common
+  - General
 tags:
   - linux
 cover: /img/linux-bash-cover.png

@@ -5,7 +5,7 @@ tags:
   - 可视化
 categories:
   - Python
-  - 可视化
+  - Visualise
 cover: /img/seaborn-cover.svg
 description: 基于matplotlib封装的数据可视化库
 abbrlink: 49513cf1
@@ -156,7 +156,7 @@ sns.relplot(x="timepoint", y="signal", hue="event", style="event",
   - `probability`: or `proportion`，标准化使得条形高度总和为 1
   - `percent`: 标准化使得条形高度总和为 100
   - `density`: 标准化使得直方图的总面积等于 1
-- common_norm：bool，是否将归一化将应用于整个数据集，如果False，则单独归一化
+- General_norm：bool，是否将归一化将应用于整个数据集，如果False，则单独归一化
 - bins：str, number, vector, or a pair of such values，bin的数量，bin数组
 - binwidth：number or pair of numbers， bin 的宽度
 - multiple：one of {laye, dodg, stack, fill}，多分组堆叠的方式，仅适用于单变量分布

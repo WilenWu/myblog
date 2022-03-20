@@ -6,7 +6,7 @@ tags:
   - tidyverse
 categories:
   - R
-  - 机器学习
+  - 'Model Tools'
 cover: /img/modelr-cover.png
 description: 辅助管道建模
 abbrlink: 2e6782e

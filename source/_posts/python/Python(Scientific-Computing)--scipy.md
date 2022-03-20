@@ -5,11 +5,12 @@ tags:
   - 科学计算
 categories:
   - Python
-  - 科学计算
+  - 'Scientific Computing'
 cover: /img/scipy-cover.svg
 description: 由一些基于 Python ，用于数学、科学和工程的开源软件构成的生态系统
 abbrlink: b1aa3aed
 date: 2018-05-10 23:04:50
+emoji: heart
 ---
 
 **SciPy**（发音为`Sigh Pie`）是基于Python的Numpy扩展构建的数学算法和便利函数的集合，是一组专门解决科学计算中各种标准问题域的包的集合，主要包括下面这些包：

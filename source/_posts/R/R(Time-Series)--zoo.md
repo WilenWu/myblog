@@ -6,7 +6,7 @@ tags:
   - 数据清洗
 categories:
   - R
-  - 时间序列
+  - 'Time Series'
 cover: /img/zoo-cover.png
 top_img: /img/r-top-img.svg
 description: zoo是对日期型数据进行清洗的R包

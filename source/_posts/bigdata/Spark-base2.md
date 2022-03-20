@@ -2,6 +2,7 @@
 title: 大数据手册(Spark)--Spark 基础知识（二）
 categories:
   - 大数据
+  - Spark
 tags:
   - 大数据
   - Spark

@@ -5,12 +5,12 @@ tags:
   - tidyverse
 categories:
   - R
-  - Common
+  - General
 cover: /img/tidyverse-core.png
 top_img: /img/tidyverse-core.png
 abbrlink: 4b49693d
 date: 2018-04-30 22:07:52
-description: tidyverse核心包：ggplot2,tibble,tidyr,readr,purrr,dplyr  
+description: tidyverse包集合，核心包(ggplot2,tibble,tidyr,readr,purrr,dplyr)
 ---
 
 [tidyverse](https://www.tidyverse.org/)是一系列包的组合，构建了一套完整的数据分析生态链，提供了一套整洁的数据导入，分析和建模方法，刷新了R语言原有的数据科学体系。

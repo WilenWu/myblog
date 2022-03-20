@@ -2,7 +2,7 @@
 title: Python手册(Machine Learning)--statsmodels
 categories:
   - Python
-  - 机器学习
+  - 'Machine Learning'
 tags:
   - Python
   - 机器学习

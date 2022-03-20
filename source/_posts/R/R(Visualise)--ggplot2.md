@@ -7,7 +7,7 @@ tags:
   - tidyverse
 categories:
   - R
-  - 可视化
+  - Visualise
 cover: /img/ggplot2-cover.png
 top_img: /img/ggplot2-top-img.png
 abbrlink: 8f6de5fc

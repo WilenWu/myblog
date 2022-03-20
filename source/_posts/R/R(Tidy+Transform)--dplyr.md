@@ -1,12 +1,12 @@
 ---
-title: R手册(Tidy+Transform)--dplyr and plyr
+title: R手册(Data Cleaning)--dplyr and plyr
 tags:
   - R
   - tidyverse
   - 数据清洗
 categories:
   - R
-  - 数据清洗
+  - 'Data Cleaning'
 cover: /img/dplyr-cover.png
 description: A Grammar of Data Manipulation
 abbrlink: 4d122cf

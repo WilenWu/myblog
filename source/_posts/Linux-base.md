@@ -1,7 +1,7 @@
 ---
 title: Linux基础知识
 categories:
-  - Common
+  - General
 tags:
   - linux
 cover: /img/linux-base-cover.png

@@ -1,7 +1,7 @@
 ---
 title: VScode 常用快捷键
 categories:
-  - Common
+  - General
 tags: IDE
 cover: /img/vscode-cover.png
 top_img: /img/vscode-top-img.svg

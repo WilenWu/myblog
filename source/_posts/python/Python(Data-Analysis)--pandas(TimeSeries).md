@@ -6,7 +6,7 @@ tags:
   - 时间序列
 categories:
   - Python
-  - pandas
+  - 'Data Analysis'
 cover: /img/pandas-cover.png
 top_img: 
 description: Pandas 时间序列数据处理工具

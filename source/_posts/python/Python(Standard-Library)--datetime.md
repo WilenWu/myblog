@@ -4,7 +4,7 @@ tags:
   - Python
 categories:
   - Python
-  - Python标准库
+  - 'Standard Library'
 cover: /img/python-datetime-cover.png
 top_img: /img/python-top-img.svg
 abbrlink: 592885c8

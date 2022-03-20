@@ -5,7 +5,7 @@ tags:
   - 机器学习
 categories:
   - R
-  - 机器学习
+  - 'Machine Learning'
 cover: /img/ml.jpg
 top_img: /img/r-top-img.svg
 abbrlink: '76507660'

@@ -5,7 +5,7 @@ tags:
   - tidyverse
 categories:
   - R
-  - 语法
+  - Syntax
 cover: /img/magrittr-cover.png
 description: Let’s pipe it (管道语法)  
 abbrlink: '71826e74'
