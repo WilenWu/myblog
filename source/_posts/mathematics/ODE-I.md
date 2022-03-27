@@ -81,7 +81,7 @@ y(x_0)=y_0\end{cases}$ 的解对应过点$(x_0,y_0)$的一条积分曲线，该�
 - **示例**：作微分方程 $y'=y/x$ 和 $y'=-x/y$的线素场。
 (1) $y'=y/x$ 的等斜线为 $L_k:y=kx$，说明线素斜率为 k 的所有点都集中在直线 $y=kx$ 上，也可求得方程的积分曲线簇为射线 $\tanθ=y/x,θ$为任意常数，原点 O为奇异点。
 (2) $y'=-x/y$的等斜线为 $L_k:y=-\frac{1}{k}x$，说明线素斜率为 k 的所有点都集中在直线 $y=-\frac{1}{k}x$ 上，且线素斜率和等斜线垂直相交，也可求得方程的积分曲线簇为同心圆 $x^2+y^2=C^2$，原点 O为奇异点。
-<img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/direction-field-demo.png" height="160">  <img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/direction-field-demo2.png" height="160" width="160">
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/direction-field-demo.png" height="160">  <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/direction-field-demo2.png" height="160" width="160">
 
 # 一阶常微分方程
 
@@ -501,7 +501,7 @@ y=\pm1 \\
 \cfrac{dy}{dx}=0
 \end{cases}$
 可知 $y\pm1$也是方程的特解。积分曲线簇见下图：
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/parametric-method-demo.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/parametric-method-demo.png)
 
 **对于一般的一阶隐式微分方程** 
 $$
@@ -571,7 +571,7 @@ $$
 
 我们采用皮卡(Picard)的逐步逼近法来证明这个定理。
 
-   <img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/progressive-approaching-method.png" height="70%" width="70%">
+   <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/progressive-approaching-method.png" height="70%" width="70%">
 
 - **命题 1**  设 $y=φ(x)$ 是初值问题 
 $$
@@ -760,7 +760,7 @@ $$
 
 
 -  **附注 1**  存在唯一性定理中数 $h$ 的几何意义（见下图）
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/h-value.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/h-value.png)
 图中 $h=\min\{a,\cfrac{b}{M}\}=\cfrac{b}{M}$，定理证明方程 (1.1) 过点$(x_0,y_0)$ 的积分曲线 $y=φ(x)$ 在区间$|x-x_0|⩽h$上确定。
 因为积分曲线满足$Δ_h:|φ(x)-y_0|⩽M|x-x_0|$，积分曲线斜率介于$M$和$-M$之间。所以，当$|x-x_0|⩽h$时，$|φ(x)-φ(x_0)|=|φ(x)-y_0|⩽M|x-x_0|⩽b$。
 也就是说积分曲线夹在R内的一个三角区域$Δ_h$之中，命题2中所有的函数 $y=φ_n(x)$都可在$|x-x_0|⩽h$上确定，它的图形都夹在三角区域$Δ_h$之中，自然，它的极限图形（积分曲线)也在其中。
@@ -834,7 +834,7 @@ $$
 <kbd>局部李普希兹条件</kbd>：函数 $f(x,y)$在某一区域G内连续，对于区域G内每一点P，都有以P为中心完全含于G内的闭矩形R存在，使得在R上 $f(x,y)$ 关于$y$满足李普希兹条件（对于不同的P，域R的大小和常数L可能不同），称 $f(x,y)$ 关于y满足==局部李普希兹条件== (Local Lipschitz condition)。
 
 假设方程 (1) 右端函数 $f(x,y)$ 关于y满足局部李普希兹条件，初值问题$E$的解 $y=φ(x)$ 已定义在区间 $|x-x_0|⩽h$ 上，取 $x_1=x_0+h,y_1=φ(x_1)$，然后以 $(x_1,y_1)$ 为中心作一小矩形 $R_1\sub G$ ，则过点$(x_1,y_1)$的初值问题存在唯一解 $y=ψ(x)$，解的存在唯一区间为 $|x-x_1|⩽h_1$ 
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/local-Lipschitz-condition.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/local-Lipschitz-condition.png)
 因为 $φ(x_1)=ψ(x_1)$ ，由唯一性定理，在解重叠的部分 $x_1-h_1⩽x⩽x_1$ 时有  $φ(x)\equiv ψ(x)$，但是在区间 $x_1⩽x⩽x_1+h_1$上，函数$y=ψ(x)$仍有定义，我们把它看成是定义在原来区间$|x-x_0|⩽h$上解$y=φ(x)$向右方的==延拓==(prolongement)。这样我们可以确定方程的解 $y=\begin{cases}
 φ(x), & x_0-h_0⩽x⩽x_0+h_0\\
 ψ(x), & x_0+h_0⩽x⩽x_1+h_1
@@ -853,7 +853,7 @@ $$
 故通过点 $(\ln 2,-3)$ 的解为 $y=\cfrac{1+e^x}{1-e^x}$
 这个解的存在区间为 $(0,+\infty)$
 如图，通过点$(\ln 2,-3)$ 的解向右可延拓到 $+∞$，但向左只能延拓到0，因为，当 $x\to0$时，$y\to+∞$
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/life-span-of-solution-demo.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/life-span-of-solution-demo.png)
 
 > 应用上述定理推论的结果不难证明：如果函数 $f(x,y)$ 在整个 $xOy$平面上有定义、连续和有界，同时存在关于 $y$ 的一阶连续偏导数，则方程 (1) 的解可以延拓到区间$(-∞,+∞)$
 
@@ -1057,7 +1057,7 @@ x^2\sin^2 a+y^2\cos^2 a-2xy\cos a\sin a=0
 相加可得到C-判别曲线 $x^2+y^2=p^2$
 (2) C-判别曲线连续可微，且 $(\cos a)^2+(\sin a)^2=1\neq 0$
 则此曲线 $x^2+y^2=p^2$ 即为曲线族的包络。
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/envelope-demo.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/envelope-demo.png)
 
 **克莱罗(Clairaut)方程**
 形如 
@@ -1080,7 +1080,7 @@ y=xp+f(p)
 
 上述特解的参数形式正好是通解求包络的C-判别式。可以验证克莱罗方程特解正是通解的包络，也是克莱罗方程的奇解。
 作为例子，当 $f(p)=-\frac{1}{4}p^2$时，克莱罗微分方程的积分曲线簇见下图：
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/Clairaut-demo.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/Clairaut-demo.png)
 
 
 > **参考文献：**

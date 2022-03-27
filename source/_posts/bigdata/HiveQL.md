@@ -1366,7 +1366,7 @@ SELECT col1, col2 FROM t1 DISTRIBUTE BY col1 SORT BY col1 ASC, col2 DESC;
 
 
 
-<img src="https://gitee.com/WilenWu/images/raw/master/common/hive_join.png" alt="join" width="80%" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/hive_join.png" alt="join" width="80%" />
 
 **连接语法**
 

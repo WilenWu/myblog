@@ -463,7 +463,7 @@ u(\mathbf r_0)=\iiint\limits_{V}G(\mathbf{r,r_0})f(\mathbf r)dV
 $$
 上式称为==泊松方程的基本积分公式==。
 需要注意的是，$G(\mathbf{r,r_0})$ 在 $\mathbf{r=r_0}$ 是不连续的，格林公式并不适用。严格的证明是，先在区域 $V$ 内奇点 $\mathbf r_0$ 处挖去半径为 $ε$ 的球形区域 $V_ε$ ，应用格林公式，再令 $ε\to 0$ 取极限求得。今后类似使用时将不再加以说明。
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/Poisson-equation.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/Poisson-equation.png)
 
 
 
@@ -667,7 +667,7 @@ $$
 (2) 考虑到对称性，这个像电荷一定存在于真实电荷所在半径的延长线上。
 记球内电荷位于点 $Q_0(\mathbf r_0)$ ，像电荷位于点 $Q_1(\mathbf r_1)$ 电量为 $q$ ，如图
 
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/Poisson-equation2.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/Poisson-equation2.png)
 在球内任取一点 $P(\mathbf r)$ ，由叠加原理知道，总电势是球内电荷产生的电势和像电荷产生的电势叠加
 $$
 G=-\cfrac{1}{4π}\cfrac{1}{\mathbf{|r-r_0|}}
@@ -794,7 +794,7 @@ G|_{z=0}=0\end{cases}
 $$
 这相当于接地导体平面 $z=0$ 上方的电势，如图，在点 $Q_0(x_0,y_0,z_0)$ 处放置电荷量为 $-ε_0$ 的点电荷。电势可用电像法求得，设想在 $Q_1(x_0,y_0,-z_0)$ 放置电量为 $+ε_0$ 的点电荷，不难验证，在 $z=0$ 上电势处处为零，$Q_1$ 即为 $Q_0$ 的电像。
 
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/Laplace-equation-demo.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/Laplace-equation-demo.png)
 格林函数
 $$
 \begin{aligned}
@@ -836,7 +836,7 @@ u|_{t=0}=0,\cfrac{∂u}{∂t}|_{t=0}=0 \\
 $$
 
 这里 $f(x,t)=\cfrac{F(x,t)}{\rho}$ 是作用在弦单位长度单位质量上的外力。
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/homogenizing.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/homogenizing.png)
 
 考虑 $[τ,τ+Δτ)$ 时间段内的位移变化，令 $w|_{t=τ}=0,w|_{t=τ+Δτ}=Δu$
 $f(x,τ)Δτ$ 表示 $Δτ$ 内冲量，这个冲量使得系统的速度有一定的增量。现在，我们把 $Δτ$ 时间内的速度增量看成是 $t=τ$ 瞬时得到的，而在 $Δτ$ 的其余时间内没有冲量的作用，即在这段时间内没有力的作用，故方程是齐次的。$t=τ$ 时的集中速度可置于“初始”条件中，得到的关于瞬时力引起的振动的定解问题是
@@ -1296,7 +1296,7 @@ $$
 =\cfrac{1}{ε_0}\iiint\limits_{V}\rho\mathrm dV\tag{1.3}
 $$
 简要证明：先对点电荷的场证明，再推广到一半的电荷分布。
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/Gauss-theorem.png)  ![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/solid-angle.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/Gauss-theorem.png)  ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/solid-angle.png)
 
 (1) 取包围点电荷 $q$ 的任意闭合曲面 $Σ$，在闭合曲面上任取面元 $\mathrm d\mathbf S$ ，由库伦定律计算电通量
 $$
@@ -1351,7 +1351,7 @@ $$
 ∇\times\mathbf E=0\tag{1.6}
 $$
 
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/cycle-theorem.png)   ![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/cycle-theorem2.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/cycle-theorem.png)   ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/cycle-theorem2.png)
 
 
 
@@ -1470,7 +1470,7 @@ $$
 $$
 u(\mathbf r_0)=\cfrac{1}{4\pi a^2}\iint\limits_{∂V}u(\mathbf r)\mathrm dS
 $$
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/mean-theorem-of-harmonic-function.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/mean-theorem-of-harmonic-function.png)
 证明：已知调和函数 $u(\mathbf r)$ 满足 
 $$
 Δu(\mathbf r)=0
@@ -1617,7 +1617,7 @@ $$
 $$
 H(x)=\begin{cases}0 & (x<0) \\ 1 &(x>0) \end{cases}= \int_{-∞}^{x}δ(s)ds
 $$
-![单位阶跃函数](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/unit-step-fun.png)
+![单位阶跃函数](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/unit-step-fun.png)
 
 (7) $δ$ 函数的卷积
 $$

@@ -5,15 +5,15 @@ categories:
   - 博客搭建
 tags:
   - Hexo
-cover:
-top_img: /img/hexo-top-img.png
+cover: /img/blogging-relevant-anymore.webp
+top_img: 
 noticeOutdate: true
 abbrlink: 18fbd3bc
 description:
 swiper_index: 2
 ---
 
-魔改方法千千万，作为一个小白，我是一个页不熟练。下面列出几种方法，那条简单走那条。
+魔改方法千千万，作为一个小白，我是一个也不熟练！下面列出几种方法，那条简单走那条。
 <!-- more -->
 
 # Hexo 插件

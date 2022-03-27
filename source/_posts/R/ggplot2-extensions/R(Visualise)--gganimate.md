@@ -19,7 +19,7 @@ emoji: heart
 
 [gganimate]: https://github.com/dgrtwo/gganimate
 
-![gganimate-personifyr](https://gitee.com/WilenWu/images/raw/master/common/gganimate-personifyr.jpg)
+![gganimate-personifyr](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/gganimate-personifyr.jpg)
 
 ## ggplot对象
 
@@ -51,7 +51,7 @@ geom必须设置aes(group)，group为frame的变量，用来指定时间维度
   gganimate(p, "output.swf", interval=.2)
 ```
 
-  ![gganimate-demo](https://gitee.com/WilenWu/images/raw/master/ggplot2/gganimate-demo.gif)
+  ![gganimate-demo](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/gganimate-demo.gif)
 
 
 

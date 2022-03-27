@@ -76,7 +76,7 @@ top_img:
 **一致收敛**(uniform convergence)
 <kbd>定义1</kbd>设函数序列$\{u_n(x)\}$在收敛域D上逐点收敛于$u(x)$，如果对于任意$ϵ>0$ ，存在只依赖于$ϵ$ 的正整数N，使得当$n>N$时，恒有$|u_n(x)-u(x)|<ϵ,∀ x\in D$，则称函数序列$\{u_n(x)\}$在D上一致收敛于函数$u(x)$
 <kbd>定义2</kbd>设函数项级数$\displaystyle\sum_{n=1}^{∞}u_n(x)在I$上的和函数为$S(x)$ ，若其部分和函数序列$\{S_n(x)\}在I$上一致收敛于$S(x)$，则称函数项级数$\displaystyle\sum_{n=1}^{∞}u_n(x)在I$ 上一致收敛于和函数$S(x)$.
-![](https://gitee.com/WilenWu/images/raw/master/math/uniform-convergence.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/uniform-convergence.png)
 <kbd>定理</kbd>（魏尔斯特拉斯判别法）：如果函数项级数$\displaystyle\sum_{n=1}^{∞}u_n(x)在区间I$满足条件：
 (1) $∀ x\in I,|u_n(x)|⩽ M_n(n=1,2,\cdots)$
 (2)正项级数$\displaystyle\sum_{n=1}^{∞}M_n$收敛
@@ -104,7 +104,7 @@ $R$通常叫做==收敛半径==；开区间$(-R,R)$ 叫做==收敛区间==，再
 **收敛半径的计算**
 <kbd>定理 3</kbd> 对于幂级数$\displaystyle\sum_{n=0}^{∞}a_nx^n$，若$\lim\limits_{n\to∞}|\dfrac{a_{n+1}}{a_n}|=ρ或\lim\limits_{n\to∞}\sqrt[n]{|a_n|}=ρ$，其中$ρ⩾0$，则该幂级数的收敛半径为$R=\dfrac{1}{ρ}$
 一般幂级数的收敛半径：对于一般幂级数$\displaystyle\sum_{n=0}^{∞}a_n(x-x_0)^n$，除收敛域为$\{x_0\}$或$(-∞,+∞)$两种情形，一定存在正数$R$的收敛半径。
-![](https://gitee.com/WilenWu/images/raw/master/math/radius-of-convergence.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/radius-of-convergence.png)
 
 **幂级数的四则运算**
 设幂级数$\displaystyle\sum_{n=0}^{∞}a_nx^n$及$\displaystyle\sum_{n=0}^{∞}b_nx^n$的收敛半径分别为$R_1,R_2$，令$R=\min\{R_1,R_2\}$，则它们的和、差、乘积在公共收敛区间$(-R,R)$内都绝对收敛，且有
@@ -160,7 +160,7 @@ $\sin x=\displaystyle\sum_{n=0}^{∞}\dfrac{(-1)^n}{(2n+1)!}x^{2n+1},x\in(-∞,+
 $\cos x=\displaystyle\sum_{n=0}^{∞}\dfrac{(-1)^n}{(2n)!}x^{2n},x\in(-∞,+∞)$
 $\dfrac{1}{1+x}=\displaystyle\sum_{n=0}^{∞}(-x)^n,x\in(-1,1)$
 $\ln (1+x)=\displaystyle\sum_{n=0}^{∞}\dfrac{(-1)^n}{n+1}x^{n+1},x\in(-1,1]$
-<img src="https://gitee.com/WilenWu/images/raw/master/math/Maclaurin-series.png" style="zoom:67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/Maclaurin-series.png" style="zoom:67%;" />
 
 ## 傅里叶级数
 
@@ -205,7 +205,7 @@ f(x) & x为连续点 \\
 用同样的方法也可为定义在$[0,π]$或$[-π,0]$的函数==奇（偶）延拓==
 
 **吉布斯现象** (Gibbs phenomenon)
-<img src="https://gitee.com/WilenWu/images/raw/master/math/Gibbs-phenomenon.png" style="zoom:67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/Gibbs-phenomenon.png" style="zoom:67%;" />
 在间断点附近部分和函数的图形出现大幅度波动，波动的区间随着项数的增加越来越小，但幅度似乎是一样的！
 傅里叶级数在函数间断点处的上述现象称为==吉布斯现象==(Gibbs phenomenon)
 

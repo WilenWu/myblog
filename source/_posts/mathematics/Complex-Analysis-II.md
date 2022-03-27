@@ -90,7 +90,7 @@ $\displaystyle\int_{C}f(z)dz=\int_{z_0}^zf(z)dz=\sum_{n=0}^{∞}\dfrac{a_n}{n+1}
 - <kbd>泰勒定理</kbd>：若函数$f(z)$在区域D内解析，圆域 $K:|z-z_0|<R$含于D，则在K内有
 $f(z)=\displaystyle\sum_{n=0}^{∞}a_n(z-z_0)^n$，其中 $a_n=\dfrac{1}{n!}f^{(n)}(z_0)\quad (n=0,1,2,\cdots)$
 且上述展开式是唯一的，上式被称为==泰勒展开式==(Taylor expansion)，它右端的级数称为泰勒级数。
-![泰勒级数](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Taylor-series.png)
+![泰勒级数](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/Taylor-series.png)
 证明： 取一点 $z\in K$，做圆周 $C:|z-z_0|=ρ$ 包含点 z
 由柯西积分公式有$\displaystyle f(z)=\dfrac{1}{2\pi i}\oint_C \frac{f(ξ)}{ξ-z}dξ$ 
 由于 $|\dfrac{z-z_0}{ξ-z_0}|<1$，有上节实例可知$\displaystyle\dfrac{1}{ξ-z}=\sum_{n=0}^{∞}\dfrac{(ξ-z_0)^n}{(z-z_0)^{n+1}}$ ，带入上式可得
@@ -125,13 +125,13 @@ $(1+z)^α$的主值支 $e^{α\ln(1+z)}=1+αz+\binom{α}{2}z^2+\cdots+\binom{α}{
 
 - <kbd>洛朗定理</kbd>：设$f(z)$在圆环域 $D:R_1<|z-z_0|<R_2$ 内解析，则$f(z)$在此圆环内一定能展开为 $f(z)=\displaystyle\sum_{n=-∞}^{+∞}a_n(z-z_0)^n$ ，并且系数$a_n$被$f(z)$及圆环唯一确定。
 其中$\displaystyle a_n=\dfrac{1}{2\pi i}\oint_C \dfrac{f(ξ)}{(ξ-z_0)^{n+1}}dξ(n\in\Z)$ ，C为此圆环内围绕$z_0$的任何一条正向简单闭曲线，此公式称为==洛朗展开式==(Laurent expansion)。
-![洛朗定理](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Laurent-series.png)
+![洛朗定理](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/Laurent-series.png)
 
 
 **实例**
 1. 求函数$f(z)=\dfrac{1}{(z-1)(z-2)}$分别在下列圆环的洛朗展开式
 $(1)\ 0<|z|<1 ;\quad (2)\ 1<|z|<2;\quad (3)\ 2<|z|<+∞$
-![洛朗展开](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Laurent-expansion.png)
+![洛朗展开](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/Laurent-expansion.png)
 解：部分分式分解 $f(z)=\dfrac{1}{1-z}-\dfrac{1}{2-z}$ 
 (1) 在 $0<|z|<1$中有$|z|<1,|\frac{z}{2}|<1$，由上一章的实例知
 $\displaystyle\frac{1}{1-z}=\sum_{n=0}^{∞}z^n;\quad \frac{1}{2-z}=\sum_{n=0}^{∞}\frac{z^n}{2^{n+1}}$
@@ -219,7 +219,7 @@ $$
 $$
 \displaystyle\oint_{C}f(z)dz=2π i \sum_{k=1}^{n}\text{Res}(f,z_k)
 $$
-![留数定理](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/residue-theorem.png)
+![留数定理](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/residue-theorem.png)
 证明：如图，由复合闭路定理有$\displaystyle\oint_{C}f(z)dz=\sum_{k=1}^{n}\oint_{Γ_k}f(z)dz=2π i \sum_{k=1}^{n}\text{Res}(f,z_k)$
 
 - **无穷远点的留数**
@@ -251,11 +251,11 @@ $\displaystyle\oint_{C}\dfrac{ze^z}{z^2-1}dz=2π i[\text{Res}(f,1)+\text{Res}(f,
 
 ## 留数在定积分计算中的应用
 <kbd>引理 1</kbd>：设函数$f(z)$在闭区域$D=\{z|α⩽\arg z⩽β(0⩽α⩽β⩽π)\}$上连续，$C_R$为圆周 $C : |z| = R$ 在D内的一段弧，若对$C_R$上的任意的点 z 均有 $\lim\limits_{z\to ∞}zf(z)=k$，则 $\displaystyle\lim\limits_{R\to∞}\int_{C_R}f(z)dz=k(β−α)i$
-![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/residue-corollary1.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/residue-corollary1.png)
 
 <kbd>引理 2</kbd>：设函数$f(z)$在闭区域$D=\{z|α⩽\arg (z-z_0)⩽β(0⩽α⩽β⩽π),|z|⩽r_0\}$上连续，$C_r$为圆周 $C : |z-z_0| = r(r<r_0)$ 在D内的一段弧，若对$C_r$的任意的点 z 均有 $\lim\limits_{z\to z_0}(z-z_0)f(z)=k$，则 $\displaystyle\lim\limits_{r\to0}\int_{C_r}f(z)dz=k(β−α)i$
 
-![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/residue-corollary2.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/residue-corollary2.png)
 
 <kbd>若尔当(Jordan)引理</kbd>：设函数$f(z)$在闭区域$D=\{z|α⩽\arg z⩽β(0⩽α⩽β⩽π),0<R_0⩽|z|<+ ∞\}$上连续，$C_R$为圆周 $C : |z| = R(R>R_0)$ 在D内的一段弧，若对$C_R$上的任意的点 z 均有 $\lim\limits_{z\to ∞}f(z)=0$，则对于任意 $a>0$有 $\displaystyle\lim\limits_{R\to∞}\int_{C_R}f(z)e^{iaz}dz=0$
 
@@ -271,7 +271,7 @@ $\displaystyle\int_{0}^{2π}R(\cosθ,\sinθ)dθ=\oint_{|z|=1}f(z)dz=2π i \sum_{
 
 2. 形如 $\displaystyle\int_{-∞}^{+∞}R(x)dx$ 的积分
 被积函数$R(x)$为有理函数，其分母的次数至少比分子的次数高二次，且在实轴上连续，设$R(z)=\dfrac{z^n+a_1z^{n-1}+\cdots+a_n}{z^m+b_1z^{m-1}+\cdots+b_m},\quad m-n⩾2$ 为一不可约分式。
-![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/integral-demo.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/integral-demo.png)
 由留数定理有 $\displaystyle\int_{-r}^{r}R(z)dz+\int_{C_r}R(z)dz=2π i \sum_{k=1}^{n}\text{Res}[R(z),z_k]$
 其中$z_0,z_1,\cdots,z_n$为 $\text{Im }z>0$ 内所有的极点
 令 $r\to ∞$，对上式两端取极限
@@ -316,13 +316,13 @@ $$
 **导数的几何意义**
 1. 设C 是一条有向光滑曲线，其方程为 $z=z(t),a⩽t⩽b$，它的正向为随t增大时z的移动方向，设$z_0=z(t_0),z=z(t_0+Δt)=z(t)$ 为曲线C上的点，则割线$\overline{zz_0}$的正向与复数 $\frac{z(t_0+Δt)-z(t_0)}{Δt}$ 表示的向量的方向一致，因此 $z'(t_0)=\lim\limits_{Δt\to 0}\frac{z(t_0+Δt)-z(t_0)}{Δt}$ 所表示的向量就是曲线C 处的切线向量，且与C的方向一致。
 因此在处的切线与实轴的夹角可复数表示为 $α=\text{Arg }z'(t_0)$
-![割线](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/secant.png)
+![割线](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/secant.png)
 2. 设$w=f(z)$将曲线C映射成曲线 $Γ:w=w(t)=f[z(t)]$， 则曲线 $Γ$在$w_0=f[z(t_0)]$处的切线与实轴的夹角为 $β=\text{Arg }w'(t_0)=\text{Arg }f'(z_0)z'(t_0)=\text{Arg }f'(z_0)+\text{Arg }z'(t_0)$
 通过映射$w=f(z)$，曲线C在$z_0$处的切线逆时针方向旋转$\text{Arg }f'(z_0)$得到曲线$Γ$在$z_0$处的切线。
 由此，称$\text{Arg }f'(z_0)$为映射$w=f(z)$在点 $z_0$ 处的==旋转角(angle of rotation)==。易知，旋转角只依赖于点$z_0$，而与曲线C 的形状和方向无关。称旋转角的这种性质为==旋转角不变性==。
-![切线](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/tangent.png)
+![切线](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/tangent.png)
 3. 由旋转角不变性立即可获得一个重要性质：对于连续函数 $w=f(z),z∈D$， 若$f'(z_0)\neq 0$，则过点 $z_0$ 具有切线的任意两条有向连续曲线 $C,C_1$ 的夹角(二曲线在点$z_0$的切线所夹的角)与象曲线在点 $w_0 = f(z_0)$ 的夹角保持大小相等且方向相同(即由原象曲线 $C,C_1$ 的旋转方向与由象曲线$Γ,Γ_1$ 的旋转方向是一致的)，该性质称为==保角性==(Conformal)。
-![保角性](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/conformal.png)
+![保角性](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/conformal.png)
 4.  由导数定义，有$|f'(z_0)|=\lim\limits_{z\to z_0}\dfrac{|f(z)-f(z_0)|}{|z-z_0|}=r\quad (r\neq 0)$
 上式表明，像点之间的距离$|f(z)-f(t_0)|$与原像点之间的距离$|z-z_0|$比值的极限为$|f'(z_0)|$，称这个极限为映射$w= f(z)$在点 $z_0$ 的==伸缩率(shrinkage)==。显然，这伸缩率只依赖于点 $z_0$ ，而与曲线C 的形状及方向无关，这种性质称为==伸缩率不变性==。
 
@@ -346,21 +346,21 @@ $$
 由此可见，分式线性映射可由 $w=z+b,w=αz,w=\frac{1}{z}$ 复合而成。
 
 - **平移映射**(translation)：$w=z+b$
-![平移映射](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/translation.png)
+![平移映射](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/translation.png)
 
 - **旋转和相似映射**(rotation and similar)：$w=αz$
 设 $α=re^{iθ_0},z=|z|e^{iθ}$，则$w=r|z|e^{i(θ_0+θ)}$ 
 从而 $\text{Arg }w=\text{Arg }z+θ,|w|=r|z|$，即 z点先旋转角度 $θ_0$，$|z|$再伸缩 $r$ 倍。
-![旋转映射](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/rotation-mapping.png) ![相似映射](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/similar.png)
+![旋转映射](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/rotation-mapping.png) ![相似映射](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/similar.png)
 - **反演映射**(inverse)：$w=\dfrac{1}{z}$
 设 $z=re^{iθ}$，则$w=\dfrac{1}{r}e^{i(-θ)}$ 
-![反演映射](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/inverse.png)
+![反演映射](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/inverse.png)
 反演映射通常分解为两个映射完成：
 (1) $\xi=\dfrac{1}{\bar z}=\dfrac{1}{r}e^{iθ}$ ，$|\xi||z|=1$，即 $z$ 和 $\xi$关于单位圆周 $|z|=1$对称[^2]
 (2) $w=\bar \xi=\dfrac{1}{r}e^{i(-θ)}$，$\xi$ 和 $w$关于实轴对称。
 
 [^2]: <kbd>圆周对称定义</kbd>：设圆周$C$的半径为$R$，$A,B$两点位于从圆心$O$出发的射线上，且$OA\cdot OB=R^2$，则称点 $A$与点$B$是关于该圆周的对称点。约定圆心的对称点为无穷远点 $∞$
-![圆周对称](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/circular-symmetrical.png)
+![圆周对称](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/circular-symmetrical.png)
 
 
 - **分式线性映射的性质**
@@ -386,7 +386,7 @@ $$
 
 - **指数函数的映射**：$w=e^z=e^xe^{iy}$ ，以$2π i$为周期，在一个周期内为单叶函数。
 指数函数将水平带状区域映射为角形区域。
-![指数映射](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/exponential-map.png)
+![指数映射](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/exponential-map.png)
 
 - **对数函数的映射**：$w=\text{Ln }z=\ln z+2kπi$，主值分支 $\ln z=\ln|z|+i\arg z$
 对数函数为指数函数反函数，在单值分支内为单叶函数。
@@ -397,7 +397,7 @@ $$
 - **幂函数的映射**：$w=z^n(n\in \Z^+)$
 设$z=re^{iθ}$，则 $w=r^{n}e^{inθ}$ ，即 $|w|=r^n,\arg w=nθ$
 即 z平面角形区域 $\arg z\in[0,θ_0]$ 映射为 w平面角形区域 $\arg w \in [0,nθ_0]$
-![幂函数映射](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/power-map.png)
+![幂函数映射](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/power-map.png)
 
 
 ## 共形映射的基本问题示例
@@ -411,29 +411,29 @@ $$
 解：设 z上平面一点 $z=z_0(\text{Im }z_0 > 0)$映射到 w平面原点 $w=0$，有保对称性知，$z=\bar z_0$将映射成$w=∞$，故可设线性映射 $w=k\dfrac{z-z_0}{z-\bar z_0},k\in\R$
 只须利用该映射将实轴上的点 z = x 映射为单位圆周 $|w| =1$上的点，即当z = x时，有 $|w|=|k\dfrac{x-z_0}{x-\bar z_0}|=|k||\dfrac{x-z_0}{x-\bar z_0}|=|k|=1$，即$k=e^{iθ},θ\in\R$
 所求的映射为 $w=e^{iθ}\dfrac{z-z_0}{z-\bar z_0}\quad(θ\in\R,\text{Im }z_0 > 0)$
-![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/linear-mapping.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/linear-mapping.png)
 
 2.  求把圆盘 $|z|<1$ 映射成 $|w|<1$ 的分式线性映射。
 解：设 z上平面一点 $z=z_0(|z_0| < 1)$映射到 w平面原点 $w=0$，有保对称性知，$z=z_0$关于圆周 $|z|=1$ 的对称点$\frac{1}{\bar z_0}$ 将映射成$w=∞$，故可设线性映射 $w=k\cfrac{z-z_0}{z-\frac{1}{\bar z_0}}=k'\cfrac{z-z_0}{1-\bar z_0z},k'=k\bar z_0$
 只须利用该映射将 $|z|=1$ 映射为 $|w| =1$上的点，即当z = 1时，有 $|w|=|k'\dfrac{1-z_0}{1-\bar z_0}|=|k'|=1$，即$k'=e^{iθ},θ\in\R$
 所求的映射为 $w=e^{iθ}\dfrac{z-z_0}{1-\bar z_0z}\quad(θ\in\R,|z_0| < 1)$
-![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/linear-mapping2.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/linear-mapping2.png)
 
 3. 将角形区域 $G:0<\arg z<π/6$映射为单位圆盘$|w|<1$的映射
 $z_1=z^6$可将角形区域映射成半平面$G_1:\text{Im }z_1>0$
 又根据上述例 1，取$z_0=i,θ=0$，通过$w=\dfrac{z_1-i}{z_1+i}$将 $G_1$映射成单位圆盘
 复合可得 $w=\dfrac{z^6-i}{z^6+i}$
-![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/conformal-mapping3.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/conformal-mapping3.png)
 
 4. 将半圆$G:|z|<1,\text{Im }z > 0$ 映射成上平面 $G':\text{Im }w > 0$的映射
 $w=(\dfrac{z+1}{z-1})^2$
-![半圆映射](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/conformal-mapping4.png)
+![半圆映射](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/conformal-mapping4.png)
 
 5. 将上半平面(半径为无穷大的圆) $G:\text{Im }z > 0$ 映射为一般圆盘 $G':|w-w_0| <R$ 
 首先 $G$ 经$z_1=e^{iθ}\dfrac{z-z_0}{z-\bar z_0}$映射为$G_1:|z_1|<1$
 齐次 $G_1$经 $w=Rz_1+w_0$映射为$G':|w-w_0| <R$ 
 复合可得$z_1=Re^{iθ}\dfrac{z-z_0}{z-\bar z_0}+w_0\quad(θ\in\R,\text{Im }z_0 > 0)$
-![半平面映射](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/half-plane-mapping.png)
+![半平面映射](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/half-plane-mapping.png)
 
 6. ==茹科夫斯基(Joukowsky)映射==：$w=\frac{1}{2}(z+\frac{1}{z})$
 (1) 将圆周 $|z| = r>1$映射为椭圆周
@@ -448,7 +448,7 @@ v=\frac{1}{2}(r-\frac{1}{r})\sinθ
 定这无穷个圆周的象即。
 基于(1) 的讨论，知道这无穷个圆周的象是无穷个椭圆周，并且 $\lim\limits_{r\to 1}\frac{1}{2}(r+\frac{1}{r})=1,\lim\limits_{r\to 1}\frac{1}{2}(r-\frac{1}{r})=0$，即椭圆周的长半轴趋向1，而短半轴趋向0，因而相应的椭圆周便退化为w 平面上的线段$[-1,1]$
 又$\lim\limits_{r\to +∞}\frac{1}{2}(r+\frac{1}{r})=+∞,\lim\limits_{r\to +∞}\frac{1}{2}(r-\frac{1}{r})=+∞$，故能扫过除$[-1,1]$外的整个 w平面。
-![茹科夫斯基变换](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Joukowsky-transform.png)
+![茹科夫斯基变换](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/Joukowsky-transform.png)
 
 ------
 

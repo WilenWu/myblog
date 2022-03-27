@@ -318,7 +318,7 @@ $$
 (a,b)\cdot(\cfrac{∂z}{∂x},\cfrac{∂z}{∂y})=0\tag{3.5}
 $$
 方程的解 $z=\phi(x,y)$ 表示空间 $xyz$ 中一张曲面 $S:z=\phi(x,y)$ ，任取平面 $z=c$ 截得的曲线方程为 $L:\phi(x,y)=c$ ，如图
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/characteristic-equation.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/characteristic-equation.png)
 曲线 $L$ 上任意一点 $P(x,y)$ 的法线方向为 $(\cfrac{∂\phi}{∂x},\cfrac{∂\phi}{∂y})$ ，式 (3.5) 表明在 $P$ 点的向量 $(a,b)$ 与法线方向垂直，即切线方向。$P$ 点切向量微元可以表示为 $(\mathrm dx,\mathrm dy)$ ，所以存在对应关系
 $$
 \cfrac{\mathrm dx}{a(x,y)}=\cfrac{\mathrm dy}{b(x,y)}\tag{3.6}
@@ -591,7 +591,7 @@ $$
 (3) 物理意义示例：设初速度为零 $\psi(x)=0$，初始位移 $\phi(x)$ 
 如下图 $t=0$ 时刻函数图像实线所示，达朗贝尔公式给出 $u(x,t)=\frac{1}{2}\phi(x+at)+\frac{1}{2}\phi(x-at)$ ，即初始位移分为两半（下图虚线），分别以速度 $a$ 向左右两端移动，这两个行波的和给出各个时刻的波形（由下向上的实线）。
 
-<img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/dAlembert-demo.png" width="50%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/dAlembert-demo.png" width="50%;" />
 
 **半无限弦振动定解问题** ——延拓法
 (1) 端点固定弦的自由振动：定解问题为
@@ -617,7 +617,7 @@ u(x,t)=\begin{cases}\displaystyle
 $$
 物理意义示例：设初速度为零 $\psi(x)=0$，初始位移 $\phi(x)$ 
 图中由下向上的实线描述了波形变化，右边的波分别向左右两端移动，左端奇延拓的波也分别向左右两端移动。端点固定的影响表现为反射波，反射波的相位和入射波相反，这就是==半波损失==。
-<img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/half-wave-loss-demo.png" width="45%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/half-wave-loss-demo.png" width="45%;" />
 
 (2) 端点自由弦的自由振动：定解问题为
 $$
@@ -1243,7 +1243,7 @@ q_x=-\cfrac{∂u}{∂x},q_y=-\cfrac{∂u}{∂y},q_z=-\cfrac{∂u}{∂z}
 $$
 负号表示热量转移的方向和温度梯度相反。
 
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/heat-conduction-equation.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/heat-conduction-equation.png)
 取一封闭曲面 $S$ 包围的区域 $V$，根据傅里叶定律，在 $\mathrm dt$ 时间内穿过面元 $\mathrm dS$ 的热量
 $$
 \mathrm dQ=-κ∇u\cdot\mathrm d\mathbf S\mathrm dt

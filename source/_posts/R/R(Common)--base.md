@@ -18,7 +18,7 @@ top_img: /img/r-top-img.svg
 
 # RStudio: Take control of your R code
 
-![](https://gitee.com/WilenWu/images/raw/master/common/rstudio.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/rstudio.png)
 
 RStudio是R的集成开发环境（IDE）。它包括一个控制台，支持直接代码执行的语法高亮编辑器，以及绘图，历史记录，调试和工作区管理工具。
 
@@ -29,12 +29,12 @@ RStudio可用于开源和商业版本，并可在桌面（Windows，Mac和Linux�
 
 # 数据处理一般流程
 
-![](https://gitee.com/WilenWu/images/raw/master/common/Rflow.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/Rflow.png)
 
 # R 数据结构
 
 R拥有许多用于存储数据的对象类型，包括标量、向量、矩阵、数组、数据框和列表。
-![](https://gitee.com/WilenWu/images/raw/master/common/r-dataframe.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/r-dataframe.png)
 
 **1. 向量**
 向量是用于存储数值型、字符型或逻辑型数据的一维数组。
@@ -261,7 +261,7 @@ R语言data.table包是自带包data.frame的升级版，用于数据框格式�
 另一方面是处理快，内部处理的步骤进行了程序上的优化，使用多线程，甚至很多函数是使用C写的，大大加快数据运行速度。因此，在对大数据处理上，使用data.table无疑具有极高的效率。
 
 **tidyverse**
-<img src="https://gitee.com/WilenWu/images/raw/master/common/Hadley.png" alt="hadley" style="zoom: 33%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/Hadley.png" alt="hadley" style="zoom: 33%;" />
 
 tidyverse是一系列包的组合，构建了一套完整的数据分析生态链，提供了一套整洁的数据导入，分析和建模方法，刷新了R语言原有的数据科学体系。
 

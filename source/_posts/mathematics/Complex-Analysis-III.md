@@ -68,7 +68,7 @@ $\begin{aligned}
 \displaystyle f_T(t)&=A_0+\sum_{n=1}^{∞}A_n(\cosθ_n\cos nω_0 t+\sinθ_n\sin nω_0 t) \\
 &=A_0+\sum_{n=1}^{∞}A_n\cos(nω_0 t+θ_n)
 \end{aligned}$
-![关系图](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Fourier-series-physics.png)
+![关系图](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/Fourier-series-physics.png)
 (1) 上式表明，周期信号可以分解为一系列固定频率的简谐波之和，这些简谐波的(角) ==频率(frequency)== 为一个==基频(fundamental frequency)== $ω_0$的倍数。
 ==振幅(amplitude)== $A_n$ 反映了在信号 $f_T(t)$ 中频率为 $nω_0$的简谐波所占有的份额；
 ==相位(phase)==  $nω_0 t+θ_n$反映了在信号 $f_T(t)$ 中频率为 $nω_0$的简谐波沿时间轴移动的大小，==初相位(Initial Phase)== 为$θ_n$。
@@ -187,7 +187,7 @@ $$
 (1) 当 $t\neq 0$ 时，$δ(t)=0$
 (2) $\displaystyle\int_{-∞}^{+∞}δ(t)dt=1$
 由此，引例可表示为 $i(t)=q_0δ(t)$
-![delta函数](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/delta-fun.png)
+![delta函数](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/delta-fun.png)
 **注意**：
 (1) 单位脉冲函数 $δ(t)$ 并不是经典意义下的函数，因此通常称其为广义函数(或者奇异函数)。
 (2) 它不能用常规意义下的值的对应关系来理解和使用，而总是通过它的定义和性质来使用它。
@@ -208,7 +208,7 @@ $$
 $$
 \lim\limits_{ε\to 0}δ_ε(t)=δ(t)
 $$
-![delat函数](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/delta-fun2.png)
+![delat函数](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/delta-fun2.png)
    <kbd>筛选性质(sifting property)</kbd>： 设函数 $f(t)$ 是定义在 $\R$上的有界函数，且在 $t = 0$ 处连续，则有
 $$
 \displaystyle\int_{-∞}^{+∞}δ(t)f(t)dt=f(0)
@@ -227,8 +227,8 @@ $$
  \lim\limits_{n\to \infty}\int_{-∞}^{+∞}δ_n(t)f(t)dt=f(0)
 $$
  性质的函数序列 $δ_n(t)$，他们的极限都是 $δ$ 函数，例如
-<img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/delta-series-demo.png" style="zoom: 8%;" /> <img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/delta-series-demo2.png" style="zoom:8%;" />
-<img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/delta-series-demo3.png" style="zoom:8%;" /> <img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/delta-series-demo4.png" style="zoom:8%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/delta-series-demo.png" style="zoom: 8%;" /> <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/delta-series-demo2.png" style="zoom:8%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/delta-series-demo3.png" style="zoom:8%;" /> <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/delta-series-demo4.png" style="zoom:8%;" />
 
 - **δ函数的基本性质**：（这些性质的严格证明可参阅广义函数）
 (1) $δ(t)$ 和常数 $c$ 的乘积 $cδ(t)$
@@ -288,7 +288,7 @@ $$
     u(t)=\begin{cases}
     0 & t<0 \\ 1 &t>​0 \end{cases}
     $$
-    ![单位阶跃函数](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/unit-step-fun.png)
+    ![单位阶跃函数](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/unit-step-fun.png)
     按广义函数理论，定义为
     $$
     \displaystyle\int_{-∞}^{+∞}u(t)f(t)dt=\int_{0}^{+∞}f(t)dt
@@ -366,7 +366,7 @@ $$
 
 ## Fourier 变换的应用
 1. 求==矩形脉冲函数(rectangular pulse function)== $f(t)=\begin{cases}1&|t|<a \\ 0 &|t|>a \end{cases}$ 的Fourier 变换及其Fourier 积分表达式。
-![矩形脉冲](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/rectangular-pulse-fun.png)
+![矩形脉冲](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/rectangular-pulse-fun.png)
 (1) Fourier 变换为
 $\begin{aligned}
 \displaystyle F(ω) &=\int^{+∞}_{-∞}f(t)e^{-iω t}\text{d}t=\int^{a}_{-a}e^{-iω t}\text{d}t \\
@@ -379,7 +379,7 @@ $\begin{aligned}
 0 &  \frac{2n\pi}{a}⩽|ω|⩽ \frac{2n\pi}{a}  \\
 \pi &\text{others}
 \end{cases}$
-![频谱](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/spectrum.png)
+![频谱](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/spectrum.png)
 (3) Fourier 积分表达式为
 $\begin{aligned}
 \displaystyle f(t) &=\mathcal{F}^{-1}[F(ω)] \\
@@ -411,7 +411,7 @@ $\begin{aligned}
 \end{aligned}$
 (2) 振幅谱 $\displaystyle |F(ω)| =\frac{1}{\sqrt{a^2+ω^2}}$
 相位谱 $\arg F(ω)=-\arctan\dfrac{ω}{a}$
-![频谱图](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/spectrum2.png)
+![频谱图](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/spectrum2.png)
 (3) Fourier 积分表达式为
 $\begin{aligned}
 \displaystyle f(t) &=\mathcal{F}^{-1}[F(ω)] \\
@@ -541,7 +541,7 @@ $$
 $$
 \displaystyle f(t)=\sum_{k=1}^n\text{Res}[F(s)e^{st},s_k]\quad(t>0)
 $$
-![Laplace 逆变换](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/inverse-Laplace-transform.png)
+![Laplace 逆变换](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/inverse-Laplace-transform.png)
 证明：作半圆将所有奇点包围，设 $C=C_R+L$，由于 $e^{st}$在全平面解析，所以$F(s)e^{st}$的奇点就是 $F(s)$的奇点，由留数定理可得
 $\displaystyle 2\pi i\sum_{k=1}^n\text{Res}[F(s)e^{st},s_k]=\oint_{C}F(s)e^{st}ds=\int_{β-iR}^{β+iR}F(s)e^{st}ds+\int_{C_R}F(s)e^{st}ds$
 由若尔当引理，当 t>0 时，有 $\displaystyle\lim\limits_{R\to+\infty}\int_{C_R}F(s)e^{st}ds=0$
@@ -591,7 +591,7 @@ $\displaystyle \mathcal L[δ(t)]=\lim\limits_{τ\to0}\mathcal L[δ_τ(t)]=\lim\l
 (1) 将微分方程(组)化为象函数的代数方程(组)；
 (2) 求解代数方程得到象函数；
 (3) 求Laplace 逆变换得到微分方程(组)的解。
-![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/solving-DE.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/solving-DE.png)
 
 1. 求解微分方程 $y''+ω^2y=0$ 满足初始条件 $y(0)=0,y'(0)=ω$ 
 (1) 令$Y(s)=\mathcal L[y(t)]$ ，对方程两边取Laplace 变换
@@ -648,7 +648,7 @@ $ms^2X(s)=F_0\implies X(s)=\frac{F_0}{ms^2}$
 
 
 2. 质量为m的物体挂在弹簧系数为k 的弹簧一端(如图)，作用在物体上的外力为 $f(t)$。若物体自静止平衡位置 x = 0 处开始运动，求该物体的运动规律 $x(t)$ 。
-![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Laplace-transform-demo.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/Laplace-transform-demo.png)
 (1) 根据 Newton 定律及 Hooke 定律，物体的运动规律 $x(t)$ 满足如下的微分方程：
 $mx''(t)+kx(t)=f(t);\quad x(0)=x'(0)$
 (2) 令$X(s)=\mathcal L[x(t)],F(s)=\mathcal L[f(t)]$ ，对方程两边取Laplace 变换，带入初始条件可得
@@ -728,7 +728,7 @@ $$
 $$
 s=(t-t_0)u(t-t_0)
 $$
-<img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta.png" style="zoom:67%;" /> <img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta2.png" style="zoom:67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/ODE-delta.png" style="zoom:67%;" /> <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/ODE-delta2.png" style="zoom:67%;" />
 
 示例 2：求解边值问题（物体在 $t=a,b$ 时刻的位移为 0，在 $t_0$ 时刻受到瞬时冲量）
 $$
@@ -752,7 +752,7 @@ $$
 $$
 s=(t-t_0)u(t-t_0)-\frac{b-t_0}{b-a}(t-a)
 $$
-<img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta3.png" style="zoom:67%;" /><img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/ODE-delta4.png" style="zoom:67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/ODE-delta3.png" style="zoom:67%;" /><img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/ODE-delta4.png" style="zoom:67%;" />
 
 ------
 

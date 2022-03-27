@@ -37,7 +37,7 @@ emoji: white_large_square
 -  针对MapReduce的脚本的方式，使用Pig来处理结构化和半结构化数据。
 -  Hive查询语言（HiveQL或HQL）采用Hive为MapReduce的处理结构化数据。
 
-![](https://gitee.com/WilenWu/images/raw/master/common/hadoop-sys.jpg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/hadoop-sys.jpg)
 
 # 数据仓库
 
@@ -59,7 +59,7 @@ emoji: white_large_square
 OLAP(Online analytical processing)，即联机分析处理，主要用于支持企业决策管理分析
 ETL（Extract-Transform-Load的缩写，即数据抽取、转换、装载的过程），Kettle就是强大的ETL工具。
 
-![](https://gitee.com/WilenWu/images/raw/master/common/Data-Warehousing.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/Data-Warehousing.png)
 
 # Hadoop安装配置
 - [mysql-connector-java-2.0.14.tar.gz 下载地址](http://ftp.ntu.edu.tw/MySQL/Downloads/Connector-J/)

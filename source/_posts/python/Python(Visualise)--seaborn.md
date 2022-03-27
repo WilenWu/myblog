@@ -12,7 +12,7 @@ abbrlink: 49513cf1
 date: 2018-05-10 23:20:12
 ---
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/Seaborn.svg" width="100%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/Seaborn.svg" width="100%;" />
 
 **Seaborn**是基于matplotlib的Python可视化库。它提供了一个高级界面来绘制有吸引力的统计图形。
 
@@ -74,7 +74,7 @@ sns.relplot(x="total_bill", y="tip", hue="smoker", style="smoker",data=tips)
 sns.relplot(x="total_bill", y="tip", size="size", sizes=(15, 200), data=tips)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/scatter.png" width="100%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/scatter.png" width="100%;" />
 
 ## 折线图
 
@@ -93,7 +93,7 @@ sns.relplot(x="timepoint", y="signal", hue="event", style="event",
             kind="line", data=fmri)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/line.png" width="100%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/line.png" width="100%;" />
 
 ## 分面图
 
@@ -104,7 +104,7 @@ sns.relplot(x="total_bill", y="tip", hue="smoker",
             col="time", data=tips);
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/relational_55_0.png" width="80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/relational_55_0.png" width="80%;" />
 
 当您想要检查变量的多个级别的影响时，最好在列上对该变量进行分面，然后将分面包装到行中，同时可能希望减小图形大小。这些可视化通常被称为点阵图或小倍数，非常有效。
 
@@ -115,7 +115,7 @@ sns.relplot(x="timepoint", y="signal", hue="event", style="event",
             kind="line", data=fmri.query("region == 'frontal'"))
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/relational_59_0.png" width="100%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/relational_59_0.png" width="100%;" />
 
 # 分布图
 
@@ -177,7 +177,7 @@ tips = sns.load_dataset("tips")
 sns.displot(tips, x="day", shrink=.8)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/hist_bin.png" width="72%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/hist_bin.png" width="72%;" />
 
 默认情况下，不同的直方图相互分层，在某些情况下，它们可能难以区分。一种选择是将直方图的视觉表示从条形图更改为阶梯图。或者，不是将每个条分层，而是可以堆叠或垂直移动。在此图中，完整直方图的轮廓展示单变量分布：
 
@@ -188,7 +188,7 @@ sns.displot(penguins, x="flipper_length_mm", hue="species", multiple="stack")
 sns.displot(penguins, x="flipper_length_mm", hue="sex", multiple="dodge")
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/hist2.png" width="72%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/hist2.png" width="72%;" />
 
 还有一点要注意，当子集的观察数量不等时，比较它们的计数分布可能并不理想。一种解决方案是使用参数对计数进行归一化。默认情况下，归一化应用于整个分布，因此这只是重新调整条形的高度。通过设置`common_norm=False`，每个子集将被独立标准化。密度归一化缩放条形，使它们的面积总和为 1。另一种选择是将条形标准化为它们的高度总和为 1，这在变量是离散时最有意义：
 
@@ -200,7 +200,7 @@ planets = sns.load_dataset("planets")
 sns.displot(data=planets, x="distance", log_scale=True)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/hist_stat.png" width="72%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/hist_stat.png" width="72%;" />
 
 ## 核密度估计
 
@@ -226,7 +226,7 @@ sns.displot(penguins, x="flipper_length_mm", hue="species", kind="kde", fill=Tru
 sns.displot(penguins, x="flipper_length_mm", hue="species", kind="kde", multiple="stack")
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/kde.png" width="72%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/kde.png" width="72%;" />
 
 KDE 方法也不适用于离散数据或数据自然连续但特定值被过度集中的情况。要记住的重要一点是，即使数据本身并不平滑，KDE 也会始终显示平滑曲线。例如，考虑钻石重量的这种分布，可以将直方图和KDE结合起来
 
@@ -235,7 +235,7 @@ diamonds = sns.load_dataset("diamonds")
 sns.displot(diamonds, x="carat", kde=True)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/kde_carat.png" width="50%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/kde_carat.png" width="50%;" />
 
 ## 经验累积分布
 
@@ -245,7 +245,7 @@ sns.displot(diamonds, x="carat", kde=True)
 sns.displot(penguins, x="flipper_length_mm", hue="species", kind="ecdf")
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/ecdf.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/ecdf.png" width="60%;" />
 
 ## 地毯图
 
@@ -257,7 +257,7 @@ sns.kdeplot(data=tips, x="total_bill")
 sns.rugplot(data=tips, x="total_bill")
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/rug.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/rug.png" width="60%;" />
 
 ## 二元分布
 
@@ -273,7 +273,7 @@ sns.displot(penguins, x="bill_length_mm", y="bill_depth_mm", hue="species", kind
 sns.displot(penguins, x="bill_length_mm", y="bill_depth_mm", kind="kde", thresh=.2, levels=4)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/%E4%BA%8C%E5%85%83.png" width="72%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/%E4%BA%8C%E5%85%83.png" width="72%;" />
 
 # 分类图
 
@@ -329,7 +329,7 @@ sns.catplot(x="day", y="total_bill", hue="sex", kind="swarm", data=tips)
 sns.catplot(x="smoker", y="tip", order=["No", "Yes"], data=tips)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/strip.png" width="72%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/strip.png" width="72%;" />
 
 ## 分布图
 
@@ -357,7 +357,7 @@ sns.catplot(x="day", y="total_bill", hue="sex",
             kind="violin", split=True, data=tips)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/box.png" width="75%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/box.png" width="75%;" />
 
 将swarmplot()/striplot()和箱线图/小提琴图来结合绘图有时也很有用：
 
@@ -366,7 +366,7 @@ g = sns.catplot(x="day", y="total_bill", kind="violin", inner=None, data=tips)
 sns.swarmplot(x="day", y="total_bill", color="k", size=3, data=tips, ax=g.ax)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/violin.png" width="50%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/violin.png" width="50%;" />
 
 ## 统计图
 
@@ -392,7 +392,7 @@ sns.catplot(x="class", y="survived", hue="sex",
             kind="point", data=titanic)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/bar.png" width="72%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/bar.png" width="72%;" />
 
 # 回归图
 
@@ -444,7 +444,7 @@ sns.lmplot(x="size", y="total_bill", data=tips,
                  x_estimator=np.mean, logx=True)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/reg.png" width="72%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/reg.png" width="72%;" />
 
 残差图：直观来看，当残差结果随机分布于y=0上下较小的区间时，说明具有较好的回归效果。
 
@@ -453,7 +453,7 @@ sns.residplot(x="x", y="y", data=anscombe.query("dataset == 'I'"),
               scatter_kws={"s": 80})
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/resid.png" width="50%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/resid.png" width="50%;" />
 
 分面图
 
@@ -461,7 +461,7 @@ sns.residplot(x="x", y="y", data=anscombe.query("dataset == 'I'"),
 sns.lmplot(x="total_bill", y="tip", hue="smoker", col="time", data=tips)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/lm.png" width="80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/lm.png" width="80%;" />
 
 # 矩阵图
 
@@ -504,7 +504,7 @@ mask[np.triu_indices_from(mask)] = True
 ax = sns.heatmap(corr, mask=mask, vmax=.3)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/heatmap.png" width="100%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/heatmap.png" width="100%;" />
 
 ## 聚类图
 
@@ -534,7 +534,7 @@ row_colors = species.map(lut)
 g = sns.clustermap(iris, row_colors=row_colors)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/clustermap.png" width="72%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/clustermap.png" width="72%;" />
 
 # 网格图
 
@@ -573,7 +573,7 @@ g = sns.pairplot(penguins)
 g.map_lower(sns.kdeplot, levels=4, color=".2")
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/pairplot_1_0.png" width="80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/pairplot_1_0.png" width="80%;" />
 
 分配变量到 hue，默认对角线改为核密度估计 （KDE），也可用diag_kind强制更换。
 
@@ -581,7 +581,7 @@ g.map_lower(sns.kdeplot, levels=4, color=".2")
 sns.pairplot(penguins, hue="species")
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/pairplot_3_0.png" width="80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/pairplot_3_0.png" width="80%;" />
 
 kind参数决定对角线和对角线外的绘图风格。选择要绘图的变量：vars，x_vars，y_vars
 
@@ -592,7 +592,7 @@ sns.pairplot(penguins, kind="kde",
 )
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/pairplot_5_0.png" width="80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/pairplot_5_0.png" width="80%;" />
 
 设置为仅绘制下三角形：`corner=True`，并接受关键字参数的调用
 
@@ -600,7 +600,7 @@ sns.pairplot(penguins, kind="kde",
 sns.pairplot(penguins, corner=True, diag_kws=dict(fill=False))
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/pairplot_7_0.png" width="80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/pairplot_7_0.png" width="80%;" />
 
 ## 联合网格
 
@@ -628,7 +628,7 @@ g.plot_joint(sns.kdeplot, color="r", zorder=0, levels=6)
 g.plot_marginals(sns.rugplot, color="r", height=-.15, clip_on=False)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/jointplot_1_0.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/jointplot_1_0.png" width="60%;" />
 
 与 pairplot() 类似，在 jointplot() 中设置 kind 将改变主体和边缘图：
 
@@ -640,7 +640,7 @@ sns.jointplot(
 )
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/jointplot_3_0.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/jointplot_3_0.png" width="60%;" />
 
 也可使用matplotlib.axes.Axes.hexbin() 绘制六角形箱：kind="hex"。且传递其他关键字参数到基础图。
 
@@ -652,7 +652,7 @@ sns.jointplot(data=penguins,
 )
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/jointplot_5_0.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/jointplot_5_0.png" width="60%;" />
 
 # 主题
 
@@ -711,7 +711,7 @@ for i in range(6):
 plt.show()
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/Figure_1.png" title="seaborn5种内置风格与matplotlib绘图风格对比" width="100%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/Figure_1.png" title="seaborn5种内置风格与matplotlib绘图风格对比" width="100%;" />
 
 对于white和ticks样式还可以从图中删除顶部和右侧没必要的边框线，seaborn可以调用despine()函数来实现
 
@@ -744,7 +744,7 @@ sns.despine(ax=ax, offset=10, trim=True)
 plt.show()
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/Figure_3.png" width="80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/Figure_3.png" width="80%;" />
 
 ## Context
 
@@ -783,7 +783,7 @@ for i in range(4):
 plt.show()
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/Figure_2.png" title="seaborn 4种绘图环境对比" width="80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/Figure_2.png" title="seaborn 4种绘图环境对比" width="80%;" />
 
 # 调色板
 
@@ -822,7 +822,7 @@ seaborn.set_palette(palette, n_colors=None, desat=None, color_codes=False)
 
 **Seaborn支持6类matplotlib调色板**：(deep, muted, bright, pastel, dark, colorblind)
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/color_palettes_22_0.png" width="75%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/color_palettes_22_0.png" width="75%;" />
 
 为了便于查看调色板样式，seaborn还提供了一个专门绘制颜色结果的方法palplot。
 
@@ -830,7 +830,7 @@ seaborn.set_palette(palette, n_colors=None, desat=None, color_codes=False)
 sns.palplot(sns.color_palette())
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/Figure_4.png" width="80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/Figure_4.png" width="80%;" />
 
 **使用圆形颜色系统**：当您有任意数量的类别时，可在圆形颜色空间中绘制均匀间隔的颜色（在保持亮度和饱和度不变的情况下，色调会发生变化）
 
@@ -842,8 +842,8 @@ sns.color_palette("hls", 8)
 sns.color_palette("husl", 6)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/hls.png" width="80%;" />
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/husl.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/hls.png" width="80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/husl.png" width="60%;" />
 
 **使用分类 Color Brewer 调色板**：(Paired, Set2)
 
@@ -852,8 +852,8 @@ sns.color_palette("Set2")
 sns.color_palette("Paired")
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/set2.png" width="60%;" />
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/paired.png" width="80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/set2.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/paired.png" width="80%;" />
 
 **使用来自 xkcd 颜色名称制作调色板**：
 
@@ -862,7 +862,7 @@ colors = ["windows blue", "amber", "greyish", "faded green", "dusty purple"]
 sns.palplot(sns.xkcd_palette(colors))
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/xkcd.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/xkcd.png" width="60%;" />
 
 ## 顺序调色板
 
@@ -877,10 +877,10 @@ sns.color_palette("flare", as_cmap=True)
 sns.color_palette("crest", as_cmap=True)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/rocket.png" width="60%;" />
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/mako.png" width="60%;" />
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/flare.png" width="60%;" />
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/crest.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/rocket.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/mako.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/flare.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/crest.png" width="60%;" />
 
 与 matplotlib 中的约定一样，每个连续的颜色图都有一个反向版本，后缀为`"_r"`：
 
@@ -888,7 +888,7 @@ sns.color_palette("crest", as_cmap=True)
 sns.color_palette("rocket_r", as_cmap=True)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/rocket_r.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/rocket_r.png" width="60%;" />
 
 **连续的cubehelix 调色板**
 
@@ -904,10 +904,10 @@ sns.color_palette("ch:start=.2,rot=-.3", as_cmap=True)
 
 seaborn cubehelix_palette() 函数返回的默认调色板与 matplotlib 的默认值略有不同。
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/cubehelix.png" width="60%;" />
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/cubehelix_plt.png" width="60%;" />
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/st.png" width="60%;" />
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/chst.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/cubehelix.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/cubehelix_plt.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/st.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/chst.png" width="60%;" />
 
 **自定义顺序调色板**
 
@@ -920,9 +920,9 @@ sns.dark_palette("#69d", reverse=True, as_cmap=True)
 sns.color_palette("light:b", as_cmap=True)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/light.png" width="60%;" />
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/dark.png" width="60%;" />
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/lb.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/light.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/dark.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/lb.png" width="60%;" />
 
 **顺序 Color Brewer 调色板**
 
@@ -931,8 +931,8 @@ sns.color_palette("Blues", as_cmap=True)
 sns.color_palette("YlOrBr", as_cmap=True)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/cpb.png" width="60%;" />
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/cpY.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/cpb.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/cpY.png" width="60%;" />
 
 ## 发散调色板
 
@@ -943,8 +943,8 @@ sns.color_palette("vlag", as_cmap=True)
 sns.color_palette("icefire", as_cmap=True)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/vlag.png" width="60%;" />
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/icefire.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/vlag.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/icefire.png" width="60%;" />
 
 **自定义发散调色板**：seaborn 函数 diverging_palette 在两种 HUSL 颜色之间制作一个发散的调色板。
 
@@ -952,7 +952,7 @@ sns.color_palette("icefire", as_cmap=True)
 sns.diverging_palette(220, 20, as_cmap=True)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/diverging_palette.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/diverging_palette.png" width="60%;" />
 
 **matplotlib 内置的 Color Brewer 发散调色板**
 
@@ -961,8 +961,8 @@ sns.color_palette("Spectral", as_cmap=True)
 sns.color_palette("coolwarm", as_cmap=True)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/Spectral.png" width="60%;" />
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/coolwarm.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/Spectral.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/coolwarm.png" width="60%;" />
 
 ## 调色板小部件
 
@@ -1019,7 +1019,7 @@ g.map(sns.scatterplot, "total_bill", "tip", alpha=.7)
 g.add_legend()
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/FacetGrid.png" width="100%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/FacetGrid.png" width="100%;" />
 
 要在每个面上添加水平或垂直参考线，请使用FacetGrid.refline()：
 
@@ -1029,7 +1029,7 @@ g.map_dataframe(sns.scatterplot, x="total_bill", y="tip")
 g.refline(y=tips["tip"].median())
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/FacetGrid_refline.png" width="80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/FacetGrid_refline.png" width="80%;" />
 
 该FacetGrid对象还有一些其他有用的参数和方法来调整绘图：
 
@@ -1043,7 +1043,7 @@ g.tight_layout()
 g.savefig("facet_plot.png")
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/FacetGrid_23_0.png" width="72%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/FacetGrid_23_0.png" width="72%;" />
 
 | Methods                                          | 说明                                                         |
 | :----------------------------------------------- | :----------------------------------------------------------- |
@@ -1108,7 +1108,7 @@ g = sns.PairGrid(penguins)
 g.map(sns.scatterplot)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/PairGrid_3_0.png" width="100%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/PairGrid_3_0.png" width="100%;" />
 
 将不同的函数分别传递对角线 (map_diag) 和非对角线 (map_offdiag) 上来显示不同图：
 
@@ -1119,7 +1119,7 @@ g.map_offdiag(sns.scatterplot, size=penguins["sex"])
 g.add_legend(title="", adjust_subtitles=True)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/PairGrid_5_0.png" width="100%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/PairGrid_5_0.png" width="100%;" />
 
 也可以在上下三角形和对角线上使用不同的函数：
 
@@ -1129,7 +1129,7 @@ g.map_lower(sns.scatterplot)
 g.map_diag(sns.kdeplot)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/PairGrid_9_0.png" width="100%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/PairGrid_9_0.png" width="100%;" />
 
 默认情况下，数据集中的每个数字列都会使用。可用参数精确控制使用哪些变量：
 
@@ -1142,7 +1142,7 @@ g.map_offdiag(sns.scatterplot)
 g.add_legend()
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/PairGrid_11_0.png" width="100%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/PairGrid_11_0.png" width="100%;" />
 
 | Methods                                        | 说明                                    |
 | :--------------------------------------------- | :-------------------------------------- |
@@ -1193,7 +1193,7 @@ g = sns.JointGrid(data=penguins, x="bill_length_mm", y="bill_depth_mm", hue="spe
 g.plot(sns.scatterplot, sns.histplot)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/JointGrid_1_0.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/JointGrid_1_0.png" width="60%;" />
 
 如果您需要将不同的关键字参数传递给每个函数，则必须调用 JointGrid.plot_joint() 和JointGrid.plot_marginals()：
 
@@ -1203,7 +1203,7 @@ g.plot_joint(sns.scatterplot, s=100, alpha=.5)
 g.plot_marginals(sns.histplot, kde=True)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/JointGrid_7_0.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/JointGrid_7_0.png" width="60%;" />
 
 还可以通过访问 JointGrid 子图（ax_joint, ax_marg_x, ax_marg_y）的形式来绘图
 
@@ -1215,7 +1215,7 @@ sns.histplot(x=x, fill=False, linewidth=2, ax=g.ax_marg_x)
 sns.kdeplot(y=y, linewidth=2, ax=g.ax_marg_y)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/JointGrid_11_0.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/JointGrid_11_0.png" width="60%;" />
 
 JointGrid 可接受任何seaborn绘图函数
 
@@ -1224,7 +1224,7 @@ g = sns.JointGrid(data=penguins, x="bill_length_mm", y="bill_depth_mm")
 g.plot(sns.regplot, sns.boxplot)
 ```
 
-<img src="https://gitee.com/wilenwu/images/raw/master/seaborn/JointGrid_13_0.png" width="60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/seaborn/JointGrid_13_0.png" width="60%;" />
 
 | Methods                                           | 说明                                  |
 | :------------------------------------------------ | :------------------------------------ |

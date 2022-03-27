@@ -90,7 +90,7 @@ a + geom_path(lineend="butt", linejoin="round", linemitre=1)+
   ggtitle('geom_path')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/geom_lines.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/geom_lines.png)
 
 ## 单变量
 
@@ -123,7 +123,7 @@ c + geom_freqpoly()+
   ggtitle('geom_freqpoly')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/one_var.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/one_var.png)
 
 
 ## 双变量
@@ -158,7 +158,7 @@ e + geom_smooth()+
   them_blank+
   ggtitle('geom_smooth')
 ```
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/two_vars.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/two_vars.png)
 
 
 两连续变量分布图|参数|说明
@@ -183,7 +183,7 @@ h + geom_density2d() +
   ggtitle('geom_density2d')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/two_con.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/two_con.png)
 
 两连续变量函数图|参数|说明
 -----|-----|-----
@@ -205,7 +205,7 @@ p + geom_step(direction = "hv") +
   ggtitle('geom_step')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/two_con_fun.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/two_con_fun.png)
 
 discrete x <br />continuous y  |参数|说明
 :---|:---|:---
@@ -235,7 +235,7 @@ p +ggforce::geom_sina()+
   ggtitle('geom_sina')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/two_dis.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/two_dis.png)
 
 discrete x<br />discrete y |参数|说明
 :---|:---|:---
@@ -246,7 +246,7 @@ ggplot(diamonds, aes(cut, color))+
   geom_count()
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/two_dis_count.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/two_dis_count.png)
 
 
 ## 三变量
@@ -275,7 +275,7 @@ p + geom_raster(aes(fill = density)) +
   ggtitle('raster+contour') #图层顺序很重要
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/three_vars.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/three_vars.png)
 
 ## 文本
 
@@ -310,7 +310,7 @@ e + geom_text(aes(label = t)) +
   ggtitle('geom_text')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/text.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/text.png)
 
 ## 误差可视化
 
@@ -346,7 +346,7 @@ p +geom_pointrange(position = dodge) +
   ggtitle('geom_pointrange')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/error.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/error.png)
 
 ## 地图
 
@@ -375,7 +375,7 @@ ggplot(data, aes(fill = murder))+
   expand_limits(x = map$long, y = map$lat)
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/geom_map.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/geom_map.png)
 
 ------
 
@@ -432,7 +432,7 @@ ggplot(faithful, aes(waiting, eruptions, color = eruptions > 3)) +
   ggtitle('stat_ellipse')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/stats.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/stats.png)
 
 # Scales
 
@@ -451,7 +451,7 @@ p + scale_fill_manual(
   name = "fuel") #legend/axis 标题
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/scale_fill.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/scale_fill.png)
 
 ##  常用标尺格式
 
@@ -520,9 +520,9 @@ p +scale_fill_gradientn(colours=topo.colors(6)) +
   ggtitle('scale_fill_gradientn')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/scale_fill_con.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/scale_fill_con.png)
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/scale_fill_dis.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/scale_fill_dis.png)
 
 ## Shape and size scales
 
@@ -535,7 +535,7 @@ p +scale_fill_gradientn(colours=topo.colors(6)) +
 | scale_radius(range)        | 半径 |
 
 **shape:**
-![shape](https://gitee.com/WilenWu/images/raw/master/ggplot2/shape_scale.png)
+![shape](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/shape_scale.png)
 
 ```r
 df <- data.frame(x=1:10,y=sample(1:10,10),
@@ -571,7 +571,7 @@ worldmap <- ggplot(world, aes(x = long, y = lat, group = group)) +
 worldmap + coord_map("ortho", orientation = c(41, -74, 0))
 ```
 
-  ![](https://gitee.com/WilenWu/images/raw/master/ggplot2/coord_polar.png)![](https://gitee.com/WilenWu/images/raw/master/ggplot2/coord_map.png)
+  ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/coord_polar.png)![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/coord_map.png)
 
 # Position Adjustments
 
@@ -610,7 +610,7 @@ p +   geom_bar(position = "stack")+
   ggtitle('position = "stack"')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/geom_bar.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/geom_bar.png)
 
 # Themes
 
@@ -654,15 +654,15 @@ ggplot(iris, aes(Petal.Length, Petal.Width, colour = Species)) +
     ggforce::facet_zoom(x = Species == "versicolor")
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/facet_grid.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/facet_grid.png)
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/facet_zoom.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/facet_zoom.png)
 
 **scales参数：**坐标刻度自由
 "fixed"(default，坐标尺度统一), "free"(坐标尺度自由)，"free_x","free_y"
 
 **labeller参数**: 调整刻面标签
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/labeller.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/labeller.png)
 
 # Annotations and Labels 
 

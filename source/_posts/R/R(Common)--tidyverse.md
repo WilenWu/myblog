@@ -19,7 +19,7 @@ description: tidyverse包集合，核心包(ggplot2,tibble,tidyr,readr,purrr,dpl
 
 # tidyverse
 
-![](https://gitee.com/WilenWu/images/raw/master/common/tidyverse_flow.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/tidyverse_flow.png)
 
 
 ## Usage

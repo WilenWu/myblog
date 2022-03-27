@@ -43,13 +43,13 @@ for i, line in enumerate(guide):
     line = line.rstrip()
     # 一级标题
     if re.search('^# .+$', line): 
-        h1 = re.search('# +<font.+?>(.+?)</font>', line).group(1).strip()
+        h1 = re.search('# +(.+) *', line).group(1).strip()
         h1 = h1.replace('手册','')
         cat_name = h1 
         cats[cat_name] = {'level':'#', 'line_num_max': i}
     # 二级标题
     elif re.search('^## .+$', line):
-        h2 = re.search('# +<font.+?>(.+?)</font>', line).group(1).strip()
+        h2 = re.search('## +(.+) *', line).group(1).strip()
         cat_name = ', '.join([h1,h2])
         cats[cat_name] = { 'level':'##', 'line_num_max': i}
     #- :emoji: [title](link_id): desc
@@ -143,6 +143,8 @@ for link_id,cat_num_max in to_do_list:
     elif posts[link_id] != links[link_id]:  # 更新已有链接
         line_num = link_num_map[link_id]
         print(f'更新链接: {guide[line_num]} ===> \n\t  {content}')
+        if posts[link_id]['cat_name'] != links[link_id]['cat_name']:
+            print(f'请手动更新分类: {links[link_id]["cat_name"]} ===> {posts[link_id]["cat_name"]}')
         guide[line_num] = content
         
 

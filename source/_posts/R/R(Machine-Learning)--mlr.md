@@ -28,7 +28,7 @@ description: 机器学习（分类，回归，生存分析，聚类等）的可�
 - **Resampling**：重抽样，通过分离训练集来拟合通用的模型，通常包括**holdout** 验证，K折交叉验证(**K-fold cross-validation**)，留一交叉验证(**LOOCV**)
 
 **Workflow**
-![](https://gitee.com/WilenWu/images/raw/master/mlr/Workflow.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/mlr/Workflow.png)
 
 # Preprocessing data (预处理)
 
@@ -57,7 +57,7 @@ makeSurvTask(data=,target=c("time","event"))|生存分析
 makeCostSensTask(data=,costs=)|成本敏感的分类，分类中的标准目标是获得较高的预测准确度，即最小化分类器产生的错误数量
 **getTaskDesc(x)**|获得总的任务描述，查看positiv
 
-![](https://gitee.com/WilenWu/images/raw/master/mlr/make-task.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/mlr/make-task.png)
 
 **task的其他参数：**
 
@@ -285,7 +285,7 @@ imputeLearner(learner=,features=)|模型插补
 
 ## Feature filtering(特征筛选)
 
-![filter](https://gitee.com/WilenWu/images/raw/master/mlr/filterFeatures.png)
+![filter](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/mlr/filterFeatures.png)
 
 `filterFeatures(task=,method=,perc=,abs=,threshold=)`
 按特征的重要性进行排序，选择其中的top n percent(`perc=`), top n(`abs=`) or 设定阈值(`threshold=`)，返回task，没有被筛选的特征将会被删除。
@@ -301,7 +301,7 @@ imputeLearner(learner=,features=)|模型插补
 "variance"
 
 ## Feature selection(特征选择)
-![selection](https://gitee.com/WilenWu/images/raw/master/mlr/selectFeatures.png)
+![selection](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/mlr/selectFeatures.png)
 
 `selectFeatures(learner=,task=, resampling=,measures=,control=)`
 用一个特征选择算法(`control`)重抽样和建立模型，反复选择不同的特征集，直到找到最好的特征集。返回FeatSelResult对象，包括最佳选择和最佳路径。
@@ -389,8 +389,8 @@ pred2 = predict(mod2, task = sonar.task, subset = test.set)
 df = generateThreshVsPerfData(list(lda = pred1, ksvm = pred2), measures = list(fpr, tpr))
 plotROCCurves(df)
 ```
-![](https://gitee.com/WilenWu/images/raw/master/mlr/thresh.png)
-![](https://gitee.com/WilenWu/images/raw/master/mlr/roc.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/mlr/thresh.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/mlr/roc.png)
 
 Learning curve|学习曲线
 ---|---
@@ -409,7 +409,7 @@ r = generateLearningCurveData(
   show.info = FALSE)
 plotLearningCurve(r)
 ```
-![学习曲线](https://gitee.com/WilenWu/images/raw/master/mlr/leaner.png)
+![学习曲线](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/mlr/leaner.png)
 
 Feature importance|特征重要性
 ---|---
@@ -421,7 +421,7 @@ plotFilterValues(obj=)|可视化特征重要性，FilterValuesData对象
 fv = generateFilterValuesData(iris.task)
 plotFilterValues(fv)
 ```
-![](https://gitee.com/WilenWu/images/raw/master/mlr/fv.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/mlr/fv.png)
 
 Hyperparameters tuning |超参数调优
 ---|---
@@ -443,7 +443,7 @@ res = resample(lrn, task = pid.task, resampling = cv2, extract = getTuneResult, 
 data = generateHyperParsEffectData(res)
 plotHyperParsEffect(data, x = "C", y = "acc.test.mean", plot.type = "line")
 ```
-![](https://gitee.com/WilenWu/images/raw/master/mlr/mlr_cv.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/mlr/mlr_cv.png)
 
 Partial dependence |部分依赖
 ---|---
@@ -462,7 +462,7 @@ fit.classif = train(lrn.classif, iris.task)
 pd.classif = generatePartialDependenceData(fit.classif, iris.task, "Petal.Length", fun = median)
 plotPartialDependence(pd.classif)
 ```
-![reg](https://gitee.com/WilenWu/images/raw/master/mlr/mlr_reg.png)![calssfic](https://gitee.com/WilenWu/images/raw/master/mlr/mlr_calssfic.png)
+![reg](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/mlr/mlr_reg.png)![calssfic](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/mlr/mlr_calssfic.png)
 
 Benchmarking|基准点
 ---|---
@@ -477,12 +477,12 @@ plotCritDifferences(obj=)|临界点检验可视化
 generateCalibrationData(obj=)|评估概率预测与真实发生率的校准
 plotCalibration(obj=)|校准图
 
-![](https://gitee.com/WilenWu/images/raw/master/mlr/mlr4.png)![](https://gitee.com/WilenWu/images/raw/master/mlr/Calibration.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/mlr/mlr4.png)![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/mlr/Calibration.png)
 
 # Wrappers (封装器)
 
 封装器使具有附加功能的学习者融合。mlr把带有封装器的learner看作一个单独的learner，超参数的封装也会与基础模型参数联合调谐。带包装的模型将应用于新数据。
-![wrappers](https://gitee.com/WilenWu/images/raw/master/mlr/mlr_wrappers.png)
+![wrappers](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/mlr/mlr_wrappers.png)
 
 Preprocessing and imputation|预处理和插补
 ---|---

@@ -40,7 +40,7 @@ m <- leaflet() %>%
 m  # Print the map
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/leaflet/map.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/leaflet/map.png)
 
 ## Map Widget：地图控件
 
@@ -97,7 +97,7 @@ leaflet(data = mapStates) %>% addTiles() %>%
   addPolygons(fillColor = topo.colors(10, alpha = NULL), stroke = FALSE)
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/leaflet/us_map.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/leaflet/us_map.png)
 
 ## Basemaps：底图
 
@@ -107,7 +107,7 @@ leaflet(data = mapStates) %>% addTiles() %>%
 > names(providers) : 查看所有第三方图块
 > 参数provider = c(providers$Stamen.Toner, CartoDB.Positron, Esri.NatGeoWorldMap)
 
-![](https://gitee.com/WilenWu/images/raw/master/leaflet/basemap.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/leaflet/basemap.png)
 
 ## Markers：标记
 
@@ -142,7 +142,7 @@ data(quakes) # Show first 20 rows from the `quakes` dataset
 leaflet(data = quakes[1:20,]) %>% addTiles() %>%
   addMarkers(~long, ~lat, popup = ~as.character(mag), label = ~as.character(mag))
 ```
-![](https://gitee.com/WilenWu/images/raw/master/leaflet/marker1.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/leaflet/marker1.png)
 
 
 **示例 2**
@@ -165,7 +165,7 @@ leaflet(data = quakes1) %>% addTiles() %>%
   addMarkers(~long, ~lat, icon = leafIcons)
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/leaflet/marker2.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/leaflet/marker2.png)
 
 **示例 3**
 
@@ -175,7 +175,7 @@ leaflet(quakes) %>% addTiles() %>% addMarkers(
 )
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/leaflet/marker3.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/leaflet/marker3.png)
 
 **2. Circle Markers** 
 
@@ -197,7 +197,7 @@ leaflet(df) %>% addTiles() %>%
   )
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/leaflet/marker4.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/leaflet/marker4.png)
 
 ## Popups and Labels：弹出窗口和标签
 
@@ -224,7 +224,7 @@ leaflet() %>% addTiles() %>%
     options = popupOptions(closeButton = FALSE)
   )
 ```
-![cl](https://gitee.com/WilenWu/images/raw/master/leaflet/popup.png)
+![cl](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/leaflet/popup.png)
 
 ## Lines and Shapes：线条和几何形状
 
@@ -263,7 +263,7 @@ leaflet(cities) %>% addTiles() %>%
     radius = ~sqrt(Pop) * 30, popup = ~City
   )
 ```
-![](https://gitee.com/WilenWu/images/raw/master/leaflet/circle.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/leaflet/circle.png)
 
 ## 其他组件
 
@@ -337,7 +337,7 @@ leafletCN是一个基于leaflet的中国扩展包, 里面保存了一些适用�
 ```r
 demomap("上海")
 ```
-![](https://gitee.com/WilenWu/images/raw/master/leaflet/sh1.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/leaflet/sh1.png)
 
 `geojsonMap(dat, mapName)` 底图+填色地图，dat赋值data.frame(regions,values)
 
@@ -346,7 +346,7 @@ sh = regionNames("上海")
 dat = data.frame(name = sh,value = rnorm(length(sh)))
 geojsonMap(dat,"上海")
 ```
-![](https://gitee.com/WilenWu/images/raw/master/leaflet/sh2.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/leaflet/sh2.png)
 
 ## 辅助函数
 

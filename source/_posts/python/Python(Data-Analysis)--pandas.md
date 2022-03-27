@@ -148,7 +148,7 @@ import pandas as pd
 | `df.filter(items=None,like=None,regex=None, axis=None)` | 筛选方法，like: 字符列表 |
 |`df.query(expr,inplace=False)`|逻辑筛选<br>`df.query('c1=="auto" & c2>=5')`|
 
-![df](https://gitee.com/WilenWu/images/raw/master/common/python-dataframe.png)
+![df](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/python-dataframe.png)
 
 ## 方法 
 
@@ -254,11 +254,11 @@ data.replace({-999: np.nan, -1000: 0})   #参数为字典
 | df.stack(level=-1, dropna=True)   | 把最内层列转换成行   |
 | df.unstack(level=-1, fill_value=None) | stack逆运算，把行转换成最内层列   |
 
-![](https://gitee.com/WilenWu/images/raw/master/common/reshaping_stack.png)
-![](https://gitee.com/WilenWu/images/raw/master/common/reshaping_unstack.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/reshaping_stack.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/reshaping_unstack.png)
 
-![](https://gitee.com/WilenWu/images/raw/master/common/reshaping_unstack_0.png)
-![](https://gitee.com/WilenWu/images/raw/master/common/reshaping_unstack_1.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/reshaping_unstack_0.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/reshaping_unstack_1.png)
 
 |**融合和重构**||
 |:---|:---|
@@ -266,8 +266,8 @@ data.replace({-999: np.nan, -1000: 0})   #参数为字典
 |df.pivot(index=None, columns=None, values=None)|reshape|
 | df.apply(func,axis=0)| 单函数聚合|
 
-![](https://gitee.com/WilenWu/images/raw/master/common/reshaping_melt.png)
-![](https://gitee.com/WilenWu/images/raw/master/common/reshaping_pivot.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/reshaping_melt.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/reshaping_pivot.png)
 
 |**分组和聚合**|(介绍分组时举例)|
 |:---|:---|
@@ -640,7 +640,7 @@ xsticks/ysticks|x/y刻度
 xlim/ylim|x/y界限
 grid|显示网格线
 
-![](https://gitee.com/WilenWu/images/raw/master/common/04_plot_overview.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/04_plot_overview.svg)
 
 
 | 可视化 |  |

@@ -93,7 +93,7 @@ f_n(x)=\begin{cases}
 \end{cases}
 $$
  其中 $Γ(x)=\displaystyle\int_{0}^{+∞}t^{x-1}e^{-t}\mathrm{d}t$
-![卡方分布](https://gitee.com/WilenWu/images/raw/master/Probability/chi-square.png)
+![卡方分布](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/chi-square.png)
 性质：
 (1) 设 $Y∼ χ^2(n)$，则 $E(Y)=n,D(Y)=2n$
 (2) 分布的可加性：设 $Y_1∼ χ^2(n_1),Y_2∼ χ^2(n_2)$，且$Y_1,Y_2$相互独立，则 $Y_1+Y_2∼ χ^2(n_1+n_2)$
@@ -110,7 +110,7 @@ f_n(x)=\dfrac{Γ(\frac{n+1}{2})}{\sqrt{nπ}Γ(\frac{n}{2})}(1+\dfrac{x^2}{n})^{-
 $$
 特别地，$n=1$ 的 t 分布就是柯西分布 $f(x)=\dfrac{1}{π(1+x^2)},x\in\R$
 $\lim\limits_{n\to∞}f_n(x)=\dfrac{1}{\sqrt{2π}}e^{-x^2/2},x\in\R$
-![t分布](https://gitee.com/WilenWu/images/raw/master/Probability/t.png)
+![t分布](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/t.png)
 
 ==F 分布==(F-distribution)：设 $X∼ χ^2(n_1),Y∼ χ^2(n_2)$，且 X与 Y 相互独立，则称随机变量
 $$
@@ -125,7 +125,7 @@ f(x)=\begin{cases}
 \end{cases}
 $$
 其中 $B(a,b)=\displaystyle\int_0^1x^{a-1}(1-x)^{b-1}\mathrm{d}x=\dfrac{Γ(a)Γ(b)}{Γ(a+b)}$
-![F分布](https://gitee.com/WilenWu/images/raw/master/Probability/F.png)
+![F分布](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/F.png)
 重要性质：若 $F∼ F(n_1,n_2)$，则$\dfrac{1}{F}∼ F(n_2,n_1)$
 
 
@@ -285,7 +285,7 @@ $F(n_1,n_2)$分布的α 分位点记作 $F_α(n_1,n_2)$
 设常数 $a,b$满足： $P\{a<G<b\}⩾ 1-α$
 等价于$P\{\bar X-\dfrac{σ}{\sqrt{n}}b<μ<\bar X-\dfrac{σ}{\sqrt{n}}a\}⩾ 1-α$
 此时区间的长度为 $(b-a)σ/\sqrt{n}$
-![置信区间](https://gitee.com/WilenWu/images/raw/master/Probability/CI.png)
+![置信区间](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/CI.png)
 由正态分布的对称性知，$a=-b=-z_{α/2}$时，区间的长度达到最短 $L=z_{α/2}σ/\sqrt{n}$
 n固定，置信水平提高，即$1-α$增大，则 $z_{α/2}$增大，所以 $L$ 变大，精确度降低；反之亦然.
 所得 μ 双侧置信区间为 $(\bar X-\dfrac{σ}{\sqrt{n}}z_{α/2},\bar X+\dfrac{σ}{\sqrt{n}}z_{α/2})$
@@ -329,7 +329,7 @@ $σ^2_1/σ^2_1$|$μ$未知| $\dfrac{S_1^2/S_2^2}{σ_1^2/σ_2^2}∼ F(n_1-1,n_2-1
 (2) 然而，由于样本的随机性，当实际上 $H_0$为真时，仍有可能拒绝原假设（这种可能性是无法消除的），犯这种错误的概率记为 $P_{μ\in H_0}\{拒绝H_0\}=P\{\rm type\ I\ error\}$。
 为了确定常数 $k$，我们希望犯这类错误的最大概率为 $α\in(0,1)$，令$P\{\rm type\ I\ error\}=P\{\left|\dfrac{\bar X-μ_0}{σ/\sqrt{n}}\right|⩾ k\}=α$，由于 $H_0$为真时，$Z=\dfrac{\bar X-μ_0}{σ/\sqrt{n}}∼ N(0,1)$
 由正态分布分位点的定义知，$k=z_{α/2}$，当$|z|⩾ z_{α/2}$时，拒绝原假设。
-![](https://gitee.com/WilenWu/images/raw/master/Probability/significance-level.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/significance-level.png)
 
 
 
@@ -360,7 +360,7 @@ $\quad$|原假设为真|原假设不真
 根据样本**接受**原假设|正确|**type Ⅱ error**
 设总体服从 $X∼ N(μ,1)$，则$\bar X∼ N(μ,1/n)$，||
 $H_0: μ=μ_0,\quad H_1: μ=μ_1>μ_0$，拒绝域$\bar X⩾ C$||
-![拒绝域](https://gitee.com/WilenWu/images/raw/master/Probability/rejection-region.png)||
+![拒绝域](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/rejection-region.png)||
 
 ## 正态总体下的假设检验(Hypothesis testing in a normal population)
 **正态总体均值和方差的检验法**（显著性水平为 $α$）
@@ -691,7 +691,7 @@ $F_A∼ F(r-1,rs(t-1)) \\
 ## 一元线性回归(Simple Linear Regression)
 
 设随机变量 $Y$(因变量)与普通变量 $x$(自变量)存在着相关关系，对于 $x$的确定值， $Y$有他的分布（图中$C_1,C_2$分别是 $x_1,x_2$处 $Y$ 的概率密度曲线），用 $F(y|x)$ 表示 $Y$的分布函数，然而此函数讨论过于复杂，我们转而讨论 $E(Y)=μ(x)$与$x$的关系，称为 $Y$ 关于 $x$ 的==回归函数==(regression function)。同时以回归函数作为 $Y$ 的近似，其均方误差 $E[Y-μ(x)]^2$ 最小。
-![一元回归](https://gitee.com/WilenWu/images/raw/master/Probability/simple-linear-regression.png)
+![一元回归](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/simple-linear-regression.png)
 
 对从整体 $(x,Y)$ 中抽取的一个样本 $(x_1,Y_1),(x_2,Y_2),\cdots,(x_n,Y_n)$，样本值为 $(x_1,y_1),(x_2,y_2),\cdots,(x_n,y_n)$，若 $μ(x)$ 为线性函数 $μ(x)=a+bx$，此时的问题称为一元线性回归问题。$Y∼ N(a+bx,σ^2)$，设 $ϵ=Y-(a+bx)$则
 $$

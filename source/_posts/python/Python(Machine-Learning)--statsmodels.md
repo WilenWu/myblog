@@ -107,7 +107,7 @@ smpickle.load_pickle(fname)	#Load a previously saved object from file
       data=df, obs_labels=False) #绘制回归图  
 ```
 
-![line](https://gitee.com/WilenWu/images/raw/master/statsmodels/line.png)  
+![line](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/statsmodels/line.png)  
 
 ## 使用R型公式来拟合模型
 
@@ -613,7 +613,7 @@ del dta["YEAR"]
 dta.plot(figsize=(12,8))  
 plt.show()  
 ```
-<img src="https://gitee.com/WilenWu/images/raw/master/statsmodels/sunpots.png"  style="zoom:75%;" />  
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/statsmodels/sunpots.png"  style="zoom:75%;" />  
 
 **参数估计**  
 ```python  
@@ -623,7 +623,7 @@ fig = sm.graphics.tsa.plot_acf(dta.values.squeeze(), lags=40, ax=ax1)
 ax2 = fig.add_subplot(212)  
 fig = sm.graphics.tsa.plot_pacf(dta, lags=40, ax=ax2)  
 ```
-  <img src="https://gitee.com/WilenWu/images/raw/master/statsmodels/acf.png" alt="sunpots" width="75%" />
+  <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/statsmodels/acf.png" alt="sunpots" width="75%" />
 
 **拟合模型并评估**  
 ```python  
@@ -664,9 +664,9 @@ NormaltestResult(statistic=49.845019661107585, pvalue=1.5006917858823576e-11)
 >>> fig = qqplot(resid, line='q', ax=ax, fit=True)  
 ```
 
-<img src="https://gitee.com/WilenWu/images/raw/master/statsmodels/arma.png" width="50%" height="50%" />  
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/statsmodels/arma.png" width="50%" height="50%" />  
 
-<img src="https://gitee.com/WilenWu/images/raw/master/statsmodels/qq.png" alt="qq" width="50%" height="50%"/>  
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/statsmodels/qq.png" alt="qq" width="50%" height="50%"/>  
 
 **模型预测**  
 
@@ -677,7 +677,7 @@ ax = dta.loc['1950':].plot(ax=ax)
 fig = arma_mod30.plot_predict('1990', '2012', dynamic=True, ax=ax, plot_insample=False)  
 ```
 
-<img src="https://gitee.com/WilenWu/images/raw/master/statsmodels/pre.png" style="zoom:67%;" />  
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/statsmodels/pre.png" style="zoom:67%;" />  
 
 ## [状态空间方法](http://www.statsmodels.org/stable/statespace.html)
 
@@ -743,7 +743,7 @@ In [15]: results.summary()
 In [16]: results.plot()  
 Out[16]: <Figure size 1000x1000 with 3 Axes>  
 ```
-<img src="https://gitee.com/WilenWu/images/raw/master/statsmodels/var.png" alt="pre" width="75%;"/>  
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/statsmodels/var.png" alt="pre" width="75%;"/>  
 
 绘制时间序列自相关函数：  
 ```python  
@@ -779,7 +779,7 @@ array([[ 0.0062,  0.005 ,  0.0092],
 In [22]: results.plot_forecast(10)  
 Out[22]: <Figure size 1000x1000 with 3 Axes>  
 ```
-<img src="https://gitee.com/WilenWu/images/raw/master/statsmodels/forecast.png"  width="75%" height="75%"/>  
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/statsmodels/forecast.png"  width="75%" height="75%"/>  
 
 ### 脉冲响应分析(Impulse Response Analysis)
 
@@ -948,7 +948,7 @@ Out[41]:
 In [42]: var.plot_forecast(2)  
 ```
 
-  <img src="https://gitee.com/WilenWu/images/raw/master/statsmodels/dvar_forecast.png" alt="forecast" width="75%" height="75%"/>
+  <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/statsmodels/dvar_forecast.png" alt="forecast" width="75%" height="75%"/>
 
 
 # [生存分析](http://www.statsmodels.org/stable/duration.html)  
@@ -1497,7 +1497,7 @@ gofplots.ProbPlot|自定义QQ图，PP图或概率图
 >>> fig = sm.qqplot(res, stats.t, fit=True, line='45')  
 >>> plt.show()  
 ```
-![qq](https://gitee.com/WilenWu/images/raw/master/statsmodels/fit.png)  
+![qq](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/statsmodels/fit.png)  
 
 
 ## 箱线图  
@@ -1525,7 +1525,7 @@ boxplots.beanplot|在数据序列中创建每个数据集的bean图
 >>> ax.set_ylabel("Age")  
 >>> plt.show()  
 ```
-![](https://gitee.com/WilenWu/images/raw/master/statsmodels/box.png)  
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/statsmodels/box.png)  
 
 ## 相关图  
 
@@ -1544,7 +1544,7 @@ plot_grids.scatter_ellipse|用置信度椭圆创建一个散点图网格
 >>> smg.plot_corr(corr_matrix, xnames=hie_data.names)  
 >>> plt.show()  
 ```
-  ![](https://gitee.com/WilenWu/images/raw/master/statsmodels/corr.png)
+  ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/statsmodels/corr.png)
 
 ## 函数图  
 Functional Plots|函数图  
@@ -1570,7 +1570,7 @@ functional.banddepth|计算一组函数曲线的带深度
 >>> ax.set_xlim([-0.2, 11.2])  
 >>> plt.show()  
 ```
-![fp](https://gitee.com/WilenWu/images/raw/master/statsmodels/fun.png)  
+![fp](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/statsmodels/fun.png)  
 
 ## 回归图  
 Regression Plots|回归图  

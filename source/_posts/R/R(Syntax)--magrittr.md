@@ -15,7 +15,7 @@ top_img:
 
 **magrittr**:  管道语法
 
-<img src="https://gitee.com/WilenWu/images/raw/master/common/workflows.png" style="zoom: 33%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/workflows.png" style="zoom: 33%;" />
 
 <!-- more -->
 

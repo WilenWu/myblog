@@ -23,7 +23,7 @@ date: 2018-05-01 23:06:29
 
 ## Date-times
 
-![](https://gitee.com/WilenWu/images/raw/master/lubridate/date-time.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/lubridate/date-time.png)
 
 - **date-time** 是时间线上的一个点，以秒为存储单位，起始于1970-01-01 00:00:00 UTC   # `base::as.POSIXct(x,farmat,origin)`
 ```r
@@ -45,7 +45,7 @@ t <- hms::as.hms(85)
 
 - 识别出数据中 year (**y**), month (**m**), day (**d**), hour (**h**), minute (**m**) and second (**s**) 元素的顺序
 - 用下面的函数，函数的名字代表顺序，函数接收**多种多样**的输入形式
-![](https://gitee.com/WilenWu/images/raw/master/lubridate/ymd-hms.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/lubridate/ymd-hms.png)
 
 **date_decimal**(decimal, tz = "UTC")  解析小数形式
 *date_decimal(2017.5)*
@@ -70,9 +70,9 @@ t <- hms::as.hms(85)
 >>> d 
 "2017-11-01"
 ```
-![floor](https://gitee.com/WilenWu/images/raw/master/lubridate/lubridate-parts.png)
+![floor](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/lubridate/lubridate-parts.png)
 
-![](https://gitee.com/WilenWu/images/raw/master/lubridate/am-pm.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/lubridate/am-pm.png)
 
 **quarter**(x, with_year = FALSE, fiscal_start = 1)  季度
 **semester**(x, with_year = FALSE)  （尤指美国的大专院校的） 学期，半学年
@@ -92,11 +92,11 @@ ceiling_date(x, unit = "second",change_on_boundary = NULL) #向上滚动到最�
 rollback(dates, roll_to_first =FALSE, preserve_hms = TRUE) #滚动到上月最后一天或本月第一天
 ```
 **图示**
- ![](https://gitee.com/WilenWu/images/raw/master/lubridate/floor_date.png)
+ ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/lubridate/floor_date.png)
 `floor_date(dt, unit = "month")`
-![round](https://gitee.com/WilenWu/images/raw/master/lubridate/ceiling_date.png)
+![round](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/lubridate/ceiling_date.png)
 `round_date(dt, unit = "month")`
-![ceiling](https://gitee.com/WilenWu/images/raw/master/lubridate/round_date.png)
+![ceiling](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/lubridate/round_date.png)
 `ceiling_date(dt, unit = "month")`
 
 ## Stamp Date-times
@@ -120,7 +120,7 @@ R可以识别 ~600 个时区，每一个区块都有编码时区，夏令时，�
 **OlsonNames()**  返回完整的时区名列表
 **with_tz()** 返回另一个时区的date-time
 **force_tz** 强制抓换时区，date-time数字不变
-![](https://gitee.com/WilenWu/images/raw/master/lubridate/lubridate-tz.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/lubridate/lubridate-tz.png)
 
 ```r
 meeting <- ymd_hms("2011-07-01 09:00:00", tz = "Pacific/Auckland")
@@ -227,7 +227,7 @@ int_diff(times)|用n个date-time分割成n-1个intervals向量
 
 夏令时（Daylight Saving Time：DST），又称“日光节约时制”和“夏令时间”，是一种为节约能源而人为规定地方时间的制度，在这一制度实行期间所采用的统一时间称为“夏令时间”。一般在天亮早的夏季人为将时间调快一小时，可以使人早起早睡，减少照明量，以充分利用光照资源，从而节约照明用电。各个采纳夏令时的国家具体规定不同。目前全世界有近110个国家每年要实行夏令时。
 
-![](https://gitee.com/WilenWu/images/raw/master/lubridate/lubridate-math.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/lubridate/lubridate-math.png)
 
 2. Date-times数学运算
 

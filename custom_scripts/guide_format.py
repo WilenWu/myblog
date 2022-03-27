@@ -27,11 +27,11 @@ for i in range(len(guide)):
     line = guide[i].rstrip()
     # 一级标题
     if re.search('^# .+$', line): 
-        name = re.search('# +<font.+?>(.+?)</font>', line).group(1).strip()
+        name = re.search('# +(.+) *', line).group(1).strip()
         cats.append({'name':name, 'level':'#', 'line_num': i})
     # 二级标题
     elif re.search('^## .+$', line):
-        name = re.search('# +<font.+?>(.+?)</font>', line).group(1).strip()
+        name = re.search('## +(.+) *', line).group(1).strip()
         cats.append({'name':name, 'level':'##', 'line_num': i})
     #- :emoji: [title][link_id]: desc
     elif re.search(link_pattern[0], line):
@@ -75,9 +75,8 @@ for link in links.values():
 # 标题规范化
 for cat in cats:
     level = cat['level']
-    color = 'red' if level=='#' else 'green'
     name = cat['name']
-    guide[cat['line_num']]=f'{level} <font color="{color}">{name}</font>'
+    guide[cat['line_num']]=f'{level} {name}'
 
 guide = [line for line in guide if line is not None]
 #------------------------------------- 重写 guide

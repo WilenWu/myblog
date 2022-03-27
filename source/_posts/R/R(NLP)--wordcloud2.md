@@ -72,8 +72,8 @@ figPath = system.file("examples/t.png",package = "wordcloud2")
 wordcloud2(demoFreq, figPath = figPath, size = 1.5,color = "skyblue") 
 ```
 
-<img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud1.png"  style="zoom:50%;" /><img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud2.png" style="zoom:80%;" /><img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud3.png" style="zoom:50%;" />
-<img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud4.png"  style="zoom:50%;" /><img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud5.png" style="zoom: 67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/wordcloud/Wordcloud1.png"  style="zoom:50%;" /><img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/wordcloud/Wordcloud2.png" style="zoom:80%;" /><img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/wordcloud/Wordcloud3.png" style="zoom:50%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/wordcloud/Wordcloud4.png"  style="zoom:50%;" /><img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/wordcloud/Wordcloud5.png" style="zoom: 67%;" />
 
 # letterCloud函数
 
@@ -92,7 +92,7 @@ letterCloud(data, word, wordSize = 0, letterFont = NULL, ...)
 letterCloud(demoFreq, word = "WORDCLOUD2", wordSize = 1)
 ```
 
-<img src="https://gitee.com/WilenWu/images/raw/master/wordcloud/Wordcloud6.png" style="zoom:150%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/wordcloud/Wordcloud6.png" style="zoom:150%;" />
 
 
 # shiny支持

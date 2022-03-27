@@ -126,7 +126,7 @@ ui <- fluidPage(
  fluidRow(column(width = 12))
 )
 ```
-![](https://gitee.com/WilenWu/images/raw/master/r-shiny/shiny_fluid.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/r-shiny/shiny_fluid.png)
 
 ```r
 # flowLayout
@@ -136,7 +136,7 @@ ui <- fluidPage(
 )
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/r-shiny/shiny_flow.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/r-shiny/shiny_flow.png)
 
 ```r
 # sidebarLayout
@@ -147,7 +147,7 @@ ui <- fluidPage(
  )
 )
 ```
-![](https://gitee.com/WilenWu/images/raw/master/r-shiny/shiny_panel.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/r-shiny/shiny_panel.png)
 ```r
 # splitLayout
 ui <- fluidPage(
@@ -156,7 +156,7 @@ ui <- fluidPage(
  )
 )
 ```
-![](https://gitee.com/WilenWu/images/raw/master/r-shiny/shiny_split.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/r-shiny/shiny_split.png)
 ```r
 # verticalLayout
 ui <- fluidPage(
@@ -166,7 +166,7 @@ ui <- fluidPage(
  )
 )
 ```
-![](https://gitee.com/WilenWu/images/raw/master/r-shiny/shiny_vertical.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/r-shiny/shiny_vertical.png)
 ```r
 # tabPanel
 ui <- fluidPage( tabsetPanel(
@@ -182,7 +182,7 @@ ui <- navbarPage(title = "Page",
  tabPanel("tab 2", "contents"),
  tabPanel("tab 3", "contents"))
 ```
-![](https://gitee.com/WilenWu/images/raw/master/r-shiny/shiny_tabs.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/r-shiny/shiny_tabs.png)
 
 
 # Reactivity(反应)

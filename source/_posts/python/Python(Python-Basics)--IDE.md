@@ -32,7 +32,7 @@ emoji: heart
 - 大家经常遇到的魔法命令，就是IPython的众多功能之一
 - 常会看到 IPython 中的`In[1]:`/`Out[1]:`形式的提示,它们并不仅仅是好看的装饰形式，还是包含输入、输出的变量。
 
-[**Sublime Text**](http://www.sublimetext.com/)<img src="https://gitee.com/WilenWu/images/raw/master/common/sublime.jpg" width="10%" height="10%" align="right"/>
+[**Sublime Text**](http://www.sublimetext.com/)<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/sublime.jpg" width="10%" height="10%" align="right"/>
 
 - 专为程序员开发的第三方专用编程工具
 - 专业编程体验（支持自动补全、提示、语法高亮等插件）
@@ -51,7 +51,7 @@ emoji: heart
    4. 打开工具 > 编译系统 ，选择新建号的 python3 
    5. 打开工具 > 编译或者快捷键 ctrl+B 即可运行脚本。**需特别注意，脚本必须保存到本地，否则会报错！**
 
-[**PyCharm**](https://www.jetbrains.com/pycharm/)<img src="https://gitee.com/WilenWu/images/raw/master/common/pycharm.jpg" width="10%" height="10%" align="right"/>
+[**PyCharm**](https://www.jetbrains.com/pycharm/)<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/pycharm.jpg" width="10%" height="10%" align="right"/>
 
 
 - JetBrains 公司开发，社区版免费
@@ -63,7 +63,7 @@ emoji: heart
    3. 重新加载`source ~/.bashrc`
    4. shell命令行输入`pycharn`即可打开
 
-[**Anaconda**](https://www.anaconda.com/download/)<img src="https://gitee.com/WilenWu/images/raw/master/common/anaconda.png" width="20%" height="20%" align="right"/>
+[**Anaconda**](https://www.anaconda.com/download/)<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/anaconda.png" width="20%" height="20%" align="right"/>
 
 
 - 开源的Python发行版本。
@@ -88,7 +88,7 @@ Anaconda作为管理平台，包含以下应用程序：
 - Anaconda Prompt：交互式命令终端，可以用来管理工具包和环境。
 - spyder ：一个使用Python语言、跨平台的、科学运算集成开发环境。
 
-![](https://gitee.com/WilenWu/images/raw/master/common/Anaconda-Navigator.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/Anaconda-Navigator.png)
 
 ## 包管理
 
@@ -180,4 +180,4 @@ conda install -c conda-forge jupyterlab
 在安装Jupyter Lab后，接下来要做的是运行它。
 你可以在命令行使用`jupyter-lab`或`jupyter lab`命令，然后默认浏览器会自动打开Jupyter Lab。
 
-![](https://gitee.com/WilenWu/images/raw/master/common/jupyterlab-example.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/jupyterlab-example.png)

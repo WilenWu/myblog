@@ -334,6 +334,9 @@ GitHub 自动从标准 URL 创建链接。如 http://www.baidu.com
 > 如上传图片URL为 `https://img-blog.csdnimg.cn/20191210170351158.jpg?x-oss-process=image/watermark******`
 > 修改为 `https://img-blog.csdnimg.cn/20191210170351158.jpg` 即可
 
+有时我们希望使自己的本地图片自动上传到图床使用，推荐管理工具 [PicGo](https://molunerfinn.com/PicGo/)。<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/picgo.png" width="20%;" align="right"/>
+PicGo 默认支持微博图床、七牛图床、腾讯云COS、又拍云、GitHub、SM.MS、阿里云OSS、Imgur。方便不同图床的上传需求。
+
 ## 表格
 
 您可以用竖线 `|` 和横线 `-` 创建表格。 横线用于创建每列的标题，而竖线用于分隔每列。 必须在表格前包含空白链接，以便其正确呈现。表格末尾的竖线可选。
@@ -651,7 +654,7 @@ HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Mark
 ```
 你可以在各大视频网站的分享入口，找到嵌入的 HTML 代码。
 
-![video](https://gitee.com/wilenwu/images/raw/master/common/share.jpg)
+![video](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/share.jpg)
 
 ## Font Awesome
 

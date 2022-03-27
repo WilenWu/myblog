@@ -153,7 +153,7 @@ tail [-n number]|显示后number行
 ## Linux文件权限
 
 Linux使用user和group控制使用者对文件的权限，每个文件或程序都有ower和group
-![file](https://gitee.com/WilenWu/images/raw/master/common/linux-file.png)
+![file](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/linux-file.png)
 
 `ls -l` 显示文件详细信息
 `chmod [options]  mode file` 修改文件权限
@@ -415,7 +415,7 @@ pycharm
 - **安装R包报错处理**
 安装R包报错时，通常都会显示错误信息，只要按提示的错误信息安装对应的软件包即可。
 `sudo apt-get install libxml2-dev`
-![](https://gitee.com/WilenWu/images/raw/master/common/liunx-apt-bug.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/liunx-apt-bug.png)
 
 - **pycharm**
 打开脚本报错Gtk-Message: Failed to load module "canberra-gtk-module"

@@ -274,7 +274,7 @@ earth=Sphere(radius=2)
 lon,lat,h=earth.create_sphere(octaves=10, persistence=0.5,multiplier=2,seed=57)
 earth.draw_sphere(lon,lat,h,map='ellipse')
 ```
-![map](https://gitee.com/WilenWu/images/raw/master/common/perlin-map.png)
+![map](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/perlin-map.png)
 
 
 

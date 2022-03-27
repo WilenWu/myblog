@@ -84,7 +84,7 @@ prophet 是由Facebook的核心数据科学团队发布的开源软件。同时�
 
 模型组成：Y(t)=Trend(t)+Seasonal(t)+Holiday(t)+Irregular(t)
 
-![](https://gitee.com/WilenWu/images/raw/master/common/ts-trend.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/ts-trend.png)
 
 ## 构建模型
 

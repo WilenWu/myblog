@@ -19,13 +19,13 @@ emoji: heart
 
 ## 简介
 
-[**可缩放矢量图形**](https://www.w3.org/Graphics/SVG/) <img src="https://gitee.com/WilenWu/images/raw/master/common/SVG-with-crown.svg" width="20%" align="right"/>（Scalable Vector Graphics，SVG）是一种用于描述二维的矢量图形，基于 XML 的标记语言。SVG由W3C制定，是一个开放标准，能够优雅而简洁地渲染不同大小的图形，并和CSS，DOM[^dom]，JavaScript和SMIL等其他网络标准无缝衔接。本质上，SVG 相对于图像，就好比 HTML 相对于文本。
+[**可缩放矢量图形**](https://www.w3.org/Graphics/SVG/) <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/SVG-with-crown.svg" width="20%" align="right"/>（Scalable Vector Graphics，SVG）是一种用于描述二维的矢量图形，基于 XML 的标记语言。SVG由W3C制定，是一个开放标准，能够优雅而简洁地渲染不同大小的图形，并和CSS，DOM[^dom]，JavaScript和SMIL等其他网络标准无缝衔接。本质上，SVG 相对于图像，就好比 HTML 相对于文本。
 
 SVG 图像及其相关行为被定义于 XML 文本文件之中，这意味着可以对它们进行搜索、索引、编写脚本以及压缩。此外，这也意味着可以使用任何文本编辑器和绘图软件来创建和编辑它们。
 
 和传统的点阵图模式不同，SVG格式提供的是矢量图，这意味着它的图像能够被无限放大而不失真或降低质量，并且可以方便地修改内容。
 
-<img src="https://gitee.com/WilenWu/images/raw/master/common/SVG-Bitmap.svg" width="50%"/>
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/SVG-Bitmap.svg" width="50%"/>
 
 SVG1.1的第二个版本在2011年成为推荐标准，W3C工作组还在2003年推出了SVG Tiny (SVGT) 和SVG Basic (SVGB)。这两个配置文件主要瞄准移动设备。首先SVG Tiny主要是为性能低的小设备生成图元，而SVG Basic实现了完整版SVG里的很多功能，只是舍弃了难以实现的大型渲染（比如动画）。
 
@@ -130,7 +130,7 @@ SVG使用一组元素标签，创建和组织文件以及文件中的对象。�
 
 对于所有元素，SVG使用的坐标系统或者说网格系统，和[Canvas](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API)用的差不多（所有计算机绘图都差不多）。这种坐标系统是：以页面的左上角为(0,0)坐标点，坐标以像素为单位，x轴正方向是向右，y轴正方向是向下。注意，这和你小时候所教的绘图方式是相反的。但是在HTML文档中，元素都是用这种方式定位的。
 
-![](https://gitee.com/WilenWu/images/raw/master/common/Canvas_default_grid.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/Canvas_default_grid.png)
 
 **示例：**
 
@@ -265,7 +265,7 @@ c dx1 dy1, dx2 dy2, dx dy
 
 这里的最后一个坐标 (x,y) 表示的是曲线的终点，另外两个坐标是控制点。(x1,y1)是起点的控制点，(x2,y2)是终点的控制点。如果你熟悉代数或者微积分的话，会更容易理解控制点，控制点描述的是曲线起点和终点的斜率，曲线上各个点的斜率，是从起点斜率到终点斜率的渐变过程。（文字描述不好，维基百科上有图示，更直观。）
 
-![](https://gitee.com/WilenWu/images/raw/master/common/Cubic_Bezier_Curves.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/Cubic_Bezier_Curves.png)
 
 你可以将若干个贝塞尔曲线连起来，从而创建出一条很长的平滑曲线。通常情况下，一个点某一侧的控制点是它另一侧的控制点的对称（以保持斜率不变）。这样，你可以使用一个简写的贝塞尔曲线命令S，如下所示：
 
@@ -276,7 +276,7 @@ s dx2 dy2, dx dy
 
 S命令可以用来创建与前面一样的贝塞尔曲线，但是，如果S命令跟在一个C或S命令后面，则它的第一个控制点会被假设成前一个命令曲线的第二个控制点的中心对称点。如果S命令单独使用，前面没有C或S命令，那当前点将作为第一个控制点。下面是S命令的语法示例，图中左侧红色标记的点对应的控制点即为蓝色标记点。(标记控制点的代码会比较庞大，所以在这里舍弃了)
 
-![](https://gitee.com/WilenWu/images/raw/master/common/ShortCut_Cubic_Bezier.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/ShortCut_Cubic_Bezier.png)
 
 ```html
 <?xml version="1.0" standalone="no"?>
@@ -335,7 +335,7 @@ Q x1 y1, x y
 q dx1 dy1, dx dy
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/common/Quadratic_Bezier.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/Quadratic_Bezier.png)
 
 ```html
 <?xml version="1.0" standalone="no"?>
@@ -354,7 +354,7 @@ t dx dy
 ```
 
 和之前一样，快捷命令T会通过前一个控制点，推断出一个新的控制点。这意味着，在你的第一个控制点后面，可以只定义终点，就创建出一个相当复杂的曲线。需要注意的是，T命令前面必须是一个Q命令，或者是另一个T命令，才能达到这种效果。如果T单独使用，那么控制点就会被认为和终点是同一个点，所以画出来的将是一条直线。
-![](https://gitee.com/WilenWu/images/raw/master/common/Shortcut_Quadratic_Bezier.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/Shortcut_Quadratic_Bezier.png)
 
 ```html
 <?xml version="1.0" standalone="no"?>
@@ -382,7 +382,7 @@ t dx dy
 - 最后两个参数是指定弧形的终点
 - 弧形命令解释起来较复杂，请参考文档 [路径 - SVG | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Paths#arcs) 
 
-![](https://gitee.com/WilenWu/images/raw/master/common/SVGArcs_Flags.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/SVGArcs_Flags.png)
 
 ```html
 <?xml version="1.0" standalone="no"?>
@@ -422,7 +422,7 @@ SVG 提供了一系列边框属性，可应用于任何种类的线条，包括�
   - `square`的效果差不多，但是会稍微超出实际路径的范围，超出的大小由`stroke-width`控制。
   - `round`表示边框的终点是圆角，圆角的半径也是由`stroke-width`控制的。
 
-  ![](https://gitee.com/WilenWu/images/raw/master/common/SVG_Stroke_Linecap_Example.png)
+  ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/SVG_Stroke_Linecap_Example.png)
 
   ```html
   <?xml version="1.0" standalone="no"?>
@@ -438,7 +438,7 @@ SVG 提供了一系列边框属性，可应用于任何种类的线条，包括�
   - `round`表示用圆角连接，实现平滑效果
   - 最后还有一个值`bevel`，连接处会形成一个斜接
 
-  ![](https://gitee.com/WilenWu/images/raw/master/common/SVG_Stroke_Linejoin_Example.png)
+  ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/SVG_Stroke_Linejoin_Example.png)
 
   ```html
   <?xml version="1.0" standalone="no"?>
@@ -456,7 +456,7 @@ SVG 提供了一系列边框属性，可应用于任何种类的线条，包括�
 
 - `stroke-dasharray` 属性用于创建虚线
 
-  ![](https://gitee.com/WilenWu/images/raw/master/common/SVG_Stroke_Dasharray_Example.png)
+  ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/SVG_Stroke_Dasharray_Example.png)
 
   ```html
   <?xml version="1.0" standalone="no"?>
@@ -504,11 +504,11 @@ SVG 也提供了一系列属性用于填充，包括形状类元素和文字内�
 **fill-rule 属性**：对一个简单的无交叉的路径，哪块区域是内部是很直观清楚的。但是，对一个复杂的路径，比如自相交或者一个子路径包围另一个子路径，内部的理解就不那么明确了。
 - **nonzero**：字面意思是“非零”。按该规则，要判断一个点是否在图形内，从该点作任意方向的一条射线，然后检测射线与图形路径的交点情况。从0开始计数，路径从左向右穿过射线则计数加1，从右向左穿过射线则计数减1。得出计数结果后，如果结果是0，则认为点在图形外部，否则认为在内部。下图演示了nonzero规则
 
-  ![](https://gitee.com/WilenWu/images/raw/master/common/SVG-nonzero.svg)
+  ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/SVG-nonzero.svg)
 
 - **evenodd**：字面意思是“奇偶”。按该规则，要判断一个点是否在图形内，从该点作任意方向的一条射线，然后检测射线与图形路径的交点的数量。如果结果是奇数则认为点在内部，是偶数则认为点在外部。下图演示了evenodd 规则
 
-  ![](https://gitee.com/WilenWu/images/raw/master/common/SVG-evenodd.svg)
+  ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/SVG-evenodd.svg)
 
 **提示:** 上述解释未指出当路径片段与射线重合或者相切的时候怎么办，因为任意方向的射线都可以，那么只需要简单的选择另一条没有这种特殊情况的射线即可。
 
@@ -1313,7 +1313,7 @@ $$
 - reflect会让渐变一直持续下去，不过它的效果是与渐变本身是相反的，以100%偏移位置的颜色开始，逐渐偏移到0%位置的颜色，然后再回到100%偏移位置的颜色。
 - repeat也会让渐变继续，但是它不会像reflect那样反向渐变，而是跳回到最初的颜色然后继续渐变。
 
-![](https://gitee.com/WilenWu/images/raw/master/common/SVG_Gradient_spreadMethod.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/SVG_Gradient_spreadMethod.svg)
 
 ## gradientUnits
 
@@ -1453,7 +1453,7 @@ $$
 
 Windows 系统默认是无法查看SVG图形文件的缩略图，很多时候我们想像预览 JPG、PNG 等图片一样批量预览 SVG 文件。Github 上已经有大神开发免费开源的 Windows 资源管理器的扩展模块 [tibold/svg-explorer-extension](https://github.com/tibold/svg-explorer-extension) 以呈现 SVG 缩略图，下载一个适合你电脑的版本，安装完成后，就可以直接查看SVG图形文件的缩略图了。如果安装后缩略图不显示，可以在 Github 查找故障方法。
 
-![](https://gitee.com/WilenWu/images/raw/master/common/svg-see.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/svg-see.png)
 
 
 

@@ -50,7 +50,7 @@ J[y]= & \int_{x_0}^{x_1}\cfrac{\mathrm ds}{\sqrt{2g(y_0-y)}} \\
 \end{aligned}
 $$
 这里，要求 $y(x)$ 一定通过端点 $(x_0,y_0)$ 和 $(x_1,y_1)$
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/brachistochrone-problem.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/brachistochrone-problem.png)
 
 **示例 3**：（极小曲面问题）设在空间上的光滑曲面簇 $u(x,y)$ ，其曲面面积定义了泛函
 $$
@@ -66,7 +66,7 @@ $$
 
 **变分的概念**：对于函数 $f(x)$ 假设自变量 $x$ 不变，改变函数的形式得到一个与原函数稍有差别的新函数 $\bar f(x)=f(x)+δg(x)$ 。其中，$g(x)$ 是任意连续函数，$δ$ 是微小系数，即对于 $\forallϵ>0,|δy(x)|<ϵ$ 。
 对于函数的任意自变量，函数 $f(x)$ 由于**形式上的微小改变**而得到的改变量称为该函数的==变分==。自变函数的变分其实是自变量微分的推广。如下图，函数 $y(x)$ 的变分 $δy(x)$
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/variation.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/variation.png)
 
 以一元函数为例，总结变分的几条**运算性质**
 (1) 由于变分独立于函数自变量，所以变分与微分可以交换

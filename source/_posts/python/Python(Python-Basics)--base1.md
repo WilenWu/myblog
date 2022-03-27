@@ -170,7 +170,7 @@ False
 | u'中文字符'              | 中文常加u(unicode)前缀编译                    |
 | `string[start:end:step]` | 切片（左闭右开区间）                          |
 
-![hello](https://gitee.com/WilenWu/images/raw/master/common/hello.png)
+![hello](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/hello.png)
 
 - 字符串文本能够分成多行。一种方法是使用三引号：`"""..."""` 或者 `'''...'''`。行尾换行符会被自动包含到字符串中，但是可以在行尾加上 `\` 来避免这个行为。
 
@@ -824,7 +824,7 @@ motion=solve_ivp(fun=F,t_span=(t0,t1),y0=r0+v0, t_eval=np.linspace(t0,t1,1001))
 plt.plot(motion.y[0,:],motion.y[1,:])
 plt.show()
 ```
-![](https://gitee.com/WilenWu/images/raw/master/common/motion.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/motion.png)
 
 
 # 装饰器

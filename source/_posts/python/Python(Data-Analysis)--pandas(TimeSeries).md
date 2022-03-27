@@ -317,7 +317,7 @@ Out[162]: Period('2007-01', 'M')
 In [163]: p.asfreq('M', how='end')
 Out[163]: Period('2007-12', 'M')
 ```
-![](https://gitee.com/WilenWu/images/raw/master/common/period-M.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/period-M.png)
 
 ## 按季度计算的时期频率
 
@@ -334,7 +334,7 @@ In [178]: p.asfreq('D', 'end')
 Out[178]: Period('2012-01-31', 'D')
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/common/period-Q.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/period-Q.png)
 
 ## Timestamp和Period户型给转换
 
@@ -427,7 +427,7 @@ ts.ewm(span=30).mean().plot()
 In [262]: corr = returns.rolling(125, min_periods=100).corr(spx_rets)
 In [263]: corr.plot()
 ```
-![](https://gitee.com/WilenWu/images/raw/master/common/ts-rolling.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/ts-rolling.png)
 
 ## 用户定义的移动窗口函数
 

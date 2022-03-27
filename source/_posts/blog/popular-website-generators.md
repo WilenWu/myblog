@@ -10,8 +10,8 @@ tags:
   - ReadTheDocs
 abbrlink: 9e8cfeb8
 date: 2022-03-06 12:11:11
-cover:
-top_img: /img/hexo-top-img.png
+cover: /img/webdesign.jpg
+top_img: 
 description: false
 swiper_index: 2
 ---
@@ -33,10 +33,10 @@ swiper_index: 2
 - [doc](https://zalando-incubator.github.io/hexo-theme-doc/)：这是Hexo的**文档主题**。它与其他Hexo主题的不同之处在于允许您呈现文档 - 特别是REST API文档。
 - [matery](http://blinkfox.com/2018/09/28/qian-duan/hexo-bo-ke-zhu-ti-zhi-hexo-theme-matery-de-jie-shao/)：这是一个采用`Material Design`和响应式设计的 Hexo 博客主题
 
-![hexo-next](https://gitee.com/WilenWu/images/raw/master/common/hexo-next.png)
-![hexo-butterfly](https://gitee.com/WilenWu/images/raw/master/common/hexo-butterfly.png)
-![hexo-doc](https://gitee.com/WilenWu/images/raw/master/common/hexo-doc.png)
-![hexo-blinkfox](https://gitee.com/WilenWu/images/raw/master/common/matery-20181202-1.png)
+![hexo-next](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/hexo-next.png)
+![hexo-butterfly](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/hexo-butterfly.png)
+![hexo-doc](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/hexo-doc.png)
+![hexo-blinkfox](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/matery-20181202-1.png)
 
 # Jekyll
 
@@ -59,9 +59,9 @@ swiper_index: 2
 - [Docsy](https://www.docsy.dev/) 是 Hugo 技术文档集的主题，提供简单的导航、网站结构等。
 - [Learn](https://learn.netlify.app/en/) 完全是为文档设计的主题
 
-![Hugo-Eureka](https://gitee.com/WilenWu/images/raw/master/common/Hugo-Eureka.png)
-![hugo-docsy](https://gitee.com/WilenWu/images/raw/master/common/hugo-docsy.png)
-![hugo-learn](https://gitee.com/WilenWu/images/raw/master/common/hugo-learn.png)
+![Hugo-Eureka](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/Hugo-Eureka.png)
+![hugo-docsy](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/hugo-docsy.png)
+![hugo-learn](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/hugo-learn.png)
 
 # MkDocs
 
@@ -78,7 +78,7 @@ swiper_index: 2
 └── mkdocs.yml
 ```
 
-![mkdocs](https://gitee.com/WilenWu/images/raw/master/common/mkdocs.png)
+![mkdocs](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/mkdocs.png)
 
 ## 主题
 
@@ -87,8 +87,8 @@ MkDocs内置了两个主题， mkdocs 和readthedocs， 也可以从[MkDocs wiki
 - [ReadTheDocs Dropdown for MkDocs](https://github.com/cjsheets/mkdocs-rtd-dropdown)：ReadTheDocs 的修改版本
 - [Material for MkDocs ](https://squidfunk.github.io/mkdocs-material/)：Google 推行的 Material Design 风格
 
-![readthedocs](https://gitee.com/WilenWu/images/raw/master/common/mkdocs-readthedocs.png)
-![material](https://gitee.com/WilenWu/images/raw/master/common/mkdocs-material.jpg)
+![readthedocs](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/mkdocs-readthedocs.png)
+![material](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/mkdocs-material.jpg)
 
 ## Markdown 扩展
 
@@ -108,8 +108,8 @@ MkDocs 使用 [Python-Markdown](https://github.com/Python-Markdown/markdown) 库
 
 Sphinx 为我们提供了好多可选的主题，在 [Sphinx Themes Gallery](https://sphinx-themes.org/#theme-sphinx-rtd-theme) 都可以找到。大家最熟悉的应该是 [Read the Docs](https://sphinx-themes.org/#theme-sphinx-rtd-theme) 主题和[Book](https://sphinx-themes.org/#theme-sphinx-book-theme)主题
 
-![Sphinx-readthedocs](https://gitee.com/WilenWu/images/raw/master/common/Sphinx-readthedocs.png)
-![Sphinx-book](https://gitee.com/WilenWu/images/raw/master/common/Sphinx-book.png)
+![Sphinx-readthedocs](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/Sphinx-readthedocs.png)
+![Sphinx-book](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/Sphinx-book.png)
 
 ## Markdown 支持
 
@@ -119,4 +119,4 @@ Sphinx 本身不支持Markdown文件生成文档，需要我们使用第三方�
 
 [docsify](https://docsify.js.org/#/zh-cn/) 可以快速帮你生成文档网站，基于 Node.js。不同于 GitBook、Hexo 的地方是它不会生成静态的 `.html` 文件，所有转换工作都是在运行时。
 
-![docsify](https://gitee.com/WilenWu/images/raw/master/common/docsify.png)
+![docsify](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/docsify.png)

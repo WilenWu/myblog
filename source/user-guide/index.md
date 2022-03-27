@@ -4,9 +4,10 @@ date: 2019-10-08 13:04:44
 type: 
 comments: true
 top_img: /img/computer.jpg
+header_color: true
 ---
 
-![](/img/bookshelf.jpg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/bookshelf.jpg)
 
 本人依据个人爱好、工作需要等制定了一份详细的学习计划。依据本「指南」在博客不定时更新学习笔记。
 
@@ -20,7 +21,7 @@ top_img: /img/computer.jpg
 
 致谢，[ApacheCN 中文开源组织](https://github.com/apachecn): 致力于官方文档及AI书籍中文翻译。
 
-# <font color="red">General</font>
+# General
 
 - :ballot_box_with_check: [正则表达式](/posts/2f57a694/)
 - :ballot_box_with_check: [Linux基础知识](/posts/df41aea9/)
@@ -30,7 +31,7 @@ top_img: /img/computer.jpg
 - :white_large_square: [电子书文件格式](/posts/4fd8493d/)
 - :ballot_box_with_check: git 常用命令
 
-# <font color="red">标记语言</font>
+# 标记语言
 
 - :heart: [标记语言概览](/posts/2957012b/)
 - :ballot_box_with_check: [GitHub Flavored Markdown 规范](/posts/b6db1d88/)
@@ -44,7 +45,7 @@ top_img: /img/computer.jpg
 - :heart: JavaScript
 - :heart: [Chart.js](https://chartjs.bootcss.com/): 为设计和开发人员准备的简单、灵活的 JavaScript 图表工具
 
-# <font color="red">博客搭建</font>
+# 博客搭建
 
 - :ballot_box_with_check: [Hexo5博客搭建及配置](/posts/a31c2363/)
 - :ballot_box_with_check: [Hexo标签插件的使用](/posts/a41fa65b/)
@@ -56,14 +57,14 @@ top_img: /img/computer.jpg
 - :ballot_box_with_check: [主流的博客框架及部分主题](/posts/9e8cfeb8/)
 - :ballot_box_with_check: [Hexo 博客魔改优化方法](/posts/18fbd3bc/)
 
-# <font color="red">机器学习</font>
+# 机器学习
 
 - :ballot_box_with_check: [二分类模型评价指标](/posts/cc734464/)
 - :ballot_box_with_check: [数据分析算法概览](/posts/a8e1c23e/): 数据分析术语的简单说明
 
-# <font color="red">大数据</font>
+# 大数据
 
-## <font color="green">Hadoop</font>
+## Hadoop
 
 - :white_large_square: Hadoop安装配置
 - :white_large_square: Hadoop基础知识
@@ -71,7 +72,7 @@ top_img: /img/computer.jpg
 - :white_large_square: Apache-Sqoop
 - :white_large_square: Apache-Kylin
 
-## <font color="green">Hive</font>
+## Hive
 
 - :white_large_square: Hive安装配置
 - :ballot_box_with_check: [Hive基础知识](https://blog.csdn.net/zhongqi2513/article/details/69388239)
@@ -79,7 +80,7 @@ top_img: /img/computer.jpg
 - :ballot_box_with_check: [HiveQL](/posts/297bd708/)
 
 
-## <font color="green">Spark</font>
+## Spark
 
 - :ballot_box_with_check: [Spark安装配置](/posts/d02a6da3/)
 - :ballot_box_with_check: [Spark 基础知识（一）](/posts/32722c50/)
@@ -91,11 +92,11 @@ top_img: /img/computer.jpg
 - :white_large_square: [Akka](https://blog.csdn.net/lovehuangjiaju/article/details/51039985): Akka并发编程
 
 
-# <font color="red">Python手册</font>
+# Python手册
 
 本手册所列包来自[Awesome-Python](https://awesome-python.com/) ，结合[GitHub](https://github.com/) 和官方文档。 
 
-## <font color="green">General</font>
+## General
 
 - :heart: [常用的Python IDE](/posts/62196d29/)
 - :ballot_box_with_check: [Python基础（一）](/posts/dc3e0f7b/)
@@ -105,12 +106,12 @@ top_img: /img/computer.jpg
 - :white_large_square: [RPy2](/posts/1b0d2d38/): Python 通过rpy2调用 R语言
 - :white_large_square: [shortuuid](https://github.com/skorokithakis/shortuuid): 基于时间戳,、随机数等生成简单的唯一ID
 
-## <font color="green">Standard Library</font>
+## Standard Library
 
 - :ballot_box_with_check: [string](/posts/64b738be/): Python3 字符串方法和格式化
 - :ballot_box_with_check: [日期时间模块](/posts/592885c8/): 日基础包：datetime, time, calendar
 - :ballot_box_with_check: [数学模块](/posts/bb46152f/): 基础包：math, random
-- :ballot_box_with_check: [re](/posts/cb9fa048/): 正则表达式调用库
+- :ballot_box_with_check: [re](/posts/cb9fa048/): re 模块使 Python 语言拥有全部的正则表达式功能。
 - :heart: [tkinter](http://www.runoob.com/python/python-gui-tkinter/): Python 的标准 GUI 库
 - :white_large_square: [threading](http://www.runoob.com/python3/python3-multithreading/): : 多线程
 - :white_large_square: [multiprocessing](http://python.jobbole.com/87760/): 多进程
@@ -120,7 +121,7 @@ top_img: /img/computer.jpg
 - :ballot_box_with_check: [Python 代码调试工具](/posts/c924bbe/): assert, pdb, ipdb
 
 
-## <font color="green">Scientific Computing</font>
+## Scientific Computing
 
 - :ballot_box_with_check: [NumPy](/posts/5ba1c941/): 使用 Python 进行科学计算的基础包
 - :white_large_square: PyDy: PyDy 是 Python Dynamics 的缩写，用来为动力学运动建模工作流程提供帮助， 基于NumPy, SciPy, IPython 和 matplotlib。
@@ -130,7 +131,7 @@ top_img: /img/computer.jpg
 - :heart: [柏林噪声](/posts/c38b4d63/)
 
 
-## <font color="green">Data Analysis</font>
+## Data Analysis
 
 - :ballot_box_with_check: [pandas](/posts/2a180ec0/): 提供高性能，易用的数据结构和数据分析工具
 - :ballot_box_with_check: [pandas(Time Series)](/posts/31520356/): Pandas 时间序列数据处理工具
@@ -138,7 +139,7 @@ top_img: /img/computer.jpg
 - :heart: orange: 通过可视化编程或 Python 脚本进行数据挖掘，数据可视化，分析和机器学习。
 
 
-## <font color="green">Web Crawling</font>
+## Web Crawling
 
 The Website is the API(Application Programming Interface, 应用程序接口)...
 
@@ -148,7 +149,7 @@ The Website is the API(Application Programming Interface, 应用程序接口)...
 - :white_large_square: Selenium: 是一个用于Web应用程序测试的工具，能够模拟用户行为与浏览器交互。
 
 
-## <font color="green">Visualise</font>
+## Visualise
 
 - :ballot_box_with_check: [matplotlib](/posts/f347fe66/)
 - :ballot_box_with_check: [seaborn](/posts/49513cf1/): 基于matplotlib封装的数据可视化库
@@ -159,14 +160,14 @@ The Website is the API(Application Programming Interface, 应用程序接口)...
 - :white_large_square: pyecharts: 基于百度 Echarts 的数据可视化库。
 
 
-## <font color="green">Machine Learning</font>
+## Machine Learning
 
 - :ballot_box_with_check: [sklearn](/posts/861261b5/): 基于 SciPy 构建的机器学习 Python 模块
 - :ballot_box_with_check: [statsmodels](/posts/6c94e349/): 统计建模和计量经济学
 - :heart: [xgboost](http://xgboost.apachecn.org/#/): 一种可扩展，可移植且分布式的渐变增强库
 
 
-## <font color="green">Deep Learning</font>
+## Deep Learning
 
 - :ballot_box_with_check: [TensorFlow](https://tensorflow.google.cn/tutorials/?hl=zh-cn): Google开源的最受欢迎的深度学习框架。
 - :white_large_square: [PyTorch](https://blog.csdn.net/u010510350/article/details/72526821): Facebook 的 AI 研究团队发布了一个 Python 工具包，专门针对 GPU 加速的深度神经网络（DNN）编程。
@@ -175,14 +176,14 @@ The Website is the API(Application Programming Interface, 应用程序接口)...
 - :white_large_square: Caffe: 卷积神经网络框架
 
 
-## <font color="green">NLP</font>
+## NLP
 
 Natural Language Processing(自然语言处理)
 
 - :heart: Jieba: Chinese text segmentation
 - :white_large_square: NLTK: Natural Language Toolkit
 
-## <font color="green">Documentation</font>
+## Documentation
 
 - :white_large_square: MkDocs: Markdown友好的文档生成器。
 - :white_large_square: Python-Markdown2: 纯 Python 实现的 Markdown 解析器，比 Python-Markdown 更快，更准确，可扩展
@@ -192,7 +193,7 @@ Natural Language Processing(自然语言处理)
 - :white_large_square: [xlwings](http://docs.xlwings.org/en/stable/quickstart/): 批量实时修改Excel数据，和pandas,matplotlib完美对接，只能修改个别格式
 
 
-## <font color="green">Learning Python</font>
+## Learning Python
 
 - :ballot_box_with_check: [Python3官方中文文档](https://docs.python.org/zh-cn/3/)
 - :ballot_box_with_check: [Python基础中文教程](http://www.pythondoc.com/pythontutorial3/)
@@ -200,11 +201,11 @@ Natural Language Processing(自然语言处理)
 
 ------
 
-# <font color="red">R手册</font>
+# R手册
 
 本手册所列包基本来自[AwesomeR][AwesomeR] ，结合[GitHub](https://github.com/)和`help(package="pk_name")`官方文档整理所得，有助于使用时下最实用的包对R进行深入的学习。    
 
-## <font color="green">General</font>
+## General
 
 - :ballot_box_with_check: [R语言入门](/posts/81860df8/): 包括Rstudio介绍，R的数据结构和基础语法等
 - :ballot_box_with_check: [R语言基础包](/posts/5d2e7b43/): base, stats等基础包函数
@@ -214,7 +215,7 @@ Natural Language Processing(自然语言处理)
 - :ballot_box_with_check: [data.table](/posts/4de35808/): 简短的代码实现快速操作数据
 - :heart: devtools: 使开发R包变得更简单(Hadley)
 
-## <font color="green">Syntax</font>
+## Syntax
 
 - :ballot_box_with_check: [purrr](/posts/d355c8c1/): A functional programming(FP, 函数化编程) toolkit for R (Hadley)
 - :white_large_square: lambda.r: R中的函数式编程和简单模式匹配
@@ -222,7 +223,7 @@ Natural Language Processing(自然语言处理)
 - :heart: pipeR: 多范式管道编程
 
 
-## <font color="green">Import</font>
+## Import
 
 - :ballot_box_with_check: [读取常用文件](/posts/e48a1906/): for txt, excel, and json
 - :white_large_square: haven: for SPSS,SAS and Stata files.(Hadley)
@@ -233,7 +234,7 @@ Natural Language Processing(自然语言处理)
 - :heart: RHive: 通过Apache Hive促进分布式计算的R扩展
 
 
-## <font color="green">Web Technologies</font>
+## Web Technologies
 
 - :heart: RCurl: 用于R的通用网络(HTTP/FTP/ ...)接口
 - :ballot_box_with_check: [httr](https://httr.r-lib.org/): for web APIs (RCurl升级版) (Hadley) (Update according to GitHub)
@@ -241,7 +242,7 @@ Natural Language Processing(自然语言处理)
 - :ballot_box_with_check: xml2: 解析XML文件 (Hadley)  (Update according to GitHub)
 
 
-## <font color="green">Data Cleaning</font>
+## Data Cleaning
 
 - :ballot_box_with_check: [tidyr](/posts/a54cead0/): 清理数据，reshape2替代版(Hadley)
 - :ballot_box_with_check: [dplyr and plyr](/posts/4d122cf/): A Grammar of Data Manipulation
@@ -257,7 +258,7 @@ Natural Language Processing(自然语言处理)
 - :white_large_square: ff: 大数据清理。在内存外存储数据，处理起来和在内存一样
 - :white_large_square: bigmemory: 内存外存储、操作。big 系列包提供了其他工具，包括线性模型 (biglm) 和随机森林 (bigrf)。
 
-## <font color="green">Visualise</font>
+## Visualise
 
 - :ballot_box_with_check: [RColorBrewer and extrafont](/posts/74875eb3/): 调色板和字体配置
 - :ballot_box_with_check: [ggmap and baidumap](/posts/856dfd2b/): 使用ggplot2在R中绘制静态地图
@@ -272,7 +273,7 @@ Natural Language Processing(自然语言处理)
   - :heart: [ggforce](/posts/a07d9d0c/): 饼图
 
 
-## <font color="green">HTML Widgets</font>
+## HTML Widgets
 
 - :heart: [leaflet](/posts/8a9afcfe/): 最流行的JavaScript库交互式地图之一，动态交互地图。
 - :ballot_box_with_check: [REmap](/posts/3c7fb28e/): 基于Echarts的简易动态交互地图
@@ -283,18 +284,18 @@ Natural Language Processing(自然语言处理)
 - :ballot_box_with_check: [shiny](/posts/8217ddda/): 使用R语言开发交互式web应用程序的工具
 
 
-## <font color="green">Parallel Computing</font>
+## Parallel Computing
 
 - :heart: [foreach](/posts/a235a5ba/): 在循环(loop)中并行化运算
 
 
-## <font color="green">Model Tools</font>
+## Model Tools
 
 - :ballot_box_with_check: [broom](/posts/251f7bf9/): Convert statistical analysis objects into tidy format
 - :ballot_box_with_check: [modelr](/posts/2e6782e/): 辅助管道建模
 - :heart: caret: 分类和回归问题的数据训练综合工具包（包括交叉验证，网格搜索等）
 
-## <font color="green">Machine Learning</font>
+## Machine Learning
 
 - :ballot_box_with_check: [mlr](/posts/76507660/): 机器学习（分类，回归，生存分析，聚类等）的可扩展框架，提供了用于分析的整套工具，包括重抽样，缺失值插补，模型评估(cv,etc)，超参数调优(grid-search,etc)，特征选择，可视化(ROC,learnning-curve,etc)等
 - :white_large_square: mlapi: 提供模型的统一接口，以便机器学习流程化(借鉴python scikit-learn，尚未开发完整)
@@ -304,13 +305,13 @@ Natural Language Processing(自然语言处理)
 - :white_large_square: nnet: 神经网络
 
 
-## <font color="green">Deep Learning</font>
+## Deep Learning
 
 - :heart: tensorflow: Google开源的最受欢迎的深度学习框架
 - :heart: h2o: 深度学习框架
 - :heart: keras: 以 tensorflow/theano/CNTK 为后端的深度学习封装库
 
-## <font color="green">NLP</font>
+## NLP
 
 - :ballot_box_with_check: [jiebaR](/posts/cb53c844/): R语言词云和中文词典包
 - :white_large_square: Rwordseg: 中文分词包，安装复杂
@@ -321,26 +322,26 @@ Natural Language Processing(自然语言处理)
 - :ballot_box_with_check: [text2vec](/posts/94c7c255/): 这个 R 包提供了高性能和简洁的 API 来进行文本分析、自然语言处理（jiebaR推荐包）
 
 
-## <font color="green">Time Series</font>
+## Time Series
 
 - :ballot_box_with_check: [zoo](/posts/3b11488b/): zoo是对日期型数据进行清洗的R包
 - :heart: [xts](http://joshuaulrich.github.io/xts/): 对时间序列数据(zoo)的一种扩展实现，统一时间序列的操作接口  (Update according to GitHub)
 - :ballot_box_with_check: [forecast and prophet](/posts/810a7dca/): 线性或非线性模型高质量时间序列预测
 - :white_large_square: CausalImpact: 使用贝叶斯结构时间序列模型进行因果推理
 
-## <font color="green">Finance</font>
+## Finance
 
 - :white_large_square: quantmod: 定量金融建模与交易框架（股票）
 - :white_large_square: PerformanceAnalytics: 用于性能和风险分析的计量经济学工具
 
-## <font color="green">Documentation</font>
+## Documentation
 
 - :ballot_box_with_check: [R Markdown](/posts/36ba9291/): 用于创建可重复性报告和动态文档
 - :white_large_square: rticles: 提供了一套RMarkdown模板
 - :white_large_square: knitr: 用于在PDF和HTML文档中嵌入R代码块
 
 
-## <font color="green">Learning R</font>
+## Learning R
 
 - :ballot_box_with_check: [Advanced R](http://adv-r.had.co.nz/)
 - :ballot_box_with_check: [R packages](http://r-pkgs.had.co.nz/)
@@ -353,40 +354,40 @@ Natural Language Processing(自然语言处理)
 
 ------
 
-# <font color="red">数学</font>
+# 数学
 
 [Awesome Math](https://github.com/rossant/awesome-math): A curated list of awesome mathematics resources.
 
-## <font color="green">初等数学</font>
+## 初等数学
 
 - :ballot_box_with_check: [初等数学常用公式](/posts/375d0704/)
 
-## <font color="green">数学分析</font>
+## 数学分析
 
 - :ballot_box_with_check: [数学分析(一)](/posts/e6ee81b3/): 实数集合、极限、一元函数微分、不定积分、定积分
 - :ballot_box_with_check: [数学分析(二)](/posts/49df1ad1/): 多元函数微积分，重积分、曲线积分和曲面积分、场论初步
 - :ballot_box_with_check: [数学分析(三)](/posts/372c3afa/): 无穷级数、幂级数、傅里叶级数、三角级数
 - :ballot_box_with_check: [空间解析几何](/posts/c1a88ebe/): 向量代数和空间解析几何
 
-## <font color="green">概率论</font>
+## 概率论
 
 - :ballot_box_with_check: [概率论与数理统计(上册)](/posts/304d9389/): 概率论
 - :ballot_box_with_check: [概率论与数理统计(下册)](/posts/d2dba39/): 数理统计
 
-## <font color="green">复分析</font>
+## 复分析
 
 - :ballot_box_with_check: [复变函数和积分变换(一)](/posts/501a1a66/): 复变函数、解析函数、积分
 - :ballot_box_with_check: [复变函数和积分变换(二)](/posts/ff2b8104/): 级数、留数、共形映射
 - :ballot_box_with_check: [复变函数和积分变换(三)](/posts/81d8a12f/): 傅里叶变换、拉普拉斯变换
 
-## <font color="green">常微分方程</font>
+## 常微分方程
 
 - :ballot_box_with_check: [常微分方程(一)](/posts/1d08ba54/): 一阶常微分方程
 - :ballot_box_with_check: [常微分方程(二)](/posts/b2392136/): 高阶常微分方程
 - :ballot_box_with_check: [常微分方程(三)](/posts/ccca011d/): 一阶线性常微分方程组
 - :ballot_box_with_check: [常微分方程(四)](/posts/3689ee12/): 非线性微分方程、定性理论、边值问题
 
-## <font color="green">偏微分方程</font>
+## 偏微分方程
 
 - :ballot_box_with_check: [偏微分方程(一)](/posts/644684db/): （拟）线性偏微分方程、定解问题、分离变量法
 - :ballot_box_with_check: [偏微分方程(二)](/posts/cb771fb9/): 球函数、柱函数
@@ -394,30 +395,30 @@ Natural Language Processing(自然语言处理)
 - :ballot_box_with_check: [偏微分方程(四)](/posts/4fc7d09d/): 变分法、非线性偏微分方程
 
 
-## <font color="green">线性代数</font>
+## 线性代数
 
 - :ballot_box_with_check: [线性代数](/posts/c23efd5b/): 矩阵，行列式，向量空间，二次型，线性变换
 
 
-## <font color="green">抽象代数</font>
+## 抽象代数
 
 - :ballot_box_with_check: [抽象代数](AbstractAlgebra): : (又称近世代数) 群论、环论、伽罗瓦理论等
 
-## <font color="green">泛函分析</font>
+## 泛函分析
 
 - :heart: [泛函分析](FunctionalAnalysis): 研究的是一般无穷维的带有一定拓扑的线性空间
 
-## <font color="green">拓扑学</font>
+## 拓扑学
 
 - :heart: [一般拓扑学](GeneralTopology): 也称点集拓扑学，主要研究拓扑空间以及定义在其上的数学结构的基本性质
 - :white_large_square: 微分拓扑: 微分流形和可微映射
 
-## <font color="green">微分几何</font>
+## 微分几何
 
 - :heart: [微分几何初步](DifferentialGeometry): 包括曲线和曲面论、外微分形式和活动标架、黎曼几何
 - :ballot_box_with_check: 《张量分析》: (黄克智) 是微分几何中研究张量场的微分运算的一个分支。张量分析是用共变微分表示各种几何量和微分算子性质的运算方法，可以看作是微分流形上的“微分法”，是研究流形上的几何和分析的一种重要工具。
 
-# <font color="red">物理</font>
+# 物理
 
 [Awesome Physics](https://github.com/wbierbower/awesome-physics): 🌌 A collaborative list of awesome software for exploring Physics concepts. Feel free to contribute!
 
@@ -425,7 +426,7 @@ Natural Language Processing(自然语言处理)
 - :heart: 《朗道十卷》: 是一部享誉世界的理论物理学巨著，是反映经典物理学向现代物理学转变的里程碑式的重要著作，包括力学、场论、量子力学、相对论性量子理论（量子电动力学）、 统计物理学（1）、流体力学 、弹性理论 、连续媒质电动力学、 物理动力学 、统计物理学（2）共十卷。
 - :heart: 《费曼物理学讲义》: (The Feynman's Lectures on Physics) 被誉为本世纪最经典的物理导引。本讲义共分三卷，第1卷包括力学、相对论、光学、气体分子动理论、热力学、波等，第2卷主要是电磁学，第3卷是量子力学。全书内容十分丰富，在深度和广度上都超过了传统的普通物理教材。
 
-## <font color="green">基础物理</font>
+## 基础物理
 
 - :ballot_box_with_check: 普通物理: 力学，热学，光学，电磁学，振动和波等
 - :ballot_box_with_check: 理论力学: 静力学、运动学与动力学
@@ -435,7 +436,7 @@ Natural Language Processing(自然语言处理)
 - :white_large_square: 固体物理: 凝聚态物理学中最大的分支。它研究的对象是固体
 - :heart: 《场论基础》: （易中）从连续介质运动、非完整力学系统、电磁关系、引力场、量子效应、基本粒子构造、场的量子理论、场规范、随机场九个方面介绍了电磁场、引力场、量子场、规范场、统计场的初步知识。
 
-## <font color="green">高等物理</font>
+## 高等物理
 
 - :ballot_box_with_check: 高等量子力学: 以五条基本公理+测量公理作为出发点，推出《量子力学》中解释的所有现象
 - :ballot_box_with_check: 高等统计力学: 使用量子力学的语言，讲述量子统计物理的基本原理及其应用

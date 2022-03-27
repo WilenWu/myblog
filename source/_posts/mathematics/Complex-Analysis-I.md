@@ -27,7 +27,7 @@ date: 2019-05-28 14:28:06
 ==复平面==(Complex Plane)：由于一个复数与 $z=x+\text{i}y$ 与有序实数对 $(x,y)$ 一一对应
 $xOy$ 平面 $\iff$ 复平面 $\Complex$
 复数 $z=x+\text{i}y \iff \R^2$上的点 $P(x,y) \iff \R^2$ 上的向量 $\overrightarrow{OP}$
-![复平面](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Complex-Plane.png)
+![复平面](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/Complex-Plane.png)
 ==复数的模==(modulus)：向量的长度称为复数的模，记作 $|z|=\sqrt{x^2+y^2}$
 ==复数的幅角==(argument angle)：$Ox$ 轴到 $\overrightarrow{OP}$ 沿逆时针方向所形成的角 $\text{Arg }z=θ+2kπ\quad(k\in \Z)$
 ==幅角的主值==(principal argument angle)：辐角 $\text{Arg }z=\arg z+2kπ\quad(k\in \Z)$，主值可取 $\arg z\in[0,2π)$ 或 $\arg z\in(-π,π]$
@@ -83,7 +83,7 @@ w &=\sqrt[n]{|z|}(\cos\dfrac{θ}{n}+i\sin\dfrac{θ}{n}) \\
 当 $k=0,1,2,⋯, n-1$ 时，存在 $n$ 个辐角各不相等的根，在几何上，$\sqrt[n]{z}$表示位于复平面上以原点 $O$ 为圆心，以 $\sqrt[n]{|z|}$ 为半径的内接正 $n$ 边形的顶点。
 
 - **复球面与无穷远点**(complex sphere & point at infinity)
-<img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/complex-sphere.png" alt="复球面" style="zoom:67%;" />  
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/complex-sphere.png" alt="复球面" style="zoom:67%;" />  
 复球面方程 $Σ:x^2+y^2+u^2=1$
 对于复平面上任意一点 z，如果用直线连接点 z和复球面北极 N，那么该直线一定与复球面相交于异于N点的另一点 $A'$，复平面上的点 $A(x,y)$ 与复球面上的点 $A'(x',y',u')$ 一一对应
 $z=x+\text{i}y=\dfrac{x'+\text {i}y'}{1-u'}$
@@ -114,7 +114,7 @@ $U(z_0,ρ)=\{z∣|z−z_0|<ρ,z\in\Complex\} \\
 边界点(boundary point)：若 $z_0$ 的任一邻域 $U(z_0,ρ)$ 中既含 $E$ 的点也含不是 $E$ 的点,则称  $z_0$为 $E$ 的边界，记作 $∂ E$
 聚点(point of accumulation)：$∀ ρ>0,\mathring{U}(z_0,ρ)∩ E\neq \empty$
 孤立点(isolated point)：$∃ ρ>0,z_0\in E,\mathring{U}(z_0,ρ)∩ E= \empty$
-![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/planar-point-set.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/planar-point-set.png)
 -  **定义一些重要的点集**
 开集：$∀ z_0\in E$，$z_0$ 都是E的内点
 闭集：$E$ 的全部聚点都属于 $E$
@@ -132,14 +132,14 @@ $U(z_0,ρ)=\{z∣|z−z_0|<ρ,z\in\Complex\} \\
 ==光滑曲线==(Smooth curve)：$x(t )$与 $y (t )$ 在区间 $[α ,β ]$有连续导数，且 $z'(t)\neq 0$。称由有限条光滑曲线首尾连接而成的曲线为==逐段光滑曲线==(Piecewise smooth curve)。
 为方便起见，称逐段光滑的闭曲线为围线．关于围线的方向规定为：逆时针方向为正向，顺时针方向为负向。
 <kbd>Jordan 定理</kbd>：任意一条 Jordon 闭曲线C 必将复平面唯一地分成$D_1,C,D_2$ 三个点集，使它们满足：
-![](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Jordon-law.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/Jordon-law.png)
 (1) 彼此不相交；
 (2) $D_1$ 是一个有界区域(称为曲线C 的内部)；
 (3) $D_2$ 是一个无界区域(称为曲线C 的外部)；
 (4) $C$ 既是 $D_1$ 的边界又是 $D_2$ 的边界；
 (5) 若简单折线(指满足简单曲线定义的折线) $Γ$ 的一个端点属于$D_1$，另一个端点属于$D_2$，则 $Γ$ 必与 $C$ 相交．
 设D 为区域，若D 中任意一条 Jordon 闭曲线的内部仍属于D ，则称D 为==单连通区域==(simply connected region)，不是单连通区域的区域称为==多连通区域==(multiply connected region)。
-![连通区域](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/connected-region.png)
+![连通区域](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/connected-region.png)
 
 - **无穷远点的邻域**：设 $ρ>0$，在扩充复平面上
 $U(∞,ρ)=\{z||z|>ρ,z\in\Complex_{∞}\}$
@@ -153,7 +153,7 @@ $U(∞,ρ)=\{z||z|>ρ,z\in\Complex_{∞}\}$
 设 $z=x+iy,w=u+iv$，复变函数的实部与虚部均可用二元实值函数来表示 $w=f(z)=u(x,y)+iv(x,y)$
 因此，研究复变函数可以转化为研究二元实值函数
 由于复变函数$w = f (z)$的几何图形需在四维空间里考虑，所以，不可能有像实值函数 $y = f (x)$ 与$z = f (x, y)$的那种直观的感觉。为了赋予复变函数几何解释，复变函数$w=f(z),z\in E$可看作 $z$  平面点集 $E$ 到 $w$ 平面点集 $G$ 的映射
-![映射](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/mapping.png)
+![映射](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/mapping.png)
 - **极限**(limit)：设复变函数 $w=f(z)$在 $z_0$的某个去心邻域 $\mathring U(z_0,ρ)$ 内有定义，$A$ 为复常数
 若 $∀ϵ>0,∃δ>0(δ<ρ)$，使得 $0<|z-z_0|<δ$时，总有 $|f(z)-A|<ϵ$，则称当 $z$趋近于 $z_0$时 $A$为 $f(z)$的极限，并记作 $\lim\limits_{z\to z_0}f(z)=A$ 或 $f(z)\to A(z\to z_0)$
 **极限存在的充要条件**：设 $w=f(z)=u(x,y)+iv(x,y),A=u_0+iv_0,z_0=x_0+iy_0$则
@@ -238,7 +238,7 @@ $$
 梯度分别为 $∇u=\dfrac{∂u}{∂x}\mathbf{i}+\dfrac{∂u}{∂y}\mathbf{j},∇v=\dfrac{∂v}{∂x}\mathbf{i}+\dfrac{∂v}{∂y}\mathbf{j}$
 由于$∇u\cdot∇v=\dfrac{∂u}{∂x}\dfrac{∂v}{∂x}+\dfrac{∂u}{∂y}\dfrac{∂v}{∂y}=0$ ，即实部和虚部的等值线互相垂直。
 例如解析函数 $w=z^2$，实部和虚部等值线 $u=x^2-y^2,v=2xy$
-![等值线](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/isoline.png)
+![等值线](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/isoline.png)
 
 ## 初等函数
 - **指数函数**(Exponential Function)：设 $z=x+iy$
@@ -251,7 +251,7 @@ $\exp(z)=e^z=e^x(\cos y+i\sin y)$
 (5) $e^{z_1}=e^{z_2}\iff z_1-z_2=2kπi( k\in\Z)$
 (6) **欧拉公式(Euler's Formula)**：$e^{iy}=\cos y+i\sin y$
 指数函数（周期函数）的基本周期区域：$B=\{z|z\in \Complex,0<\text{Im }z⩽2π\}$
-![基本周期区域](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/basic-cycle-region.png)
+![基本周期区域](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/basic-cycle-region.png)
 
 - **对数函数**(Logarithmic Function)： 设 $z ≠ 0$，称满足 $e^w = z$ 的 $w$称为对数函数，记作 $w=\text{Ln }z$
 设 $z=re^{iθ},w=u+iv$
@@ -269,7 +269,7 @@ $\implies w=\ln|z|+i\text{Arg }z$
 连接原点O及$∞$的一条简单连续曲线$K_1$，称为==割线==(secant)，形成相应的==割缝区域==(Slit area)：$D_1=\Complex-K_1$。
 对数函数在割缝区域$D_1$内的==单值连续分支== $w_k=\ln z+2kπ i$，在区域$D_1$内是解析函数，称为==解析分支==，其他任何分支都只相差 $2π i$的整数倍。
 (3) 设 $w_k$ 为对数函数 $w=\text{Ln }z$ 在区域 G内的单值连续分支，则 $w'_k=\frac{1}{z},z\in G$
-![割缝区域](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/cutting-area.png)
+![割缝区域](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/cutting-area.png)
 
 - **幂函数**(Power Function)：函数 $w=z^α=e^{α\text{Ln z}}$称为幂函数，其中α为常数，$z\neq 0$
 由于 $\text{Ln z}$ 是多值函数，一般$w=z^α$也是多值函数。
@@ -359,7 +359,7 @@ $\begin{cases}\sin(-z)=-\sin z \\
 # 复变函数的积分
 ## 积分的概念
 - **复变函数积分定义**：设C 为一条起点在a ，终点在b 的有向光滑曲线(或逐段光滑曲线)，其方程为 $w=f(z)$。
-![积分](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/integral.png)
+![积分](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/integral.png)
 (1) 将曲线 C任意分为n个小弧段，分点为 $a=z_0,z_1,\cdots,z_{k-1},z_k,\cdots,z_n=b$，令 $Δz_k=z_k-z_{k-1},λ=\max|Δz_k|$
 (2) 在每个小弧段 $\overgroup{z_{k-1}z_k}$上任取一点 $ζ_k$，作和 $S_n=\displaystyle\sum_{k=1}^{n}f(ζ_k)Δz_k$
 若极限 $\lim\limits_{λ\to0}S_n$ 存在，且不依赖于C的划分和$ζ_k$的取法，则称此极限为 $f(z)$ 沿曲线 C从a到b的积分，记作
@@ -410,7 +410,7 @@ $\displaystyle\oint_{C}\dfrac{1}{(z-a)^n}dz=\int_{0}^{2π}\dfrac{ire^{iθ}}{r^ne
   $$
    \displaystyle\oint_{Γ}f(z)dz=0
   $$
-    <img src="https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Cauchy-Integral-Theorem.png"    style="zoom: 80%;" />
+    <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/Cauchy-Integral-Theorem.png"    style="zoom: 80%;" />
   
    证明：    
    $\begin{aligned} \displaystyle\oint_{Γ}f(z)dz
@@ -424,7 +424,7 @@ $\displaystyle\oint_{C}\dfrac{1}{(z-a)^n}dz=\int_{0}^{2π}\dfrac{ire^{iθ}}{r^ne
 - <kbd>复合闭路定理</kbd>——多连通区域上的柯西定理
 设有$n+1$条简单闭曲线$C_0,C_1,\cdots,C_n$，其中$C_1,\cdots,C_n$均在$C_0$的内区域内，而且它们既不包含也不想交。 $C_0$内部与$C_1,\cdots,C_n$外部围成多连通区域D， 称D的边界 $C=C_0+C_1^-+\cdots+C_n^-$为==复合闭路==(Compound closed path)。在外边界$C_0$，C的正向为逆时针方向，在内边界上，C的正向为顺时针方向。
  D与其边界构成闭区域$\bar D$，设 $f(z)$在$\bar D$上解析，则 $\displaystyle\oint_{C}f(z)dz=0$ 或 $\displaystyle\oint_{C_0}f(z)dz=\sum_{k=1}^{n}\oint_{C_k}f(z)dz$
- ![复合闭路定理](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/compound-closed-path-theorem.png)
+ ![复合闭路定理](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/compound-closed-path-theorem.png)
 证明：以上图为例，在$C_0$内做简单光滑弧 $\overset{\frown}{ab} ,\overset{\frown}{cd} ,\overset{\frown}{ef}$ 连接$C_0,C_1,C_2$，将D分成两个简单单连通区域 $D_1,D_2$，边界分别记作 $L_1,L_2$，由于$f(z)$在$\bar D$上解析，根据柯西积分定理有 $\displaystyle\oint_{L_1}f(z)dz=0,\oint_{L_2}f(z)dz=0$
 将两式相加 $\displaystyle\oint_{L_1}f(z)dz+\oint_{L_2}f(z)dz=0$，由于在连接弧上的积分方向相反，刚好相互抵消，即$\displaystyle\oint_{C_0+C_1^-+C_2^-}f(z)dz=\oint_{C}f(z)dz=0$
 ($\star$) 从定理的证明过程中，可知，在区域内的一个解析函数沿闭曲线的积分，不因闭曲线在区域内做连续变形而改变它的值，只要在变形过程中曲线不经过函数的奇点就行。这一个重要的事实，称为==闭路变形原理==。
@@ -442,7 +442,7 @@ $\displaystyle\oint_{C}\dfrac{1}{(z-a)^n}dz=\int_{0}^{2π}\dfrac{ire^{iθ}}{r^ne
 $\displaystyle\int_{C}f(ξ)dξ=\int_{z_0}^{z_1}f(ξ)dξ$，这里 $z_0,z_1$分别称为积分的上限和下限。
 当下限$z_0$固定，让上限$z_1=z$在D内变动，则积分$\displaystyle\int_{z_0}^{ξ}f(ξ)dz$在D内确定了一个单值函数 $F(z)=\displaystyle\int_{z_0}^{z}f(ξ)dξ$，对这个函数我们有
 <kbd>定理 1</kbd>：设$f(z)$在单连通区域D内解析， 则函数 $F(z)$ 在区域内一定是解析函数，且 $F'(z)=f(z)$
-![原函数](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Primitive-Function.png)
+![原函数](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/Primitive-Function.png)
 证明：设z为D内任意一点，在D内以$δ$为半径，z为圆心作圆，在圆内取点 $z+h$，则有
 $F(z+h)-F(z)=\displaystyle\int_{z_0}^{z+h}f(ξ)dξ-\int_{z_0}^{z}f(ξ)dξ=\int_{z}^{z+h}f(ξ)dξ$
 上式取$z$到$z+h$的直线段积分，则有
@@ -465,7 +465,7 @@ $$
 - **多连通区域上解析函数的原函数**：设$f(z)$在多连通区域D内解析，定义$F(z)=\displaystyle\int_{z_0}^{z}f(ξ)dξ$ ，此函数可能为多值函数。
 在D内取一单连通区域 $Δ$， 定点 $z_0,z_1\in Δ$，$C_1$为D内从$z_0$到$z_1$的一条固定的简单曲线，定义 $F_0(z)=\displaystyle\int_{C_1}f(ξ)dξ+\int_{\overset{\frown}{z_1z}}f(ξ)dξ$
 则$F_0(z)$为$F(z)$在$Δ$内的一个解析分支
-![原函数](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Primitive-Function2.png)
+![原函数](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/Primitive-Function2.png)
 
 ## 柯西积分公式
 
@@ -482,7 +482,7 @@ $$
 $$
  柯西积分公式对于有$n+1$条简单闭曲线组成的复合闭路 $C=C_0+C_1^-+\cdots+C_n^-$围成的多连通区域D 仍然有效。
 通过这个公式可以把函数$f(z)$在解析域内任意点的值用他在边界上的积分来表示，这是解析函数的又一特征。
-![柯西积分公式](https://gitee.com/WilenWu/images/raw/master/ComplexFunction/Cauchy-Integral-Formula.png)
+![柯西积分公式](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/Cauchy-Integral-Formula.png)
 <kbd>推论 1 (平均值公式)</kbd>：设 $f(z)$ 在圆盘 $|z-z_0|<ρ$ 上解析，在 $|z-z_0|⩽ ρ$ 上连续，则 $\displaystyle f(z_0)=\dfrac {1}{2π}\int_{0}^{2\pi} f(z_0+ρe^{iθ})dθ$
 <kbd>推论 2</kbd>：设区域D由同心圆周$K_1,K_2(K_2$包含于$K_1)$ 所围成的圆环，多连通区域D的边界$Γ=K_1+K_2^-$，函数$f(z)$ 在圆环D内解析，在$\bar D$连续，$z_0$为D内任意一点，则$\displaystyle f(z_0)=\dfrac {1}{2π i}\oint_Γ \dfrac{f(z)}{z-z_0}dz$
 

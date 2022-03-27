@@ -102,18 +102,18 @@ a_{21} & a_{22}-\lambda
 即 $\lambda^2+(a_{11}+a_{22})\lambda+a_{11}a_{22}-a_{12}a_{21}$
 
 (1) $\lambda_1,\lambda_2$为不相等的负实根，平衡点是稳定的。
-<img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/20200326095533878.PNG" style="zoom: 67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/20200326095533878.PNG" style="zoom: 67%;" />
 
 (2)  $\lambda_1,\lambda_2$为不相等的正实根，平衡点是不稳定的。
 (3)  $\lambda_1,\lambda_2$为异号实根，平衡点是不稳定的。
-<img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/20200326095936647.PNG" style="zoom:67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/20200326095936647.PNG" style="zoom:67%;" />
 
 (4) $\lambda_1=\lambda_2>0$平衡点是不稳定的；$\lambda_1=\lambda_2<0$平衡点是稳定的。
-<img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/20200326100240897.PNG" style="zoom:67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/20200326100240897.PNG" style="zoom:67%;" />
 
 (5) $\lambda_1,\lambda_2=\alpha\pm\beta i\quad(\beta\neq0)$为共轭复根，$\alpha<0$时，平衡点是稳定的；$\alpha>0$时，平衡点是不稳定的。
-<img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/20200326100409344.PNG" style="zoom:67%;" />
-<img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/2020032610155280.PNG" style="zoom:67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/20200326100409344.PNG" style="zoom:67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/2020032610155280.PNG" style="zoom:67%;" />
 
 > [常微分方程的“动力系统”（相空间）分析简介](http://bbs.21ic.com/icview-2599270-1-1.html)
 > 百度百科：[相空间](https://baike.baidu.com/item/%E7%9B%B8%E7%A9%BA%E9%97%B4/8172498#viewPageContent) 、 [相空间表述](https://baike.baidu.com/item/%E7%9B%B8%E7%A9%BA%E9%97%B4%E8%A1%A8%E8%BF%B0/22687295) (量子力学)

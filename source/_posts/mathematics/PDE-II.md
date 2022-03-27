@@ -28,7 +28,7 @@ x=r\cosϕ \\
 y=r\sinϕ
 \end{cases}
 $$
-<img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/plane-polar-coordinate.png" style="zoom: 80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/plane-polar-coordinate.png" style="zoom: 80%;" />
 拉普拉斯算符 
 $$
 \begin{aligned}
@@ -40,7 +40,7 @@ $$
 $$
 \begin{cases}x=r\cosϕ \\y=r\sinϕ \\z=z \end{cases}
 $$
-![](https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/cylindrical-coordinates.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/cylindrical-coordinates.png)
 拉普拉斯算符 
 $$
 \begin{aligned}
@@ -58,7 +58,7 @@ y=r\sinθ\sinϕ \\
 z=r\cosθ
 \end{cases}
 $$
-<img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/spherical-coordinates.png" style="zoom:67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/spherical-coordinates.png" style="zoom:67%;" />
 拉普拉斯算符 
 $$
 \begin{aligned}
@@ -389,7 +389,7 @@ l/2 & (l 为偶数)\\
 (l-1)/2 & (l 为奇数)
 \end{cases}
 $$
-<img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/Legendre-polynomial.png"  width="50%" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/Legendre-polynomial.png"  width="50%" />
 
 **勒让德多项式的微分表示**
 $$
@@ -874,7 +874,7 @@ $$
 (4) 第二类贝塞尔函数 $Y_ν(x)$ 的零点分布在 $(0,+\infty)$ 上，他与第一类贝塞尔函数零点有相似的结论。 
 (5) 虚宗量贝塞尔函数 $I_ν(x)$ 和虚宗量贝塞尔函数 $K_ν(x)$ 不存在实数零点。
 
-<img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/Bessel-fun1.png"  width="70%" /> <img src="https://gitee.com/WilenWu/images/raw/master/DifferentialEquation/Bessel-fun2.png"  width="60%" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/Bessel-fun1.png"  width="70%" /> <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/Bessel-fun2.png"  width="60%" />
 
 **贝塞尔函数的渐进展开**：一般用于判断自然边界条件进行取舍
 (1) 当 $x\to0$ 时，$J_0(x)\to1,\quad J_ν(x)\to0,\quad J_{-ν}(x)\to\infty \\

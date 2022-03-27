@@ -21,6 +21,10 @@
       link: https://xiaomark.com/tool
       avatar:  /img/xiaomark.png
       descr: 运营工具大全
+    - name: 腾讯云
+      link: https://cloud.tencent.com/
+      avatar:  /img/tencent-cloud.svg
+      descr: 性能强大、安全、稳定的云产品
 
 - class_name: 素材资源
   class_desc: 
@@ -145,6 +149,10 @@
       link: https://huke88.com/
       avatar: /img/huke.svg
       descr: 每天进步一点点
+    - name: Markdown 官方教程
+      link: https://markdown.com.cn/
+      avatar: /img/mdsolid.svg
+      descr: 
 
 - class_name: 人工智能
   class_desc: 

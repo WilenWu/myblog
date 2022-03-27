@@ -20,7 +20,7 @@ YAML 是一个可读性高，用来表达资料序列化的格式。特别适合
 
 <!-- more -->
 
-![](https://gitee.com/WilenWu/images/raw/master/common/yaml-overview.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/yaml-overview.svg)
 
 # 安装和加载
 

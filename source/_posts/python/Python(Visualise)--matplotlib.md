@@ -19,7 +19,7 @@ scription: 是一个 Python 的 2D绘图库
 
 <!-- more -->
 
-<img src="https://gitee.com/WilenWu/images/raw/master/matplotlib/figure.jpg" alt="figure" style="zoom:67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/matplotlib/figure.jpg" alt="figure" style="zoom:67%;" />
 
 
 # Pyplot
@@ -51,7 +51,7 @@ import matploblib.pyplot as plt
 
 ## Figure and Axes
 
-![figure2](https://gitee.com/WilenWu/images/raw/master/matplotlib/figure-parts.png)
+![figure2](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/matplotlib/figure-parts.png)
 一般通过`get_<part>`方法获得组件属性，`set_<part>`方法重设组件。
 
 ## Create Figure
@@ -90,7 +90,7 @@ ax4 = plt.subplot2grid((3,3), (2, 0))
 ax5 = plt.subplot2grid((3,3), (2, 1))  
 plt.suptitle("subplot2grid")  
 ```
-![subplot2grid](https://gitee.com/WilenWu/images/raw/master/matplotlib/subplot2grid.png)
+![subplot2grid](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/matplotlib/subplot2grid.png)
 
 **plt.subplots**
 `plt.subplots(nrows=1, ncols=1, sharex=False, sharey=False,...)` Create a figure and a set of subplots
@@ -141,7 +141,7 @@ axes[1,0].axhline(0.5)
 axes[0,1].fill(x,y,color='blue')
 axes[1,1].fill_between(x,y,color='yellow')
 ```
-![](https://gitee.com/WilenWu/images/raw/master/matplotlib/img.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/matplotlib/img.png)
 
 ```python
 import numpy as np
@@ -158,7 +158,7 @@ C = plt.contour(X, Y, Height, 8,colors = 'black') # 绘制等高线
 plt.clabel(C, inline = True, fontsize = 10) # 显示各等高线的数据标签
 plt.show()
 ```
-![等高线](https://gitee.com/WilenWu/images/raw/master/matplotlib/contourf.png)
+![等高线](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/matplotlib/contourf.png)
 
 ## Parts of Axes
 
@@ -292,7 +292,7 @@ ax.set_title('Lagrange Mean Value Theorem',fontsize=15)
 
 plt.show()
 ```
-![拉格朗日中值定理](https://gitee.com/WilenWu/images/raw/master/matplotlib/lagrange.png)
+![拉格朗日中值定理](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/matplotlib/lagrange.png)
 
 # Patches
 
@@ -337,7 +337,7 @@ ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=cm.viridis)
 plt.show()
 ```
 
-![3D](https://gitee.com/WilenWu/images/raw/master/matplotlib/3d.png)
+![3D](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/matplotlib/3d.png)
 
 # Animation
 

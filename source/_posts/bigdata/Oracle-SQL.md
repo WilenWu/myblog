@@ -1185,7 +1185,7 @@ AS IDENTITY [ (identity_options) ]
   identity_options ：同上面序列生成器的参数
 - 可以在创建table时指定identity columns的类型和规则，也可以创建之后使用alter table 来修改。
 
-![](https://gitee.com/WilenWu/images/raw/master/sql/20210905143112.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/sql/20210905143112.png)
 
 ```sql
 -- BY DEFAULT

@@ -68,7 +68,7 @@ p + geom_arc_bar(aes(x0 = 0, y0 = 0, r0 = 0, r = 1,
                  data = pie)
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/ggpie.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/ggpie.png)
 
 ## 绘制圆
 
@@ -81,7 +81,7 @@ circles <- data.frame(
 ggplot() + geom_circle(aes(x0=x0, y0=y0, r=r, fill=r), data=circles)
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/ggcircle.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/ggcircle.png)
 
 
 

@@ -70,7 +70,7 @@ print  "Prediction for negative test examples: %g"  %model.predict(negTest)
 
 ML库提供了基于DataFrame的API，可以用来构建机器学习工作流（Pipeline），ML Pipeline弥补了原始MLlib库的不足，向用户提供了一个基于DataFrame的机器学习工作流套件。
 
-![](https://gitee.com/WilenWu/images/raw/master/spark/spark-ml.PNG)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/spark/spark-ml.PNG)
 
 ML库提供了三个主要的抽象类：
 - 转换器(Transformer)：实现了一个方法.transform()，通常通过将一个或多个新列附加到DataFrame来转换为新的DataFrame。比如一个模型就是一个转换器，他可以把一个不包含预测标签的数据集打上标签。

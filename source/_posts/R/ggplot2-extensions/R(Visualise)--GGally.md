@@ -55,7 +55,7 @@ pm <- pm + theme_bw()   #可以添加ggplot2主题
 p2 <- pm[1,2]           #也可以提取子集使用
 p3 <- pm[1,3]
 ```
-![matrix](https://gitee.com/WilenWu/images/raw/master/ggplot2/ggmatrix.png)
+![matrix](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/ggmatrix.png)
 
 ## ggpairs: ggplot2广义配对图
 
@@ -68,7 +68,7 @@ pm <- ggpairs(tips, mapping = aes(color = sex),
 pm
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/ggpairs.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/ggpairs.png)
 
 **矩阵部分**
 成对矩阵有三个主要部分: lower，upper，和diag。lower和upper包含三个类型: continuous，combo，和discrete。diag只包含continuous或者discrete。
@@ -105,7 +105,7 @@ pm <- ggpairs(
 pm
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/ggpairs2.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/ggpairs2.png)
 
 **自定义函数**
 这些ggally_NAME函数不提供所有图形选项。一个自定义函数可以代替供给字符串到continuous，combo或discrete内的元件upper，lower或diag。
@@ -133,7 +133,7 @@ pm <- ggpairs(
 pm
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/ggpairs3.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/ggpairs3.png)
 
 
 **函数包装**
@@ -171,6 +171,6 @@ data(flea)
 ggscatmat(flea, columns = 2:4, color="species", alpha=0.8)
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/ggscatmat.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/ggscatmat.png)
 
 **其余函数待更新**

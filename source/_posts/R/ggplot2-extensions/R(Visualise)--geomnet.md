@@ -63,7 +63,7 @@ ggplot(data = TEnet,
   xlim(c(-0.05, 1.05))
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/geom_net.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/geom_net.png)
 
 ## 献血图
 
@@ -78,7 +78,7 @@ ggplot(data = blood$edges, aes(from_id = from, to_id = to)) +
   theme_net() 
 ```
 
-![](https://gitee.com/WilenWu/images/raw/master/ggplot2/geom_net_blood.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ggplot2/geom_net_blood.png)
 
 ## 与`plotly`互动
 
