@@ -9,7 +9,7 @@ tags:
   - 导数
   - 微分
   - 积分
-cover: /img/Calculus.jpg
+cover: /img/Mathematical-Analysis.png
 top_img: /img/math-top-img.png
 katex: true
 description: 实数集合、极限、一元函数微分、不定积分、定积分

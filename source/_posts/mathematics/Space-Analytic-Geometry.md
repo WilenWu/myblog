@@ -7,12 +7,12 @@ tags:
   - 数学
   - 向量代数
   - 解析几何
-cover: /img/surface.jpg
+cover: /img/Analytic-Geometry.png
+top_img: /img/ant.jpg
 katex: true
 description: 向量代数和空间解析几何
 abbrlink: c1a88ebe
 date: 2019-05-03 11:22:02
-top_img:
 ---
 
 # 向量代数

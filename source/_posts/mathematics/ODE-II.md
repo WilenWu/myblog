@@ -11,9 +11,8 @@ katex: true
 description: 高阶常微分方程
 abbrlink: b2392136
 date: 2020-04-23 14:52:22
-cover:
-top_img:
-keywords:
+cover: /img/ode.png
+top_img: /img/math-top-img.png
 ---
 
 # 高阶微分方程

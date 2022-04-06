@@ -8,12 +8,11 @@ tags:
   - 无穷级数
   - 傅里叶级数
   - 收敛
-cover: /img/sigma.jpeg
-katex: true
+cover: /img/Mathematical-Analysis.png
+top_img: /img/math-top-img.png
 description: 无穷级数、幂级数、傅里叶级数、三角级数
 abbrlink: 372c3afa
 date: 2019-05-15 17:17:52
-top_img:
 ---
 
 # 无穷级数

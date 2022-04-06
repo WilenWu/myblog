@@ -11,9 +11,8 @@ katex: true
 description: 一阶线性常微分方程组
 abbrlink: ccca011d
 date: 2020-04-23 14:53:26
-cover:
-top_img:
-keywords:
+cover: /img/ode.png
+top_img: /img/math-top-img.png
 ---
 
 

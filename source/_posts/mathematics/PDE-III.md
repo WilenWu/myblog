@@ -13,8 +13,8 @@ katex: true
 description: 积分变换法、基本解和格林函数
 abbrlink: b5843f92
 date: 2020-06-21 18:55:54
-cover:
-top_img:
+cover: /img/pde.png
+top_img: /img/math-top-img.png
 ---
 
 # 积分变换法

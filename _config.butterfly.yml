@@ -13,6 +13,7 @@ menu:
     # 音乐: /music/ || fas fa-music
     # 电影: /movies/ || fas fa-video
   图库: /gallery/ || fa fa-images
+  电子书: /ebook/ || fa fa-book-reader
   收藏夹: /link/ || fas fa-star
   更多||fa-solid fa-circle-chevron-down||hide: 
     关于我: /about/ || fa fa-user # fas fa-heart
@@ -839,9 +840,10 @@ inject:
   head:
     - <link rel="stylesheet" href="//at.alicdn.com/t/font_2849223_xh1ftc8qym.css"> # 阿里图标
     # - <link rel="stylesheet" href="//at.alicdn.com/t/font_3223720_py68vsmc0i.css"> # 十二生肖图标
-    - <link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'">
+    - <link rel="stylesheet" href="/css/year-icon.css"  media="defer" onload="this.media='all'"> # 加载十二生肖图标
+    - <link rel="stylesheet" href="/css/link-card.css"> # 链接卡片
   bottom:
-    #- <script src="/js/custom.js"></script>
+    - <script src="/js/custom.js"></script>
     - <script async src="//at.alicdn.com/t/font_2264842_3izu8i5eoc2.js"></script> # 十二生肖图标
 
 

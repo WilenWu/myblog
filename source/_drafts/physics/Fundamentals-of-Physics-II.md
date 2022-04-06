@@ -193,12 +193,3 @@ Field
 24-8 The Light-Emitting Diode (LED)
 24-9 The Transistor
 
-
-# Appendices 附录
-A The International System of Units (SI)
-B Some Fundamental Constants of Physics
-C Some Astronomical Data
-D Conversion Factors
-E Mathematical Formulas
-F Properties of the Elements
-G Periodic Table of the Elements

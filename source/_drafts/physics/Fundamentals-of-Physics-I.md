@@ -129,5 +129,3 @@ Heat Transfer热传递
 热力学定律(The Laws of Thermodynamics)
 
 
-
-<img src="Essential-Physics.assets/SI.svg" style="zoom:50%;" />

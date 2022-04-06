@@ -9,8 +9,8 @@ tags:
   - 数列
   - 因式分解
   - 对数
-cover: /img/blackboard-math.jpg
-top_img: /img/math-formula.jpg
+cover: /img/formula.png
+top_img: /img/math-top-img.png
 katex: true
 description: false
 abbrlink: 375d0704

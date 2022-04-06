@@ -13,13 +13,15 @@ katex: true
 description: 球函数、柱函数
 abbrlink: cb771fb9
 date: 2020-05-15 17:54:41
-cover:
-top_img:
+cover: /img/pde.png
+top_img: /img/math-top-img.png
 ---
 
 # 正交曲面坐标系下的分离变量
 
 上章只是讨论了用分离变量法解决直角坐标系中的各种定解问题，但实际中的边界是多种多样的，坐标系参照问题中的边界形状来选择，可以方便的解决相应的本征值问题。
+
+## 坐标系
 
 **平面极坐标系 $(r,ϕ)$**
 $$
@@ -28,20 +30,28 @@ x=r\cosϕ \\
 y=r\sinϕ
 \end{cases}
 $$
+
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/plane-polar-coordinate.png" style="zoom: 80%;" />
+
 拉普拉斯算符 
+
 $$
 \begin{aligned}
 Δ &=\cfrac{∂^2}{∂r^2}+\cfrac{1}{r}\cfrac{∂}{∂r}+\cfrac{1}{r^2}\cfrac{∂^2}{∂ϕ^2} \\
 &=\cfrac{1}{r}\cfrac{∂}{∂r}\left(r\cfrac{∂}{∂r}\right)+\cfrac{1}{r^2}\cfrac{∂^2}{∂ϕ^2}
 \end{aligned}
 $$
+
 **三维柱坐标系 $(r,ϕ,z)$**
+
 $$
 \begin{cases}x=r\cosϕ \\y=r\sinϕ \\z=z \end{cases}
 $$
+
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/cylindrical-coordinates.png)
+
 拉普拉斯算符 
+
 $$
 \begin{aligned}
 Δ &=\cfrac{∂^2}{∂r^2}+\cfrac{1}{r}\cfrac{∂}{∂r}
@@ -50,7 +60,9 @@ $$
 +\cfrac{1}{r^2}\cfrac{∂^2}{∂ϕ^2}+\cfrac{∂^2}{∂z^2}
 \end{aligned}
 $$
+
 **三维球坐标系 $(r,θ,ϕ)$**
+
 $$
 \begin{cases}
 x=r\sinθ\cosϕ \\
@@ -58,8 +70,11 @@ y=r\sinθ\sinϕ \\
 z=r\cosθ
 \end{cases}
 $$
+
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/DifferentialEquation/spherical-coordinates.png" style="zoom:67%;" />
+
 拉普拉斯算符 
+
 $$
 \begin{aligned}
 Δ & =\cfrac{∂^2}{∂r^2}+\cfrac{2}{r}\cfrac{∂}{∂r}
@@ -73,11 +88,14 @@ $$
 $$
 
 
-**三维空间拉普拉斯方程**
+## 三维空间拉普拉斯方程
+
 $$
 Δ=u_{xx}+u_{yy}+u_{zz}=0
 $$
+
 **(1) 球坐标系**
+
 $$
 \cfrac{1}{r^2}\cfrac{∂}{∂r}\left(r^2\cfrac{∂u}{∂r}\right)
 +\cfrac{1}{r^2\sinθ}\cfrac{∂}{∂θ}\left(\sinθ\cfrac{∂u}{∂θ}\right)
@@ -191,7 +209,9 @@ $$
 $$
 x^2\cfrac{d^2R}{dx^2}+x\cfrac{dR}{dx}-(x^2+m^2)R=0
 $$
-**波动方程**
+
+## 波动方程
+
 $$
 u_{tt}-a^2Δu=0
 $$
@@ -210,7 +230,8 @@ $$
 
 常微分方程 (1.7) 为已讨论过的欧拉方程，偏微分方程 (1.8) 叫做==亥姆霍兹方程==。
 
-**热传导方程**
+## 热传导方程
+
 $$
 u_t-a^2 Δu=0
 $$
@@ -229,7 +250,8 @@ $$
 
 常微分方程 (1.9) 为已讨论过的欧拉方程，偏微分方程 (1.10) 也是==亥姆霍兹方程==。
 
-**亥姆霍兹方程** (Helmholtz)
+## 亥姆霍兹方程 
+
 $$
 Δv+k^2v=0
 $$

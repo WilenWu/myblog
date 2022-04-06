@@ -11,9 +11,8 @@ katex: true
 description: 一阶常微分方程
 abbrlink: 1d08ba54
 date: 2019-05-02 12:36:35
-cover:
-top_img:
-keywords:
+cover: /img/ode.png
+top_img: /img/math-top-img.png
 ---
 
 # 微分方程基本概念

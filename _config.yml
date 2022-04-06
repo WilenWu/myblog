@@ -294,3 +294,9 @@ gitcalendar:
   container: .recent-post-item(style='width:100%;height:auto;padding:10px;') #父元素容器，需要使用pug语法
   gitcalendar_css: https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.css
   gitcalendar_js: https://npm.elemecdn.com/hexo-filter-gitcalendar/lib/gitcalendar.js
+
+# 自动修正标签云
+easy_tags_plugin:
+  enable: true
+  tag_name_case: 1
+  sort_ignore_case: true

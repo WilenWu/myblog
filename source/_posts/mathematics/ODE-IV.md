@@ -11,9 +11,8 @@ katex: true
 description: 非线性微分方程、定性理论、边值问题
 abbrlink: 3689ee12
 date: 2021-10-30 21:58:00
-cover:
-top_img:
-keywords:
+cover: /img/ode.png
+top_img: /img/math-top-img.png
 ---
 
 # 非线性微分方程基本理论

@@ -12,8 +12,8 @@ katex: true
 description: （拟）线性偏微分方程、定解问题、分离变量法
 abbrlink: 644684db
 date: 2020-04-07 16:50:54
-cover:
-top_img:
+cover: /img/pde.png
+top_img: /img/math-top-img.png
 ---
 
 #  偏微分方程的定解问题

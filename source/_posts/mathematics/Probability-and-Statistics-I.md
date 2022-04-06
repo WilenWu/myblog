@@ -9,12 +9,12 @@ tags:
   - 分布
   - 期望
   - 方差
-cover: /img/prob.jpg
+cover: /img/Probability.png
 katex: true
 description: 概率论
 abbrlink: 304d9389
 date: 2019-05-28 14:38:39
-top_img:
+top_img: /img/prob.jpg
 ---
 
 # 概率论的基本概念(The Basic Concept of Probability Theory)

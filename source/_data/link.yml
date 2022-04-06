@@ -29,6 +29,10 @@
 - class_name: 素材资源
   class_desc: 
   link_list:
+    - name: Zlibrary
+      link: https://zh.u1lib.org/
+      avatar: /img/zlibrary-favicon.svg
+      descr: Z-Library 项目的一部分. 全球最大的数字图书馆
     - name: Iconfont
       link: https://www.iconfont.cn/
       avatar: /img/iconfont.svg
@@ -73,6 +77,10 @@
       link: https://www.remove.bg/zh
       avatar: /img/removebg.svg
       descr: 在线抠图，自动去除背景
+    - name: 片刻抠图
+      link: https://www.pickwant.com/#/home
+      avatar: /img/pickwant-logo.svg
+      descr: 免费自动抠图
     - name: 稿定设计PS
       link: https://ps.gaoding.com/#/
       avatar: /img/gaoding-ps.svg
@@ -152,7 +160,7 @@
     - name: Markdown 官方教程
       link: https://markdown.com.cn/
       avatar: /img/mdsolid.svg
-      descr: 
+      descr: ''
 
 - class_name: 人工智能
   class_desc: 

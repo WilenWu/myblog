@@ -10,8 +10,8 @@ tags:
   - 特征值
   - 特征向量
   - 二次型
-cover: /img/linear.jpg
-top_img: /img/matrix.jpeg
+cover: /img/Linear-Algebra.png
+top_img: /img/matrix-logo.jpg
 katex: true
 description: 矩阵，行列式，向量空间，二次型，线性变换
 abbrlink: c23efd5b

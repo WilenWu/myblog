@@ -12,8 +12,8 @@ katex: true
 description: 变分法、非线性偏微分方程
 abbrlink: 4fc7d09d
 date: 2020-07-10 16:52:58
-cover:
-top_img:
+cover: /img/pde.png
+top_img: /img/math-top-img.png
 ---
 
 # 变分法初步

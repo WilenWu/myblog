@@ -9,12 +9,12 @@ tags:
   - 假设检验
   - 方差分析
   - 回归分析
-cover: /img/prob.jpg
+cover: /img/Probability.png
+top_img: /img/prob.jpg
 katex: true
 description: 数理统计
 abbrlink: d2dba39
 date: 2019-06-01 20:57:44
-top_img:
 ---
 
 # 样本与抽样分布(Sample and Sampling Distribution)

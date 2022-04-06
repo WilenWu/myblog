@@ -7,12 +7,12 @@ tags:
   - 数学
   - 复傅里叶变换
   - 拉普拉斯变换
-cover: /img/Gamma-3D.png
+cover: /img/Complex-Analysis.png
+top_img: /img/math-top-img.png
 katex: true
 description: 傅里叶变换、拉普拉斯变换
 abbrlink: 81d8a12f
 date: 2019-07-24 13:09:37
-top_img:
 ---
 
 # Fourier 变换

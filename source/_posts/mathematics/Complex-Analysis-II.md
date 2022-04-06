@@ -8,8 +8,8 @@ tags:
   - 级数
   - 留数
   - 共形映射
-cover: /img/complex-cover.png
-top_img: /img/science.jpg
+cover: /img/Complex-Analysis.png
+top_img: /img/math-top-img.png
 katex: true
 description: 级数、留数、共形映射
 abbrlink: ff2b8104

@@ -8,8 +8,8 @@ tags:
   - 复变函数
   - 解析函数
   - 调和函数
-cover: /img/complex-cover.png
-top_img: /img/science.jpg
+cover: /img/Complex-Analysis.png
+top_img: /img/math-top-img.png
 katex: true
 description: 复变函数、解析函数、积分
 abbrlink: 501a1a66
