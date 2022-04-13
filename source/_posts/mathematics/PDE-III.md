@@ -130,8 +130,8 @@ u(x,t)=\frac{1}{2}[\phi(x+at)+\phi(x-at)]+\frac{1}{2a}\int_{x-at}^{x+at}\psi(ξ)
 $$
 这个公式正是达朗贝尔(d’Alembert)公式。
 
-[math]: /posts/math/Calculus-II/
-[F]: /posts/math/Integral-Transform/
+[math]: /posts/49df1ad1/
+[F]: /posts/81d8a12f/
 
 **求无限长杆的有源热传导问题**
 $$

@@ -144,8 +144,8 @@ error_img:
 # A simple 404 page
 error_404:
   enable: true 
-  subtitle: 'Page Not Found'
-  background: /img/404_page.png
+  subtitle: # 'Page Not Found'
+  background: /img/404_page.gif
 
 # 这个选项是用来显示文章的相关信息的
 post_meta:

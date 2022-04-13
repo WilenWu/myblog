@@ -4,9 +4,9 @@
 
 # Site
 title: Wilen's Blog
-subtitle: 寄蜉蝣于天地，渺沧海之一粟。
-description: 个人笔记
-keywords: 大数据 数学 Python R语言
+subtitle: 个人笔记
+description: 寄蜉蝣于天地，渺沧海之一粟。
+keywords: [大数据, 数学, 物理, Python, R语言]
 author: Wilen Wu
 language: zh-CN       # 网站采用语言，与<theme>/languages/zh-CN.yml下的文件名对应
 timezone: ''
@@ -259,7 +259,7 @@ swiper:
 # hexo-filter-gitcalendar
 # see https://akilar.top/posts/1f9c68c9/
 gitcalendar:
-  enable: true # 开关
+  enable: false # 开关
   priority: 5 #过滤器优先权
   enable_page: / # 应用页面
   # butterfly挂载容器

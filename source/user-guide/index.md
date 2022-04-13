@@ -203,7 +203,7 @@ Natural Language Processing(自然语言处理)
 
 # R手册
 
-本手册所列包基本来自[AwesomeR][AwesomeR] ，结合[GitHub](https://github.com/)和`help(package="pk_name")`官方文档整理所得，有助于使用时下最实用的包对R进行深入的学习。    
+本手册所列包基本来自[AwesomeR](https://github.com/qinwf/awesome-R#2020) ，结合[GitHub](https://github.com/)和`help(package="pk_name")`官方文档整理所得，有助于使用时下最实用的包对R进行深入的学习。    
 
 ## General
 
@@ -358,10 +358,6 @@ Natural Language Processing(自然语言处理)
 
 [Awesome Math](https://github.com/rossant/awesome-math): A curated list of awesome mathematics resources.
 
-## 初等数学
-
-- :ballot_box_with_check: [初等数学常用公式](/posts/375d0704/)
-
 ## 数学分析
 
 - :ballot_box_with_check: [数学分析(一)](/posts/e6ee81b3/): 实数集合、极限、一元函数微分、不定积分、定积分
@@ -418,6 +414,12 @@ Natural Language Processing(自然语言处理)
 - :heart: [微分几何初步](DifferentialGeometry): 包括曲线和曲面论、外微分形式和活动标架、黎曼几何
 - :ballot_box_with_check: 《张量分析》: (黄克智) 是微分几何中研究张量场的微分运算的一个分支。张量分析是用共变微分表示各种几何量和微分算子性质的运算方法，可以看作是微分流形上的“微分法”，是研究流形上的几何和分析的一种重要工具。
 
+## 附录
+
+- :ballot_box_with_check: [经典数学公式](/posts/375d0704/)
+- :ballot_box_with_check: [几种常用的曲线](/posts/7020ba93/)
+
+
 # 物理
 
 [Awesome Physics](https://github.com/wbierbower/awesome-physics): 🌌 A collaborative list of awesome software for exploring Physics concepts. Feel free to contribute!
@@ -444,4 +446,6 @@ Natural Language Processing(自然语言处理)
 - :ballot_box_with_check: 广义相对论: 是描述物质间引力相互作用的理论
 - :ballot_box_with_check: 量子引力: 想要把广义相对论量子化，进而统一包括引力在内的四种基本力。当前主流尝试理论有弦理论/超弦理论/M理论、超引力、圈量子引力、扭量理论等。
 - :white_large_square: 凝聚态物理: 是研究凝聚态物质的物理性质与微观结构以及它们之间的关系。
+
+## 附录
 

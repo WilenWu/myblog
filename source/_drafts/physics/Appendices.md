@@ -40,7 +40,7 @@ description:
 |c|speed of light in vacuum|299 792 458 m/s|
 |h|Planck constant|6.626 070 15x10^−34^ J⋅s|
 |e|elementary charge|1.602 176 634x10^−19^ C|
-|k|Boltzmann constant|1.380 649x10^−23 J/K|
+|k~B~|Boltzmann constant|1.380 649x10^−23 J/K|
 |N~A~|Avogadro constant|6.022 140 76x10^23^ /mol|
 |K~cd~|luminous efficacy of 540 THz radiation|683 lm/W|
 |g~n~|standard acceleration of gravity|9.806 65 m/s^2^|

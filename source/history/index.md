@@ -20,7 +20,7 @@ Gitee 真是:dog:啊，被迫把图床迁移到腾讯云
    - ~~安装插件[`hexo-butterfly-footer-beautify`](https://github.com/Akilarlxh/hexo-butterfly-footer-beautify)添加页脚 Github 徽标~~
    - ~~安装插件[`hexo-butterfly-swiper`](https://github.com/Akilarlxh/hexo-butterfly-swiper)，给   Butterfly主题添加首页轮播图~~
    - 安装插件[`hexo-butterfly-tag-plugins-plus`](https://github.com/Akilarlxh/hexo-butterfly-tag-plugins-plus)，给Butterfly主题添加大量外挂标签
-   - 安装插件[`hexo-filter-gitcalendar`](https://github.com/Akilarlxh/hexo-filter-gitcalendar)，给`hexo`添加首页git提交日历
+   - ~~安装插件[`hexo-filter-gitcalendar`](https://github.com/Akilarlxh/hexo-filter-gitcalendar)，给`hexo`添加首页git提交日历~~
    - 安装插件 `hexo-easy-tags-plugin`，自动修正标签云
 
 3. 在归档页面引入十二生肖图标，参考大神 Akilar 教程[Archive Beautify](https://akilar.top/posts/22257072/)（需要修改源码）
