@@ -31,7 +31,7 @@ swiper_index: 1
 
 ## Markdown Client
 
-- [Typora](https://www.typora.io/) (Win+Mac+Linux) : What You See Is What You Get
+- [Typora](https://typoraio.cn/) (Win+Mac+Linux) : What You See Is What You Get
 - [Mou](http://25.io/mou/) (Mac): Markdown editor for developers.
 - [Bear](http://www.bear-writer.com/)(Mac): Write beautifully on iPhone, iPad, and Mac
 - [~~MarkdownPad~~](http://markdownpad.com/)(Windows): MarkdownPad is a full-featured Markdown editor for Windows

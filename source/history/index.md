@@ -16,7 +16,7 @@ Gitee 真是:dog:啊，被迫把图床迁移到腾讯云
 <!-- timeline 2022-03-05 -->
 1. 升级主题至hexo-theme-butterfly@4.1.0
 2. 安装大量插件，美化 Butterfly 主题
-   - 安装插件[`hexo-butterfly-charts`](https://github.com/kuole-o/hexo-butterfly-charts)，添加 hexo    posts、类和标签的统计数据
+   - 安装插件[`hexo-butterfly-charts`](https://github.com/kuole-o/hexo-butterfly-charts)，添加 hexo posts、类和标签的统计数据
    - ~~安装插件[`hexo-butterfly-footer-beautify`](https://github.com/Akilarlxh/hexo-butterfly-footer-beautify)添加页脚 Github 徽标~~
    - ~~安装插件[`hexo-butterfly-swiper`](https://github.com/Akilarlxh/hexo-butterfly-swiper)，给   Butterfly主题添加首页轮播图~~
    - 安装插件[`hexo-butterfly-tag-plugins-plus`](https://github.com/Akilarlxh/hexo-butterfly-tag-plugins-plus)，给Butterfly主题添加大量外挂标签
