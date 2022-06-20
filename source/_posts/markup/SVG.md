@@ -41,7 +41,7 @@ SVG文件有两种形式。普通SVG文件是包含SVG标记的简单文本文�
 
 所有的主流浏览器都将支持SVG：Internet Explorer 9、Mozilla Firefox、Safari、Google Chrome和Opera。基于Webkit的移动设备浏览器（主要是指iOS和Android），都支持SVG。在较老或者较小的设备上，一般支持SVG Tiny。
 
-- SVG 图像可以通过使用矢量图形编辑器来生成，开源软件有 [Inkscape](https://www.inkscape.org/)、Scribus、Karbon14 、Sodipodi 以及 [Apache Batik](https://xmlgraphics.apache.org/batik/) 工具集等
+- SVG 图像可以通过使用矢量图形编辑器来生成，开源软件有 [Inkscape](https://www.inkscape.org/) <img src="https://media.inkscape.org/static/images/inkscape-logo.svg" height="30" />、Scribus、Karbon14 、Sodipodi 以及 [Apache Batik](https://xmlgraphics.apache.org/batik/) 工具集等
 - 商用编辑工具有 Adobe Illustrator、Adobe Flash Professional 或 CorelDRAW
 - 也有开放源码，功能简单但容易操作，免安装的在线SVG设计工具，例如 [SVG-Edit](https://github.com/SVG-Edit/svgedit) ，[SVG 菜鸟在线编辑器（国内）](https://c.runoob.com/more/svgeditor/) 和 [Figma: the collaborative interface design tool.](https://www.figma.com/)
 - 在移动设备上的软件有安卓的 PainterSVG
@@ -473,7 +473,7 @@ SVG 提供了一系列边框属性，可应用于任何种类的线条，包括�
   `stroke-dasharray`属性的参数，是一组用逗号分割的数字组成的数列。注意，和`path`不一样，这里的数字**必须**用逗号分割（空格会被忽略）。每一组数字，第一个用来表示填色区域的长度，第二个用来表示非填色区域的长度。所以在上面的例子里，第二个路径会先做5个像素单位的填色，紧接着是5个空白单位，然后又是5个单位的填色。如果你想要更复杂的虚线模式，你可以定义更多的数字。第一个例子指定了3个数字，这种情况下，数字会循环两次，形成一个偶数的虚线模式（奇数个循环两次变偶数个）。所以该路径首先渲染5个填色单位，10个空白单位，5个填色单位，然后回头以这3个数字做一次循环，但是这次是创建5个空白单位，10个填色单位，5个空白单位。通过这两次循环得到偶数模式，并将这个偶数模式不断重复。
 
 - `stroke-opacity` 属性定义线条的不透明度，范围为 0 - 1
-- 另外还有一些关于边框的属性，包括`stroke-miterlimit`，定义什么情况下绘制或不绘制边框连接的`miter`效果；还有`stroke-dashoffset`，定义虚线开始的位置。
+- 另外还有一些关于边框的属性，包括`stroke-miterlimit`，定义什么情况下绘制或不绘制边框连接的`miter`效果；还有`stroke-dashoffset`，定义线条偏移。
 
 ## 填充属性
 

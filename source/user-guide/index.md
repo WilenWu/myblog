@@ -29,7 +29,7 @@ header_color: true
 - :ballot_box_with_check: [VScode 常用快捷键](/posts/af83e57c/)
 - :ballot_box_with_check: [Win10 常用快捷键](/posts/eb0a36a4/)
 - :white_large_square: [电子书文件格式](/posts/4fd8493d/)
-- :ballot_box_with_check: git 常用命令
+- :ballot_box_with_check: [Git 快速参考指南](/posts/f48f437a/)
 
 # 标记语言
 
