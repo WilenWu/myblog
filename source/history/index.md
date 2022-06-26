@@ -5,6 +5,10 @@ top_img: false
 ---
 
 {% timeline 2022 %}
+<!-- timeline 2022-06-26 -->
+升级主题至hexo-theme-butterfly@4.3.0
+<!-- endtimeline -->
+
 <!-- timeline 2022-03-27 -->
 Gitee 真是:dog:啊，被迫把图床迁移到腾讯云
 <!-- endtimeline -->
@@ -42,7 +46,7 @@ Gitee 真是:dog:啊，被迫把图床迁移到腾讯云
    - 安装 [`hexo-filter-nofollow`](https://github.com/hexojs/hexo-filter-nofollow) 有效地加强网站SEO   和防止权重流失
    - 安装 [`hexo-generator-sitemap`](https://github.com/hexojs/hexo-generator-sitemap) 和 [`hexo-generator-baidu-sitemap`](https://github.com/coneycode/hexo-generator-baidu-sitemap) 生成sitemap的插件
    - 引入 permalink 永久链接插件 [`hexo-abbrlink`](https://github.com/rozbo/hexo-abbrlink)
-<!-- endtimeline -->
+   <!-- endtimeline -->
 
 <!-- timeline 2021-09-12 -->
 1. 在 Gitee 上建立图床

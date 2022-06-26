@@ -21,7 +21,7 @@ Git 是一个开源的分布式版本控制系统（Distributed Version Control 
 
 ## 安装和配置
 
-Git 有多种使用方式。 你可以使用原生的命令行模式（[Git](https://git-scm.com/)），也可以使用 GUI 模式（例如 [<img src="/img/github-desktop-icon.svg" style="zoom: 30%;" /> GitHub Desktop](https://desktop.github.com/)），这些 GUI 软件也能提供多种功能。 
+Git 有多种使用方式。 你可以使用原生的命令行模式（[Git](https://git-scm.com/)），也可以使用 GUI 模式（例如 [<i class="fab fa-github"></i> GitHub Desktop](https://desktop.github.com/)），这些 GUI 软件也能提供多种功能。 
 
 
 ```shell
@@ -184,7 +184,7 @@ $ git commit --amend
 ```shell
 $ git commit -m 'initial commit'
 $ git add forgotten_file
-$ git commit --amend
+$ git commit --amend -m "<message>"
 ```
 
 另外，git 也可只提交暂存区的指定文件
