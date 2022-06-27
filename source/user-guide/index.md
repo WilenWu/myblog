@@ -113,7 +113,7 @@ header_color: true
 - :ballot_box_with_check: [数学模块](/posts/bb46152f/): 基础包：math, random
 - :ballot_box_with_check: [re](/posts/cb9fa048/): re 模块使 Python 语言拥有全部的正则表达式功能。
 - :heart: [tkinter](http://www.runoob.com/python/python-gui-tkinter/): Python 的标准 GUI 库
-- :white_large_square: [threading](http://www.runoob.com/python3/python3-multithreading/): : 多线程
+- :white_large_square: [threading](http://www.runoob.com/python3/python3-multithreading/): 多线程
 - :white_large_square: [multiprocessing](http://python.jobbole.com/87760/): 多进程
 - :heart: [os](http://www.runoob.com/python/os-file-methods.html): 文件和目录处理库
 - :white_large_square: [asyncio](https://zhuanlan.zhihu.com/p/59621713): python标准库内置了对异步IO的支持
@@ -390,7 +390,6 @@ Natural Language Processing(自然语言处理)
 - :ballot_box_with_check: [偏微分方程(三)](/posts/b5843f92/): 积分变换法、基本解和格林函数
 - :ballot_box_with_check: [偏微分方程(四)](/posts/4fc7d09d/): 变分法、非线性偏微分方程
 
-
 ## 线性代数
 
 - :ballot_box_with_check: [线性代数](/posts/c23efd5b/): 矩阵，行列式，向量空间，二次型，线性变换
@@ -398,7 +397,7 @@ Natural Language Processing(自然语言处理)
 
 ## 抽象代数
 
-- :ballot_box_with_check: [抽象代数](AbstractAlgebra): : (又称近世代数) 群论、环论、伽罗瓦理论等
+- :ballot_box_with_check: [抽象代数](AbstractAlgebra): (又称近世代数) 群论、环论、伽罗瓦理论等
 
 ## 泛函分析
 

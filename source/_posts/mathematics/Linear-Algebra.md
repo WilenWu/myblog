@@ -19,21 +19,22 @@ date: 2019-05-23 15:39:34
 ---
 
 大学里开设的高等代数，一般包括两部分：线性代数、多项式代数。
+
 - 在高等代数中，一次方程组（也称为线性方程组）发展成为线性代数理论。是关于向量空间、线性变换、型论、不变量论和张量代数等内容的一门高等代数分支学科
 - 而二次以上的一元方程（也称为多项式方程）发展成为多项式理论。是研究只含有一个未知量的任意次方程的一门高等代数分支学科。
+
 沿着这两个方向继续发展，代数在讨论任意多个未知数的一次方程组，同时还研究次数更高的一元方程。发展到这个阶段，就叫做高等代数。高等代数是代数学发展到高级阶段的总称，它包括许多分支。
 
 > 摘自MOOC东南大学和同济大学《线性代数》
 > 友情链接：[高等代数-简书](https://www.jianshu.com/c/862d6b86a56d)  [MIT 18.06 线性代数笔记](https://linalg.apachecn.org/#/)
 
-
-# 矩阵(Matrix)
+# 矩阵
 
 > [理解矩阵](https://blog.csdn.net/myan/article/details/647511)
 
 ## 矩阵及其运算
 
-**矩阵的概念**： $m×n$ 矩阵是指下列数表
+**矩阵(Matrix)的概念**： $m×n$ 矩阵是指下列数表
 $$
 \begin{pmatrix}
 a_{11}&a_{12}&\cdots&a_{1n} \\
@@ -118,8 +119,9 @@ $\det A^T=\det A$|
 $\det kA=k^n\det A$|
 $\det AB=\det A\cdot\det B$ |
 
-## 分块矩阵(Block matrix)
-**矩阵的分块**：根据运算的需要，结合矩阵本身的特点，在矩阵的行间和列间，分别用横线和竖线将矩阵划分为若干个子矩阵(submatrix)，此方法称为矩阵的分块，并称这种以子块为元的矩阵为分块矩阵。
+## 分块矩阵
+
+**分块矩阵(Block matrix)**：根据运算的需要，结合矩阵本身的特点，在矩阵的行间和列间，分别用横线和竖线将矩阵划分为若干个子矩阵(submatrix)，此方法称为矩阵的分块，并称这种以子块为元的矩阵为分块矩阵。
 $\left(
 \def\arraystretch{1.2} 
 \begin{array}{cc:c} 
@@ -323,7 +325,8 @@ a_{m1}&a_{m2}&\cdots&a_{mn} \\
 **最小二乘解**(least squares solution)：
 $x_0$为$Ax=b$的最小二乘解，即$\|b-Ax_0\|=\displaystyle\min_{x\in\R^n}\|b-Ax\| \iff x_0$满足$A^TAx_0=A^Tb$
 
-# 行列式(Determinant)
+# 行列式
+
 >行列式的本质是什么？https://www.zhihu.com/question/36966326/answer/70687817
 
 **行列式**(determinant)：行列式引自对线性方程组的求解
@@ -429,8 +432,10 @@ x_j=\frac{D_j}{D},(j=1,2,\cdots,n)
 $$
 其中$D_j$是把系数行列式$D$中的第$j$列换成常数项 $b_1,b_2,\cdots,b_n$ 所得的行列式
 
-# n维向量(N-dimensional Vector)
+# n维向量
+
 ## 向量的概念和运算
+
 **n维向量**(N-dimensional vector)：n个有次序的数 $a_1,a_2,\cdots,a_n$ 所组成的数组称为n维向量。
 行向量 $\mathbf a=(a_1,a_2,\cdots,a_n)$，列向量 $\mathbf{a}=\begin{pmatrix}a_1\\ a_2\\ \cdots \\ a_n\end{pmatrix}$
 分量全为实数的向量称为实向量；分量全为复数的向量称为复向量；
@@ -584,14 +589,13 @@ $\implies |A|^2=1$为正交阵
 $A,B$ 为正交阵$\implies AB$ 为正交阵
 
 **正交变换**(orthogonal transformation)：若为 $P$正交矩阵，则线性变换 $\mathbf{y}=P\mathbf{x}$称为正交变换。
-
-$\|\mathbf{y}\|=\sqrt{[\mathbf{y,y}]}=\sqrt{\mathbf{y^Ty}} \\
-=\sqrt{\mathbf{x^TP^TPx}} \\
-=\sqrt{\mathbf{x^Tx}}=\sqrt{[\mathbf{x,x}]}=\|\mathbf{x}\|$
+$\|\mathbf{y}\|=\sqrt{[\mathbf{y,y}]}=\sqrt{\mathbf{y^T y}} \\
+=\sqrt{\mathbf{x^T P^T Px}} \\
+=\sqrt{\mathbf{x^T x}}=\sqrt{[\mathbf{x,x}]}=\|\mathbf{x}\|$
 注：经正交变换后向量的长度保持不变，内积保持不变，从而夹角保持不变
 
+# 相似矩阵
 
-# 相似矩阵(Similar Matrix)
 ## 矩阵的特征值和特征向量
 **定义**
 (1) 设$A$是$n$阶矩阵，如果数$λ$和$n$维非零向量$\mathbf{x}$满足
@@ -621,9 +625,9 @@ $\implies$ 对应于不同特征值的线性无关的特征向量组，合起来
 (2). 解特征方程得n个特征值 $λ_1,λ_2,\cdots,λ_n$
 (3). 对每个特征值 $λ_i$，求 $(A-λ_i E)\mathbf{x}=0$ 的基础解系，写出其全体非零线性组合，即得 $λ_i$ 的全体特征向量
 
-
 ## 相似矩阵
-**定义**：设 $A, B$ 都是 $n$ 阶矩阵，若存在可逆阵 $P$ ,使得$P^{-1}AP=B$，则称A与B==相似==，记作$A∼ B$，对 A 进行运算 $P^{-1}AP$ 称为对 A进行==相似变换==(similarity transformation)。
+
+**定义**：设 $A, B$ 都是 $n$ 阶矩阵，若存在可逆阵 $P$ ,使得$P^{-1}AP=B$，则称A与B==相似==(Similar)，记作$A∼ B$，对 A 进行运算 $P^{-1}AP$ 称为对 A进行==相似变换==(similarity transformation)。
 
 
 **性质**：
@@ -660,7 +664,7 @@ $\impliedby A$有n个互不相同的特征值
 (3) 各组内部正交化、单位化
 (4) 将各组向量并排得正交阵 $P_{n× n}$，则$P^{-1}AP=P^TAP=Λ=\mathrm{diag}(λ_1,λ_2,\cdots,λ_n)$
 
-# 二次型(Quadratic Form)
+# 二次型
 
 ## 二次型及其标准型
 **概念**：n元二次齐次多项式 $f(x_1,x_2,\cdots,x_n)=\displaystyle\sum_{i=1}^{n}a_{ii}x_i^2+\displaystyle\sum_{1⩽ i<j⩽ n}2a_{ij}x_ix_j$
@@ -725,12 +729,13 @@ a_{11}&a_{12} \\
 a_{21}&a_{22} 
 \end{vmatrix}>0,\cdots,D_n=|A|>0$
 
+# 线性变换
 
-# 线性变换(Linear Transformation)
 ## 线性空间的定义与性质
 **线性空间**(linear space)： 设 $V$ 为 非空集合，$\R$ 为实数域，若 $V$ 对于向量的加法和数乘两种运算封闭，且满足八条运算规律，那么称集合 $V$ 为实数域 $\R$ 上的==线性空间==。封闭是指
 (1) $∀ \mathbf{α,β}\in V,∃! \mathbf{γ=α+β}\in V$
 (2) $∀ \mathbf{α}\in V, λ\in \R, ∃! \mathbf{δ}=λ\mathbf{α}\in V$
+
 八条运算规律|$α,β,γ\in V,λ,μ\in\R$
 :---|:---|
 $(\mathbf{i})\ α+β=β+α$ |$(\mathbf{ii})\ (α+β)+γ=α+(β+γ)$ 

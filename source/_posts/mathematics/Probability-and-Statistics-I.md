@@ -17,21 +17,22 @@ date: 2019-05-28 14:38:39
 top_img: /img/prob.jpg
 ---
 
-# 概率论的基本概念(The Basic Concept of Probability Theory)
+# 概率论的基本概念
+
 - **基本概念**
 ==概率论== (Theory of Probability)： 是一门揭示随机现象统计规律性的数学学科
 ==统计学== (Statistics)：是一门通过收集、整理、分析数据等手段以达到推断或预测考察对象本质或未来的学科.
 ==随机现象==(random phenomenon)：个别实验结果呈现不确定性，大量重复实验又具有统计规律性的现象
 ==随机试验==(random experiment)：对随机现象的观测
-==样本和样本空间==：试验的每一个结果称为一个样本(sample)，记为s
-所有可能出现的结果的集合称为样本空间 (sample space)，记为S
+==样本和样本空间==：试验的每一个结果称为一个样本(sample)，记为$s$
+所有可能出现的结果的集合称为样本空间 (sample space)，记为$S$
 ==随机事件==(random event)：实际问题中，通常会关心随机试验一些特定的结果，它们是S的(可测)子集，称为事件(event)，通常用大写字母A, B,…表示。
 ==可列集==(countable)：是指一个无穷集S，其元素可与自然数形成一一对应，因此可表为 $S=\{s_1,s_2,…\}$
 
 - **事件的关系与运算**：设以下大写英文字母均为样本空间S中的事件
 $s\in A\iff$事件A发生
 $A⊂ B\iff$指事件A必然导致事件B发生
-$A=B\iff A⊂ B且B⊂ A$
+$A=B\iff A⊂ B$ 且$B⊂ A$
 $A∪ B\iff$称为事件A与B的和事件(union of events)，表示事件A与B至少有一个发生
 $A∩ B\iff$称为事件A与B的积事件(intersection of events)，表示事件A与B同时发生，也常记为AB
 $A-B\iff$称为事件A与B的差事件(difference of events)，表示事件A发生且B不发生
@@ -78,13 +79,13 @@ $P(A)=\dfrac{k}{n}$，其中k为A中所包含的样本点数，n为S中的样本
 当样本空间 S 为 $\R^n$ 中的某个区域，如果没有特别的信息，则认为 $\R^n$ 中每一点的出现都是等可能的。因此如果事件A为S中的某个子区域，则认为A发生的概率为A与S 体积（或面积、长度）之比。
 
 - **条件概率**(conditional probability)：设A，B为事件，P(A)>0，定义
-$$
-P(B|A)=\frac{P(AB)}{P(A)}
-$$
-称为是**A**发生条件下**B**发生的概率
-条件概率空间：原样本空间的缩减 $S\to A$
-条件概率：原概率的限制 $P(\cdot)\to P(\cdot|A)$
-![条件概率](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/conditional-probability.png)
+  $$
+  P(B|A)=\frac{P(AB)}{P(A)}
+  $$
+  称为是**A**发生条件下**B**发生的概率
+  条件概率空间：原样本空间的缩减 $S\to A$
+  条件概率：原概率的限制 $P(\cdot)\to P(\cdot|A)$
+  ![条件概率](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/conditional-probability.png)
 
 - **条件概率性质**：$P(\cdot|A)$ 是概率，具有概率的所有性质
 非负性：$P(B|A)⩾ 0$
@@ -109,28 +110,27 @@ $P(A_{i_1}A_{i_2}\cdots A_{i_k})=\displaystyle\prod_{j=1}^{k}P(A_{i_j})$
 实际问题中,常常不是用定义去验证事件的独立性，而是由实际情形来判断其独立性.
 一旦确定事件是相互独立的，在计算概率时，尽可能转化为事件的乘积进行计算
 
-
 - **全概率公式** (complete probability formula)：一个用于计算概率的公式，**先化整为零，再聚零为整**
 设 $B_1,\cdots,B_n$ 是 $S$ 的一个划分，$A$为事件，则
-$$
-P(A)=\displaystyle\sum_{i=1}^{n}P(A|B_i)P(B_i)
-$$
+  $$
+  P(A)=\displaystyle\sum_{i=1}^{n}P(A|B_i)P(B_i)
+  $$
 称 $S$ 的事件 $B_1,\cdots,B_n$ 为一个划分，指它们满足
 $(1)\ \displaystyle\bigcup_{i=1}^{n}B_i=S\quad (2)\ B_iB_j=\varnothing,(i,j=1,2,\cdots,n;\ i\neq j)$
 ![全概率公式](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/complete-probability.png)
 
 - **贝叶斯公式(Bayes formula)**：全概率公式通过划分 $\{B_i |i=1,\cdots,n\}$ 来计算一个事件 $A$ 的概率，有时候需要弄清楚在A发生的条件下，每个 $B_i$ 发生的条件概率
-设 $B_1,\cdots,B_n$ 是 $S$ 的一个划分，$A$为事件，则对于$i=1,\cdots,n$，有
-$$
-P(B_i|A)=\dfrac{P(A|B_i)P(B_i)}{\displaystyle\sum_{i=1}^{n}P(A|B_i)P(B_i)}
-$$
-
+  设 $B_1,\cdots,B_n$ 是 $S$ 的一个划分，$A$为事件，则对于$i=1,\cdots,n$，有
+  $$
+  P(B_i|A)=\dfrac{P(A|B_i)P(B_i)}{\displaystyle\sum_{i=1}^{n}P(A|B_i)P(B_i)}
+  $$
 > 贝叶斯公式是关于随机事件$A$和$B$的条件概率和边缘概率的。
 
-# 随机变量及其分布(Random Variable and Its Distribution)
-## 随机变量(Random variable)
+# 随机变量及其分布
 
-- **随机变量**：设随机试验的样本空间为$S$，若$X=X(e)$为定义在 $S$上的实值单值函数，则称 $X(e)$ 为随机变量, 简写为 $X$
+## 随机变量
+
+**随机变量(Random variable)**：设随机试验的样本空间为$S$，若$X=X(e)$为定义在 $S$上的实值单值函数，则称 $X(e)$ 为随机变量, 简写为 $X$
 ![随机变量](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/random-variable.png)
 说明：
 (1) 随机变量 $X(e):S\to R$ 为一映射，其自变量具有随机性；
@@ -144,10 +144,11 @@ $S=\{HHH,HHT,HTH,HTT,THH,THT,TTH,TTT\}$
 (3) 对于 $i\neq j$，则必有 $\{X=i\}∩\{X=j\}=\varnothing$
 (4) 一般用大写英文字母 X,Y,Z 或希腊字母 $ξ,η$ 等来表示随机变量
 
-## 离散型随机变量及分布律(Discrete random variable & distribution law)
+## 离散型随机变量及分布律
 
-- **定义**：若随机变量X的取值为有限个或可数 , 则称 X 为离散(discrete)型随机变量。
-- **分布律** (distribution law)：离散随机变量在各特定取值上的概率，也称概率质量函数(probability mass function, PMF)
+**定义**：若随机变量X的取值为有限个或可数 , 则称 X 为离散(discrete)型随机变量。
+
+**分布律** (distribution law)：离散随机变量在各特定取值上的概率，也称概率质量函数(probability mass function, PMF)
 $P\{X=x_k\}=p_k,\ k=1,2,\cdots$
 
  $X$ | $x_1\quad x_2 \quad \cdots\quad x_k\quad \cdots$|随机变量的所有可能取值
@@ -156,7 +157,7 @@ $P\{X=x_k\}=p_k,\ k=1,2,\cdots$
 
 分布律满足：$p_k⩾ 0,\ \displaystyle\sum_{k=1}^{+∞}p_k=1$
 
-- **几种重要的离散型随机变量**
+**几种重要的离散型随机变量**
 ==0-1分布==：随机变量X只能取0和1，又称两点分布或伯努利(Bernoulli)分布，记为$X∼ B(1,p)$
 $P\{X=k\}=p^k(1-p)^{1-k},\ k=0,1$
 常用它来表示两个状态的问题（即随机试验的结果只有两个，称为伯努利试验）：
@@ -180,8 +181,9 @@ P\{X=k\}=p(1-p)^{k-1},k=1,2,\cdots
 $$
 X 的这种分布由此等比数列(几何级数)表达, 故称为参数为p的几何分布。记为 $X∼ \text{Geom}(p)$
 
-## 连续型随机变量及概率密度(Continuous random variable & probability density)
-- **分布函数**(distribution function)：对于随机变量X，定义函数 $F(x)=P\{X⩽ x\},∀ x\in \R$ 称为X的累积分布函数(cumulative distribution function ,CDF) 。
+## 连续型随机变量及概率密度
+
+**分布函数**(distribution function)：对于随机变量X，定义函数 $F(x)=P\{X⩽ x\},∀ x\in \R$ 称为X的累积分布函数(cumulative distribution function ,CDF) 。
 任何随机变量都有相应的分布函数，分布函数可以给出随机变量落入任意一个范围的可能性。
 一般地，离散型随机变量的分布函数为阶梯函数。
 **分布函数的基本性质**：
@@ -191,7 +193,7 @@ X 的这种分布由此等比数列(几何级数)表达, 故称为参数为p的�
 F(+∞)=\lim\limits_{x\to+∞}F(x)=1$
 (4) $F(x)$是右连续函数，即$F(x)=F(x+0)=\lim\limits_{y\to x^+}F(y)$
 
-- **连续型随机变量**(continuous random variable)：设随机变量 X 的分布函数 F(x) 可表成其中
+**连续型随机变量**(continuous random variable)：设随机变量 X 的分布函数 F(x) 可表成其中
 $$
 F(x)=\int_{-∞}^{x}f(t)\mathrm{d}t
 $$
@@ -258,7 +260,8 @@ $∀ a\in\R,F_X(a)=P\{X⩽ a\}=P\{\frac{X-μ}{σ} ⩽ \frac{a-μ}{σ}\}=Φ(\frac
 
 > 常采用的3σ原则：$P\{|X-μ|⩽ 3σ\}\approx 0.9974$
 
-## 随机变量的函数(Random variable function)
+## 随机变量的函数
+
 有时我们关心的随机变量不是直接观测得到的随机变量，而是它的函数。
 如要得到一个圆的面积 Y，总是测量其半径，半径的测量值可看作随机变量X，若 $X∼ N(μ,σ^2)$，则 Y 的分布是什么？
 
@@ -281,10 +284,11 @@ $$
 则 $Y=aX+b\implies Y∼ N(aμ+b,a^2σ^2)$
 ![概率密度](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/probability-density.png)
 
-# 多维随机变量及其分布(Multiple Random Variable and Its Distribution)
-## 二维随机变量(Two-dimensional random variable)
+# 多维随机变量及其分布
 
-- **二维随机变量**：设E是一个随机试验，样本空间$S={e}$；设$X=X(e)$和$Y=Y(e)$是定义在S上的随机变量，由它们构成的向量$(X,Y)$称为二维随机向量或二维随机变量。
+## 二维随机变量
+
+**二维随机变量**：设E是一个随机试验，样本空间$S={e}$；设$X=X(e)$和$Y=Y(e)$是定义在S上的随机变量，由它们构成的向量$(X,Y)$称为二维随机向量或二维随机变量。
 **二维随机变量分布函数**：设 $(X,Y)$ 是二维随机变量，对于任意 $(x,y)\in\R^2$，二维函数$F(x,y)=P\{\{X⩽ x\}∩\{Y⩽ y\}\}\triangleq P\{X⩽ x,Y⩽ y\}$称为二维随机变量的==联合分布函数== ( joint distribution function,JDF)。
 性质：
 1。$F(x, y)$为单调不减函数
@@ -295,11 +299,11 @@ F(+∞,+∞)=1,F(-∞,y)=F(x,-∞)=F(-∞,-∞)=0$
 \implies P\{x_1<X ⩽ x_2,y_1<Y ⩽ y_2\}=F(x_2,y_2)-F(x_1,y_2)-F(x_2,y_1)+F(x_1,y_1) ⩾ 0$
 ![二维随机变量](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/2ds-random-variable.png) ![分布函数](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/2ds-distribution-function.png)
 
-- **二维离散型随机变量**：若二维随机变量$(X,Y)$全部可能取到的不同值是有限对或可列无限对，则称$(X,Y)$是二维离散型随机变量。
+**二维离散型随机变量**：若二维随机变量$(X,Y)$全部可能取到的不同值是有限对或可列无限对，则称$(X,Y)$是二维离散型随机变量。
 **联合分布律**：设$(X,Y)$所有可能取值为$(X_i,Y_i)$，称$P\{X=x_i,Y=y_j\}=p_{ij},i,j=1,2,\cdots$为二维离散型随机变量$(X,Y)$的联合（概率）分布律。
 联合分布律的性质：$(1)\ 0 ⩽ p_{ij} ⩽ 1;\quad (2)\  \displaystyle\sum_{i=1}^{∞}\sum_{j=1}^{∞}p_{ij}=1$
 
-- **二维连续型随机变量**：设二维随机变量 $(X, Y)$ 的分布函数 $F(x,y), ∃ f(x,y)⩾0,∀ (x,y)\in\R^2$有
+**二维连续型随机变量**：设二维随机变量 $(X, Y)$ 的分布函数 $F(x,y), ∃ f(x,y)⩾0,∀ (x,y)\in\R^2$有
 $$
 F(x,y)=\int_{-∞}^{x}\int_{-∞}^{y}f(u,v)\mathrm{d}u\mathrm{d}v
 $$
@@ -311,8 +315,9 @@ $$
 4。对于任何$\R^2$上的区域G, 有 $P\{(X,Y)\in G\}=\iint\limits_G f(u,v)\mathrm{d}u\mathrm{d}v$
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/2ds-probability-density.png" alt="概率密度" style="zoom:67%;" />
 
-## 边缘分布(Marginal distribution)
-**边缘分布律**：对分布律为 $P\{X=x_i,Y=y_j\}=p_{ij}$ 的二维离散型随机变量
+## 边缘分布
+
+**边缘分布律**：(Marginal distribution) 对分布律为 $P\{X=x_i,Y=y_j\}=p_{ij}$ 的二维离散型随机变量
 $\displaystyle P\{X=x_i\}=P\{X=x_i,\bigcup^{∞}_{j=1}\{Y=y_j\}\}=\sum_{j=1}^{∞}p_{ij}\triangleq p_{i\bullet}$
 同理，$\displaystyle P\{Y=y_j\}=P\{\bigcup^{∞}_{i=1}\{X=x_i\},Y=y_j\}=\sum_{i=1}^{∞}p_{ij}\triangleq p_{\bullet j}$
 
@@ -340,7 +345,8 @@ $F_Y(y)\triangleq P\{X<+∞,Y ⩽ y\}=F(+∞,y)=\lim\limits_{x\to +∞}F(x,y)$
 二维离散型：$\iff p_{ij}=p_{i \bullet}p_{\bullet j}$
 二维连续型：$\iff f(x,y)=f_X(x)f_Y(y)$
 
-## 条件分布(Conditional distribution)
+## 条件分布
+
 **条件分布**(conditional distribution)：对二维离散型随机变量 $(X,Y)$
 $P\{X=x_i|Y=y_j\}=\dfrac{P\{X=x_i,Y=y_j\}}{P\{Y=y_j\}}=\dfrac{p_{ij}}{p_{\bullet j}}$
 同理，$P\{Y=y_j|X=x_i\}=\dfrac{P\{X=x_i,Y=y_j\}}{P\{X=x_i\}}=\dfrac{p_{ij}}{p_{i \bullet}}$
@@ -357,7 +363,8 @@ $F_{X|Y}(x|y)=P\{X⩽ x|Y=y\}= \\
 \lim\limits_{ϵ\to 0^+}\dfrac{P\{X⩽ x,y<Y⩽ y+ϵ\}}{P\{y<Y⩽ y+ϵ\}},&P\{Y=y\}=0,即Y为连续型随机变量
 \end{cases}$
 
-## 常见的二维随机变量分布(Usual two-dimensional distribution of random variables)
+## 常见的二维随机变量分布
+
 ==二维均匀分布==：概率密度函数$f(x,y)=\begin{cases}
 1/A,&(x,y)\in D \\
 0,&(x,y) \not\in D
@@ -386,7 +393,8 @@ $|J|=\det A^{-1}=\dfrac{1}{σ_1σ_2\sqrt{1-ρ^2}}$
 **条件概率密度**：由于$Z_1=\frac{x-μ _1}{σ_1}$，故$Y|_{X=x}∼ N(\frac{σ_2ρ}{σ_1}(x-μ _1),σ_2^2(1-ρ^2))$
 由对称性可知$X|_{Y=y}∼ N(\frac{σ_1ρ}{σ_2}(y-μ _2),σ_1^2(1-ρ^2))$
 
-## 两个随机变量的函数的分布(The distribution of  two random-variables functions)
+## 两个随机变量的函数的分布(
+
 ==二维离散==：设二维离散型随机变量$(X ,Y)$具有分布律 $P\{X=x_i,Y=y_j\}=p_{ij}$
 (1) 若$U=u(X,Y)$，求$U$的分布律
 先确定$U$的取值$u_i$，再找出$P\{U=u_i\}=P\{(X,Y)\in D\}$计算分布律
@@ -431,9 +439,10 @@ $\min\{X, Y\}$的分布函数 $F_{min}(z)=1-(1-F_X(x))(1-F_Y(y))$
 上述结论容易推广到 n 个随机变量：即设 $X_i$ 的分布函数分别为 $F_i(x_i), i=1,\cdots,n$，且相互独立。则 $\max\{X_1,\cdots,X_n\}, \min\{X_1,\cdots,X_n\}$的分布函数：
 $\displaystyle F_{\max}(z)=\prod_{i=1}^{n}F_i(z); \quad F_{\min}(z)=1-\prod_{i=1}^{n}(1-F_i(z))$
 
+# 随机变量的数字特征
 
-# 随机变量的数字特征(Numerical Characteristics)
-## 期望(Expectation)
+## 期望
+
 **数学期望**(mathematical expectation)：设离散型随机变量 X的分布律为 $P\{X=x_k\}=p_k$
 事件的平均值 $\displaystyle\bar x=\frac{1}{n}\sum_kx_kn_k=\sum_kx_kf_k$，其中$f_k$为事件$\{X=x_k\}$发生的频率，由第一章可知当$n\to ∞,f_k\to p_k$，因此$\bar x$的稳定值为$\displaystyle\sum_kx_kp_k$，由此
 若级数
@@ -461,7 +470,8 @@ $$
 (3) $E(X+Y)=E(X)+E(Y)$
 (4) 设$X,Y$相互独立，$E(XY)=E(X)E(Y)$
 
-## 方差和变异系数(Variance and CV)
+## 方差和变异系数
+
 **方差**(variance)：设X是一个随机变量
 $$
 D(X)=Var(X)=E[(X-E(X))^2]
@@ -478,20 +488,22 @@ $$
 (4) 切比雪夫(Chebyshev)不等式，设$E(X)=μ,D(X)=σ^2,P\{|X-μ|⩾ ϵ\}⩽ \dfrac{σ^2}{ϵ^2}$
 结果分析，将切比雪夫不等式变形为$P\{|X-μ|< ϵ\}>1-\dfrac{σ^2}{ϵ^2}$，取$ϵ=3σ$则有$P\{|X-μ|< 3σ\}>1-\frac{1}{9}\approx 88.0\%$，即随机变量有近90%的可能性落在区间$(μ-3σ,μ+3σ)$内。
 
-==变异系数==(Coefficient of Variance,CV)： 标准差与期望的比值
+**变异系数**(Coefficient of Variance,CV)： 标准差与期望的比值
 $$
 CV=\dfrac{\sqrt{D(X)}}{E(X)}=\dfrac{σ(X)}{E(X)}
 $$
 变异系数是个无量纲的量，从而消除了量纲对波动的影响。
 
-## 分位数和中位数(Quantile and median)
+## 分位数和中位数
+
 分位数（Quantile），亦称分位点，是指将一个随机变量的概率分布范围分为几个等份的数值点
 $$
 P\{x⩽ x_α\}=α
 $$
-此时$x_α$称为 $α$ 分位点。常用的有中位数（即二分位数）、四分位数、百分位数等。
+此时$x_α$称为 $α$ 分位点。常用的有中位数（median，即二分位数）、四分位数、百分位数等。
 
-## 协方差与相关系数(Covariance and correlation coefficient)
+## 协方差与相关系数
+
 **协方差**(covariance)：由方差性质(3)的意义，定义
 $$
 \mathrm{Cov}(X,Y)=E[(X-E(X))(Y-E(Y))]
@@ -534,7 +546,8 @@ $$
 X,Y相互独立$\implies$ X,Y不相关；但X,Y不相关不能判断X,Y相互独立
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/corr.png" style="zoom:67%;" />
 
-## 矩 (Moment)
+## 矩
+
 > 参考链接：https://www.zhihu.com/question/23236070/answer/143316942
 
 **物理意义**：数学中矩的概念来自物理学。在物理学中，矩是表示距离和物理量乘积的物理量，表征物体的空间分布。由其定义，矩通常需要一个参考点（基点或参考系）来定义距离。如力和参考点距离乘积得到的力矩（或扭矩），原则上任何物理量和距离相乘都会产生力矩，质量，电荷分布等。
@@ -627,7 +640,8 @@ E(X^k)=M_X^{(k)}(0)=\dfrac{\mathrm{d}^kM_X}{\mathrm{d}t^k}|_{t=0}
 $$
 特别的有$E(X)=M'_X(0),Var(X)=M''_X(0)-[M'_X(0)]^2$
 
-## 偏度和峰度(Skewness and kurtosis)
+## 偏度和峰度
+
 ==偏度==(skewness)：随机变量的偏度（衡量分布不对称性）定义为
 $S(X)=\dfrac{ν_3}{ν_{2}^{3/2}}=\dfrac{E[X-E(X)]^3}{[Var(x)]^{3/2}}$
 任何对称分布偏态为0
@@ -642,8 +656,8 @@ $K>0$，标准化后的分布比标准正态分布剑鞘
 $K<0$，标准化后的分布比标准正态分布平坦
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/kurtosis.png)![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/kurtosis2.png)
 
+## 协方差矩阵与多维正态分布
 
-## 协方差矩阵与多维正态分布(Covariance matrix and multivariate normal distribution)
 **协方差矩阵**(Covariance matrix)：设n维随机变量$\mathbf{X}=(X_1,X_2,\cdots,X_n)$，记$c_{ij}=\mathrm{Cov}(X_i,X_j)\ (i,j=1,2,\cdots,n)$，则称$C=(c_ij)_{n× n}$为随机向量 $\mathbf{X}$ 的协方差矩阵。
 协方差矩阵的性质：
 (1) $C=C^T$, 即协方差阵为对称阵
@@ -684,7 +698,7 @@ $(X_1,X_2,\cdots,X_n)∼ N(μ,C)$，其中$μ=(μ_1,μ_2,\cdots,μ_n),C=\mathrm{
 $\iff X_1,X_2,\cdots,X_n$两两不相关
 $\iff C=\mathrm{diag}(c_{11},c_{22},\cdots,c_{nn})$(即C为对角阵)
 
-# 大数定律和中心极限定理(Law of Large Numbers & Central Limit Theorem)
+# 大数定律和中心极限定理
 
 **依概率收敛** (convergence in probability)：回顾概率的概念是如何产生的? 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/to-probability.png)
@@ -768,7 +782,9 @@ $$
 > 在实际问题中，所考虑的随机变量可以表示成多个独立的随机变量之和，如在任意指定时刻，一城市的耗电量是大量用户耗电量的总和；一个物理实验的测量误差是由许多观察不到的、可叠加的微小误差所合成的；它们往往近似服从正态分布。
 
 # 附录
-==常见的离散型随机变量==
+
+## 常见的离散型随机变量
+
 分布|概率分布|累积分布函数|期望| 方差|矩母函数
 :---|:---|:---|:---|:---|:---|
 伯努利分布<br>$B(1,p)$|$p(1-p)$||$p$|$p(1-p)$|$1-p+pe^t$
@@ -776,7 +792,7 @@ $$
 几何分布<br>$Geom(p)$|$p(1-p)^{k-1}$<br>$(k\in\N)$|$1-(1-p)^k$|$\dfrac{1}{p}$|$\dfrac{1-p}{p^2}$|$\dfrac{pe^t}{1-(1-p)e^t}$
 泊松分布<br>$P(λ)$|$\dfrac{λ^ke^{-λ}}{k!}$<br>$(k\in\N)$|$\displaystyle e^{-λ}\sum_{i=1}^{k}\dfrac{λ^i}{i!}$|$λ$|$λ$|$\exp(λ(e^t-1))$
 
-==常见的连续型随机变量==
+## 常见的连续型随机变量
 分布|概率密度|累积分布函数|期望| 方差|矩母函数
 :---|:---|:---|:---|:---|:---
 均匀分布<br>$U(a,b)$|$\dfrac{1}{b-a}$<br>$(x\in[a,b])$|$\dfrac{x-a}{b-a}$|$\dfrac{a+b}{2}$|$\dfrac{(b-a)^2}{12}$|$\dfrac{e^{bt}-e^{at}}{t(b-a)}$
