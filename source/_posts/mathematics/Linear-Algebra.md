@@ -2,7 +2,7 @@
 title: 线性代数
 categories:
   - 数学
-  - 线性代数
+  - 高等代数
 tags:
   - 数学
   - 行列式

@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Wilen's Blog
-subtitle: 个人笔记
-description: 寄蜉蝣于天地，渺沧海之一粟。
+title: 雷小小的空间
+subtitle: 寄蜉蝣于天地，渺沧海之一粟
+description: 技术博客，记录学习笔记。
 keywords: [大数据, 数学, 物理, Python, R语言]
-author: Wilen Wu
+author: Tiny Lei
 language: zh-CN       # 网站采用语言，与<theme>/languages/zh-CN.yml下的文件名对应
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://wilenwu.gitee.io
+url: https://www.tinylei.tech
 root: /                        # 网站的根目录
 # 文章永久链接的形成模版。每一篇文章都有唯一的url。
 permalink: posts/:abbrlink/    # posts/:title/
@@ -112,9 +112,12 @@ deploy:
   - type: git
     repo: git@github.com:WilenWu/wilenwu.github.io.git
     branch: master
-  - type: git
-    repo: git@gitee.com:WilenWu/wilenwu.git
-    branch: master
+  # - type: git
+  #   repo: git@gitee.com:WilenWu/wilenwu.git
+  #   branch: master
+  # - type: git
+  #   repo: git@e.coding.net:wilenwu/blog/tinylei.git
+  #   branch: master
   - type: baidu_url_submitter
 
 # @upupming/hexo-renderer-markdown-it-plus
@@ -156,7 +159,7 @@ aplayer:
 
 # RSS 配置
 feed: 
-  enable: true
+  enable: true 
   type: atom
   path: atom.xml
   limit: 20
@@ -189,7 +192,7 @@ baidusitemap:
 baidu_url_submit:
   count: 200                        # 提交最新的200个链接
   # site=https://wilenwu.github.io&token=P8wBelFwcBp0yS8z
-  host: wilenwu.gitee.io            # 在百度站长平台中注册的域名
+  host: www.tinylei.tech            # 在百度站长平台中注册的域名
   token: P8wBelFwcBp0yS8z           # 秘钥，百度站长平台 > 普通收录 > 接口调用地址中token字段
   path: baidu_urls.txt              # 文本文档的地址， 新链接会保存在此文本文档里，不用改
 

@@ -440,12 +440,15 @@ $ git branch testing
 
 ```shell
 $ git checkout <branch-name>
+$ git switch <branch-name>
 ```
+
+因为 `git checkout` 命令职责较多、不够明确，git 2.23 版本新增 switch 命令则专门用来切换分支。
 
 例如，换到新创建的 `testing` 分支，不妨再提交一次
 
 ```shell
-$ git checkout testing
+$ git switch testing
 $ vim test.rb
 $ git commit -a -m 'made a change'
 ```

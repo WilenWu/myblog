@@ -365,10 +365,11 @@ Natural Language Processing(自然语言处理)
 - :ballot_box_with_check: [数学分析(三)](/posts/372c3afa/): 无穷级数、幂级数、傅里叶级数、三角级数
 - :ballot_box_with_check: [空间解析几何](/posts/c1a88ebe/): 向量代数和空间解析几何
 
-## 概率论
+## 统计学
 
 - :ballot_box_with_check: [概率论与数理统计(上册)](/posts/304d9389/): 概率论
 - :ballot_box_with_check: [概率论与数理统计(下册)](/posts/d2dba39/): 数理统计
+- :white_large_square: 多元统计分析
 
 ## 复分析
 
@@ -390,20 +391,16 @@ Natural Language Processing(自然语言处理)
 - :ballot_box_with_check: [偏微分方程(三)](/posts/b5843f92/): 积分变换法、基本解和格林函数
 - :ballot_box_with_check: [偏微分方程(四)](/posts/4fc7d09d/): 变分法、非线性偏微分方程
 
-## 线性代数
+## 高等代数
 
 - :ballot_box_with_check: [线性代数](/posts/c23efd5b/): 矩阵，行列式，向量空间，二次型，线性变换
+- :white_large_square: 多项式代数
 
-
-## 抽象代数
+## 现代数学
 
 - :ballot_box_with_check: [抽象代数](AbstractAlgebra): (又称近世代数) 群论、环论、伽罗瓦理论等
 
-## 泛函分析
-
 - :heart: [泛函分析](FunctionalAnalysis): 研究的是一般无穷维的带有一定拓扑的线性空间
-
-## 拓扑学
 
 - :heart: [一般拓扑学](GeneralTopology): 也称点集拓扑学，主要研究拓扑空间以及定义在其上的数学结构的基本性质
 - :white_large_square: 微分拓扑: 微分流形和可微映射

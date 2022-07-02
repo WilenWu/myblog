@@ -42,7 +42,7 @@ Gitee 真是:dog:啊，被迫把图床迁移到腾讯云
    - 安装 `hexo-wordcount` 为主题配上子数统计等特征
    - 安装支持 APlayer 播放器的 Hexo 标签插件 [`hexo-tag-aplayer`](https://github.com/MoePlayer/hexo-tag-aplayer)
    - ~~安装电影界面插件 [`hexo-butterfly-douban`](https://github.com/jerryc127/butterfly-plugins/tree/main/hexo-butterfly-douban)~~
-   - 安装 [`hexo-generator-feed`](https://github.com/hexojs/hexo-generator-feed) 生成RSS文件的插件
+   - 安装 ~~[`hexo-generator-feed`](https://github.com/hexojs/hexo-generator-feed)~~ 生成RSS文件的插件
    - 安装 [`hexo-filter-nofollow`](https://github.com/hexojs/hexo-filter-nofollow) 有效地加强网站SEO   和防止权重流失
    - 安装 [`hexo-generator-sitemap`](https://github.com/hexojs/hexo-generator-sitemap) 和 [`hexo-generator-baidu-sitemap`](https://github.com/coneycode/hexo-generator-baidu-sitemap) 生成sitemap的插件
    - 引入 permalink 永久链接插件 [`hexo-abbrlink`](https://github.com/rozbo/hexo-abbrlink)
