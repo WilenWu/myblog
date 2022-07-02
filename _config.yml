@@ -113,9 +113,6 @@ deploy:
     repo: git@github.com:WilenWu/wilenwu.github.io.git
     branch: master
   # - type: git
-  #   repo: git@gitee.com:WilenWu/wilenwu.git
-  #   branch: master
-  # - type: git
   #   repo: git@e.coding.net:wilenwu/blog/tinylei.git
   #   branch: master
   - type: baidu_url_submitter
@@ -302,4 +299,7 @@ gitcalendar:
 easy_tags_plugin:
   enable: true
   tag_name_case: 1
-  sort_ignore_case: true
+  sort_ignore_case: true# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
