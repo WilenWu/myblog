@@ -60,7 +60,7 @@ header_color: true
 # 机器学习
 
 - :ballot_box_with_check: [二分类模型评价指标](/posts/cc734464/)
-- :ballot_box_with_check: [数据分析算法概览](/posts/a8e1c23e/): 数据分析术语的简单说明
+- :ballot_box_with_check: [数据分析算法简介](/posts/a8e1c23e/): 数据分析算法的简单说明
 
 # 大数据
 
