@@ -284,6 +284,7 @@ $$
 一般的有 $f(t)*δ(t-t_0)=f(t-t_0)$
 
 [^unit]: 单位阶跃函数(unit step function)，也称Heaviside单位函数
+
     $$
     u(t)=\begin{cases}
     0 & t<0 \\ 1 &t>​0 \end{cases}

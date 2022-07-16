@@ -1,5 +1,5 @@
 ---
-title: 数据分析算法简介
+title: 机器学习导论
 katex: true
 categories:
   - 机器学习
