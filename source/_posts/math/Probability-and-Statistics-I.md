@@ -800,9 +800,3 @@ $$
 正态分布<br>$N(μ,σ^2)$|$\dfrac{1}{\sqrt{2π}σ}e^{-\frac{(x-μ)^2}{2σ^2}}$<br>$(μ\in\R,σ>0)$||$μ$|$σ^2$|$\exp(μt+\frac{1}{2}σ^2t^2)$
 伽马分布<br>$Gamma(k,θ)$|$\dfrac{θ^k}{Γ(k)}x^{k-1}e^{-θx}$<br>$(x>0)$<br>$\displaystyleΓ(k)=\int_0^{∞}x^{k-1}e^{-x}\mathrm{d}x$||$kθ$|$kθ^2$|$(1-θt)^{-k}$<br>$(t<1/θ)$
 
-
-------
-
-> **Cheat Sheets:**
-> [Probability Cheatsheet v2.0](https://www.sas.upenn.edu/~astocker/lab/teaching-files/PSYC739-2016/probability_cheatsheet.pdf)
-> [Probability Cheat Sheet](http://web.cs.elte.hu/~mesti/valszam/kepletek)

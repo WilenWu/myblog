@@ -9,7 +9,7 @@ header_color: true
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/bookshelf.jpg)
 
-本人依据个人爱好、工作需要等制定了一份详细的学习计划。依据本「指南」在博客不定时更新学习笔记。
+本人依据个人爱好、工作需要等制定了一份详细的学习计划。依据本「指南」在博客不定时更新学习笔记，尝试用费曼学习法深刻理解所学的知识。
 
 <!-- more -->
 
@@ -57,10 +57,24 @@ header_color: true
 - :ballot_box_with_check: [主流的博客框架及部分主题](/posts/9e8cfeb8/)
 - :ballot_box_with_check: [Hexo 博客魔改优化方法](/posts/18fbd3bc/)
 
-# 机器学习
+# 机器学学习
+
+## Machine Learning
 
 - :ballot_box_with_check: [二分类模型评价指标](/posts/cc734464/)
-- :ballot_box_with_check: [数据分析算法简介](/posts/a8e1c23e/): 数据分析算法的简单说明
+- :ballot_box_with_check: [机器学习导论](/posts/a8e1c23e/)
+- :ballot_box_with_check: 机器学习
+
+## Deep Learning
+
+- :ballot_box_with_check: 神经网络
+- :ballot_box_with_check: 深度学习
+- :ballot_box_with_check: TensorFlow
+- :ballot_box_with_check: Keras
+
+## 附录
+
+
 
 # 大数据
 
@@ -158,7 +172,6 @@ The Website is the API(Application Programming Interface, 应用程序接口)...
 - :heart: [ggplot](http://yhat.github.io/ggpy/): ggplot port for python
 - :white_large_square: plotly: 协同 Python 和 matplotlib 工作的 web 绘图库。
 - :white_large_square: pyecharts: 基于百度 Echarts 的数据可视化库。
-
 
 ## Machine Learning
 
@@ -423,6 +436,7 @@ Natural Language Processing(自然语言处理)
 - :heart: 《物理手册》: （斯托克）这本物理手册系统介绍了当代物理学的各种基本概念、定理、定律以及各种有用的实验方法，并收进了大量最新科学研究成果。
 - :heart: 《朗道十卷》: 是一部享誉世界的理论物理学巨著，是反映经典物理学向现代物理学转变的里程碑式的重要著作，包括力学、场论、量子力学、相对论性量子理论（量子电动力学）、 统计物理学（1）、流体力学 、弹性理论 、连续媒质电动力学、 物理动力学 、统计物理学（2）共十卷。
 - :heart: 《费曼物理学讲义》: (The Feynman's Lectures on Physics) 被誉为本世纪最经典的物理导引。本讲义共分三卷，第1卷包括力学、相对论、光学、气体分子动理论、热力学、波等，第2卷主要是电磁学，第3卷是量子力学。全书内容十分丰富，在深度和广度上都超过了传统的普通物理教材。
+- [Cambridge Notes](http://dec41.user.srcf.net/notes/): 剑桥笔记
 
 ## 基础物理
 

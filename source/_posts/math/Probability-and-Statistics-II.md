@@ -872,8 +872,4 @@ $$
 $$
 于是我们求得经验回归方程为 $\hat y=\hat b_0+\hat b_1x_1+\hat b_2x_2=\cdots+\hat b_px_p$
 
-------
 
-> **Cheat Sheets:**
-> [Probability Cheatsheet v2.0](https://www.sas.upenn.edu/~astocker/lab/teaching-files/PSYC739-2016/> probability_cheatsheet.pdf)
-> [Probability Cheat Sheet](http://web.cs.elte.hu/~mesti/valszam/kepletek)

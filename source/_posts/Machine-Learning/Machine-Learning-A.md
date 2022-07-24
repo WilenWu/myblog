@@ -1,19 +1,31 @@
 ---
-title: 机器学习导论
+title: 数据分析导论
 katex: true
 categories:
   - 机器学习
+  - 'Machine Learning'
 tags:
   - 机器学习
 cover: /img/data-analysis.png
 top_img: /img/data-chart3.jpg
-description: 数据分析算法的简单说明
-abbrlink: a8e1c23e
-date: 2018-05-09 21:31:41
+description: 基础的数据分析方法
+abbrlink: 
+date: 2022-07-22 12:07:30
 ---
 
 
 <!-- more -->
+
+分类：SVM、近邻、随机森林、逻辑回归等等。
+回归：Lasso、岭回归等等。
+聚类：k - 均值、谱聚类等等。
+降维：PCA、特征选择、矩阵分解等等。
+选型：网格搜索、交叉验证、度量。
+预处理：特征提取、标准化。
+
+[经典：5种常见的数据分析方法](https://baijiahao.baidu.com/s?id=1707510739052343986&wfr=spider&for=pc)
+
+
 
 # 概率论与数理统计
 
@@ -243,3 +255,6 @@ $\text{Y(t)=Trend(t)+Seasonal(t)+Irregular(t)}$
 
 
 
+> **参考文献：**
+> 《数据挖掘导论》
+.

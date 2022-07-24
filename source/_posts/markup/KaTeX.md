@@ -194,7 +194,6 @@ $\vDash$|满足符|\vDash|$A\vDash B$
 $\vdash$|推断出|\vdash|A → B ⊢ ¬B → ¬A
 $\square$|拟态词必然|\square|
 $\Diamond$|拟态词可能|\Diamond|
-$R \circ S$|复合关系|R \circ S|
 
 # 集合和概率
 
@@ -349,10 +348,11 @@ a_{m1}&a_{m2}&\cdots&a_{mn} \\
 \right)
 ```
 
-# 群论
+# 抽象代数
 
 符号|定义|Latex|示例
 :---|:---|:---|:---
+$g \circ f$|复合|g \circ f|
 $b\pmod m$||b\pmod m|
 $x \pod a$||x \pod a|
 $a \bmod b$||a \bmod b|
@@ -372,5 +372,4 @@ $\prec$|卡普可约|\prec|If L1 ≺ L2 and L2 ∈ P, <br>then L1 ∈ P
 $\succ$||\succ|
 $\mid$|分解|\mid|Since 15 = 3 × 5, <br>it is true that 3 \| 15 and 5 \| 15
 $\nmid$||\nmid|
-
 

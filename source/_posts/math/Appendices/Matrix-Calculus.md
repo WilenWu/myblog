@@ -129,7 +129,7 @@ $$
 类似地，标量函数$f(\mathbf X)$关于矩阵$\mathbf X$在方向$\mathbf Y$的**方向导数**可写成
 
 $$
-\nabla_{\mathbf Y}f=\tr(\frac{\partial f}{\partial \mathbf X}\mathbf Y)
+\nabla_{\mathbf Y}f=\text{tr}(\frac{\partial f}{\partial \mathbf X}\mathbf Y)
 $$
 梯度矩阵经常被应用在估计理论的最小化问题中，比如卡尔曼滤波算法的推导，因此在这些领域中有着重要的地位。
 
