@@ -1,16 +1,17 @@
 ---
 title: δ 函数简介
-date: 2022-07-15 19:56:34
-updated:
-tags: 
+tags:
   - 数学
 categories:
   - 数学
   - 附录
-keywords:
-description: 
 katex: true
 top_img: '#66CCFF'
+abbrlink: 3dc94f84
+date: 2022-07-15 19:56:34
+updated:
+keywords:
+description:
 cover:
 ---
 

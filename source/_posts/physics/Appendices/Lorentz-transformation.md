@@ -1,7 +1,5 @@
 ---
 title: 固有洛伦兹变换的严格推导
-date: 2022-07-24 18:41:28
-updated:
 tags:
   - 物理
   - 相对论
@@ -10,19 +8,21 @@ categories:
   - 物理
   - 附录
 description: 根据狭义相对论的两条基本原理来严格推导固有洛伦兹变换
-top_img: 
-cover:
 katex: true
+abbrlink: 55b8eadb
+date: 2022-07-24 18:41:28
+updated:
+top_img:
+cover:
 ---
 
 在本节中采用四维实坐标。设有两个惯性系$S$和$S'$，同一事件$P$在其中的坐标分别用$(x_0,x_1,x_2,x_3)$和$(x_0',x_1',x_2',x_3')$表示。规定第0坐标是时间分量，即
 $$
 x_0=ct_0,\quad x_0'=ct_0'
 $$
-规定希腊字母 $\mu,\nu,\cdots\in\{0,1,2,3\}$，拉了字母 $i,j,\cdots\in\{1,2,3\}$，并采用爱因斯坦求和约定[^Einstein notation]。
+规定希腊字母 $\mu,\nu,\cdots\in\{0,1,2,3\}$，拉了字母 $i,j,\cdots\in\{1,2,3\}$，并采用爱因斯坦求和约定[^Einstein_notation]。
 
-[^Einstein notation]: 所谓Einstein求和约定就是略去求和式中的求和号。在此规则中两个相同指标就表示求和，而不管指标是什么字母，有时亦称求和的指标为哑指标。
-例如：$\displaystyle a_ib_i=\sum_{i=1}^3a_ib_i,\quad a_\mu b_\mu=\sum_{i=0}^3a_\mu b_\mu$
+[^Einstein_notation]: 所谓Einstein求和约定就是略去求和式中的求和号。在此规则中两个相同指标就表示求和，而不管指标是什么字母，有时亦称求和的指标为哑指标。例如：$\displaystyle a_ib_i=\sum_{i=1}^3a_ib_i,\quad a_\mu b_\mu=\sum_{i=0}^3a_\mu b_\mu$
 
 # 狭义相对论基本原理
 
@@ -98,7 +98,7 @@ $$
 $$
 最会得到
 $$
-\tag{10}\cfrac{\beta_\nu\beta_\sigma\cfrac{\partial^2 f_\mu}{\partial x_\nu\partial x_\sigma}}{{\beta_\nu\cfrac{\partial f_\mu}{\partial x_\nu}}}=\cfrac{\beta_\nu\beta_\sigma\cfrac{\partial^2 f_0}{\partial x_\nu\partial x_\sigma}}{{\beta_\nu\cfrac{\partial f_0}{\partial x_\nu}}}
+\tag{10}\cfrac{\beta_\nu\beta_\sigma\cfrac{\partial^2 f_\mu}{\partial x_\nu\partial x_\sigma}}{\beta_\nu\cfrac{\partial f_\mu}{\partial x_\nu}}=\cfrac{\beta_\nu\beta_\sigma\cfrac{\partial^2 f_0}{\partial x_\nu\partial x_\sigma}}{\beta_\nu\cfrac{\partial f_0}{\partial x_\nu}}
 $$
 (10)式共有4个等式，它们对独立变量$x_\nu,\beta_\nu$而言为恒等式，所以应当是$\beta_\nu$的有理分式，由(7)式知，联立方程组
 $$
@@ -112,12 +112,12 @@ $$
 $$
 上式对$\beta_\nu\beta_\sigma$而言是恒等式，故对某一对$(\nu,\sigma)$有
 $$
-\begin{align}
+\begin{aligned}
 \beta_\nu\beta_\sigma\cfrac{\partial^2 f_\mu}{\partial x_\nu\partial x_\sigma}
 &=\beta_\nu\cfrac{\partial f_\mu}{\partial x_\nu}\beta_\sigma\psi_\sigma
 +\beta_\sigma\cfrac{\partial f_\mu}{\partial x_\sigma}\beta_\nu\psi_\nu \\
 &=\beta_\nu\beta_\sigma(\cfrac{\partial f_\mu}{\partial x_\nu}\psi_\sigma+\cfrac{\partial f_\mu}{\partial x_\sigma}\psi_\nu)
-\end{align}
+\end{aligned}
 $$
 式中重复指标不求和，最后得到
 $$
@@ -332,10 +332,10 @@ $$
 $$
 (3) 如果 $S$ 和 $S'$ 系的坐标轴不是对应平行，可对上式的空间坐标再作一次三维空间转动或反射变换 $dij$
 $$
-\tag{34}\begin{align}
+\tag{34}\begin{aligned}
 x'_i&=d_{ik}\bar x_k=d_{ik}x_k+d_{ik}v_k[(\gamma-1)\cfrac{v_ix_i}{v^2}-\gamma t] \\
 &=d_{ik}x_k+v'_i[(\gamma-1)\cfrac{v_ix_i}{v^2}-\gamma t]
-\end{align}
+\end{aligned}
 $$
 其中利用了(29)式，事实上，因为
 $$
@@ -359,7 +359,7 @@ $$
 $$
 \mathbf x=x_1\mathbf e_1+x_2\mathbf e_2+x_3\mathbf e_3=x_i\mathbf e_i
 $$
-式中 $(\mathbf e_1,\mathbf e_2,\mathbf e_3)$ 是沿坐标轴的单位矢量，称作基矢。对上式两边微分（注意在笛卡尔坐标系中$\mathrm d\mathbf e_i=0 $），可知
+式中 $(\mathbf e_1,\mathbf e_2,\mathbf e_3)$ 是沿坐标轴的单位矢量，称作基矢。对上式两边微分（注意在笛卡尔坐标系中 $\mathrm d\mathbf e_i=0$ ），可知
 $$
 \mathrm d\mathbf x=\cfrac{\partial\mathbf x}{\partial x_i}\mathrm dx_i =\mathrm dx_i\mathbf e_i
 $$
@@ -408,7 +408,7 @@ $$
 0 & -1 & 0 & 0\\
 0 & 0 & -1 & 0\\
 0 & 0 & 0 & -1
-\end{pmatrix} &(\mu,\nu=0,1,2,3)
+\end{pmatrix} \quad(\mu,\nu=0,1,2,3)
 $$
 时空间隔$ds$ 叫做闵可夫斯基线元，$\eta_{\mu\nu}$ 叫做闵可夫斯基度规。
 
@@ -427,6 +427,6 @@ $$
 0 & 1 & 0 & 0\\
 0 & 0 & 1 & 0\\
 0 & 0 & 0 & 1
-\end{pmatrix} &(\mu,\nu=1,2,3,4)
+\end{pmatrix} \quad(\mu,\nu=1,2,3,4)
 $$
 就是四维欧几里得度规。

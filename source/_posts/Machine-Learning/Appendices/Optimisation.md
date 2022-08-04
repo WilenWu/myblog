@@ -1,7 +1,5 @@
 ---
 title: 优化
-date: 2022-07-16 14:51:03
-updated:
 tags:
   - 数学
   - 矩阵
@@ -10,8 +8,11 @@ categories:
   - 附录
 description: 优化是找出函数的最大值或最小值的方法
 top_img: '#66CCFF'
-cover:
 katex: true
+abbrlink: b0a72714
+date: 2022-07-16 14:51:03
+updated:
+cover:
 ---
 
 优化是找出函数的最大值或最小值的方法。优化是机器学习的重要课题，因为许多机器学习任务都可以设计成优化问题，例如，K均值聚类算法寻找最小化误差的平方和(SSE)的簇集合。类似地，最小二乘方法旨在学习最小化模型SSE的回归系数。本文简略回顾用于求解优化问题的各种技术。
@@ -35,13 +36,13 @@ $f(x)$可以取极大或极小值，取决于该函数的二阶导数。
 
 下图函数包含三个平稳点（极大、极小和拐点）：
 
-![](Optimisation.assets/image-20220716210604723.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/stationary-point.png)
 
 该定义可以推广到多元函数$f(x_1,x_2,\cdots,x_d)$，这里找平稳点$\mathbf x^*=(x_1^*,x_2^*,\cdots,x_d^*)^T$的条件为
 $$
 \frac{\mathrm{d}y}{\mathrm{d}x_i}\mid_{x_i=x_i^*}=0,\forall i=1,2,\cdots,d \tag{1.1}
 $$
-然而，不像一元函数，确定$\mathbf x^*$是极大还是极小平稳点更困难。困难的原因在于我们需要对所有可能的一对$i,j$，考虑偏导数$\cfrac{\partial^2 f}{\partial x_i\partial x_j}$。二阶偏导数的完全集由黑森矩阵(Hessian matrix)给出：
+然而，不像一元函数，确定$\mathbf x^*$是极大还是极小平稳点更困难。困难的原因在于我们需要对所有可能的一对$i,j$，考虑偏导数$\cfrac{\partial^2 f}{\partial x_i\partial x_j}$。二阶偏导数的完全集由海塞矩阵(Hessian matrix)给出：
 $$
 \mathbf H(\mathbf x)=\begin{pmatrix}
 \cfrac{\partial^2 f}{\partial x_1^2}&\cfrac{\partial^2 f}{\partial x_1\partial x_2}&\cdots&\cfrac{\partial^2 f}{\partial x_1\partial x_d} \\
@@ -61,7 +62,7 @@ $$
 
 ### 黄金搜索
 
-![](Optimisation.assets/image-20220716214044473.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/Golden-section-search.png)
 
 考虑图中所示的单峰分布，其极小值在区间a和b之间。黄金搜索方法迭代地找相继较小的、包含极小值的区间，直到区间的宽度足够小，可以近似平稳点。为了确定较小的区间，选择两个点c和d，使得区间 $(a,c,d)$ 和$(c,d,b)$具有相等的宽度。令$c-a=b-d=\alpha(b-a), d-c=\beta(b-a)$。因此
 $$
@@ -206,3 +207,6 @@ h_i(\mathbf x)\leqslant 0,\forall i=1,2,\cdots,q \\
 $$
 注意，拉格朗日乘子在不等式约束中出现，不再是不受限的。
 求解KKT条件可能是一项相当艰巨的任务，当约束不等式的数量较大时尤其如此。在这种情况下，求闭型解不再可行，而需要使用诸如线性和二次规划这样的数值优化技术。
+
+
+

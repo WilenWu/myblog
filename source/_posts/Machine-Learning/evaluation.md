@@ -2,7 +2,7 @@
 title: 模型评估与选择
 katex: true
 categories:
-  - 人工智能
+  - 机器学习
   - 'Machine Learning'
 tags:
   - 机器学习
@@ -70,7 +70,7 @@ $AUC=\displaystyle \frac{1}{2}\sum_{i=1}^{m-1}(x_{i+1}-x_i)(y_i+y_{i+1})$
 
 **PR曲线**：查准率和查全率（召回率）之间的关系。查准率和查全率是一对矛盾的度量，一般来说，查准率高时，查全率往往偏低，查全率高时，查准率往往偏低。
 
-![](classification-evaluation.assets/PR-curve.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/PR-curve.png)
 
 如果一个学习器的P-R曲线被另一个学习器的P-R曲线完全包住，则可断言后者的性能优于前者，当然我们可以根据曲线下方的面积大小来进行比较，但更常用的是**平衡点**（Break-Even Point, BEP）。平衡点是查准率=查全率时的取值，如果这个值较大，则说明学习器的性能较好。
 

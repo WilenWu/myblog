@@ -9,6 +9,7 @@ top_img: /img/git-toolkit.png
 abbrlink: f48f437a
 date: 2022-06-20 23:36:00
 description:
+sticky: 1
 ---
 
 # Git 起步

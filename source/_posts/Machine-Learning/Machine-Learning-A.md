@@ -9,7 +9,7 @@ tags:
 cover: /img/data-analysis.png
 top_img: /img/data-chart3.jpg
 description: 基础的数据分析方法
-abbrlink: 
+abbrlink: a8e1c23e
 date: 2022-07-22 12:07:30
 ---
 

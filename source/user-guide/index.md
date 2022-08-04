@@ -57,24 +57,22 @@ header_color: true
 - :ballot_box_with_check: [主流的博客框架及部分主题](/posts/9e8cfeb8/)
 - :ballot_box_with_check: [Hexo 博客魔改优化方法](/posts/18fbd3bc/)
 
-# 机器学学习
+# 机器学习
 
 ## Machine Learning
 
-- :ballot_box_with_check: [二分类模型评价指标](/posts/cc734464/)
-- :ballot_box_with_check: [机器学习导论](/posts/a8e1c23e/)
+- :ballot_box_with_check: [模型评估与选择](/posts/cc734464/)
+- :ballot_box_with_check: [数据分析导论](/posts/a8e1c23e/): 基础的数据分析方法
 - :ballot_box_with_check: 机器学习
 
 ## Deep Learning
 
-- :ballot_box_with_check: 神经网络
 - :ballot_box_with_check: 深度学习
 - :ballot_box_with_check: TensorFlow
 - :ballot_box_with_check: Keras
 
 ## 附录
-
-
+- :ballot_box_with_check: [优化](/posts/b0a72714/): 优化是找出函数的最大值或最小值的方法
 
 # 大数据
 
@@ -169,7 +167,6 @@ The Website is the API(Application Programming Interface, 应用程序接口)...
 - :ballot_box_with_check: [seaborn](/posts/49513cf1/): 基于matplotlib封装的数据可视化库
 - :white_large_square: bqplot: Jupyter Notebook的交互式绘图库
 - :white_large_square: bokeh: 用 Python 进行交互式 web 绘图。
-- :heart: [ggplot](http://yhat.github.io/ggpy/): ggplot port for python
 - :white_large_square: plotly: 协同 Python 和 matplotlib 工作的 web 绘图库。
 - :white_large_square: pyecharts: 基于百度 Echarts 的数据可视化库。
 
@@ -183,7 +180,7 @@ The Website is the API(Application Programming Interface, 应用程序接口)...
 ## Deep Learning
 
 - :ballot_box_with_check: [TensorFlow](https://tensorflow.google.cn/tutorials/?hl=zh-cn): Google开源的最受欢迎的深度学习框架。
-- :white_large_square: [PyTorch](https://blog.csdn.net/u010510350/article/details/72526821): Facebook 的 AI 研究团队发布了一个 Python 工具包，专门针对 GPU 加速的深度神经网络（DNN）编程。
+- :ballot_box_with_check: [PyTorch](https://blog.csdn.net/u010510350/article/details/72526821): Facebook 的 AI 研究团队发布了一个 Python 工具包，专门针对 GPU 加速的深度神经网络（DNN）编程。
 - :heart: [Keras](https://tensorflow.google.cn/guide/keras?hl=zh-cn): 以 tensorflow/theano/CNTK 为后端的深度学习封装库，快速上手神经网络。[(莫烦PYTHON)](https://morvanzhou.github.io/tutorials/machine-learning/theano/)
 - :white_large_square: [Theano](http://deeplearning.net/software/theano/##): 基于TensorFlow，用于快速数值计算的库。
 - :white_large_square: Caffe: 卷积神经网络框架
@@ -408,6 +405,7 @@ Natural Language Processing(自然语言处理)
 
 - :ballot_box_with_check: [线性代数](/posts/c23efd5b/): 矩阵，行列式，向量空间，二次型，线性变换
 - :white_large_square: 多项式代数
+- :ballot_box_with_check: [矩阵微积分](/posts/99273c32/)
 
 ## 现代数学
 
@@ -427,6 +425,7 @@ Natural Language Processing(自然语言处理)
 
 - :ballot_box_with_check: [经典数学公式](/posts/375d0704/)
 - :ballot_box_with_check: [几种常用的曲线](/posts/7020ba93/)
+- :ballot_box_with_check: [δ 函数简介](/posts/3dc94f84/)
 
 
 # 物理
@@ -458,4 +457,5 @@ Natural Language Processing(自然语言处理)
 - :white_large_square: 凝聚态物理: 是研究凝聚态物质的物理性质与微观结构以及它们之间的关系。
 
 ## 附录
+- :ballot_box_with_check: [固有洛伦兹变换的严格推导](/posts/55b8eadb/): 根据狭义相对论的两条基本原理来严格推导固有洛伦兹变换
 
