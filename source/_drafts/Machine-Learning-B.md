@@ -13,10 +13,9 @@ abbrlink:
 date: 2018-05-09 21:31:41
 ---
 
-
-<!-- more -->
-
 # 绪论
+
+变量可归结为名义型、有序型或连续型变量。
 
 根据训练数据是否拥有标记信息，学习任务可大致划分为两大类"监督学习" (supervised learning) 和"无监督学习" (unsupervised learning) ，分类和回归是前者的代表，而聚类则是后者的代表.
 
@@ -34,8 +33,8 @@ distributed，简称i.i.d.).
 机器学习三要素：
 
 - 模型：根据具体问题，确定假设空间
-- 策略：根据评价标准，确定选取最优模型的策略（通常会产出一个**损失函数**）
-- 优化算法：求解损失函数，确定最优模型
+- 策略：根据评价标准，确定选取最优模型的策略（通常会产出一个**代价函数**）
+- 优化算法：求解代价函数，确定最优模型
 
 损失函数(loss function)或代价函数(cost function)
 
@@ -256,12 +255,12 @@ $$
 2. 误差同分布 $\mathrm{var}(e_i)= σ^2$ ,
 3. 误差独立性 $\mathrm{cov}( e_i ,e_j )=0 \quad (i  ≠ j)$ 
 
-**最小二乘法**：(least square method, LSM) 使用均方误差定义损失函数
+**最小二乘法**：(least square method, LSM) 使用均方误差定义代价函数
 $$
-L(y,\hat y)=J(\mathbf{w})=\|\mathbf{y-Xw}\|_2^2=(\mathbf{y-Xw})^T(\mathbf{y-Xw})
+J(\mathbf{w})=\cfrac{1}{m}\|\mathbf{y-Xw}\|_2^2=\cfrac{1}{m}(\mathbf{y-Xw})^T(\mathbf{y-Xw})
 $$
 $$
-\mathbf w^*=\arg\min_{\substack{\mathbf w}}(\mathbf{y-Xw})^T(\mathbf{y-Xw})
+\mathbf w^*=\argmin_{\substack{\mathbf w}}(\mathbf{y-Xw})^T(\mathbf{y-Xw})
 $$
 **极大似然估计**：(maximum likelihood estimate, MLE) 使得观测样本出现的概率最大，也即使得误差联合概率（似然函数）取得最大值。
 
@@ -277,13 +276,13 @@ $$
 &=\sum_{i=1}^{m}\ln\cfrac{1}{\sqrt{2\pi}\sigma}-\frac{1}{2\sigma^2}(\mathbf{y-Xw})^T(\mathbf{y-Xw})
 \end{aligned}
 $$
-因此可定义损失函数
+因此可定义代价函数
 $$
 J(\mathbf w)=\arg\max\ln L(\mathbf w)=\arg\min(\mathbf{y-Xw})^T(\mathbf{y-Xw})
 $$
-由此可见，与最小二乘法的损失函数相同。
+由此可见，最后得到的代价函数与最小二乘法一致。
 
-**参数估计** ：(parame estimation) 使用凸优化方法求解损失函数，即
+**参数估计** ：(parame estimation) 使用凸优化方法求解代价函数，即
 $$
 \nabla J(\mathbf w)=\frac{\partial J}{\partial\mathbf x}=2\mathbf X^T(\mathbf{Xw-y})=\mathbf 0
 $$
@@ -313,6 +312,13 @@ $$
 
 ## 逻辑回归
 
+$$
+\hat y=g(\mathbf{w}^T\mathbf{x}+b),\text{where }g(z)=\cfrac{1}{1+e^{-z}} \\
+\text{Given }\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m)\},\text{want }\hat y^{(i)}\approx y^{(i)}
+$$
+
+
+
 假设给定二分类样本集 $D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m)\}$，其中$\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{id})$ 为第 $i$ 个样本的特征向量，输出标记 $y_i\in \{0,1\}$ 。
 
 由于线性回归模型产生的预测值 $z=\mathbf{w}^T\mathbf{\hat x} \in\R$ ，需要引入 Sigmod 函数将输入值映射到 $[0,1]$ 来实现分类功能。对数几率函数 (logistic function) 即是一种 Sigmoid 函数
@@ -337,7 +343,7 @@ $$
 $$
 \ln L(\mathbf w)=\ln\prod_{i=1}^{m} P(y_i)=\sum_{i=1}^m(y_i\mathbf w^T\mathbf{\hat x}_i-\ln(1+e^{\mathbf w^T\mathbf{\hat x}_i}))
 $$
-因此损失函数
+因此代价函数
 $$
 J(\mathbf w)=\arg\min\sum_{i=1}^m(-y_i\mathbf w^T\mathbf{\hat x}_i+\ln(1+e^{\mathbf w^T\mathbf{\hat x}_i}))
 $$
@@ -355,11 +361,11 @@ $$
 $$
 H(P,Q)=-\sum_{i=1}^m P(y_i)\ln Q(y_i)=\sum_{i=1}^m(-y_i\mathbf w^T\mathbf{\hat x}_i+\ln(1+e^{\mathbf w^T\mathbf{\hat x}_i}))
 $$
-因此损失函数
+因此代价函数
 $$
 J(\mathbf w)=\arg\min\sum_{i=1}^m(-y_i\mathbf w^T\mathbf{\hat x}_i+\ln(1+e^{\mathbf w^T\mathbf{\hat x}_i}))
 $$
-由此可见，与极大似然估计的损失函数相同。
+由此可见，与极大似然估计的代价函数相同。
 
 《统计学习方法》第6章
 

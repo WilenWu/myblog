@@ -29,7 +29,7 @@ top_img: /img/prob.jpg
 - ==随机事件==(random event)：实际问题中，通常会关心随机试验一些特定的结果，它们是S的(可测)子集，称为事件(event)，通常用大写字母A, B,…表示。
 - ==可列集==(countable)：是指一个无穷集S，其元素可与自然数形成一一对应，因此可表为 $S=\{s_1,s_2,…\}$
 
-**事件的关系与运算**：设 $A,B$ 为样本空间$S$中的事件 $A,B\subseteq S$。特别的， $S$ 称为必然事件(certain event)，$\varnothing$称为不可能事件(impossible event)，单点集 $\{s\}$ 称为基本事件(elementary event)
+**事件的关系与运算**：设 $A,B$ 为样本空间$S$中的事件，即 $A,B\subseteq S$。特别的， $S$ 称为必然事件(certain event)，$\varnothing$ 称为不可能事件(impossible event)，单点集 $\{s\}$ 称为基本事件(elementary event)
 
 - $s\in A$ ：事件A发生
 - $A\subseteq B$：指事件A必然导致事件B发生
@@ -37,7 +37,7 @@ top_img: /img/prob.jpg
 - $A∪B$：称为事件A与B的和事件(union of events)，表示事件A与B至少有一个发生
 - $A∩ B$：称为事件A与B的积事件(intersection of events)，表示事件A与B同时发生，也常记为AB
 - $A-B$：称为事件A与B的差事件(difference of events)，表示事件A发生且B不发生
-- $\bar A=A^C=S-A=S\setminus A$：称为A的对立事件(complementary events)，表示事件A不发生
+- $\bar A=S-A$：称为A的对立事件(complementary events)，表示事件A不发生，也可记为 $A^C=S\setminus A$
 - 若 $AB=\varnothing$，则称事件A与B互斥(mutually exclusive events)，可记为 $A\bot B$
 
 
@@ -60,69 +60,69 @@ $$
 (3) $A_iA_j=\varnothing \quad (i\neq j)\implies f_n(\displaystyle\bigcup_{i=1}^{k}A_i)=\displaystyle\sum_{i=1}^{k}f_n(A_i)$
 
 **概率**(probability)：
-（统计性定义）当试验的次数增加时，随机事件A发生的频率的稳定值p称为概率，记为 $P(A)=p$
-（公理化定义）设随机试验对应的样本空间为S，定义$P(A)$满足以下性质，称$P(A)$为A的概率
+（统计性定义）当试验的次数增加时，随机事件A发生的频率的稳定值p称为概率，记为 $\mathbb P(A)=p$
+（公理化定义）设随机试验对应的样本空间为S，定义$\mathbb P(A)$满足以下性质，称$\mathbb P(A)$为A的概率
 
-非负性：$P(A)⩾ 0$
-规范性：$P(S)=1$
-可列可加性：$A_iA_j=\varnothing\quad(i\neq j)\implies P(\displaystyle\bigcup_{i=1}^{∞}A_i)=\displaystyle\sum_{i=1}^{∞}P(A_i)$
+非负性：$\mathbb P(A)⩾ 0$
+规范性：$\mathbb P(S)=1$
+可列可加性：$A_iA_j=\varnothing\quad(i\neq j)\implies \mathbb P(\displaystyle\bigcup_{i=1}^{∞}A_i)=\displaystyle\sum_{i=1}^{∞}\mathbb P(A_i)$
 ==概率的性质==
 
-- $P(\varnothing)= 0$
-- $P(A)=1-P(\bar A)$
-- $A_iA_j=\varnothing \quad (i\neq j)\implies P(\displaystyle\bigcup_{i=1}^{k}A_i)=\displaystyle\sum_{i=1}^{k}P(A_i)$
-- $A⊂ B\implies P(B-A)=P(B)-P(A),\ P(B)⩾ P(A)$
-- $P(A∪ B)=P(A)+P(B)-P(AB)$
+- $\mathbb P(\varnothing)= 0$
+- $\mathbb P(A)=1-\mathbb P(\bar A)$
+- $A_iA_j=\varnothing \quad (i\neq j)\implies \mathbb P(\displaystyle\bigcup_{i=1}^{k}A_i)=\displaystyle\sum_{i=1}^{k}\mathbb P(A_i)$
+- $A⊂ B\implies \mathbb P(B-A)=\mathbb P(B)-\mathbb P(A),\ \mathbb P(B)⩾ \mathbb P(A)$
+- $\mathbb P(A∪ B)=\mathbb P(A)+\mathbb P(B)-\mathbb P(AB)$
 
 **等可能概型**(classical probability)：若试验满足，样本空间S中样本点有限(有限性)，出现每一个样本点的概率相等(等可能性)，称这种试验为等可能概型(或古典概型)。
 $$
-P(A)=\cfrac{k}{n}
+\mathbb P(A)=\cfrac{k}{n}
 $$
 其中k为A中所包含的样本点数，n为S中的样本点数。
 
 **几何概型**(geometric probability)：（将等可能的原理进一步拓广）
 当样本空间 S 为 $\R^n$ 中的某个区域，如果没有特别的信息，则认为 $\R^n$ 中每一点的出现都是等可能的。因此如果事件A为S中的某个子区域，则认为A发生的概率为A与S 体积（或面积、长度）之比。
 
-**条件概率**(conditional probability)：设A，B为事件，$P(A)>0$，定义
+**条件概率**(conditional probability)：设A，B为事件，$\mathbb P(A)>0$，定义
 $$
-P(B|A)=\frac{P(AB)}{P(A)}
+\mathbb P(B|A)=\frac{\mathbb P(AB)}{\mathbb P(A)}
 $$
 称为是**A**发生条件下**B**发生的概率
 
 条件概率空间：原样本空间的缩减 $S\to A$
-条件概率：原概率的限制 $P(\cdot)\to P(\cdot|A)$
+条件概率：原概率的限制 $\mathbb P(\cdot)\to \mathbb P(\cdot|A)$
 ![条件概率](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/conditional-probability.png)
 
-**条件概率性质**：$P(\cdot|A)$ 是概率，具有概率的所有性质
-非负性：$P(B|A)⩾ 0$
-规范性：$P(S|A)=1$
-可列可加性：$B_iB_j=\varnothing,(i\neq j)\implies P(\displaystyle\bigcup_{i=1}^{∞}B_i|A)=\displaystyle\sum_{i=1}^{∞}P(B_i|A)$
+**条件概率性质**：$\mathbb P(\cdot|A)$ 是概率，具有概率的所有性质
+非负性：$\mathbb P(B|A)⩾ 0$
+规范性：$\mathbb P(S|A)=1$
+可列可加性：$B_iB_j=\varnothing,(i\neq j)\implies \mathbb P(\displaystyle\bigcup_{i=1}^{∞}B_i|A)=\displaystyle\sum_{i=1}^{∞}\mathbb P(B_i|A)$
 ==乘法公式==
 
-(1) $P(AB)=P(A)P(B|A)=P(B)P(A|B)$
-(2) $P(ABC)=P(A)P(B|A)P(C|AB)$
-(3) $P(A_1A_2\cdots A_n)=P(A_1)P(A_2|A_1)P(A_3|A_1A_2)\cdots P(A_n|A_1A_2\cdots A_{n-1})$
+(1) $\mathbb P(AB)=\mathbb P(A)\mathbb P(B|A)=\mathbb P(B)\mathbb P(A|B)$
+(2) $\mathbb P(ABC)=\mathbb P(A)\mathbb P(B|A)\mathbb P(C|AB)$
+(3) $\mathbb P(A_1A_2\cdots A_n)=\mathbb P(A_1)\mathbb P(A_2|A_1)\mathbb P(A_3|A_1A_2)\cdots \mathbb P(A_n|A_1A_2\cdots A_{n-1})$
 
-**事件独立性**(independent)：设A，B是两随机事件，若 $P(AB)=P(A)P(B)$，称事件A，B独立
+**事件独立性**(independent)：设A，B是两随机事件，若 $\mathbb P(AB)=\mathbb P(A)\mathbb P(B)$，称事件A，B独立
 $A$与$B$独立$\iff \bar A$与$B$独立$\iff A$与$\bar B$独立$\iff \bar A$与$\bar B$独立
 事件 A , B , C 独立，指下式同时成立。若只有前三个式子成立，称为两两独立。两两独立并不能决定三个事件独立。
 $\begin{cases}
-P(AB)=P(A)P(B) \\
-P(BC)=P(C)P(C) \\
-P(AC)=P(A)P(C) \\
-P(ABC)=P(A)P(B)P(C)
+\mathbb P(AB)=\mathbb P(A)\mathbb P(B) \\
+\mathbb P(BC)=\mathbb P(C)\mathbb P(C) \\
+\mathbb P(AC)=\mathbb P(A)\mathbb P(C) \\
+\mathbb P(ABC)=\mathbb P(A)\mathbb P(B)\mathbb P(C)
 \end{cases}$
 
 ==推广==：事件 $A_1,A_2,\cdots,A_n$ 相互独立，则对 $2⩽ k ⩽ n$均有
 $$
-P(A_{i_1}A_{i_2}\cdots A_{i_k})=\displaystyle\prod_{j=1}^{k}P(A_{i_j})
+\mathbb P(A_{i_1}A_{i_2}\cdots A_{i_k})=\displaystyle\prod_{j=1}^{k}\mathbb P(A_{i_j})
 $$
 实际问题中，常常不是用定义去验证事件的独立性，而是由实际情形来判断其独立性。一旦确定事件是相互独立的，在计算概率时，尽可能转化为事件的乘积进行计算。
 
 **全概率公式** (complete probability formula)：一个用于计算概率的公式，**先化整为零，再聚零为整**。
 设 $B_1,\cdots,B_n$ 是 $S$ 的一个划分，$A$为事件，则
 $$
-P(A)=\displaystyle\sum_{i=1}^{n}P(A|B_i)P(B_i)
+\mathbb P(A)=\displaystyle\sum_{i=1}^{n}\mathbb P(A|B_i)\mathbb P(B_i)
 $$
 称 $S$ 的事 件 $B_1,\cdots,B_n$ 为一个划分，指它们满足
 (1)  $\displaystyle\bigcup_{i=1}^{n}B_i=S$
@@ -133,7 +133,7 @@ $$
 **贝叶斯公式(Bayes formula)**：全概率公式通过划分 $\{B_i |i=1,\cdots,n\}$ 来计算一个事件 $A$ 的概率，有时候需要弄清楚在A发生的条件下，每个 $B_i$ 发生的条件概率
 设 $B_1,\cdots,B_n$ 是 $S$ 的一个划分，$A$为事件，则对于$i=1,\cdots,n$，有
 $$
-P(B_i|A)=\dfrac{P(A|B_i)P(B_i)}{\displaystyle\sum_{i=1}^{n}P(A|B_i)P(B_i)}
+\mathbb P(B_i|A)=\dfrac{\mathbb P(A|B_i)\mathbb P(B_i)}{\displaystyle\sum_{i=1}^{n}\mathbb P(A|B_i)\mathbb P(B_i)}
 $$
 
 贝叶斯公式是关于随机事件$A$和$B$的条件概率和边缘概率的。
@@ -203,7 +203,11 @@ $X$的这种分布由此等比数列(几何级数)表达，故称为参数为p�
 
 ## 连续型随机变量及概率密度
 
-**分布函数**(distribution function)：对于随机变量X，定义函数 $F(x)=\mathbb P(X⩽ x),∀ x\in \R$ 称为X的累积分布函数(cumulative distribution function ,CDF) 。
+**分布函数**(distribution function)：对于随机变量$X$，定义函数 
+$$
+F(x)=\mathbb P(X⩽ x),∀ x\in \R
+$$
+ 称为X的累积分布函数(cumulative distribution function ,CDF) 。
 任何随机变量都有相应的分布函数，分布函数可以给出随机变量落入任意一个范围的可能性。
 一般地，离散型随机变量的分布函数为阶梯函数。
 
@@ -611,12 +615,10 @@ $$
 E(X)=\displaystyle\int_{-∞}^{+∞}\int_{-∞}^{+∞}xf(x,y)\mathrm{d}x\mathrm{d}y \\
 E(Y)=\displaystyle\int_{-∞}^{+∞}\int_{-∞}^{+∞}yf(x,y)\mathrm{d}x\mathrm{d}y$
 $$
-**期望的性质**（c为常数）
-
-(1) $\mathbb E(c)=c$
-(2) $\mathbb E(cX)=c\mathbb E(X)$
-(3) $\mathbb E(X+Y)=\mathbb E(X)+\mathbb E(Y)$
-(4) 设$X,Y$相互独立，$\mathbb E(XY)=\mathbb E(X)\mathbb E(Y)$
+**期望的性质**
+(1) $\mathbb E(aX+b)=a\mathbb E(X)+b$
+(2) $\mathbb E(X+Y)=\mathbb E(X)+\mathbb E(Y)$
+(3) 设$X,Y$相互独立，$\mathbb E(XY)=\mathbb E(X)\mathbb E(Y)$
 
 ## 方差和变异系数
 
@@ -642,12 +644,12 @@ $$
 
 (1) $D(c)=0$
 (2) $D(cX)=c^2D(X)$
-(3) $D(X+Y)=D(X)+D(Y)+2\mathbb E[(X-\mathbb E(X))(Y-\mathbb E(Y))]$
+(3) $D(X+Y)=D(X)+D(Y)+2\text{Cov}(X,Y)$
  当$X,Y$相互独立，$D(X+Y)=D(X)+D(Y)$
 (4) 切比雪夫(Chebyshev)不等式，设$\mathbb E(X)=μ,D(X)=σ^2,\mathbb P(|X-μ|⩾ ϵ)⩽ \dfrac{σ^2}{ϵ^2}$
 结果分析，将切比雪夫不等式变形为$\mathbb P(|X-μ|< ϵ)>1-\dfrac{σ^2}{ϵ^2}$，取$ϵ=3σ$则有$\mathbb P(|X-μ|< 3σ)>1-\cfrac{1}{9}\approx 88.0\%$，即随机变量有近90%的可能性落在区间$(μ-3σ,μ+3σ)$内。
 
-**变异系数**(Coefficient of Variance,CV)： 标准差与期望的比值
+**变异系数**(Coefficient of Variance, CV)： 标准差与期望的比值
 $$
 CV=\dfrac{\sqrt{D(X)}}{E(X)}=\dfrac{σ(X)}{E(X)}
 $$
@@ -665,7 +667,7 @@ $$
 
 **协方差**(covariance)：由方差性质(3)的意义，定义
 $$
-\mathrm{Cov}(X,Y)=E[(X-E(X))(Y-E(Y))]
+\mathrm{Cov}(X,Y)=\mathbb E[(X-\mathbb E(X))(Y-\mathbb E(Y))]
 $$
 为 $X,Y$ 的==协方差==。
 
@@ -897,11 +899,48 @@ $\iff C=\mathrm{diag}(c_{11},c_{22},\cdots,c_{nn})$(即C为对角阵)
 
 # 大数定律和中心极限定理
 
-**依概率收敛** (convergence in probability)：回顾概率的概念是如何产生的? 
+## 集合的序列和极限
+
+对于一个集合序列 $\{A_n\}_{n=1}^\infty$  ，我们定义它的「上极限」与「下极限」分别为：
+$$
+\limsup\limits_{x\to\infty}A_n=\{A_n\ i.o.\}=\bigcap_{n=1}^\infty\bigcup_{k=n}^\infty A_k \\
+\liminf\limits_{x\to\infty}A_n=\{A_n\ eventually\}=\bigcup_{n=1}^\infty\bigcap_{k=n}^\infty A_k
+$$
+理解集合极限的含义可以参考 [集合中的上极限与下极限 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/116829467)
+
+由定义可知：
+
+(1)  $\liminf\limits_{x\to\infty}A_n\sube\limsup\limits_{x\to\infty}A_n$
+(2) $(\liminf\limits_{x\to\infty}A_n)^C=\limsup\limits_{x\to\infty}A_n^C$
+(3) $(\limsup\limits_{x\to\infty}A_n)^C=\liminf\limits_{x\to\infty}A_n^C$ 
+
+对于任意序列 $\{A_n\}$  满足
+$$
+\mathbb P(\limsup\limits_{x\to\infty}A_n)=\lim\limits_{n\to\infty}\mathbb P(\bigcup_{k=n}^\infty A_k)
+$$
+
+$$
+\mathbb P(\liminf\limits_{x\to\infty}A_n)=\lim\limits_{n\to\infty}\mathbb P(\bigcap_{k=n}^\infty A_k)
+$$
+
+## Borel-Cantelli 引理
+
+**引理1**：
+$$
+\displaystyle\sum_{n=1}^{\infty}\mathbb P(A_n)<\infty \implies \mathbb P(\limsup\limits_{x\to\infty}A_n)=0
+$$
+**引理2**：若 $A_n$ 相互独立
+$$
+\displaystyle\sum_{n=1}^{\infty}\mathbb P(A_n)=\infty \implies \mathbb P(\limsup\limits_{x\to\infty}A_n)=1
+$$
+
+## 收敛
+
+回顾概率的概念是如何产生的
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/to-probability.png)
 
-设$n$次独立重复试验中事件$A$发生的次数为$n_A$则当$n$越来越大时，有
+**依概率收敛** (convergence in probability)：设$n$次独立重复试验中事件$A$发生的次数为$n_A$则当$n$越来越大时，有
 $$
 ∀ ϵ>0,\lim\limits_{n\to∞}\mathbb P(|\dfrac{n_A}{n}-p|⩾ ϵ)=0
 $$
@@ -920,16 +959,50 @@ $$
 $$
 f(X_n)\xrightarrow{P}f(a)\quad (n\to∞)
 $$
+**依分布收敛**(Convergence in Distribution)
+
+meaning: 
+$$
+\lim_\limits{n\to\infty}F_n(x)=x
+$$
+notation: 
+$$
+X_n\xrightarrow{D}X\quad (n\to∞)
+$$
+**几乎必然收敛**(Almost Sure Convergence)：又叫以概率1收敛（convergence with probability 1）
+
+meaning: 
+$$
+\mathbb P(\lim\limits_{n\to\infty}X_n=X)=1
+$$
+notation:
+$$
+X_n\xrightarrow{a.s.}X\quad (n\to∞)
+$$
+Convergence in $L_p$
+
+meaning: 
+$$
+\lim\limits_{n\to\infty}\mathbb E(|X_n-X|^p)=0
+$$
+notation:
+$$
+X_n\xrightarrow{L_p}X\quad (n\to∞)
+$$
+
+
+## 大数定律
+
 **大数定律**(Law of Large Numbers)
 
 <kbd>Bernoulli 大数定律</kbd> 设 $n_A$ 是 $n$ 次独立重复试验中事件 $A$ 发生的次数，且 $P(A)=p$，则对于$∀ ϵ>0$有
 $\lim\limits_{n\to∞}\mathbb P(|\dfrac{n_A}{n}-p|⩾ ϵ)=0$，即$\dfrac{n_A}{n}\xrightarrow{P}p\quad (n\to∞)$ ==频率稳定于概率==
 
 <kbd>Chebyshev 大数定律</kbd> 设 $X_1,X_2,\cdots,X_n,\cdots$为相互独立的随机变量序列，且具有相同的数学期望 $μ$ 和方差$σ^2$，则对于$∀ ϵ>0$有
-$\lim\limits_{n\to∞}\mathbb P(|\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}X_i-μ|⩾ ϵ)=0$，即$\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}X_i\xrightarrow{P}μ\quad (n\to∞)$ ==平均值稳定于期望==
+$\lim\limits_{n\to∞}\mathbb P(|\bar X_n-μ|⩾ ϵ)=0$，即$\bar X_n\xrightarrow{P}μ\quad (n\to∞)$ ==平均值稳定于期望==
 
-<kbd>Sinchin 大数定律</kbd> 设 $X_1,X_2,\cdots,X_n,\cdots$为独立同分布(independent identically distri- buted;IID)的随机变量序列，且其期望为 $μ$ 和方差$σ^2$，则对于$∀ ϵ>0$有
-$\lim\limits_{n\to∞}\mathbb P(|\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}X_i-μ|⩾ ϵ)=0$，即$\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}X_i\xrightarrow{P}μ\quad (n\to∞)$
+<kbd>Sinchin 大数定律</kbd> 设 $X_1,X_2,\cdots,X_n,\cdots$为独立同分布(independent identically distributed;IID)的随机变量序列，且其期望为 $μ$ 和方差$σ^2$，则对于$∀ ϵ>0$有
+$\lim\limits_{n\to∞}\mathbb P(|\bar X_n-μ|⩾ ϵ)=0$，即$\bar X_n\xrightarrow{a.s.}μ\quad (n\to∞)$
 
 大数定律的意义
 (1) 给出了“频率稳定性”的严格数学解释.
@@ -938,6 +1011,8 @@ $\lim\limits_{n\to∞}\mathbb P(|\dfrac{1}{n}\displaystyle\sum_{i=1}^{n}X_i-μ|�
 (4) 是Monte Carlo方法的主要数学理论基础.
 
 > Monte Carlo方法或称为计算机随机模拟方法、计算机仿真方法,是科学与工程中的一种重要工具。Monte Carlo 方法的原理主要基于大数定律.
+
+## 中心极限定理
 
 **中心极限定理**(Central Limit Theorem)
 
@@ -954,8 +1029,14 @@ $$
 &=\displaystyle\int_{-∞}^{x}\dfrac{1}{\sqrt{2π}}e^{-t^2/2}\mathrm{d}t=Φ(x)
 \end{aligned}
 $$
-故可认为$\lim\limits_{n\to∞}\displaystyle\sum_{i=1}^{n}X_i∼ N(nμ,nσ^2)$，上式可改成当 $\lim\limits_{n\to∞}\dfrac{\bar X-μ}{σ/\sqrt{n}}∼ N(0,1)$或$\lim\limits_{n\to∞}\bar X∼ N(μ,σ^2/n)$
-
+故可认为$\lim\limits_{n\to∞}\displaystyle\sum_{i=1}^{n}X_i∼ N(nμ,nσ^2)$，上式可改成 
+$$
+\lim\limits_{n\to∞}\dfrac{\bar X-μ}{σ/\sqrt{n}}∼ N(0,1)
+$$
+或
+$$
+\lim\limits_{n\to∞}\bar X∼ N(μ,σ^2/n)
+$$
 <kbd>李雅普诺夫(Lyapunov)中心极限定理</kbd> 设随机变量 $X_1,X_2,\cdots,X_n,\cdots$相互独立，他们具有数学期望 $\mathbb E(X_k)=μ_k$ 和方差$D(X_k)=σ_k^2$
 记$B_n^2=\displaystyle\sum_{k=1}^{n}σ_k^2$，若$∃ δ>0,\dfrac{1}{B_n^{2+δ}}\displaystyle\sum_{k=1}^{n}\mathbb E(|X_k-μ_k|^{2+δ})\to0\quad (n\to∞)$
 则随机变量之和 $Y_n=\displaystyle\sum_{k=1}^{n}X_k$ 的标准化变量
@@ -988,21 +1069,32 @@ $$
 
 # 附录
 
+## 常用数学术语缩写
+
+- **i.e.** 是拉丁语 id est 的缩写，等同于 in other words，意思是那就是说、换句话说，用来进一步解释前面所表明的观点。
+- **e.g.** 是拉丁语 exampli gratia 的缩写，等同于 for example ，例如的意思
+- **r.v.** 是 random variable 的缩写。
+- **s.t.** 是 subject to (such that) 的缩写，表示约束条件。
+- **i.i.d.** 是 independent and identically distributed 的缩写，独立同分布的意思 。
+- **ind.** 是 independent 的简称，独立的意思。
+- **a.s.** 是 almost sure 的缩写，意思是基本确定。概率论中的准确含义是全概率成立，即结论不成立的概率为零。
+- **i.o.** 是 infinitely often 的缩写，不时发生的意思。
+
 ## 常见的离散型随机变量
 
-分布|符号|概率分布 pdf|累积分布函数 cdf|期望 $\mathbb E$| 方差 $\text{var}$ |矩母函数 mgf
-:---|:---|:---|:---|:---|:---|:---
-伯努利分布|$B(1,p)$|$p(1-p)$||$p$|$p(1-p)$|$1-p+pe^t$
-二项分布|$B(n,p)$|$∁^k_np^k(1-p)^{n-k}$$(k=1,2,\cdots,n)$|$\displaystyle\sum_{i=1}^{k} ∁^i_np^i(1-p)^{n-i}$|$np$|$np(1-p)$|$(1-p+pe^t)^n$
-几何分布|$Geom(p)$|$p(1-p)^{k-1}\text{ for }k\in\N$|$1-(1-p)^k$|$\dfrac{1}{p}$|$\dfrac{1-p}{p^2}$|$\dfrac{pe^t}{1-(1-p)e^t}$
-泊松分布|$P(λ)$|$\dfrac{λ^ke^{-λ}}{k!}\text{ for }k\in\N$|$\displaystyle e^{-λ}\sum_{i=0}^{k}\dfrac{λ^i}{i!}$|$λ$|$λ$|$\exp(λ(e^t-1))$
+分布|概率质量函数 pmf|累积分布函数 cdf|期望 $\mathbb E$| 方差 $\text{var}$ |矩母函数 mgf
+:---|:---|:---|:---|:---|:---
+伯努利分布<br>$B(1,p)$|$p(1-p)$||$p$|$p(1-p)$|$1-p+pe^t$
+二项分布<br/>$B(n,p)$|$∁^k_np^k(1-p)^{n-k}$|$\displaystyle\sum_{i=1}^{k} ∁^i_np^i(1-p)^{n-i}$|$np$|$np(1-p)$|$(1-p+pe^t)^n$
+几何分布<br/>$Geom(p)$|$p(1-p)^{k-1}\text{ for }k\in\N$|$1-(1-p)^k$|$\dfrac{1}{p}$|$\dfrac{1-p}{p^2}$|$\dfrac{pe^t}{1-(1-p)e^t}$
+泊松分布<br/>$P(λ)$|$\dfrac{λ^ke^{-λ}}{k!}\text{ for }k\in\N$|$\displaystyle e^{-λ}\sum_{i=0}^{k}\dfrac{λ^i}{i!}$|$λ$|$λ$|$\exp(λ(e^t-1))$
 
 ## 常见的连续型随机变量
 
-分布|符号|概率密度 pdf|累积分布函数 cdf|期望 $\mathbb E$| 方差 $\text{var}$ |矩母函数 mgf
-:---|:---|:---|:---|:---|:---|:---
-均匀分布|$U(a,b)$|$\dfrac{1}{b-a}\text{ for }x\in[a,b]$|$\dfrac{x-a}{b-a}$|$\dfrac{a+b}{2}$|$\dfrac{(b-a)^2}{12}$|$\dfrac{e^{bt}-e^{at}}{t(b-a)}$
-指数分布|$Exp(θ)$|$\frac{1}{θ}e^{-x/θ}\text{ for }x>0$|$1-e^{-x/θ}$|$θ$|$θ^2$|$\dfrac{1}{1-θt}$
-正态分布|$N(μ,σ^2)$|$\dfrac{1}{\sqrt{2π}σ}e^{-\frac{(x-μ)^2}{2σ^2}}\text{ for }μ\in\R,σ>0$||$μ$|$σ^2$|$\exp(μt+\frac{1}{2}σ^2t^2)$
-伽马分布|$Gamma(k,θ)$|$\dfrac{θ^k}{Γ(k)}x^{k-1}e^{-θx}\text{ for }x>0 \\ \displaystyleΓ(k)=\int_0^{∞}x^{k-1}e^{-x}\mathrm{d}x$||$kθ$|$kθ^2$|$(1-θt)^{-k}\text{ for }t<\cfrac{1}{θ}$
+分布|概率密度函数 pdf|累积分布函数 cdf|期望 $\mathbb E$| 方差 $\text{var}$ |矩母函数 mgf
+:---|:---|:---|:---|:---|:---
+均匀分布<br/>$U(a,b)$|$\dfrac{1}{b-a}\text{ for }x\in[a,b]$|$\dfrac{x-a}{b-a}$|$\dfrac{a+b}{2}$|$\dfrac{(b-a)^2}{12}$|$\dfrac{e^{bt}-e^{at}}{t(b-a)}$
+指数分布<br/>$Exp(θ)$|$\frac{1}{θ}e^{-x/θ}\text{ for }x>0$|$1-e^{-x/θ}$|$θ$|$θ^2$|$\dfrac{1}{1-θt}$
+正态分布<br/>$N(μ,σ^2)$|$\cfrac{1}{\sqrt{2π}σ}\exp(-\frac{(x-μ)^2}{2σ^2})$||$μ$|$σ^2$|$\exp(μt+\frac{1}{2}σ^2t^2)$
+伽马分布<br/>$Gamma(k,θ)$|$\dfrac{θ^k}{Γ(k)}x^{k-1}e^{-θx}\text{ for }x>0 \\ \displaystyleΓ(k)=\int_0^{∞}x^{k-1}e^{-x}\mathrm{d}x$||$kθ$|$kθ^2$|$(1-θt)^{-k}\text{ for }t<\cfrac{1}{θ}$
 

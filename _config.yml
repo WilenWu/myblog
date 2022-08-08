@@ -6,7 +6,7 @@
 title: 雷小小的空间
 subtitle: 寄蜉蝣于天地，渺沧海之一粟
 description: 技术博客，记录学习笔记。
-keywords: [大数据, 数学, 物理, Python, R语言]
+keywords: [大数据, 机器学习, 数学, 物理, Python, R语言]
 author: Tiny Lei
 language: zh-CN       # 网站采用语言，与<theme>/languages/zh-CN.yml下的文件名对应
 timezone: ''
