@@ -1,19 +1,18 @@
 ---
 title: 固有洛伦兹变换的严格推导
+categories:
+  - Physics
+  - Appendices
 tags:
   - 物理
   - 相对论
   - 洛伦兹变换
-categories:
-  - 物理
-  - 附录
 description: 根据狭义相对论的两条基本原理来严格推导固有洛伦兹变换
 katex: true
 abbrlink: 55b8eadb
 date: 2022-07-24 18:41:28
-updated:
-top_img:
-cover:
+top_img: /img/韦伯太空望远镜.webp
+cover: /img/Lorentz-cover.png
 ---
 
 在本节中采用四维实坐标。设有两个惯性系$S$和$S'$，同一事件$P$在其中的坐标分别用$(x_0,x_1,x_2,x_3)$和$(x_0',x_1',x_2',x_3')$表示。规定第0坐标是时间分量，即

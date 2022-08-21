@@ -1,11 +1,12 @@
 ---
-title: 大数据手册(Spark)--PySpark 流数据处理
+title: 大数据手册(Spark)--PySpark Streaming
 categories:
-  - 大数据
+  - 'Big Data'
   - Spark
 tags:
   - 大数据
   - Spark
+  - python
   - 数据流
 cover: /img/apache-spark-streaming.png
 top_img: /img/apache-spark-top-img.svg
@@ -13,6 +14,8 @@ abbrlink: 34eba6aa
 date: 2020-01-13 17:48:05
 description: 
 ---
+
+Spark Streaming 是利用 Spark Core 的快速计划功能执行流式分析的实时解决方案。它会提取迷你批处理中的数据，使用为批处理分析编写的相同应用程序代码实现对此类数据的分析。这样一来，开发人员的效率得到改善，因为他们可以将相同代码用于批处理和实时流式处理应用程序。Spark Streaming 支持来自 Twitter、Kafka、Flume、HDFS 和 ZeroMQ 的数据，以及 Spark 程序包生态系统中的其他众多数据。
 
 # Spark Streaming
 

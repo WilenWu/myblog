@@ -111,7 +111,7 @@ Xshell设置默认路径：右键会话 -> 属性 -> ZMODEM -> 接收文件夹
 - 绝对路径必须以`/`开头，相对路径则较短
 - `--help`参数或前面加`man`，获取帮助文档
 
-## 文件和目录常用操作命令
+**常用操作命令**
 
 ls|列出目录
 ---|---
@@ -127,7 +127,6 @@ pwd -P|显示出确实的路径，而非使用连结 (link) 路径
 :---|:---
 mkdir [-mp] dir|创建新目录
 touch [options] files|创建文件
-ln [-s] file link_name|创建链接，参数 s 生产软链接，类似于 Windows 的快捷方式。有利于文件依赖系统的维护等
 **复制文件或目录**|
 cp [options] source1 source2 source3 .... directory|
 参数：<br>-f<br>-i<br>-R|<br>强制复制，若已存在目录则覆盖<br>交互复制<br>递归复制目录
@@ -149,6 +148,10 @@ more file|分页显示
 less file|分页显示
 head [-n number]|显示前number行
 tail [-n number]|显示后number行
+
+## 软链接
+
+`ln [-s] file link_name`  创建链接，参数 s 生产软链接，类似于 Windows 的快捷方式。有利于文件依赖系统的维护等。链接存放在 `/usr/bin/` ，一般也在环境变量 `$PATH$` 中加载。
 
 ## Linux文件权限
 
@@ -388,23 +391,28 @@ a, b, c,...|分别在a, b, c,... 时间执行
 0 6-12/3 * 12 * cd /usr/bin/ && sh backup > log 2>&1 & #12月每天6-12点每隔3小时执行一次backup
 ```
 
-## Linux系统自定义shell命令（以pycharm为例）
+## Linux系统自定义shell命令
 
 ```bash
-#打开配置文件
+# 以 pycharm 为例
+# 打开配置文件
 sudo vim ~/.bashrc   
-#添加pycharm.sh所在的路径
+# 添加pycharm.sh所在的路径
 alias pycharm = "bash /download/pycharm-community-2018.1.4/bin/pycharm.sh"
-#重新加载
+# 重新加载
 source ~/.bashrc 
-#运行
+# 运行
 pycharm
 ```
 
-## shell中的参数传入R或Python脚本
+## 环境变量
 
-[shell中调用R语言并传入参数的两种方法](https://blog.csdn.net/crystal_tyan/article/details/42214339)
-[Python中 sys.argv的用法简明解释](https://www.cnblogs.com/aland-1415/p/6613449.html)
+在linux中PATH是系统的环境变量，它指的是所有链接库所在的路径，这些链接库都是我们的系统能够调用的。shell 会优先调用PATH中靠前的链接。
+
+一般在两个文件中修改环境变量：以 spark 为例
+
+- 在 `/etc/profile` 文件中添加 `export PATH="$PATH:/opt/spark-3.1.1-bin-hadoop3.2/bin"`
+- 在 `~/.profile` 文件中添加 `export PATH="$PATH:/opt/spark-3.1.1-bin-hadoop3.2/bin"`
 
 ## [Ubuntu下JDK和openJDK](https://blog.csdn.net/z5234032/article/details/62886879)
 

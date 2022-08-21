@@ -10,7 +10,7 @@ cover: /img/matplotlib-top.jpeg
 top_img: /img/matplotlib-cover.svg
 abbrlink: f347fe66
 date: 2018-05-20 15:52:03
-scription: 是一个 Python 的 2D绘图库
+description: Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python
 ---
 
 [Matplotlib][mt] 是一个Python 2D绘图库，它可以在各种平台上以各种硬拷贝格式和交互式环境生成出具有出版品质的图形。 Matplotlib可用于Python脚本，Python和IPython shell，Jupyter笔记本，Web应用程序服务器和四个图形用户界面工具包

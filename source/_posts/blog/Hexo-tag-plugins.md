@@ -1,7 +1,7 @@
 ---
 title: Hexo标签插件的使用
 categories:
-  - 博客搭建
+  - Blog
 tags:
   - Hexo
 cover: /img/hexo-tag-plugins.png

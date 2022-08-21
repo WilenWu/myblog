@@ -74,8 +74,6 @@ emoji: heart
 
 # Anaconda
 
-## 简介
-
 Anaconda 是一个用于科学计算的 Python 发行版，支持 Linux, Mac, Windows, 包含了众多流行的科学计算、数据分析的 Python 包，还自带Spyder和Jupyter Notebook等IDE，不需要配置系统路径，安装后可直接运行。
 
 > 清华大学开源软件镜像站 [下载链接](https://mirror.tuna.tsinghua.edu.cn/help/anaconda/ )，下载速度快。
@@ -90,45 +88,78 @@ Anaconda作为管理平台，包含以下应用程序：
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/Anaconda-Navigator.png)
 
-## 包管理
+# 包管理
 
-| conda (shell command)             | conda将conda、python等都视为package |
+## pip
+
+pip 是一个现代的，通用的 Python 包管理工具。提供了对 Python 包的查找、下载、安装、卸载的功能。pip 已内置于 Python 3.4 和 2.7 及以上版本，其他版本需另行安装。
+
+| shell 命令                         | 说明           |
+| :--------------------------------- | :------------- |
+| pip install package_name           | 导入包         |
+| pip install --upgrade package_name | 更新包         |
+| pip uninstall package_name         | 卸载包         |
+| pip list                           | 列出已安装的包 |
+
+## conda
+
+Miniconda是一款小巧的python环境管理工具，安装包大约只有50M多点，其安装程序中包含conda软件包管理器和Python。一旦安装了Miniconda，就可以使用conda命令安装任何其他软件工具包并创建环境等。
+
+**下载安装**
+
+```shell
+wget -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+
+**添加镜像源**
+
+```shell
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+```
+
+| shell 命令     | 说明 |
 | --------------------------------- | ----------------------------------- |
 | conda list                        | 查看已经安装的包                    |
 | conda install package_name        | 导入包                              |
 | conda update package_name         | 更新包                              |
+| conda remove package_name | 删除包 |
 | conda search package_name         | 查找package信息                     |
-| conda update python               | 更新python                          |
-| conda update anaconda             | 更新anaconda                        |
-| **pip**                           |                                     |
-| pip install package_name           | 导入包                              |
-| pip install --upgrade package_name | 更新包                              |
 
+conda将conda、python等都视为package
+
+```shell
+# 更新conda
+conda update conda
+# 更新python，假设当前环境是python 3.4, conda会将python升级为3.4.x系列的当前最新版本
+conda update python
+```
 
 # Jupyter Notebook
 
 Jupyter Notebook（此前被称为 IPython notebook）是一个交互式笔记本，支持运行 40 多种编程语言。
 
-Jupyter Notebook 的本质是一个 Web 应用程序，便于创建和共享文学化程序文档，支持实时代码，数学方程，可视化和 markdown。 用途包括：数据清理和转换，数值模拟，统计建模，机器学习等等.
+Jupyter Notebook 的本质是一个 Web 应用程序，便于创建和共享文学化程序文档，支持实时代码，数学方程，可视化和 markdown。 用途包括：数据清理和转换，数值模拟，统计建模，机器学习等等。
 
-> **Tips:**
-> [最详尽使用指南：超快上手Jupyter Notebook](https://blog.csdn.net/datacastle/article/details/78890469)
-> [Jupyter Notebook修改默认工作目录](https://blog.csdn.net/u014552678/article/details/62046638)
-> [3步实现Jupyter Notebook直接调用R](https://blog.csdn.net/blackrosetian/article/details/77939295)
-> [用jupyter notebook同时写python 和 R](https://blog.csdn.net/vincentluo91/article/details/76832264)
+**下载安装**
 
-## 安装和使用
+可以使用pip 或 conda安装
 
-可以使用pip、conda安装Jupyter Lab
-
-```sh
+```bash
 pip install notebook
 conda install -c conda-forge notebook
 ```
 
 安装后可以在命令行使用 `jupyter notebook` 运行
 
-## 快捷键
+**修改默认工作目录**
+
+1. 命令行输入 `jupyter notebook --generate-config`  生成配置文件
+2. 打开配置文件 `vi ~/.jupyter/jupyter_notebook_config.py`
+3. 在配置文件中找到 c.NotebookApp.notebook_dir 配置工作目录
+
+**快捷键**
 
 | 快捷键      | 说明            |
 | ----------- | --------------- |
@@ -142,7 +173,7 @@ conda install -c conda-forge notebook
 | Ctrl+H      | 快捷键帮助      |
 | Shift+M     | 合并选中的cells |
 
-## 魔术命令
+**魔术命令**
 
 1. Magic 关键字是可以在单元格中运行的特殊命令，能让你控制 notebook 本身或执行系统调用（例如更改目录）。
 2. Magic 命令的前面带有一个或两个百分号（% 或 %%），分别对应行 Magic 命令和单元格 Magic 命令。行 Magic 命令仅应用于编写 Magic 命令时所在的行，而单元格 Magic 命令应用于整个单元格。
@@ -171,7 +202,7 @@ JupyterLab是Jupyter主推的最新数据科学生产工具，某种意义上，
 
 JupyterLab作为一种基于web的集成开发环境，你可以使用它编写notebook、操作终端、编辑markdown文本、打开交互模式、查看csv文件及图片等功能。
 
-你可以使用pip、conda安装Jupyter Lab
+你可以使用pip或conda安装
 ```sh
 pip install jupyterlab
 conda install -c conda-forge jupyterlab

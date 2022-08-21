@@ -508,17 +508,17 @@ case 401 | 403 | 404:
 
 | **输入输出**  |  |
 | :--- | :--- |
-| input(prompt)  | 输入 |
-| print(values,sep=' ',end='\n') | 输出 |
+| input(prompt=None) | 输入 |
+| print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False) | 输出 |
 
 | **数学函数**  |  |
 | :--- | :--- |
-| round(x,n)  | 四舍五入  |
+| round(number, ndigits=None) | 四舍五入  |
 | abs(x)  |  |
 | len(obj)  | 序列元素数  |
 | max(obj)  |  |
 | min(obj)  |  |
-| pow()  |  |
+| pow(base, exp, mod=None) |  |
 | divmod(a,b)  | 返回元组(a // b, a % b)  |
 | hex(x)  | 10进制转16进制，以字符表示（0x开头的格式，如0x10） |
 | int(x, base=10)  | 用于将一个字符串或数字转换为整型，默认十进制  |
@@ -934,11 +934,18 @@ Traceback (most recent call last):
 NameError: HiThere
 ```
 
-# 模块
+# 导入模块
 
 ```python
- import some_module #导入整个模块 
- from some_module import func1,func2  #从某个模块中导入多个函数 
- from some_module import *  #将某个模块中的全部函数导入
- dir(some_module) #列出模块里的函数 
+# 以 numpy 包为例 
+ 
+# 导入整个模块
+import numpy as np 
+# 导入多个子模块
+from numpy import array, arrange  
+# 导入全部子模块
+from numpy import * 
+
+# 列出模块里的函数
+dir(np)
 ```

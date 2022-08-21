@@ -1,7 +1,7 @@
 ---
 title: NexT主题配置
 categories:
-  - 博客搭建
+  - Blog
 tags:
   - Hexo
 cover: /img/hexo-next-theme.png

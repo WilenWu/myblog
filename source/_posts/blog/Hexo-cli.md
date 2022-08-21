@@ -1,7 +1,7 @@
 ---
 title: Hexo5博客搭建及配置
 categories:
-  - 博客搭建
+  - Blog
 tags:
   - Hexo
 cover: /img/hexo-cover.png

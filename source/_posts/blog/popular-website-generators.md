@@ -1,7 +1,7 @@
 ---
 title: 主流的博客框架及部分主题
 categories: 
-  - 博客搭建
+  - Blog
 tags:
   - Hexo
   - Jekyll

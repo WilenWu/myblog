@@ -1,7 +1,7 @@
 ---
 title: 建立博客时踩过的坑
 categories:
-  - 博客搭建
+  - Blog
 tags:
   - Hexo
 cover: /img/hexo-debug-cover.png

@@ -72,6 +72,9 @@ echo ${str:4} #输出 ng
 string="hello,shell,split,test"  
 array=(${string//,/ })
 
+# 查看环境变量
+echo -e "${PATH//:/\\n}"
+
 partitions=(`hive -e "show partitions employee;"`)
 for partition in partitions
   do

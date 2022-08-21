@@ -1,7 +1,7 @@
 ---
 title: Hexo的Git部署插件
 categories:
-  - 博客搭建
+  - Blog
 tags:
   - Hexo
 cover: /img/hexo-deployer-cover.png

@@ -6,7 +6,7 @@ tags:
 categories:
   - Python
   - General
-cover: /img/pypi.svg
+cover: /img/Object-Oriented-in-Python.jpg
 abbrlink: 79a9fda5
 date: 2018-06-23 20:12:35
 top_img: /img/python-top-img.svg

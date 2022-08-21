@@ -447,5 +447,28 @@ poly.fit_transform(X)
 ##  概率校准(sklearn.calibration)
 CalibratedClassifierCV
 
+# 附录
 
+## 决策树可视化
+
+```python
+from sklearn.datasets import load_iris
+from sklearn import tree
+from IPython.display import Image
+import pydotplus
+
+iris = load_iris()
+# 训练模型
+clf = tree.DecisionTreeClassifier(max_depth = 5)
+clf.fit(iris.data, iris.target)
+# 绘制决策树
+dot_data = tree.export_graphviz(clf, 
+                 feature_names = iris.feature_names, 
+                 class_names = iris.target_names, 
+                 filled=True)
+graph = pydotplus.graph_from_dot_data(dot_data)
+Image(graph.create_png())
+```
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/Decision-Tree.png" style="zoom:67%;" />
 

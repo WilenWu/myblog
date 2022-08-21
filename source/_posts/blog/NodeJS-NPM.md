@@ -1,7 +1,7 @@
 ---
 title: NPM简单使用
 categories:
-  - 博客搭建
+  - Blog
 tags:
   - npm
 cover: /img/npm-cover.png

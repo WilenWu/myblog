@@ -9,7 +9,7 @@ header_color: true
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/bookshelf.jpg)
 
-本人依据个人爱好、工作需要等制定了一份详细的学习计划。依据本「指南」在博客不定时更新学习笔记，尝试用费曼学习法深刻理解所学的知识。
+本人依据个人爱好和工作需要制定了一份详细的学习计划。依据本「指南」在博客不定时更新学习笔记，尝试用费曼学习法深刻理解所学的知识。
 
 <!-- more -->
 
@@ -31,7 +31,7 @@ header_color: true
 - :white_large_square: [电子书文件格式](/posts/4fd8493d/)
 - :ballot_box_with_check: [Git 快速参考指南](/posts/f48f437a/)
 
-# 标记语言
+# Markup Language
 
 - :heart: [标记语言概览](/posts/2957012b/)
 - :ballot_box_with_check: [GitHub Flavored Markdown 规范](/posts/b6db1d88/)
@@ -40,12 +40,12 @@ header_color: true
 - :white_large_square: [YAML 基础语法](/posts/6ab72750/)
 - :heart: [SVG 入门教程](/posts/c18c7e9b/): SVG是一种开放标准的矢量图形语言，基于XML标记语言
 
-- :heart: HTML
-- :heart: XML
-- :heart: JavaScript
+- :heart: HTML: 是一种用于创建网页的标准标记语言。
+- :heart: XML:  指可扩展标记语言，被设计用来传输和存储数据。
+- :heart: JavaScript: 是一种属于网络的高级脚本语言。
 - :heart: [Chart.js](https://chartjs.bootcss.com/): 为设计和开发人员准备的简单、灵活的 JavaScript 图表工具
 
-# 博客搭建
+# Blog
 
 - :ballot_box_with_check: [Hexo5博客搭建及配置](/posts/a31c2363/)
 - :ballot_box_with_check: [Hexo标签插件的使用](/posts/a41fa65b/)
@@ -57,13 +57,21 @@ header_color: true
 - :ballot_box_with_check: [主流的博客框架及部分主题](/posts/9e8cfeb8/)
 - :ballot_box_with_check: [Hexo 博客魔改优化方法](/posts/18fbd3bc/)
 
-# 机器学习
+# Artificial Intelligence
 
 ## Machine Learning
+- :ballot_box_with_check: [机器学习--无监督学习](/posts/43ce4abf/)
+- :ballot_box_with_check: [机器学习--时间序列分析](/posts/52f10172/)
+- :ballot_box_with_check: [机器学习--监督学习](/posts/3c1747d9/)
+- :ballot_box_with_check: [机器学习--半监督学习](/posts/6f17ebe2/): 机器学习算法导论
+- :ballot_box_with_check: [机器学习--强化学习](/posts/ac8a28f3/)
+- :ballot_box_with_check: [机器学习--探索数据](/posts/8638abf9/)
+- :ballot_box_with_check: [机器学习--集成学习](/posts/aaff9a95/)
+- :ballot_box_with_check: [机器学习--降维](/posts/8025f3/)
+- :ballot_box_with_check: [机器学习--数据预处理](/posts/5faa8f40/)
+- :ballot_box_with_check: [机器学习--模型选择与评估](/posts/cc734464/)
 
-- :ballot_box_with_check: [模型评估与选择](/posts/cc734464/)
-- :ballot_box_with_check: [数据分析导论](/posts/a8e1c23e/): 基础的数据分析方法
-- :ballot_box_with_check: 机器学习
+
 
 ## Deep Learning
 
@@ -71,10 +79,12 @@ header_color: true
 - :ballot_box_with_check: TensorFlow
 - :ballot_box_with_check: Keras
 
-## 附录
-- :ballot_box_with_check: [优化](/posts/b0a72714/): 优化是找出函数的最大值或最小值的方法
+## Appendices
 
-# 大数据
+- :ballot_box_with_check: [优化](/posts/b0a72714/): 优化是找出函数的最大值或最小值的方法
+- :ballot_box_with_check: [信息论](/posts/8a8bfa9b/)
+
+# Big Data
 
 ## Hadoop
 
@@ -83,28 +93,36 @@ header_color: true
 - :white_large_square: [Hadoop生态概述及常见报错](/posts/c5386d49/)
 - :white_large_square: Apache-Sqoop
 - :white_large_square: Apache-Kylin
+- :heart: [Apache-Flink](https://flink.apache.org/zh/): 数据流上的有状态计算
+- :ballot_box_with_check: [Presto 简介](/posts/b33c6284/)
 
 ## Hive
 
 - :white_large_square: Hive安装配置
 - :ballot_box_with_check: [Hive基础知识](https://blog.csdn.net/zhongqi2513/article/details/69388239)
-- :ballot_box_with_check: [Oracle SQL](/posts/5122306f/)
-- :ballot_box_with_check: [HiveQL](/posts/297bd708/)
-
+- :ballot_box_with_check: [HiveQL(Introduction)](/posts/e6bd78c5/): Hive 命令、数据类型和常用函数
+- :ballot_box_with_check: [HiveQL(DQL)](/posts/297bd708/): 数据查询语言(Data Query Language, DQL）：用以从表中获得数据，包括 SELECT，WHERE，ORDER BY，GROUP BY和HAVING等。
+- :ballot_box_with_check: [HiveQL(DML)](/posts/d2c808ff/): 数据操作语言(Data Manipulation Language, DML）：其语句包括动词 INSERT、UPDATE、DELETE。它们分别用于添加、修改和删除。
 
 ## Spark
 
-- :ballot_box_with_check: [Spark安装配置](/posts/d02a6da3/)
-- :ballot_box_with_check: [Spark 基础知识（一）](/posts/32722c50/)
-- :ballot_box_with_check: [Spark 基础知识（二）](/posts/264c088/)
-- :heart: scala: spark 基础语言
-- :heart: sparklyr: 来自RStudio的Apache Spark的R接口，提供dplyr后端
-- :ballot_box_with_check: [PySpark 机器学习](/posts/75974533/)
-- :ballot_box_with_check: [PySpark 流数据处理](/posts/34eba6aa/)
-- :white_large_square: [Akka](https://blog.csdn.net/lovehuangjiaju/article/details/51039985): Akka并发编程
+- :ballot_box_with_check: [Spark 简介](/posts/32722c50/)
+- :ballot_box_with_check: [PySpark Core](/posts/264c088/)
+- :ballot_box_with_check: [PySpark MLlib](/posts/75974533/)
+- :ballot_box_with_check: [PySpark Streaming](/posts/34eba6aa/)
+- :ballot_box_with_check: [PySpark SQL](/posts/bb755aa3/)
+- :ballot_box_with_check: [Pandas API on Spark](/posts/f67b0909/)
+- :heart: Scala: spark 基础语言
 
+## Oracle
 
-# Python手册
+- :ballot_box_with_check: [Oracle SQL(Introduction)](/posts/eb28907e/)
+- :ballot_box_with_check: [Oracle SQL(DQL)](/posts/5122306f/): 数据查询语言(Data Query Language, DQL）：用以从表中获得数据，包括 SELECT，WHERE，ORDER BY，GROUP BY和HAVING等。
+- :ballot_box_with_check: [Oracle SQL(TCL)](/posts/6c7e4677/): 事务控制语言(Transaction Control Language, TCL)：它的语句能确保被DML语句影响的表的所有行及时得以更新。包括COMMIT（提交）命令、SAVEPOINT（保存点）命令、ROLLBACK（回滚）命令。
+- :ballot_box_with_check: [Oracle SQL(DML)](/posts/36f93ce2/): 数据操作语言(Data Manipulation Language, DML）：其语句包括动词 INSERT、UPDATE、DELETE。它们分别用于添加、修改和删除。
+- :ballot_box_with_check: [Oracle SQL(DDL)](/posts/3928076d/): 数据定义语言(Data Definition Language, DDL)：其语句包括动词CREATE、ALTER和DROP。
+
+# Python
 
 本手册所列包来自[Awesome-Python](https://awesome-python.com/) ，结合[GitHub](https://github.com/) 和官方文档。 
 
@@ -117,10 +135,12 @@ header_color: true
 - :ballot_box_with_check: [Python Cookbook 3rd](https://python3-cookbook-personal.readthedocs.io/zh_CN/latest/): Python3 魔术语法
 - :white_large_square: [RPy2](/posts/1b0d2d38/): Python 通过rpy2调用 R语言
 - :white_large_square: [shortuuid](https://github.com/skorokithakis/shortuuid): 基于时间戳,、随机数等生成简单的唯一ID
+- :white_large_square: [rich](https://pypi.org/project/rich/): 用于将富文本、表格、进度条、语法高亮、markdown 等写入终端。
+- :ballot_box_with_check: [Progress Bars with Python](/posts/6fe4228f/): 在Python中实现进度条
 
 ## Standard Library
 
-- :ballot_box_with_check: [string](/posts/64b738be/): Python3 字符串方法和格式化
+- :ballot_box_with_check: [string](/posts/64b738be/): Python3 字符串方法和格式化输出
 - :ballot_box_with_check: [日期时间模块](/posts/592885c8/): 日基础包：datetime, time, calendar
 - :ballot_box_with_check: [数学模块](/posts/bb46152f/): 基础包：math, random
 - :ballot_box_with_check: [re](/posts/cb9fa048/): re 模块使 Python 语言拥有全部的正则表达式功能。
@@ -163,12 +183,13 @@ The Website is the API(Application Programming Interface, 应用程序接口)...
 
 ## Visualise
 
-- :ballot_box_with_check: [matplotlib](/posts/f347fe66/)
+- :ballot_box_with_check: [matplotlib](/posts/f347fe66/): Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python
 - :ballot_box_with_check: [seaborn](/posts/49513cf1/): 基于matplotlib封装的数据可视化库
 - :white_large_square: bqplot: Jupyter Notebook的交互式绘图库
 - :white_large_square: bokeh: 用 Python 进行交互式 web 绘图。
 - :white_large_square: plotly: 协同 Python 和 matplotlib 工作的 web 绘图库。
 - :white_large_square: pyecharts: 基于百度 Echarts 的数据可视化库。
+- :heart:  [dtreeviz](https://github.com/parrt/dtreeviz) : A python library for decision tree visualization and model interpretation.
 
 ## Machine Learning
 
@@ -211,7 +232,7 @@ Natural Language Processing(自然语言处理)
 
 ------
 
-# R手册
+# R
 
 本手册所列包基本来自[AwesomeR](https://github.com/qinwf/awesome-R#2020) ，结合[GitHub](https://github.com/)和`help(package="pk_name")`官方文档整理所得，有助于使用时下最实用的包对R进行深入的学习。    
 
@@ -364,50 +385,50 @@ Natural Language Processing(自然语言处理)
 
 ------
 
-# 数学
+# Mathematics
 
 [Awesome Math](https://github.com/rossant/awesome-math): A curated list of awesome mathematics resources.
 
-## 数学分析
+## Mathematical Analysis 
 
 - :ballot_box_with_check: [数学分析(一)](/posts/e6ee81b3/): 实数集合、极限、一元函数微分、不定积分、定积分
 - :ballot_box_with_check: [数学分析(二)](/posts/49df1ad1/): 多元函数微积分，重积分、曲线积分和曲面积分、场论初步
 - :ballot_box_with_check: [数学分析(三)](/posts/372c3afa/): 无穷级数、幂级数、傅里叶级数、三角级数
 - :ballot_box_with_check: [空间解析几何](/posts/c1a88ebe/): 向量代数和空间解析几何
 
-## 统计学
+## Statistics
 
 - :ballot_box_with_check: [概率论与数理统计(上册)](/posts/304d9389/): 概率论
 - :ballot_box_with_check: [概率论与数理统计(下册)](/posts/d2dba39/): 数理统计
-- :white_large_square: 多元统计分析
+- :heart: 多元统计分析
 
-## 复分析
+## Complex Analysis
 
 - :ballot_box_with_check: [复变函数和积分变换(一)](/posts/501a1a66/): 复变函数、解析函数、积分
 - :ballot_box_with_check: [复变函数和积分变换(二)](/posts/ff2b8104/): 级数、留数、共形映射
 - :ballot_box_with_check: [复变函数和积分变换(三)](/posts/81d8a12f/): 傅里叶变换、拉普拉斯变换
 
-## 常微分方程
+## Ordinary Differential Equation
 
 - :ballot_box_with_check: [常微分方程(一)](/posts/1d08ba54/): 一阶常微分方程
 - :ballot_box_with_check: [常微分方程(二)](/posts/b2392136/): 高阶常微分方程
 - :ballot_box_with_check: [常微分方程(三)](/posts/ccca011d/): 一阶线性常微分方程组
 - :ballot_box_with_check: [常微分方程(四)](/posts/3689ee12/): 非线性微分方程、定性理论、边值问题
 
-## 偏微分方程
+## Partial Differential Equations
 
 - :ballot_box_with_check: [偏微分方程(一)](/posts/644684db/): （拟）线性偏微分方程、定解问题、分离变量法
 - :ballot_box_with_check: [偏微分方程(二)](/posts/cb771fb9/): 球函数、柱函数
 - :ballot_box_with_check: [偏微分方程(三)](/posts/b5843f92/): 积分变换法、基本解和格林函数
 - :ballot_box_with_check: [偏微分方程(四)](/posts/4fc7d09d/): 变分法、非线性偏微分方程
 
-## 高等代数
+## Advanced Algebra
 
 - :ballot_box_with_check: [线性代数](/posts/c23efd5b/): 矩阵，行列式，向量空间，二次型，线性变换
 - :white_large_square: 多项式代数
 - :ballot_box_with_check: [矩阵微积分](/posts/99273c32/)
 
-## 现代数学
+## Modern Mathematics
 
 - :ballot_box_with_check: [抽象代数](AbstractAlgebra): (又称近世代数) 群论、环论、伽罗瓦理论等
 
@@ -416,19 +437,18 @@ Natural Language Processing(自然语言处理)
 - :heart: [一般拓扑学](GeneralTopology): 也称点集拓扑学，主要研究拓扑空间以及定义在其上的数学结构的基本性质
 - :white_large_square: 微分拓扑: 微分流形和可微映射
 
-## 微分几何
+## Differential Geometry
 
 - :heart: [微分几何初步](DifferentialGeometry): 包括曲线和曲面论、外微分形式和活动标架、黎曼几何
 - :ballot_box_with_check: 《张量分析》: (黄克智) 是微分几何中研究张量场的微分运算的一个分支。张量分析是用共变微分表示各种几何量和微分算子性质的运算方法，可以看作是微分流形上的“微分法”，是研究流形上的几何和分析的一种重要工具。
 
-## 附录
+## Appendices
 
 - :ballot_box_with_check: [经典数学公式](/posts/375d0704/)
 - :ballot_box_with_check: [几种常用的曲线](/posts/7020ba93/)
 - :ballot_box_with_check: [δ 函数简介](/posts/3dc94f84/)
 
-
-# 物理
+# Physics
 
 [Awesome Physics](https://github.com/wbierbower/awesome-physics): 🌌 A collaborative list of awesome software for exploring Physics concepts. Feel free to contribute!
 
@@ -456,6 +476,6 @@ Natural Language Processing(自然语言处理)
 - :ballot_box_with_check: 量子引力: 想要把广义相对论量子化，进而统一包括引力在内的四种基本力。当前主流尝试理论有弦理论/超弦理论/M理论、超引力、圈量子引力、扭量理论等。
 - :white_large_square: 凝聚态物理: 是研究凝聚态物质的物理性质与微观结构以及它们之间的关系。
 
-## 附录
+## Appendices
 - :ballot_box_with_check: [固有洛伦兹变换的严格推导](/posts/55b8eadb/): 根据狭义相对论的两条基本原理来严格推导固有洛伦兹变换
 

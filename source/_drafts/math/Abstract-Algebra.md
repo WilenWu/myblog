@@ -4,6 +4,8 @@ date:
 updated:
 tags:
 categories:
+  - Mathematics
+  -  Modern Mathematics
 cover:
 top_img: '#66CCFF'
 description:

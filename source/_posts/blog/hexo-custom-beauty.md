@@ -2,7 +2,7 @@
 title: Hexo 博客魔改优化方法
 date: 2022-03-06 14:26:06
 categories:
-  - 博客搭建
+  - Blog
 tags:
   - Hexo
 cover: /img/blogging-relevant-anymore.webp

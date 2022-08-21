@@ -113,6 +113,14 @@
       link: https://www.latexlive.com/
       avatar:  /img/MommyTalk.webp
       descr: LaTeX公式编辑器
+    - name: 文字在线识别工具
+      link: https://ocr.wdku.net/
+      avatar: /img/textconv-logo.png
+      descr: 提供图像文字识别，pdf文字识别
+    - name: Overleaf
+      link: https://cn.overleaf.com/
+      avatar: /img/overleaf_og_logo.png
+      descr: 在线LaTeX编辑器
 
 - class_name: 参考教程
   class_desc: 每天进步一点点
