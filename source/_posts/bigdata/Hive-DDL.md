@@ -10,7 +10,7 @@ tags:
 cover: /img/apache-hive-ddl.png
 top_img: /img/apache-hive-bg.png
 description: '数据定义语言(Data Definition Language, DDL)：其语句包括动词CREATE、ALTER和DROP。'
-abbrlink: d2c808ff
+abbrlink: dd193370
 date: 2018-07-03 17:57:36
 ---
 

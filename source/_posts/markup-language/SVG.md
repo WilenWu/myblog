@@ -41,7 +41,7 @@ SVG文件有两种形式。普通SVG文件是包含SVG标记的简单文本文�
 
 所有的主流浏览器都将支持SVG：Internet Explorer 9、Mozilla Firefox、Safari、Google Chrome和Opera。基于Webkit的移动设备浏览器（主要是指iOS和Android），都支持SVG。在较老或者较小的设备上，一般支持SVG Tiny。
 
-- SVG 图像可以通过使用矢量图形编辑器来生成，开源软件有 [Inkscape](https://www.inkscape.org/) <img src="https://media.inkscape.org/static/images/inkscape-logo.svg" height="30" />、Scribus、Karbon14 、Sodipodi 以及 [Apache Batik](https://xmlgraphics.apache.org/batik/) 工具集等
+- SVG 图像可以通过使用矢量图形编辑器来生成，开源软件有 [Inkscape](https://www.inkscape.org/) {% inlineImg https://media.inkscape.org/static/images/inkscape-logo.svg 20px %}、Scribus、Karbon14 、Sodipodi 以及 [Apache Batik](https://xmlgraphics.apache.org/batik/) 工具集等</p>
 - 商用编辑工具有 Adobe Illustrator、Adobe Flash Professional 或 CorelDRAW
 - 也有开放源码，功能简单但容易操作，免安装的在线SVG设计工具，例如 [SVG-Edit](https://github.com/SVG-Edit/svgedit) ，[SVG 菜鸟在线编辑器（国内）](https://c.runoob.com/more/svgeditor/) 和 [Figma: the collaborative interface design tool.](https://www.figma.com/)
 - 在移动设备上的软件有安卓的 PainterSVG

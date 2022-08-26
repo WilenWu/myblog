@@ -103,6 +103,7 @@ header_color: true
 - :ballot_box_with_check: [HiveQL(Introduction)](/posts/e6bd78c5/): Hive 命令、数据类型和常用函数
 - :ballot_box_with_check: [HiveQL(DQL)](/posts/297bd708/): 数据查询语言(Data Query Language, DQL）：用以从表中获得数据，包括 SELECT，WHERE，ORDER BY，GROUP BY和HAVING等。
 - :ballot_box_with_check: [HiveQL(DML)](/posts/d2c808ff/): 数据操作语言(Data Manipulation Language, DML）：其语句包括动词 INSERT、UPDATE、DELETE。它们分别用于添加、修改和删除。
+- :ballot_box_with_check: [HiveQL(DDL)](/posts/dd193370/): 数据定义语言(Data Definition Language, DDL)：其语句包括动词CREATE、ALTER和DROP。
 
 ## Spark
 

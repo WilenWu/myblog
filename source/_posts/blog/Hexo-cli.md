@@ -157,3 +157,13 @@ Hexo 有强大的插件系统，使您能轻松扩展功能而不用修改核心
    
    这里建议用户名和邮箱与你的 GitHub 用户名和邮箱保持 一致。每次 Git 提交时都会附带这两条信息，用于记录是 谁提交的更新，并且会随更新内容一起被记录到历史记录 中。简单说，是用来标记的你的身份的～
 
+## Hexo命令设置别名
+
+打开安装的Git文件夹，在文件夹中搜索.bashrc文件，也可以循着路径找，默认路径是C:\Program Files\Git\etc\bash.bashrc，找到后在文档末尾添加快捷命令：
+
+```shell
+alias hc='hexo clean && python ./demo.py'
+alias gp='git add . && git commit -m "update" && git push -f'
+```
+
+以管理员身份保存后，重新打开git命令行即可使用快捷命令。
