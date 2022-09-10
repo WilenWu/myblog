@@ -178,6 +178,8 @@ conda install -c conda-forge notebook
 1. Magic 关键字是可以在单元格中运行的特殊命令，能让你控制 notebook 本身或执行系统调用（例如更改目录）。
 2. Magic 命令的前面带有一个或两个百分号（% 或 %%），分别对应行 Magic 命令和单元格 Magic 命令。行 Magic 命令仅应用于编写 Magic 命令时所在的行，而单元格 Magic 命令应用于整个单元格。
 
+
+
 | magic              | 说明                                                         |
 | ------------------ | :----------------------------------------------------------- |
 | %quickref          | 显示IPython的快速参考                                        |
@@ -189,7 +191,8 @@ conda install -c conda-forge notebook
 | %cpaste            | 打开一个特殊提示符以便手工粘贴待执行的Python代码             |
 | %reset             | 删除interactive命名空间中的全部变量/名称                     |
 | %page              | 通过分页器打印输出OBJECT                                     |
-| %run               | 在IPython中执行一个Python脚本文件(Python解释器:$ python)     |
+| %run               | 执行一个Python脚本文件(.py)                                  |
+| %load              | 导入Python脚本文件(.py)源码                                  |
 | %prunstatement     | 通过cProfile执行statement，并打印分析器的输出结果            |
 | %timestatement     | 报告statement的执行时间                                      |
 | %timeitstatement   | 多次执行statement以计算系综平均执行时间。对那些执行时间非常小的代码很有用 |

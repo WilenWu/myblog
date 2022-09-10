@@ -400,3 +400,56 @@ Dcab       ==>       7678
 '2010-07-04 12:15:58'
 ```
 
+# Linux终端ANSI控制码
+
+
+```python
+print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+
+Prints the values to a stream, or to sys.stdout by default.
+Optional keyword arguments:
+file:  a file-like object (stream); defaults to the current sys.stdout.
+sep:   string inserted between values, default a space.
+end:   string appended after the last value, default a newline.
+flush: whether to forcibly flush the stream.
+```
+
+|ANSI控制码|说明|
+|:---|:---|
+|`\033[0m` | 关闭所有属性 |
+|`\033[1m` | 设置高亮度 |
+|`\03[4m` |下划线 |
+|`\033[5m` |闪烁 |
+|`\033[7m` |反显 |
+|`\033[8m` |消隐 |
+|`\033[30m`  ~ `\033[37m` |设置字体颜色 |
+|`\033[40m` ~  `\033[47m` |设置背景色 |
+|`\033[nA` |光标上移n行，清除光标后内容 |
+|`\03[nB` |光标下移n行 |
+|`\033[nC` |光标右移n行 |
+|`\033[nD` |光标左移n行 |
+|`\033[nF` |光标上移n行，保留光标后内容 |
+|`\033[y;xH`|设置光标位置 |
+|`\033[2J` |清屏 |
+|`\033[K` |清除从光标到行尾的内容 |
+|`\033[s` |保存光标位置 |
+|`\033[u` |恢复光标位置 |
+|`\033[?25l` |隐藏光标 |
+|`\33[?25h` | 显示光标|
+
+设置前字体颜色或者背景色的控制码中中间的数字代表不同的颜色
+
+|40~47|背景色| 30~37 |文字颜色|
+|---:|:---|---:|:---|
+|40 | 黑      | 30 | 黑  |
+|41 | 红      | 31 | 红  |
+|42 | 绿      | 32 | 绿  |
+|43 | 黄      | 33 | 黄  |
+|44 | 蓝      | 34 | 蓝  |
+|45 | 紫      | 35 | 紫  |
+|46 | 深绿    | 36 | 深绿|
+|47 | 白色    | 37 | 白色|
+
+比如需要输出灰底红色带有下划线的"你好"
+格式: `\033[44;31m\033[4m你好\033[0m`
+说明:  一共有3个控制串: `\033[44;31m` (灰底红色字),  `\033[4m`(下划线), `\033[0m`(关闭所有设置)

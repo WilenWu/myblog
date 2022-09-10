@@ -146,8 +146,8 @@ header_color: true
 - :ballot_box_with_check: [数学模块](/posts/bb46152f/): 基础包：math, random
 - :ballot_box_with_check: [re](/posts/cb9fa048/): re 模块使 Python 语言拥有全部的正则表达式功能。
 - :heart: [tkinter](http://www.runoob.com/python/python-gui-tkinter/): Python 的标准 GUI 库
-- :white_large_square: [threading](http://www.runoob.com/python3/python3-multithreading/): 多线程
-- :white_large_square: [multiprocessing](http://python.jobbole.com/87760/): 多进程
+- :white_large_square: [threading](https://docs.python.org/zh-cn/3/library/threading.html): 基于线程的并行
+- :white_large_square: [multiprocessing](https://docs.python.org/zh-cn/3/library/multiprocessing.html): 基于进程的并行
 - :heart: [os](http://www.runoob.com/python/os-file-methods.html): 文件和目录处理库
 - :white_large_square: [asyncio](https://zhuanlan.zhihu.com/p/59621713): python标准库内置了对异步IO的支持
 - :ballot_box_with_check: [命令行参数](/posts/97d915c4/): 轻松编写更友好的命令行参数接口，包括 sys.argv, getopt, argparse

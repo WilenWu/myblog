@@ -18,6 +18,8 @@ date: 2022-08-18 22:16:33
 
 创建自定义函数打印进度条，我们计算所需的总迭代次数，在每次迭代中，我们递增符号并打印它。
 
+## 创建打印函数
+
 ```python
 import time
 
@@ -37,7 +39,52 @@ for i in range(101):
     time.sleep(0.05)
 ```
 
-当`print`函数指定`end=""`时，表示不换行，再使用`"\r"`将光标移至当前行首，相当于覆盖了之前打印出来的东西，看起来就相当于只有百分比在变化。
+当`print`函数指定`end=""`时，表示不换行，再使用`"\r"`将光标移至当前行首，相当于覆盖了之前打印出来的东西，看起来就像只有百分比在变化。
+
+## 自定义进度条类
+
+创建进度条类，[代码见 Github 库](https://github.com/WilenWu/Packages/)
+
+**单进度条**：使用`ProgressBar(iterable)`包装任何可迭代对象
+
+```python
+import time 
+import progressbar as pbar
+
+for char in pbar.ProgressBar('abcd'):
+    time.sleep(0.05)
+```
+
+或者手动调用 `update` 方法更新
+
+```python
+import time 
+import progressbar as pbar
+
+x = range(100)
+progress = pbar.ProgressBar(x, circle=True)
+for i,value in enumerate(x):
+    progress.update(i)
+    time.sleep(0.05)
+```
+
+**多任务进度条**：创建多进度条实例，多线程调用任务
+
+```python
+import time 
+import progressbar as pbar
+
+# 处理迭代任务中的函数
+def test_func(num,sec):
+    time.sleep(sec)
+    return num * 2
+
+bars = pbar.MultiProgressBar()
+bars.add_task('task1', pbar.ProgressBar(range(3),desc='task1'), test_func, 1)
+bars.add_task('task2', pbar.ProgressBar('ab',desc='task2'), test_func, 1)
+bars.add_task('task3', pbar.ProgressBar('ABCD',desc='task3'), test_func, 1)
+bars.start(['task2','task1', 'task3'])
+```
 
 # Using tqdm
 

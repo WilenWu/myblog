@@ -9,13 +9,11 @@ cover: /img/python-datetime-cover.png
 top_img: /img/python-top-img.svg
 abbrlink: 592885c8
 date: 2018-05-09 22:49:26
-description: 日基础包：datetime, time, calendar
+description: datetime, time, calendar
 ---
 
 Python 程序能用很多方式处理日期和时间，转换日期格式是一个常见的功能。
-Python 提供了一个 time 和 calendar 模块可以用于格式化日期和时间。
-时间间隔是以秒为单位的浮点小数。
-每个时间戳都以自从1970年1月1日午夜（历元）经过了多长时间来表示。
+Python 提供了一个 time 和 calendar 模块可以用于格式化日期和时间。时间间隔是以秒为单位的浮点小数。每个时间戳都以自从1970年1月1日午夜（历元）经过了多长时间来表示。
 
 
 <!-- more -->
@@ -167,7 +165,7 @@ fold|
 | utcoffset() | 返回时区的时间偏移量|
 |dst()||
 
-## python中时间日期格式化符号
+# 时间日期格式化符号
 
 | 格式 | 说明    | Example    |
 | :---- |:---------- | :---------------- |
@@ -199,34 +197,55 @@ fold|
 | %u   | ISO 8601 weekday  | 1, 2, …, 7 |
 | %V   | ISO 8601 week| 01, 02, …, 53   |
 
-
-
 ----------
-
 
 # time
 
-| 函数 |  |
+| 获取时间 | 说明 |
 | ------------- | --------- |
-| time.clock()  | 用CPU花费的时间（秒） |
-| time.sleep(secs) |  |
+| time.time() | 返回时间戳（秒） |
+| time.ctime([*secs*]) | 返回当前时间字符串 |
+| time.gmtime([*secs*]) | 返回时间戳类 `time.struct_time` |
+| time.localtime([*secs*]) | 返回时间戳类 `time.struct_time` |
+| time.mktime(*t*) | 这是 localtime() 的反函数，它的参数是 struct_time |
 
-## time.struct_time(时间戳类)
+```python
+>>> time.time()
+1662128622.827007
+>>> time.ctime()
+'Fri Sep  2 22:23:17 2022'
+>>> time.localtime()
+time.struct_time(tm_year=2022, tm_mon=9, tm_mday=2, tm_hour=14, tm_min=25, tm_sec=26, tm_wday=4, tm_yday=245, tm_isdst=0)
+```
 
-| **属性**| 说明 |
-| :------------- | :--------- |
-| tm_year | yyyy|
-| tm_mon  | 1 到 12 |
-| tm_mday | 1 到 31 |
-| tm_hour | 0 到 23 |
-| tm_min  | 0 到 59 |
-| tm_sec  | 0 到 61 (60或61  是闰秒)|
-| tm_wday | 0到6 (0是周一)|
-| tm_yday | 1 到 366|
-| tm_isdst| 1(夏令时)0(不是夏令时)-1(未知)  |
+| 字符转换                        | 说明                                            |
+| ------------------------------- | ----------------------------------------------- |
+| time.strftime(format[, t])      | 把一个元组或 struct_time 表示的时间转换成字符串 |
+| time.strptime(string[, format]) | 解析表示时间的字符串，返回 struct_time          |
+
+```python
+>>> strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+'Thu, 28 Jun 2001 14:17:15 +0000'
+>>> time.strptime("30 Nov 00", "%d %b %y")   
+time.struct_time(tm_year=2000, tm_mon=11, tm_mday=30, tm_hour=0, tm_min=0,
+                 tm_sec=0, tm_wday=3, tm_yday=335, tm_isdst=-1)
+```
+
+| 计时器              | 说明                                            |
+| ------------------- | ----------------------------------------------- |
+| time.perf_counter() | 返回一个性能计数器的值（秒）                    |
+| time.process_time() | 返回当前进程的系统和用户 CPU 时间的总计值（秒） |
+| time.sleep(secs)    | 线程将被暂停执行 secs 秒                        |
+
+```python
+time_start = time.perf_counter()
+for i in range(10):
+  time.sleep(1)
+time_end = time.perf_counter()
+t = time_end - time_start
+```
 
 ----------
-
 
 # calendar
 
@@ -241,7 +260,6 @@ fold|
 | calendar.leapdays(y1,y2)  | 返回在Y1，Y2两年之间的闰年总数  |
 |calendar.monthrange(year, month)|Returns weekday of first day of the month and number of days in month|
 |calendar.weekday(year,month,day)|Returns the day of the week (0 is Monday) |
-
 
 
 

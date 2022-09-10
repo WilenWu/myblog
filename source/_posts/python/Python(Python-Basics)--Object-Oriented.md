@@ -12,11 +12,13 @@ date: 2018-06-23 20:12:35
 top_img: /img/python-top-img.svg
 ---
 
-Python从设计之初就已经是一门面向对象的语言，正因为如此，在Python中创建一个类和对象是很容易的。本章节我们将详细介绍Python的面向对象编程。
+Python从设计之初就已经是一门面向对象(Object Oriented,OO)的语言，正因为如此，在Python中创建一个类和对象是很容易的。本章节我们将详细介绍Python的面向对象编程。
 
 <!-- more -->
 
-# 面向对象(Object Oriented,OO)
+# 面向对象
+
+类把数据与功能绑定在一起。创建新类就是创建新的对象 **类型**，从而创建该类型的新 **实例** 。类实例支持维持自身状态的属性，还支持（由类定义的）修改自身状态的方法。
 
 - **类(Class)**: 用来描述具有相同的属性和方法的对象的集合。对象是类的实例。
 
@@ -48,8 +50,11 @@ class ClassName:
 ```
 
 示例：
+
 ```python
 class ClassName:
+
+    '''类文档''' # __doc__属性可返回文档字符串
 
 	cls_attr=0  # 类本身的属性，所有实例均可调用
 	
@@ -179,18 +184,18 @@ print(super(People,Lucy).speak())  #My name is Lucy, my age is 18 .
 `__module__`:|类定义所在的模块（类的全名是`__main__.className`，如果类位于一个导入模块mymod中，那么`className.__module__` 等于 mymod）
 `__bases__` :|类的所有父类构成元素（包含了一个由所有父类组成的元组）
 
-# 类的魔术方法(magic methods)
+# 类的魔术方法
 
-魔术方法|说明|调用方法
+魔术方法(magic methods)|说明|调用方法
 --|:--|:--
 `__init__( self,[,args...] )`|构造函数，在生成对象时调用| obj = className(args)
 `__del__(self)`|析构函数，释放对象时使用|del obj
-`__dir__(self)`|控制`dir()`输出
-`__setitem__(self)`|按照索引赋值
-`__getitem__(self)`| 按照索引获取值
-`__len__(self)`| 获得长度
-`__call__(self)`| 函数调用
-**转换成字符串**|
+`__dir__(self)`|控制`dir()`输出|dir(obj)
+`__setitem__(self)`|按照索引赋值|
+`__getitem__(self)`| 按照索引获取值|
+`__len__(self)`| 获得长度|len(obj)
+`__call__(self)`| 函数调用|
+**转换成字符串**||
 `__repr__(self)`| 打印，转换| repr(obj)
 `__str__(self)`|转换成字符，print对象时会调用此方法|str(obj)
 `__unicode__(self)`||
@@ -234,5 +239,109 @@ class num:
 print(num(10)+num(2))   #12
 print(num(10)==num(2))  #False
 print(dir(num(2)))      #['num']
+```
+
+# 迭代器
+
+ 迭代器的使用非常普遍并使得 Python 成为一个统一的整体。 在幕后，for 语句会在容器对象上调用 `iter()`。 该函数返回一个定义了 `__next__() `方法的迭代器对象，此方法将逐一访问容器中的元素。 当元素用尽时，`__next__()` 将引发 StopIteration 异常来通知终止 for 循环。 你可以使用 `next()` 内置函数来调用 `__next__() `方法；这个例子显示了它的运作方式:
+
+```python
+>>> s = 'abc'
+>>> it = iter(s)
+>>> it
+<str_iterator object at 0x10c90e650>
+>>> next(it)
+'a'
+>>> next(it)
+'b'
+>>> next(it)
+'c'
+>>> next(it)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+    next(it)
+StopIteration
+```
+
+看过迭代器协议的幕后机制，给你的类添加迭代器行为就很容易了。 定义一个 `__iter__()` 方法来返回一个带有 `__next__()`方法的对象。 如果类已定义了 `__next__()`，则 `__iter__()` 可以简单地返回 `self`:
+
+```python
+class Reverse:
+    """Iterator for looping over a sequence backwards."""
+    def __init__(self, data):
+        self.data = data
+        self.index = len(data)
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.index == 0:
+            raise StopIteration
+        self.index = self.index - 1
+        return self.data[self.index]
+```
+
+```python
+>>> rev = Reverse('spam')
+>>> iter(rev)
+<__main__.Reverse object at 0x00A1DB50>
+>>> for char in rev:
+...     print(char)
+...
+m
+a
+p
+s
+```
+
+# 生成器
+
+生成器是一个用于创建迭代器的简单而强大的工具。 它们的写法类似于标准的函数，但当它们要返回数据时会使用 `yield` 语句。 每次在生成器上调用 `next()` 时，它会从上次离开的位置恢复执行（它会记住上次执行语句时的所有数据值）。 一个显示如何非常容易地创建生成器的示例如下:
+
+```python
+def reverse(data):
+    for index in range(len(data)-1, -1, -1):
+        yield data[index]
+```
+
+```python
+>>> for char in reverse('golf'):
+...     print(char)
+...
+f
+l
+o
+g
+```
+
+可以用生成器来完成的操作同样可以用前一节所描述的基于类的迭代器来完成。 但生成器的写法更为紧凑，因为它会自动创建 `__iter__()` 和 `__next__()`方法。
+
+另一个关键特性在于局部变量和执行状态会在每次调用之间自动保存。 这使得该函数相比使用 `self.index` 和 `self.data` 这种实例变量的方式更易编写且更为清晰。
+
+除了会自动创建方法和保存程序状态，当生成器终结时，它们还会自动引发 `StopIteration`。 这些特性结合在一起，使得创建迭代器能与编写常规函数一样容易。
+
+# 生成器表达式
+
+某些简单的生成器可以写成简洁的表达式代码，所用语法类似列表推导式，但外层为圆括号而非方括号。 这种表达式被设计用于生成器将立即被外层函数所使用的情况。 生成器表达式相比完整的生成器更紧凑但较不灵活，相比等效的列表推导式则更为节省内存。
+
+示例:
+
+```python
+>>> sum(i*i for i in range(10))                 # sum of squares
+285
+
+>>> xvec = [10, 20, 30]
+>>> yvec = [7, 5, 3]
+>>> sum(x*y for x,y in zip(xvec, yvec))         # dot product
+260
+
+>>> unique_words = set(word for line in page  for word in line.split())
+
+>>> valedictorian = max((student.gpa, student.name) for student in graduates)
+
+>>> data = 'golf'
+>>> list(data[i] for i in range(len(data)-1, -1, -1))
+['f', 'l', 'o', 'g']
 ```
 
