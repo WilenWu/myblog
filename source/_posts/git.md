@@ -85,13 +85,13 @@ Git 的基本工作流程如下：
     $ git clone <repo-url>
     ```
 
-    比如，要克隆 Git 的链接库 `libgit2`，可以用下面的命令：
+    比如，要克隆公共库 `WilenWu/Packages`，可以用下面的命令：
 
     ```shell
-    $ git clone https://github.com/libgit2/libgit2
+    $ git clone git@github.com:WilenWu/Packages.git
     ```
 
-    Git 支持多种数据传输协议。 上面的例子使用的是 `https://` 协议，不过你也可以使用 `git://` 协议或者使用 SSH 传输协议，比如 `user@server:path/to/repo.git` 。 
+    Git 支持多种数据传输协议。 上面的例子使用的是 `git` 协议，不过你也可以使用 `https://` 协议（国内不稳定）或者使用 SSH 传输协议，比如 `user@server:path/to/repo.git` 。 
 
 ## 检查当前文件状态
 
@@ -658,8 +658,8 @@ origin 为远程仓库别名。你也可以使用参数 `-v`，显示读写远�
 
 ```shell
 $ git remote -v
-origin	https://github.com/schacon/ticgit (fetch)
-origin	https://github.com/schacon/ticgit (push)
+origin	git@github.com:WilenWu/Packages.git (fetch)
+origin	git@github.com:WilenWu/Packages.git (push)
 ```
 
 ## 添加远程仓库
@@ -670,30 +670,23 @@ origin	https://github.com/schacon/ticgit (push)
 $ git remote add <remote-alias> <server-url>
 ```
 
-其中 `remote-alias` 是远程仓库的别名（默认别名是`origin` ），可以用来代替整个 URL。
+其中 `remote-alias` 是远程仓库的别名（默认别名是`origin` ），可以用来代替整个 URL。如果想同时添加 Github 和 Gitee 的远程仓库关联，则可以指定不同的别名，例如
 
 ```shell
 $ git remote
 origin
-$ git remote add pb https://github.com/paulboone/ticgit
+$ git remote add gitee git@gitee.com:WilenWu/Packages.git
 $ git remote -v
-origin	https://github.com/schacon/ticgit (fetch)
-origin	https://github.com/schacon/ticgit (push)
-pb	https://github.com/paulboone/ticgit (fetch)
-pb	https://github.com/paulboone/ticgit (push)
-```
-
-如果想同时添加 Github 和 Gitee 的远程仓库关联，则可以指定不同的别名，例如
-
-```shell
-$ git remote add github git@github.com:tianqixin/runoob-git-test.git
-$ git remote add gitee git@gitee.com:imnoob/runoob-test.git
+origin	git@github.com:WilenWu/Packages.git (fetch)
+origin	git@github.com:WilenWu/Packages.git (push)
+gitee	git@gitee.com:WilenWu/Packages.git (fetch)
+gitee	git@gitee.com:WilenWu/Packages.git (push)
 ```
 
 这两个远程库的名字不同。这样一来，我们的本地库就可以同时与多个远程库互相同步
 
 ```shell
-$ git push github master
+$ git push origin master
 $ git push gitee master
 ```
 

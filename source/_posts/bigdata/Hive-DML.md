@@ -9,9 +9,7 @@ tags:
   - SQL
 cover: /img/apache-hive-dml.png
 top_img: /img/apache-hive-bg.png
-description: >-
-  数据操作语言(Data Manipulation Language, DML）：其语句包括动词
-  INSERT、UPDATE、DELETE。它们分别用于添加、修改和删除。
+description: 数据操作语言(Data Manipulation Language, DML）：其语句包括动词 INSERT、UPDATE、DELETE。它们分别用于添加、修改和删除。
 abbrlink: d2c808ff
 date: 2018-07-03 17:57:36
 ---

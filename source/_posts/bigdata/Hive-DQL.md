@@ -642,26 +642,6 @@ SELECT COUNT(DISTINCT a) OVER (PARTITION BY c ORDER BY d ROWS BETWEEN 1 PRECEDIN
 SELECT rank() OVER (ORDER BY sum(b)) FROM T GROUP BY a;
 ```
 
----
-title: 大数据手册(Hive)--HiveQL
-categories:
-  - 'Big Data'
-  - Hive
-tags:
-  - 大数据
-  - hive
-  - SQL
-cover: /img/apache-hive-cover.svg
-top_img: /img/apache-hive-bg.png
-description: 
-abbrlink: 297bd708
-date: 2018-07-03 17:57:36
----
-
-
-
-
-
 # 增强聚合
 
 ## GROUPING SETS 子句
