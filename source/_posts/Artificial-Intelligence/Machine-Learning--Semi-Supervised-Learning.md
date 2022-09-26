@@ -58,11 +58,11 @@ $$
 $$
 **极大似然估计**：(maximum likelihood estimate, MLE) 使得观测样本出现的概率最大，也即使得误差联合概率（似然函数）取得最大值。
 
-由于误差满足高斯分布
+由于误差满足高斯分布，单样本误差概率为
 $$
 P(e_i)=\cfrac{1}{\sqrt{2\pi}\sigma}\exp(-\frac{e_i^2}{2\sigma^2})=\cfrac{1}{\sqrt{2\pi}\sigma}\exp(-\frac{(y_i-\hat y_i)^2}{2\sigma^2})
 $$
-为求解方便，取对数似然函数
+为求解方便，对误差联合概率取对数似然函数
 $$
 \begin{aligned}
 \displaystyle\ln L(\mathbf w) & =\ln\prod_{i=1}^{m} P(e_i)=\sum_{i=1}^m\ln P(e_i) \\
@@ -74,7 +74,7 @@ $$
 $$
 J(\mathbf w)=\arg\max\ln L(\mathbf w)=\arg\min(\mathbf{y-Xw})^T(\mathbf{y-Xw})
 $$
-由此可见，最后得到的代价函数与最小二乘法一致。
+最后得到的代价函数与最小二乘法一致。
 
 **参数估计** ：(parame estimation) 使用凸优化方法求解代价函数，即
 $$
@@ -159,7 +159,7 @@ $$
 $$
 J(\mathbf w)=\arg\min\sum_{i=1}^m(-y_i\mathbf w^T\mathbf{\hat x}_i+\ln(1+e^{\mathbf w^T\mathbf{\hat x}_i}))
 $$
-由此可见，与极大似然估计的代价函数相同。
+与极大似然估计的代价函数相同。
 
 《机器学习方法》第6章
 
@@ -192,7 +192,6 @@ $$
 连续与缺失值
 
 《统计-5》《花书-3.13》信息论
-
 
 
 

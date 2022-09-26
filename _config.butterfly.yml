@@ -18,7 +18,7 @@ menu:
   更多||fa-solid fa-circle-chevron-down||hide: 
     关于我: /about/ || fa fa-user # fas fa-heart
     文章统计: /analytics/ || fa fa-line-chart
-    更新日志: /history/ || fa fa-history
+    更新日志: /log/ || fa fa-history
     # 切换主题 hexo-docs
    
 

@@ -21,16 +21,13 @@
       link: https://xiaomark.com/tool
       avatar:  /img/xiaomark.png
       descr: 运营工具大全
-    - name: 腾讯云
-      link: https://cloud.tencent.com/
-      avatar:  /img/tencent-cloud.svg
-      descr: 性能强大、安全、稳定的云产品
+
 
 - class_name: 素材资源
   class_desc: 
   link_list:
     - name: Zlibrary
-      link: https://zh.u1lib.org/
+      link: https://www.zhelper.net/
       avatar: /img/zlibrary-favicon.svg
       descr: Z-Library 项目的一部分. 全球最大的数字图书馆
     - name: Iconfont
@@ -81,9 +78,9 @@
       link: https://www.pickwant.com/#/home
       avatar: /img/pickwant-logo.svg
       descr: 免费自动抠图
-    - name: 稿定设计PS
-      link: https://ps.gaoding.com/#/
-      avatar: /img/gaoding-ps.svg
+    - name: 免费在线PS
+      link: https://www.logosc.cn/online-ps
+      avatar: /img/gaitu.svg
       descr: 在线图片处理工具
     - name: SVG 在线编辑器
       link: https://c.runoob.com/more/svgeditor/

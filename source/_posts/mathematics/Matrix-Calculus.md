@@ -92,7 +92,7 @@ $$
 $$
 ## 运算性质
 
-矩阵 $\mathbf A$ 不是向量 $\mathbf x$的函数，标量函数 $v=v(\mathbf x)$ ，向量函数 $\mathbf{u=u(x),v=v(x)}$
+设 $\mathbf A$ 为常数矩阵，标量函数 $v=v(\mathbf x)$ ，向量函数 $\mathbf{u=u(x),v=v(x),g=g(u)}$
 
 (1) $\cfrac{\partial\mathbf{Ax}}{\partial\mathbf x}=\mathbf A^T$  
 
