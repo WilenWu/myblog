@@ -77,7 +77,7 @@ header_color: true
 
 - :ballot_box_with_check: 深度学习
 - :ballot_box_with_check: TensorFlow
-- :ballot_box_with_check: Keras
+- :ballot_box_with_check: PyTorch
 
 ## Appendices
 

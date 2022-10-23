@@ -232,6 +232,16 @@ $\text{Adjusted }R^2=1-\cfrac{(1-R^2)(n-1)}{n-p-1}$
 
 ## 偏差与方差
 
-正则化
-《统计-2》《花书-6》
+### 正则化
 
+《统计-2》《花书-6,7》
+
+正则化的实现方式通常是惩罚所有的特征。
+
+$l_2$ 范数正则化项
+$$
+J(\mathbf{w}) = \frac{1}{2m} \left[\sum\limits_{i = 1}^{m}\text{loss}(f_{\mathbf{w}}(\mathbf{x}^{(i)}), y^{(i)})  + \lambda\sum_{j=0}^n w_j^2\right]
+$$
+ 按照惯例，正则化项 (Regularization term) 也乘以 $\frac{1}{2m}$ ，这样正则化项不会随训练集规模变大而变大。
+
+> 实际生活中，正则化 b 项影响很小，可以忽略。

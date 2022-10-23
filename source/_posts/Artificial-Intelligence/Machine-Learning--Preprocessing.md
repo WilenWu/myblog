@@ -13,6 +13,11 @@ description:
 date:
 ---
 
+对有序（order）分类变量，可通过连续化将其转化为连续值，对于$k$分类变量可转化为 $k$ 维0-1向量
+
+特征工程：
+
+- 通常通过变换或者合并原始特征设计新的特征（多项式特征等）。
 
 # 数据预处理
 
@@ -32,7 +37,9 @@ sample()函数能够让你从数据集中（有放回或无放回地）抽取大
  随机-系统采样  systematic-random  sampling   不受上面的影响 
  多层次采样 strtifed  sampling   适用于可分层的总体
 
-## 维归约
+## 类别不平衡问题
+
+## 降维
 
 
 ## 特征创建
@@ -55,11 +62,34 @@ R 并不把无限的或者不可能出现的数值标记成缺失值。正无穷
  均值/中位数/众数填补
  回归填补，多重插补
 
-##  数据标准化
 
- 归一化/标准化 
 
-MinMaxScaler, StringIndexer, VectorAssembler, StandardScaler, Bucketizer
+##  特征缩放
+
+Feature scaling
+
+**Min-Max normalization**
+$$
+x^{(i)}_j=\frac{x^{(i)}_j-\min_j}{\max_j-\min_j}
+$$
+**Mean normalization**
+$$
+x^{(i)}_j=\frac{x^{(i)}_j-\mu_j}{\max_j-\min_j}
+$$
+**z-score normalization**：均值为0，方差为1
+$$
+x^{(i)}_j = \dfrac{x^{(i)}_j - \mu_j}{\sigma_j}
+$$
+其中，$x^{(i)}_j$ 为 $i_{th}$ 样本 $j$ 列特征值，$\mu_j$ 和 $\sigma_j$  为 $j$ 列的均值和标准差
+$$
+\begin{align}
+\mu_j &= \frac{1}{m} \sum_{i=1}^{m} x^{(i)}_j\\
+\sigma^2_j &= \frac{1}{m} \sum_{i}^{m} (x^{(i)}_j - \mu_j)^2
+\end{align}
+$$
+当你有不同的特征且取值范围差异较大，它可能导致梯度下降法运行缓慢。但通过重新缩放特征，使他们具有可比较的值范围，可显著加快梯度下降速度。
+
+![](Machine-Learning--Preprocessing.assets/feature-scaling.png)
 
 ## 离散化和二元化
 
