@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   x="0"
+   y="0"
+   width="390"
+   height="354"
+   style="         width:390px;         height:354px;         background: #FFF;         fill: none; "
+   version="1.1"
+   id="svg393"
+   sodipodi:docname="decision-tree.svg"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs397" />
+  <sodipodi:namedview
+     id="namedview395"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="2.1242938"
+     inkscape:cx="195.12367"
+     inkscape:cy="204.30319"
+     inkscape:window-width="1920"
+     inkscape:window-height="986"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg393" />
+  <svg
+     class="role-diagram-draw-area"
+     style="overflow: visible;"
+     version="1.1"
+     id="svg301">
+    <g
+       class="shapes-region"
+       style="stroke: black; fill: none;"
+       id="g293">
+      <g
+         class="composite-shape"
+         id="g217">
+        <path
+           class="real"
+           d=" M142,44 C142,32.95 157.67,24 177,24 C196.33,24 212,32.95 212,44 C212,55.05 196.33,64 177,64 C157.67,64 142,55.05 142,44 Z"
+           style="stroke-width: 1; stroke: rgb(0, 0, 0); fill: none; fill-opacity: 1;"
+           id="path215" />
+      </g>
+      <g
+         class="composite-shape"
+         id="g221">
+        <path
+           class="real"
+           d=" M56,126 C56,114.95 71.67,106 91,106 C110.33,106 126,114.95 126,126 C126,137.05 110.33,146 91,146 C71.67,146 56,137.05 56,126 Z"
+           style="stroke-width: 1; stroke: rgb(0, 0, 0); fill: none; fill-opacity: 1;"
+           id="path219" />
+      </g>
+      <g
+         class="composite-shape"
+         id="g225">
+        <path
+           class="real"
+           d=" M10.33,200.6 C10.33,196.95 13.29,194 16.93,194 L60.4,194 C64.05,194 67,196.95 67,200.6 L67,220.4 C67,224.05 64.05,227 60.4,227 L16.93,227 C13.29,227 10.33,224.05 10.33,220.4 Z"
+           style="stroke-width: 1; stroke: rgb(0, 0, 0); fill: none; fill-opacity: 1;"
+           id="path223" />
+      </g>
+      <g
+         class="composite-shape"
+         id="g229">
+        <path
+           class="real"
+           d=" M161.33,290.6 C161.33,286.95 164.29,284 167.93,284 L211.4,284 C215.05,284 218,286.95 218,290.6 L218,310.4 C218,314.05 215.05,317 211.4,317 L167.93,317 C164.29,317 161.33,314.05 161.33,310.4 Z"
+           style="stroke-width: 1; stroke: rgb(0, 0, 0); fill: none; fill-opacity: 1;"
+           id="path227" />
+      </g>
+      <g
+         class="composite-shape"
+         id="g233">
+        <path
+           class="real"
+           d=" M212.33,115.6 C212.33,111.95 215.29,109 218.93,109 L262.4,109 C266.05,109 269,111.95 269,115.6 L269,135.4 C269,139.05 266.05,142 262.4,142 L218.93,142 C215.29,142 212.33,139.05 212.33,135.4 Z"
+           style="stroke-width: 1; stroke: rgb(0, 0, 0); fill: none; fill-opacity: 1;"
+           id="path231" />
+      </g>
+      <g
+         class="arrow-line"
+         id="g241">
+        <path
+           class="connection real"
+           stroke-dasharray=""
+           d="  M150.33,59 L101.52,104.94"
+           style="stroke: rgb(0, 0, 0); stroke-width: 2; fill: none; fill-opacity: 1;"
+           id="path235" />
+        <g
+           stroke="#000"
+           transform="matrix(0.7282513717976844,-0.6853101046057842,0.6853101046057842,0.7282513717976844,99.33331298828125,107)"
+           style="stroke: rgb(0, 0, 0); stroke-width: 2;"
+           id="g239">
+          <path
+             d=" M14.21,-4.28 Q6.45,-0.59 0,0 Q6.45,0.59 14.21,4.28"
+             id="path237" />
+        </g>
+      </g>
+      <g
+         class="arrow-line"
+         id="g249">
+        <path
+           class="connection real"
+           stroke-dasharray=""
+           d="  M77.33,145 L43.09,192.57"
+           style="stroke: rgb(0, 0, 0); stroke-width: 2; fill: none; fill-opacity: 1;"
+           id="path243" />
+        <g
+           stroke="#000"
+           transform="matrix(0.5842496656374337,-0.8115739819650127,0.8115739819650127,0.5842496656374337,41.33331298828125,195)"
+           style="stroke: rgb(0, 0, 0); stroke-width: 2;"
+           id="g247">
+          <path
+             d=" M14.21,-4.28 Q6.45,-0.59 0,0 Q6.45,0.59 14.21,4.28"
+             id="path245" />
+        </g>
+      </g>
+      <g
+         class="arrow-line"
+         id="g257">
+        <path
+           class="connection real"
+           stroke-dasharray=""
+           d="  M200.33,59 L240.4,106.7"
+           style="stroke: rgb(0, 0, 0); stroke-width: 2; fill: none; fill-opacity: 1;"
+           id="path251" />
+        <g
+           stroke="#000"
+           transform="matrix(-0.6431886214887488,-0.7657077753212403,0.7657077753212403,-0.6431886214887488,242.33331298828125,109)"
+           style="stroke: rgb(0, 0, 0); stroke-width: 2;"
+           id="g255">
+          <path
+             d=" M14.21,-4.28 Q6.45,-0.59 0,0 Q6.45,0.59 14.21,4.28"
+             id="path253" />
+        </g>
+      </g>
+      <g
+         class="arrow-line"
+         id="g265">
+        <path
+           class="connection real"
+           stroke-dasharray=""
+           d="  M110.33,144 L139.78,192.44"
+           style="stroke: rgb(0, 0, 0); stroke-width: 2; fill: none; fill-opacity: 1;"
+           id="path259" />
+        <g
+           stroke="#000"
+           transform="matrix(-0.5193699727684523,-0.8545494903084883,0.8545494903084883,-0.5193699727684523,141.33331298828125,195.00000000000003)"
+           style="stroke: rgb(0, 0, 0); stroke-width: 2;"
+           id="g263">
+          <path
+             d=" M14.21,-4.28 Q6.45,-0.59 0,0 Q6.45,0.59 14.21,4.28"
+             id="path261" />
+        </g>
+      </g>
+      <g
+         class="composite-shape"
+         id="g269">
+        <path
+           class="real"
+           d=" M106.33,215 C106.33,203.95 122,195 141.33,195 C160.66,195 176.33,203.95 176.33,215 C176.33,226.05 160.66,235 141.33,235 C122,235 106.33,226.05 106.33,215 Z"
+           style="stroke-width: 1; stroke: rgb(0, 0, 0); fill: none; fill-opacity: 1;"
+           id="path267" />
+      </g>
+      <g
+         class="composite-shape"
+         id="g273">
+        <path
+           class="real"
+           d=" M62.33,286.6 C62.33,282.95 65.29,280 68.93,280 L112.4,280 C116.05,280 119,282.95 119,286.6 L119,306.4 C119,310.05 116.05,313 112.4,313 L68.93,313 C65.29,313 62.33,310.05 62.33,306.4 Z"
+           style="stroke-width: 1; stroke: rgb(0, 0, 0); fill: none; fill-opacity: 1;"
+           id="path271" />
+      </g>
+      <g
+         class="arrow-line"
+         id="g281">
+        <path
+           class="connection real"
+           stroke-dasharray=""
+           d="  M125.4,231 L91.15,278.57"
+           style="stroke: rgb(0, 0, 0); stroke-width: 2; fill: none; fill-opacity: 1;"
+           id="path275" />
+        <g
+           stroke="#000"
+           transform="matrix(0.5842496656374337,-0.8115739819650127,0.8115739819650127,0.5842496656374337,89.4,281)"
+           style="stroke: rgb(0, 0, 0); stroke-width: 2;"
+           id="g279">
+          <path
+             d=" M14.21,-4.28 Q6.45,-0.59 0,0 Q6.45,0.59 14.21,4.28"
+             id="path277" />
+        </g>
+      </g>
+      <g
+         class="arrow-line"
+         id="g289">
+        <path
+           class="connection real"
+           stroke-dasharray=""
+           d="  M160.33,231 L189.78,279.44"
+           style="stroke: rgb(0, 0, 0); stroke-width: 2; fill: none; fill-opacity: 1;"
+           id="path283" />
+        <g
+           stroke="#000"
+           transform="matrix(-0.5193699727684523,-0.8545494903084883,0.8545494903084883,-0.5193699727684523,191.33331298828125,281.99999999999994)"
+           style="stroke: rgb(0, 0, 0); stroke-width: 2;"
+           id="g287">
+          <path
+             d=" M14.21,-4.28 Q6.45,-0.59 0,0 Q6.45,0.59 14.21,4.28"
+             id="path285" />
+        </g>
+      </g>
+      <g
+         id="g291" />
+    </g>
+    <g
+       id="g295" />
+    <g
+       id="g297" />
+    <g
+       id="g299" />
+  </svg>
+  <svg
+     width="700"
+     height="352"
+     style="width:700px;height:352px;font-family:Asana-Math, Asana;background:#FFF;"
+     version="1.1"
+     id="svg391">
+    <g
+       id="g309">
+      <g
+         id="g307">
+        <g
+           id="g305">
+          <text
+             x="159"
+             y="33"
+             style="white-space:pre;stroke:none;fill:rgb(245,166,35);fill-opacity:1;font-size:18px;font-family:Arial, Helvetica, sans-serif;font-weight:700;font-style:normal;dominant-baseline:text-before-edge;text-decoration:none solid rgb(245, 166, 35);"
+             id="text303">root</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g317">
+      <g
+         id="g315">
+        <g
+           id="g313">
+          <text
+             x="69"
+             y="115"
+             style="white-space:pre;stroke:none;fill:rgb(245,166,35);fill-opacity:1;font-size:18px;font-family:Arial, Helvetica, sans-serif;font-weight:700;font-style:normal;dominant-baseline:text-before-edge;text-decoration:none solid rgb(245, 166, 35);"
+             id="text311">node</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g325">
+      <g
+         id="g323">
+        <g
+           id="g321">
+          <text
+             x="121.92709350585938"
+             y="204"
+             style="white-space:pre;stroke:none;fill:rgb(245,166,35);fill-opacity:1;font-size:18px;font-family:Arial, Helvetica, sans-serif;font-weight:700;font-style:normal;dominant-baseline:text-before-edge;text-decoration:none solid rgb(245, 166, 35);"
+             id="text319">node</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g333">
+      <g
+         id="g331">
+        <g
+           id="g329">
+          <text
+             x="22.927093505859375"
+             y="200"
+             style="white-space:pre;stroke:none;fill:rgb(126,211,33);fill-opacity:1;font-size:18px;font-family:Arial, Helvetica, sans-serif;font-weight:700;font-style:normal;dominant-baseline:text-before-edge;text-decoration:none solid rgb(126, 211, 33);"
+             id="text327">leaf</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g341">
+      <g
+         id="g339">
+        <g
+           id="g337">
+          <text
+             x="75"
+             y="286"
+             style="white-space:pre;stroke:none;fill:rgb(126,211,33);fill-opacity:1;font-size:18px;font-family:Arial, Helvetica, sans-serif;font-weight:700;font-style:normal;dominant-baseline:text-before-edge;text-decoration:none solid rgb(126, 211, 33);"
+             id="text335">leaf</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g349">
+      <g
+         id="g347">
+        <g
+           id="g345">
+          <text
+             x="175"
+             y="290"
+             style="white-space:pre;stroke:none;fill:rgb(126,211,33);fill-opacity:1;font-size:18px;font-family:Arial, Helvetica, sans-serif;font-weight:700;font-style:normal;dominant-baseline:text-before-edge;text-decoration:none solid rgb(126, 211, 33);"
+             id="text343">leaf</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g357">
+      <g
+         id="g355">
+        <g
+           id="g353">
+          <text
+             x="304.9270935058594"
+             y="28"
+             style="white-space:pre;stroke:none;fill:rgb(0,0,0);fill-opacity:1;font-size:18px;font-family:Arial, Helvetica, sans-serif;font-weight:700;font-style:normal;dominant-baseline:text-before-edge;text-decoration:none solid rgb(0, 0, 0);"
+             id="text351">Depth 0</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g365">
+      <g
+         id="g363">
+        <g
+           id="g361">
+          <text
+             x="226.00003051757812"
+             y="115"
+             style="white-space:pre;stroke:none;fill:rgb(126,211,33);fill-opacity:1;font-size:18px;font-family:Arial, Helvetica, sans-serif;font-weight:700;font-style:normal;dominant-baseline:text-before-edge;text-decoration:none solid rgb(126, 211, 33);"
+             id="text359">leaf</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g373">
+      <g
+         id="g371">
+        <g
+           id="g369">
+          <text
+             x="307.9270935058594"
+             y="196"
+             style="white-space:pre;stroke:none;fill:rgb(0,0,0);fill-opacity:1;font-size:18px;font-family:Arial, Helvetica, sans-serif;font-weight:700;font-style:normal;dominant-baseline:text-before-edge;text-decoration:none solid rgb(0, 0, 0);"
+             id="text367">Depth 2</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g381">
+      <g
+         id="g379">
+        <g
+           id="g377">
+          <text
+             x="307.9270935058594"
+             y="112"
+             style="white-space:pre;stroke:none;fill:rgb(0,0,0);fill-opacity:1;font-size:18px;font-family:Arial, Helvetica, sans-serif;font-weight:700;font-style:normal;dominant-baseline:text-before-edge;text-decoration:none solid rgb(0, 0, 0);"
+             id="text375">Depth 1</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g389">
+      <g
+         id="g387">
+        <g
+           id="g385">
+          <text
+             x="309.9270935058594"
+             y="290"
+             style="white-space:pre;stroke:none;fill:rgb(0,0,0);fill-opacity:1;font-size:18px;font-family:Arial, Helvetica, sans-serif;font-weight:700;font-style:normal;dominant-baseline:text-before-edge;text-decoration:none solid rgb(0, 0, 0);"
+             id="text383">Depth 3</text>
+        </g>
+      </g>
+    </g>
+  </svg>
+</svg>

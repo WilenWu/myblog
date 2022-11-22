@@ -58,11 +58,13 @@ $\eth$ \eth|$\hslash$ \hslash|$\reals$ \reals|$\text{\oe}$ \text{\oe}|
 :---|:---|:---
 $\bar{a};\overline{a+bi}$|共轭|\bar{a}; \overline{a+bi}
 $\underline{AB}$||\underline{AB}
-$\vec{a},\overrightarrow{AB};\overrightharpoon{ac}$|向量|\vec{a},\overrightarrow{AB};\overrightharpoon{ac}
+$\vec{a},\overrightarrow{AB};\overrightharpoon{ac}$|向量|\vec{a},\overrightarrow{AB};<br/>\overrightharpoon{ac}
+$\mathbf{a}$|向量（粗体）|\mathbf{a}
+$\mathbf{A}$|矩阵（粗体）|\mathbf{A}
 $\underrightarrow{AB}$||\underrightarrow{AB}
-$\overleftarrow{AB};\overleftharpoon{ac};\underleftarrow{AB}$||\overleftarrow{AB};;\overleftharpoon{ac};\underleftarrow{AB}
+$\overleftarrow{AB};\overleftharpoon{ac};\underleftarrow{AB}$||\overleftarrow{AB};<br/>\overleftharpoon{ac};<br/>\underleftarrow{AB}
 $\overleftrightarrow{T}$|张量|\overleftrightarrow{T}
-$\overset{\rightrightarrows}{T}$|张量并矢|\overset{\rightrightarrows}{T}
+$\mathcal{T}$|张量（花体）|\mathcal{T}
 $\underleftrightarrow{AB}$||\underleftrightarrow{AB}
 $\Overrightarrow{AB}$||\Overrightarrow{AB}
 $\dfrac{b}{a}$|分数|\frac{b}{a}; \dfrac{b}{a}
@@ -300,6 +302,7 @@ $\begin{Vmatrix}   a & b \\   c & d\end{Vmatrix}$|范式，模|`\begin{Vmatrix}`
 $\begin{Bmatrix}a & b \\ c & d\end{Bmatrix}$||`\begin{Bmatrix}`<br>`a & b \\` <br>`c & d `<br>`\end{Bmatrix}`
 $\def\arraystretch{1.5} \begin{array}{c:c:c}   a & b & c \\ \hline   d & e & f \\   \hdashline   g & h & i\end{array}$||`\def\arraystretch{1.5}` <br>`\begin{array}{c:c:c}`   <br>`a & b & c \\` <br>`\hline`   <br>`d & e & f \\`   <br>`\hdashline`   <br>`g & h & i`<br>`\end{array}`
 $\xrightarrow[under]{over}$|初等变换|`\xrightarrow[under]{over}`
+$\mathbf{A}^\top$|矩阵转置|\mathbf{A}^\top
 $A\cong B$|矩阵等价|A\cong B
 $A\sim B$|矩阵相似|A\sim B
 $A\simeq B$|矩阵合同|A\simeq B

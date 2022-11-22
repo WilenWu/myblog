@@ -13,6 +13,14 @@ description:
 date:
 ---
 
+**Unsupervised Learning**
+
+Data only comes with inputs x, but not output labels y. Algorithm has to find structure in the data.
+
+- **Clustering**: Group similar data points together.
+- **Anomaly detection**: (异常检测) Find unusual data points.
+- **Dimensionality reduction**: Compress data using fewer numbers.
+
 # 聚类
 
 聚类分析仅根据在数据中发现的描述对象及其关系的信息，将数据对象分组。其原理是：组内的对象之间是相似的(相关的)，而不同组中的对象是不同的(不相关的)。

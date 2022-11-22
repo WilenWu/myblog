@@ -118,6 +118,10 @@
       link: https://cn.overleaf.com/
       avatar: /img/overleaf_og_logo.png
       descr: 在线LaTeX编辑器
+    - name: MathCha
+      link: https://www.mathcha.io/
+      avatar: /img/mathcha.svg
+      descr: Online Mathematics Editor
 
 - class_name: 参考教程
   class_desc: 每天进步一点点

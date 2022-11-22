@@ -59,9 +59,10 @@ $$
 (2) $f_n(S)= 1$
 (3) $A_iA_j=\varnothing \quad (i\neq j)\implies f_n(\displaystyle\bigcup_{i=1}^{k}A_i)=\displaystyle\sum_{i=1}^{k}f_n(A_i)$
 
-**概率**(probability)：
-（统计性定义）当试验的次数增加时，随机事件A发生的频率的稳定值p称为概率，记为 $\mathbb P(A)=p$
-（公理化定义）设随机试验对应的样本空间为S，定义$\mathbb P(A)$满足以下性质，称$\mathbb P(A)$为A的概率
+**概率**(probability)
+
+- （统计性定义）当试验的次数增加时，随机事件A发生的频率的稳定值p称为概率，记为 $\mathbb P(A)=p$
+- （公理化定义）设随机试验对应的样本空间为S，定义$\mathbb P(A)$满足以下性质，称$\mathbb P(A)$为A的概率
 
 非负性：$\mathbb P(A)⩾ 0$
 规范性：$\mathbb P(S)=1$
@@ -91,6 +92,7 @@ $$
 
 条件概率空间：原样本空间的缩减 $S\to A$
 条件概率：原概率的限制 $\mathbb P(\cdot)\to \mathbb P(\cdot|A)$
+
 ![条件概率](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/conditional-probability.png)
 
 **条件概率性质**：$\mathbb P(\cdot|A)$ 是概率，具有概率的所有性质
@@ -234,16 +236,16 @@ $$
 
 ==均匀分布==(uniformly)：若X的概率密度函数为
 $$
-f(x)=\begin{cases}\dfrac{1}{b-a} & x\in[a,b] \\
-0 & x\in(-∞,a)∪(b,+∞)
+f(x)=\begin{cases}\dfrac{1}{b-a} & \text{if }x\in[a,b] \\
+0 & \text{otherwise}
 \end{cases}
 $$
 其中$a<b$，就称X服从$[a,b]$上的均匀分布，记为$X∼ U(a,b)$
 
 分布函数为 $F(x)=\begin{cases}
-0 & x<a \\
-\dfrac{x-a}{b-a} & x\in[a,b] \\
-1 & x>b
+0 & \text{if }x<a \\
+\dfrac{x-a}{b-a} & \text{if }x\in[a,b] \\
+1 & \text{if }x>b
 \end{cases}$
 
 均匀分布具有等可能性：取值的概率只与小区间的长度有关，而与其位置无关。
@@ -252,15 +254,15 @@ $$
 ==指数分布==(exponential)：若X的概率密度函数为
 $$
 f(x)=\begin{cases}
-\cfrac{1}{θ}\exp(-\cfrac{x}{θ}) & x>0 \\
-0 & x⩽ 0
+\cfrac{1}{θ}\exp(-\cfrac{x}{θ}) & \text{if }x>0 \\
+0 & \text{if }x⩽ 0
 \end{cases}
 $$
 其中$θ>0$，就称X服从参数$θ$的指数分布，记为$X∼ E(θ)$ 或 $X∼ \text{Exp}(θ)$
 
 分布函数为$F(x)=\begin{cases}
-1-\exp(-\cfrac{x}{θ}) & x>0 \\
-0 & x⩽ 0
+1-\exp(-\cfrac{x}{θ}) & \text{if }x>0 \\
+0 & \text{if }x⩽ 0
 \end{cases}$
 
 指数分布具有无记忆性：对于$t_0>0,t>0,\mathbb P(X>t_0+t|X>t_0)=\mathbb P(X>t)$
@@ -269,9 +271,9 @@ $$
 
 ==正态分布==(normal distribution)：连续型随机变量 X 如果有如下形式的概率密度函数
 $$
-f(x)=\cfrac{1}{\sqrt{2π}σ}e^{-\frac{(x-μ)^2}{2σ^2}}\quad (μ\in\R,σ>0)
+f(x)=\frac{1}{\sqrt{2π}σ}\exp(-\frac{(x-μ)^2}{2σ^2})\quad (μ\in\R,σ>0)
 $$
-则称 X 服从参数为 $(μ,σ^2)$ 的正态分布 或高斯分布，记为 $X∼ N(μ,σ^2)$
+则称 X 服从参数为 $(μ,σ^2)$ 的正态分布或高斯分布，记为 $X∼ N(μ,σ^2)$
 
 特征：
 
@@ -285,7 +287,7 @@ $$
 (1) 当固定 σ 改变 μ 的大小时，图形的形状不变，只是沿着 x 轴作平移变换； μ 称为位置参数，决定对称轴位置
 (2) 当固定 μ 改变 σ 的大小时，图形的对称轴不变，而形状在改变， σ 越小图形越高越瘦，σ 越大图形越矮越胖；
 σ 称为尺度参数，决定曲线分散程度
-![正态分布](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/normal-distribution.png)![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/normal-distribution2.png)
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/normal-distribution.png" alt="正态分布" style="zoom: 50%;" /><img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Probability/normal-distribution2.png" style="zoom:60%;" />
 
 应用：测量值与实际值的误差；分子热运动时每个分子的运动速率；
 
@@ -322,8 +324,8 @@ $∀ a\in\R,F_X(a)=\mathbb P(X⩽ a)=\mathbb P(\cfrac{X-μ}{σ} ⩽ \cfrac{a-μ}
 <kbd>定理</kbd>：设随机变量 $X∼ F_X(x),x\in\R,\ Y=g(X),g'(X)\neq 0$，则具有概率密度为
 $$
 f_Y(y)=\begin{cases}
-f_X[h(y)]\cdot |h'(y)| & y\in[a,b] \\
-0  & y\in(-∞,a)∪(b,+∞)
+f_X[h(y)]\cdot |h'(y)| & \text{if }y\in[a,b] \\
+0  & \text{otherwise}
 \end{cases}
 $$
 其中 $[a,b]$是 Y 的取值范围，h是g 的反函数，即 $h(y)=x$
@@ -579,13 +581,13 @@ $$
 其中$f_k$为事件$\{X=x_k\}$发生的频率，由第一章可知当$n\to ∞,f_k\to p_k$，因此$\bar x$的稳定值为$\displaystyle\sum_kx_kp_k$，由此
 若级数
 $$
-E(X)=\displaystyle\sum_{k=1}^{∞}x_kp_k
+\mathbb E(X)=\displaystyle\sum_{k=1}^{∞}x_kp_k
 $$
 绝对收敛，则称 $\mathbb E(X)$为随机变量 $X$的数学期望，简称期望，又称均值(mean)
 
 连续型随机变量 $X$的密度函数为 $f(x)$，期望定义为
 $$
-E(X)=\int_{-∞}^{+∞}xf(x)\mathrm{d}x
+\mathbb E(X)=\int_{-∞}^{+∞}xf(x)\mathrm{d}x
 $$
 
 期望的物理意义：x 轴上一根线密度为 f(x) 的细棒的质心坐标
@@ -594,26 +596,26 @@ $$
 
 (1) 离散情形：
 $$
-E(Y)=E(g(X))=\displaystyle\sum_{k=1}^{∞}g(x_k)p_k
+\mathbb E(Y)=E(g(X))=\displaystyle\sum_{k=1}^{∞}g(x_k)p_k
 $$
 (2) 连续情形：
 $$
-E(Y)=E(g(X))=\displaystyle\int_{-∞}^{+∞}g(x)f(x)\mathrm{d}x
+\mathbb E(Y)=\mathbb E(g(X))=\displaystyle\int_{-∞}^{+∞}g(x)f(x)\mathrm{d}x
 $$
 **Z=h(X,Y) 的数学期望**
 
 (1) 离散情形：
 $$
-E(Z)=E(h(X,Y))=\displaystyle\sum_{i=1}^{∞}\sum_{j=1}^{∞}h(x_i,y_j)p_{ij}
+\mathbb E(Z)=\mathbb E(h(X,Y))=\displaystyle\sum_{i=1}^{∞}\sum_{j=1}^{∞}h(x_i,y_j)p_{ij}
 $$
 (2) 连续情形：
 $$
-E(Z)=E(h(X,Y))=\displaystyle\int_{-∞}^{+∞}\int_{-∞}^{+∞}h(x,y)f(x,y)\mathrm{d}x\mathrm{d}y
+\mathbb E(Z)=\mathbb E(h(X,Y))=\displaystyle\int_{-∞}^{+∞}\int_{-∞}^{+∞}h(x,y)f(x,y)\mathrm{d}x\mathrm{d}y
 $$
 特别的
 $$
-E(X)=\displaystyle\int_{-∞}^{+∞}\int_{-∞}^{+∞}xf(x,y)\mathrm{d}x\mathrm{d}y \\
-E(Y)=\displaystyle\int_{-∞}^{+∞}\int_{-∞}^{+∞}yf(x,y)\mathrm{d}x\mathrm{d}y$
+\mathbb E(X)=\int_{-∞}^{+∞}\int_{-∞}^{+∞}xf(x,y)\mathrm{d}x\mathrm{d}y \\
+\mathbb E(Y)=\int_{-∞}^{+∞}\int_{-∞}^{+∞}yf(x,y)\mathrm{d}x\mathrm{d}y
 $$
 **期望的性质**
 (1) $\mathbb E(aX+b)=a\mathbb E(X)+b$
@@ -624,7 +626,7 @@ $$
 
 **方差**(variance)：设X是一个随机变量
 $$
-D(X)=Var(X)=E[(X-E(X))^2]
+D(X)=Var(X)=\mathbb E[(X-\mathbb E(X))^2]
 $$
 叫做X的方差
 $$
@@ -638,7 +640,7 @@ $$
 
 利用期望的性质
 $$
-D(X)=E(X^2)-[E(X)]^2
+D(X)=\mathbb E(X^2)-[\mathbb E(X)]^2
 $$
 **方差的性质**（c为常数）
 
@@ -651,7 +653,7 @@ $$
 
 **变异系数**(Coefficient of Variance, CV)： 标准差与期望的比值
 $$
-CV=\dfrac{\sqrt{D(X)}}{E(X)}=\dfrac{σ(X)}{E(X)}
+CV=\dfrac{\sqrt{D(X)}}{\mathbb E(X)}=\dfrac{σ(X)}{\mathbb E(X)}
 $$
 变异系数是个无量纲的量，从而消除了量纲对波动的影响。
 
@@ -683,7 +685,7 @@ $$
 
 **相关系数**(correlation coefficient)：协方差反映了随机变量X与Y的相关性（这种关系是什么关系？）。但协方差是有量纲的数字特征，为了消除其量纲的影响，考虑**单位化**的随机变量，令
 $$
-X^*=\dfrac{X-E(X)}{\sqrt{D(X)}},Y^*=\dfrac{Y-E(Y)}{\sqrt{D(Y)}}
+X^*=\dfrac{X-\mathbb E(X)}{\sqrt{D(X)}},Y^*=\dfrac{Y-\mathbb E(Y)}{\sqrt{D(Y)}}
 $$
 引入一个新概念 
 $$
@@ -744,7 +746,7 @@ $$
 
 (3) ==$(k+l)$ 阶混合矩==(mixed moment)：二维随机变量$(X,Y)$的$(k+l)$ 阶混合（原点）矩为
 $$
-μ'_{kl}=E(X^kY^l)
+μ'_{kl}=\mathbb E(X^kY^l)
 $$
 
 
@@ -765,7 +767,7 @@ $$
 
 定义随机变量 $e^{tX}$的数学期望为随机变量$X$的矩母函数：
 $$
-M_X(t)=E(e^{tX}),t\in\R
+M_X(t)=\mathbb E(e^{tX}),t\in\R
 $$
 
 连续型：$M_X(t)=\displaystyle\int_{-∞}^{+∞}\exp(tx)f(x)\mathrm{d}x$，其中$f(x)$为概率密度函数。
@@ -801,7 +803,7 @@ $$
 
 **特征函数**(characteristic function)：定义复随机变量 $e^{itX}$的数学期望为随机变量$X$的特征函数：
 $$
-φ_X(t)=E(e^{itX}),t\in\R
+φ_X(t)=\mathbb E(e^{itX}),t\in\R
 $$
 特征函数与矩母函数的关系$φ_X(t)=M_X(it)$，由此可知特征函数与矩母函数有相同的性质
 
@@ -811,7 +813,7 @@ E(X^k)=M_X^{(k)}(0)=\dfrac{\mathrm{d}^kM_X}{\mathrm{d}t^k}|_{t=0}
 $$
 特别的有
 $$
-E(X)=M'_X(0) \\
+\mathbb E(X)=M'_X(0) \\
 Var(X)=M''_X(0)-[M'_X(0)]^2
 $$
 
@@ -819,7 +821,7 @@ $$
 
 ==偏度==(skewness)：随机变量的偏度（衡量分布不对称性）定义为
 $$
-S(X)=\dfrac{ν_3}{ν_{2}^{3/2}}=\dfrac{E[X-E(X)]^3}{[Var(x)]^{3/2}}
+S(X)=\dfrac{ν_3}{ν_{2}^{3/2}}=\dfrac{\mathbb E[X-\mathbb E(X)]^3}{[Var(x)]^{3/2}}
 $$
 
 - 任何对称分布偏态为0
@@ -959,18 +961,18 @@ $$
 $$
 f(X_n)\xrightarrow{P}f(a)\quad (n\to∞)
 $$
-**依分布收敛**(Convergence in Distribution)
 
+**依分布收敛**(Convergence in Distribution)    
 meaning: 
 $$
-\lim_\limits{n\to\infty}F_n(x)=x
+\lim\limits{n\to\infty}F_n(x)=x
 $$
 notation: 
 $$
 X_n\xrightarrow{D}X\quad (n\to∞)
 $$
-**几乎必然收敛**(Almost Sure Convergence)：又叫以概率1收敛（convergence with probability 1）
 
+**几乎必然收敛**(Almost Sure Convergence)：又叫以概率1收敛（convergence with probability 1）    
 meaning: 
 $$
 \mathbb P(\lim\limits_{n\to\infty}X_n=X)=1

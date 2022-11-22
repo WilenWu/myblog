@@ -39,9 +39,9 @@ date:
 
 回归方程的显著性检验  $H_0: w_j=0$ 
 
-回归平方和 Residual Sum of Squares  $RSS=∑(y_i-E(Y))^2$ 
-残差平方和 Explained Sum of Squares ESS
-总平方和  Total Sum of Squares  TSS=var(Y)=RSS+ESS
+残差平方和 Residual Sum of Squares  $RSS=∑(y_i-E(Y))^2$ 
+解释平方和 Explained Sum of Squares ESS
+总离差平方和  Total Sum of Squares  TSS=var(Y)=RSS+ESS
 判定系数   R2= RSS/TSS 
 自由度   degree of freedom  df 
 平方和   sum of square   SS 
