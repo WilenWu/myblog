@@ -60,18 +60,9 @@ header_color: true
 # Artificial Intelligence
 
 ## Machine Learning
-- :ballot_box_with_check: [机器学习--无监督学习](/posts/43ce4abf/)
-- :ballot_box_with_check: [机器学习--时间序列分析](/posts/52f10172/)
-- :ballot_box_with_check: [机器学习--监督学习](/posts/3c1747d9/)
-- :ballot_box_with_check: [机器学习--半监督学习](/posts/6f17ebe2/): 机器学习算法导论
-- :ballot_box_with_check: [机器学习--强化学习](/posts/ac8a28f3/)
-- :ballot_box_with_check: [机器学习--探索数据](/posts/8638abf9/)
-- :ballot_box_with_check: [机器学习--集成学习](/posts/aaff9a95/)
-- :ballot_box_with_check: [机器学习--降维](/posts/8025f3/)
-- :ballot_box_with_check: [机器学习--数据预处理](/posts/5faa8f40/)
-- :ballot_box_with_check: [机器学习--模型选择与评估](/posts/cc734464/)
 
-
+- :ballot_box_with_check: 机器学习(III)--模型选择与评估
+- :ballot_box_with_check: 机器学习(IV)--监督学习
 
 ## Deep Learning
 
@@ -81,8 +72,9 @@ header_color: true
 
 ## Appendices
 
-- :ballot_box_with_check: [优化](/posts/b0a72714/): 优化是找出函数的最大值或最小值的方法
-- :ballot_box_with_check: [信息论](/posts/8a8bfa9b/)
+- :ballot_box_with_check: [机器学习中的优化](/posts/b0a72714/)
+- :ballot_box_with_check: [机器学习中的信息论](/posts/8a8bfa9b/)
+- :ballot_box_with_check: [矩阵求导](/posts/99273c32/)
 
 # Big Data
 
@@ -427,7 +419,6 @@ Natural Language Processing(自然语言处理)
 
 - :ballot_box_with_check: [线性代数](/posts/c23efd5b/): 矩阵，行列式，向量空间，二次型，线性变换
 - :white_large_square: 多项式代数
-- :ballot_box_with_check: [矩阵微积分](/posts/99273c32/)
 
 ## Modern Mathematics
 

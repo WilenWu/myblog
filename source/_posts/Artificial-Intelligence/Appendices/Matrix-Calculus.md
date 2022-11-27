@@ -120,7 +120,3 @@ $$
 \left(\cfrac{\partial y_{ij}}{\partial x}\right)_{m\times n}
 $$
 
-
-
-
-

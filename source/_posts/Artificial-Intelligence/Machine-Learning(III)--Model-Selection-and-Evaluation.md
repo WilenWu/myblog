@@ -1,5 +1,5 @@
 ---
-title: 机器学习(II)--模型选择与评估
+title: 机器学习(III)--模型选择与评估
 katex: true
 categories:
   - 'Artificial Intelligence'
@@ -80,7 +80,7 @@ $$
 f_{\mathbf w}(x)=w_0+w_1x+\cdots+w_dx^d=\sum_{j=0}^dw_jx^j
 $$
 首先要确定模型的复杂度，即多项式的阶，然后根据经验风险最小化原则求解多项式的系数。以下是模型泛化能力的表现
-<img src="Machine-Learning(II)--Model-Selection-and-Evaluation.assets/model_selection.svg" alt="model_selection" style="zoom:50%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/model_selection.svg" alt="model_selection" style="zoom:50%;" />
 
 - **欠拟合**：(under-fitting) 也称**高偏差**（high bias） 。模型对训练数据拟合不足，训练误差和测试误差都较高。
 - **过拟合**：(over-fitting) 也称**高方差**（high variance）。测试误差高，与训练误差距太大。
@@ -88,7 +88,7 @@ $$
 
 通过调整模型复杂度，我们可以控制模型是否偏向于过拟合或者欠拟合。通俗地，模型的复杂度是指模型假设空间的容量。容量低的模型可能很难拟合训练集，容量高的模型可能会过拟合。
 
-<img src="Machine-Learning(II)--Model-Selection-and-Evaluation.assets/generalization-error.png" alt="generalization-error" style="zoom: 67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/generalization-error.png" alt="generalization-error" style="zoom: 67%;" />
 
 如何判断一个算法有高偏差或高方差。事实证明，在判断误差是否高的时候，建立基准水平（baseline）通常是有用的。基线水平指的是对学习算法的误差水平有个合理的期待。建立基线水平的常见方法
 
@@ -115,10 +115,10 @@ $$
 3. 将这一过程对可能的K种选择重复进行，这样就可获得k组训练/测试集
 4. 最后选出K次评估中验证误差最小的模型
 
-<img src="Machine-Learning(II)--Model-Selection-and-Evaluation.assets/k_fold_cross_validation.png" alt="k_fold_cross_validation" style="zoom: 67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/k_fold_cross_validation.png" alt="k_fold_cross_validation" style="zoom: 67%;" />
 
 再次以选择多项式模型选择为例，可用使用K交叉验证选择合适的阶数
-![degree_selection](Machine-Learning(II)--Model-Selection-and-Evaluation.assets/degree_selection.png)
+![degree_selection](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/degree_selection.png)
 
 **留一交叉验证**（leave-one-out, LOO）：K折交叉验证的特殊情形是K等于训练数据的大小，这样，每次只在一个样本上验证。留一法往往在数据缺乏时使用。
 
@@ -126,7 +126,7 @@ $$
 
 **正则化**（regularization）通过在经验风险上加上表示模型复杂度的正则化项（regularization term）或惩罚项（penalty term）。我们将正则化后的代价函数记为
 $$
-\tilde J(\mathbf\theta;\mathbf{X,y})=J(\mathbf\theta;\mathbf{X,y})+\alpha\Omega(\mathbf\theta)
+J_\alpha(\mathbf\theta;\mathbf{X,y})=J(\mathbf\theta;\mathbf{X,y})+\alpha\Omega(\mathbf\theta)
 $$
 $\alpha\geqslant0$ 是**正则化超参数**，用于权衡经验风险和惩罚项。将 $\alpha$ 设为 0 表示没有正则化。 $\alpha$ 越大，对应正则化惩罚越大。
 需要说明一点，在神经网络中，参数包括每一层神经元的权重(weight)和偏置(bias)，我们通常只对权重做惩罚而不对偏置做正则惩罚，也不会导致太大的方差。另外，正则化偏置参数可能会导致明显的欠拟合。本章，我们使用向量 $\mathbf w$ 表示所有应受范数惩罚影响的权重，而向量 $\mathbf\theta$ 表示所有参数(包括 $\mathbf w$ 和无需正则化的参数)。
@@ -144,7 +144,7 @@ $$
 $$
 在其他学术圈，L~2~  也被称为**岭回归**(Ridge)或Tikhonov 正则。系数$1/2$ 只是为了计算方便。与之对应的梯度为
 $$
-\nabla_{\mathbf w}\tilde J(\mathbf w;\mathbf{X,y})=\nabla_{\mathbf w}J(\mathbf w;\mathbf{X,y})+\alpha\mathbf w
+\nabla_{\mathbf w}J_\alpha(\mathbf w;\mathbf{X,y})=\nabla_{\mathbf w}J(\mathbf w;\mathbf{X,y})+\alpha\mathbf w
 $$
 使用单步梯度下降法，更新方程为
 $$
@@ -162,7 +162,7 @@ $$
 $$
 对应的梯度(实际上是次梯度)
 $$
-\nabla_{\mathbf w}\tilde J(\mathbf w;\mathbf{X,y})=\nabla_{\mathbf w}J(\mathbf w;\mathbf{X,y})+\alpha\text{sign}(\mathbf w)
+\nabla_{\mathbf w}J_\alpha(\mathbf w;\mathbf{X,y})=\nabla_{\mathbf w}J(\mathbf w;\mathbf{X,y})+\alpha\text{sign}(\mathbf w)
 $$
 其中 $\text{sign}(\mathbf w)$ 只是简单地取 $\mathbf w$ 各个元素的正负号。
 
@@ -172,7 +172,7 @@ $$
 $$
 下图显示了当 $\Omega(\mathbf w)=1$ 时，不同正则化项在二维参数空间中的等值线
 
-<img src="Machine-Learning(II)--Model-Selection-and-Evaluation.assets/norm-isopleth.png" alt="norm-isopleth" style="zoom: 50%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/norm-isopleth.png" alt="norm-isopleth" style="zoom: 50%;" />
 
 **正则化超参数选择**：添加正则化项，缩小特征权重。参数越大特征权重越小，模型偏向高偏差。以多项式回归为例
 $$
@@ -182,7 +182,7 @@ $$
 $$
 J(\mathbf w)=\frac{1}{2m}\sum_{i=1}^m(f_{\mathbf w}(x^{(i)})-y^{(i)})^2+\frac{\alpha}{2}\sum_{j}w_j^2
 $$
-<img src="Machine-Learning(II)--Model-Selection-and-Evaluation.assets/Linear_Regression_with_Regularization.svg" style="zoom: 75%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/Linear_Regression_with_Regularization.svg" style="zoom: 75%;" />
 
 ## 偏差和方差
 
@@ -231,7 +231,7 @@ $$
 
 偏差和方差的关系和模型假设空间的容量、欠拟合和过拟合的概念紧密相联。
 
-<img src="Machine-Learning(II)--Model-Selection-and-Evaluation.assets/bias-variance.png"  style="zoom: 67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/bias-variance.png"  style="zoom: 67%;" />
 
 # 评估指标
 
@@ -298,7 +298,7 @@ $$
 FPR=\frac{FP}{FP+TN} \\
 TPR=\frac{TP}{TP+FN} 
 $$
-<img src="Machine-Learning(II)--Model-Selection-and-Evaluation.assets/roc-curves.png" alt="roc-curves" style="zoom:67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/roc-curves.png" alt="roc-curves" style="zoom:67%;" />
 
 总之，ROC曲线越靠近左上角，该分类器的性能越好。而且一般来说，如果ROC是光滑的，那么基本可以判断没有太大的过拟合。
 
@@ -391,7 +391,7 @@ $$
 
 学习曲线（Learning curves）是一种帮你了解学习算法性能如何的方式。它用于发现增加训练样本数，算法的收益变化。
 
-![Learning-Curves](Machine-Learning(II)--Model-Selection-and-Evaluation.assets/Learning-Curves.svg)
+![Learning-Curves](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/Learning-Curves.svg)
 
 - 当训练集越来越大时，你学到的模型更好，交叉验证误差也会减少。
 - 当你有非常少的训练样本时，你可以很容易地得到零或很小的训练误差。当你有一个更大的训练集时，模型很难完美的拟合所有的训练样本。

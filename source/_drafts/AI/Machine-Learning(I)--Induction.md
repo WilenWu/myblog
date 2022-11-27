@@ -58,27 +58,6 @@ $$
 \mathbf \|\mathbf A\|_{F}=\sqrt{\sum_{ij}a^2_{ij}}=\sqrt{\text{tr}(\mathbf A^T\mathbf A)}
 $$
 
-## 常用符号集
-
-| Notation          | Description                                                  |
-| :---------------- | :----------------------------------------------------------- |
-| $a$               | 标量 (scalar)，非粗体                                        |
-| $\mathbf{a}$      | 向量 (vector)或列矩阵，粗体小写                              |
-| $\mathbf{A}$      | 矩阵 (matrix)，粗体大写                                      |
-| $\mathbf I$       | 单位矩阵                                                     |
-| $\mathcal A$      | 张量 (tensor)                                                |
-| $f_{\theta}(x)$   | 自变量为 $x$ ，参数为 $\theta$ 的函数                        |
-| $\mathbf x$       | 特征向量 $\mathbf x=(x_1,x_2,\cdots,x_d)^T$                  |
-| $x_j$             | 特征向量的第 $j$ 个特征                                      |
-| $\mathbf x^{(i)}$ | 第 $i$ 个样本的特征向量 $\mathbf x^{(i)}=(x_1^{(i)},x_2^{(i)},\cdots,x_n^{(i)})^T$ |
-| $x_j^{(i)}$       | 第 $i$ 个样本的第 $j$ 个特征                                 |
-| m                 | 样本数量                                                     |
-| d                 | 每个样本的特征总数                                           |
-| $y$               | 目标变量                                                     |
-| $\hat y$          | 目标变量 $y$ 的预测值(估计值)  $\hat y=f(\mathbf x)$         |
-
-> 注意：上角标 $(i)$ 是位置索引，不代表指数
-
 # 概率统计
 
 ## 汇总统计

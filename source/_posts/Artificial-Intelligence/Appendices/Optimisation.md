@@ -63,7 +63,7 @@ $$
 
 梯度下降法（gradient descent）也称最速下降法（steepest descent），是一种常用的一阶（first-order）优化方法，是求解无约束优化问题最简单、最经典的迭代方法之一。它被广泛应用于机器学习，是许多算法的基础，比如线性回归、逻辑回归，以及神经网络的早期实现。
 
-<img src="Optimisation.assets/gradient-descent.svg" style="zoom:50%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/gradient-descent.svg" style="zoom:50%;" />
 
 假定函数$J(\mathbf w)$连续可微，要求解的无约束最优化问题是
 $$
@@ -83,11 +83,11 @@ $$
 $$
 数值 $\lambda>0$ 称为**学习率** (learning rate)，作用是控制下降的步幅。梯度向量 $\nabla J(\mathbf w)=\dfrac{\partial J(\mathbf{w})}{\partial\mathbf w}$ 控制下降的方向。
 
-<img src="Optimisation.assets/GradientDescentAlgorithm.png" style="zoom: 67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/GradientDescentAlgorithm.png" style="zoom: 67%;" />
 
 **学习率**
 
-<img src="Optimisation.assets/LearningRateOfGradientDescent.svg" style="zoom: 80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/LearningRateOfGradientDescent.svg" style="zoom: 80%;" />
 
 - 如果 $\lambda$ 太小，梯度下降会起作用，但会很慢。
 - 如果 $\lambda$ 太大，梯度下降可能不断跨过最小值，永不收敛。
@@ -101,7 +101,7 @@ $$
 \cdots & 0.006 & 0.06 & 0.6 & 6 & \cdots \\
 \end{matrix}
 $$
-<img src="Optimisation.assets/fix-learning-rate.svg" style="zoom: 67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/fix-learning-rate.svg" style="zoom: 67%;" />
 
 **梯度**：当我们接近局部最小值时，导数会自动变小。因此，即使学习率 $\lambda$ 保持在某个固定值，更新的步幅也会自动变小。
 
@@ -114,7 +114,7 @@ $$
 
 **梯度下降法缺点**
 
-<img src="Optimisation.assets/LocalMinimumGradientDescent.png" alt="LocalMinimumGradientDescent" style="zoom: 36%;" /><img src="Optimisation.assets/GradientDescent-2.png" style="zoom: 67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/LocalMinimumGradientDescent.png" alt="LocalMinimumGradientDescent" style="zoom: 36%;" /><img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/GradientDescent-2.png" style="zoom: 67%;" />
 
 - 初始位置的不同可能导致下降到不同的极值点。
 - 多维情况下，单个点处每个方向上的导数可能差别很大。梯度下降不知道导数的这种变化，也会表现得很差。
@@ -210,7 +210,7 @@ $$
 
 where $\mathbf\Lambda=\text{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)$
 
-<img src="Optimisation.assets/AdamAlgorithmIntuition.svg" style="zoom: 80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/AdamAlgorithmIntuition.svg" style="zoom: 80%;" />
 
 - 如果参数持续沿着大致相同的方向移动，我们将提高这个参数的学习率。
 - 相反，如果一个参数来回振荡，我们将减小这个参数的学习率。

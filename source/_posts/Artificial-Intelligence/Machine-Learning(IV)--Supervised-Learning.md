@@ -1,5 +1,5 @@
 ---
-title: 机器学习--监督学习
+title: 机器学习(IV)--监督学习
 date:
 katex: true
 categories:
@@ -19,6 +19,27 @@ description:
 
 给定监督学习的数据集  $D=\{(\mathbf x^{(1)},y^{(1)}),(\mathbf x^{(2)},y^{(2)}),\cdots,(\mathbf x^{(m)},y^{(m)})\}$，其中$\mathbf x^{(i)}=(x_1^{(i)},x_2^{(i)},\cdots,x_d^{(i)})^T$ 为第 $i$ 个样本的特征向量。
 
+**常用符号集**
+
+| Notation          | Description                                                  |
+| :---------------- | :----------------------------------------------------------- |
+| $a$               | 标量 (scalar)，非粗体                                        |
+| $\mathbf{a}$      | 向量 (vector)或列矩阵，粗体小写                              |
+| $\mathbf{A}$      | 矩阵 (matrix)，粗体大写                                      |
+| $\mathbf I$       | 单位矩阵                                                     |
+| $\mathcal A$      | 张量 (tensor)                                                |
+| $f_{\theta}(x)$   | 自变量为 $x$ ，参数为 $\theta$ 的函数                        |
+| $\mathbf x$       | 特征向量 $\mathbf x=(x_1,x_2,\cdots,x_d)^T$                  |
+| $x_j$             | 特征向量的第 $j$ 个特征                                      |
+| $\mathbf x^{(i)}$ | 第 $i$ 个样本的特征向量 $\mathbf x^{(i)}=(x_1^{(i)},x_2^{(i)},\cdots,x_n^{(i)})^T$ |
+| $x_j^{(i)}$       | 第 $i$ 个样本的第 $j$ 个特征                                 |
+| m                 | 样本数量                                                     |
+| d                 | 每个样本的特征总数                                           |
+| $y$               | 目标变量                                                     |
+| $\hat y$          | 目标变量 $y$ 的预测值(估计值)  $\hat y=f(\mathbf x)$         |
+
+> 注意：上角标 $(i)$ 是位置索引，不代表指数
+
 # 线性模型
 
 ## 线性回归
@@ -27,7 +48,7 @@ description:
 
 给定数据集 $D$ ，目标变量 $y\in \R$ 
 
-<img src="Machine-Learning--Supervised-Learning.assets/linear-regression.svg" alt="线性回归" style="zoom:50%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/linear-regression.svg" alt="线性回归" style="zoom:50%;" />
 
 **Model**：线性模型假设目标变量是特征的线性组合。因此，我们试图拟合函数
 $$
@@ -119,7 +140,7 @@ $$
 
 梯度下降 (Gradient Descent) 是一种优化算法，它被广泛应用于机器学习，是许多算法的基础，比如线性回归、逻辑回归，以及神经网络的早期实现。对于线性回归来说均方误差代价函数是一个凸函数（如下图），梯度下降可以一步一步找到全局最小值。
 
-<img src="Machine-Learning--Supervised-Learning.assets/convex-function.png" style="zoom: 33%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/convex-function.png" style="zoom: 33%;" />
 
 梯度下降迭代公式为
 
@@ -221,7 +242,7 @@ g(z) = \frac{1}{1+e^{-z}}
 $$
 式中特征向量 $\mathbf x=(x_1,x_2,\cdots,x_d)^T$，参数 $\mathbf{w}=(w_1,w_2,\cdots,w_d)^T$ 称为系数 (coefficients) 或权重 (weights)，标量 $b$ 称为偏置项(bias) 。 $g(z)$ 是 Sigmod 函数，也称 logistic 函数。求得参数 $\mathbf{w},b$ 后，模型就得以确定。
 
-<img src="Machine-Learning--Supervised-Learning.assets/logistic-function.png" style="zoom: 50%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/logistic-function.png" style="zoom: 50%;" />
 
 可以通过引入阈值（默认0.5）实现分类预测
 $$
@@ -272,7 +293,7 @@ $$
 $$
 \text{loss}=-y\mathbf{w}^T\mathbf{x}+\log(1+e^{\mathbf{w}^T\mathbf{x}})
 $$
-![](Machine-Learning--Supervised-Learning.assets/loss-logistic-regression.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/loss-logistic-regression.png)
 最大化似然函数等价于最小化 **cost function**
 $$
 J(\mathbf w)=\frac{1}{m}\sum_{i=1}^{m}(-y^{(i)}\mathbf{w}^T\mathbf{x}+\log(1+e^{\mathbf{w}^T\mathbf{x}}))
@@ -311,7 +332,7 @@ $$
 
 逻辑回归模型 $f_{\mathbf{w},b}(\mathbf{x})=g(z)= g(\mathbf{w}^T \mathbf{x}+b)$
 
-<img src="Machine-Learning--Supervised-Learning.assets/sigmoid-decision-boundary.png" style="zoom: 50%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/sigmoid-decision-boundary.png" style="zoom: 50%;" />
 
 对于 sigmoid 函数（如上图），$g(z)\geqslant 0.5 \text{ for } z\geqslant 0$ 。在 logistic 回归模型中，$z=\mathbf{w}^T\mathbf{x}+b$ 。因此，模型预测
 $$
@@ -328,7 +349,7 @@ $$
 $f(x_1,x_2) = g(x_1^2+x_2^2-36)\text{ where } g(z) = \cfrac{1}{1+e^{-z}}$ 
 决策边界方程为 $x_1^2+x_2^2-36=0$
 
-![](Machine-Learning--Supervised-Learning.assets/DecisionBoundary.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/DecisionBoundary.svg)
 
 ## 广义线性回归
 
@@ -361,7 +382,7 @@ $$
 $$
 下面是一个应用于一维数据的例子，使用了不同程度的多项式特征：
 
-<img src="Machine-Learning--Supervised-Learning.assets/polynomial-features.svg" style="zoom: 67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/polynomial-features.svg" style="zoom: 67%;" />
 
 ## 感知机
 
@@ -389,13 +410,13 @@ Perceptron 是另一种适用于大规模学习的简单分类算法。
 
 **决策树**（Decision Tree）是一种用于分类和回归的有监督学习方法。其目标是创建一个模型，通过学习从数据特性中归纳出一组分类规则来预测目标变量的值。下图是一颗决策树
 
-<img src="Machine-Learning--Supervised-Learning.assets/decision-tree.png" alt="decision-tree" style="zoom:50%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/decision-tree.png" alt="decision-tree" style="zoom:50%;" />
 
 决策树是一种由节点（node）和有向边（directed edge）组成的树形结构。从根节点（root node）开始，包含若干内部节点（internal node）和叶节点（leaf node）。其中每个叶节点对应一种分类结果，其他每个节点表示一个特征的判断条件，每个分支代表一个判断结果的输出。
 
 其实决策树可以看做一个if-then规则的集合。我们从决策树的根结点到每一个都叶结点构建一条规则，并且我们将要预测的实例都可以被一条路径或者一条规则所覆盖。
 
-![Decision Tree](Machine-Learning--Supervised-Learning.assets/decision-tree-nodes.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/decision-tree-nodes.svg)
 
 **Hunt 算法**：决策树学习旨在构建一个泛化能力好，并且复杂度小的决策树。因为从可能的决策树中直接选取最优决策树是 NP 完全问题，可构造的决策树的数目达指数级，找出最佳决策树在计算上时不可行的。现实中采用启发式方法，在合理的时间学习一颗次优的决策树。
 
@@ -416,17 +437,15 @@ Hunt 算法以递归方式建立决策树，使得各分支结点所包含的样
 
 > 限制决策树深度和设置阈值的一个原因是通过保持树的小巧而不容易导致过拟合
 
+## 特征二元化
 
+**连续特征离散化**：待划分的特征分为离散型和连续型两种。对于离散型的特征，按照特征值进行划分，每个特征值对应一个子节点；对于连续型的数据，由于可取值数目不再有限，一般需要离散化，常用二分法处理。
 
-## 特征重编码
-
-待划分的特征分为离散型和连续型两种。对于离散型的特征，按照特征值进行划分，每个特征值对应一个子节点；对于连续型的数据，由于可取值数目不再有限，一般进行离散化处理。
-
-**连续特征离散化**：一般采用二分法处理。给定样本 $D$ 和连续特征 $x$ ，若样本中 $x$ 有 $p$ 个值。对所有样本排序，取排序样本中的所有 $p-1$ 个中点值作为阈值的候选值 ，取划分后纯度最高的中点值作为阈值。以基尼指数为例，最佳阈值为
+给定样本 $D$ 和连续特征 $x$ ，若样本中 $x$ 有 $p$ 个值。对所有样本排序，取排序样本中的所有 $p-1$ 个中点值作为阈值的候选值  $a\in\{a_1,a_2,\cdots,a_{p-1}\}$ ，取划分后纯度最高的中点值作为阈值。以基尼指数为例，最佳阈值为
 $$
 \arg\min\limits_{a}\text{Gini}(D,x(a))
 $$
-其中，$x(a)$ 表示以候选阈值 $a\in\{a_1,a_2,\cdots,a_{p-1}\}$ 对 $x$ 进行二元重编码后的特征
+其中，$x(a)$ 表示以候选阈值 $a$ 对 $x$ 进行二元重编码后的特征
 $$
 x(a)=\begin{cases} 1 & \text{if } x\leqslant a \\ 0 & \text{others} \end{cases}
 $$
@@ -434,7 +453,7 @@ $$
 
 **one-hot encoding**：某些算法（CART）只产生二元划分。如果一个离散特征可以取 $p$ 个值，可以通过创建 $p$ 个取值为0或1的二元特征来替换。如下图示例
 
-<img src="Machine-Learning--Supervised-Learning.assets/one-hot-encoding.png" alt="one-hot-encoding" style="zoom: 50%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/one-hot-encoding.png" alt="one-hot-encoding" style="zoom: 50%;" />
 
 ## 划分特征选择
 
@@ -442,7 +461,7 @@ $$
 
 ### 信息增益
 
-**信息熵**（information entropy）是度量数据集纯度的最常用的指标。给定数据集 $D$ ，目标变量 $y\in\{y_1,y_2,\cdots,y_c\}$ 经验分布为
+**信息熵**（information entropy）是度量数据集纯度的最常用的指标。给定数据集 $D$ ，目标变量 $y\in\{y_1,y_2,\cdots,y_K\}$ 经验分布为
 $$
 \mathbb P(y=y_k)=p_k
 $$
@@ -458,7 +477,7 @@ H(p_1)=-p_1\log p_1-(1-p_1)\log (1-p_1)
 $$
 二元变量的熵曲线如下图
 
-<img src="Machine-Learning--Supervised-Learning.assets/information%20entropy.svg" alt="information entropy" style="zoom: 67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/information_entropy.svg" style="zoom:67%;" />
 
 **条件熵**（condition entropy）用来表示离散特征 $x$ 划分后的数据集 $D$ 纯度。使用划分后子集的熵的加权平均值度来度量
 $$
@@ -485,7 +504,7 @@ $$
 
 以吴恩达老师的==猫分类数据集==为例：
 
-<img src="Machine-Learning--Supervised-Learning.assets/cat-classification-example.png" alt="cat-classification-example" style="zoom:60%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/cat-classification-example.png" alt="cat-classification-example" style="zoom:60%;" />
 
 根节点的熵为：$H(p_1^{\text{root}})=H(0.5)=-\cfrac{1}{2}\log \cfrac{1}{2}-\cfrac{1}{2}\log \cfrac{1}{2}=1$
 
@@ -496,7 +515,7 @@ Face shape: $H(0.5)-(\cfrac{7}{10}H(0.57)+\cfrac{3}{10}H(0.33))=0.03$
 Whiskers: $H(0.5)-(\cfrac{4}{10}H(0.75)+\cfrac{6}{10}H(0.33))=0.12$
 Weight: $H(0.5)-(\cfrac{4}{10}H(1)+\cfrac{6}{10}H(0.17))=0.61$
 
-![](Machine-Learning--Supervised-Learning.assets/information-gain.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/information-gain.svg)
 
 显然，Weight ⩽ 9 的信息增益最大，于是Weight被选为在根节点划分的特征。类似的，再对每个分支结点进行上述操作，进一步划分，最终得到整颗决策树。 
 
@@ -517,7 +536,7 @@ $$
 
 ### 基尼指数
 
-**基尼指数**（Gini Index）给定数据集 $D$ ，目标变量 $y\in\{y_1,y_2,\cdots,y_c\}$ 经验分布为
+**基尼指数**（Gini Index）给定数据集 $D$ ，目标变量 $y\in\{y_1,y_2,\cdots,y_K\}$ 经验分布为
 $$
 \mathbb P(y=y_k)=p_k
 $$
@@ -585,7 +604,7 @@ $$
 
 若我们把每个特征视为坐标空间中的一个坐标轴，则每个样本对应一个数据点，两个不同类之间的边界称为决策边界（decision boundary）。决策树所形成的分类边界有一个明显的特点：由于节点测试只涉及单个特征，它的决策边界由若干个与坐标轴平行的分段组成。这就限制了决策树对连续特征之间复杂关系的建模能力。
 
-![](Machine-Learning--Supervised-Learning.assets/DecisionBoundary2.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/DecisionBoundary2.svg)
 
 **斜决策树**（oblique decision tree）在每个节点，不再是仅对某个特征，而是对特征的线性组合进行测试
 $$
@@ -610,11 +629,9 @@ $$
 
 下面是对整个 iris 数据集进行训练的树的图形输出示例
 
-<img src="Machine-Learning--Supervised-Learning.assets/iris_graph.svg" alt="iris_graph" style="zoom: 50%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/iris_graph.svg" alt="iris_graph" style="zoom: 50%;" />
 
 # 支持向量机
-
-[斯坦福大学笔记.pdf](C:\Users\Admin\Documents\学习文件\机器学习\MLofAndrewNg-2022\斯坦福大学笔记.pdf)
 
 **s.t.** 是 subject to (such that) 的缩写，表示约束条件。
 
@@ -622,15 +639,15 @@ $$
 
 # 多分类和多标签
 
-**Multiclass classification**：目标变量包含两个以上离散值的分类任务 $y\in\{0,1,2,\cdots\}$。每个样本只能标记为一个类。例如，使用从一组水果图像中提取的特征进行分类，其中每一幅图像都可能是一个橙子、一个苹果或一个梨。每个图像就是一个样本，并被标记为三个可能的类之一。
+**Multiclass classification**：目标变量包含两个以上离散值的分类任务 $y\in\{0,1,2,\cdots,K\}$。每个样本只能标记为一个类。例如，使用从一组水果图像中提取的特征进行分类，其中每一幅图像都可能是一个橙子、一个苹果或一个梨。每个图像就是一个样本，并被标记为三个可能的类之一。
 
-<img src="Machine-Learning--Supervised-Learning.assets/multiclass-classification.svg" style="zoom: 67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/multiclass-classification.svg" style="zoom: 67%;" />
 
 - One-Vs-Rest (OVR) 也称为one-vs-all，为每个类分别拟合一个二分类模型，这是最常用的策略，对每个类都是公平的。这种方法的一个优点是它的可解释性，每个类都可以查看自己模型的相关信息。
 
 - One-Vs-One (OVO) 是对每一对类分别拟合一个二分类模型。在预测时，选择得票最多的类别。在票数相等的两个类别中，它选择具有最高总分类置信度的类别，方法是对由底层二分类器计算的对分类置信度进行求和。
 
-  由于它需要拟合 `n_classes*(n_classes-1)/2` 个分类器，这种方法通常比one-vs-rest要慢，原因就在于其复杂度 O(n^2^~classes~) 。然而，这个方法也有优点，比如说是在没有很好的缩放 `n_samples` 数据的核方法中。这是因为每个单独的学习问题只涉及一小部分数据，而对于一个one-vs-rest，完整的数据集将会被使用 `n_classes`次。
+  由于它需要拟合 $\frac{K(K-1)}{2}$ 个分类器，这种方法通常比one-vs-rest要慢，原因就在于其复杂度 O(K^2^) 。然而，这个方法也有优点，比如说是在没有很好的缩放样本数的核方法中。这是因为每个单独的学习问题只涉及一小部分数据，而对于一个 one-vs-rest，完整的数据集将会被使用 K 次。
 
 **One-Vs-Rest**：为每个类分别拟合一个二分类模型
 $$
@@ -640,7 +657,7 @@ $$
 $$
 \hat y=\arg\max\limits_{i} f^{(i)}_{\mathbf{w},b}(\mathbf{x})
 $$
-![](Machine-Learning--Supervised-Learning.assets/one-vs-all.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/one-vs-all.svg)
 
 **Multilabel classification**：包含多个目标变量的分类任务
 

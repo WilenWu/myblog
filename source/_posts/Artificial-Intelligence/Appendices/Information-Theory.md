@@ -40,7 +40,7 @@ $$
 $$
 当随机变量只取两个值时，熵曲线如下图
 
-![information entropy](Information-Theory.assets/information%20entropy.svg)
+![information entropy](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/information_entropy.svg)
 
 信息熵表示对离散随机变量 $X$ 进行编码所需的最小字节数。
 
@@ -73,9 +73,7 @@ $$
 KL(P\|Q)=H(P,Q)-H(P)
 $$
 其中 $H(P)$ 为熵，$H(P,Q)$ 为交叉熵。因此，KL散度可认为是使用基于 Q 的编码对来自 P 的变量进行编码所需的**额外**字节数。由吉布斯不等式可知，相对熵是恒大于等于0的。当且仅当两分布相同时，相对熵等于0。
-$$
 
-$$
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/KL-divergence.png" style="zoom:50%;" />
 
 相对熵是一些优化算法，例如最大期望算法（Expectation-Maximization algorithm, EM）的损失函数。此时参与计算的一个概率分布为真实分布，另一个为理论（拟合）分布，相对熵表示使用理论分布拟合真实分布时产生的信息损耗 。
