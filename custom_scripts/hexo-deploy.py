@@ -29,5 +29,3 @@ print("临时修改网站配置文件：www.tinylei.tech ==> wilenwu.gitee.io")
 switch(site_url, gitee_url, github_push, gitee_push)
 print('推送到 gitee')
 os.system('hexo clean && hexo g -d')
-
-switch(gitee_url, site_url, gitee_push, github_push)

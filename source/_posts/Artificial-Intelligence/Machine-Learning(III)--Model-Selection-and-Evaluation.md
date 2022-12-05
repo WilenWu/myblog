@@ -9,11 +9,11 @@ tags:
   - 模型评估
   - 混淆矩阵
   - ROC曲线
-cover: /img/data-analysis.png
-top_img: /img/data-chart3.jpg
+cover: /img/ML-model-selection-and-evaluation.png
+top_img: /img/artificial-intelligence.jpg
 description: false
 abbrlink: cc734464
-date: 
+date: 2022-11-27 21:40
 ---
 
 # 模型选择
@@ -403,5 +403,6 @@ $$
 ------
 
 [^1]: 指示函数(indicator function) $\mathbb I(\text{condition})=\begin{cases}1 & \text{if true}\\ 0 & \text{if false}\end{cases}$
+
 [^2]: 符号函数 $$\text{sign}(x)=\begin{cases}+1 & \text{if }x\geqslant 0\\ -1 & \text{if }x<0\end{cases}$$
 

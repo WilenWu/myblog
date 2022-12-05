@@ -100,14 +100,14 @@ segment(code, jiebar, mod = NULL)
 `tagging(code, jiebar)`分词+标记
 `vector_tag(string, jiebar)`对已经分好的词进行标记
 ```r
-words = "我爱北京天安门"
+words = "我爱美丽家乡"
 cutter = worker()
 result = segment(words, cutter)
 
 tagger = worker("tag") #标记器
 vector_tag(result, tagger)  #对分好的词进行标记
 #>        r        v       ns       ns 
-#>     "我"     "爱"   "北京" "天安门"
+#>     "我"     "爱"   "美丽" "家乡"
 ```
 
 ## 关键词提取：基于系统词典词频
@@ -116,16 +116,16 @@ vector_tag(result, tagger)  #对分好的词进行标记
 `vector_keywords(segment, jiebar)`
 ```r
 key = worker("keywords", topn = 1)
-keywords("我爱北京天安门", key)
+keywords("我爱美丽家乡", key)
 #>   8.9954 
-#> "天安门"
+#> "家乡"
 
 # 对已经分好词的文本提取关键词
 cutter = worker()
-result = segment("我爱北京天安门", cutter)
+result = segment("我爱美丽家乡", cutter)
 vector_keywords(result, key)
 #>   8.9954 
-#> "天安门"
+#> "家乡"
 ```
 
 

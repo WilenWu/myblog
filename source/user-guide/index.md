@@ -61,8 +61,8 @@ header_color: true
 
 ## Machine Learning
 
-- :ballot_box_with_check: 机器学习(III)--模型选择与评估
-- :ballot_box_with_check: 机器学习(IV)--监督学习
+- :ballot_box_with_check: [机器学习(III)--模型选择与评估](/posts/cc734464/)
+- :ballot_box_with_check: [机器学习(IV)--监督学习](/posts/3c1747d9/)
 
 ## Deep Learning
 

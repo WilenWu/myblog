@@ -64,3 +64,29 @@ F检验    F=MSR/MSE
 ### Cox
 
 Cox ：预测一个事件（死亡、失败或旧病复发）发生的时间
+
+
+# 逻辑回归
+
+**最大期望算法**：（Expectation-Maximization algorithm, EM）与真实分布最接近的模拟分布即为最优分布，因此可以通过最小化交叉熵来求出最优分布。
+
+真实分布可写为 
+$$
+\mathbb P(y|\mathbf x)=1
+$$
+模拟分布可写为 
+$$
+\mathbb Q(y|\mathbf x)=[f_{\mathbf{w}}(\mathbf{x})]^{y}[1-f_{\mathbf{w}}(\mathbf{x})]^{1-y}
+$$
+交叉熵为
+$$
+\begin{aligned}
+H(\mathbb P,\mathbb Q) &=-\sum_{i=1}^m \mathbb P(y_i|\mathbf x_i)\log \mathbb Q(y_i|\mathbf x_i) \\
+&=\sum_{i=1}^{m}(-y_i\mathbf{w}^T\mathbf{x}+\log(1+e^{\mathbf{w}^T\mathbf{x}}))
+\end{aligned}
+$$
+**cost function**
+$$
+J(\mathbf w)=\frac{1}{m}\sum_{i=1}^{m}(-y_i\mathbf{w}^T\mathbf{x}+\log(1+e^{\mathbf{w}^T\mathbf{x}}))
+$$
+与极大似然估计相同。
