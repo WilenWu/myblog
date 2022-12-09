@@ -94,7 +94,7 @@ DROP TABLE table_name [CASCADE CONSTRAINTS]; --删除表[并解除关联表约�
 SQL 约束（Constraints）用于规定表中的数据规则。如果存在违反约束的数据行为，行为会被约束终止。
 可以在创建表时规定约束（通过 CREATE TABLE 语句），或者在表创建之后也可以（通过 ALTER TABLE 语句）。我们将主要探讨以下几种约束：
 
-- NOT NULL: 强制列非空值
+- NOT NULL：强制列非空值
 - UNIQUE：保证某列的每行必须有唯一的值
 - PRIMARY KEY：主键，非空且唯一
 - FOREIGN KEY：外键，指向另一个表中的 PRIMARY KEY(唯一约束的键)

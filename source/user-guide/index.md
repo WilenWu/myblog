@@ -92,10 +92,11 @@ header_color: true
 
 - :white_large_square: Hive安装配置
 - :ballot_box_with_check: [Hive基础知识](https://blog.csdn.net/zhongqi2513/article/details/69388239)
-- :ballot_box_with_check: [HiveQL(Introduction)](/posts/e6bd78c5/): Hive 命令、数据类型和常用函数
+- :ballot_box_with_check: [HiveQL(Introduction)](/posts/e6bd78c5/): Hive 命令、数据类型
 - :ballot_box_with_check: [HiveQL(DQL)](/posts/297bd708/): 数据查询语言(Data Query Language, DQL）：用以从表中获得数据，包括 SELECT，WHERE，ORDER BY，GROUP BY和HAVING等。
 - :ballot_box_with_check: [HiveQL(DML)](/posts/d2c808ff/): 数据操作语言(Data Manipulation Language, DML）：其语句包括动词 INSERT、UPDATE、DELETE。它们分别用于添加、修改和删除。
 - :ballot_box_with_check: [HiveQL(DDL)](/posts/dd193370/): 数据定义语言(Data Definition Language, DDL)：其语句包括动词CREATE、ALTER和DROP。
+- :ballot_box_with_check: [HiveQL(Functions)](/posts/f18b723f/): Hive 常用函数
 
 ## Spark
 
@@ -114,6 +115,7 @@ header_color: true
 - :ballot_box_with_check: [Oracle SQL(TCL)](/posts/6c7e4677/): 事务控制语言(Transaction Control Language, TCL)：它的语句能确保被DML语句影响的表的所有行及时得以更新。包括COMMIT（提交）命令、SAVEPOINT（保存点）命令、ROLLBACK（回滚）命令。
 - :ballot_box_with_check: [Oracle SQL(DML)](/posts/36f93ce2/): 数据操作语言(Data Manipulation Language, DML）：其语句包括动词 INSERT、UPDATE、DELETE。它们分别用于添加、修改和删除。
 - :ballot_box_with_check: [Oracle SQL(DDL)](/posts/3928076d/): 数据定义语言(Data Definition Language, DDL)：其语句包括动词CREATE、ALTER和DROP。
+- :ballot_box_with_check: [Oracle SQL(Functions)](/posts/fc1e9a84/): Oracle 常用函数
 
 # Python
 
