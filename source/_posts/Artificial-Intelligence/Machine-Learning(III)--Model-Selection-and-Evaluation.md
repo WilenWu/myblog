@@ -190,9 +190,9 @@ $$
 
 **点估计**(point estimation)是用样本统计量来估计总体参数。可以是<u>单个参数</u>，或是某些参数模型中的一个<u>向量参数</u>，例如线性回归中的权重，但是也有可能是整个函数。
 
-为了区分参数估计和真实值，我们习惯将参数 $\mathbf\theta$ 的点估计表示为 $\hat{\mathbf\theta}$ 。令 $\{\mathbf x^{(1)},\mathbf x^{(2)},\cdots,\mathbf x^{(m)}\}$ 是 m 个独立同分布 (i.i.d.)的数据点。我们假设真实参数 $\mathbf\theta$ 是固定但未知的，而点估计 $\hat{\mathbf\theta}$ 是数据集的函数
+为了区分参数估计和真实值，我们习惯将参数 $\mathbf\theta$ 的点估计表示为 $\hat{\mathbf\theta}$ 。令 $\{\mathbf x_1,\mathbf x_2,\cdots,\mathbf x_m\}$ 是 m 个独立同分布 (i.i.d.)的数据点。我们假设真实参数 $\mathbf\theta$ 是固定但未知的，而点估计 $\hat{\mathbf\theta}$ 是数据集的函数
 $$
-\hat{\mathbf\theta}=\mathbf g(\mathbf x^{(1)},\mathbf x^{(2)},\cdots,\mathbf x^{(m)})
+\hat{\mathbf\theta}=\mathbf g(\mathbf x_1,\mathbf x_2,\cdots,\mathbf x_m)
 $$
 由于数据集是随机采样出来的，数据集的任何函数都是随机的，因此 $\hat{\mathbf\theta}$ 是一个随机变量。点估计也可以指输入变量和目标变量之间关系的估计，我们将这种类型的点估计称为函数估计。
 
@@ -204,30 +204,36 @@ $$
 $$
 即 $y$ 服从均值为 $\mathbf w^T\mathbf x$ 协方差为 $\mathbf \Sigma$ 的高斯分布。现在我们回顾点估计最常研究的性质，并探讨这些性质说明了估计的哪些特点。
 
-估计量的期望与真实值的差别称为**偏差**(bias) ，
-$$
-\text{bias}(\hat \theta)=\mathbb E(\hat \theta)-\theta
-$$
-其中 $\hat \theta$ 为估计量，  $\theta$ 为数据分布的的真实值。如果 $\text{bias}(\hat \theta)=0$，那么估计量 $\hat \theta$ 被称为是无偏估计（unbiased）。由于估计量是随机变量，而估计值会有波动性，无偏性的统计意义是指在大量重复试验下，保证了没有系统误差。例如均值为期望的无偏估计。
+**偏差-方差分解**（bias-variance decomposition）试图对模型的泛化误差进行拆解。下例给出了这种方法的直观解释。
 
-估计量使用样本数相同的不同训练集产生的**方差**(variance)为
-$$
-\text{var}(\hat\theta)=\mathbb E(\hat \theta-\mathbb E(\hat \theta))^2
-$$
-噪声为
-$$
-\epsilon^2=\mathbb E(\theta_D-\theta)^2
-$$
-$\theta_D$ 为数据集上的标记值。由于样本是随机变量，与真实值存在误差。
+![bias-variance-example](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/bias-variance-example.svg)
 
-**偏差-方差分解**（bias-variance decomposition）试图对模型的泛化误差进行拆解。以线性模型为例，我们估计的均方误差 (mean squared error, MSE)
+上图显示了以特定角度和火力 $\mathbf x=(\theta,f)$ 发射的弹道轨迹，每次观察到的距离都不一样，观察到的距离可以分为3个部分：目标位置和射击位置平均值之间的距离称为偏差，射击位置间的离散程度称为方差，观察到的目标位置的不确定性称为噪声。
+
+**偏差**(bias) 度量估计量的期望与真实值的差别
+$$
+\text{bias}(\hat y)=\mathbb E(\hat y)-y
+$$
+其中 $\hat y$ 为估计量，  $y$ 为数据分布的的真实值。如果 $\text{bias}(\hat y)=0$，那么估计量 $\hat y$ 被称为是无偏估计（unbiased）。由于估计量是随机变量，而估计值会有波动性，无偏性的统计意义是指在大量重复试验下，保证了没有系统误差。例如均值为期望的无偏估计。
+
+**方差**(variance)度量估计量使用样本数相同的不同训练集产生的误差
+$$
+\text{var}(\hat y)=\mathbb E(\hat y-\mathbb E(\hat y))^2
+$$
+**噪声**(noise)度量数据集 $D$ 观察到的真实值的误差
+$$
+\epsilon^2=\mathbb E(y_D-y)^2
+$$
+$y_D$ 为数据集上的目标值。由于样本是随机变量，与真实值存在误差。
+
+以线性模型为例，我们估计的均方误差 (mean squared error, MSE)
 $$
 \begin{aligned}
-\text{MSE} &= \mathbb E[(\hat y_m-y)^2]  \\
-&=\text{bias}^2(\hat y_m)+\text{var}(\hat y_m)+\epsilon^2
+\text{MSE} &= \mathbb E[(\hat y-y)^2]  \\
+&=\text{bias}^2(\hat y)+\text{var}(\hat y)+\epsilon^2
 \end{aligned}
 $$
-度量着估计 $\hat y_m$ 和真实参数 $y$ 之间平方误差的总体期望。MSE 估计包含了偏差和方差，偏差度量着偏离真实函数或参数的误差期望，而方差度量着特定采样可能导致的误差。
+度量着估计 $\hat y$ 和真实参数 $y$ 之间平方误差的总体期望。MSE 估计包含了偏差和方差，偏差度量着偏离真实函数或参数的误差期望，而方差度量着特定采样可能导致的误差。
 
 偏差和方差的关系和模型假设空间的容量、欠拟合和过拟合的概念紧密相联。
 
@@ -308,7 +314,7 @@ AUC=\displaystyle \frac{1}{2}\sum_{i=1}^{m-1}(x_{i+1}-x_i)(y_i+y_{i+1})
 $$
 **PR曲线**：查准率和查全率（召回率）之间的关系。查准率和查全率是一对矛盾的度量，一般来说，查准率高时，查全率往往偏低，查全率高时，查准率往往偏低。
 
-<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/PR-curve.png" style="zoom: 67%;" />
+![PR-curve](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/PR-curve.svg)
 
 如果一个学习器的P-R曲线被另一个学习器的P-R曲线完全包住，则可断言后者的性能优于前者，当然我们可以根据曲线下方的面积大小来进行比较，但更常用的是**平衡点**（Break-Even Point, BEP）。平衡点是查准率=查全率时的取值，如果这个值较大，则说明学习器的性能较好。
 

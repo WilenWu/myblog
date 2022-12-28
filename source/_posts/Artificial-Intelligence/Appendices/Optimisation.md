@@ -143,7 +143,7 @@ $$
 
 **学习率**
 
-<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/LearningRateOfGradientDescent.svg" style="zoom: 80%;" />
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/LearningRateOfGradientDescent.svg)
 
 - 如果 $\lambda$ 太小，梯度下降会起作用，但会很慢。
 - 如果 $\lambda$ 太大，梯度下降可能不断跨过最小值，永不收敛。

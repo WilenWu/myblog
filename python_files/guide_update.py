@@ -87,11 +87,16 @@ posts_dir = args.path
 posts = {} # 存储文章
 for addr, dirs, files in os.walk(posts_dir,topdown=False):
     for post_name in files: 
+        if not post_name.endswith('.md'):
+            continue
         post_url = os.path.join(addr, post_name) 
         with open(post_url, mode = 'r', encoding = 'utf-8') as f:
             post = f.read()
         yaml_pattern = '(--- *\n)(.+?)(--- *\n)'
-        front_matter = re.search(yaml_pattern, post, re.S).group(2)
+        try:
+            front_matter = re.search(yaml_pattern, post, re.S).group(2)
+        except:
+            continue
         front_matter = yaml.load(front_matter.encode('utf-8'), yaml.FullLoader)
         # 简化 title
         title = front_matter['title']

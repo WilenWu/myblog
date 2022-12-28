@@ -34,7 +34,8 @@ i18n_dir: :lang              # 国际语言所在的文件夹
 skip_render:                 # 忽略文档(根目录 source_dir/)，不做改动地输出到 public 目录
   - "docs/**"
   - "_drafts/**"
-  - "custom_scripts/**"
+  - "python_files/**"
+  - "references/**"
 
 
 # Writing

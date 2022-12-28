@@ -72,7 +72,7 @@ header_color: true
 
 ## Appendices
 
-- :ballot_box_with_check: [机器学习中的优化](/posts/b0a72714/)
+- :ballot_box_with_check: [机器学习中的优化](/posts/b0a72714/): 优化是找出函数的最大值或最小值的方法
 - :ballot_box_with_check: [机器学习中的信息论](/posts/8a8bfa9b/)
 - :ballot_box_with_check: [矩阵求导](/posts/99273c32/)
 
@@ -115,7 +115,7 @@ header_color: true
 - :ballot_box_with_check: [Oracle SQL(TCL)](/posts/6c7e4677/): 事务控制语言(Transaction Control Language, TCL)：它的语句能确保被DML语句影响的表的所有行及时得以更新。包括COMMIT（提交）命令、SAVEPOINT（保存点）命令、ROLLBACK（回滚）命令。
 - :ballot_box_with_check: [Oracle SQL(DML)](/posts/36f93ce2/): 数据操作语言(Data Manipulation Language, DML）：其语句包括动词 INSERT、UPDATE、DELETE。它们分别用于添加、修改和删除。
 - :ballot_box_with_check: [Oracle SQL(DDL)](/posts/3928076d/): 数据定义语言(Data Definition Language, DDL)：其语句包括动词CREATE、ALTER和DROP。
-- :ballot_box_with_check: [Oracle SQL(Functions)](/posts/fc1e9a84/): Oracle 常用函数
+- :ballot_box_with_check: [Oracle SQL(Functions)](/posts/fc1e9a84/): oracle 常用函数
 
 # Python
 
@@ -136,7 +136,7 @@ header_color: true
 ## Standard Library
 
 - :ballot_box_with_check: [string](/posts/64b738be/): Python3 字符串方法和格式化输出
-- :ballot_box_with_check: [日期时间模块](/posts/592885c8/): 日基础包：datetime, time, calendar
+- :ballot_box_with_check: [日期时间模块](/posts/592885c8/): datetime, time, calendar
 - :ballot_box_with_check: [数学模块](/posts/bb46152f/): 基础包：math, random
 - :ballot_box_with_check: [re](/posts/cb9fa048/): re 模块使 Python 语言拥有全部的正则表达式功能。
 - :heart: [tkinter](http://www.runoob.com/python/python-gui-tkinter/): Python 的标准 GUI 库

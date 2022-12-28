@@ -11,7 +11,7 @@ tags:
 cover: /img/oracle-functions.png
 top_img: /img/SQL.png
 abbrlink: fc1e9a84
-description: oracle 常用函数
+description: Oracle 常用函数
 ---
 
 # 常用函数
