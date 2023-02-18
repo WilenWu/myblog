@@ -115,7 +115,7 @@ header_color: true
 - :ballot_box_with_check: [Oracle SQL(TCL)](/posts/6c7e4677/): 事务控制语言(Transaction Control Language, TCL)：它的语句能确保被DML语句影响的表的所有行及时得以更新。包括COMMIT（提交）命令、SAVEPOINT（保存点）命令、ROLLBACK（回滚）命令。
 - :ballot_box_with_check: [Oracle SQL(DML)](/posts/36f93ce2/): 数据操作语言(Data Manipulation Language, DML）：其语句包括动词 INSERT、UPDATE、DELETE。它们分别用于添加、修改和删除。
 - :ballot_box_with_check: [Oracle SQL(DDL)](/posts/3928076d/): 数据定义语言(Data Definition Language, DDL)：其语句包括动词CREATE、ALTER和DROP。
-- :ballot_box_with_check: [Oracle SQL(Functions)](/posts/fc1e9a84/): oracle 常用函数
+- :ballot_box_with_check: [Oracle SQL(Functions)](/posts/fc1e9a84/): Oracle 常用函数
 
 # Python
 
@@ -453,22 +453,20 @@ Natural Language Processing(自然语言处理)
 
 ## 基础物理
 
-- :ballot_box_with_check: 普通物理: 力学，热学，光学，电磁学，振动和波等
+- :ballot_box_with_check: 普通物理学: 包括力学，热学，光学，电磁学等，对初高中知识进行一定的扩展
 - :ballot_box_with_check: 理论力学: 静力学、运动学与动力学
 - :ballot_box_with_check: 电动力学: 电磁现象的经典动力学理论，包括狭义相对论
-- :ballot_box_with_check: 热力学和统计物理: 热力学与统计物理
+- :ballot_box_with_check: 统计力学: 热力学与统计物理
 - :ballot_box_with_check: 量子力学: 研究物质世界微观粒子运动规律的物理学分支
-- :white_large_square: 固体物理: 凝聚态物理学中最大的分支。它研究的对象是固体
-- :heart: 《场论基础》: （易中）从连续介质运动、非完整力学系统、电磁关系、引力场、量子效应、基本粒子构造、场的量子理论、场规范、随机场九个方面介绍了电磁场、引力场、量子场、规范场、统计场的初步知识。
+- :ballot_box_with_check: 原子物理: 研究原子的结构、运动规律及相互作用，是承接经典物理和量子力学的桥梁
 
 ## 高等物理
 
-- :ballot_box_with_check: 高等量子力学: 以五条基本公理+测量公理作为出发点，推出《量子力学》中解释的所有现象
+- :ballot_box_with_check: 高等量子力学: 以五条基本公理和测量公理作为出发点，推出量子力学中解释的所有现象
 - :ballot_box_with_check: 高等统计力学: 使用量子力学的语言，讲述量子统计物理的基本原理及其应用
-- :ballot_box_with_check: 量子场论: 量子力学，狭义相对论和经典场论相结合的物理理论，已被广泛的应用于粒子物理学和凝聚态物理学中。
+- :ballot_box_with_check: 量子场论: 量子力学、狭义相对论和经典场论相结合的物理理论
 - :ballot_box_with_check: 广义相对论: 是描述物质间引力相互作用的理论
-- :ballot_box_with_check: 量子引力: 想要把广义相对论量子化，进而统一包括引力在内的四种基本力。当前主流尝试理论有弦理论/超弦理论/M理论、超引力、圈量子引力、扭量理论等。
-- :white_large_square: 凝聚态物理: 是研究凝聚态物质的物理性质与微观结构以及它们之间的关系。
+- :ballot_box_with_check: 量子引力: 想要把广义相对论量子化，进而统一包括引力在内的四种基本力。当前主流尝试理论有弦理论/超弦理论/M理论、超引力、圈量子引力、扭量理论等
 
 ## Appendices
 - :ballot_box_with_check: [固有洛伦兹变换的严格推导](/posts/55b8eadb/): 根据狭义相对论的两条基本原理来严格推导固有洛伦兹变换

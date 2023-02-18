@@ -226,14 +226,6 @@
 - class_name: 科学数据库
   class_desc: 
   link_list:
-    - name: NIST
-      link: https://www.nist.gov/
-      avatar: /img/science.svg
-      descr: 美国国家标准与技术研究院，从事物理、生物和化学等方面的基础研究
-    - name: BRENDA
-      link: https://www.brenda-enzymes.org/index.php
-      avatar: /img/dna.svg
-      descr: 酶数据和代谢信息
     - name: 中国科技资源共享网
       link: https://escience.org.cn/
       avatar: /img/telescope.svg
