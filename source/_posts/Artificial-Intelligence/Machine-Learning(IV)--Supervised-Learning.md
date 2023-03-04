@@ -26,7 +26,7 @@ description:
 
 给定的数据集  
 $$
-D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m\}
+D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m)\}
 $$
 包含 $m$ 个样本，$d$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{id})^T$ 。目标变量 $y_i\in \R$ 。
 
@@ -1059,131 +1059,263 @@ Multi-task Elastic-Net 也采用坐标下降法来估计参数。
 
 # 集成学习
 
-## 集成方法
+## 集成学习
 
-**集成学习**（ensemble learning）通过构建并集合多个**基学习器**（base learner）的结果来提升预测结果的准确性和泛化能力。
+**集成学习**（ensemble learning）通过构建并组合多个**基学习器**（base learner）的结果来提升预测结果的准确性和泛化能力。其中，基学习器通常采用弱学习算法，集成形成强学习算法。
 
-集成方法一般分为两种：
+> 准确率仅比随机猜测略高的学习算法称为**弱学习算法**，准确率很高并能在多项式时间内完成的学习算法称为**强学习算法**。
 
-- Bagging：（Bootstrap aggregating，袋装算法）训练多个分类器取平均，最典型的代表就是随机森林。通过降低结果的方差，避免过拟合的发生。
-- Boosting：从弱学习器开始加强，通过加权来进行训练。最经典的包括AdaBoost算法和GBDT算法。
+假定集成包含$T$个基学习器$\{h_1,h_2,\cdots,h_T\}$，集成学习器表示为
+$$
+H(\mathbf x)=\text{Vote}(h_1(\mathbf x),h_2(\mathbf x),\cdots,h_T(\mathbf x))
+$$
+下面以二分类为例，说明集成学习器为什么能够改善分类器的性能。集成分类器采用多数表决的方法来预测类别，仅当基分类器超过一半预测错误的情况下，集成分类器预测错误。
+$$
+H(\mathbf x)=\text{sign}\left(\frac{1}{T}\sum_{t=1}^Th_t(\mathbf x)\right)
+$$
+假设基分类器之间相互独立，且错误率相等为 $\epsilon$ 。则集成分类器的错误率为
+$$
+\epsilon_{\text{ensemble}} =\sum_{k=0}^{\lfloor T/2\rfloor}\complement^k_T(1-\epsilon)^k\epsilon^{T-k} 
+$$
+取25个基分类器，误差率均为 0.35 ，计算可得集成分类器的误差为 0.06 ，远低于基分类器的误差率。注意，当 $\epsilon>0.5$ 时，集成分类器比不上基分类器。
+
+<img src="Machine-Learning(IV)--Supervised-Learning.assets/ensemble-classifier-error.svg" style="zoom:67%;" />
+
+令$\epsilon=0.5-\gamma$ ，其中 $\gamma$ 度量了分类器比随机猜测强多少。则由Hoeffding 不等式可知
+$$
+\epsilon_{\text{ensemble}}\leqslant \exp(-2T\gamma^2)
+$$
+上式指出，随着基分类器的个数的增加集成错误率呈指数下降，从而快速收敛。但前提是基分类器之间相互独立。
+
+假设 $T$ 个回归模型，集成模型以均值输出
+$$
+H(\mathbf x)=\frac{1}{T}\sum_{t=1}^Th_t(\mathbf x)
+$$
+每个基模型的误差服从均值为零的正态分布
+$$
+\epsilon_t\sim N(0,\sigma^2)
+$$
+若不同模型误差间的协方差均为 $\text{Cov}(\epsilon_i,\epsilon_j)=c$ 。则集成模型误差平方的期望是
+
+
+$$
+\begin{aligned}
+\mathbb E(\epsilon_{\text{ensemble}}^2)
+&=\mathbb E\left[\left(\frac{1}{T}\sum_{t=1}^T\epsilon_t\right)^2\right] \\
+&=\frac{1}{T^2}\mathbb E\left[\sum_{i=1}^T\left(\epsilon_i^2+\sum_{j\neq i}\epsilon_i\epsilon_j\right)\right]  \\
+&=\frac{1}{T}\sigma^2+\frac{T-1}{T}c
+\end{aligned}
+$$
+
+在误差完全相关即 $c=\sigma^2$ 的情况下，误差平方减少到 $\sigma^2$ ，所以，模型平均没有任何帮助。在误差彼此独立即 $c=0$ 的情况下，该误差平方的期望仅为 $\sigma^2/T$ 。
+
+上述示例容易得出，集成学习的基学习器要有足够的**准确性**和**差异性**。集成方法主分成两种：
+
+- Bagging：是一种并行方法。通过在训练集上的有放回抽样来获得基学习器间的差异性。最典型的代表就是随机森林。
+- Boosting：是一种串行迭代过程。自适应的改变训练数据的权重分布，构建一系列基分类器。最经典的包括AdaBoost算法和GBDT算法。
+
+给定的数据集  
+$$
+D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m)\}
+$$
+包含 $m$ 个样本，$d$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{id})^T$ 。
+
+## Bagging
 
 ### Bagging
 
-Bagging是通过结合几个模型降低泛化误差的技术。主要想法是分别训练几个不同的模型，然后让所有模型表决测试样例的输出。
+Bagging（Bootstrap aggregating，袋装算法）是一种并行式的集成学习方法。通过在基学习器的训练集中引入随机化后训练。随机从数据集$D$中有放回的抽取$T$个包含$m$个样本的数据集，从而训练出 $T$ 个基学习器。
 
-1.给定一个弱学习算法,和一个训练集;
+<img src="Machine-Learning(IV)--Supervised-Learning.assets/bagging_algorithm.png" style="zoom:80%;" />
 
-2.单个弱学习算法准确率不高;
+可以看出Bagging主要通过**样本的扰动**来增加基学习器之间的差异性，因此Bagging的基学习器应为那些对训练集十分敏感的不稳定学习算法，例如：神经网络与决策树等。从偏差-方差分解来看，Bagging算法主要关注于降低方差，即通过多次重复训练提高泛化能力。
 
-3.将该学习算法使用多次,得出预测函数序列,进行投票;
+由于抽样都来自于同一个数据集，且是有放回抽样，所以$T$个数据集彼此相似，而又因随机性而稍有不同。Bagging训练集中有接近36.8%的样本没有被采到
+$$
+\lim_{m\to\infty}(1-\frac{1}{m})^m=\frac{1}{e}\approx 0.368
+$$
+Bagging方法有许多不同的变体，主要是因为它们提取训练集的随机子集的方式不同：
 
-4.最后结果准确率将得到提高.
+- 如果使用无放回抽样，我们叫做 Pasting
+- 如果使用有放回抽样，我们称为 Bagging
+- 如果抽取特征的随机子集，我们叫做随机子空间 (Random Subspaces) 
+- 最后，如果基学习器构建在对于样本和特征抽取的子集之上时，我们叫做随机补丁 (Random Patches) 
 
+### 随机森林
 
+对于决策树，事实证明，只需要改变一个训练样本，最高信息增益对应的特征就可能发生改变，因此在根节点会产生一个不同的划分，生成一颗完全不同的树。因此单个决策树对数据集的微小变化异常敏感。
 
-给定一个大小为n的训练集D，Bagging算法从中均匀、有放回地（即使用自助抽样法）选出m个大小为n'的子集Di，作为新的训练集。在这m个训练集上使用分类、回归等算法，则可得到m个模型，再通过取平均值、取多数票等方法，即可得到Bagging的结果 [2]  。
+**随机森林**（Random Forest）是Bagging的一个拓展体，它的基学习器固定为决策树，在基学习器构造过程中引入随机：
 
+1. 采用有放回抽样的方式添加样本扰动，但有时在根节点附近也有相似的特征组成。
+2. 因此进一步引入了特征扰动，每一个分裂过程从待选的 $n$ 个特征中随机选出包含 $k$ 个特征的子集，从这个子集中选择最优划分特征，一般推荐 $k=\log_2(n)$ 或 $k=\sqrt{n}$ 。
+3. 每棵树都会完整成长而不会剪枝
 
-
-**取样：放回取样(Bagging)和不放回取样(Pasting)。在统计学，放回取样：bootstrap。**如果抽取的数据集的随机子集是特征的随机子集，我们叫做随机子空间 (Random Subspaces) 
-
-事实证明，只需要改变一个训练样本，可拆分的最高信息增益对应的特征就可能发生改变，因此在根节点会产生一个不同的划分，生成一颗完全不同的树。
-
-因此，单个决策树对数据的微小变化非常敏感。让算法变得更健壮(robust)的一个方法是构建不止一颗决策树，这称之为树集成(Tree ensemble)。
-
-- Using multiple decision trees 多颗树投票决定预测结果
-- Sampling with replacement 使用有放回抽样创建新的随机训练集
-
-**Bagging算法特性**
-
-1. Bagging通过降低基学习器的方差，改善了泛化误差。
-2. 其性能依赖于基学习器的稳定性。如果基学习器不稳定，bagging有助于降低训练数据的随机波动导致的误差；如果稳定，则集成学习器的误差主要由基学习器的偏差引起。
-3. 由于每个样本被选中的概率相同，因此bagging并不侧重于训练数据集中的任何特定实例。
-
-### Boosting
-
-提升方法（Boosting），是一种可以用来减小监督式学习中偏差的集成算法。
-
-Boosting：从弱学习器开始加强，通过加权来进行训练。最经典的包括AdaBoost算法和GBDT算法。
-
-准确率仅比随机猜测略高的学习算法称为弱学习算法;识别准确率很高并能在多项式时间内完成的学习算法称为强学习算法。
-
-大多数提升算法包括由迭代使用弱学习分类器组成，并将其结果加入一个最终的成强学习分类器。加入的过程中，通常根据它们的分类准确率给予不同的权重。加和弱学习者之后，数据通常会被重新加权，来强化对之前分类错误数据点的分类。
-
-Boosting是一种框架算法,主要是通过对样本集的操作获得样本子集,然后用弱分类算法在样本子集上训练生成一系列的基分类器。他可以用来提高其他弱分类算法的识别率,也就是将其他的弱分类算法作为基分类算法放于Boosting 框架中,通过Boosting框架对训练样本集的操作,得到不同的训练样本子集,用该样本子集去训练生成基分类器;每得到一个样本集就用该基分类算法在该样本集上产生一个基分类器,这样在给定训练轮数 n 后,就可产生 n 个基分类器,然后Boosting框架算法将这 n个基分类器进行加权融合,产生一个最后的结果分类器,在这 n个基分类器中,每个单个的分类器的识别率不一定很高,但他们联合后的结果有很高的识别率,这样便提高了该弱分类算法的识别率。在产生单个的基分类器时可用相同的分类算法,也可用不同的分类算法,这些算法一般是不稳定的弱分类算法,如神经网络(BP) ,决策树(C4.5)等。
-
-## 随机森林
-
-随机森林指的是利用多棵树对样本进行训练并预测的一种分类器。
-
-这意味着在分类器构造过程中引入随机性来创建一组不同的分类器的集合。集成之后的预测是每个分类器的平均。
-
-在随机森林中每棵树构建时的样本都是由训练集经过有放回抽样(比如a bootstrap sample 自助式采样法)得来的。
-
-另外，在构建树的过程中进行结点分割时，选择的分割点是所有特征的最佳分割点，或特征的大小为 max_features 的随机子集的最佳分割。
-
-**Random forest algorithm** 随机森林
-
-- 数据采样随机，特征选择随机，之所以要进行随机，是要保证泛化能力
-
-Given training set of size $m$
-
-For $b=1$ to $B$
-
-- 使用有放回抽样创建一个大小为 $m$ 的新训练集 ，
-- 在新训练集上训练集一颗决策树
-
-让这些树投票决定预测结果。事实证明，让 $B$ 变大不会影响性能，但过了某个点后，你会发现收益递减。这种算法称为袋装决策树(bagged decision tree)。
-
-即使使用放回抽样，有时总是在根节点上使用相同的划分，在根节点附近也有相似的特征组成。所以尝试对算法做进一步的修改，随机每个节点的特征选择，这可能会获得更准确的预测结果。
-
-通常做法是每个节点上选择一个特征进行划分，如果总共有 $n$ 个特征可用，随机选择 $k<n$ 个特征子集，允许算法从这 $k$ 个特征子集中选择最大信息增益的特征来划分。当特征数量大时，通常会选择 $k=\sqrt{n}$ 。这种算法称为随机森林(Random forest)
-
-**算法**
-
-1. 从*N*个训练用例（样本）中以有放回抽样的方式，取样*N*次，形成一个训练集（即bootstrap取样），并用未抽到的用例（样本）作预测，评估其误差。
-2. 对于每一个节点，随机选择*m*个特征，决策树上每个节点的决定都是基于这些特征确定的。根据这m个特征，计算其最佳的分裂方式。
-3. 每棵树都会完整成长而不会剪枝，这有可能在建完一棵正常树状分类器后会被采用）
-
-随机
-
-1.数据的随机选取：首先，从原始的数据集中采取有放回的抽样，构造子数据集，子数据集的数据量是和原始数据集相同的。不同子数据集的元素可以重复，同一个子数据集中的元素也可以重复。第二，利用子数据集来构建子决策树，将这个数据放到每个子决策树中，每个子决策树输出一个结果。
-
-2.待选特征的随机选取：与数据集的随机选取类似，随机森林中的子树的每一个分裂过程并未用到所有的待选特征，而是从所有的待选特征中随机选取一定的特征，之后再在随机选取的特征中选取最优的特征。
+![](Machine-Learning(IV)--Supervised-Learning.assets/random-forest.svg)
 
 **随机森林优势**
 
-- 它能够处理很高维度（feature很多）的数据，并且不用做特征选择
+- 它能够处理很高维度（特征很多）的数据，并且不用做特征选择
 - 容易做成并行化方法，速度比较快
+- 只在特征集的一个子集中选择划分，因此训练效率更高
 
-![RandomForest](Machine-Learning(IV)--Supervised-Learning.assets/random-forest.svg)
+## Boosting
 
+### Boosting
 
+**Boosting**（提升方法）是一种串行迭代过程。先从初始训练集训练出一个基学习器，再根据基学习器的表现对训练样本分布进行调整，使得先前基学习器做错的训练样本在后续受到更多关注，然后基于调整后的样本分布来训练下一个基学习器。如此迭代，构建一系列基学习器（弱学习器），最终将这些弱学习器加权结合，构成一个强学习器。最经典的包括AdaBoost算法和GBDT算法。
 
-## 自适应提升
+![boosting-flowchart](Machine-Learning(IV)--Supervised-Learning.assets/boosting-flowchart.svg)
 
-AdaBoost 的核心思想是用反复调整的数据来训练一系列的弱学习器(一个弱学习器模型仅仅比随机猜测好一点, 比如一个简单的决策树),由这些弱学习器的预测结果通过加权投票(或加权求和)的方式组合, 产生最终的预测结果。在每一次所谓的提升（boosting）迭代中，数据的修改由应用于每一个训练样本的（新） 的权重 组成。 初始化时,将所有弱学习器的权重都设置为 ,因此第一次迭代仅仅是通过原始数据训练出一个弱学习器。在接下来的连续迭代中,样本的权重逐个地被修改,学习算法也因此要重新应用这些已经修改的权重的数据。在给定的一个迭代中, 那些在上一轮迭代中被预测为错误结果的样本的权重将会被增加，而那些被预测为正确结果的样本的权重将会被降低。随着迭代次数的增加，那些难以预测的样例的影响将会越来越大，每一个随后的弱学习器都将会被强迫更加关注那些在之前被错误预测的样例[HTF]。
+从偏差-方差分解来看：Boosting算法主要关注于降低偏差，每轮的迭代都关注于训练过程中预测错误的样本，很容易受过拟合的影响。
 
-Adaboost会根据前一次的分类效果调整数据权重
+### AdaBoost
 
-AdaBoost，是英文"Adaptive Boosting"（自适应增强）的缩写，由Yoav Freund和Robert Schapire在1995年提出。它的自适应在于：前一个基本分类器分错的样本会得到加强，加权后的全体样本再次被用来训练下一个基本分类器。同时，在每一轮中加入一个新的弱分类器，直到达到某个预定的足够小的错误率或达到预先指定的最大迭代次数 [1] 。
+Boosting族算法最著名、使用最为广泛的就是AdaBoost。**AdaBoost** （Adaptive Boosting，自适应提升）的核心思想是用反复调整的数据来训练一系列的弱学习器，由这些弱学习器的加权组合，产生最终的预测结果。
 
-具体说来，整个Adaboost 迭代算法就3步：
+具体说来，整个Adaboost 迭代算法分为3步：
 
-初始化训练数据的权值分布。如果有N个样本，则每一个训练样本最开始时都被赋予相同的权值：1/N。
+1. **训练弱学习器**：在连续的提升（boosting）迭代中，那些在上一轮迭代中被预测错误的样本的权重将会被增加，而那些被预测正确的样本的权重将会被降低。然后，权值更新过的样本集被用于训练弱学习器。随着迭代次数的增加，那些难以预测的样例的影响将会越来越大，每一个随后的弱学习器都将会被强迫关注那些在之前被错误预测的样例。初始化时，所有样本都被赋予相同的权值 $1/m$ 。
+2. **计算弱学习器权重**：在每一轮迭代中加入一个新的弱分类器，直到达到某个预定的足够小的错误率或达到预先指定的最大迭代次数，从而得到 $T$ 个弱学习器 $h_1,h_2,\cdots,h_T$。各个弱分类器的训练过程结束后，加大分类误差率小的弱分类器的权重，使其在最终的分类函数中起着较大的决定作用，而降低分类误差率大的弱分类器的权重，使其在最终的分类函数中起着较小的决定作用。这样，每个弱分类器 $h_t$ 都有对应的权重 $\alpha_t$ 。
+3. **组合成强学习器**：最后的强学习器由生成的多个弱学习器加权求和产生。
 
-训练弱分类器。具体训练过程中，如果某个样本点已经被准确地分类，那么在构造下一个训练集中，它的权值就被降低；相反，如果某个样本点没有被准确地分类，那么它的权值就得到提高。然后，权值更新过的样本集被用于训练下一个分类器，整个训练过程如此迭代地进行下去。
+![](Machine-Learning(IV)--Supervised-Learning.assets/AdaBoost_example.svg)
 
-将各个训练得到的弱分类器组合成强分类器。各个弱分类器的训练过程结束后，加大分类误差率小的弱分类器的权重，使其在最终的分类函数中起着较大的决定作用，而降低分类误差率大的弱分类器的权重，使其在最终的分类函数中起着较小的决定作用。换言之，误差率低的弱分类器在最终分类器中占的权重较大，否则较小。
+可以看出：**AdaBoost的核心步骤就是计算基学习器权重和样本权重分布**。AdaBoost 算法有多种推导方式，比较容易理解的是基于加性模型（additive model）的**向前分布算法**（forward stagewise algorithm）。
 
-AdaBoost重复调用弱学习算法(多轮调用产生多个分类器) ,首轮调用弱学习算法时,按均匀分布从样本集中选取子集作为该次训练集,以后每轮对前一轮训练失败的样本,赋予较大的分布权值( Di 为第i 轮各个样本在样本集中参与训练的概率) ,使其在这一轮训练出现的概率增加,即在后面的训练学习中集中对比较难训练的样本进行学习,从而得到 T个弱的基分类器, h1 , h2 , …, ht ,其中 ht 有相应的权值 w t ,并且其权值大小根据该分类器的效果而定。最后的分类器由生成的多个分类器加权联合产生。
+给定二分类数据集  
+$$
+D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m)\}
+$$
+包含 $m$ 个样本，$d$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{id})^T$ 。目标 $y_i\in\{-1,+1\}$
 
-## 梯度提升
+基分类器的加权组合即为加法模型
+$$
+f(\mathbf x)=\sum_{t=1}^T\alpha_th_t(\mathbf x)
+$$
+最终的强分类器为
+$$
+H(\mathbf x)=\mathrm{sign}(f(\mathbf x))=\mathrm{sign}\left(\sum_{t=1}^T\alpha_th_t(\mathbf x)\right)
+$$
+这里 $\alpha_t$ 表示基分类器 $h_t$ 的重要性。$f(\mathbf x)$ 的符号决定了实例 $\mathbf x$ 的类别。
+
+给定损失函数 $L(y,f(\mathbf x))$ ，学习模型 $f(\mathbf x)$ 所要考虑的问题是如何求出所有的 $\alpha_t,h_t$，即求解极小化代价函数
+$$
+\min_{\alpha_t,h_t}\sum_{i=1}^mL\left(y_i,\sum_{t=1}^{T}\alpha_th_t(\mathbf x_i)\right)
+$$
+通常这是一个复杂的全局优化问题，向前分布算法使用其简化版求解这一问题：既然是加法模型，每一步只学习一个弱学习器及其系数，且不调整已经加入模型中的参数和系数来向前逐步建立逼近。这样，向前分布算法将同时求解 $t=1$ 到 $T$ 所有参数 $\alpha_t,\theta_t$ 的优化问题简化为逐步求解 $\alpha_t,\theta_t$ 的优化问题。
+
+假设经过 $t-1$ 轮迭代，已经得到之前所有弱分类器的加权和 
+$$
+f_{t-1}(\mathbf x)=\alpha_1h_1(\mathbf x)+\cdots+\alpha_{t-1}h_{t-1}(\mathbf x)
+$$
+在第 $t$ 轮迭代求解 $\alpha_{t},h_{t}$ 得到
+$$
+f_t(\mathbf x)=f_{t-1}(\mathbf x)+\alpha_t h_t(\mathbf x)
+$$
+则每一步只需优化如下代价函数
+$$
+(\alpha_t,h_t)=\arg\min_{\alpha,h}\sum_{i=1}^mL\left(y_i,f_{t-1}(\mathbf x)+\alpha h(\mathbf x_i)\right)
+$$
+其中，在第$t$轮迭代中，$f_{t-1}(\mathbf x)$ 相当于一个定值。AdaBoost 每步采用**指数损失函数**（exponential loss function）
+$$
+L(y,f(\mathbf x))=\exp(-yf(\mathbf x))
+$$
+
+优化函数可变为
+$$
+\begin{aligned}
+(\alpha_t,h_t)&=\arg\min_{\alpha,h}\sum_{i=1}^mL(y_i,f_{t-1}(\mathbf x_i)+\alpha h(\mathbf x_i)) \\
+&=\arg\min_{\alpha,h}\sum_{i=1}^m\exp[-y_i(f_{t-1}(\mathbf x_i)+\alpha h(\mathbf x_i))] \\
+&=\arg\min_{\alpha,h}\sum_{i=1}^m  w_{t}^{(i)}\exp[-y_i\alpha h(\mathbf x_i)] \\
+
+\end{aligned}
+$$
+其中 $ w_t^{(i)}=\exp(-y_if_{t-1}(\mathbf x_i))$ 。$ w_t^{(i)}$ 不依赖于 $\alpha$ 和 $h$ ，所以与优化无关。
+
+由 AdaBoost 基分类器 $h(\mathbf x_i)\in\{-1,+1\}$ ，且 $y_i\in\{-1,+1\}$ 则
+$$
+-y_ih(\mathbf x_i)=\begin{cases}
++1 & \text{if }h(\mathbf x_i)\neq y_i \\
+-1 & \text{if }h(\mathbf x_i)= y_i
+\end{cases}
+$$
+
+所以，优化函数进一步化为
+
+$$
+\begin{aligned}
+(\alpha_t,h_t)&=\arg\min_{\alpha,h}\left\{\sum_{i=1}^m  w_{t}^{(i)}e^{-\alpha}\mathbb I(h_t(\mathbf x_i)=y_i)+\sum_{i=1}^m  w_{t}^{(i)}e^{\alpha}\mathbb I(h_t(\mathbf x_i)\neq y_i)\right\} \\
+&=\arg\min_{\alpha,h}\left\{(e^{\alpha}-e^{-\alpha})\sum_{i=1}^m  w_{t}^{(i)}\mathbb I(h_t(\mathbf x_i)\neq y_i)+e^{-\alpha}\sum_{i=1}^m  w_{t}^{(i)}\right\} \\
+\end{aligned}
+$$
+
+上式的解可以通过两步得到。首先，对于任意 $\alpha>0$ ，基分类器的解为
+$$
+h_t=\arg\min_{h}\sum_{i=1}^m w_{t}^{(i)}\mathbb I(h(\mathbf x_i)\neq y_i)
+$$
+这是第 $t$ 轮加权错误率最小的基分类器。将已求得的 $h_t$ 带入优化函数
+
+$$
+\alpha_t=\arg\min_{\alpha}\left\{(e^{\alpha}-e^{-\alpha})\epsilon_t+e^{-\alpha}\right\}
+$$
+其中， $\epsilon_t$ 是正是基分类器 $h_t$ 在加权训练集 $D_t$ 的错误率
+$$
+\epsilon_t=\frac{\displaystyle\sum_{i=1}^m  w_t^{(i)} \mathbb I(h_t(\mathbf x_i)\neq y_i)}{\displaystyle\sum_{i=1}^m w_t^{(i)}}
+$$
+这里 $ w_t^{(i)}$ 是第 $t$ 轮迭代中样本 $(\mathbf x_i,y_i)$ 的权重 ，因为Adaboost更新样本权值分布时做了规范化，所示上式中的分母为1。权重依赖于 $f_{t-1}(\mathbf x)$ ，随着每一轮迭代而发生改变。
+
+对 $\alpha$ 求导并使导数为 0，即可得到基分类器 $h_t$ 的权重
+$$
+\alpha_t=\frac{1}{2}\ln(\frac{1-\epsilon_t}{\epsilon_t})
+$$
+
+由上式可知，当 $\epsilon_t\leqslant 0.5$ 时，$\alpha_t\geqslant 0$，并且 $\alpha_t$ 随 $\epsilon_t$ 的减小而增大 。所以，分类误差率越小的基分类器在最终分类器中的作用越大。如下图
+
+![](Machine-Learning(IV)--Supervised-Learning.assets/AdaBoost_alpha.svg)
+
+最后，更新样本的权重，为下一轮做准备。由
+$$
+\begin{cases}
+f_t(\mathbf x)=f_{t-1}(\mathbf x)+\alpha_t h_t(\mathbf x) \\
+ w_t^{(i)}=\exp(-y_if_{t-1}(\mathbf x_i))
+\end{cases}
+$$
+可得到
+$$
+w_{t+1}^{(i)}= w_{t}^{(i)}\exp(-\alpha_ty_ih_t(\mathbf x_i))
+$$
+为了确保  $\mathbf w_{t+1}$ 成为一个概率分布 $\sum_{i=1}^mw_{t+1}^{(i)}=1$， 权重更新变为
+$$
+w_{t+1}^{(i)}=\frac{w_t^{(i)}}{Z_t}\exp(-\alpha_ty_ih_t(\mathbf x_i))
+$$
+其中， $Z_t$ 是正规因子。对原始式中所有的权重都乘以同样的值，对权重更新没有影响。
+$$
+Z_t=\sum_{i=1}^mw_t^{(i)}\exp(-\alpha_ty_ih_t(\mathbf x_i))
+$$
+上式可拆解为 
+$$
+w_{t+1}^{(i)}=\frac{w_t^{(i)}}{Z_t}\times\begin{cases}
+\exp(-\alpha_t) & \text{if }h_t(\mathbf x_i)=y_i \\
+\exp(\alpha_t) & \text{if }h_t(\mathbf x_i)\neq y_i 
+\end{cases}
+$$
+
+上式给出的权值更新公式增加那些被错误分类的样本的权值，并减少那些被正确分类的样本的权值。
+
+<img src="Machine-Learning(IV)--Supervised-Learning.assets/AdaBoost_algorithm.png" style="zoom:80%;" />
+
+**正则化**：对每个基学习器乘以一个系数 $\nu(0<\nu<1)$，使其对最终模型的贡献减小，从而防止学的太快产生过拟合。$\nu$ 又称学习率，于是上文的迭代变为
+$$
+f_t(\mathbf x)=f_{t-1}(\mathbf x)+\nu\cdot\alpha_t h_t(\mathbf x)
+$$
+一般$\nu$ 要和迭代次数T结合起来使用。
 
 ### GBDT
 
-梯度提升树(Gradient Boosted Decision Trees，GBDT)
+![GBDT-example](Machine-Learning(IV)--Supervised-Learning.assets/GBDT-example.svg)
+
+sklearn：梯度提升树(Gradient Boosted Decision Trees，GBDT)是Booting对任意可微损失函数的推广。GBDT是一种准确有效的现成程序，可用于各种领域的回归和分类问题，包括Web搜索、排名和生态领域。
 
 Gradient Boosting Decision Tree
 
@@ -1194,6 +1326,8 @@ GBDT也是集成学习Boosting家族的成员，但是却和传统的Adaboost有
 GBDT的思想可以用一个通俗的例子解释，假如有个人30岁，我们首先用20岁去拟合，发现损失有10岁，这时我们用6岁去拟合剩下的损失，发现差距还有4岁，第三轮我们用3岁拟合剩下的差距，差距就只有一岁了。如果我们的迭代轮数还没有完，可以继续迭代下面，每一轮迭代，拟合的岁数误差都会减小。
 
 ### XGBoost
+
+<img src="Machine-Learning(IV)--Supervised-Learning.assets/xgboost.svg" width="25%;" align="right"/>
 
 Given training set of size $m$
 
@@ -1220,21 +1354,78 @@ y_pred = model.predict(X_test)
 
 ### LightGBM
 
-## 投票策略
+## 投票方法
 
-平均值（回归）
+在训练好基学习器后，如何将这些基学习器的输出结合起来产生集成模型的最终输出，下面将介绍一些常用的结合策略。
 
-hard voting majority vote
+对于回归问题，输出基回归模型的平均值。
 
-soft voting
+**简单平均法**（simple averaging）：
+$$
+H(\mathbf x)=\frac{1}{T}\sum_{t=1}^Th_t(\mathbf x)
+$$
+**加权平均法**（weighted averaging）：
+$$
+H(\mathbf x)=\sum_{t=1}^Tw_th_t(\mathbf x)\\
+\text{s.t.}\quad w_t>0,\sum_{t=1}^Tw_t=1
+$$
+对于分类问题，最常见的组合方法是硬投票和软投票。类别标签 $y\in\{c_1,c_2,\cdots,c_K\}$ 。
 
-**Stacking**
+**硬投票**（hard voting）：即多数投票（ majority voting）。基学习器 $h_t$ 输出类别标签 $h_t(\mathbf x)\in\{c_1,c_2,\cdots,c_K\}$，预测结果中出现最多的类别。
+$$
+H(\mathbf x)=\arg\max_c\sum_{t=1}^Th_t(\mathbf x|y=c)
+$$
+例如，给定样本的预测是
 
-Stacking：聚合多个学习器（可以分阶段来做）
+| classifier   | class 1 | class 2 | class 3 |
+| ------------ | ------- | ------- | ------- |
+| classifier 1 | 1       | 0       | 0       |
+| classifier 2 | 1       | 0       | 0       |
+| classifier 3 | 0       | 1       | 0       |
+| sum          | 2       | 1       | 0       |
 
-可以堆叠各种各样的分类器（KNN,SVM,RF等等）
+这里预测的类别为 class 1。
 
-分阶段：第一阶段得出各自结果，第二阶段再用前一阶段结果训练
+**软投票**（soft voting）：基学习器 $h_t$ 输出类别概率 $h_t(\mathbf x)\in[0,1]$，会选出基学习器的加权平均概率最大的类别。
+$$
+H(\mathbf x)=\arg\max_c\sum_{t=1}^Tw_th_t(\mathbf x|y=c)\\
+\text{s.t.}\quad w_t>0,\sum_{t=1}^Tw_t=1
+$$
+用一个简单的例子说明，其中3个分类器的权重相等 
+
+| classifier       | class 1 | class 2 | class 3 |
+| ---------------- | ------- | ------- | ------- |
+| classifier 1     | 0.2     | 0.5     | 0.3     |
+| classifier 2     | 0.6     | 0.3     | 0.1     |
+| classifier 3     | 0.3     | 0.4     | 0.3     |
+| weighted average | 0.37    | 0.4     | 0.23    |
+
+这里预测的类别为 class 2，因为它具有最高的加权平均概率。
+
+实际中，软投票和硬投票可以得出完全不同的结论。相对于硬投票，软投票考虑到了预测概率这一额外的信息，因此可以得出比硬投票法更加准确的结果。
+
+## Stacking
+
+stacking是指训练一个模型用于组合基学习器的方法，组合的学习器称为元学习器（meta learner）。
+$$
+H(\mathbf x)=H(h_1(\mathbf x),h_2(\mathbf x),\cdots,h_T(\mathbf x);\mathbf{\theta})
+$$
+
+1. 首先，训练$T$个不同的基学习器，最好每个基学习器都基于不同的算法（KNN、SVM、RF等等），以产生足够的差异性。
+2. 然后，每一个基学习器的输出作为组合学习器的特征来训练一个模型，以得到一个最终的结果。
+
+<img src="Machine-Learning(IV)--Supervised-Learning.assets/stacking_algorithm.png" style="zoom:80%;" />
+
+若直接使用基学习器的训练集来生成元学习器的训练集，则过拟合风险会比较大；因此一般通过交叉验证，用基学习器未使用的样本来产生元学习器的训练样本。
+
+以 k-folds 交叉验证为例
+
+1. 初始训练集$D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m)\}$被随机划分为 $k$ 个大小相似的集合 $\{D_1,D_2,\cdots,D_k\}$ 。令 $D_j$ 和 $D-D_j$ 分别表示第 $j$ 折的测试集和训练集。
+2. 给定$T$个基学习算法，初级学习器 $h_t^{(j)}$ 通过在 $D-D_j$ 上使用第$t$个学习算法而得。
+3. 对 $D_j$ 中每个样本 $\mathbf x_i$，令 $z_{it}=h_t^{(j)}(\mathbf x_i)$ ，则由 $\mathbf x_i$ 产生元学习器的训练集特征 $\mathbf z_i=(z_{i1},z_{i2},\cdots,z_{iT})$，目标值为 $y_i$。
+4.  于是，在整个交叉验证过程结束后，从这$T$个基学习器产生的元学习器的训练集是 $D'=\{(\mathbf z_1,y_1),(\mathbf z_2,y_2),\cdots,(\mathbf z_m,y_m)\}$ 。
+
+有研究表明，元学习器通常采用概率作为输入特征，用多响应线性回归（MLR）算法效果较好。
 
 # 附录
 

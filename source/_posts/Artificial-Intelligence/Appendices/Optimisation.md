@@ -139,7 +139,7 @@ $$
 $$
 数值 $\lambda>0$ 称为**学习率** (learning rate)，作用是控制下降的步幅。梯度向量 $\nabla J(\mathbf w)=\dfrac{\partial J(\mathbf{w})}{\partial\mathbf w}$ 控制下降的方向。
 
-<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/GradientDescentAlgorithm.png" style="zoom: 67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/GradientDescentAlgorithm.png" style="zoom:80%;" />
 
 **学习率**
 

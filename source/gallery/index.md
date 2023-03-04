@@ -30,8 +30,8 @@ aside:
 {% galleryGroup 'Astronomy' '天文' '/gallery/Astronomy' /img/Astronomy/Interstellar-Black-Hole.jpg %}
 </div> 
 
-# 个人手绘
+<!-- # 个人手绘
 
 <div class="gallery-group-main">
 {% galleryGroup '个人手绘' '好难看啊' '/gallery/manual-drawing' /img/manual-drawing/unknow2.png %}
-</div> 
+</div>  -->
