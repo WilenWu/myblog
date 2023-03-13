@@ -18,7 +18,7 @@ description:
 分类和回归是监督学习的核心问题。
 
 (1) 若目标变量是连续值，此类学习任务称为**回归** (regression)。
-(2) 当目标变量取有限个离散值时，称为**分类**（classification）。当分类的结果只有两种的分类问题称为**二分类**问题 (binary classification)，输出变量通常表示为正样本/负样本(positive/negative)。
+(2) 当目标变量取有限个离散值时，称为**分类**（classification）。当分类变量只有两种结果时称为**二分类**问题 (binary classification)，输出变量通常表示为正样本/负样本(positive/negative)。
 
 # 线性回归
 
@@ -26,27 +26,27 @@ description:
 
 给定的数据集  
 $$
-D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m)\}
+D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N)\}
 $$
-包含 $m$ 个样本，$d$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{id})^T$ 。目标变量 $y_i\in \R$ 。
+包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T$ 。目标变量 $y_i\in \R$ 。
 
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/linear-regression.svg" alt="线性回归" style="zoom:50%;" />
 
 **Model**：线性模型假设目标变量是特征的线性组合。因此，我们试图拟合函数
 $$
-f_{\mathbf{w},b}(\mathbf{x})=w_1x_1+w_2x_2+\cdots+w_dx_d+b=\sum_{j=1}^d w_jx_j+b
+f_{\mathbf{w},b}(\mathbf{x})=w_1x_1+w_2x_2+\cdots+w_px_p+b=\sum_{j=1}^p w_jx_j+b
 $$
 称为多元线性回归 (multiple linear regression)。一般写作向量形式
 $$
 f_{\mathbf{w},b}(\mathbf{x})=\mathbf{w}^T\mathbf{x}+b
 $$
-特征向量 $\mathbf x=(x_1,x_2,\cdots,x_d)^T$，参数 $\mathbf{w}=(w_1,w_2,\cdots,w_d)^T$ 称为系数 (coefficients) 或权重 (weights)，标量 $b$ 称为偏置项(bias) 。求得参数 $\mathbf{w},b$ 后，模型就得以确定。$\mathbf w$ 可以直观表达了各特征在预测中的重要性，因此线性模型有很好的可解释性(comprehensibility) 。
+特征向量 $\mathbf x=(x_1,x_2,\cdots,x_p)^T$，参数 $\mathbf{w}=(w_1,w_2,\cdots,w_p)^T$ 称为系数 (coefficients) 或权重 (weights)，标量 $b$ 称为偏置项(bias) 。求得参数 $\mathbf{w},b$ 后，模型就得以确定。$\mathbf w$ 可以直观表达了各特征在预测中的重要性，因此线性模型有很好的可解释性(comprehensibility) 。
 
 为了计算方便，通常定义 $x_0=1,w_0=b$ 。线性回归模型可简写为
 $$
 f_{\mathbf{w}}(\mathbf{x}) = \mathbf{w}^T\mathbf{x}
 $$
-其中，特征向量 $\mathbf x=(x_0,x_1,x_2,\cdots,x_d)^T$，权重向量 $\mathbf{w}=(w_0,w_1,w_2,\cdots,w_d)^T$
+其中，特征向量 $\mathbf x=(x_0,x_1,x_2,\cdots,x_p)^T$，权重向量 $\mathbf{w}=(w_0,w_1,w_2,\cdots,w_p)^T$
 
 ## 最小二乘法
 
@@ -58,22 +58,22 @@ $$
 $$
 **cost function** ：衡量样本集的差异 
 $$
-J(\mathbf{w}) = \frac{1}{2m} \sum\limits_{i=1}^{m} \left(f_{\mathbf{w}}(\mathbf{x}_i) - y_i\right)^2
+J(\mathbf{w}) = \frac{1}{2N} \sum\limits_{i=1}^{N} \left(f_{\mathbf{w}}(\mathbf{x}_i) - y_i\right)^2
 $$
 为了建立一个不会因训练集变大而变大的代价函数，我们计算均方误差而不是平方误差。额外的 1/2 是为了让后面的计算更简洁些。矩阵形式为
 $$
-J(\mathbf{w})=\cfrac{1}{2m}\|\mathbf{Xw-y}\|_2^2=\cfrac{1}{2m}(\mathbf{Xw-y})^T(\mathbf{Xw-y})
+J(\mathbf{w})=\cfrac{1}{2N}\|\mathbf{Xw-y}\|_2^2=\cfrac{1}{2N}(\mathbf{Xw-y})^T(\mathbf{Xw-y})
 $$
 其中，$\mathbf X$ 称为**设计矩阵**（design matrix）
 $$
 \mathbf{X}=\begin{pmatrix}
-1&x_{11}&x_{12}&\cdots&x_{1d} \\
-1&x_{21}&x_{22}&\cdots&x_{2d} \\
+1&x_{11}&x_{12}&\cdots&x_{1p} \\
+1&x_{21}&x_{22}&\cdots&x_{2p} \\
 \vdots&\vdots&\ddots&\vdots \\
-1&x_{m1}&x_{m2}&\cdots&x_{md} \\
+1&x_{N1}&x_{N2}&\cdots&x_{Np} \\
 \end{pmatrix},
-\quad \mathbf{w}=\begin{pmatrix}w_0\\ w_1\\ \vdots\\w_d\end{pmatrix},
-\quad \mathbf{y}=\begin{pmatrix}y_1\\ y_2\\ \vdots\\y_m\end{pmatrix}
+\quad \mathbf{w}=\begin{pmatrix}w_0\\ w_1\\ \vdots\\w_p\end{pmatrix},
+\quad \mathbf{y}=\begin{pmatrix}y_1\\ y_2\\ \vdots\\y_N\end{pmatrix}
 $$
 最后，模型参数估计等价于求解
 $$
@@ -88,12 +88,13 @@ $$
 $$
 \mathbf w^*=(\mathbf X^T\mathbf X)^{-1}\mathbf X^T\mathbf y
 $$
+
 **最小二乘法的特点** 
 
 现实任务中 $\mathbf X^T\mathbf X$ 可能不可逆，原因如下
 
 - 特征之间可能线性相关
-- 特征数量大于样本总数 ($d>m$)
+- 特征数量大于样本总数 ($p>N$)
 
 最小二乘法的优点
 
@@ -103,7 +104,7 @@ $$
 最小二乘法的缺点
 
 - 仅适用于线性回归，无法推广到其他学习算法
-- 假设 $m\geqslant d$ ，这个算法的复杂度为 $O(md^2)$
+- 假设 $N\geqslant p$ ，这个算法的复杂度为 $O(Np^2)$
 - 如果样本特征的数量太大 (>10k)，模型将执行的非常慢
 
 ## 极大似然估计
@@ -112,7 +113,7 @@ $$
 $$
 f_{\mathbf{w}}(\mathbf{x}) = \mathbf{w}^T\mathbf{x}+e
 $$
-其中，特征向量 $\mathbf x=(x_0,x_1,x_2,\cdots,x_d)^T$，权重向量 $\mathbf{w}=(w_0,w_1,w_2,\cdots,w_d)^T$ 。$e$ 为随机误差，通常假设其服从正态分布 $e∼\mathcal N(0, σ^2)$ 。所以的概率密度函数为
+其中，特征向量 $\mathbf x=(x_0,x_1,x_2,\cdots,x_p)^T$，权重向量 $\mathbf{w}=(w_0,w_1,w_2,\cdots,w_p)^T$ 。$e$ 为随机误差，通常假设其服从正态分布 $e∼\mathcal N(0, σ^2)$ 。所以的概率密度函数为
 $$
 \mathbb P(e)=\frac{1}{\sqrt{2\pi}\sigma}\exp(-\frac{e^2}{2\sigma^2})
 $$
@@ -121,17 +122,17 @@ $$
 **极大似然估计**：(maximum likelihood estimate, MLE) 使得样本误差的联合概率（也称似然函数）取得最大值。为求解方便，对样本联合概率取对数似然函数
 $$
 \begin{aligned}
-\ln L(\mathbf w) &=\ln\prod_{i=1}^m\mathbb P(e_i)=\sum_{i=1}^m\ln\mathbb P(e_i) \\
-&=\sum_{i=1}^m\ln\frac{1}{\sqrt{2\pi}\sigma}\exp(-\frac{(f_{\mathbf{w}}(\mathbf{x}_i) - \mathbf{w}^T\mathbf{x}_i)^2}{2\sigma^2})  \\
-&=m\ln\frac{1}{\sqrt{2\pi}\sigma}-\frac{1}{2\sigma^2}\sum_{i=1}^m(f_{\mathbf{w}}(\mathbf{x}_i) - \mathbf{w}^T\mathbf{x}_i)^2 \\
+\ln L(\mathbf w) &=\ln\prod_{i=1}^N\mathbb P(e_i)=\sum_{i=1}^N\ln\mathbb P(e_i) \\
+&=\sum_{i=1}^N\ln\frac{1}{\sqrt{2\pi}\sigma}\exp(-\frac{(f_{\mathbf{w}}(\mathbf{x}_i) - \mathbf{w}^T\mathbf{x}_i)^2}{2\sigma^2})  \\
+&=N\ln\frac{1}{\sqrt{2\pi}\sigma}-\frac{1}{2\sigma^2}\sum_{i=1}^N(f_{\mathbf{w}}(\mathbf{x}_i) - \mathbf{w}^T\mathbf{x}_i)^2 \\
 \end{aligned}
 $$
 最后，最大化对数似然函数等价于求解
 $$
-\arg\max\limits_{\mathbf w} \ln L(\mathbf{w})=\arg\min\limits_{\mathbf w} \sum_{i=1}^m(f_{\mathbf{w}}(\mathbf{x}_i) - \mathbf{w}^T\mathbf{x}_i)^2
+\arg\max\limits_{\mathbf w} \ln L(\mathbf{w})=\arg\min\limits_{\mathbf w} \sum_{i=1}^N(f_{\mathbf{w}}(\mathbf{x}_i) - \mathbf{w}^T\mathbf{x}_i)^2
 $$
 
-上式与最小二乘法等价
+上式与最小二乘法等价。
 
 ## 正则化
 
@@ -139,7 +140,7 @@ $$
 
 Cost function
 $$
-J(\mathbf{w})=\cfrac{1}{2m}\|\mathbf{Xw-y}\|_2^2+ \alpha \|\mathbf w\|^2
+J(\mathbf{w})=\cfrac{1}{2N}\|\mathbf{Xw-y}\|_2^2+ \alpha \|\mathbf w\|^2
 $$
 其中，正则化参数 $\alpha>0$ 通过缩小特征权重来控制模型复杂度，值越大，收缩量越大，这样，系数对共线性的鲁棒性就更强了。
 
@@ -147,13 +148,13 @@ $$
 $$
 \mathbf{w=(X^T X}+\alpha \mathbf{I)^{-1}X^T y}
 $$
-其中 $\mathbf I$ 是 $n+1$ 维单位阵。利用$l_2$ 范数进行正则化不仅可以抑制过拟合，同时叶避免了 $\mathbf{X^T X}$ 不可逆的问题。
+其中 $\mathbf I$ 是 $p+1$ 维单位阵。利用$l_2$ 范数进行正则化不仅可以抑制过拟合，同时叶避免了 $\mathbf{X^T X}$ 不可逆的问题。
 
 **Lasso** 是一个估计稀疏系数的线性模型。它在某些情况下是有用的，因为它倾向于给出非零系数较少的解，从而有效地减少了给定解所依赖的特征数。 它由一个带有 $l_1$ 范数正则项的线性模型组成。
 
 Cost function
 $$
-J(\mathbf{w})=\cfrac{1}{2m}\left(\|\mathbf{Xw-y}\|_2^2+ \alpha \|\mathbf w\|_1\right)
+J(\mathbf{w})=\cfrac{1}{2N}\left(\|\mathbf{Xw-y}\|_2^2+ \alpha \|\mathbf w\|_1\right)
 $$
 Lasso 中一般采用坐标下降法来实现参数估计。由于Lasso回归产生稀疏模型，因此也可以用来进行特征选择。
 
@@ -161,7 +162,7 @@ Lasso 中一般采用坐标下降法来实现参数估计。由于Lasso回归产
 
 Cost function
 $$
-J(\mathbf{w})=\cfrac{1}{2m}\left(\|\mathbf{Xw-y}\|_2^2+ \alpha\rho \|\mathbf w\|_1+ \frac{\alpha(1-\rho)}{2} \|\mathbf w\|_2^2\right)
+J(\mathbf{w})=\cfrac{1}{2N}\left(\|\mathbf{Xw-y}\|_2^2+ \alpha\rho \|\mathbf w\|_1+ \frac{\alpha(1-\rho)}{2} \|\mathbf w\|_2^2\right)
 $$
 
 Elastic-Net 使用坐标下降法来估计参数。
@@ -207,9 +208,9 @@ $$
 
 给定的数据集  
 $$
-D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m\}
+D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N\}
 $$
-包含 $m$ 个样本，$d$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{id})^T$ 。目标变量 $y_i\in \{0,1\}$ 。逻辑回归试图预测正样本的概率，那我们需要一个输出 $[0,1]$ 区间的激活函数。假设二分类数据集 $D$ 不同类别的特征值服从均值不同、方差相同的正态分布
+包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T$ 。目标变量 $y_i\in \{0,1\}$ 。逻辑回归试图预测正样本的概率，那我们需要一个输出 $[0,1]$ 区间的激活函数。假设二分类数据集不同类别的特征值服从均值不同、方差相同的正态分布
 $$
 \begin{cases}
 \mathbb P(\mathbf x|y=1)∼\mathcal N(\mathbf \mu_1, \mathbf\Sigma) \\
@@ -248,13 +249,13 @@ $$
 $$
 g(z) = \frac{1}{1+e^{-z}}
 $$
-式中特征向量 $\mathbf x=(x_1,x_2,\cdots,x_d)^T$，参数 $\mathbf{w}=(w_1,w_2,\cdots,w_d)^T$ 称为系数 (coefficients) 或权重 (weights)，标量 $b$ 称为偏置项(bias) 。
+式中特征向量 $\mathbf x=(x_1,x_2,\cdots,x_p)^T$，参数 $\mathbf{w}=(w_1,w_2,\cdots,w_p)^T$ 称为系数 (coefficients) 或权重 (weights)，标量 $b$ 称为偏置项(bias) 。
 
 为计算方便，引入 $x_0=1,w_0=b$ 。模型简写为
 $$
 f_{\mathbf{w}}(\mathbf{x}) = \frac{1}{1+\exp(-\mathbf{w}^T\mathbf{x})}
 $$
-其中，特征向量 $\mathbf x=(x_0,x_1,x_2,\cdots,x_d)^T$，权重向量 $\mathbf{w}=(w_0,w_1,w_2,\cdots,w_d)^T$
+其中，特征向量 $\mathbf x=(x_0,x_1,x_2,\cdots,x_p)^T$，权重向量 $\mathbf{w}=(w_0,w_1,w_2,\cdots,w_p)^T$
 
 可以通过引入阈值（默认0.5）实现分类预测
 $$
@@ -285,19 +286,21 @@ logistic 回归若采用均方误差作为 cost function，是一个非凸函数
 为求解方便，对样本联合概率取对数似然函数
 $$
 \begin{aligned}
-\log L(\mathbf w) & =\log\prod_{i=1}^{m} \mathbb P(y_i|\mathbf x_i)=\sum_{i=1}^m\log \mathbb P(y_i|\mathbf x_i) \\
-&=\sum_{i=1}^{m}[y_i\log f_{\mathbf{w}}(\mathbf{x}_i)+(1-y_i)\log(1-f_{\mathbf{w}}(\mathbf{x}_i))] \\
-&=\sum_{i=1}^{m}[y_i\mathbf{w}^T\mathbf{x}-\log(1+e^{\mathbf{w}^T\mathbf{x}})]
+\log L(\mathbf w) & =\log\prod_{i=1}^{N} \mathbb P(y_i|\mathbf x_i)=\sum_{i=1}^N\log \mathbb P(y_i|\mathbf x_i) \\
+&=\sum_{i=1}^{N}[y_i\log f_{\mathbf{w}}(\mathbf{x}_i)+(1-y_i)\log(1-f_{\mathbf{w}}(\mathbf{x}_i))] 
 \end{aligned}
 $$
 因此，可定义 **loss function**  
 $$
-\text{loss}=-y\mathbf{w}^T\mathbf{x}+\log(1+e^{\mathbf{w}^T\mathbf{x}})
+\begin{aligned}
+\text{loss}&=-y\log f_{\mathbf{w}}(\mathbf{x})-(1-y)\log(1-f_{\mathbf{w}}(\mathbf{x})) \\
+&=-y\mathbf{w}^T\mathbf{x}+\log(1+e^{\mathbf{w}^T\mathbf{x}})
+\end{aligned}
 $$
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/loss-logistic-regression.png)
 最大化似然函数等价于最小化 **cost function**
 $$
-J(\mathbf w)=\frac{1}{m}\sum_{i=1}^{m}(-y_i\mathbf{w}^T\mathbf{x}+\log(1+e^{\mathbf{w}^T\mathbf{x}}))
+J(\mathbf w)=\frac{1}{N}\sum_{i=1}^{N}(-y_i\mathbf{w}^T\mathbf{x}+\log(1+e^{\mathbf{w}^T\mathbf{x}}))
 $$
 **参数估计** ：(parameter estimation) $J(\mathbf w)$ 是关于参数 $\mathbf w$ 的高阶可导连续凸函数，经典的数值优化算法如梯度下降法 (gradient descent method) 、牛顿法 (Newton method) 等都可求得其最优解
 $$
@@ -343,7 +346,7 @@ $$
 $$
 f_{\mathbf{w}}(\mathbf{x}) = \text{sign}(\mathbf{w}^T\mathbf{x})
 $$
-其中，特征向量 $\mathbf x=(x_0,x_1,x_2,\cdots,x_d)^T$，权重向量 $\mathbf{w}=(w_0,w_1,w_2,\cdots,w_d)^T$
+其中，特征向量 $\mathbf x=(x_0,x_1,x_2,\cdots,x_p)^T$，权重向量 $\mathbf{w}=(w_0,w_1,w_2,\cdots,w_p)^T$
 
 cost function：误分类点到分离超平面的总距离
 $$
@@ -387,7 +390,7 @@ Perceptron 是另一种适用于大规模学习的简单分类算法。
 
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/decision-tree.png" alt="decision-tree" style="zoom:50%;" />
 
-决策树是一种由节点（node）和有向边（directed edge）组成的树形结构。从根节点（root node）开始，包含若干内部节点（internal node）和叶节点（leaf node）。其中每个叶节点对应一种分类结果，其他每个节点表示一个特征的判断条件，每个分支代表一个判断结果的输出。
+决策树是一种由**节点**（node）和**有向边**（directed edge）组成的树形结构。从**根节点**（root node）开始，包含若干**内部节点**（internal node）和**叶节点**（leaf node）。其中每个叶节点对应一种分类结果，其他每个节点表示一个特征的判断条件，每个分支代表一个判断结果的输出。
 
 其实决策树可以看做一个if-then规则的集合。我们从决策树的根结点到每一个都叶结点构建一条规则，并且我们将要预测的实例都可以被一条路径或者一条规则所覆盖。
 
@@ -397,17 +400,17 @@ Perceptron 是另一种适用于大规模学习的简单分类算法。
 
 给定的数据集  
 $$
-D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m\}
+D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N\}
 $$
-包含 $m$ 个样本，$d$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{id})^T$ 。目标变量 $y_i\in\{y_1,y_2,\cdots,y_K\}$ ，有 $K$ 个类别。
+包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T$ 。目标变量 $y_i\in\{c_1,c_2,\cdots,c_K\}$ ，有 $K$ 个类别。
 
-Hunt 算法以递归方式建立决策树，使得各分支结点所包含的样本尽可能属于同一类别。设节点 $t$ 处的数据集为 $D_t$ ，样本量为 $m_t$
+Hunt 算法以递归方式建立决策树，使得各分支结点所包含的样本尽可能属于同一类别。设节点 $t$ 处的数据集为 $D_t$ ，样本量为 $N_t$ 。决策树的生成流程如下：
 
 1. 在根节点从所有训练样本开始；
 2. 在节点 $t$ 处，选择一个特征 $x_t$ 将数据集 $D_t$ 划分成更小的子集；
 3. 对于每个子节点，递归的调用此算法，只到满足停止条件。
 
-从上述步骤可以看出，决策生成过程中有两个重要的问题
+从上述步骤可以看出，决策树生成过程中有两个重要的问题
 
 - 如何选择最优的划分特征：常用的算法有 ID3、C4.5 和 CART
 - 什么时候停止划分：
@@ -437,17 +440,19 @@ Hunt 算法以递归方式建立决策树，使得各分支结点所包含的样
 
 **连续特征离散化**：待划分的特征分为离散型和连续型两种。对于离散型的特征，按照特征值进行划分，每个特征值对应一个子节点；对于连续型的数据，由于可取值数目不再有限，一般需要离散化，常用二分法处理。
 
-给定样本 $D$ 和连续特征 $x$ ，若样本中 $x$ 有 $p$ 个值。对所有样本排序，取排序样本中的所有 $p-1$ 个中点值作为阈值的候选值  $a\in\{a_1,a_2,\cdots,a_{p-1}\}$ ，取划分后纯度最高的中点值作为阈值。以基尼指数为例，最佳阈值为
+假定第 $j$ 个特征 $x^{(j)}$ 是连续变量，若样本中 $x$ 有 $K$ 个值，选取这些值的 $K-1$ 个中点值作为候选切分值。定义候选值是 $s$ 切分的两个区域
 $$
-\arg\min\limits_{a}\text{Gini}(D,x(a))
+R_1(j,s)=\{(\mathbf x,y)|x^{(j)}\leqslant s\} \quad \text{and}\quad R_2(j,s)=\{(\mathbf x,y)|x^{(j)}> s\}
 $$
-其中，$x(a)$ 表示以候选阈值 $a$ 对 $x$ 进行二元重编码后的特征
+以基尼指数为例，求解最优切分值
 $$
-x(a)=\begin{cases} 1 & \text{if } x\leqslant a \\ 0 & \text{otherwise} \end{cases}
+\arg\min_{s}[w_1\text{Gini}(R_1(j,s))+w_2\text{Gini}(R_2(j,s))]
 $$
-然后，我们就可以像离散特征一样来使用。需注意的是，与离散特征不同，若当前结点划分为连续特征，该特征还可作为其后代结点的划分特征。
+其中，$w_1,w_2$ 是 区域 $R_i,R_2$ 的样本数占比。
 
-**one-hot encoding**：某些算法（CART）只产生二元划分。如果一个离散特征可以取 $p$ 个值，可以通过创建 $p$ 个取值为0或1的二元特征来替换。如下图示例
+然后，我们就可以像离散特征一样来使用。需注意的是，与离散特征不同，若当前结点为连续特征，该特征还可作为其后代结点的划分特征。
+
+**one-hot encoding**：某些算法（CART）只产生二元划分。如果一个离散特征可以取 $K$ 个值，可以通过创建 $K$ 个取值为0或1的二元特征来替换。如下图示例
 
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/one-hot-encoding.png" alt="one-hot-encoding" style="zoom: 50%;" />
 
@@ -459,31 +464,31 @@ $$
 
 **信息熵**（information entropy）是度量数据集纯度的最常用的指标。给定的数据集  
 $$
-D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m\}
+D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N\}
 $$
-包含 $m$ 个样本，$d$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{id})^T$ 。目标变量 $y_i\in\{y_1,y_2,\cdots,y_K\}$ ，有 $K$ 个类别。经验分布为
+包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T$ 。目标变量 $y_i\in\{c_1,c_2,\cdots,c_K\}$ ，有 $K$ 个类别。经验分布为
 $$
-\mathbb P(y=y_k)=p_k
+\mathbb P(y=c_k)=P_k
 $$
 则信息熵为
 $$
-H(D)=-\sum_{k=1}^Kp_k\log p_k
+H(D)=-\sum_{k=1}^KP_k\log P_k
 $$
-注意，计算信息熵时约定 $0\log 0 = 0$。由定义可知，熵只依赖于 $y$ 的分布，与取值无关，所以也可将熵记作 $H(p)$ 。
+注意，计算信息熵时约定 $0\log 0 = 0$。由定义可知，熵只依赖于 $y$ 的分布，与取值无关，所以也可将熵记作 $H(P)$ 。
 
-对于二分类问题，目标变量 $y_i\in \{0,1\}$ 。正样本比例为 $p_1\ (0\leqslant p_1\leqslant 1)$ ，则负样本比例 $p_0=1-p_1$ 。信息熵可写为
+对于二分类问题，目标变量 $y_i\in \{0,1\}$ 。正样本比例为 $P_1\ (0\leqslant P_1\leqslant 1)$ ，则负样本比例 $P_0=1-P_1$ 。信息熵可写为
 $$
-H(p_1)=-p_1\log p_1-(1-p_1)\log (1-p_1)
+H(P_1)=-P_1\log P_1-(1-P_1)\log (1-P_1)
 $$
 二元变量的熵曲线如下图
 
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/information_entropy.svg" style="zoom:67%;" />
 
-**条件熵**（condition entropy）用来表示离散特征 $x$ 划分后的数据集 $D$ 纯度。使用划分后子集的熵的加权平均值度来度量
+**条件熵**（condition entropy）用来表示离散特征 $x$ 划分后的数据集 $D$ 纯度。使用划分后子集的熵的加权平均值来度量
 $$
-H(D|x)=\sum_{n=1}^N w_nH(D_n)
+H(D|x)=\sum_{m=1}^M w_mH(D_m)
 $$
-其中，散特征值 $x$ 有 $N$ 个值。 $w_n=m_n/m$ 代表离散特征 $x$ 划分后的子集 $D_n$ 的样本数占比， $H(D_n)$ 代表子集$D_n$的信息熵。条件熵一般小于熵，例如，知道西瓜的色泽（青绿,乌黑,浅白）后，西瓜质量的不确定性就会减少了。
+其中，离散特征值 $x$ 有 $M$ 个值。 $w_m=N_m/N$ 代表离散特征 $x$ 划分后的子集 $D_m$ 的样本数占比， $H(D_m)$ 代表子集$D_m$的信息熵。条件熵一般小于熵，例如，知道西瓜的色泽（青绿,乌黑,浅白）后，西瓜质量的不确定性就会减少了。
 
 **信息增益**（Information Gain）表示使用特征 $x$ 的信息进行划分而使数据集 $D$ 纯度提升的程度
 $$
@@ -492,21 +497,21 @@ $$
 
 以二元离散特征 $x$ 为例，将二分类数据集 $D$ 划分为 $D^{\text{left}}$和 $D^{\text{left}}$ 两个子集，则信息增益为
 $$
-\text{Gain}(D,x)=H(p_1)-\left(w^{\text{left}}H(p_1^{\text{left}})+w^{\text{right}}H(p_1^{\text{right}})\right)
+\text{Gain}(D,x)=H(P_1)-\left(w^{\text{left}}H(P_1^{\text{left}})+w^{\text{right}}H(P_1^{\text{right}})\right)
 $$
-其中 $p_1$ 表示子集中正样本的比例，$w$ 表示子集的样本数占比。
+其中 $P_1$ 表示子集中正样本的比例，$w$ 表示子集的样本数占比。
 
 **ID3**（Iterative Dichotomiser 3, 迭代二分器 3）算法在迭代中选取信息增益最大的特征进行划分
 $$
 \arg\max\limits_{x}\text{Gain}(D,x)
 $$
-其中特征 $x\in\{x_i,x_2,\cdots,x_d\}$ 。对于所有的节点来说，节点处数据集的熵是个不变的值，所以最大化信息增益等价于最小化条件熵。
+其中特征 $x\in\{x_i,x_2,\cdots,x_p\}$ 。对于所有的节点来说，节点处数据集的熵是个不变的值，所以最大化信息增益等价于最小化条件熵。
 
 以吴恩达老师的==猫分类数据集==为例：
 
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/cat-classification-example.png" alt="cat-classification-example" style="zoom:60%;" />
 
-根节点的熵为：$H(p_1^{\text{root}})=H(0.5)=-\cfrac{1}{2}\log \cfrac{1}{2}-\cfrac{1}{2}\log \cfrac{1}{2}=1$
+根节点的熵为：$H(P_1^{\text{root}})=H(0.5)=-\cfrac{1}{2}\log \cfrac{1}{2}-\cfrac{1}{2}\log \cfrac{1}{2}=1$
 
 然后，计算各特征的信息增益：
 
@@ -528,9 +533,9 @@ $$
 
 其中 $\text{IV}(x)$ 称为特征 $x$ 的固有值（intrinsic value）
 $$
-\text{IV}(x)=-\sum_{n=1}^Nw_n\log w_n
+\text{IV}(x)=-\sum_{m=1}^Mw_m\log w_m
 $$
-其中，散特征值 $x$ 有 $N$ 个值。 $w_n=m_n/m$ 代表离散特征 $x$ 划分后的子集 $D_n$ 的样本数占比。$\text{IV}(x)$ 可看作数据集 $D$ 关于 $x$ 的信息熵，特征 $x$ 的取值越多，通常 $\text{IV}(x)$ 越大。
+其中，离散特征值 $x$ 有 $M$ 个值。 $w_m=N_m/N$ 代表离散特征 $x$ 划分后的子集 $D_m$ 的样本数占比。$\text{IV}(x)$ 可看作数据集 $D$ 关于 $x$ 的信息熵，特征 $x$ 的取值越多，通常 $\text{IV}(x)$ 越大。
 
 需注意的是，信息增益率准对可取值数目较少的特征有所偏好。因此， C4.5算法并不是直接选择增益率最大的特征划分，而是使用了一个启发式：先从候选特征中找出信息增益高于平均水平的特征，再从中选择增益率最高的划分。
 
@@ -538,30 +543,30 @@ $$
 
 **基尼指数**（Gini Index）给定的数据集  
 $$
-D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m\}
+D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N\}
 $$
-包含 $m$ 个样本，$d$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{id})^T$ 。目标变量 $y_i\in\{y_1,y_2,\cdots,y_K\}$ ，有 $K$ 个类别。经验分布为
+包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T$ 。目标变量 $y_i\in\{c_1,c_2,\cdots,c_K\}$ ，有 $K$ 个类别。经验分布为
 $$
-\mathbb P(y=y_k)=p_k
+\mathbb P(y=c_k)=P_k
 $$
 基尼指数可表示数据集 $D$ 的纯度
 $$
-\text{Gini}(D)=\sum_{k=1}^Kp_k(1-p_k)=1-\sum_{k=1}^Kp_k^2
+\text{Gini}(D)=\sum_{k=1}^KP_k(1-P_k)=1-\sum_{k=1}^KP_k^2
 $$
 
 直观来说，基尼指数反应了从数据集中随机抽取两个样本，其类别不一致的概率。因此，基尼指数越小，则数据集的纯度越高。
 
-对于二分类问题，目标变量 $y_i\in \{0,1\}$ 正样本比例为 $p_1\ (0\leqslant p_1\leqslant 1)$ ，则负样本比例 $p_0=1-p_1$ 。二分类变量的基尼指数可写为
+对于二分类问题，目标变量 $y_i\in \{0,1\}$ 正样本比例为 $P_1\ (0\leqslant P_1\leqslant 1)$ ，则负样本比例 $P_0=1-P_1$ 。二分类变量的基尼指数可写为
 $$
-\text{Gini}(p_1)=2p_1(1-p_1)
+\text{Gini}(P_1)=2P_1(1-P_1)
 $$
 数据集 $D$ 在离散特征 $x$ 划分后的基尼指数定义为
 $$
-\text{Gini}(D,x)=\sum_{n=1}^Nw_n\text{Gini}(D_n)
+\text{Gini}(D,x)=\sum_{m=1}^Mw_m\text{Gini}(D_m)
 $$
-可理解为划分后子集基尼指数的加权平均值。其中，离散特征 $x$ 有$N$ 个值， $w_n=m_n/m$ 代表离散特征 $x$ 划分后的子集 $D_n$ 的样本数占比， $\text{Gini}(D_n)$ 代表子集$D_n$的基尼指数。
+可理解为划分后子集基尼指数的加权平均值。其中，离散特征 $x$ 有$M$ 个值， $w_m=N_m/M$ 代表离散特征 $x$ 划分后的子集 $D_m$ 的样本数占比， $\text{Gini}(D_m)$ 代表子集$D_m$的基尼指数。
 
-**CART**（Classification and Regression Trees）使用划分后基尼指数最小的特征作为最优划分特征
+**CART**（Classification and Regression Trees）是使用划分后基尼指数最小的特征作为最优划分特征
 $$
 \arg\min\limits_{x}\text{Gini}(D,x)
 $$
@@ -569,17 +574,31 @@ $$
 
 ## 回归树
 
-回归树是一个 if-then 规则的集合，每个特征向量对应一个叶节点。使用叶节点处目标变量 $y$ 的平均值输出
+给定的数据集  
 $$
-f(\mathbf x)=\bar y_t
+D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N\}
 $$
-其中，特征向量 $\mathbf x=(x_1,x_2,\cdots,x_d)^T$ 对应的叶节点 $t$ 处的平均值为 $\bar y_t$。
+包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T$ 。目标变量 $y_i\in\R$ 。
 
-回归树使用加权均方误差选择最优划分特征。由于模型输出为子集平均值，均方误差等价于方差。设节点 $t$ 处的数据集为 $D_t$ ，样本数为 $m_t$ ，则划分特征为
+假设回归树将特征空间划分为 $J$ 个互不相交的区域 $R_i,R_2,\cdots,R_J$ ，每个区域 $R_j$ 对应树的一个叶结点，并且在每个叶节点上有个固定的输出值 $c_j$ 。规则为
 $$
-\arg\min\limits_{x}\sum_{n=1}^Nw_{tn}\text{var}(D_{tn})
+\mathbf x\in R_j \implies T(\mathbf x)=c_j
 $$
-其中，离散特征 $x$ 有$N$ 个值。$D_{tn}$ 为节点 $t$ 处特征 $x$ 划分的子集，$w_{tn}=m_{tn}/m_t$ 为子集的样本数占比。
+那么树可以表示为
+$$
+T(\mathbf x;\Theta)=\sum_{j=1}^Jc_j\mathbb I(\mathbf x\in R_j)
+$$
+参数 $\Theta=\{(R_1,c_1),(R_2,c_2),\cdots,(R_J,c_J)\}$ 表示树的区域划分和对应的值，$J$ 表示树的复杂度（即叶节点的个数）。
+
+回归树使用平方误差最小的值作为最优输出值。易知，区域 $R_j$ 上的最优值 $c_j$ 对应此区域上所有目标变量 $y_i$ 的平均值
+$$
+c_j=\bar y,\quad  y_i\in R_j
+$$
+回归树使用**加权均方误差**选择最优划分特征。由于输出值 $c_j$ 为区域 $R_j$ 目标变量的平均值，所以区域 $R_j$ 的均方误差等价于方差。设节点 $t$ 处的区域数据集为 $D_t$ ，样本数为 $N_t$ ，则划分特征为
+$$
+\arg\min\limits_{x}\sum_{m=1}^Mw_{tm}\text{var}(D_{tm})
+$$
+其中，离散特征 $x$ 有$M$ 个值。$D_{tm}$ 为节点 $t$ 处特征 $x$ 划分的子集，$w_{tm}=N_{tm}/N_t$ 为子集的样本数占比。
 
 ## 剪枝处理
 
@@ -589,11 +608,11 @@ $$
 $$
 C_\alpha(T)=C(T)+\alpha|T|
 $$
-其中，$|T|$ 是决策树 $T$ 中叶节点个数，$\alpha$ 是平衡树的复杂度和不纯度的超参数。$C(T)$ 是叶节点不纯度的加权平均值。以基尼指数为例，给定数据集 $D$ ，样本数为 $m$ ，则
+其中，$|T|$ 是决策树 $T$ 中叶节点个数，$\alpha$ 是平衡树的复杂度和不纯度的超参数。$C(T)$ 是叶节点不纯度的加权平均值。以基尼指数为例，给定数据集 $D$ ，样本数为 $N$ ，则
 $$
 C(T)=\sum_tw_t\text{Gini}(D_t)
 $$
-其中，$D_t$ 为叶节点 $t$ 处的数据集，$w_t=m_t/m$ 为叶节点 $t$ 处的样本数占比。
+其中，$D_t$ 为叶节点 $t$ 处的数据集，$w_t=N_t/N$ 为叶节点 $t$ 处的样本数占比。
 
 **预剪枝**：（pre-pruning）是指在决策树生成过程中，对每个结点在划分前先进行估计，若当前结点的划分不能带来决策树泛化性能提升，则停止划分并将当前结点标记为叶结点。
 
@@ -613,7 +632,7 @@ $$
 
 **斜决策树**（oblique decision tree）在每个节点，不再是仅对某个特征，而是对特征的线性组合进行测试
 $$
-\sum_{j=1}^dw_jx_j+b=0
+\sum_{j=1}^pw_jx_j+b=0
 $$
 尽管这种技术有更强的表达能力，并且能够产生更紧凑的决策树，但为找出最佳测试条件的计算可能相当复杂。
 
@@ -627,9 +646,9 @@ $$
 
 给定的数据集  
 $$
-D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m\}
+D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N\}
 $$
-包含 $m$ 个样本，$d$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{id})^T$ 。目标变量 $y_i\in\{-1,+1\}$ 。
+包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T$ 。目标变量 $y_i\in\{-1,+1\}$ 。
 
 ## 间隔最大化
 
@@ -639,7 +658,7 @@ $$
 $$
 \mathbf{w}^T\mathbf{x}+b=0
 $$
-其中 $\mathbf w=(w_1,w_2,\cdots,w_d)^T$ 为法向量，决定了超平面的方向；$b$ 为位移项，决定了超平面与原点之间的距离。显然，超平面可被法向量 $\mathbf w$ 和位移 $b$ 确定，下面我们将其记为 $(\mathbf w,b)$ 。
+其中 $\mathbf w=(w_1,w_2,\cdots,w_p)^T$ 为法向量，决定了超平面的方向；$b$ 为位移项，决定了超平面与原点之间的距离。显然，超平面可被法向量 $\mathbf w$ 和位移 $b$ 确定，下面我们将其记为 $(\mathbf w,b)$ 。
 
 **Model**：
 $$
@@ -673,14 +692,14 @@ $$
 $$
 可简写为
 $$
-y_i(\mathbf{w}^T\mathbf{x}_i+b)\geqslant \gamma \quad i=1,2,\cdots,m
+y_i(\mathbf{w}^T\mathbf{x}_i+b)\geqslant \gamma \quad i=1,2,\cdots,N
 $$
 
 **参数估计**：由于超平面的系数经过同比例缩放不会改变这个平面，我们不妨给出约束 $\gamma=1$，从而得到唯一系数。那么最大化间隔可表示为：
 $$
 \begin{aligned}
 \max\limits_{\mathbf w,b}&\frac{2}{\|\mathbf w\|} \\
-\text{s.t.}&\quad y_i(\mathbf{w}^T\mathbf{x}_i+b)\geqslant 1, \quad i=1,2,\cdots,m
+\text{s.t.}&\quad y_i(\mathbf{w}^T\mathbf{x}_i+b)\geqslant 1, \quad i=1,2,\cdots,N
 \end{aligned}
 $$
 
@@ -690,16 +709,16 @@ s.t. 是 subject to (such that) 的缩写，表示约束条件。约束为分类
 $$
 \begin{aligned}
 \min\limits_{\mathbf w,b}&\frac{1}{2}\|\mathbf w\|^2 \\
-\text{s.t.}&\quad y_i(\mathbf{w}^T\mathbf{x}_i+b)\geqslant 1, \quad i=1,2,\cdots,m
+\text{s.t.}&\quad y_i(\mathbf{w}^T\mathbf{x}_i+b)\geqslant 1, \quad i=1,2,\cdots,N
 \end{aligned}
 $$
-这就是 SVM 的基本形式，是一个包含 $m$ 个约束的凸优化问题。
+这就是 SVM 的基本形式，是一个包含 $N$ 个约束的凸优化问题。
 
 ## 对偶问题
 
 支持向量机通常将原始问题（primal problem）转化成拉格朗日对偶问题（dual problem）来求解。首先引入 Lagrange 函数
 $$
-L(\mathbf w,b,\mathbf\alpha)=\frac{1}{2}\mathbf w^T\mathbf w+\sum_{i=1}^m\alpha_i(1-y_i(\mathbf{w}^T\mathbf{x}_i+b))
+L(\mathbf w,b,\mathbf\alpha)=\frac{1}{2}\mathbf w^T\mathbf w+\sum_{i=1}^N\alpha_i(1-y_i(\mathbf{w}^T\mathbf{x}_i+b))
 $$
 参数 $\alpha_i\geqslant 0$ 称为拉格朗日乘子（Lagrange multiplier）。根据拉格朗日对偶性，原始问题的对偶问题为
 $$
@@ -707,15 +726,15 @@ $$
 $$
 令 $L(\mathbf w,b,\mathbf\alpha)$ 对 $\mathbf w$ 和 $b$ 的偏导数为 0 可以得到
 $$
-\sum_{i=1}^m\alpha_iy_i=0\\
-\mathbf w=\sum_{i=1}^m\alpha_iy_i\mathbf x_i
+\sum_{i=1}^N\alpha_iy_i=0\\
+\mathbf w=\sum_{i=1}^N\alpha_iy_i\mathbf x_i
 $$
 将上式带入拉格朗日函数，我们就可以消去 $\mathbf w$ 和 $b$ ，得到对偶最优化问题
 $$
 \begin{aligned}
-\max\limits_{\mathbf\alpha}&\sum_{i=1}^m\alpha_i-\frac{1}{2}\sum_{i=1}^m\sum_{j=1}^m\alpha_i\alpha_jy_iy_j\mathbf x_i^T\mathbf x_j \\
-\text{s.t.}&\quad \sum_{i=1}^m\alpha_iy_i=0 \\
-&\quad\alpha_i\geqslant 0, \quad i=1,2,\cdots,m
+\max\limits_{\mathbf\alpha}&\sum_{i=1}^N\alpha_i-\frac{1}{2}\sum_{i=1}^N\sum_{j=1}^N\alpha_i\alpha_jy_iy_j\mathbf x_i^T\mathbf x_j \\
+\text{s.t.}&\quad \sum_{i=1}^N\alpha_iy_i=0 \\
+&\quad\alpha_i\geqslant 0, \quad i=1,2,\cdots,N
 \end{aligned}
 $$
 原问题和对偶问题等价的充要条件为其满足 KKT（Karush-Kuhn-Tucker）条件
@@ -730,7 +749,7 @@ $$
 $$
 \begin{aligned}
 f_{\mathbf{w},b}(\mathbf{x})&=\text{sign}(\mathbf{w}^T\mathbf{x}+b) \\
-&=\text{sign}(\sum_{i=1}^m\alpha_iy_i\mathbf x_i^T\mathbf x+b)
+&=\text{sign}(\sum_{i=1}^N\alpha_iy_i\mathbf x_i^T\mathbf x+b)
 \end{aligned}
 $$
 由 KKT 互补条件可知，对任意训练样本 $(\mathbf x_i,y_i)$， 总有 $\alpha_i=0$ 或 $y_i(\mathbf{w}^T\mathbf{x}_i+b)=1$。
@@ -767,29 +786,29 @@ $$
 因此，软间隔SVM的优化目标可写为
 $$
 \begin{aligned}
-\min\limits_{\mathbf w,b,\mathbf\xi}&\frac{1}{2}\|\mathbf w\|^2+C\sum_{i=1}^m\xi_i \\
+\min\limits_{\mathbf w,b,\mathbf\xi}&\frac{1}{2}\|\mathbf w\|^2+C\sum_{i=1}^N\xi_i \\
 \text{s.t.}&\quad y_i(\mathbf{w}^T\mathbf{x}_i+b)\geqslant 1-\xi_i \\
-&\quad \xi_i\geqslant 0, \qquad i=1,2,\cdots,m
+&\quad \xi_i\geqslant 0, \qquad i=1,2,\cdots,N
 \end{aligned}
 $$
 其中，$C$ 为惩罚参数，用于控制惩罚强度。这便是线性 SVM 的基本式。
 
 原始问题的拉格朗日函数为
 $$
-L(\mathbf w,b,\mathbf\xi,\mathbf\alpha,\mathbf\eta)=\frac{1}{2}\mathbf w^T\mathbf w+C\sum_{i=1}^m\xi_i+\sum_{i=1}^m\alpha_i(1-\xi_i-y_i(\mathbf{w}^T\mathbf{x}_i+b))-\sum_{i=1}^m\eta_i\xi_i
+L(\mathbf w,b,\mathbf\xi,\mathbf\alpha,\mathbf\eta)=\frac{1}{2}\mathbf w^T\mathbf w+C\sum_{i=1}^N\xi_i+\sum_{i=1}^N\alpha_i(1-\xi_i-y_i(\mathbf{w}^T\mathbf{x}_i+b))-\sum_{i=1}^N\eta_i\xi_i
 $$
 参数 $\alpha_i\geqslant 0,\eta_i$ 称为拉格朗日乘子。令 $L(\mathbf w,b,\mathbf\xi,\mathbf\alpha,\mathbf\eta)$ 对 $\mathbf w,b$ 和 $\mathbf \xi$ 的偏导数为 0 可以得到
 $$
-\sum_{i=1}^m\alpha_iy_i=0\\
-\mathbf w=\sum_{i=1}^m\alpha_iy_i\mathbf x_i \\
+\sum_{i=1}^N\alpha_iy_i=0\\
+\mathbf w=\sum_{i=1}^N\alpha_iy_i\mathbf x_i \\
 \alpha_i+\eta_i=C
 $$
 将上式带入拉格朗日函数，得到**拉格朗日对偶问题**
 $$
 \begin{aligned}
-\max\limits_{\mathbf\alpha}&\sum_{i=1}^m\alpha_i-\frac{1}{2}\sum_{i=1}^m\sum_{j=1}^m\alpha_i\alpha_jy_iy_j\mathbf x_i^T\mathbf x_j \\
-\text{s.t.}&\quad \sum_{i=1}^m\alpha_iy_i=0 \\
-&\quad 0\leqslant\alpha_i\leqslant C, \quad i=1,2,\cdots,m
+\max\limits_{\mathbf\alpha}&\sum_{i=1}^N\alpha_i-\frac{1}{2}\sum_{i=1}^N\sum_{j=1}^N\alpha_i\alpha_jy_iy_j\mathbf x_i^T\mathbf x_j \\
+\text{s.t.}&\quad \sum_{i=1}^N\alpha_iy_i=0 \\
+&\quad 0\leqslant\alpha_i\leqslant C, \quad i=1,2,\cdots,N
 \end{aligned}
 $$
 上式与线性可分对偶问题唯一不同的是对 $\alpha_i$ 的约束。对软间隔支持向量机， KKT 条件要求
@@ -805,7 +824,7 @@ $$
 $$
 \begin{aligned}
 f_{\mathbf{w},b}(\mathbf{x})&=\text{sign}(\mathbf{w}^T\mathbf{x}+b) \\
-&=\text{sign}(\sum_{i=1}^m\alpha_iy_i\mathbf x_i^T\mathbf x+b)
+&=\text{sign}(\sum_{i=1}^N\alpha_iy_i\mathbf x_i^T\mathbf x+b)
 \end{aligned}
 $$
 由 KKT 条件可知，对任意训练样本 $(\mathbf x_i,y_i)$， 总有 $\alpha_i=0$ 或 $y_i(\mathbf{w}^T\mathbf{x}_i+b)=1-\xi_i$。
@@ -832,17 +851,17 @@ $$
 那么最大化间隔可表示为
 $$
 \begin{aligned}
-\min\limits_{\mathbf w,b}&\frac{1}{2}\|\mathbf w\|^2+C\sum_{i=1}^m\xi_i \\
+\min\limits_{\mathbf w,b}&\frac{1}{2}\|\mathbf w\|^2+C\sum_{i=1}^N\xi_i \\
 \text{s.t.}&\quad y_i(\mathbf{w}^T\mathbf\phi(\mathbf x_i)+b)\geqslant 1-\xi_i \\
-&\quad \xi_i\geqslant 0, \qquad i=1,2,\cdots,m
+&\quad \xi_i\geqslant 0, \qquad i=1,2,\cdots,N
 \end{aligned}
 $$
 其对偶问题是
 $$
 \begin{aligned}
-\max\limits_{\mathbf\alpha}&\sum_{i=1}^m\alpha_i-\frac{1}{2}\sum_{i=1}^m\sum_{j=1}^m\alpha_i\alpha_jy_iy_j\mathbf\phi(\mathbf x_i)^T\mathbf\phi(\mathbf x_j) \\
-\text{s.t.}&\quad \sum_{i=1}^m\alpha_iy_i=0 \\
-&\quad 0\leqslant\alpha_i\leqslant C, \quad i=1,2,\cdots,m
+\max\limits_{\mathbf\alpha}&\sum_{i=1}^N\alpha_i-\frac{1}{2}\sum_{i=1}^N\sum_{j=1}^N\alpha_i\alpha_jy_iy_j\mathbf\phi(\mathbf x_i)^T\mathbf\phi(\mathbf x_j) \\
+\text{s.t.}&\quad \sum_{i=1}^N\alpha_iy_i=0 \\
+&\quad 0\leqslant\alpha_i\leqslant C, \quad i=1,2,\cdots,N
 \end{aligned}
 $$
 求解上述问题涉及到计算 $\mathbf\phi(\mathbf x_i)^T\mathbf\phi(\mathbf x_j)$， 这是样本 $\mathbf x_i$ 与 $\mathbf x_j$ 映射到特征空间之后的内积。由于特征空间维数可能很高，甚至可能是无穷维，因此直接计算  $\mathbf\phi(\mathbf x_i)^T\mathbf\phi(\mathbf x_j)$ 通常是困难的。为了避开这个障碍，引入**核函数**（kernel function） 
@@ -854,9 +873,9 @@ $$
 于是，对偶问题可重写为
 $$
 \begin{aligned}
-\max\limits_{\mathbf\alpha}&\sum_{i=1}^m\alpha_i-\frac{1}{2}\sum_{i=1}^m\sum_{j=1}^m\alpha_i\alpha_jy_iy_j K(\mathbf x_i,\mathbf x_j) \\
-\text{s.t.}&\quad \sum_{i=1}^m\alpha_iy_i=0 \\
-&\quad 0\leqslant\alpha_i\leqslant C, \quad i=1,2,\cdots,m
+\max\limits_{\mathbf\alpha}&\sum_{i=1}^N\alpha_i-\frac{1}{2}\sum_{i=1}^N\sum_{j=1}^N\alpha_i\alpha_jy_iy_j K(\mathbf x_i,\mathbf x_j) \\
+\text{s.t.}&\quad \sum_{i=1}^N\alpha_iy_i=0 \\
+&\quad 0\leqslant\alpha_i\leqslant C, \quad i=1,2,\cdots,N
 \end{aligned}
 $$
 可写为矩阵形式
@@ -864,16 +883,16 @@ $$
 \begin{aligned}
 \min\limits_{\mathbf\alpha}&\frac{1}{2}\mathbf\alpha^T\mathbf Q\mathbf\alpha-\mathbf e^T\mathbf\alpha \\
 \text{s.t.}&\quad \mathbf y^T\mathbf\alpha=0 \\
-&\quad 0\leqslant\alpha_i\leqslant C, \quad i=1,2,\cdots,m
+&\quad 0\leqslant\alpha_i\leqslant C, \quad i=1,2,\cdots,N
 \end{aligned}
 $$
-其中，$\mathbf e$ 是一个全1的 $m$ 维向量，$\mathbf Q$ 是一个 $m\times m$ 的半正定矩阵，$Q_{ij}=y_iy_j K(\mathbf x_i,\mathbf x_j)$。
+其中，$\mathbf e$ 是一个全1的 $N$ 维向量，$\mathbf Q$ 是一个 $N\times N$ 的半正定矩阵，$Q_{ij}=y_iy_j K(\mathbf x_i,\mathbf x_j)$。
 
 求解后即可得到
 $$
 \begin{aligned}
 f_{\mathbf{w},b}(\mathbf{x})&=\text{sign}(\mathbf{w}^T\mathbf{\phi(x)}+b) \\
-&=\text{sign}(\sum_{i=1}^m\alpha_iy_iK(\mathbf x_i,\mathbf x)+b)
+&=\text{sign}(\sum_{i=1}^N\alpha_iy_iK(\mathbf x_i,\mathbf x)+b)
 \end{aligned}
 $$
 通过前面的讨论可知，我们希望样本在特征空间内线性可分，因此特征空间的好坏对支持向量机的性能至关重要。需注意的是，在不知道特征映射的形式时，我们并不知道什么样的核函数是合适的，而核函数也仅是隐式地定义了
@@ -887,7 +906,7 @@ K(\mathbf x_1,\mathbf x_2)=\mathbf x_1^T\mathbf x_2
 $$
 (2) 多项式核函数（polynomial kernel function）
 $$
-K(\mathbf x_1,\mathbf x_2)=(\mathbf x_1^T\mathbf x_2+1)^d
+K(\mathbf x_1,\mathbf x_2)=(\mathbf x_1^T\mathbf x_2+1)^p
 $$
 (3) 高斯核函数（Gaussian kernel function）：也被称为径向基函数（radial basis function, RBF），是最常用的核函数。$\sigma>0$ 为高斯核的带宽（width）。
 $$
@@ -909,9 +928,9 @@ $$
 
 给定的数据集  
 $$
-D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m\}
+D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N\}
 $$
-包含 $m$ 个样本，$d$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{id})^T$ 。目标变量 $y_i\in\R$ 。
+包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T$ 。目标变量 $y_i\in\R$ 。
 
 **Model**：相比于线性回归用一条线来拟合训练样本， SVR采用一个以 $f(\mathbf x)$ 为中心，宽度为 $2\epsilon$ 的间隔带，来拟合训练样本。预测函数仍为
 $$
@@ -930,9 +949,9 @@ $$
 因此SVR的优化问题可以写为
 $$
 \begin{aligned}
-\min\limits_{\mathbf w,b}&\frac{1}{2}\|\mathbf w\|^2+C\sum_{i=1}^m\xi_i \\
+\min\limits_{\mathbf w,b}&\frac{1}{2}\|\mathbf w\|^2+C\sum_{i=1}^N\xi_i \\
 \text{s.t.}&\quad -\epsilon-\xi_i \leqslant \mathbf{w}^T\mathbf\phi(\mathbf x_i)+b\leqslant \epsilon+\xi_i \\
-&\quad \xi_i\geqslant 0, \qquad i=1,2,\cdots,m
+&\quad \xi_i\geqslant 0, \qquad i=1,2,\cdots,N
 \end{aligned}
 $$
 > 注释：
@@ -951,18 +970,18 @@ $$
 如果考虑两边采用不同的松弛程度，可重写为
 $$
 \begin{aligned}
-\min\limits_{\mathbf w,b}&\frac{1}{2}\|\mathbf w\|^2+C\sum_{i=1}^m(\xi_i+\xi_i') \\
+\min\limits_{\mathbf w,b}&\frac{1}{2}\|\mathbf w\|^2+C\sum_{i=1}^N(\xi_i+\xi_i') \\
 \text{s.t.}&\quad -\epsilon-\xi_i' \leqslant \mathbf{w}^T\mathbf\phi(\mathbf x_i)+b\leqslant \epsilon+\xi_i \\
-&\quad \xi_i\geqslant 0,\xi_i'\geqslant 0, \qquad i=1,2,\cdots,m
+&\quad \xi_i\geqslant 0,\xi_i'\geqslant 0, \qquad i=1,2,\cdots,N
 \end{aligned}
 $$
 对偶问题为
 $$
 \begin{aligned}
-\max\limits_{\mathbf\alpha,\mathbf\alpha'}&\sum_{i=1}^my_i(\alpha_i'-\alpha_i)-\epsilon(\alpha_i'+\alpha_i) \\
-&-\frac{1}{2}\sum_{i=1}^m\sum_{j=1}^m(\alpha_i'-\alpha_i)(\alpha_j'-\alpha_j)K(\mathbf x_i,\mathbf x_j) \\
-\text{s.t.}&\quad \sum_{i=1}^m(\alpha_i'-\alpha_i)=0 \\
-&\quad 0\leqslant\alpha_i,\alpha_i'\leqslant C, \quad i=1,2,\cdots,m
+\max\limits_{\mathbf\alpha,\mathbf\alpha'}&\sum_{i=1}^Ny_i(\alpha_i'-\alpha_i)-\epsilon(\alpha_i'+\alpha_i) \\
+&-\frac{1}{2}\sum_{i=1}^N\sum_{j=1}^N(\alpha_i'-\alpha_i)(\alpha_j'-\alpha_j)K(\mathbf x_i,\mathbf x_j) \\
+\text{s.t.}&\quad \sum_{i=1}^N(\alpha_i'-\alpha_i)=0 \\
+&\quad 0\leqslant\alpha_i,\alpha_i'\leqslant C, \quad i=1,2,\cdots,N
 \end{aligned}
 $$
 可写为矩阵形式
@@ -970,10 +989,10 @@ $$
 \begin{aligned}
 \min\limits_{\mathbf\alpha,\mathbf\alpha'}&\frac{1}{2}(\mathbf\alpha-\mathbf\alpha')^T\mathbf Q(\mathbf\alpha-\mathbf\alpha')+\epsilon\mathbf e^T(\mathbf\alpha+\mathbf\alpha')-\mathbf y^T(\mathbf\alpha-\mathbf\alpha') \\
 \text{s.t.}&\quad \mathbf e^T(\mathbf\alpha-\mathbf\alpha')=0 \\
-&\quad 0\leqslant\alpha_i,\alpha_i'\leqslant C, \quad i=1,2,\cdots,m
+&\quad 0\leqslant\alpha_i,\alpha_i'\leqslant C, \quad i=1,2,\cdots,N
 \end{aligned}
 $$
-其中，$\mathbf e$ 是一个全1的 $m$ 维向量，$\mathbf Q$ 是一个 $m\times m$ 的半正定矩阵，$Q_{ij}=K(\mathbf x_i,\mathbf x_j)$。
+其中，$\mathbf e$ 是一个全1的 $N$ 维向量，$\mathbf Q$ 是一个 $N\times N$ 的半正定矩阵，$Q_{ij}=K(\mathbf x_i,\mathbf x_j)$。
 
 上述过程中需满足KKT 条件，即要求
 $$
@@ -995,7 +1014,7 @@ $$
 
 预测函数为
 $$
-f_{\mathbf{w},b}(\mathbf{x})=\sum_{i=1}^m(\alpha_i-\alpha_i')K(\mathbf x_i,\mathbf x)+b
+f_{\mathbf{w},b}(\mathbf{x})=\sum_{i=1}^N(\alpha_i-\alpha_i')K(\mathbf x_i,\mathbf x)+b
 $$
 能使上式中的 $\alpha_i-\alpha_i'\neq 0$ 的样本即为 SVR 的支持向量，它们必落在 $\epsilon$ 间隔带之外。显然，SVR 的支持向量仅是训练样本的一部分，即其解仍具有稀疏性。
 
@@ -1029,11 +1048,11 @@ $$
 
 包含多个目标变量的回归任务称为 **Multioutput regression**
 
-**Multi-task Lasso** 是一个估计多任务的稀疏系数的线性模型， $\mathbf Y$ 是一个  $m\times n_{tasks}$ 矩阵。约束条件是，对于所有回归问题（也叫任务），所选的特征是相同的。它混合使用 $l_1l_2$ 范数作为正则化项。
+**Multi-task Lasso** 是一个估计多任务的稀疏系数的线性模型， $\mathbf Y$ 是一个  $N\times N_{tasks}$ 矩阵。约束条件是，对于所有回归问题（也叫任务），所选的特征是相同的。它混合使用 $l_1l_2$ 范数作为正则化项。
 
 Cost function
 $$
-J(\mathbf{W})=\cfrac{1}{2m}\left(\|\mathbf{XW-Y}\|^2_{Fro}+ \alpha \|\mathbf W\|_{21}\right)
+J(\mathbf{W})=\cfrac{1}{2N}\left(\|\mathbf{XW-Y}\|^2_{Fro}+ \alpha \|\mathbf W\|_{21}\right)
 $$
 其中 Fro 表示Frobenius范数
 $$
@@ -1045,11 +1064,11 @@ $$
 $$
 Multi-task Lasso 也采用坐标下降法来估计参数。
 
-**Multi-task Elastic-Net** 是一个估计多任务的稀疏系数的线性模型， $\mathbf Y$ 是一个  $m\times n_{tasks}$ 矩阵。约束条件是，对于所有回归问题（也叫任务），所选的特征是相同的。它使用混合的 $l_1l_2$ 范数和$l_2$作为正则化项。
+**Multi-task Elastic-Net** 是一个估计多任务的稀疏系数的线性模型， $\mathbf Y$ 是一个  $N\times N_{tasks}$ 矩阵。约束条件是，对于所有回归问题（也叫任务），所选的特征是相同的。它使用混合的 $l_1l_2$ 范数和$l_2$作为正则化项。
 
 Cost function
 $$
-J(\mathbf{W})=\cfrac{1}{2m}\left(\|\mathbf{XW-Y}\|^2_{Fro}+ \alpha\rho \|\mathbf W\|_{21}+ \frac{\alpha(1-\rho)}{2} \|\mathbf W\|_{Fro}^2\right)
+J(\mathbf{W})=\cfrac{1}{2N}\left(\|\mathbf{XW-Y}\|^2_{Fro}+ \alpha\rho \|\mathbf W\|_{21}+ \frac{\alpha(1-\rho)}{2} \|\mathbf W\|_{Fro}^2\right)
 $$
 Multi-task Elastic-Net 也采用坐标下降法来估计参数。
 
@@ -1061,39 +1080,37 @@ Multi-task Elastic-Net 也采用坐标下降法来估计参数。
 
 ## 集成学习
 
-**集成学习**（ensemble learning）通过构建并组合多个**基学习器**（base learner）的结果来提升预测结果的准确性和泛化能力。其中，基学习器通常采用弱学习算法，集成形成强学习算法。
+**集成学习**（ensemble learning）通过构建**基学习器**（base learner）集合 $\{h_1,h_2,\cdots,h_M\}$，并组合基学习器的结果来提升预测结果的准确性和泛化能力。其中，基学习器通常采用弱学习算法，组合形成强学习算法。
 
 > 准确率仅比随机猜测略高的学习算法称为**弱学习算法**，准确率很高并能在多项式时间内完成的学习算法称为**强学习算法**。
 
-假定集成包含$T$个基学习器$\{h_1,h_2,\cdots,h_T\}$，集成学习器表示为
+下面以二分类问题和回归问题为例，说明集成弱学习器为什么能够改善性能。
+
+(1) 对于二分类问题，假设 $M$ 个弱分类模型，集成分类器采用多数表决的方法来预测类别，仅当基分类器超过一半预测错误的情况下，集成分类器预测错误。
 $$
-H(\mathbf x)=\text{Vote}(h_1(\mathbf x),h_2(\mathbf x),\cdots,h_T(\mathbf x))
-$$
-下面以二分类为例，说明集成学习器为什么能够改善分类器的性能。集成分类器采用多数表决的方法来预测类别，仅当基分类器超过一半预测错误的情况下，集成分类器预测错误。
-$$
-H(\mathbf x)=\text{sign}\left(\frac{1}{T}\sum_{t=1}^Th_t(\mathbf x)\right)
+H(\mathbf x)=\text{sign}\left(\frac{1}{M}\sum_{m=1}^Mh_m(\mathbf x)\right)
 $$
 假设基分类器之间相互独立，且错误率相等为 $\epsilon$ 。则集成分类器的错误率为
 $$
-\epsilon_{\text{ensemble}} =\sum_{k=0}^{\lfloor T/2\rfloor}\complement^k_T(1-\epsilon)^k\epsilon^{T-k} 
+\epsilon_{\text{ensemble}} =\sum_{k=0}^{\lfloor M/2\rfloor}\complement^k_M(1-\epsilon)^k\epsilon^{M-k}
 $$
 取25个基分类器，误差率均为 0.35 ，计算可得集成分类器的误差为 0.06 ，远低于基分类器的误差率。注意，当 $\epsilon>0.5$ 时，集成分类器比不上基分类器。
 
-<img src="Machine-Learning(IV)--Supervised-Learning.assets/ensemble-classifier-error.svg" style="zoom:67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/ensemble-classifier-error.svg" style="zoom:67%;" />
 
 令$\epsilon=0.5-\gamma$ ，其中 $\gamma$ 度量了分类器比随机猜测强多少。则由Hoeffding 不等式可知
 $$
-\epsilon_{\text{ensemble}}\leqslant \exp(-2T\gamma^2)
+\epsilon_{\text{ensemble}}\leqslant \exp(-2M\gamma^2)
 $$
 上式指出，随着基分类器的个数的增加集成错误率呈指数下降，从而快速收敛。但前提是基分类器之间相互独立。
 
-假设 $T$ 个回归模型，集成模型以均值输出
+(2) 对于回归问题，假设 $M$ 个弱回归模型，集成模型以均值输出
 $$
-H(\mathbf x)=\frac{1}{T}\sum_{t=1}^Th_t(\mathbf x)
+H(\mathbf x)=\frac{1}{M}\sum_{m=1}^Mh_m(\mathbf x)
 $$
 每个基模型的误差服从均值为零的正态分布
 $$
-\epsilon_t\sim N(0,\sigma^2)
+\epsilon_m\sim N(0,\sigma^2)
 $$
 若不同模型误差间的协方差均为 $\text{Cov}(\epsilon_i,\epsilon_j)=c$ 。则集成模型误差平方的期望是
 
@@ -1101,13 +1118,13 @@ $$
 $$
 \begin{aligned}
 \mathbb E(\epsilon_{\text{ensemble}}^2)
-&=\mathbb E\left[\left(\frac{1}{T}\sum_{t=1}^T\epsilon_t\right)^2\right] \\
-&=\frac{1}{T^2}\mathbb E\left[\sum_{i=1}^T\left(\epsilon_i^2+\sum_{j\neq i}\epsilon_i\epsilon_j\right)\right]  \\
-&=\frac{1}{T}\sigma^2+\frac{T-1}{T}c
+&=\mathbb E\left[\left(\frac{1}{M}\sum_{m=1}^M\epsilon_m\right)^2\right] \\
+&=\frac{1}{M^2}\mathbb E\left[\sum_{i=1}^M\left(\epsilon_i^2+\sum_{j\neq i}\epsilon_i\epsilon_j\right)\right]  \\
+&=\frac{1}{M}\sigma^2+\frac{M-1}{M}c
 \end{aligned}
 $$
 
-在误差完全相关即 $c=\sigma^2$ 的情况下，误差平方减少到 $\sigma^2$ ，所以，模型平均没有任何帮助。在误差彼此独立即 $c=0$ 的情况下，该误差平方的期望仅为 $\sigma^2/T$ 。
+在误差完全相关即 $c=\sigma^2$ 的情况下，误差平方减少到 $\sigma^2$ ，所以，模型平均没有任何帮助。在误差彼此独立即 $c=0$ 的情况下，该误差平方的期望仅为 $\sigma^2/M$ 。
 
 上述示例容易得出，集成学习的基学习器要有足够的**准确性**和**差异性**。集成方法主分成两种：
 
@@ -1116,23 +1133,23 @@ $$
 
 给定的数据集  
 $$
-D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m)\}
+D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N)\}
 $$
-包含 $m$ 个样本，$d$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{id})^T$ 。
+包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T$ 。
 
 ## Bagging
 
 ### Bagging
 
-Bagging（Bootstrap aggregating，袋装算法）是一种并行式的集成学习方法。通过在基学习器的训练集中引入随机化后训练。随机从数据集$D$中有放回的抽取$T$个包含$m$个样本的数据集，从而训练出 $T$ 个基学习器。
+Bagging（Bootstrap aggregating，袋装算法）是一种并行式的集成学习方法。通过在基学习器的训练集中引入随机化后训练。若数据集$D$有$N$ 个样本，则随机有放回采样出包含$N$个样本的数据集（可能有重复），同样的方法抽取$M$个训练集，这样在训练的时候每个训练集都会有不同。最后训练出 $M$ 个基学习器集成。
 
-<img src="Machine-Learning(IV)--Supervised-Learning.assets/bagging_algorithm.png" style="zoom:80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/bagging_algorithm.png" style="zoom:80%;" />
 
 可以看出Bagging主要通过**样本的扰动**来增加基学习器之间的差异性，因此Bagging的基学习器应为那些对训练集十分敏感的不稳定学习算法，例如：神经网络与决策树等。从偏差-方差分解来看，Bagging算法主要关注于降低方差，即通过多次重复训练提高泛化能力。
 
-由于抽样都来自于同一个数据集，且是有放回抽样，所以$T$个数据集彼此相似，而又因随机性而稍有不同。Bagging训练集中有接近36.8%的样本没有被采到
+由于抽样都来自于同一个数据集，且是有放回抽样，所以$M$个数据集彼此相似，而又因随机性而稍有不同。Bagging训练集中有接近36.8%的样本没有被采到
 $$
-\lim_{m\to\infty}(1-\frac{1}{m})^m=\frac{1}{e}\approx 0.368
+\lim_{N\to\infty}(1-\frac{1}{N})^N=\frac{1}{e}\approx 0.368
 $$
 Bagging方法有许多不同的变体，主要是因为它们提取训练集的随机子集的方式不同：
 
@@ -1151,7 +1168,7 @@ Bagging方法有许多不同的变体，主要是因为它们提取训练集的�
 2. 因此进一步引入了特征扰动，每一个分裂过程从待选的 $n$ 个特征中随机选出包含 $k$ 个特征的子集，从这个子集中选择最优划分特征，一般推荐 $k=\log_2(n)$ 或 $k=\sqrt{n}$ 。
 3. 每棵树都会完整成长而不会剪枝
 
-![](Machine-Learning(IV)--Supervised-Learning.assets/random-forest.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/random-forest.svg)
 
 **随机森林优势**
 
@@ -1161,77 +1178,73 @@ Bagging方法有许多不同的变体，主要是因为它们提取训练集的�
 
 ## Boosting
 
-### Boosting
-
-**Boosting**（提升方法）是一种串行迭代过程。先从初始训练集训练出一个基学习器，再根据基学习器的表现对训练样本分布进行调整，使得先前基学习器做错的训练样本在后续受到更多关注，然后基于调整后的样本分布来训练下一个基学习器。如此迭代，构建一系列基学习器（弱学习器），最终将这些弱学习器加权结合，构成一个强学习器。最经典的包括AdaBoost算法和GBDT算法。
-
-![boosting-flowchart](Machine-Learning(IV)--Supervised-Learning.assets/boosting-flowchart.svg)
-
-从偏差-方差分解来看：Boosting算法主要关注于降低偏差，每轮的迭代都关注于训练过程中预测错误的样本，很容易受过拟合的影响。
-
 ### AdaBoost
 
-Boosting族算法最著名、使用最为广泛的就是AdaBoost。**AdaBoost** （Adaptive Boosting，自适应提升）的核心思想是用反复调整的数据来训练一系列的弱学习器，由这些弱学习器的加权组合，产生最终的预测结果。
+**Boosting**（提升方法）是一种串行迭代过程。先从初始训练集训练出一个基学习器，再根据基学习器的表现对训练样本分布进行调整，使得先前基学习器做错的训练样本在后续受到更多关注，然后基于调整后的样本分布来训练下一个基学习器。如此迭代，最后将这些弱学习器组合成一个强学习器。Boosting族算法最著名、使用最为广泛的就是AdaBoost。
+
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/boosting-flowchart.svg)
+
+**AdaBoost** （Adaptive Boosting，自适应提升）的核心思想是用反复调整的数据来训练一系列的弱学习器，由这些弱学习器的加权组合，产生最终的预测结果。
 
 具体说来，整个Adaboost 迭代算法分为3步：
 
-1. **训练弱学习器**：在连续的提升（boosting）迭代中，那些在上一轮迭代中被预测错误的样本的权重将会被增加，而那些被预测正确的样本的权重将会被降低。然后，权值更新过的样本集被用于训练弱学习器。随着迭代次数的增加，那些难以预测的样例的影响将会越来越大，每一个随后的弱学习器都将会被强迫关注那些在之前被错误预测的样例。初始化时，所有样本都被赋予相同的权值 $1/m$ 。
-2. **计算弱学习器权重**：在每一轮迭代中加入一个新的弱分类器，直到达到某个预定的足够小的错误率或达到预先指定的最大迭代次数，从而得到 $T$ 个弱学习器 $h_1,h_2,\cdots,h_T$。各个弱分类器的训练过程结束后，加大分类误差率小的弱分类器的权重，使其在最终的分类函数中起着较大的决定作用，而降低分类误差率大的弱分类器的权重，使其在最终的分类函数中起着较小的决定作用。这样，每个弱分类器 $h_t$ 都有对应的权重 $\alpha_t$ 。
+1. **训练弱学习器**：在连续的提升（boosting）迭代中，那些在上一轮迭代中被预测错误的样本的权重将会被增加，而那些被预测正确的样本的权重将会被降低。然后，权值更新过的样本集被用于训练弱学习器。随着迭代次数的增加，那些难以预测的样例的影响将会越来越大，每一个随后的弱学习器都将会被强迫关注那些在之前被错误预测的样例。初始化时，所有样本都被赋予相同的权值 $1/N$ 。
+2. **计算弱学习器权重**：在每一轮迭代中加入一个新的弱分类器，直到达到某个预定的足够小的错误率或达到预先指定的最大迭代次数，从而得到 $M$ 个弱学习器 $h_1,h_2,\cdots,h_M$。各个弱分类器的训练过程结束后，加大分类误差率小的弱分类器的权重，使其在最终的分类函数中起着较大的决定作用，而降低分类误差率大的弱分类器的权重，使其在最终的分类函数中起着较小的决定作用。这样，每个弱分类器 $h_m$ 都有对应的权重 $\alpha_m$ 。
 3. **组合成强学习器**：最后的强学习器由生成的多个弱学习器加权求和产生。
 
-![](Machine-Learning(IV)--Supervised-Learning.assets/AdaBoost_example.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/AdaBoost_example.svg)
 
-可以看出：**AdaBoost的核心步骤就是计算基学习器权重和样本权重分布**。AdaBoost 算法有多种推导方式，比较容易理解的是基于加性模型（additive model）的**向前分布算法**（forward stagewise algorithm）。
+可以看出：**AdaBoost的核心步骤就是计算基学习器权重和样本权重分布**。AdaBoost 算法有多种推导方式，比较容易理解的是基于加法模型（additive model）的**向前分布算法**（forward stagewise algorithm）。
 
 给定二分类数据集  
 $$
-D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m)\}
+D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N)\}
 $$
-包含 $m$ 个样本，$d$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{id})^T$ 。目标 $y_i\in\{-1,+1\}$
+包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T$ 。目标 $y_i\in\{-1,+1\}$
 
 基分类器的加权组合即为加法模型
 $$
-f(\mathbf x)=\sum_{t=1}^T\alpha_th_t(\mathbf x)
+f(\mathbf x)=\sum_{m=1}^M\alpha_mh_m(\mathbf x)
 $$
-最终的强分类器为
+其中 $\alpha_m$ 表示基分类器 $h_m$ 的重要性。最终的强分类器为
 $$
-H(\mathbf x)=\mathrm{sign}(f(\mathbf x))=\mathrm{sign}\left(\sum_{t=1}^T\alpha_th_t(\mathbf x)\right)
+H(\mathbf x)=\mathrm{sign}(f(\mathbf x))=\mathrm{sign}\left(\sum_{m=1}^M\alpha_mh_m(\mathbf x)\right)
 $$
-这里 $\alpha_t$ 表示基分类器 $h_t$ 的重要性。$f(\mathbf x)$ 的符号决定了实例 $\mathbf x$ 的类别。
+$f(\mathbf x)$ 的符号决定了实例 $\mathbf x$ 的类别。
 
-给定损失函数 $L(y,f(\mathbf x))$ ，学习模型 $f(\mathbf x)$ 所要考虑的问题是如何求出所有的 $\alpha_t,h_t$，即求解极小化代价函数
+给定损失函数 $L(y,f(\mathbf x))$ ，学习模型 $f(\mathbf x)$ 所要考虑的问题是最小化代价函数
 $$
-\min_{\alpha_t,h_t}\sum_{i=1}^mL\left(y_i,\sum_{t=1}^{T}\alpha_th_t(\mathbf x_i)\right)
+\min_{\alpha_m,h_m}\sum_{i=1}^NL\left(y_i,\sum_{m=1}^M\alpha_mh_m(\mathbf x_i)\right)
 $$
-通常这是一个复杂的全局优化问题，向前分布算法使用其简化版求解这一问题：既然是加法模型，每一步只学习一个弱学习器及其系数，且不调整已经加入模型中的参数和系数来向前逐步建立逼近。这样，向前分布算法将同时求解 $t=1$ 到 $T$ 所有参数 $\alpha_t,\theta_t$ 的优化问题简化为逐步求解 $\alpha_t,\theta_t$ 的优化问题。
+通常这是一个复杂的全局优化问题，向前分布算法使用其简化版求解这一问题：既然是加法模型，每一步只学习一个弱学习器及其系数，且不调整已经加入模型中的参数和系数来向前逐步建立模型，这能够得到上述优化的近似解。这样，向前分布算法将同时求解 $m=1$ 到 $M$ 所有参数 $\alpha_m,\theta_m$ 的优化问题简化为逐步求解 $\alpha_m,\theta_m$ 的优化问题。
 
-假设经过 $t-1$ 轮迭代，已经得到之前所有弱分类器的加权和 
+假设经过 $m-1$ 轮迭代，已经得到之前所有弱分类器的加权和 
 $$
-f_{t-1}(\mathbf x)=\alpha_1h_1(\mathbf x)+\cdots+\alpha_{t-1}h_{t-1}(\mathbf x)
+f_{m-1}(\mathbf x)=\alpha_1h_1(\mathbf x)+\cdots+\alpha_{m-1}h_{m-1}(\mathbf x)
 $$
-在第 $t$ 轮迭代求解 $\alpha_{t},h_{t}$ 得到
+在第 $m$ 轮迭代求解 $\alpha_m,h_m$ 得到
 $$
-f_t(\mathbf x)=f_{t-1}(\mathbf x)+\alpha_t h_t(\mathbf x)
+f_m(\mathbf x)=f_{m-1}(\mathbf x)+\alpha_m h_m(\mathbf x)
 $$
 则每一步只需优化如下代价函数
 $$
-(\alpha_t,h_t)=\arg\min_{\alpha,h}\sum_{i=1}^mL\left(y_i,f_{t-1}(\mathbf x)+\alpha h(\mathbf x_i)\right)
+(\alpha_m,h_m)=\arg\min_{\alpha,h}\sum_{i=1}^NL\left(y_i,f_{m-1}(\mathbf x)+\alpha h(\mathbf x_i)\right)
 $$
-其中，在第$t$轮迭代中，$f_{t-1}(\mathbf x)$ 相当于一个定值。AdaBoost 每步采用**指数损失函数**（exponential loss function）
+其中，在第$m$轮迭代中，$f_{m-1}(\mathbf x)$ 相当于一个定值。AdaBoost 每步采用**指数损失函数**（exponential loss function）
 $$
 L(y,f(\mathbf x))=\exp(-yf(\mathbf x))
 $$
 
-优化函数可变为
+于是，优化函数可变为
 $$
 \begin{aligned}
-(\alpha_t,h_t)&=\arg\min_{\alpha,h}\sum_{i=1}^mL(y_i,f_{t-1}(\mathbf x_i)+\alpha h(\mathbf x_i)) \\
-&=\arg\min_{\alpha,h}\sum_{i=1}^m\exp[-y_i(f_{t-1}(\mathbf x_i)+\alpha h(\mathbf x_i))] \\
-&=\arg\min_{\alpha,h}\sum_{i=1}^m  w_{t}^{(i)}\exp[-y_i\alpha h(\mathbf x_i)] \\
+(\alpha_m,h_m)&=\arg\min_{\alpha,h}\sum_{i=1}^NL(y_i,f_{m-1}(\mathbf x_i)+\alpha h(\mathbf x_i)) \\
+&=\arg\min_{\alpha,h}\sum_{i=1}^N\exp[-y_i(f_{m-1}(\mathbf x_i)+\alpha h(\mathbf x_i))] \\
+&=\arg\min_{\alpha,h}\sum_{i=1}^N  w_m^{(i)}\exp[-y_i\alpha h(\mathbf x_i)] \\
 
 \end{aligned}
 $$
-其中 $ w_t^{(i)}=\exp(-y_if_{t-1}(\mathbf x_i))$ 。$ w_t^{(i)}$ 不依赖于 $\alpha$ 和 $h$ ，所以与优化无关。
+其中 $ w_m^{(i)}=\exp(-y_if_{m-1}(\mathbf x_i))$ 。$ w_m^{(i)}$ 不依赖于 $\alpha$ 和 $h$ ，所以与优化无关。
 
 由 AdaBoost 基分类器 $h(\mathbf x_i)\in\{-1,+1\}$ ，且 $y_i\in\{-1,+1\}$ 则
 $$
@@ -1245,97 +1258,272 @@ $$
 
 $$
 \begin{aligned}
-(\alpha_t,h_t)&=\arg\min_{\alpha,h}\left\{\sum_{i=1}^m  w_{t}^{(i)}e^{-\alpha}\mathbb I(h_t(\mathbf x_i)=y_i)+\sum_{i=1}^m  w_{t}^{(i)}e^{\alpha}\mathbb I(h_t(\mathbf x_i)\neq y_i)\right\} \\
-&=\arg\min_{\alpha,h}\left\{(e^{\alpha}-e^{-\alpha})\sum_{i=1}^m  w_{t}^{(i)}\mathbb I(h_t(\mathbf x_i)\neq y_i)+e^{-\alpha}\sum_{i=1}^m  w_{t}^{(i)}\right\} \\
+(\alpha_m,h_m)&=\arg\min_{\alpha,h}\left\{\sum_{i=1}^N  w_m^{(i)}e^{-\alpha}\mathbb I(h_m(\mathbf x_i)=y_i)+\sum_{i=1}^N  w_m^{(i)}e^{\alpha}\mathbb I(h_m(\mathbf x_i)\neq y_i)\right\} \\
+&=\arg\min_{\alpha,h}\left\{(e^{\alpha}-e^{-\alpha})\sum_{i=1}^N  w_m^{(i)}\mathbb I(h_m(\mathbf x_i)\neq y_i)+e^{-\alpha}\sum_{i=1}^N  w_m^{(i)}\right\} \\
 \end{aligned}
 $$
 
-上式的解可以通过两步得到。首先，对于任意 $\alpha>0$ ，基分类器的解为
-$$
-h_t=\arg\min_{h}\sum_{i=1}^m w_{t}^{(i)}\mathbb I(h(\mathbf x_i)\neq y_i)
-$$
-这是第 $t$ 轮加权错误率最小的基分类器。将已求得的 $h_t$ 带入优化函数
+上式可以得到AdaBoost算法的几个关键点：
 
+**(1) 基学习器**。对于任意 $\alpha>0$ ，基分类器的解为
 $$
-\alpha_t=\arg\min_{\alpha}\left\{(e^{\alpha}-e^{-\alpha})\epsilon_t+e^{-\alpha}\right\}
+h_m=\arg\min_{h}\sum_{i=1}^N w_m^{(i)}\mathbb I(h(\mathbf x_i)\neq y_i)
 $$
-其中， $\epsilon_t$ 是正是基分类器 $h_t$ 在加权训练集 $D_t$ 的错误率
-$$
-\epsilon_t=\frac{\displaystyle\sum_{i=1}^m  w_t^{(i)} \mathbb I(h_t(\mathbf x_i)\neq y_i)}{\displaystyle\sum_{i=1}^m w_t^{(i)}}
-$$
-这里 $ w_t^{(i)}$ 是第 $t$ 轮迭代中样本 $(\mathbf x_i,y_i)$ 的权重 ，因为Adaboost更新样本权值分布时做了规范化，所示上式中的分母为1。权重依赖于 $f_{t-1}(\mathbf x)$ ，随着每一轮迭代而发生改变。
+这是第 $m$ 轮加权错误率最小的基分类器。
 
-对 $\alpha$ 求导并使导数为 0，即可得到基分类器 $h_t$ 的权重
+**(2) 各基学习器的系数** 。将已求得的 $h_m$ 带入优化函数
 $$
-\alpha_t=\frac{1}{2}\ln(\frac{1-\epsilon_t}{\epsilon_t})
+\alpha_m=\arg\min_{\alpha}\left\{(e^{\alpha}-e^{-\alpha})\epsilon_m+e^{-\alpha}\right\}
+$$
+其中， $\epsilon_m$ 正是基分类器 $h_m$ 在加权训练集 $D_m$ 的错误率
+$$
+\epsilon_m=\frac{\displaystyle\sum_{i=1}^N  w_m^{(i)} \mathbb I(h_m(\mathbf x_i)\neq y_i)}{\displaystyle\sum_{i=1}^N w_m^{(i)}}
+$$
+这里 $ w_m^{(i)}$ 是第 $m$ 轮迭代中样本 $(\mathbf x_i,y_i)$ 的权重 ，因为Adaboost更新样本权值分布时做了规范化，所示上式中的分母为1。权重依赖于 $f_{m-1}(\mathbf x)$ ，随着每一轮迭代而发生改变。
+
+对 $\alpha$ 求导并使导数为 0，即可得到基分类器 $h_m$ 的权重
+$$
+\alpha_m=\frac{1}{2}\ln(\frac{1-\epsilon_m}{\epsilon_m})
 $$
 
-由上式可知，当 $\epsilon_t\leqslant 0.5$ 时，$\alpha_t\geqslant 0$，并且 $\alpha_t$ 随 $\epsilon_t$ 的减小而增大 。所以，分类误差率越小的基分类器在最终分类器中的作用越大。如下图
+由上式可知，当 $\epsilon_m\leqslant 0.5$ 时，$\alpha_m\geqslant 0$，并且 $\alpha_m$ 随 $\epsilon_m$ 的减小而增大 。所以，分类误差率越小的基分类器在最终分类器中的作用越大。如下图
 
-![](Machine-Learning(IV)--Supervised-Learning.assets/AdaBoost_alpha.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/AdaBoost_alpha.svg)
 
-最后，更新样本的权重，为下一轮做准备。由
+**(3) 下一轮样本权值**。由
 $$
 \begin{cases}
-f_t(\mathbf x)=f_{t-1}(\mathbf x)+\alpha_t h_t(\mathbf x) \\
- w_t^{(i)}=\exp(-y_if_{t-1}(\mathbf x_i))
+f_m(\mathbf x)=f_{m-1}(\mathbf x)+\alpha_m h_m(\mathbf x) \\
+ w_m^{(i)}=\exp(-y_if_{m-1}(\mathbf x_i))
 \end{cases}
 $$
 可得到
 $$
-w_{t+1}^{(i)}= w_{t}^{(i)}\exp(-\alpha_ty_ih_t(\mathbf x_i))
+w_{m+1}^{(i)}= w_m^{(i)}\exp(-\alpha_my_ih_m(\mathbf x_i))
 $$
-为了确保  $\mathbf w_{t+1}$ 成为一个概率分布 $\sum_{i=1}^mw_{t+1}^{(i)}=1$， 权重更新变为
+为了确保  $\mathbf w_{m+1}$ 成为一个概率分布 $\sum_{i=1}^Nw_{m+1}^{(i)}=1$， 权重更新变为
 $$
-w_{t+1}^{(i)}=\frac{w_t^{(i)}}{Z_t}\exp(-\alpha_ty_ih_t(\mathbf x_i))
+w_{m+1}^{(i)}=\frac{w_m^{(i)}}{Z_m}\exp(-\alpha_my_ih_m(\mathbf x_i))
 $$
-其中， $Z_t$ 是正规因子。对原始式中所有的权重都乘以同样的值，对权重更新没有影响。
+其中， $Z_m$ 是正规因子。对原始式中所有的权重都乘以同样的值，对权重更新没有影响。
 $$
-Z_t=\sum_{i=1}^mw_t^{(i)}\exp(-\alpha_ty_ih_t(\mathbf x_i))
+Z_m=\sum_{i=1}^Nw_m^{(i)}\exp(-\alpha_my_ih_m(\mathbf x_i))
 $$
 上式可拆解为 
 $$
-w_{t+1}^{(i)}=\frac{w_t^{(i)}}{Z_t}\times\begin{cases}
-\exp(-\alpha_t) & \text{if }h_t(\mathbf x_i)=y_i \\
-\exp(\alpha_t) & \text{if }h_t(\mathbf x_i)\neq y_i 
+w_{m+1}^{(i)}=\frac{w_m^{(i)}}{Z_m}\times\begin{cases}
+\exp(-\alpha_m) & \text{if }h_m(\mathbf x_i)=y_i \\
+\exp(\alpha_m) & \text{if }h_m(\mathbf x_i)\neq y_i 
 \end{cases}
 $$
 
 上式给出的权值更新公式增加那些被错误分类的样本的权值，并减少那些被正确分类的样本的权值。
 
-<img src="Machine-Learning(IV)--Supervised-Learning.assets/AdaBoost_algorithm.png" style="zoom:80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/AdaBoost_algorithm.png" style="zoom:80%;" />
 
-**正则化**：对每个基学习器乘以一个系数 $\nu(0<\nu<1)$，使其对最终模型的贡献减小，从而防止学的太快产生过拟合。$\nu$ 又称学习率，于是上文的迭代变为
+从偏差-方差分解来看：AdaBoost 算法主要关注于降低偏差，每轮的迭代都关注于训练过程中预测错误的样本，很容易受过拟合的影响。
+
+### 提升树
+
+以二叉决策树为基函数的提升方法称为**提升树**（boosting tree）。提升树模型可以表示为决策树的加法模型：
 $$
-f_t(\mathbf x)=f_{t-1}(\mathbf x)+\nu\cdot\alpha_t h_t(\mathbf x)
+f_M(\mathbf x)=\sum_{m=1}^MT(\mathbf x;\Theta_m)
 $$
-一般$\nu$ 要和迭代次数T结合起来使用。
+其中，$T(\mathbf x;\Theta_m)$ 表示决策树，$\Theta_m$ 为决策树的参数， $M$ 为树的个数。
+
+提升树采用向前分布算法实现学习的优化过程。，初始树 $f_0(\mathbf x)=0$ ，第 $m$ 轮迭代的模型是
+$$
+f_m(\mathbf x)=f_{m-1}(\mathbf x)+T(\mathbf x;\Theta_m)
+$$
+其中，$f_{m-1}(\mathbf x)$ 是上一轮模型。本轮的目标是找到一个二叉树 $T(\mathbf x;\Theta_m)$，最小化代价函数
+$$
+\min_{\Theta_m}\sum_{i=1}^NL(y_i,f_{m-1}(\mathbf x_i)+T(\mathbf x_i;\Theta_m))
+$$
+
+对于不同问题的提升树学习算法，其主要区别在于损失函数的不同。主要包括用平法误差损失函数的回归问题，用指数损失函数的分类问题，以及用一般损失函数的一般决策问题。
+
+(1) **回归问题**：提升树每一步采用平方误差损失函数
+$$
+L(y,f(\mathbf x))=(y-f(\mathbf x))^2
+$$
+第 $m$ 轮样本的损失为
+$$
+\begin{aligned}
+L(y,f_m(\mathbf x))=&L(y,f_{m-1}(\mathbf x)+T(\mathbf x;\Theta_m)) \\
+=&(y-f_{m-1}(\mathbf x)-T(\mathbf x;\Theta_m))^2 \\
+=&(r_m-T(\mathbf x;\Theta_m))^2
+\end{aligned}
+$$
+这里
+$$
+r_m=y-f_{m-1}(\mathbf x)
+$$
+是上一轮模型$f_{m-1}(\mathbf x)$拟合数据的残差（residual）。所以，对回归问题的提升树来说，最小化损失函数相当于决策树（弱学习器）简单拟合残差。
+
+举一个通俗的例子，假如有个人30岁，我们首先用20岁去拟合，发现损失有10岁，这时我们用6岁去拟合剩下的损失，发现差距还有4岁，第三轮我们用3岁拟合剩下的差距，差距就只有一岁了。如果我们的迭代轮数还没有完，可以继续迭代下面，每一轮迭代，拟合的岁数误差都会减小。
+
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/GBDT-example.svg)
+
+(2) **分类问题**：每一步采用指数损失函数，提升树算法只是 Adaboost算法的特例。
+
+(3) **一般损失函数**：当损失函数是平方损失和指数函数时，每一步优化时很简单的，但对一般损失函数而言，往往每一步优化并不那么容易。针对这一问题，Freidman提出梯度提升（gradient boosting）算法。
 
 ### GBDT
 
-![GBDT-example](Machine-Learning(IV)--Supervised-Learning.assets/GBDT-example.svg)
+**梯度提升树**（Gradient Boosted Decision Tree，GBDT）又叫MART（Multiple Additive Regression Tree），是提升树的一种改进算法，适用于任意可微损失函数。可用于各种领域的回归和分类问题，包括Web搜索、排名和生态领域。
 
-sklearn：梯度提升树(Gradient Boosted Decision Trees，GBDT)是Booting对任意可微损失函数的推广。GBDT是一种准确有效的现成程序，可用于各种领域的回归和分类问题，包括Web搜索、排名和生态领域。
+GBDT加法模型表示为：
+$$
+f_M(\mathbf x)=\sum_{m=1}^MT(\mathbf x;\Theta_m)
+$$
+其中，$T(\mathbf x;\Theta_m)$ 表示决策树，$\Theta_m$ 为决策树的参数， $M$ 为树的个数。
 
-Gradient Boosting Decision Tree
+最优化代价函数
+$$
+J(f)=\sum_{i=1}^NL(y_i,f(\mathbf x_i))
+$$
+GBDT使用向前分布算法迭代提升。假设第 $m$ 轮迭代的模型是
+$$
+f_m(\mathbf x)=f_{m-1}(\mathbf x)+T(\mathbf x;\Theta_m)
+$$
+其中，$f_{m-1}(\mathbf x)$ 是上一轮迭代得到的模型。使用一阶泰勒展开[^taylor]，第 $m$ 轮第 $i$ 个样本的损失函数的近似值为
+$$
+L(y_i,f_m(\mathbf x_i))\approx L(y_i,f_{m-1}(\mathbf x_i))+T(\mathbf x_i;\Theta_m) g_{mi}
+$$
+其中
+$$
+g_{mi}=\left[\frac{\partial L(y_i,f(\mathbf x_i))}{\partial f(\mathbf x_i)}\right]_{f=f_{m-1}}
+$$
+本轮代价函数变为
+$$
+J(f_m)\approx J(f_{m-1})+\sum_{i=1}^NT(\mathbf x_i;\Theta_m) g_{mi}
+$$
+我们希望随着每轮迭代，损失会依次下降 $J(f_m)-J(f_{m-1})<0$，且本轮损失最小化，则有
+$$
+\min_{\Theta_m}\sum_{i=1}^NT(\mathbf x_i;\Theta_m) g_{mi}=\min_{\Theta_m}\mathbf T(\Theta_m)\cdot \mathbf g_m=\min_{\Theta_m}\|\mathbf T(\Theta_m)\|_2\|\mathbf g_m\|_2\cos\theta
+$$
+其中，$\mathbf T(\Theta_m)=(T(\mathbf x_1;\Theta_m),T(\mathbf x_2;\Theta_m),\cdots,T(\mathbf x_N;\Theta_m))$ 为第 $m$ 轮的强学习器在 $N$ 个数据点上的提升向量，$\mathbf g_m=(g_{m1},g_{m2},\cdots,g_{mN})$ 为损失函数在 $f_{m-1}(\mathbf x)$ 处的梯度向量，$\theta$ 为两向量夹角。
 
-GBDT也是集成学习Boosting家族的成员，但是却和传统的Adaboost有很大的不同。回顾下Adaboost，我们是利用前一轮迭代弱学习器的误差率来更新训练集的权重，这样一轮轮的迭代下去。GBDT也是迭代，使用了前向分布算法，但是弱学习器限定了只能使用CART回归树模型，同时迭代思路和Adaboost也有所不同。
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/GBDT_residual.svg" style="zoom: 80%;" />
 
-在GBDT的迭代中，假设我们前一轮迭代得到的强学习器是ft−1(x)ft−1(x), 损失函数是L(y,ft−1(x))L(y,ft−1(x)), 我们本轮迭代的目标是找到一个CART回归树模型的弱学习器ht(x)ht(x)，让本轮的损失函数L(y,ft(x)=L(y,ft−1(x)+ht(x))L(y,ft(x)=L(y,ft−1(x)+ht(x))最小。也就是说，本轮迭代找到决策树，要让样本的损失尽量变得更小。
+如果被拟合的决策树 $T(\mathbf x_i;\Theta_m)$ 预测的值与负梯度 $-g_{mi}$ 成正比 ($\cos\theta=-1$)，则取得最小值。因此，在每次迭代时，使用负梯度$-g_{mi}$ 来拟合决策树。因此，$m$ 轮的弱学习器可表示为
+$$
+T(\mathbf x;\Theta_m)\approx -\left[\frac{\partial L(y,f(\mathbf x))}{\partial f(\mathbf x)}\right]_{f=f_{m-1}}
+$$
+负梯度被称为广义残差或**伪残差**（pseudo residual）。梯度在每次迭代中都会被更新，这可以看作是**函数空间中的某种梯度下降**。不同的损失函数将会得到不同的负梯度。下表总结了通常使用的损失函数的梯度
 
-GBDT的思想可以用一个通俗的例子解释，假如有个人30岁，我们首先用20岁去拟合，发现损失有10岁，这时我们用6岁去拟合剩下的损失，发现差距还有4岁，第三轮我们用3岁拟合剩下的差距，差距就只有一岁了。如果我们的迭代轮数还没有完，可以继续迭代下面，每一轮迭代，拟合的岁数误差都会减小。
+| Setting        | Loss Function                       | Gradient                                               |
+| :------------- | ----------------------------------- | ------------------------------------------------------ |
+| Regression     | $\frac{1}{2}(y_i-f(\mathbf x_i))^2$ | $y_i-f(\mathbf x_i)$                                   |
+| Regression     | $|y_i-f(\mathbf x_i)|$              | $\text{sign} (y_i-f(\mathbf x_i))$                     |
+| Regression     | Huber                               |                                                        |
+| Classification | Deviance                            | $k$th component: $\mathbb I(y_i=c_k)-P_k(\mathbf x_i)$ |
+
+对于平方误差损失，负梯度恰恰是普通的残差。因为GBDT每次迭代要拟合的梯度值是连续值，所以限定了基学习器只能使用**CART回归树**，且树的生成使用加权均方误差选择最优划分特征。即使对于分类任务，基学习器仍然是CART回归树。
+
+**回归树流程**：
+
+(1) 默认情况下，初始决策树选择使损失最小化的常数（对于均方误差损失，这是目标值的经验平均值 $\bar y$）。
+$$
+f_0(\mathbf x)=\arg\min_c\sum_{i=1}^NL(y_i,c)
+$$
+(2) 对每步迭代 $m=1,2,\cdots,M$
+
+​    (a) 计算损失函数的负梯度
+$$
+r_{mi}=-\left[\frac{\partial L(y_i,f(\mathbf x_i))}{\partial f(\mathbf x_i)}\right]_{f=f_{m-1}}\quad i=1,2,\cdots,N
+$$
+​    (b) 对 $r_{mi}$ 拟合一个回归树
+$$
+T_m(\mathbf x)=\arg\min_{h}\sum_{i=1}^NL(r_{mi},h(\mathbf x_i))
+$$
+​    得到第 $m$ 棵树的叶节点区域 $R_{mj},\ j=1,2,\cdots,J_m$。
+
+​    (c) 计算每个叶节点的输出值 $j=1,2,\cdots,J_m$
+$$
+c_{mj}=\arg\min_{c}\sum_{\mathbf x_i\in R_{mj}}L(y_i,f_{m-1}(\mathbf x_i)+c)
+$$
+(3) 更新
+$$
+f_m(\mathbf x)=f_{m-1}(\mathbf x)+\sum_{j=1}^{J_m}c_{mj}\mathbb I(\mathbf x\in R_{mj})
+$$
+(4) 得到最终模型
+$$
+H(\mathbf x)=f_M(\mathbf x)
+$$
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/GBRT_algorithm.png" style="zoom:80%;" />
+
+**二分类问题**：采取了和逻辑回归同样的方式，即利用sigmoid函数将输出值归一化
+$$
+H(\mathbf x)=\frac{1}{1+e^{-f_M(\mathbf x)}}
+$$
+模型的输出为正样本的概率 $\mathbb P(y=1|\mathbf x)$ 。损失函数同样交叉熵损失
+$$
+\begin{aligned}
+L(y,H(\mathbf{x}))=-y\log H(\mathbf{x})-(1-y)\log(1-H(\mathbf{x}))
+\end{aligned}
+$$
+负梯度
+$$
+-\frac{\partial L(y,H(\mathbf{x}))}{\partial f_M(\mathbf{x})}
+=-\frac{\partial L(y,H(\mathbf{x}))}{\partial H(\mathbf{x})}\cdot \frac{\mathrm{d}H(\mathbf{x})}{\mathrm{d}f_M(\mathbf{x})}
+=y-H(\mathbf x)
+$$
+这个负梯度即残差，表示真实值和预测正样本概率的差值。
+
+**多分类问题**：采用softmax函数映射。假设类别的数量为 $K$ ，损失函数为
+$$
+L=-\sum_{k=1}^K y_k\log\mathbb P(y_k|\mathbf x)
+$$
+**shrinkage（收缩率）**：是一种简单的正则化策略，通过常数因子 $\nu(0<\nu<1)$ 来缩小每个基学习器的贡献。于是上文的迭代变为
+$$
+f_m(\mathbf x)=f_{m-1}(\mathbf x)+\nu T(\mathbf x;\Theta_m)
+$$
+参数 $\nu$ 又称学习率（learning rate），它可以缩放步长控制boosting过程。一般学习率$\nu$ 要和弱学习器个数 $M$ 结合起来使用。较小的$\nu$ 值要求较多的弱学习器以保持一个恒定的训练误差。经验证据表明，较小的学习率会有更好的测试误差，并且需要更大的 $M$ 与之对应。建议将学习速率设置为一个小常数（例如，$\nu\leqslant 0.1$)，并通过 early stopping 策略选择 $M$ 。
+
+**子采样（subsampling）**：随机梯度提升（stochastic gradient boosting）是将梯度提升（gradient boosting）和 bagging 相结合，同时提高了效果和计算效率。在每次迭代中，基学习器是通过无放回抽取训练集子集拟合。，通常设置采样率 $\eta=0.5$ 。
+
+下图表明了shrinkage 与 subsampling 对于模型拟合好坏的影响。我们可以明显看到指定收缩率比没有收缩拥有更好的表现。而将子采样和收缩率相结合能进一步的提高模型的准确率。相反，使用子采样而不使用收缩的结果很差。
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/GBDT_subsample.png" style="zoom: 80%;" />
+
+
+
+**优缺点**：然而Boosting共有的缺点为训练是按顺序的，难以并行，这样在大规模数据上可能导致速度过慢，所幸近年来XGBoost和LightGBM的出现都极大缓解了这个问题，后文详述。
+
+
+
+### 特征重要性
+
+在数据挖掘应用中，只有一小部分特征变量会对目标变量有显著的影响，研究每个特征变量在预测目标变量时的相对重要性或者贡献是很有用的。
+
+单个决策树本质上通过选择合适的分割点来进行特征选择，这些信息可以用来度量每个特征的重要性。基本思想是：在树的分割点中使用某特征越频繁，该特性就越重要。对于单个决策树 $T$
+$$
+\mathcal I_\ell^2(T)=\sum_{t=1}^{J-1}\imath_t^2\mathbb I(v(t)=\ell)
+$$
+作为特征变量 $x_\ell$ 重要性的度量。这个求和是对树的 $J-1$ 个中间结点进行的。在每个中间结点 $t$ ，其中一个特征变量 $x_{v(t)}$ 会将这个结点区域分成两个子区域，每一个子区域用单独的常值拟合目标变量。特征变量的选择要使得在整个区域上有最大的纯度提升 $\imath_t^2$。变量 $x_\ell$ 的**平方相对重要度**（squared relative importance，SRI）是在所有的结点中，选择其作为分离变量时纯度提升的平方之和。
+
+这种重要性的概念可以通过简单地平均每个树的基于不纯度的特征重要性来扩展到决策树集成器上
+$$
+\mathcal I_\ell^2=\frac{1}{M}\sum_{m=1}^M\mathcal I_\ell^2(T_m)
+$$
+考虑到平均的标准化影响，这个度量会比单个树对应的度量式更稳定。
 
 ### XGBoost
 
-<img src="Machine-Learning(IV)--Supervised-Learning.assets/xgboost.svg" width="25%;" align="right"/>
+xgboost损失函数添加了正则项
+对误差函数进行二阶泰勒展开：
+为什么这里要这样展开，这就是xgboost的特点了，通过这种近似，你可以自定义一些损失函数（只要保证二阶可导）。树分裂的打分函数是基于g i , h i g_{i},h_{i}gi,hi计算的。
 
-Given training set of size $m$
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/xgboost.svg" width="25%;" align="right"/>
+
+Given training set of size $N$
 
 XGBoost 是 GBDT 的一种高效工程实现和改进。
 
 For $b=1$ to $B$
 
-- 抽样创建一个大小为 $m$ 的新训练集 ，代替从所有的样本等概率抽样（$1/m$），更倾向于选出之前训练的决策树分类错误的样本。（具体概率的数学细节相当复杂）
+- 抽样创建一个大小为 $N$ 的新训练集 ，代替从所有的样本等概率抽样（$1/m$），更倾向于选出之前训练的决策树分类错误的样本。（具体概率的数学细节相当复杂）
 - 在新训练集上训练集一颗决策树
 
 让这些树投票决定预测结果。种算法称为极端梯度增强 (XGBoost , eXtreme Gradient Boosting)
@@ -1345,14 +1533,11 @@ For $b=1$ to $B$
 - 默认的拆分准则和停止拆分的准则都有很好的选择
 - 内置正则化防止过拟合
 
-```python
-from xgboost import XGBClassifier 
-model = XGBClassifier()
-model.fit(X_train, y_train) 
-y_pred = model.predict(X_test)
-```
+
 
 ### LightGBM
+
+
 
 ## 投票方法
 
@@ -1362,18 +1547,18 @@ y_pred = model.predict(X_test)
 
 **简单平均法**（simple averaging）：
 $$
-H(\mathbf x)=\frac{1}{T}\sum_{t=1}^Th_t(\mathbf x)
+H(\mathbf x)=\frac{1}{M}\sum_{m=1}^Mh_m(\mathbf x)
 $$
 **加权平均法**（weighted averaging）：
 $$
-H(\mathbf x)=\sum_{t=1}^Tw_th_t(\mathbf x)\\
-\text{s.t.}\quad w_t>0,\sum_{t=1}^Tw_t=1
+H(\mathbf x)=\sum_{m=1}^Mw_mh_m(\mathbf x)\\
+\text{s.t.}\quad w_m>0,\sum_{m=1}^Mw_m=1
 $$
 对于分类问题，最常见的组合方法是硬投票和软投票。类别标签 $y\in\{c_1,c_2,\cdots,c_K\}$ 。
 
-**硬投票**（hard voting）：即多数投票（ majority voting）。基学习器 $h_t$ 输出类别标签 $h_t(\mathbf x)\in\{c_1,c_2,\cdots,c_K\}$，预测结果中出现最多的类别。
+**硬投票**（hard voting）：即多数投票（ majority voting）。基学习器 $h_m$ 输出类别标签 $h_m(\mathbf x)\in\{c_1,c_2,\cdots,c_K\}$，预测结果中出现最多的类别。
 $$
-H(\mathbf x)=\arg\max_c\sum_{t=1}^Th_t(\mathbf x|y=c)
+H(\mathbf x)=\arg\max_{c_k}\sum_{m=1}^Mh_m(\mathbf x|y=c_k)
 $$
 例如，给定样本的预测是
 
@@ -1386,10 +1571,10 @@ $$
 
 这里预测的类别为 class 1。
 
-**软投票**（soft voting）：基学习器 $h_t$ 输出类别概率 $h_t(\mathbf x)\in[0,1]$，会选出基学习器的加权平均概率最大的类别。
+**软投票**（soft voting）：基学习器 $h_m$ 输出类别概率 $h_m(\mathbf x)\in[0,1]$，会选出基学习器的加权平均概率最大的类别。
 $$
-H(\mathbf x)=\arg\max_c\sum_{t=1}^Tw_th_t(\mathbf x|y=c)\\
-\text{s.t.}\quad w_t>0,\sum_{t=1}^Tw_t=1
+H(\mathbf x)=\arg\max_c\sum_{m=1}^Mw_mh_m(\mathbf x|y=c)\\
+\text{s.t.}\quad w_m>0,\sum_{m=1}^Mw_m=1
 $$
 用一个简单的例子说明，其中3个分类器的权重相等 
 
@@ -1408,22 +1593,22 @@ $$
 
 stacking是指训练一个模型用于组合基学习器的方法，组合的学习器称为元学习器（meta learner）。
 $$
-H(\mathbf x)=H(h_1(\mathbf x),h_2(\mathbf x),\cdots,h_T(\mathbf x);\mathbf{\theta})
+H(\mathbf x)=H(h_1(\mathbf x),h_2(\mathbf x),\cdots,h_M(\mathbf x);\Theta)
 $$
 
-1. 首先，训练$T$个不同的基学习器，最好每个基学习器都基于不同的算法（KNN、SVM、RF等等），以产生足够的差异性。
+1. 首先，训练$M$个不同的基学习器，最好每个基学习器都基于不同的算法（KNN、SVM、RF等等），以产生足够的差异性。
 2. 然后，每一个基学习器的输出作为组合学习器的特征来训练一个模型，以得到一个最终的结果。
 
-<img src="Machine-Learning(IV)--Supervised-Learning.assets/stacking_algorithm.png" style="zoom:80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/stacking_algorithm.png" style="zoom:80%;" />
 
 若直接使用基学习器的训练集来生成元学习器的训练集，则过拟合风险会比较大；因此一般通过交叉验证，用基学习器未使用的样本来产生元学习器的训练样本。
 
 以 k-folds 交叉验证为例
 
-1. 初始训练集$D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_m,y_m)\}$被随机划分为 $k$ 个大小相似的集合 $\{D_1,D_2,\cdots,D_k\}$ 。令 $D_j$ 和 $D-D_j$ 分别表示第 $j$ 折的测试集和训练集。
-2. 给定$T$个基学习算法，初级学习器 $h_t^{(j)}$ 通过在 $D-D_j$ 上使用第$t$个学习算法而得。
-3. 对 $D_j$ 中每个样本 $\mathbf x_i$，令 $z_{it}=h_t^{(j)}(\mathbf x_i)$ ，则由 $\mathbf x_i$ 产生元学习器的训练集特征 $\mathbf z_i=(z_{i1},z_{i2},\cdots,z_{iT})$，目标值为 $y_i$。
-4.  于是，在整个交叉验证过程结束后，从这$T$个基学习器产生的元学习器的训练集是 $D'=\{(\mathbf z_1,y_1),(\mathbf z_2,y_2),\cdots,(\mathbf z_m,y_m)\}$ 。
+1. 初始训练集$D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N)\}$被随机划分为 $k$ 个大小相似的集合 $\{D_1,D_2,\cdots,D_k\}$ 。令 $D_j$ 和 $D-D_j$ 分别表示第 $j$ 折的测试集和训练集。
+2. 给定$M$个基学习算法，初级学习器 $h_m^{(j)}$ 通过在 $D-D_j$ 上使用第$m$个学习算法而得。
+3. 对 $D_j$ 中每个样本 $\mathbf x_i$，令 $z_{im}=h_m^{(j)}(\mathbf x_i)$ ，则由 $\mathbf x_i$ 产生元学习器的训练集特征 $\mathbf z_i=(z_{i1},z_{i2},\cdots,z_{iM})$，目标值为 $y_i$。
+4.  于是，在整个交叉验证过程结束后，从这$M$个基学习器产生的元学习器的训练集是 $D'=\{(\mathbf z_1,y_1),(\mathbf z_2,y_2),\cdots,(\mathbf z_N,y_N)\}$ 。
 
 有研究表明，元学习器通常采用概率作为输入特征，用多响应线性回归（MLR）算法效果较好。
 
@@ -1435,7 +1620,7 @@ $$
 $$
 \mathbf{w}^T\mathbf{x}+b=0
 $$
-其中 $\mathbf x=(x_1,x_2,\cdots,x_d)^T$ ，$\mathbf w=(w_1,w_2,\cdots,w_d)^T$ 。
+其中 $\mathbf x=(x_1,x_2,\cdots,x_p)^T$ ，$\mathbf w=(w_1,w_2,\cdots,w_p)^T$ 。
 
 超平面的方程不唯一，同比例缩放 $\mathbf w,b$ ，仍是同一个超平面。若缩放倍数为负数，会改变法向量方向。
 
@@ -1463,7 +1648,10 @@ d=\frac{|\mathbf{w}^T\mathbf{x}+b|}{\|\mathbf w\|}
 $$
 
 
-------
+
+[^taylor]: 泰勒展开式 $f(x+\Delta x)=f(x)+f'(x)\Delta x+\dfrac{1}{2}f''(x)(\Delta x)^2+\cdots$
+
+
 
 > **参考文献**：
 > 周志华.《机器学习》（西瓜书）

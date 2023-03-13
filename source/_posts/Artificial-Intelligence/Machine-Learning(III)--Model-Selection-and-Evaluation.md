@@ -47,11 +47,11 @@ J(\mathbf\theta)=\mathbb E[L(f_{\mathbf\theta}(\mathbf x),y)]
 $$
 模型的**期望损失**（expected loss）称为**风险**（risk），机器学习算法的目标是期望风险最小化。在这里，我们强调该期望取自真实分布 $\mathbb P(\mathbf x,y)$ 。然而，我们遇到的机器学习问题，通常是不知道  $\mathbb P(\mathbf x,y)$。根据大数定律，我们通常使用训练数据集上的经验分布估计真实分布。模型关于训练数据集的平均损失称为**经验风险**（empirical risk）或**经验损失**（empirical loss）。度量平均意义下模型预测效果的函数，称为**目标函数**（objective function）或**代价函数**（cost function）
 $$
-J(\mathbf\theta)=\frac{1}{m}\sum_{i=1}^{m}L(f_{\mathbf\theta}(\mathbf x^{(i)}),y^{(i)})
+J(\mathbf\theta)=\frac{1}{N}\sum_{i=1}^{N}L(f_{\mathbf\theta}(\mathbf x^{(i)}),y^{(i)})
 $$
 基于最小化这种平均损失的训练过程被称为**经验风险最小化**（empirical risk minimization, ERM）。
 $$
-\min\limits_{\mathbf\theta}\frac{1}{m}\sum_{i=1}^{m}L(f_{\mathbf\theta}(\mathbf x^{(i)}),y^{(i)})
+\min\limits_{\mathbf\theta}\frac{1}{N}\sum_{i=1}^{N}L(f_{\mathbf\theta}(\mathbf x^{(i)}),y^{(i)})
 $$
 
 ## 泛化能力
@@ -64,12 +64,12 @@ $$
 我们把模型的实际预测输出与样本的真实输出之间的差异称为**误差** (error) 。模型在训练集上的误差称为**训练误差** （training error）或**经验误差**（empirical error）。
 $$
 J_\text{train}(\mathbf\theta) = 
-\frac{1}{m_\text{train}}\sum_{i=1}^{m_\text{train}}L(f_{\mathbf\theta}(\mathbf x^{(i)}),y^{(i)})
+\frac{1}{N_\text{train}}\sum_{i=1}^{N_\text{train}}L(f_{\mathbf\theta}(\mathbf x^{(i)}),y^{(i)})
 $$
 通常，我们会更加关注模型在未观测数据上的性能如何，因为这将决定其在实际应用中的性能。模型在新样本上的误差期望称为**泛化误差**（generalization error）。显然，我们希望得到泛化误差小的模型。然而，我们事先并不知道新样本是什么样的，通常使用**测试误差**（test error）估计模型泛化能力。
 $$
 J_\text{test}(\mathbf\theta) = 
-\frac{1}{m_\text{test}}\sum_{i=1}^{m_\text{test}}L(f_{\mathbf\theta}(\mathbf x^{(i)}),y^{(i)})
+\frac{1}{N_\text{test}}\sum_{i=1}^{N_\text{test}}L(f_{\mathbf\theta}(\mathbf x^{(i)}),y^{(i)})
 $$
 注意，模型误差可能与拟合模型用的代价函数有所不同，模型误差不包括正则化项。
 
@@ -180,7 +180,7 @@ f_{\mathbf w}(x)=w_0+w_1x+w_2x^2+w_3x^3+w_4x^4
 $$
 正则化代价函数为
 $$
-J(\mathbf w)=\frac{1}{2m}\sum_{i=1}^m(f_{\mathbf w}(x^{(i)})-y^{(i)})^2+\frac{\alpha}{2}\sum_{j}w_j^2
+J(\mathbf w)=\frac{1}{2N}\sum_{i=1}^N(f_{\mathbf w}(x_i)-y_i)^2+\frac{\alpha}{2}\sum_{j}w_j^2
 $$
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/Linear_Regression_with_Regularization.svg" style="zoom: 75%;" />
 
@@ -190,9 +190,9 @@ $$
 
 **点估计**(point estimation)是用样本统计量来估计总体参数。可以是<u>单个参数</u>，或是某些参数模型中的一个<u>向量参数</u>，例如线性回归中的权重，但是也有可能是整个函数。
 
-为了区分参数估计和真实值，我们习惯将参数 $\mathbf\theta$ 的点估计表示为 $\hat{\mathbf\theta}$ 。令 $\{\mathbf x_1,\mathbf x_2,\cdots,\mathbf x_m\}$ 是 m 个独立同分布 (i.i.d.)的数据点。我们假设真实参数 $\mathbf\theta$ 是固定但未知的，而点估计 $\hat{\mathbf\theta}$ 是数据集的函数
+为了区分参数估计和真实值，我们习惯将参数 $\mathbf\theta$ 的点估计表示为 $\hat{\mathbf\theta}$ 。令 $\{\mathbf x_1,\mathbf x_2,\cdots,\mathbf x_N\}$ 是 $N$ 个独立同分布 (i.i.d.)的数据点。我们假设真实参数 $\mathbf\theta$ 是固定但未知的，而点估计 $\hat{\mathbf\theta}$ 是数据集的函数
 $$
-\hat{\mathbf\theta}=\mathbf g(\mathbf x_1,\mathbf x_2,\cdots,\mathbf x_m)
+\hat{\mathbf\theta}=\mathbf g(\mathbf x_1,\mathbf x_2,\cdots,\mathbf x_N)
 $$
 由于数据集是随机采样出来的，数据集的任何函数都是随机的，因此 $\hat{\mathbf\theta}$ 是一个随机变量。点估计也可以指输入变量和目标变量之间关系的估计，我们将这种类型的点估计称为函数估计。
 
@@ -247,7 +247,7 @@ $$
 
 **准确率**：是最常用的分类性能指标，分类正确的样本数占样本总数的比例
 $$
-\text{Accuracy}=\frac{1}{m}\sum_{i=1}^m\mathbb I(\hat y=y)
+\text{Accuracy}=\frac{1}{N}\sum_{i=1}^N\mathbb I(\hat y=y)
 $$
 其中 $\mathbb I$ 为指示函数[^1]
 
@@ -310,7 +310,7 @@ $$
 
 **AUC**（Area Under Curve）：被定义为ROC曲线下的面积，AUC越大的分类器，性能越好。
 $$
-AUC=\displaystyle \frac{1}{2}\sum_{i=1}^{m-1}(x_{i+1}-x_i)(y_i+y_{i+1})
+AUC=\displaystyle \frac{1}{2}\sum_{i=1}^{N-1}(x_{i+1}-x_i)(y_i+y_{i+1})
 $$
 **PR曲线**：查准率和查全率（召回率）之间的关系。查准率和查全率是一对矛盾的度量，一般来说，查准率高时，查全率往往偏低，查全率高时，查准率往往偏低。
 
@@ -370,24 +370,22 @@ $$
 \text{Explained Var}=1-\cfrac{\text{var}(y-\hat y)}{\text{var}(y)}
 $$
 **平均绝对误差**（Mean Absolute Error, MAE）：
-
 $$
-\text{MAE}=\frac{1}{m}\sum_{i=1}^{m}|y_i-\hat y_i|
+\text{MAE}=\frac{1}{N}\sum_{i=1}^{N}|y_i-\hat y_i|
 $$
 **均方误差**（Mean Squared Error, MSE）：衡量的是样本与模型预测值偏离程度，数值越小代表模型拟合效果越好。
 $$
-\text{MSE}=\frac{1}{m}\sum_{i=1}^{m}(y_i-\hat y_i)^2=\frac{1}{m}\|\mathbf y-\mathbf{\hat y}\|_2^2
+\text{MSE}=\frac{1}{N}\sum_{i=1}^{N}(y_i-\hat y_i)^2=\frac{1}{N}\|\mathbf y-\mathbf{\hat y}\|_2^2
 $$
 **决定系数**（R-Square）：其取值范围为$[0,1]$，一般来说，R-Square 越大，表示模型拟合效果越好。R-Square 反映的是大概有多准，因为，随着样本数量的增加，R-Square必然增加，无法真正定量说明准确程度，只能大概定量。
 $$
-R^2=1-\cfrac{\sum(y_i-\hat y_i)^2}{\sum(y_i-\bar y_i)^2}=1-\cfrac{\text{MSE}(y,\hat y)}{\text{var}(y)/m}
+R^2=1-\cfrac{\sum(y_i-\hat y_i)^2}{\sum(y_i-\bar y_i)^2}=1-\cfrac{\text{MSE}(y,\hat y)}{\text{var}(y)/N}
 $$
 **调整R2**（Adjusted R-Square）：
-
 $$
-\text{Adjusted }R^2=1-\cfrac{(1-R^2)(n-1)}{n-p-1}
+\text{Adjusted }R^2=1-\cfrac{(1-R^2)(N-1)}{N-p-1}
 $$
-其中，n 是样本数量，p 是特征数量。调整R2抵消样本数量对 R-Square的影响，做到了真正的 0~1，越大越好。
+其中，N 是样本数量，p 是特征数量。调整R2抵消样本数量对 R-Square的影响，做到了真正的 0~1，越大越好。
 
 ## 聚类指标
 
