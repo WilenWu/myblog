@@ -580,7 +580,7 @@ D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N\}
 $$
 包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T$ 。目标变量 $y_i\in\R$ 。
 
-假设回归树将特征空间划分为 $J$ 个互不相交的区域 $R_i,R_2,\cdots,R_J$ ，每个区域 $R_j$ 对应树的一个叶结点，并且在每个叶节点上有个固定的输出值 $c_j$ 。规则为
+假设回归树将特征空间划分为 $J$ 个互不相交的区域 $R_1,R_2,\cdots,R_J$ ，每个区域 $R_j$ 对应树的一个叶结点，并且在每个叶节点上有个固定的输出值 $c_j$ 。规则为
 $$
 \mathbf x\in R_j \implies T(\mathbf x)=c_j
 $$
@@ -1194,7 +1194,7 @@ Bagging方法有许多不同的变体，主要是因为它们提取训练集的�
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/AdaBoost_example.svg)
 
-可以看出：**AdaBoost的核心步骤就是计算基学习器权重和样本权重分布**。AdaBoost 算法有多种推导方式，比较容易理解的是基于加法模型（additive model）的**向前分布算法**（forward stagewise algorithm）。
+可以看出：**AdaBoost的核心步骤就是计算基学习器权重和样本权重分布**。AdaBoost 算法有多种推导方式，比较容易理解的是基于加法模型（additive model）的**前向分布算法**（forward stagewise algorithm）。
 
 给定二分类数据集  
 $$
@@ -1216,7 +1216,7 @@ $f(\mathbf x)$ 的符号决定了实例 $\mathbf x$ 的类别。
 $$
 \min_{\alpha_m,h_m}\sum_{i=1}^NL\left(y_i,\sum_{m=1}^M\alpha_mh_m(\mathbf x_i)\right)
 $$
-通常这是一个复杂的全局优化问题，向前分布算法使用其简化版求解这一问题：既然是加法模型，每一步只学习一个弱学习器及其系数，且不调整已经加入模型中的参数和系数来向前逐步建立模型，这能够得到上述优化的近似解。这样，向前分布算法将同时求解 $m=1$ 到 $M$ 所有参数 $\alpha_m,\theta_m$ 的优化问题简化为逐步求解 $\alpha_m,\theta_m$ 的优化问题。
+通常这是一个复杂的全局优化问题，前向分布算法使用其简化版求解这一问题：既然是加法模型，每一步只学习一个弱学习器及其系数，且不调整已经加入模型中的参数和系数来向前逐步建立模型，这能够得到上述优化的近似解。这样，前向分布算法将同时求解 $m=1$ 到 $M$ 所有参数 $\alpha_m,\theta_m$ 的优化问题简化为逐步求解 $\alpha_m,\theta_m$ 的优化问题。
 
 假设经过 $m-1$ 轮迭代，已经得到之前所有弱分类器的加权和 
 $$
@@ -1331,7 +1331,9 @@ f_M(\mathbf x)=\sum_{m=1}^MT(\mathbf x;\Theta_m)
 $$
 其中，$T(\mathbf x;\Theta_m)$ 表示决策树，$\Theta_m$ 为决策树的参数， $M$ 为树的个数。
 
-提升树采用向前分布算法实现学习的优化过程。，初始树 $f_0(\mathbf x)=0$ ，第 $m$ 轮迭代的模型是
+<img src="Machine-Learning(IV)--Supervised-Learning.assets/Tree_Ensemble_Model.png" style="zoom: 67%;" />
+
+提升树采用前向分布算法实现学习的优化过程。，初始树 $f_0(\mathbf x)=0$ ，第 $m$ 轮迭代的模型是
 $$
 f_m(\mathbf x)=f_{m-1}(\mathbf x)+T(\mathbf x;\Theta_m)
 $$
@@ -1382,7 +1384,7 @@ $$
 $$
 J(f)=\sum_{i=1}^NL(y_i,f(\mathbf x_i))
 $$
-GBDT使用向前分布算法迭代提升。假设第 $m$ 轮迭代的模型是
+GBDT使用前向分布算法迭代提升。假设第 $m$ 轮迭代的模型是
 $$
 f_m(\mathbf x)=f_{m-1}(\mathbf x)+T(\mathbf x;\Theta_m)
 $$
@@ -1406,11 +1408,11 @@ $$
 
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/GBDT_residual.svg" style="zoom: 80%;" />
 
-如果被拟合的决策树 $T(\mathbf x_i;\Theta_m)$ 预测的值与负梯度 $-g_{mi}$ 成正比 ($\cos\theta=-1$)，则取得最小值。因此，在每次迭代时，使用负梯度$-g_{mi}$ 来拟合决策树。因此，$m$ 轮的弱学习器可表示为
+如果被拟合的决策树 $T(\mathbf x_i;\Theta_m)$ 预测的值与负梯度 $-g_{mi}$ 成正比 ($\cos\theta=-1$)，则取得最小值。因此，在每次迭代时，使用负梯度$-g_{mi}$ 来拟合决策树。$m$ 轮的弱学习器可表示为
 $$
 T(\mathbf x;\Theta_m)\approx -\left[\frac{\partial L(y,f(\mathbf x))}{\partial f(\mathbf x)}\right]_{f=f_{m-1}}
 $$
-负梯度被称为广义残差或**伪残差**（pseudo residual）。梯度在每次迭代中都会被更新，这可以看作是**函数空间中的某种梯度下降**。不同的损失函数将会得到不同的负梯度。下表总结了通常使用的损失函数的梯度
+负梯度被称为广义残差或**伪残差**（pseudo residual）。梯度在每次迭代中都会被更新，试图在**局部最优**方向求解，这可以看作是**函数空间中的某种梯度下降**，不同的损失函数将会得到不同的负梯度。下表总结了通常使用的损失函数的梯度
 
 | Setting        | Loss Function                       | Gradient                                               |
 | :------------- | ----------------------------------- | ------------------------------------------------------ |
@@ -1475,23 +1477,7 @@ $$
 $$
 L=-\sum_{k=1}^K y_k\log\mathbb P(y_k|\mathbf x)
 $$
-**shrinkage（收缩率）**：是一种简单的正则化策略，通过常数因子 $\nu(0<\nu<1)$ 来缩小每个基学习器的贡献。于是上文的迭代变为
-$$
-f_m(\mathbf x)=f_{m-1}(\mathbf x)+\nu T(\mathbf x;\Theta_m)
-$$
-参数 $\nu$ 又称学习率（learning rate），它可以缩放步长控制boosting过程。一般学习率$\nu$ 要和弱学习器个数 $M$ 结合起来使用。较小的$\nu$ 值要求较多的弱学习器以保持一个恒定的训练误差。经验证据表明，较小的学习率会有更好的测试误差，并且需要更大的 $M$ 与之对应。建议将学习速率设置为一个小常数（例如，$\nu\leqslant 0.1$)，并通过 early stopping 策略选择 $M$ 。
-
-**子采样（subsampling）**：随机梯度提升（stochastic gradient boosting）是将梯度提升（gradient boosting）和 bagging 相结合，同时提高了效果和计算效率。在每次迭代中，基学习器是通过无放回抽取训练集子集拟合。，通常设置采样率 $\eta=0.5$ 。
-
-下图表明了shrinkage 与 subsampling 对于模型拟合好坏的影响。我们可以明显看到指定收缩率比没有收缩拥有更好的表现。而将子采样和收缩率相结合能进一步的提高模型的准确率。相反，使用子采样而不使用收缩的结果很差。
-
-<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/GBDT_subsample.png" style="zoom: 80%;" />
-
-
-
-**优缺点**：然而Boosting共有的缺点为训练是按顺序的，难以并行，这样在大规模数据上可能导致速度过慢，所幸近年来XGBoost和LightGBM的出现都极大缓解了这个问题，后文详述。
-
-
+**优缺点**：Boosting共有的缺点为训练是按顺序的，难以并行，这样在大规模数据上可能导致速度过慢，所幸近年来XGBoost和LightGBM的出现都极大缓解了这个问题，后文详述。
 
 ### 特征重要性
 
@@ -1501,7 +1487,7 @@ $$
 $$
 \mathcal I_\ell^2(T)=\sum_{t=1}^{J-1}\imath_t^2\mathbb I(v(t)=\ell)
 $$
-作为特征变量 $x_\ell$ 重要性的度量。这个求和是对树的 $J-1$ 个中间结点进行的。在每个中间结点 $t$ ，其中一个特征变量 $x_{v(t)}$ 会将这个结点区域分成两个子区域，每一个子区域用单独的常值拟合目标变量。特征变量的选择要使得在整个区域上有最大的纯度提升 $\imath_t^2$。变量 $x_\ell$ 的**平方相对重要度**（squared relative importance，SRI）是在所有的结点中，选择其作为分离变量时纯度提升的平方之和。
+作为特征变量 $x_\ell$ 重要性的度量。这个求和是对树的 $J-1$ 个中间结点进行的。在每个中间结点 $t$ ，其中一个特征变量 $x_{v(t)}$ 会将这个结点区域分成两个子区域，每一个子区域用单独的常值拟合目标变量。特征变量的选择要使得在整个区域上有最大的纯度提升 $\imath_t^2$。变量 $x_\ell$ 的**平方相对重要度**（squared relative importance）是在所有的结点中，选择其作为分离变量时纯度提升的平方之和。
 
 这种重要性的概念可以通过简单地平均每个树的基于不纯度的特征重要性来扩展到决策树集成器上
 $$
@@ -1511,33 +1497,223 @@ $$
 
 ### XGBoost
 
-xgboost损失函数添加了正则项
-对误差函数进行二阶泰勒展开：
-为什么这里要这样展开，这就是xgboost的特点了，通过这种近似，你可以自定义一些损失函数（只要保证二阶可导）。树分裂的打分函数是基于g i , h i g_{i},h_{i}gi,hi计算的。
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/xgboost.svg" width="25%;" align="right"/> XGBoost（eXtreme Gradient Boosting）是基于GBDT的一种优化算法，于2016年由陈天奇在论文[《 XGBoost：A Scalable Tree Boosting System》](https://arxiv.org/pdf/1603.02754.pdf)中正式提出，在速度和精度上都有显著提升，因而近年来在 Kaggle 等各大数据科学比赛中都得到了广泛应用。
 
-<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/xgboost.svg" width="25%;" align="right"/>
+- 进行二阶泰勒展开，优化损失函数，提高计算精度
+- 损失函数添加了正则项，避免过拟合
+- 采用 Blocks存储结构，可以并行计算
 
-Given training set of size $N$
+XGBoost 同样为加法模型
+$$
+f_M(\mathbf x)=\sum_{m=1}^MT_m(\mathbf x)
+$$
+其中，$T_m(\mathbf x)$ 表示树模型， $M$ 为树的个数。
 
-XGBoost 是 GBDT 的一种高效工程实现和改进。
+**目标函数推导**：XGBoost 优化的目标函数由损失函数和正则化项两部分组成
+$$
+\mathcal L=\sum_{i=1}^N l(y_i,f_M(\mathbf x_i))+\sum_{m=1}^M\Omega(T_m)
+$$
+其中，$\Omega(T_m)$ 表示第 $m$ 棵树 $T_m$ 的复杂度。
 
-For $b=1$ to $B$
+第 $m$ 轮迭代的目标函数为
+$$
+\mathcal L_m=\sum_{i=1}^N l(y_i,f_{m}(\mathbf x_i))+\sum_{k=1}^m\Omega(T_k)
+$$
+接下来，分三步简化目标函数。
 
-- 抽样创建一个大小为 $N$ 的新训练集 ，代替从所有的样本等概率抽样（$1/m$），更倾向于选出之前训练的决策树分类错误的样本。（具体概率的数学细节相当复杂）
-- 在新训练集上训练集一颗决策树
+(1) XGBoost遵从前向分布算法，第 $m$ 轮迭代的模型
+$$
+f_m(\mathbf x)=f_{m-1}(\mathbf x)+T_m(\mathbf x)
+$$
+其中，$f_{m-1}(\mathbf x)$ 是上一轮迭代得到的模型。第 $m$ 轮第 $i$ 个样本的损失函数
+$$
+l(y_i,f_m(\mathbf x_i))=l(y_i,f_{m-1}(\mathbf x_i)+T_m(\mathbf x_i))
+$$
+XGBoost 使用**二阶泰勒展开**[^taylor]，损失函数的近似值为
+$$
+l(y_i,f_m(\mathbf x_i))\approx l(y_i,f_{m-1}(\mathbf x_i))+g_iT_m(\mathbf x_i)+\frac{1}{2}h_iT_m^2(\mathbf x_i)
+$$
+其中，$g_i$为一阶导，$h_i$ 为二阶导
+$$
+g_{i}=\left[\frac{\partial l(y_i,f(\mathbf x_i))}{\partial f(\mathbf x_i)}\right]_{f=f_{m-1}},\quad h_{i}=\left[\frac{\partial^2 l(y_i,f(\mathbf x_i))}{\partial^2 f(\mathbf x_i)}\right]_{f=f_{m-1}}
+$$
+上一轮模型 $f_{m-1}(\mathbf x)$ 已经确定，所以上一轮损失 $l(y_i,f_{m-1}(\mathbf x_i))$ 即为常数项，其对函数优化不会产生影响。移除常数项，所以第 $m$ 轮目标函数可以写成
+$$
+\mathcal L_m\approx \sum_{i=1}^N \left[g_iT_m(\mathbf x_i)+\frac{1}{2}h_iT_m^2(\mathbf x_i)\right]+\sum_{k=1}^m\Omega(T_k)
+$$
+(2) 将正则化项进行拆分
+$$
+\sum_{k=1}^m\Omega(T_k)=\Omega(T_m)+\sum_{k=1}^{m-1}\Omega(T_k)=\Omega(T_m)+\text{constant}
+$$
+因为 $m-1$ 棵树的结构已经确定，所以可记 $\sum_{k=1}^{m-1}\Omega(T_k)$ 为常数。移除常数项，目标函数可进一步简化为
+$$
+\mathcal L_m\approx \sum_{i=1}^N \left[g_iT_m(\mathbf x_i)+\frac{1}{2}h_iT_m^2(\mathbf x_i)\right]+\Omega(T_m)
+$$
+(3) 定义树：沿用之前对树结构的定义。假设树$T_m$ 将样本划分到 $J$ 个互不相交的区域 $R_1,R_2,\cdots,R_J$ ，每个区域 $R_j$ （本质是树的一个分支）对应树的一个叶结点，并且在每个叶节点上有个固定的输出值 $c_j$ 。每个样本只属于其中一个区域，那么树可以表示为 
+$$
+T_m(\mathbf x;\Theta)=\sum_{j=1}^Jc_j\mathbb I(\mathbf x\in R_j)
+$$
+参数 $\Theta=\{(R_1,c_1),(R_2,c_2),\cdots,(R_J,c_J)\}$ 表示树的区域划分和对应的值，$J$ 表示叶节点的个数。
 
-让这些树投票决定预测结果。种算法称为极端梯度增强 (XGBoost , eXtreme Gradient Boosting)
+然后，定义树的复杂度 $\Omega$ ：包含叶子节点的数量 $J$ 和叶子节点权重向量的 $l_2$ 范数
+$$
+\Omega(T_m)=\gamma J+\frac{1}{2}\lambda\sum_{j=1}^Jc_j^2
+$$
+这样相当于使叶结点的数目变小，同时限制叶结点上的分数，因为通常分数越大学得越快，就越容易过拟合。
 
-- 开源
-- 增强树的实现，非常快速和高效
-- 默认的拆分准则和停止拆分的准则都有很好的选择
-- 内置正则化防止过拟合
+因为每个叶子节点的输出值是相同的，可将目标函数中的样本按叶子节点分组计算，得到最终目标函数
+$$
+\begin{aligned}
+\mathcal L_m &\approx \sum_{j=1}^J \left[(\sum_{\mathbf x_i\in R_j}g_i)c_j+\frac{1}{2}(\sum_{\mathbf x_i\in R_j}h_i+\lambda)c^2_j\right]+\gamma J \\
+&=\sum_{j=1}^J \left[G_jc_j+\frac{1}{2}(H_j+\lambda)c^2_j\right]+\gamma J
+\end{aligned}
+$$
+其中
+$$
+G_j=\sum_{\mathbf x_i\in R_j}g_i,\quad H_j=\sum_{\mathbf x_i\in R_j}h_i
+$$
 
+- $G_j$ 是树 $T_m$ 划分的叶子节点 $j$ 所包含的所有样本的**一阶偏导数**之和；
+- $H_j$ 是树 $T_m$ 划分的叶子节点 $j$ 所包含的所有样本的**二阶偏导数**之和。
 
+当树 $T_m$ 的区域划分确定时，$G_j,H_j$ 可视为常数。于是，目标函数只包含叶子节点输出值 $c_j$ 。 易知 $H_j+\lambda>0$，目标函数对 $c_j$ 求一阶导数，并令其为 0，可得最优解
+
+$$
+c_j^*=-\frac{G_j}{H_j+\lambda}
+$$
+所以目标函数最优值为
+$$
+\mathcal L_m^*=-\frac{1}{2}\sum_{j=1}^J\frac{G_j^2}{H_j+\lambda}+\gamma J
+$$
+下图给出目标函数计算的例子
+
+<img src="Machine-Learning(IV)--Supervised-Learning.assets/tree_structure_score.png" style="zoom: 50%;" />
+
+**学习树结构**：经过一系列推导后，我们的目标变为确定树 $T_m$ 的结构，然后计算叶节点上的值 $c_j^*$ 。
+
+在树的生成过程中，最佳分裂点是一个关键问题。$\mathcal L_m^*$ 可以作为决策树 $T_m$ 结构的评分函数（scoring function），该值越小，树结构越好。XGboost 支持多种分裂方法：
+
+(1) Exact Greedy Algorithm：现实中常使用贪心算法，遍历每个候选特征的每个取值，计算分裂前后的增益，并选择增益最大的候选特征和取值进行分裂。
+
+XGBoost 提出了一种新的增益计算方法，采用目标函数的分裂增益。类似于CART基尼系数增益，对于目标函数来说，分裂后的增益为 $\mathcal L_{split}=\mathcal L_{before}-\mathcal L_{after}$ 。因此，定义
+$$
+\text{Gain}=\frac{G_L^2}{H_L+\lambda}+\frac{G_R^2}{H_R+\lambda}-\frac{(G_L+G_R)^2}{H_L+H_R+\lambda}-\gamma
+$$
+
+> 上式去除了常数因子 1/2 ，不影响增益最大化。
+
+<img src="Machine-Learning(IV)--Supervised-Learning.assets/split_find.png" style="zoom: 80%;" />
+
+上式中的$\gamma$ 是一个超参数，具有双重含义，一个是对叶结点数目进行控制；另一个是限制树的生长的阈值，当增益大于阈值时才让节点分裂。所以xgboost在优化目标函数的同时相当于做了预剪枝。
+
+(2) Approximate Algorithm：贪心算法可以得到最优解，但当数据无法一次载入内存或者在分布式情况下，贪心算法效率就会变得很低。近似算法主要针对贪心算法这一缺点给出了近似最优解，不仅解决了这个问题，也同时能提升训练速度
+
+首先根据特征分布的分位数提出候选划分点，然后将连续型特征映射到由这些候选点划分的buckets中，然后汇总统计信息找到所有区间的最佳分裂点。
+
+对于每个特征，只考察分位点可以减少计算复杂度。近似算法在提出候选切分点时有两种策略：
+
+- Global：学习每棵树前就提出候选切分点，并在每次分裂时都采用这种分割；
+- Local：每次分裂前将重新提出候选切分点。
+
+下图给出不同种分裂策略的AUC变化曲线，横坐标为迭代次数，纵坐标为测试集AUC，eps 为近似算法的精度，其倒数为桶的数量。
+
+<img src="Machine-Learning(IV)--Supervised-Learning.assets/xgboost_eps_parameter.png" style="zoom:50%;" />
+
+> Global 策略在候选点数多时（eps 小）可以和 Local 策略在候选点少时（eps 大）具有相似的精度。此外我们还发现，在 eps 取值合理的情况下，分位数策略可以获得与贪婪算法相同的精度。
+
+(3) Weighted Quantile Sketch：加权分位数缩略图。XGBoost不是简单地按照样本个数进行分位，而是以二阶导数值 $g_i$ 作为样本的权重进行划分。实际上，当使用平方损失函数时，我们可以看到$g_i$就是样本的权重。
+
+(4) Sparsity-aware Split Finding：稀疏感知法。实际工程中一般会出现输入值稀疏的情况。比如数据的缺失、one-hot编码都会造成输入数据稀疏。在计算分裂增益时不会考虑带有缺失值的样本，这样就减少了时间开销。在分裂点确定了之后，将带有缺失值的样本分别放在左子树和右子树，比较两者分裂增益，选择增益较大的那一边作为默认分裂方向。
+
+**Shrinkage（收缩率）**：是一种简单的正则化策略，即对每一轮学习的结果乘以因子 $\nu(0<\nu<1)$ 进行缩放，就像梯度下降的学习率，降低单棵树的影响，为后面生成的树留下提升模型性能的空间。于是上文的迭代变为
+$$
+f_m(\mathbf x)=f_{m-1}(\mathbf x)+\nu T_m(\mathbf x)
+$$
+一般学习率$\nu$ 要和弱学习器个数 $M$ 结合起来使用。较小的$\nu$ 值要求较多的弱学习器以保持一个恒定的训练误差。经验证据表明，较小的学习率会有更好的测试误差，并且需要更大的 $M$ 与之对应。建议将学习速率设置为一个小常数（例如，$\nu\leqslant 0.1$)，并通过 early stopping 策略选择 $M$ 。
+
+**Subsampling（子采样）**：随机梯度提升（stochastic gradient boosting）是将梯度提升（gradient boosting）和 bagging 相结合，既能防止过拟合，又能减少计算量。在每次迭代中，基学习器是通过无放回抽取训练集子集拟合。通常设置采样率 $\eta=0.5$ 。
+
+下图表明了shrinkage 与 subsampling 对于模型拟合好坏的影响。我们可以明显看到指定收缩率比没有收缩拥有更好的表现。而将子采样和收缩率相结合能进一步的提高模型的准确率。相反，使用子采样而不使用收缩的结果很差。
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/GBDT_subsample.png" style="zoom: 80%;" />
+
+**Column Block for Parallel Learning**：（分块并行）：决策树的学习最耗时的一个步骤就是在每次寻找最佳分裂点是都需要对特征的值进行排序。而 XGBoost 在训练之前对根据特征对数据进行了排序，然后保存到块结构中，并在每个块结构中都采用了稀疏矩阵存储格式（Compressed Sparse Columns Format，CSC）进行存储，后面的训练过程中会重复地使用块结构，可以大大减小计算量。
+
+这种块结构存储的特征之间相互独立，方便计算机进行并行计算。在对节点进行分裂时需要选择增益最大的特征作为分裂，这时各个特征的增益计算可以同时进行，这也是 Xgboost 能够实现分布式或者多线程计算的原因。
+
+**优点**：
+
+1. 精度高：GBDT 只用到一阶泰勒展开，而 XGBoost 对损失函数进行了二阶泰勒展开。另外 XGBoost 工具支持自定义损失函数，只要函数可一阶和二阶求导。
+2. 灵活性更强：传统GBDT以CART作为基分类器，xgboost还支持线性分类器，这时xgboost相当于带L1和L2正则化项的逻辑斯蒂回归（分类问题）或者线性回归（回归问题）。
+3. 正则化：在目标函数中加入了正则项，用于控制模型的复杂度，防止过拟合，从而提高模型的泛化能力。
+4. Shrinkage：相当于学习速率。XGBoost 在进行完一次迭代后，会将叶子节点的权重乘上该系数，主要是为了削弱每棵树的影响，让后面有更大的学习空间。
+5. 列抽样：借鉴了随机森林的做法，支持列抽样，不仅能降低过拟合，还能减少计算。
+6. 节点分裂方式：传统 GBDT 采用的是均方误差作为内部分裂的增益计算指标，XGBoost是经过优化推导后的目标函数。
+7. 缺失值处理：在计算分裂增益时不会考虑带有缺失值的样本，这样就减少了时间开销。在分裂点确定了之后，将带有缺失值的样本分别放在左子树和右子树，比较两者分裂增益，选择增益较大的那一边作为默认分裂方向。
+8. 并行化：由于 Boosting 本身的特性，无法像随机森林那样树与树之间的并行化。XGBoost 的并行主要体现在特征粒度上，在对结点进行分裂时，由于已预先对特征排序并保存为block 结构，每个特征的增益计算就可以开多线程进行，极大提升了训练速度。
+
+**缺点**：
+
+- 虽然利用预排序和近似算法可以降低寻找最佳分裂点的计算量，但在节点分裂过程中仍需要遍历数据集；
+- 预排序过程的空间复杂度过高，不仅需要存储特征值，还需要存储特征对应样本的梯度统计值的索引，相当于消耗了两倍的内存。
 
 ### LightGBM
 
+[【白话机器学习】算法理论+实战之LightGBM算法](https://cloud.tencent.com/developer/article/1651704)：浅显易懂，讲的特别棒！
+[深入理解LightGBM](https://mp.weixin.qq.com/s/zejkifZnYXAfgTRrkMaEww)：原论文精讲
 
+LightGBM（Light Gradient Boosting Machine）采用分布式的GBDT算法。提出的主要原因就是为了解决GBDT在海量数据遇到的问题，并且能够在不损害准确率的条件下加快GBDT模型的训练速度，LightGBM在传统的GBDT算法上进行了优化，下面我们就简单介绍下LightGBM优化算法。
+
+**直方图算法**（histogram algorithm）基于Histogram的决策树算法，是替代XGBoost的预排序（pre-sorted）算法的。简单来说，就是把连续的浮点特征值离散化成k个整数，形成一个一个的箱体（bins）。并根据特征值所在的bin对其进行梯度累加和个数统计，构造一个宽度为k的直方图。然后根据直方图的离散值，遍历寻找最优的分割点。
+
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/Histogram_algorithm.png)
+
+- 对于连续特征来说，分箱处理就是特征工程中的离散化。在Lightgbm中默认的分箱数 (bins) 为256，特征由浮点数转换成255位的整数进行存储，从而极大节约了内存存储。
+- 对于分类特征来说，则是每一种取值放入一个分箱 (bin)，需预处理成one-hot编码，且当取值的个数大于最大分箱数时，会忽略那些很少出现的分类值。
+
+计算效率大大提高，相对于 XGBoost 中预排序每个特征都要遍历数据，复杂度为 O(\#featrue\*#data) ，而直方图只需要遍历每个特征的直方图，复杂度为 O(\#featrue\*#bins) 。
+
+直方图算法还能够做差加速：当节点分裂成两个时，右边叶子节点的直方图等于其父节点的直方图减去左边叶子节点的直方图。从而大大减少构建直方图的计算量。
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/hist_diff.png" style="zoom: 67%;" />
+
+**单边梯度采样**（Gradient-based One-Side Sampling，GOSS） 目的是为了减少数据量
+
+由XGBoost的目标函数可知，样本的梯度越小，样本的训练误差越小。因此LightGBM采用GOSS算法，它保留梯度大的样本，对梯度小的样本进行随机采样，相比XGBoost遍历所有特征值节省了不少时间和空间上的开销。
+
+算法介绍：首先选出梯度绝对值较大的top a%的样本，然后对剩下的(1-a%)的样本，再随机抽样取b%。最终使用已选取的样本参与下一轮训练。但是这样会引起分布变化，所以对随机抽样的那部分样本权重放大(1-a)/b。
+
+作者通过公式证明了GOSS不会损失很大的训练正确率，并且GOSS比随机采样要好，也就是a=0的情况。
+
+**互斥特征绑定**（Exclusive Feature Bundling，EFB）目的是为了特征降维
+
+高维数据通常是稀疏的，而且许多特征是互斥的，即两个或多个特征列不会同时为0，比如one-hot编码后的特征列。LightGBM根据这一特点提出了EFB算法将互斥的特征合并成一个特征，从而将特征的维度降下来。相应的，构建histogram的时间复杂度叶从O(\#featrue\*#data) 变为 O(\#bundle\*#data)  。
+
+**基于leaf-wise的决策树生长策略**：
+
+大多数GBDT工具使用按层生长（level-wise）的决策树生长策略，同一层的所有节点都做分裂，最后剪枝。因为它不加区分的对待同一层的叶子，带来了很多没必要的开销。实际上很多叶子的分裂增益较低，没必要进行搜索和分裂。如下图所示:
+
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/level_wise_tree_growth.png)
+
+LightGBM使用按叶子生长（leaf-wise）策略，以降低模型损失最大化为目的，对当前叶所有叶子节点中分裂增益最大的叶子节点进行分裂。leaf-wise的缺点是会生成比较深的决策树，为了防止过拟合，可以在模型参数中设置树的深度。如下图所示:
+
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/leaf_wise_tree_growth.png)
+
+**并行计算**：LightGBM支持特征并行、数据并行和投票并行
+
+传统的特征并行主要思想是在并行化决策树中寻找最佳切分点，在数据量大时难以加速，同时需要对切分结果进行通信整合。LightGBM则是使用分散规约(Reduce scatter)，将任务分给不同的机器，降低通信和计算的开销，并利用直方图做加速训练，进一步减少开销。
+
+特征并行是并行化决策树中寻找最优划分点的过程。特征并行是将对待特征进行划分，每个worker找到局部的最佳切分点，使用点对点通信找到全局的最佳切分点。
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/LGB_feature_parallelization.png" style="zoom: 67%;" />
+
+数据并行的目标是并行化真个决策树学习过程。每个worker中拥有部分数据，独立的构建局部直方图，合并后得到全局直方图，在全局直方图中寻找最优切分点进行分裂。
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/LGB_data_parallelization.png" style="zoom: 67%;" />
+
+LightGBM 采用一种称为 PV-Tree 的算法进行投票并行（Voting Parallel），其实本质上也是一种数据并行。PV-Tree 和普通的决策树差不多，只是在寻找最优切分点上有所不同。
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/LGB_voting_based_parallel.png" style="zoom:67%;" />
 
 ## 投票方法
 
