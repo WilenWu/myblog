@@ -1662,42 +1662,55 @@ $$
 [【白话机器学习】算法理论+实战之LightGBM算法](https://cloud.tencent.com/developer/article/1651704)：浅显易懂，讲的特别棒！
 [深入理解LightGBM](https://mp.weixin.qq.com/s/zejkifZnYXAfgTRrkMaEww)：原论文精讲
 
-LightGBM（Light Gradient Boosting Machine）采用分布式的GBDT算法。提出的主要原因就是为了解决GBDT在海量数据遇到的问题，并且能够在不损害准确率的条件下加快GBDT模型的训练速度，LightGBM在传统的GBDT算法上进行了优化，下面我们就简单介绍下LightGBM优化算法。
+是GBDT模型的另一个进化版本， 主要用于解决GBDT在海量数据中遇到的问题，以便更好更快的用于工业实践中。从 LightGBM 名字我们可以看出其是轻量级（Light）的梯度提升机器（GBM）。
 
-**直方图算法**（histogram algorithm）基于Histogram的决策树算法，是替代XGBoost的预排序（pre-sorted）算法的。简单来说，就是把连续的浮点特征值离散化成k个整数，形成一个一个的箱体（bins）。并根据特征值所在的bin对其进行梯度累加和个数统计，构造一个宽度为k的直方图。然后根据直方图的离散值，遍历寻找最优的分割点。
+ LightGBM 可以看成是XGBoost的升级加强版，它延续了xgboost的那一套集成学习的方式，但是它更加关注模型的训练速度，相对于xgboost， 具有训练速度快和内存占用率低的特点。下面我们就简单介绍下LightGBM优化算法。
+
+**直方图算法**（histogram algorithm）基于Histogram的决策树算法，是替代XGBoost的预排序（pre-sorted）算法的。简单来说，就是把连续的浮点特征值离散化成$k$个整数，形成一个一个的箱体（bins）。并根据特征值所在的bin对其进行梯度累加和个数统计，构造一个宽度为$k$的直方图。然后根据直方图的离散值，遍历寻找最优的分割点。
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/Histogram_algorithm.png)
 
-- 对于连续特征来说，分箱处理就是特征工程中的离散化。在Lightgbm中默认的分箱数 (bins) 为256，特征由浮点数转换成255位的整数进行存储，从而极大节约了内存存储。
-- 对于分类特征来说，则是每一种取值放入一个分箱 (bin)，需预处理成one-hot编码，且当取值的个数大于最大分箱数时，会忽略那些很少出现的分类值。
+对于连续特征来说，分箱处理就是特征工程中的离散化。对于分类特征来说，则是每一种取值放入一个分箱 (bin)，且当取值的个数大于最大分箱数时，会忽略那些很少出现的分类值。
 
-计算效率大大提高，相对于 XGBoost 中预排序每个特征都要遍历数据，复杂度为 O(\#featrue\*#data) ，而直方图只需要遍历每个特征的直方图，复杂度为 O(\#featrue\*#bins) 。
+内存占用更小： 在Lightgbm中默认的分箱数 (bins) 为256。XGBoost需要用32位的浮点数去存储特征值，并用32位的整形去存储索引，而 LightGBM只需要用8位去存储直方图，从而极大节约了内存存储。
+
+计算代价更小：相对于 XGBoost 中预排序每个特征都要遍历数据，复杂度为 O(#data\*#featrue) ，而直方图只需要遍历每个特征的直方图，复杂度为 O(#bins\*#featrue) 。而我们知道 #data\>\>#bins
 
 直方图算法还能够做差加速：当节点分裂成两个时，右边叶子节点的直方图等于其父节点的直方图减去左边叶子节点的直方图。从而大大减少构建直方图的计算量。
 
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/hist_diff.png" style="zoom: 67%;" />
 
-**单边梯度采样**（Gradient-based One-Side Sampling，GOSS） 目的是为了减少数据量
+**单边梯度采样**（Gradient-based One-Side Sampling，GOSS） ：GOSS算法从减少样本的角度出发，排除大部分小梯度的样本，仅用剩下的样本计算信息增益，它是一种在减少数据量和保证精度上平衡的算法。
 
-由XGBoost的目标函数可知，样本的梯度越小，样本的训练误差越小。因此LightGBM采用GOSS算法，它保留梯度大的样本，对梯度小的样本进行随机采样，相比XGBoost遍历所有特征值节省了不少时间和空间上的开销。
+我们观察到GBDT中每个数据都有不同的梯度值，样本的梯度越小，样本的训练误差就越小。因此LightGBM提出GOSS算法，它保留梯度大的样本，对梯度小的样本进行随机采样，相比XGBoost遍历所有特征值节省了不少时间和空间上的开销。
 
-算法介绍：首先选出梯度绝对值较大的top a%的样本，然后对剩下的(1-a%)的样本，再随机抽样取b%。最终使用已选取的样本参与下一轮训练。但是这样会引起分布变化，所以对随机抽样的那部分样本权重放大(1-a)/b。
+算法介绍：首先选出梯度绝对值最大的 $a\times100\%$ 的样本，然后对剩下的样本，再随机抽取 $b\times100\%$ 的样本。最后使用已选的数据来计算信息增益。但是这样会引起分布变化，所以对随机抽样的那部分样本权重放大$(1-a)/b$。
 
 作者通过公式证明了GOSS不会损失很大的训练正确率，并且GOSS比随机采样要好，也就是a=0的情况。
 
-**互斥特征绑定**（Exclusive Feature Bundling，EFB）目的是为了特征降维
+**互斥特征绑定**（Exclusive Feature Bundling，EFB）：高维数据通常是稀疏的，这种稀疏性启发我们设计一种无损的方法来减少特征的维度。
 
-高维数据通常是稀疏的，而且许多特征是互斥的，即两个或多个特征列不会同时为0，比如one-hot编码后的特征列。LightGBM根据这一特点提出了EFB算法将互斥的特征合并成一个特征，从而将特征的维度降下来。相应的，构建histogram的时间复杂度叶从O(\#featrue\*#data) 变为 O(\#bundle\*#data)  。
+许多特征是互斥的（即特征不会同时为非零值，像one-hot），LightGBM根据这一特点提出了EFB算法将互斥的特征合并成一个特征，从而将特征的维度降下来。相应的，构建histogram的时间复杂度叶从O(\#data\*\#feature) 变为 O(\#data\*\#bundle)  ，这里 \#bundle 是融合绑定后特征包的个数。
 
-**基于leaf-wise的决策树生长策略**：
+**决策树生长策略**：带深度限制的Leaf-wise的叶子生长策略
 
-大多数GBDT工具使用按层生长（level-wise）的决策树生长策略，同一层的所有节点都做分裂，最后剪枝。因为它不加区分的对待同一层的叶子，带来了很多没必要的开销。实际上很多叶子的分裂增益较低，没必要进行搜索和分裂。如下图所示:
+XGBoost 采用 Level-wise （按层生长）策略，该策略遍历一次数据可以同时分裂同一层的叶子，容易进行多线程优化，也好控制模型复杂度，不容易过拟合。但实际上Level-wise是一种低效的算法，因为它不加区分的对待同一层的叶子，实际上很多叶子的分裂增益较低，没必要进行搜索和分裂，因此带来了很多没必要的计算开销。
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/level_wise_tree_growth.png)
 
-LightGBM使用按叶子生长（leaf-wise）策略，以降低模型损失最大化为目的，对当前叶所有叶子节点中分裂增益最大的叶子节点进行分裂。leaf-wise的缺点是会生成比较深的决策树，为了防止过拟合，可以在模型参数中设置树的深度。如下图所示:
+LightGBM采用 leaf-wise（按叶子生长）策略，以降低模型损失最大化为目的，对当前叶所有叶子节点中分裂增益最大的叶子节点进行分裂。leaf-wise的缺点是会生成比较深的决策树，为了防止过拟合，可以在模型参数中设置树的深度。
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/leaf_wise_tree_growth.png)
+
+**直接支持类别特征**
+
+实际上大多数机器学习工具都无法直接支持类别特征，一般需要把类别特征，通过 one-hot 编码，降低了空间和时间的效率。
+
+LightGBM优化了对类别特征的支持，可以直接输入类别特征，不需要额外的0/1展开。LightGBM采用 many-vs-many 的切分方式将类别特征分为两个子集，实现类别特征的最优切分。
+
+算法流程如下图所示，在枚举分割点之前，先把直方图按照每个类别对应的label均值进行排序；然后按照排序的结果依次枚举最优分割点。当然，这个方法很容易过拟合，所以LightGBM里面还增加了很多对于这个方法的约束和正则化。
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/LGB_many_vs_many.png" style="zoom: 67%;" />
 
 **并行计算**：LightGBM支持特征并行、数据并行和投票并行
 
