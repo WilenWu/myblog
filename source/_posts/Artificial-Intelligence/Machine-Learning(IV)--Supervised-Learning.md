@@ -1331,7 +1331,7 @@ f_M(\mathbf x)=\sum_{m=1}^MT(\mathbf x;\Theta_m)
 $$
 其中，$T(\mathbf x;\Theta_m)$ 表示决策树，$\Theta_m$ 为决策树的参数， $M$ 为树的个数。
 
-<img src="Machine-Learning(IV)--Supervised-Learning.assets/Tree_Ensemble_Model.png" style="zoom: 67%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/Tree_Ensemble_Model.png" style="zoom: 67%;" />
 
 提升树采用前向分布算法实现学习的优化过程。，初始树 $f_0(\mathbf x)=0$ ，第 $m$ 轮迭代的模型是
 $$
@@ -1662,7 +1662,7 @@ $$
 [【白话机器学习】算法理论+实战之LightGBM算法](https://cloud.tencent.com/developer/article/1651704)：浅显易懂，讲的特别棒！
 [深入理解LightGBM](https://mp.weixin.qq.com/s/zejkifZnYXAfgTRrkMaEww)：原论文精讲
 
-是GBDT模型的另一个进化版本， 主要用于解决GBDT在海量数据中遇到的问题，以便更好更快的用于工业实践中。从 LightGBM 名字我们可以看出其是轻量级（Light）的梯度提升机器（GBM）。
+LightGBM（Light Gradient Boosting Machine）是GBDT模型的另一个进化版本， 主要用于解决GBDT在海量数据中遇到的问题，以便更好更快的用于工业实践中。从 LightGBM 名字我们可以看出其是轻量级（Light）的梯度提升机器（GBM）。
 
  LightGBM 可以看成是XGBoost的升级加强版，它延续了xgboost的那一套集成学习的方式，但是它更加关注模型的训练速度，相对于xgboost， 具有训练速度快和内存占用率低的特点。下面我们就简单介绍下LightGBM优化算法。
 

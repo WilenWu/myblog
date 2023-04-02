@@ -172,7 +172,7 @@ $$
 $$
 下图显示了当 $\Omega(\mathbf w)=1$ 时，不同正则化项在二维参数空间中的等值线
 
-<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/norm-isopleth.png" alt="norm-isopleth" style="zoom: 50%;" />
+![](Machine-Learning(III)--Model-Selection-and-Evaluation.assets/norm-isopleth.svg)
 
 **正则化超参数选择**：添加正则化项，缩小特征权重。参数越大特征权重越小，模型偏向高偏差。以多项式回归为例
 $$
