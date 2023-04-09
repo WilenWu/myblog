@@ -16,7 +16,9 @@ cover: /img/optimization_cover.svg
 
 大多数机器学习算法都涉及某种形式的优化。优化指的是改变 $\mathbf x$ 以最小化或最大化 $f(\mathbf x)$ 的任务。我们通常以最小化 $f(\mathbf x)$ 指代大多数最优化问题，最大化可经由最小化 $-f(\mathbf x)$ 来实现。
 
-# 无约束优化解析解
+# 优化问题解析解
+
+## 函数极值
 
 考虑无约束优化问题
 $$
@@ -56,37 +58,60 @@ $$
 
 在许多情况下，找解析解是一个很困难的问题，这就迫使我们使用数值方法找近似解，最常用的求解算法包括梯度下降法，牛顿法，拟牛顿法等。
 
-# 拉格朗日乘子法
+## 拉格朗日乘子法
 
-拉格朗日乘子法(Lagrange multipliers)是一种寻找多元函数在一组约束下的极值的方法。通过引入拉格朗日乘子，可将有 $d$ 个变量与 $k$ 个约束条件的最优化问题转化为具有 $d+k$ 个变量的无约束优化问题求解。
+拉格朗日乘子法（Lagrange multipliers）是一种寻找多元函数在一组约束下的极值的方法。通过引入拉格朗日乘子，可将有 $n$ 个变量与 $k$ 个约束条件的最优化问题转化为具有 $n+k$ 个变量的无约束优化问题求解。
 
-## 等式约束
-
-考虑受限于如下形式的等式约束：
+**等式约束**：考虑等式约束优化问题
 $$
-g_i(\mathbf x)=0,i= 1,2,\cdots,p
+\begin{aligned}
+\min\limits_{\mathbf x}& f(\mathbf x) \\
+\text{s.t.}&\quad g_i(\mathbf x)= 0, \quad i=1,2,\cdots,k
+\end{aligned}
 $$
-求$f(x_1,x_2,\cdots,x_d)$的极小值问题。
+其中，自变量 $\mathbf x\in\R^n$。
 
-一种称作拉格朗日乘子的方法可以用来解约束优化问题。该方法涉及如下步骤。
+**几何意义**：构造目标函数的等值线族  $f(\mathbf x)=c$ ，约束曲线 $g(\mathbf x)=0$ 。
+![](Convex-Optimization.assets/equality_constraint.svg)
+
+从几何上看，极值点必是目标函数等值线曲线族中与约束条件曲线能相切的那个切点 $\mathbf x^*$。因为两曲线在切点处必有公法线，所以目标函数等值线在切点处法向量与约束条件曲线在切点处法向量共线，即存在实数 $\lambda$ ，使下式成立
+$$
+\begin{aligned}
+&\nabla f(\mathbf x^*)+\lambda\nabla g(\mathbf x^*)=0 \\
+&\text{s.t.}\quad g(\mathbf x^*)= 0
+\end{aligned}
+$$
+引进辅助函数
+$$
+L(\mathbf x,λ)=f(\mathbf x)+λg(\mathbf x)
+$$
+可以看出极值点方程及约束条件等价于 $\nabla_{\mathbf x} L(\mathbf x,λ)=0$ 和 $\nabla_{\lambda} L(\mathbf x,λ)=0$ 。函数 $L(\mathbf x,λ)$ 称为拉格朗日函数（Lagrangian function），参数 $\lambda$ 称为拉格朗日乘子（Lagrange multiplier）。
+
+由此，我们可以得到拉格朗日乘子法。
+
+**代数证明**：
+
+
+
+**拉格朗日乘子法**的具体步骤如下：
+
 (1) 定义拉格朗日函数
 $$
-L(\mathbf x,λ)=f(\mathbf x)+\sum_{i=1}^{p} λ_ig_i(\mathbf x)
+L(\mathbf x,λ)=f(\mathbf x)+\sum_{i=1}^{k} λ_ig_i(\mathbf x)
 $$
-其中$λ_i$是哑变量，称作拉格朗日乘子(Lagrange multiplier)。
-(2) 令拉格朗日函数关于$\mathbf x$和拉格朗日乘子的一阶导数等于0：
+其中 $λ_i$ 称作拉格朗日乘子(Lagrange multiplier)。
+(2) 令拉格朗日函数关于 $\mathbf x$ 和拉格朗日乘子 $\lambda$ 的导数等于0
 $$
-\cfrac{\partial L}{\partial x_i}=0,\forall i=1,2,\cdots,d
+\begin{cases}
+\dfrac{\partial L}{\partial x_i}=0, & i=1,2,\cdots,n \\
+\dfrac{\partial L}{\partial \lambda_i}=0, & i=1,2,\cdots,k \\
+\end{cases}
 $$
-并且
-$$
-\cfrac{\partial L}{\partial λ_i}=0,\forall i=1,2,\cdots,p
-$$
-(3) 求解步骤(2)得到的$(d+p)$个方程，得到平稳点$\mathbf x^*$和对应的$λ_i$的值。
+(3) 求解得到的$(n+k)$个方程，即可得到极值点。
 
-## 不等式约束
+##  KKT 条件
 
-考虑受限于如下形式的等式约束：
+**不等式约束**：考虑受限于如下形式的等式约束：
 $$
 h_i(\mathbf x)=0,i= 1,2,\cdots,q
 $$
@@ -105,6 +130,8 @@ h_i(\mathbf x)\leqslant 0,\forall i=1,2,\cdots,q \\
 $$
 注意，拉格朗日乘子在不等式约束中出现，不再是不受限的。
 求解KKT条件可能是一项相当艰巨的任务，当约束不等式的数量较大时尤其如此。在这种情况下，求闭型解不再可行，而需要使用诸如线性和二次规划这样的数值优化技术。
+
+<img src="Convex-Optimization.assets/inequality_constraint.svg" style="zoom:80%;" />
 
 # 梯度下降法
 
@@ -194,25 +221,20 @@ J(\theta)=\frac{1}{N}\sum_{i=1}^N L(\theta;\mathbf x_i,y_i)
 $$
 即损失函数 $L(\theta;\mathbf x_i,y_i)$ 的期望。准确计算这个期望的计算代价非常大，因为我们需要在整个数据集上的每个样本上评估模型。在实践中，我们可以从数据集中随机采样少量的样本，然后计算这些样本上的平均值来估计期望。
 
-梯度下降法的迭代公式为
-$$
-\theta_{t}=\theta_{t-1}-\lambda\mathbf g_t
-$$
 根据样本量在参数更新的准确性和执行更新所需的时间之间的权衡，梯度下降法有三种不同的应用方式。
 
-**批量梯度下降法**（Batch Gradient Descent，Batch GD）是梯度下降法的最原始形式。为了获取准确的梯度，每一 步都在全部数据集上计算梯度，时间花费和内存开销都非常大，无法应用于大数据集、大模型的场景。
+**批量梯度下降法**（Batch Gradient Descent）是梯度下降法的最原始形式。为了获取准确的梯度，每一 步都在全部数据集上计算梯度，时间花费和内存开销都非常大，无法应用于大数据集、大模型的场景。
 $$
-\mathbf g_t=\sum_{i=1}^N \nabla_\theta L(\theta_{t-1};\mathbf x_i,y_i)
+\theta_t=\theta_{t-1}-\lambda\frac{1}{N}\sum_{i=1}^N \nabla_\theta L(\theta;\mathbf x_i,y_i)
 $$
 **随机梯度下降法**（Stochastic Gradient Descent，SGD）是深度学习最常用的优化方法。SGD 放弃了对梯度准确性的追求，每一步采样单个样本来估计当前的梯度，计算速度快，内存开销小。但由于每步接受的信息量有限，随机梯度下降法对梯度的估计常常出现偏差，造成目标函数曲线收敛得很不稳定，伴有剧烈波动，有时甚至出现不收敛的情况。同时使用单个观测更新也可以在一定程度上增加不确定度，从而减轻陷入局部最小的可能。
-$$
-\mathbf g_t=\nabla_\theta L(\theta_{t-1};\mathbf x_i,y_i)
-$$
 
-**小批量梯度下降法**（Mini-batch Gradient Descent，Mini-batch GD）是 Batch GD 和 SGD 的折中方案，在一定程度上兼顾了以上两种方法的优点，缩写 SGD 通常指的是小批量梯度下降。每次从训练样本集上随机抽取一个小样本集，在抽出来的小样本集上迭代更新权重。小批量大小（batch size）通常在 50 到 256 之间，但可能因不同的应用而异。小批量梯度下降通常是训练神经网络时的首选算法。
-$$
-\mathbf g_t=\sum_{i=1}^{b} \nabla_\theta L(\theta_{t-1};\mathbf x_i,y_i)
-$$
+<img src="Convex-Optimization.assets/SGD.png" style="zoom: 67%;" />
+
+**小批量梯度下降法**（Stochastic Gradient Descent，SGD with mini-batch）是批量梯度下降和随机梯度下降的折中方案，在一定程度上兼顾了以上两种方法的优点，通常缩写 SGD 指的是小批量梯度下降。每次从训练样本集上随机抽取一个小样本集，在抽出来的小样本集上迭代更新权重。小批量大小 $b$（batch size）通常在 50 到 256 之间 （$b<<N$），但可能因不同的应用而异。小批量梯度下降通常是训练神经网络时的首选算法。
+
+<img src="Convex-Optimization.assets/SGD_with_mini-batch.png" style="zoom:67%;" />
+
 **优点：**由于不是在全部训练数据上的损失函数，而是在每轮迭代中，随机优化某一条训练数据上的损失函数，这样每一轮参数的更新速度大大加快。
 
 **缺点：**
@@ -225,32 +247,41 @@ $$
 
 ## Momentum
 
-多维情况下，单个点处梯度的各个维度的分量往往差别很大，这在局部最优附近很常见。在这些情况下，SGD 往往在斜坡上振荡。这时，可以考虑梯度在不同维度上的分量变化，用历史的数据（惯性）修正下降方向，减少这种振荡。
+多维情况下，单个点处梯度的各个维度的分量往往差别很大，这在局部最优附近很常见。在这些情况下，SGD 往往在斜坡上振荡。这时，可以考虑梯度在每个维度上的分量变化，用历史的数据（惯性）**修正下降方向**，减少这种振荡。
 
 **Momentum**（动量）：一词借鉴了物理中的概念，是一种用来抑制振荡，加速梯度下降的技术。我们定义动量项为梯度方向和历史动量的加权求和
 $$
 \mathbf m_t=\beta\mathbf m_{t-1}+\mathbf g_t
 $$
-其中，$\mathbf g_t=\nabla f(\mathbf x_{t-1})$ 为梯度向量，$0<\beta<1$ 是指数衰减系数。动量项累积了之前的梯度信息，类似于保持行走时的惯性，以避免来回震荡，加快收敛速度。
+其中，$\mathbf g_t=\nabla f(\mathbf x_{t-1})$ 为梯度向量，$0<\beta<1$ 是指数衰减系数。加上动量项后的迭代公式为
 
-加上动量项后的迭代公式为
 $$
 \mathbf x_{t}=\mathbf x_{t-1}-\lambda\mathbf m_t
 $$
 
 动量法相当于每次迭代的时候，都会将之前的梯度考虑进来，每次的移动方向不仅取决于当前的梯度，还取决于过去各个梯度分量在各自方向上是否一致。如果一个梯度分量一直沿着当前方向进行更新，那么每次更新的幅度就越来越大。如果一个梯度分量在一个方向上不断改变，那么其更新幅度就会被衰减。这样我们就可以使用一个较大的学习率，得到了更快的收敛速度以及更小的震荡。
 
-<img src="Convex-Optimization.assets/SGD_with_momentum.svg" alt="SGD with momentum" style="zoom:80%;" />
+<img src="Convex-Optimization.assets/SGD_with_momentum.svg" style="zoom:80%;" />
 
 **动量项**：初始 $\mathbf m_0=0$ ，将动量项迭代展开
 $$
 \mathbf m_t=\mathbf g_t+\beta\mathbf g_{t-1}+\beta^2\mathbf g_{t-2}+\cdots+\beta^{t-1}\mathbf g_{1}
 $$
-由于 $0<\beta<1$ ，越远的梯度权重也会越小。通常取系数 $\beta=0.9$，相当于取了近10个梯度计算移动平均。这里使用了**指数加权移动平均**的数学概念，只是省略了权重系数 $(1-\beta)$，其本质影响相同。
+由于 $0<\beta<1$ ，越远的梯度权重也会越小，一般可认为这个影响范围为 $1/(1-\beta)$。这里使用了**指数加权移动平均**的数学概念，只是省略了权重系数 $(1-\beta)$，其本质相同。通常取系数 $\beta=0.9$，相当于取了近10个梯度计算移动平均，因为再往前权重太小了，基本没影响了。
 
-> 注意，记$\mathbf v_{t-1}=\lambda\mathbf m_{t-1}$ ，带入动量项和迭代公式，会发现和其他文章公式一致。
+> 注意，记$\mathbf v_{t-1}=\lambda\mathbf m_{t-1}$ ，动量项变为
+> $$
+> \mathbf v_t=\beta\mathbf v_{t-1}+\lambda\mathbf g_t
+> $$
+> 迭代公式为
+> $$
+> \mathbf x_{t}=\mathbf x_{t-1}-\mathbf v_t
+> $$
+> 此时，会发现和其他文章公式一致。
 
-**指数加权移动平均**（Exponentially Moving Average，EMA）是一种常用的序列处理方式，通过它可以来计算局部的平均值。$t$ 时刻 EMA 计算公式是：
+<img src="Convex-Optimization.assets/MomentumAlgorithm.png" style="zoom:67%;" />
+
+**指数加权移动平均**（Exponentially Moving Average，EMA）是一种计算比较相近时刻数据的加权平均值。$t$ 时刻 EMA 计算公式是：
 $$
 v_t=\beta v_{t-1}+(1-\beta)\theta_t
 $$
@@ -262,14 +293,14 @@ $$
 &v_2=(1-\beta)(\theta_2+\beta\theta_1) \\
 &v_3=(1-\beta)(\theta_3+\beta\theta_2+\beta^2\theta_1) \\
 &\cdots \\
-&v_t=(1-\beta)(\theta_t+\cdots+\beta^{t-2}\theta_2+\beta^{t-1}\theta_1) 
+&v_t=(1-\beta)(\theta_t+\beta\theta_{t-1}+\beta^{2}\theta_{t-2}+\cdots+\beta^{t-1}\theta_1) 
 \end{aligned}
 $$
 可以看到，本质上就是加权系数呈指数衰减的移动平均，越靠近当前时刻的数值加权系数就越大。
 
 ## NAG
 
-**NAG**（Nesterov accelerated gradient，Nesterov 加速梯度）用历史数据和超前梯度修正下降方向，减少振荡。
+**NAG**（Nesterov accelerated gradient，Nesterov 加速梯度）用历史数据和超前梯度修正下降方向，尤其在极值点附近，能有效减少振荡。
 
 定义 Nesterov 动量
 $$
@@ -284,7 +315,7 @@ Momentum 算法首先计算当前梯度 $\nabla f(\mathbf x_{t-1})$，然后沿�
 
 <img src="Convex-Optimization.assets/Nesterov_accelerated_gradient.svg" style="zoom: 80%;" />
 
-**等价形式**：记 $\Delta\mathbf x_{t-1}=\mathbf x_{t-1}-\mathbf x_{t-2}$ ，则 $\Delta\mathbf x_{t-1}=-\mathbf v_{t-1}$ 。NAG 迭代公式可以变换为
+记 $\Delta\mathbf x_{t-1}=\mathbf x_{t-1}-\mathbf x_{t-2}=-\mathbf v_{t-1}$ 。则 NAG 迭代公式可以变换为
 $$
 \mathbf x_{t}=\mathbf x_{t-1}+\beta\Delta\mathbf x_{t-1}-\lambda\nabla_{\mathbf x} f(\mathbf x_{t-1}+\beta\Delta\mathbf x_{t-1})
 $$
@@ -292,163 +323,113 @@ $$
 
 ## AdaGrad
 
-学习率自适应调节
+在梯度下降法中，学习率的选取十分重要，因为它关乎到优化过程每一步步幅大小，步幅太大会导致在最优解附近来回振荡，步幅太小容易陷入局部最优解。由于自变量每个维度上收敛速度都不相同，因此根据不同维度的收敛情况分别设置学习率。
 
-修正不同维度上的学习率
+AdaGrad（Adaptive Gradient，自适应梯度）是梯度下降法最直接的改进。AdaGrad 累积了到本次迭代为止梯度的历史值信息用于**修正不同维度上的学习率**
+$$
+\mathbf v_{t}=\mathbf v_{t-1}+\mathbf g_t^2
+$$
+这也是一个向量，计算时分别对向量的每个分量进行。其中 $\mathbf g_t^2=\mathbf g_t\odot \mathbf g_t$ 为 Hadamard 积 [^Hadamard]，即梯度向量 $\mathbf g_t$ 的各分量的平方组成的向量（square element-wise）。==后面所有的计算公式都是对向量的每个分量进行。==
 
-所有历史梯度的平方和
-
-历史数据修改的越多，学习率 $\lambda$ 减少的越多，
-
-AdaGrad（adaptive gradient）即自适应梯度，是梯度下降法最直接的改进。AdaGrad累积了到本次迭代为止梯度的历史值信息用于生成梯度值来调整学习率。迭代公式如下
+迭代公式如下
 $$
 \mathbf x_{t}=\mathbf x_{t-1}-\frac{\lambda}{\sqrt{\mathbf v_{t}}+\epsilon}\mathbf g_t
 $$
 
+其中 $\lambda$ 是学习率， $\mathbf g_t=\nabla f(\mathbf x_{t-1})$ 是第 $t$ 次迭代时的梯度向量，$\epsilon$是一个很小的正数，为了避免分母为零。和标准梯度下降法唯一不同的是多了分母中的这一项。默认取 $\lambda=0.01,\epsilon=10^{-8}$ 。
 
-在这里图片是向量每个元素分别计算平方，后面所有的计算公式都是对向量的每个分量进行。接下来计算如下RMS量：
+<img src="Convex-Optimization.assets/AdaGradAlgorithm.png" style="zoom:67%;" />
 
-这也是一个向量，计算时分别对向量的每个分量进行。然后计算参数的更新值：
+Adagrad的主要优点是它消除了手动调整学习率的需要。采用**历史梯度平方和**来修正学习率，历史数据变化的越多，学习率减少的越多。本质是解决各方向导数数值量级的不一致而振荡的问题。
 
+直观的来看，在平缓山谷处，更为平缓的方向，会取得更大的进步（因为平缓，所以历史梯度平方和较小，对应学习下降的幅度较小），并且能够使得陡峭的方向变得平缓，从而加快训练速度。
 
+<img src="Convex-Optimization.assets/SGD_with_momentum.svg" style="zoom:80%;" />
 
-其中
-$$
-\mathbf v_{t}=\mathbf v_{t-1}+\mathbf g_t^2
-$$
+另外，分母中求和的形式实现了退火过程[^Annealing]，这是很多优化技术中常见的策略，意味着随着时间的推移，学习速率越来越小，从而保证了算法的最终收敛。
 
+[^Annealing]: 从经验上看，学习率在一开始要保持大些来保证收敛速度，在收敛到最优点附近时要小些以避免来回振荡．比较简单的学习率调整可以通过学习率衰减（Learning Rate Decay）的方式来实现，也称为学习率退火（Learning Rate Annealing）。
 
-其中 $\lambda$ 是学习因子， $\mathbf g_t=\nabla f(\mathbf x_{t-1})$ 是第 $t$ 次迭代时的梯度向量，$\epsilon$是一个很小的正数，为了避免分母为零，下标 $i$ 表示向量的分量。和标准梯度下降法唯一不同的是多了分母中的这一项，它累积了到本次迭代为止梯度的历史值信息用于生成梯度下降的系数值。
-
-
-
-历史数据修改的多，学习率η减少得就越多；学习率小，则特征调整少
-
-在应用中，**我们希望更新频率低的参数可以拥有较大的更新步幅，而更新频率高的参数的步幅可以减小**。AdaGrad方法采用“**历史梯度平方和**”来衡量不同参数的梯度的稀疏性，取值越小表明越稀疏，具体的更新公式表示梯度的内积开方，学习到的梯度是真实梯度除以梯度内积的开方。adagrad本质是解决各方向导数数值量级的不一致而将梯度数值归一化
-
-ε是极小值，为了避免分母为零
-
-另外，分母中求和的形式实现了退火过程，这是很多优化技术中常见的策略，意味着随着时间的推移，学习速率越来越小。从而保证了算法的最终收敛。
-
-
-
-直到2011年，一种改进的SGD：AdaGrad(adaptive gradient algorithm) 问世。它加快了稀疏参数的训练速度。2012年出现的AdaDelta是AdaGrad的一种扩展，为了降低Adagrad中学习速率衰减过快问题，它进行了三处改动：一是使用了窗口(Math Processing Error)w；二是对于参数梯度历史窗口序列(不包括当前)不再使用平方和，而是使用均值代替；三是最终的均值是历史窗口序列均值与当前梯度的时间衰减加权平均。2012年，Geoff Hinton在Coursera上提出了RMSProp(Root Mean Square Propagation)。经验上，RMSProp被证明有效且实用的深度学习网络优化算法。相比于AdaGrad的历史梯度，RMSProp增加了一个衰减系数来控制历史信息的获取多少。后来经过升级，有了Adam(Adaptive Moment Estimation)。Adam算法可以看做是修正后的动量法和RMSProp的结合，动量直接并入梯度一阶矩估计中(指数加权)。与RMSprop区别在于，它计算历史梯度衰减方式不同，不使用历史平方衰减。
-
-
-
-Adagrad的主要优点之一是它消除了手动调整学习率的需要。大多数实现使用默认值 0.01，并将其保留为默认值。
-
-Adagrad的主要弱点是它在分母中累积了平方梯度：由于每个增加的项都是正数，因此累积的总和在训练期间不断增长。这反过来又导致学习率缩小并最终变得无限小，此时算法不再能够获得额外的知识。以下算法旨在解决此缺陷。
-
-
-
-**AdaDelta**算法是 Adagrad 的改进，旨在解决Adagrad急剧下降的学习率。模型在后期也有较好的学习率
-
-Adadelta 不是累积所有过去的平方梯度，而是将累积的过去梯度的窗口限制为某个固定大小w。平均值
-$$
-E[\mathbf g^2]_t=\beta E[\mathbf g^2]_{t-1}+(1-\beta)\mathbf g^2_t
-$$
-
-
-假设要优化的参数为x，梯度下降法第t次迭代时计算出来的参数梯度值为 $\mathbf g_t$ 。算法首先初始化如下两个向量为0向量：
-$$
-\mathbf x_{t+1}=\mathbf x_t-\frac{\lambda}{\sqrt{E[\mathbf g^2]_t}+\epsilon}\mathbf g_t
-$$
-
+AdaGrad 算法的缺点是在经过一定次数的迭代依然没有找到最优点时，由于这时的学习率已经非常小，很难再继续找到最优点。
 
 ## RMSprop
 
-AdaGrad考虑了历史所有的梯度修正学习率，简单的平方和
+RMSprop（Root Mean Square Propagation，均方根传播）算法是 Adagrad 的改进，为了降低Adagrad中学习率衰减过快问题，使用梯度平方的指数加权平均限制梯度窗口
+$$
+\mathbf v_{t}=\beta\mathbf v_{t-1}+(1-\beta)\mathbf g_t^2
+$$
+迭代公式
+$$
+\mathbf x_{t}=\mathbf x_{t-1}-\frac{\lambda}{\sqrt{\mathbf v_{t}}+\epsilon}\mathbf g_t
+$$
+其中 $\lambda$ 是学习率， $\mathbf g_t=\nabla f(\mathbf x_{t-1})$ 是第 $t$ 次迭代时的梯度向量，$\epsilon$是一个很小的正数，为了避免分母为零。默认值 $\lambda=0.001,\beta=0.9,\epsilon=10^{-8}$ 。经验上，RMSProp被证明有效且实用的深度学习网络优化算法。
 
-RMSprop：AdaGrad优化，就是AdaGrad + 指数加权移动平均
+<img src="Convex-Optimization.assets/RMSpropAlgorithm.png" style="zoom:67%;" />
 
-均方根传播
-$$
-\mathbf x_{t+1}=\mathbf x_t-\frac{\lambda}{\sqrt{S_{t}}+\epsilon}\mathbf g_t
-$$
-其中
-$$
-S_{t}=\beta S_{t-1}+(1-\beta)\mathbf g_t^2
-$$
+优势：能够克服AdaGrad梯度急剧减小的问题，在很多应用中都展示出优秀的学习率自适应能力。尤其在不稳定(Non-Stationary)的目标函数下，比基本的SGD、Momentum、AdaGrad表现更良好。
 
-学习率的默认值很好η�为 0.001。
+<img src="Convex-Optimization.assets/AdaDelta_show.gif" style="zoom:67%;" />
+
+## AdaDelta
+
+AdaDelta 算法和RMSprop类似，也是对 Adagrad 的改进。通过使用梯度平方的指数衰减移动平均，降低学习率衰减过快问题。本节使用统计学符号表示，Adagrad 中的 $\mathbf v_t$ 用数学期望 $\mathbb E[\mathbf g^2]_t$ 表示，初始值 $\mathbb E[\mathbf g^2]_0=0$
+
+$$
+\mathbb E[\mathbf g^2]_t=\beta\mathbb E[\mathbf g^2]_{t-1}+(1-\beta)\mathbf g_t^2
+$$
+更新量
+$$
+\Delta\mathbf x_t=\mathbf x_t-\mathbf x_{t-1}=-\frac{\lambda}{\sqrt{\mathbb E[\mathbf g^2]_t}+\epsilon}\mathbf g_t
+$$
+其中 $\lambda$ 是学习率， $\mathbf g_t=\nabla f(\mathbf x_{t-1})$ 是第 $t$ 次迭代时的梯度向量，$\epsilon$是一个很小的正数，为了避免分母为零。由于分母是梯度的均方根 
+$$
+\text{RMS}[\mathbf g]_{t}=\sqrt{\mathbb E[\mathbf g^2]_t}+\epsilon
+$$
+更新量可简写为
+$$
+\Delta\mathbf x_t=-\frac{\lambda}{\text{RMS}[\mathbf g]_{t}}\mathbf g_t
+$$
+上式其实还是依赖于全局学习率的，AdaDelta算法采用了牛顿法的思想，寻找最优的全局学习率，并采用Hessian矩阵的对角线近似Hessian矩阵。（原理不理解）
+
+AdaDelta 不需要提前设置全局学习率这一超参数，通过维护更新量 $\Delta\mathbf x$ 平方的指数衰减移动平均来动态确定学习率，初始值 $\mathbb E[\Delta\mathbf x^2]_0=0$
+$$
+\mathbb E[\Delta\mathbf x^2]_t=\beta\mathbb E[\Delta\mathbf x^2]_{t-1}+(1-\beta)\Delta\mathbf x_t^2
+$$
+更新量的均方根为
+$$
+\text{RMS}[\Delta\mathbf x]_{t}=\sqrt{\mathbb E[\Delta\mathbf x^2]_t}+\epsilon
+$$
+最终的迭代公式为
+$$
+\mathbf x_t=\mathbf x_{t-1}-\frac{\text{RMS}[\Delta\mathbf x]_{t}}{\text{RMS}[\mathbf g]_{t}}\mathbf g_t
+$$
+从上式可以看出，AdaDelta 算法将初始全局学习率改为动态计算的 $\text{RMS}[\Delta\mathbf x]_{t}$，在一定程度上平抑了学习率的波动。
+
+**特点：**训练初中期，加速效果不错，很快。训练后期，反复在局部最小值附近抖动
+
 
 ## Adam
 
-- Adam使用**动量**和**自适应学习率**来加快收敛速度；
+**Adam** 是 Adaptive Moment estimation（自适应矩估计）的简称，与传统梯度下降保持同一个学习率不同，Adam通过计算梯度的一阶矩估计（First Moment Estimation）和二阶矩估计（Second Moment Estimation）而为 $\mathbf x$ 的不同分量设计独立的自适应性学习率。它通常比梯度下降快得多，已经成为实践者训练神经网络的行业标准。
 
-做法：基于梯度的一阶矩估计（First Moment Estimation，即**梯度的均值**）和二阶矩估计（Second Moment Estimation，即**梯度的未中心化的方差**）进行综合考虑，**计算出更新步长**。
+Adam算法可以看做是修正后的动量法和RMSProp的结合。采用指数衰减移动平均（exponential decay average）来对一阶矩和二阶矩进行估计，时间久远的梯度对当前平均值的贡献呈指数衰减。
 
-与传统随机梯度下降保持同一个学习率不同，adam方法从梯度的一阶矩和二阶矩的预算来计算不同参数的自适应学习速率。
-
-一阶矩估计在统计学上为期望值，二阶中心矩即为方差，体现偏离均值的范围
-
-Adam算法和传统的随机梯度下降不同。随机梯度下降保持单一的学习率（即alpha）更新所有的权重，学习率在训练过程中并不会改变。而Adam通过计算梯度的一阶矩估计和二阶矩估计而为不同的参数设计独立的自适应性学习率。
-
-Adam可以被看作是RMSprop和动量的组合：RMSprop贡献了过去平方梯度的指数衰减平均值vt��，
-
-Momentum + RMSprop
-
-该算法更新梯度的指数加权平均值 $\mathbf m_t$ 和平方梯度的加权平均值 $\mathbf v_t$ ，而参数 $\beta_1,\beta_2\in[0,1)$ 是控制这些移动平均的指数衰减率（exponential decay rates）。移动平均使用梯度的一阶矩（均值）和二阶矩（无中心方差）进行估计。然而这些均值是初始化为0的向量，所以矩估计值会偏向0。
-
-偏差修正（bias-corrected）的矩估计
-
-修正梯度方向
-$$
-\mathbf v_{t}=\beta_1\mathbf v_{t-1}+(1-\beta_1)\mathbf g_t
-$$
-修正学习率
-$$
-S_{t}=\beta_2 S_{t-1}+(1-\beta_2)\mathbf g_t^2
-$$
-
-
-其中 $\mathbf g_t^2$ 为 Hadamard 积
-$$
-\mathbf g_t^2=\mathbf g_t\odot \mathbf g_t
-$$
-
-即梯度向量 $\mathbf g_t$ 的各分量的平方组成的向量。
-
-
-> **Hadamard 积**：设 $\mathbf A=(a_{ij})_{m\times n}$ 和 $\mathbf B=(b_{ij})_{m\times n}$ 是两个同型矩阵，则称各元素乘积组成的同型矩阵
-> $$
-> \mathbf A\odot\mathbf B=(a_{ij}b_{ij})_{m\times n}
-> $$
-> 为 $\mathbf A,\mathbf B$ 的哈达玛积（Hadamard product）。
-
-
-
-
-
-
-
-Adam 是 Adaptive Moment estimation (自适应矩估计) 的简称。它通常比梯度下降快得多，已经称为实践者训练神经网络的行业标准。根据梯度下降的过程，Adam 算法可以自动调整学习率，即对学习率容错性更强。
-
-一方面，Adam记录梯度的一阶矩(first moment)，即过往梯度与当前梯度的平均，这体现了惯性保持；另一方面，Adam还记录梯度的二阶矩( sccond moment)，即过往梯度平方与当前梯度平方的平均，这类似AdaGrad方法，体现了环境感知能力，为不同参数产生自适应的学习速率。一阶矩和二阶矩采用类似于滑动窗口内求平均的思想进行融合，即当前梯度和近一段时间内梯度的平均值，时间久远的梯度对当前平均值的贡献呈指数衰减。具体来说，一阶矩和二阶矩采用指数衰退平均( exponential decay average)技术
-
-adam  个人理解，简单一点，先理解随机变量的一阶矩和二阶矩。模型的梯度是一个随机变量，一阶矩表示梯度均值，二阶矩表示其方差，一阶矩来控制模型更新的方向，二阶矩控制步长(学习率)。用moveing average来对一阶矩和二阶矩进行估计。bias correct是为了缓解初始一阶矩和二阶矩初始为0带来的moving average的影响。
-
-一阶矩
+一阶矩 $\mathbb E[\mathbf g]$ 表示梯度的均值，这体现了惯性保持，用来控制更新的方向
 $$
 \mathbf m_{t}=\beta_1\mathbf m_{t-1}+(1-\beta_1)\mathbf g_t
 $$
-二阶矩
+二阶矩 $\mathbb E[\mathbf g^2]$ 表示梯度无中心方差（梯度平方的均值），为不同分量产生自适应的学习速率
 $$
 \mathbf v_{t}=\beta_2\mathbf v_{t-1}+(1-\beta_2)\mathbf g_t^2
 $$
-其中 $\beta_1,\beta_2$ 为衰减系数
+其中 $\mathbf g_t=\nabla f(\mathbf x_{t-1})$ 是第 $t$ 次迭代时的梯度向量， $\beta_1,\beta_2\in[0,1)$ 为衰减系数，控制这些移动平均的指数衰减率（exponential decay rates）。 $\mathbf g_t^2=\mathbf g_t\odot \mathbf g_t$ 为 Hadamard 积 [^Hadamard]，即梯度向量 $\mathbf g_t$ 的各分量的平方组成的向量（square element-wise）。==后面所有的计算公式都是对向量的每个分量进行。==
 
-mt��和vt��分别是梯度的第一个矩（平均值）和第二个矩（非中心方差）的估计值，因此该方法的名称。如mt��和vt��被初始化为 0 的向量，Adam 的作者观察到它们偏向于零，尤其是在初始时间步长中，尤其是当衰减率很小时（即β1�1和β2�2接近 1）。
-
-其中
+然而， $\mathbf m_t,\mathbf v_t$ 是初始化为0的有偏估计，矩估计值会偏向0，尤其是在训练初期阶段。因此，为了缓解一阶矩和二阶矩初始为0带来的影响，Adam利用了偏差修正（bias-correct）
 $$
 \hat{\mathbf m}_t=\frac{\mathbf m_t}{1-\beta_1^t},\quad \hat{\mathbf v}_t=\frac{\mathbf v_t}{1-\beta_2^t}
 $$
 
-如果真实二阶矩E[g2i]是静态的（stationary），那么ζ=0，否则ζ可以保留一个很小的值。
-
-Adam利用了初始化偏差修正项。本部分将由二阶矩估计推导出这一偏差修正项，一阶矩估计的推导完全是相似的。
+现推导二阶矩 $\mathbb E[\mathbf g^2_t]$ 和 $\mathbb E[\mathbf v_t]$ 的关系，得到偏差修正项， $v_t$ 代表 $\mathbf v_t$ 的任意分量
 $$
 \begin{aligned}
 \mathbb E[v_t] &= \mathbb E\left[(1-\beta_2)\sum_{i=1}^t\beta_2^{t-i}\cdot g_i^2\right]  \\
@@ -457,76 +438,75 @@ $$
 \end{aligned}
 $$
 
+如果真实二阶矩 $\mathbb E[g_t^2]$ 是静态的（stationary），那么 $\zeta=0$。通常可以忽略常数 $\zeta$ ，得到上述修正项。一阶矩估计的推导完全是相似的。
 
-
-他们通过计算偏差校正的第一和第二矩估计来抵消这些偏差：
-
-与AdaGrad方法不同，不是从开始到现在的加和，而是它的期望。它们的物理意义是，当 $\|\mathbf m_t\|$ 大且 $\mathbf v_t$大时，梯度大且稳定，这表明遇到一个明显的大坡，前进方向明确；当$\|\mathbf m_t\|$ 趋于零且 $\mathbf v_t$ 大时，梯度不稳定，表明可能遇到一个峡谷，容易引起反弹震荡；当 $\|\mathbf m_t\|$ 大且 $\mathbf v_t$ 趋于零时，这种情况不可能出现；当 $\|\mathbf m_t\|$ 趋于零且 $\mathbf v_t$ 趋于零时，梯度趋于零，可能到达局部最低点，也可能走到一片坡度极缓的平地，此时要避免陷入平原( plateau)。另外，Adam方法还考虑了 $\mathbf m_t,\mathbf v_t$ 在零初始值情况下的偏置矫正。具体来说，Adam的更新公式为
+最后，迭代公式为
 $$
-\mathbf x_{t+1}=\mathbf x_t-\frac{\lambda\hat{\mathbf m}_t}{\sqrt{\hat{\mathbf v}_t}+\epsilon}
+\mathbf x_{t}=\mathbf x_{t-1}-\frac{\lambda}{\sqrt{\hat{\mathbf v}_t}+\epsilon}\hat{\mathbf m}_t
 $$
 
-Adam 算法并不是全局都使用同一个 $\lambda$ ，模型的每个参数都会用不同的学习率。
+其中 $\lambda$ 是学习率，$\epsilon$是一个很小的正数，为了避免分母为零。默认$\lambda=0.001,\beta_1=0.9,\beta_2=0.999,\epsilon=10^{-8}$ 
 
-默认$\lambda=0.001,\beta_1=0.9,\beta_2=0.999,\epsilon=10^{-8}$ 
+**物理意义**：
 
+- 当 $\|\mathbf m_t\|$ 大且 $\mathbf v_t$大时，梯度大且稳定，这表明遇到一个明显的大坡，前进方向明确；
+- 当$\|\mathbf m_t\|$ 趋于零且 $\mathbf v_t$ 大时，梯度不稳定，表明可能遇到一个峡谷，容易引起反弹震荡；
+- 当 $\|\mathbf m_t\|$ 大且 $\mathbf v_t$ 趋于零时，这种情况不太可能出现；
+- 当 $\|\mathbf m_t\|$ 趋于零且 $\mathbf v_t$ 趋于零时，梯度趋于零，可能到达局部最低点，也可能走到一片坡度极缓的平地，此时要避免陷入平原( plateau)。
 
+<img src="Convex-Optimization.assets/AdamAlgorithm.png" style="zoom:67%;" />
 
-<img src="Convex-Optimization.assets/AdamAlgorithm.png" style="zoom:80%;" />
+**优缺点**：不需要手动指定学习率；通常收敛速度远大于梯度下降；适用于非稳态（non-stationary）目标；适用于解决包含很高噪声或稀疏梯度的问题；超参数可以很直观地解释，并且基本上只需极少量的调参。
 
-- 如果参数持续沿着大致相同的方向移动，我们将提高这个参数的学习率。
-- 相反，如果一个参数来回振荡，我们将减小这个参数的学习率。
-
-**优缺点**：
-
-- 不需要手动指定学习率 
-- 通常收敛速度远大于梯度下降
-- 算法过于复杂
-
-适用于非稳态（non-stationary）目标
-
-　　适用于解决包含很高噪声或稀疏梯度的问题
-
-　　超参数可以很直观地解释，并且基本上只需极少量的调参
-
-
-
-虽然Adam算法在实践中要比RMSProp更加优秀，但同时我们也可以尝试SGD+Nesterov动量来作为Adam的替代。即我们通常推荐在深度学习模型中使用Adam算法或SGD+Nesterov动量法。
+虽然Adam算法是目前主流的优化算法，不过在很多领域里（如计算机视觉的对象识别、NLP中的机器翻译）仍然是使用动量（SGD with Momentum）的效果最佳。
 
 ## AdaMax
 
-最后，我们讨论了AdaMax，即一种基于无穷范数（infinity norm）的Adam变体。
+AdaMax 是的Adam变体。在Adam中， $\mathbf v_t$ 基于当前梯度平方和过去梯度平方的序列更新，过去梯度平方的权重呈反比例缩放。 $\mathbf v_t$ 的任意分量  $v_t$ 为
 
-在Adam中，单个权重的更新规则是将其梯度与当前和过去梯度的L^2^范数（标量）成反比例缩放。而我们可以将基于L^2^范数的更新规则泛化到基于L^p^范数的更新规则中。虽然这样的变体会因为p的值较大而在数值上变得不稳定，但是在特例中，我们令p→∞会得出一个极其稳定和简单的算法（见算法2）。现在我们将推导这个算法，在使用L^p^范数情况下，时间t下的步长和vt^(1/p)成反比例变化。
-
-注意这里的衰减项等价地为β2^p，而不是β2。现在令p→∞，并定义
-
-然后有：
 $$
 \begin{aligned}
-u_t=\lim\limits_{p\to\infty}(v_t)^{1/p}&=\lim\limits_{p\to\infty}\left((1-\beta_2^p)\sum_{i=1}^t\beta_2^{p(t-i)}\cdot |g_i|^p\right)^{1/p} \\
-&=\lim\limits_{p\to\infty}(1-\beta_2^p)^{1/p}\left(\sum_{i=1}^t\beta_2^{p(t-i)}\cdot |g_i|^p\right)^{1/p} \\
-&=\lim\limits_{p\to\infty}\left(\sum_{i=1}^t\beta_2^{(t-i)}\cdot |g_i|^p\right)^{1/p} \\
-&=\max(\beta_2^{t-1}|g_1|,\beta_2^{t-2}|g_2|,\cdots,\beta_2|g_{t-1}|,|g_t|)
+v_{t}&=\beta_2v_{t-1}+(1-\beta_2)g_t^2 \\
+&=(1-\beta_2)(g_t^2+\beta_2 g_{t-1}^2+\beta_2^2 g_{t-2}^2+\cdots+\beta_2^{t-1}g_1^2) 
 \end{aligned}
 $$
-该表达式就对应相当于极其简单的迭代公式：
-
-其中初始值u0=0。注意这里十分便利，在该情况下我们不需要修正初始化偏差。同样AdaMax参数更新的量级要比Adam更简单，即|t|≤α。
-
+其中 $g_t$ 是第 $t$ 次迭代时的梯度向量 $\nabla f(\mathbf x_{t-1})$ 的分量。可见  $v_t$ 基于梯度序列的 $L_2$ 范数[^norm]更新，我们可以将其推广到基于 $L_p$ 范数的更新规则中
+$$
+v_{t}=\beta_2^p v_{t-1}+(1-\beta_2^p)|g_t|^p
+$$
+注意，这里的衰减系数相应的变为 $\beta_2^p$。然而，$p$ 值较大的范数会变得不稳定，但当 $p\to\infty$ 时通常会变得很稳定。为了避免与Adam混淆，我们使用 $u_t$ 表示无穷范数
+$$
+u_t=\lim\limits_{p\to\infty}\left(\beta_2^p v_{t-1}+(1-\beta_2^p)|g_t|^p\right)^{1/p}
+=\max(\beta_2u_{t-1},|g_t|)
+$$
+这里使用的最大值，不需要修正初始化偏差。$\mathbf m_t$ 仍然和Adam一样
+$$
+\mathbf m_{t}=\beta_1\mathbf m_{t-1}+(1-\beta_1)\mathbf g_t
+$$
+最终得到简单的迭代公式
+$$
+\mathbf x_t= \mathbf x_{t-1}-\frac{\lambda}{\mathbf u_t}\frac{\mathbf m_t}{1-\beta_1^t}
+$$
 默认$\lambda=0.002,\beta_1=0.9,\beta_2=0.999$
 
-<img src="Convex-Optimization.assets/AdaMaxAlgorithm.png" style="zoom:80%;" />
+<img src="Convex-Optimization.assets/AdaMaxAlgorithm.png" style="zoom:67%;" />
 
-## NAdam
+## Nadam
 
-Nadam (Nesterov-accelerated Adaptive Moment Estimation) [[16\]](https://www.ruder.io/optimizing-gradient-descent/#fn16) thus combines Adam and NAG. In order to incorporate NAG into Adam, we need to modify its momentum term mt��.
+Adam 可以看做是修正后的动量法和RMSProp的结合，我们还可以看到 NAG 优于原版动量，**Nadam**（Nesterov-accelerated Adaptive Moment Estimation）从而结合了 Adam 和 NAG 。
 
-NAG + RMSprop
-
-## AMSGrad
-
-
+Adam 动量项更新规则如下
+$$
+\mathbf m_t =\beta_1\mathbf m_{t-1}+(1-\beta_1)\mathbf g_t 
+$$
+NAG 的核心在于使用超前点的信息，NAdam 中提出了一种公式变形的思路，即能达到 Nesterov 的效果。在假定连续两次的梯度变化不大的情况下，修改动量项为
+$$
+\mathbf m_t' =\beta_1\mathbf m_t+(1-\beta_1)\mathbf g_t
+$$
+更新规则如下
+$$
+\mathbf x_{t} =\mathbf x_{t-1}-\frac{\lambda}{\sqrt{\hat{\mathbf v}_t}+\epsilon}\left(\beta_1\hat{\mathbf m}_t+\frac{(1-\beta_1)\mathbf g_t}{1-\beta_1^t}\right)
+$$
 
 # 牛顿法和拟牛顿法
 
@@ -542,24 +522,24 @@ $$
 
 假设第 $t$ 次迭代值为 $\mathbf x_t$ 。根据泰勒二阶展开式有
 $$
-f(\mathbf x)\approx f(\mathbf x_t)+(\mathbf x-\mathbf x_{t})^T\mathbf g_t
-+\frac{1}{2}(\mathbf x-\mathbf x_{t})^T\mathbf H_t(\mathbf x-\mathbf x_{t})
+f(\mathbf x)\approx f(\mathbf x_{t-1})+(\mathbf x-\mathbf x_{t-1})^T\mathbf g_t
++\frac{1}{2}(\mathbf x-\mathbf x_{t-1})^T\mathbf H_t(\mathbf x-\mathbf x_{t-1})
 $$
-这里，$\mathbf g_t$ 为 $f(\mathbf x)$ 的梯度向量$\nabla f(\mathbf x)$在 $\mathbf x=\mathbf x_t$ 处的值。$\mathbf H_t$ 为 $f(\mathbf x)$ 的Hessian 矩阵$\mathbf H(\mathbf x)$在 $\mathbf x=\mathbf x_t$ 的值。
+这里，$\mathbf g_t$ 为 $f(\mathbf x)$ 的梯度向量$\nabla f(\mathbf x)$在 $\mathbf x=\mathbf x_{t-1}$ 处的值。$\mathbf H_t$ 为 $f(\mathbf x)$ 的Hessian 矩阵$\mathbf H(\mathbf x)$在 $\mathbf x=\mathbf x_{t-1}$ 的值。
 $$
 \nabla f(\mathbf x)=\frac{\partial f}{\partial\mathbf x},\quad \mathbf H(\mathbf x)=\left(\frac{\partial^2 f}{\partial x_i\partial x_j}\right)_{n\times n}
 $$
 牛顿法使用近似式的极小值点来接近$f(\mathbf x)$ 的极小点。函数有极值的必要条件是在极值处的一阶导数为0，即梯度向量为0。于是，计算 $f(\mathbf x)$ 二阶泰勒近似的梯度向量
 $$
-\nabla f(\mathbf x)\approx\mathbf g_t+\mathbf H_t(\mathbf x-\mathbf x_{t})=0
+\nabla f(\mathbf x)\approx\mathbf g_t+\mathbf H_t(\mathbf x-\mathbf x_{t-1})=0
 $$
 因此牛顿法的迭代公式为
 $$
-\mathbf x_{t+1}=\mathbf x_t-\mathbf H_t^{-1}\mathbf g_t
+\mathbf x_{t}=\mathbf x_{t-1}-\mathbf H_t^{-1}\mathbf g_t
 $$
 直到它收敛于极小值。牛顿法是一种移动方向 
 $$
-\mathbf p_t=-\mathbf H^{-1}(\mathbf x_t)\nabla f(\mathbf x_t)
+\mathbf p_t=-\mathbf H^{-1}(\mathbf x_{t-1})\nabla f(\mathbf x_{t-1})
 $$
 步长 $\lambda=1$ 的迭代算法。可以证明牛顿法是二次收敛的，但当初始点 $\mathbf x_0$ 远离极小值时可能不收敛。
 
@@ -569,14 +549,14 @@ $$
 
 $f(\mathbf x)$ 的泰勒二阶展开式为
 $$
-f(\mathbf x) \approx f(\mathbf x_t)+(\mathbf x-\mathbf x_{t})^T\mathbf g_t
-+\frac{1}{2}(\mathbf x-\mathbf x_{t})^T\mathbf H_t(\mathbf x-\mathbf x_{t})
+f(\mathbf x) \approx f(\mathbf x_{t-1})+(\mathbf x-\mathbf x_{t-1})^T\mathbf g_t
++\frac{1}{2}(\mathbf x-\mathbf x_{t-1})^T\mathbf H_t(\mathbf x-\mathbf x_{t-1})
 $$
-令 $\mathbf z=\mathbf x-\mathbf x_{t}$ ，则函数
+令 $\mathbf z=\mathbf x-\mathbf x_{t-1}$ ，则函数
 $$
 \varphi(\mathbf z)=\frac{1}{2}\mathbf z^T\mathbf H_t\mathbf z+\mathbf g_t^T\mathbf z+c
 $$
-其中，Hessian 矩阵 $\mathbf H_t$ 为对称阵，$c=f(\mathbf x_t)$ 为常数值。$f(\mathbf x)$ 的函数图像可通过平移 $\mathbf x_t$ 得到。
+其中，Hessian 矩阵 $\mathbf H_t$ 为对称阵，$c=f(\mathbf x_{t-1})$ 为常数值。$f(\mathbf x)$ 的函数图像可通过平移 $\mathbf x_{t-1}$ 得到。
 
 易知 $\varphi(\mathbf z)$ 的梯度和Hessian 矩阵分别为
 $$
@@ -598,11 +578,15 @@ $$
 $$
 来得到向量$\mathbf z$。找平稳点的迭代公式修改为$\mathbf{x=x+z}$。
 
+## DFP
 
+
+
+## BFGS
 
 BFGS  共轭梯度算法
 
-
+## L-BFGS
 
 # 坐标下降法
 
@@ -647,4 +631,9 @@ $\begin{aligned}\hline
 
 
 
-[^taylor]: 泰勒展开式 $f(x+\Delta x)=f(x)+f'(x)\Delta x+\dfrac{1}{2}f''(x)(\Delta x)^2+\cdots$
+[^taylor]: **泰勒展开式** $f(x+\Delta x)=f(x)+f'(x)\Delta x+\dfrac{1}{2}f''(x)(\Delta x)^2+\cdots$
+[^Hadamard]: **Hadamard 积**：设 $\mathbf A=(a_{ij})_{m\times n}$ 和 $\mathbf B=(b_{ij})_{m\times n}$ 是两个同型矩阵，则称各元素乘积组成的同型矩阵 $\mathbf A\odot\mathbf B=(a_{ij}b_{ij})_{m\times n}$ 为 $\mathbf A,\mathbf B$ 的哈达玛积（Hadamard product）。
+[^norm]: **范数**：向量 $\mathbf x\in\R^n$ 的 L~p~ 范数定义如下 $\|\mathbf x\|_p=(|x_1|^p+|x_2|^p+\cdots+|x_n|^p)^{1/p}$。L~2~ 范数在机器学习中出现地十分频繁，经常简化表示为$\|\mathbf x\|$，略去下标2。 $L_\infty$ 范数也被称为最大范数，这个范数表示向量中具有最大幅值的元素的绝对值 $\|\mathbf x\|_\infty=\max\limits_{1\leqslant i\leqslant n}|x_i|$
+
+
+

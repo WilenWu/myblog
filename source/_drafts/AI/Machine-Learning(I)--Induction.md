@@ -35,9 +35,9 @@ $$
 
 ## 范数
 
-在机器学习中，我们经常使用被称为**范数**（norm）的函数衡量向量大小。形式上，L~p~ 范数定义如下
+在机器学习中，我们经常使用被称为**范数**（norm）的函数衡量向量大小。向量 $\mathbf x\in\R^n$ 的L~p~ 范数定义如下
 $$
-\|\mathbf x\|_p=\left(\sum_i|x_i|^p\right)^{1/p}
+\|\mathbf x\|_p=(|x_1|^p+|x_2|^p+\cdots+|x_n|^p)^{1/p}
 $$
 
 其中 $p\in\R$ 且 $p\geqslant 1$ 。直观上来说，向量 $\mathbf x$ 的范数衡量从原点到点 $\mathbf x$ 的距离。
@@ -47,7 +47,7 @@ $$
 
 另外一个经常在机器学习中出现的范数是 $L_\infty$ 范数，也被称为**最大范数**（max norm）。这个范数表示向量中具有最大幅值的元素的绝对值
 $$
-\|\mathbf x\|_\infty=\max|x_i|
+\|\mathbf x\|_\infty=\max\limits_{1\leqslant i\leqslant n}|x_i|
 $$
 同时结合L~1~和L~2~的混合范数称为弹性网（Elastic-Net）
 $$

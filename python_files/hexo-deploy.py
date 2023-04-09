@@ -4,6 +4,7 @@
 import os
 import sys 
 import argparse
+import shutil
 
 #------------------------------- 修改config
 config_url = './_config.yml'
@@ -28,4 +29,12 @@ os.system('hexo clean && hexo g -d')
 print("临时修改网站配置文件：www.tinylei.tech ==> wilenwu.gitee.io")
 switch(site_url, gitee_url, github_push, gitee_push)
 print('推送到 gitee')
-os.system('hexo clean && hexo g -d')
+os.system('hexo clean && hexo g')
+
+books = ['球状闪电.html','三体1-地球往事.html','三体2-黑暗森林.html','三体3-死神永生.html']
+location = './public/ebook'
+for f in books:
+    path = os.path.join(location, f)
+    os.remove(path)
+
+os.system('hexo d')
