@@ -37,4 +37,4 @@ for f in books:
     path = os.path.join(location, f)
     os.remove(path)
 
-os.system('hexo d')
+# os.system('hexo d')

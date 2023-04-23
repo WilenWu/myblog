@@ -79,7 +79,7 @@ $$
 从几何角度看，该问题的目标是在由方程 $h(\mathbf x)=0$ 确定的 $n-1$ 维曲面上寻找目标函数的极小点。
 
 如图所示，  $f(\mathbf x)=c_m$ 为目标函数的等值线 （蓝色），约束曲线 $h(\mathbf x)=0$ （红色）。对于约束曲面上的任意点 $\mathbf x$ ，该点的梯度 $\nabla h(\mathbf x)$ 正交于约束曲面。假设 $\mathbf x_0$ 是约束曲线和等高线的交点，我们沿着 $h(\mathbf x)=0$ 移动，总能走到更高或更低的等高线上，直至约束曲线和等高线相切。也就是说，极值点必是目标函数 $f(\mathbf x)$ 等值线族中与约束曲线 $h(\mathbf x)$ 能相切的那个切点 。
-![](Convex-Optimization.assets/equality_constraint.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/equality_constraint.svg)
 
 假设切点为 $\mathbf x^*$ ，因为两曲线在切点处必有公法线，则两曲线在切点处的梯度向量共线，即存在 $\lambda\neq0$ ，使下式成立
 $$
@@ -293,7 +293,7 @@ $$
 $$
 L(\mathbf x,\mu)=f(\mathbf x)+\mu g(\mathbf x)
 $$
-<img src="Convex-Optimization.assets/inequality_constraint.svg"  />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/inequality_constraint.svg"  />
 
 图中阴影部分代表不等式约束表示的可行域，我们可以根据目标函数 $f(\mathbf x)$ 的最优解 $\mathbf x^*$ 是否在可行域内将这类不等式约束优化问题分为两类：
 
@@ -320,7 +320,7 @@ $$
 \text{s.t.}&\quad g_i(\mathbf x)\leqslant 0 \quad i=1,2,\cdots,k 
 \end{aligned}
 $$
-![](Optimization.assets/KKT.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/KKT.svg)
 
 - 若最优点 $\mathbf x^*$ 在不等式区域内 $g_i(\mathbf x^*)<0$ 。此时不等式约束不起作用，可直接通过求解 $\nabla f(\mathbf x)=0$ 求解最优点。这等价于拉格朗日乘子全部为零 $\mu_i=0$ ，求解 $\nabla L(\mathbf x^*,\mu)=0$ 获得最优点。
 - 若最优点 $\mathbf x^*$ 位于第 $t$ 个边界上 $g_t(\mathbf x^*)=0$ 。此时不等式约束退化为一个等式约束，$\nabla f(\mathbf x^*)+\mu_t\nabla g_t(\mathbf x^*)=0$，常数 $\mu_t>0$ 。等价于拉格朗日乘子可全部设置为零，求解 $\nabla L(\mathbf x^*,\mu)=0$ 获得最优点。
@@ -411,7 +411,8 @@ $$
 $$
 p^*=\min_{\mathbf x} \theta_p(\mathbf x)
 $$
-**对偶问题**（dual problem）：定义**对偶函数**
+**对偶问题**（dual problem）：主问题的优化一般比较困难，我们可以通过交换min-max 的顺序来
+简化。定义**对偶函数**
 $$
 \theta_D(\lambda,\mu)=\min_{\mathbf x} L(\mathbf x,\lambda,\mu)
 $$
@@ -836,55 +837,67 @@ $$
 
 # 牛顿法和拟牛顿法
 
-牛顿法和拟牛顿法也是求解无约束优化问题常用的方法，有收敛速度快的优点。
+牛顿法和拟牛顿法是求解无约束优化问题常用的方法，其迭代轮数远小于梯度下降法。
 
 ## 牛顿法
 
-**基本思路**：考虑无约束优化问题
+考虑无约束优化问题
 $$
 \min\limits_{\mathbf x} f(\mathbf x)
 $$
-假定目标函数 $f(\mathbf x)$ 二阶连续可微，自变量 $\mathbf x\in\R^n$。**牛顿法**(Newton method)使用更精确的二阶泰勒展开式来近似代替目标函数，其迭代轮数远小于梯度下降法。
+假定目标函数 $f(\mathbf x)$ 二阶连续可微，自变量 $\mathbf x\in\R^n$。下面从两个角度来推导牛顿法（Newton method）迭代公式。
+
+> 注意，本节牛顿法统一使用第 $t$ 轮的数据推导，而梯度下降法章节使用 $t-1$ 轮推导。
+
+**梯度零点迭代**：目标函数取极值的必要条件是其梯度为零 $\nabla f(\mathbf x)=0$ 。以一元函数为例，我们可以迭代求解梯度的零值点。图中蓝色曲线为导数曲线 $f'(x)$
+
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/Newton_method_triangle.svg)
+
+假设第 $t$ 次迭代值为 $x_t$ ，如图，下一次迭代值使用$f'(x)$ 在 $x_t$ 切线方向得到的零点值，即
+$$
+f''(x_{t})=\frac{f'(x_t)}{x_t-x_{t+1}}
+$$
+于是，我们就得到
+$$
+x_{t+1}=x_t-\frac{f'(x_{t})}{f''(x_{t})}
+$$
+**二阶泰勒展开**：牛顿法可以看作使用更精确的二阶泰勒展开式来近似代替目标函数。
 
 假设第 $t$ 次迭代值为 $\mathbf x_t$ 。根据泰勒二阶展开式有
 $$
-f(\mathbf x)\approx f(\mathbf x_{t-1})+\mathbf p^T\mathbf g_t
-+\frac{1}{2}\mathbf p^T\mathbf H_t\mathbf p
+f(\mathbf x)\approx f(\mathbf x_{t})+\mathbf g_t^T(\mathbf x-\mathbf x_{t})
++\frac{1}{2}(\mathbf x-\mathbf x_{t})^T\mathbf H_t(\mathbf x-\mathbf x_{t})
 $$
-其中，$\mathbf g_t$ 为 $f(\mathbf x)$ 的梯度向量$\nabla f(\mathbf x)$在 $\mathbf x=\mathbf x_{t-1}$ 处的值。$\mathbf H_t$ 为 $f(\mathbf x)$ 的Hessian 矩阵$\mathbf H(\mathbf x)$在 $\mathbf x=\mathbf x_{t-1}$ 的值。$\mathbf p=\mathbf x-\mathbf x_{t-1}$ 。
+其中，$\mathbf g_t$ 为 $f(\mathbf x)$ 的梯度向量$\nabla f(\mathbf x)$在 $\mathbf x=\mathbf x_{t}$ 处的值。$\mathbf H_t$ 为 $f(\mathbf x)$ 的Hessian 矩阵$\mathbf H(\mathbf x)$在 $\mathbf x=\mathbf x_{t}$ 的值。
 $$
 \nabla f(\mathbf x)=\frac{\partial f}{\partial\mathbf x},\quad \mathbf H(\mathbf x)=\left(\frac{\partial^2 f}{\partial x_i\partial x_j}\right)_{n\times n}
 $$
-牛顿法使用近似式的极小值点来接近$f(\mathbf x)$ 的极小点。函数有极值的必要条件是在极值处的一阶导数为0，即梯度向量为0。于是，计算 $f(\mathbf x)$ 二阶泰勒近似的梯度向量
+牛顿法使用近似式的极小值点来接近$f(\mathbf x)$ 的极小点。目标函数取极值的必要条件是其梯度为零。于是，对 $f(\mathbf x)$ 的二阶泰勒展开求梯度
 $$
-\nabla f(\mathbf x)\approx\mathbf g_t+\mathbf H_t\mathbf p=0
+\nabla f(\mathbf x)\approx\mathbf g_t+\mathbf H_t(\mathbf x-\mathbf x_{t})=0
 $$
-其解 
+于是得到牛顿法的迭代公式
 $$
-\mathbf p=-\mathbf H_t^{-1}\mathbf g_t
+\mathbf x_{t+1}=\mathbf x_{t}-\mathbf H_t^{-1}\mathbf g_t
 $$
-称为牛顿方向。牛顿法的迭代公式为
+牛顿法是一种步长 $\lambda=1$ 的迭代算法。其中 
 $$
-\mathbf x_{t}=\mathbf x_{t-1}+\mathbf p
+\mathbf d_t=-\mathbf H_t^{-1}\mathbf g_t
 $$
-直到它收敛于极小值。牛顿法是一种步长 $\lambda=1$ 的迭代算法。可以证明牛顿法是二次收敛的，但当初始点 $\mathbf x_0$ 远离极小值时可能不收敛。
+称为牛顿方向。可以证明牛顿法是二次收敛的，但当初始点 $\mathbf x_0$ 远离极小值时可能不收敛。
 
-<img src="Convex-Optimization.assets/Newton-method-algorithm.png" style="zoom: 80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/Newton-method-algorithm.png" style="zoom: 80%;" />
 
-牛顿法使用了二阶导数， 其每轮迭代中涉及到 Hessian 矩阵的求逆，计算复杂度相当高，尤其在高维问题中几乎不可行。另外，如果Hessian矩阵不可逆，则这种方法失效。**拟牛顿法**（quasi-Newton method）则通过正定矩阵近似 Hessian 矩阵的逆矩阵或Hessian矩阵，可显著降低计算开销。
-
-**牛顿法不严谨解释**：
-
-$f(\mathbf x)$ 的泰勒二阶展开式为
+**几何意义**：$f(\mathbf x)$ 的泰勒二阶展开式为
 $$
-f(\mathbf x) \approx f(\mathbf x_{t-1})+(\mathbf x-\mathbf x_{t-1})^T\mathbf g_t
-+\frac{1}{2}(\mathbf x-\mathbf x_{t-1})^T\mathbf H_t(\mathbf x-\mathbf x_{t-1})
+f(\mathbf x) \approx f(\mathbf x_{t})+(\mathbf x-\mathbf x_{t})^T\mathbf g_t
++\frac{1}{2}(\mathbf x-\mathbf x_{t})^T\mathbf H_t(\mathbf x-\mathbf x_{t})
 $$
-令 $\mathbf z=\mathbf x-\mathbf x_{t-1}$ ，构造函数 $\varphi(\mathbf z)$
+令 $\mathbf z=\mathbf x-\mathbf x_{t}$ ，构造函数 $\varphi(\mathbf z)$
 $$
 \varphi(\mathbf z)=\frac{1}{2}\mathbf z^T\mathbf H_t\mathbf z+\mathbf g_t^T\mathbf z+c
 $$
-则 $f(\mathbf x)=\varphi(\mathbf x-\mathbf x_{t-1})$ 的函数图像可通过平移 $\mathbf x_{t-1}$ 得到。其中，Hessian 矩阵 $\mathbf H_t$ 为对称阵，$c=f(\mathbf x_{t-1})$ 为常数值。易知 $\varphi(\mathbf z)$ 的梯度和Hessian 矩阵分别为
+则 $f(\mathbf x)=\varphi(\mathbf x-\mathbf x_{t})$ 的函数图像可通过平移 $\mathbf x_{t}$ 得到。其中，Hessian 矩阵 $\mathbf H_t$ 为对称阵，$c=f(\mathbf x_{t-1})$ 为常数值。易知 $\varphi(\mathbf z)$ 的梯度和Hessian 矩阵分别为
 
 $$
 \nabla \varphi(\mathbf z)=\mathbf H_t\mathbf z+\mathbf g_t,\quad \nabla^2 \varphi(\mathbf z)=\mathbf H_t
@@ -893,19 +906,148 @@ $$
 
 下图为一元函数和二元函数的示意图：
 
-![](Convex-Optimization.assets/Newton_method_path1.svg)<img src="Convex-Optimization.assets/Newton_method_path2.svg" style="zoom:80%;" />
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/Newton_method_path1.svg)<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/Newton_method_path2.svg" style="zoom:80%;" />
+
+## 拟牛顿法
+
+牛顿法使用了二阶导数， 其每轮迭代中涉及到 Hessian 矩阵的求逆，计算复杂度相当高，尤其在高维问题中几乎不可行。另外，如果Hessian矩阵不可逆，则这种方法失效。**拟牛顿法**（quasi-Newton method）则通过正定矩阵近似 Hessian 矩阵的逆矩阵或Hessian矩阵，可显著降低计算开销。
+
+**学习率**：牛顿法的搜索方向 $\mathbf d_t=-\mathbf H_t^{-1}\mathbf g_t$ ，拟牛顿法同时加入了步长 $\lambda_t$  ，迭代公式变为
+$$
+\mathbf x_{t+1}=\mathbf x_{t}+\lambda_t\mathbf d_t
+$$
+最优步长可通过线性搜索（line search）取得
+$$
+\lambda_t=\arg\min_\lambda f(\mathbf x_{t}+\lambda_t\mathbf d_t)
+$$
+**下降方向**：目标函数 $f(\mathbf x)$ 的一阶泰勒展开近似为
+$$
+f(\mathbf x)\approx f(\mathbf x_{t})+\mathbf g_t^T(\mathbf x-\mathbf x_t)
+$$
+取 $\mathbf x=\mathbf x_{t+1}$ 点带入上式
+$$
+f(\mathbf x_{t+1})= f(\mathbf x_{t})-\lambda_t\mathbf g_t^T\mathbf H_t^{-1}\mathbf g_t
+$$
+若 $\mathbf H_t$ 是正定的（$\mathbf H_t^{-1}$ 也是正定的），那么二次型 $\mathbf g_t^T\mathbf H_t^{-1}\mathbf g_t>0$ 。当 $\lambda_t>0$ 时，总有 $f(\mathbf x_{t+1})<f(\mathbf x_{t})$ ，也就是说 $\mathbf d_t$ 是下降方向。
+
+**拟牛顿条件**：先看牛顿法中Hessian 矩阵满足的关系。对 $f(\mathbf x)$ 在 $\mathbf x_{t+1}$ 处的泰勒二阶展开式求导
+$$
+\nabla f(\mathbf x)\approx\mathbf g_{t+1}+\mathbf H_{t+1}(\mathbf x-\mathbf x_{t+1})
+$$
+其中 $\mathbf g_{t+1},\mathbf H_{t+1}$ 分别是 $f(\mathbf x)$ 在 $\mathbf x_{t+1}$ 处的梯度和 Hessian 矩阵。取 $\mathbf x=\mathbf x_{t}$ 即得
+$$
+\mathbf g_{t}-\mathbf g_{t+1}\approx\mathbf H_{t+1}(\mathbf x_{t}-\mathbf x_{t+1})
+$$
+引入记号
+$$
+\mathbf y_t=\mathbf g_{t+1}-\mathbf g_t \\
+\mathbf s_t=\mathbf x_{t+1}-\mathbf x_t
+$$
+ 则上式简写为
+$$
+\mathbf y_t=\mathbf H_{t+1}\mathbf s_t
+$$
+或者写为
+$$
+\mathbf s_t=\mathbf H_t^{-1}\mathbf y_t
+$$
+这就是拟牛顿条件，他对迭代中的 Hessian 矩阵 $\mathbf H_{t+1}$ 做约束。因此，拟牛顿法的近似矩阵要同时是正定对称矩阵且满足拟牛顿条件。
+
+下文中用 $\mathbf B$ 表示对Hessian矩阵 $\mathbf H$ 本身的近似，而用 $\mathbf D$ 表示对Hessian矩阵的逆 $\mathbf H^{-1}$ 的近似，即 $\mathbf B\approx \mathbf H,\mathbf D\approx\mathbf H^{-1}$ 。
 
 ## DFP
 
+DFP 算法（Davidon-Fletcher-Powell algorithm）是由Davidon，Fletcher，Powell三个人的名字的首字母命名的，是最早的拟牛顿法，该算法的核心是通过迭代的方法，对 $\mathbf H_{t+1}^{-1}$ 做近似。相应的拟牛顿条件是
+$$
+\mathbf D_{t+1}\mathbf y_t=\mathbf s_t
+$$
+假设每一步迭代中 $\mathbf D_{t+1}$ 是由 $\mathbf D_t$ 和两个附加项构成
+$$
+\mathbf D_{t+1}=\mathbf D_{t}+\mathbf P_{t}+\mathbf Q_{t}
+$$
+其中 $\mathbf P_t,\mathbf Q_t$ 是待定矩阵。这时
+$$
+\mathbf D_{t+1}\mathbf y_t=\mathbf D_{t}\mathbf y_t+\mathbf P_{t}\mathbf y_t+\mathbf Q_{t}\mathbf y_t=\mathbf s_t
+$$
+为使  $\mathbf D_{t+1}$  满足拟牛顿条件，可取
+$$
+\begin{cases}
+\mathbf P_{t}\mathbf y_t=\mathbf s_t \\
+\mathbf Q_{t}\mathbf y_t=-\mathbf D_{t}\mathbf y_t
+\end{cases}
+$$
+事实上，不难找出这样的解（这组解只是用起来十分方便罢了）
+$$
+\begin{cases}
+\mathbf P_{t}=\dfrac{\mathbf s_t\mathbf s_t^T}{\mathbf s_t^T\mathbf y_t} \\
+\mathbf Q_{t}=-\dfrac{\mathbf D_{t}\mathbf y_{t}\mathbf y_{t}^T\mathbf D_{t}}{\mathbf y_{t}^T\mathbf D_{t}\mathbf y_{t}}
+\end{cases}
+$$
+这样就可得到矩阵 $\mathbf D_{t+1}$ 的迭代公式
+$$
+\mathbf D_{t+1}=\mathbf D_{t}+\dfrac{\mathbf s_t\mathbf s_t^T}{\mathbf s_t^T\mathbf y_t}-\dfrac{\mathbf D_{t}\mathbf y_{t}\mathbf y_{t}^T\mathbf D_{t}}{\mathbf y_{t}^T\mathbf D_{t}\mathbf y_{t}}
+$$
+初始矩阵 $\mathbf D_0$ 通常取单位阵 $\mathbf I_n$。可以证明，如果初始矩阵 $\mathbf D_0$ 是正定的，则迭代工程中的每个矩阵 $\mathbf D_{t}$ 都是正定的。
 
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/DFP-algorithm.png" style="zoom: 66%;" />
 
 ## BFGS
 
-BFGS  共轭梯度算法
+BFGS 算法（Broyden–Fletcher–Goldfarb–Shanno）是以发明者Broyden、Fletcher、Goldfarb、Shanno 四个人名字的首字母命名。由于BFGS法对一维搜索的精度要求不高，并且由迭代产生的BFGS矩阵不易变为奇异矩阵，因而BFGS法比DFP法在计算中具有更好的数值稳定性。
+
+BFGS 算法将 $\mathbf B_{t+1}$ 作为 $\mathbf H_{t+1}$ 的近似，相应的拟牛顿条件是
+$$
+\mathbf B_{t+1}\mathbf s_t=\mathbf y_t
+$$
+和DFP 算法类似。假设每一步迭代中 $\mathbf B_{t+1}$ 是由 $\mathbf B_t$ 和两个附加项构成
+$$
+\mathbf B_{t+1}=\mathbf B_{t}+\mathbf P_{t}+\mathbf Q_{t}
+$$
+其中 $\mathbf P_t,\mathbf Q_t$ 是待定矩阵。这时
+$$
+\mathbf B_{t+1}\mathbf s_t=\mathbf B_{t}\mathbf s_t+\mathbf P_{t}\mathbf s_t+\mathbf Q_{t}\mathbf s_t=\mathbf y_t
+$$
+为使  $\mathbf B_{t+1}$​  满足拟牛顿条件，可取
+$$
+\begin{cases}
+\mathbf P_{t}\mathbf s_t= \mathbf y_t\\
+\mathbf Q_{t}\mathbf s_t=-\mathbf B_{t}\mathbf s_t
+\end{cases}
+$$
+找出合适的 $\mathbf P_t,\mathbf Q_t$ 得到矩阵 $\mathbf B_{t+1}$ 的迭代公式
+$$
+\mathbf B_{t+1}=\mathbf B_{t}+\frac{\mathbf y_t\mathbf y_t^T}{\mathbf y_t^T\mathbf s_t}-\frac{\mathbf B_{t}\mathbf s_t\mathbf s_t^T\mathbf B_{t}}{\mathbf s_t^T\mathbf B_{t}\mathbf s_t}
+$$
+可以证明，如果初始矩阵 $\mathbf B_0$ 是正定的，则迭代工程中的每个矩阵 $\mathbf B_{t}$ 都是正定的。
+
+BFGS 算法中牛顿方向 $\mathbf d_t=-\mathbf B_t^{-1}\mathbf g_t$ 通常是求解线性方程组 $\mathbf B_t\mathbf d_t=-\mathbf g_t$ 来进行。然而更一般的方法是，通过对 $\mathbf B_{t+1}$ 的迭代关系应用 Sherman-Morrison 公式，直接给出 $\mathbf B_{t+1}^{-1}$ 与 $\mathbf B_{t}^{-1}$ 之间的关系式。记 $\mathbf D_{t+1}=B_{t+1}^{-1},\mathbf D_t=\mathbf B_{t}^{-1}$，则
+$$
+\mathbf D_{t+1}=
+\left(\mathbf I-\frac{\mathbf s_t\mathbf y_t^T}{\mathbf y_t^T\mathbf s_t}\right)
+\mathbf D_{t}
+\left(\mathbf I-\frac{\mathbf y_t\mathbf s_t^T}{\mathbf y_t^T\mathbf s_t}\right)+
+\frac{\mathbf s_t\mathbf s_t^T}{\mathbf y_t^T\mathbf s_t}
+$$
+这样 BFGS 中得到了关于 $\mathbf D_{t+1}$ 的迭代公式。
+
+> **Sherman-Morrison 公式**：假设 $\mathbf A$ 是 $n$ 阶可逆矩阵，$\mathbf u,\mathbf v$ 是 $n$ 维向量，且 $1+\mathbf v^T\mathbf A^{-1}\mathbf u\neq 0$ 则有
+> $$
+> (\mathbf A+\mathbf{uv}^T)^{-1}=\mathbf A^{-1}-\frac{\mathbf A^{-1}\mathbf {uv}^T\mathbf A^{-1}}{1+\mathbf v^T\mathbf A^{-1}\mathbf u}
+> $$
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/BFGS-algorithm.png" style="zoom:66%;" />
+
+## Boyden
+
+由 DFP 算法得到的 $\mathbf D_{t+1}$ 记作 $\mathbf D_{t+1}^{\text{DFP}}$，由 BFGS 算法得到的 $\mathbf D_{t+1}$ 记作 $\mathbf D_{t+1}^{\text{BFGS}}$ 。他们都满足拟牛顿条件，所以他们的线性组合
+$$
+\mathbf D_{t+1}=\beta\mathbf D_{t+1}^{\text{DFP}}+(1-\beta)\mathbf D_{t+1}^{\text{BFGS}}
+$$
+也满足拟牛顿条件，而且是正定的，其中 $0\leqslant\beta\leqslant1$ 。这样就得到了一类拟牛顿法，称为Boyden族。
 
 ## L-BFGS
 
-
+Limited-memory BFGS
 
 # 坐标下降法
 
@@ -921,7 +1063,7 @@ x_j^{(t)}=\arg\min_{y} f(x_1^{(t)},\cdots,x_{j-1}^{(t)},y,x_{j+1}^{(t-1)}\cdots,
 $$
 与梯度下降法类似，通过迭代执行该过程，能收敛到所期望的极值。坐标下降法不需计算目标函数的梯度，在每步迭代中仅需求解一维搜索问题，对于某些复杂问题计算较为简便。
 
-<img src="Convex-Optimization.assets/Coordinate_Descent.svg" style="zoom: 80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/Coordinate_Descent.svg" style="zoom: 80%;" />
 
 [^taylor]: **泰勒展开式** $f(x+\Delta x)=f(x)+f'(x)\Delta x+\dfrac{1}{2}f''(x)(\Delta x)^2+\cdots$
 [^Hadamard]: **Hadamard 积**：设 $\mathbf A=(a_{ij})_{m\times n}$ 和 $\mathbf B=(b_{ij})_{m\times n}$ 是两个同型矩阵，则称各元素乘积组成的同型矩阵 $\mathbf A\odot\mathbf B=(a_{ij}b_{ij})_{m\times n}$ 为 $\mathbf A,\mathbf B$ 的哈达玛积（Hadamard product）。

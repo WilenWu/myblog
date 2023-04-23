@@ -30,6 +30,7 @@ header_color: true
 - :ballot_box_with_check: [Win10 常用快捷键](/posts/eb0a36a4/)
 - :white_large_square: [电子书文件格式](/posts/4fd8493d/)
 - :ballot_box_with_check: [Git 快速参考指南](/posts/f48f437a/)
+- :ballot_box_with_check: [看不懂的数字](/posts/12a72af8/)
 
 # Markup Language
 
