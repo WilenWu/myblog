@@ -12,7 +12,7 @@ katex: true
 abbrlink: 55b8eadb
 date: 2022-07-24 18:41:28
 top_img: /img/韦伯太空望远镜.webp
-cover: /img/Superstar/Lorentz-cover.png
+cover: /img/Lorentz-cover.png
 ---
 
 在本节中采用四维实坐标。设有两个惯性系$S$和$S'$，同一事件$P$在其中的坐标分别用$(x_0,x_1,x_2,x_3)$和$(x_0',x_1',x_2',x_3')$表示。规定第0坐标是时间分量，即

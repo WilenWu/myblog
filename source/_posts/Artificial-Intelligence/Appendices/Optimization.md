@@ -920,6 +920,27 @@ $$
 $$
 \lambda_t=\arg\min_\lambda f(\mathbf x_{t}+\lambda_t\mathbf d_t)
 $$
+**拟牛顿条件**：先看牛顿法中Hessian 矩阵满足的关系。对 $f(\mathbf x)$ 在 $\mathbf x_{t+1}$ 处的泰勒二阶展开式求导
+$$
+\nabla f(\mathbf x)\approx\mathbf g_{t+1}+\mathbf H_{t+1}(\mathbf x-\mathbf x_{t+1})
+$$
+其中 $\mathbf g_{t+1},\mathbf H_{t+1}$ 分别是 $f(\mathbf x)$ 在 $\mathbf x_{t+1}$ 处的梯度和 Hessian 矩阵。取 $\mathbf x=\mathbf x_{t}$ 即得
+$$
+\mathbf g_{t}-\mathbf g_{t+1}\approx\mathbf H_{t+1}(\mathbf x_{t}-\mathbf x_{t+1})
+$$
+这就是拟牛顿条件，他对迭代中的 Hessian 矩阵 $\mathbf H_{t+1}$ 做约束。为了简便起见，引入记号
+$$
+\mathbf y_t=\mathbf g_{t+1}-\mathbf g_t \\
+\mathbf s_t=\mathbf x_{t+1}-\mathbf x_t
+$$
+ 根据约束构造一个 Hessian 矩阵的近似 $\mathbf B_{t+1}\approx \mathbf H_{t+1}$ ，拟牛顿条件简写为
+$$
+\mathbf y_t=\mathbf B_{t+1}\mathbf s_t
+$$
+或者构造一个对 Hessian 矩阵的逆的近似 $\mathbf D_{t+1}\approx \mathbf H_{t+1}^{-1}$，拟牛顿条件也可写为
+$$
+\mathbf s_t=\mathbf D_{t+1}\mathbf y_t
+$$
 **下降方向**：目标函数 $f(\mathbf x)$ 的一阶泰勒展开近似为
 $$
 f(\mathbf x)\approx f(\mathbf x_{t})+\mathbf g_t^T(\mathbf x-\mathbf x_t)
@@ -930,91 +951,70 @@ f(\mathbf x_{t+1})= f(\mathbf x_{t})-\lambda_t\mathbf g_t^T\mathbf H_t^{-1}\math
 $$
 若 $\mathbf H_t$ 是正定的（$\mathbf H_t^{-1}$ 也是正定的），那么二次型 $\mathbf g_t^T\mathbf H_t^{-1}\mathbf g_t>0$ 。当 $\lambda_t>0$ 时，总有 $f(\mathbf x_{t+1})<f(\mathbf x_{t})$ ，也就是说 $\mathbf d_t$ 是下降方向。
 
-**拟牛顿条件**：先看牛顿法中Hessian 矩阵满足的关系。对 $f(\mathbf x)$ 在 $\mathbf x_{t+1}$ 处的泰勒二阶展开式求导
-$$
-\nabla f(\mathbf x)\approx\mathbf g_{t+1}+\mathbf H_{t+1}(\mathbf x-\mathbf x_{t+1})
-$$
-其中 $\mathbf g_{t+1},\mathbf H_{t+1}$ 分别是 $f(\mathbf x)$ 在 $\mathbf x_{t+1}$ 处的梯度和 Hessian 矩阵。取 $\mathbf x=\mathbf x_{t}$ 即得
-$$
-\mathbf g_{t}-\mathbf g_{t+1}\approx\mathbf H_{t+1}(\mathbf x_{t}-\mathbf x_{t+1})
-$$
-引入记号
-$$
-\mathbf y_t=\mathbf g_{t+1}-\mathbf g_t \\
-\mathbf s_t=\mathbf x_{t+1}-\mathbf x_t
-$$
- 则上式简写为
-$$
-\mathbf y_t=\mathbf H_{t+1}\mathbf s_t
-$$
-或者写为
-$$
-\mathbf s_t=\mathbf H_t^{-1}\mathbf y_t
-$$
-这就是拟牛顿条件，他对迭代中的 Hessian 矩阵 $\mathbf H_{t+1}$ 做约束。因此，拟牛顿法的近似矩阵要同时是正定对称矩阵且满足拟牛顿条件。
-
-下文中用 $\mathbf B$ 表示对Hessian矩阵 $\mathbf H$ 本身的近似，而用 $\mathbf D$ 表示对Hessian矩阵的逆 $\mathbf H^{-1}$ 的近似，即 $\mathbf B\approx \mathbf H,\mathbf D\approx\mathbf H^{-1}$ 。
+因此，拟牛顿法的近似矩阵要同时是正定对称矩阵且满足拟牛顿条件。
 
 ## DFP
 
-DFP 算法（Davidon-Fletcher-Powell algorithm）是由Davidon，Fletcher，Powell三个人的名字的首字母命名的，是最早的拟牛顿法，该算法的核心是通过迭代的方法，对 $\mathbf H_{t+1}^{-1}$ 做近似。相应的拟牛顿条件是
+DFP 算法（Davidon-Fletcher-Powell algorithm）是由Davidon，Fletcher，Powell三个人的名字的首字母命名的，是最早的拟牛顿法。算法将 $\mathbf D_{t+1}$ 作为 $\mathbf H_{t+1}^{-1}$ 的近似，假设 $\mathbf D_{t+1}$ 由 $\mathbf D_{t}$ 修正得到。迭代公式为
+$$
+\mathbf D_{t+1}=\mathbf D_t+\Delta\mathbf D_t
+$$
+其中，初始化常取单位矩阵 $\mathbf D_0=\mathbf I$ 。相应的拟牛顿条件是该算法的核心是通过迭代的方法，对 $\mathbf H_{t+1}^{-1}$ 做近似。相应的拟牛顿条件是
 $$
 \mathbf D_{t+1}\mathbf y_t=\mathbf s_t
 $$
-假设每一步迭代中 $\mathbf D_{t+1}$ 是由 $\mathbf D_t$ 和两个附加项构成
+迭代构建近似矩阵的关键是校正矩阵 $\Delta\mathbf D_t$ 的构造了，假定有两个附加项构成
 $$
-\mathbf D_{t+1}=\mathbf D_{t}+\mathbf P_{t}+\mathbf Q_{t}
+\Delta\mathbf D_t=a\mathbf{uu}^T+b\mathbf{vv}^T
 $$
-其中 $\mathbf P_t,\mathbf Q_t$ 是待定矩阵。这时
+其中，$a,b$为待定系数， $\mathbf u,\mathbf v\in\R^n$ 是待定向量。从形式上看，这种待定公式至少保证了矩阵 $\Delta\mathbf D_t$ 的对称性。根据拟牛顿条件有
 $$
-\mathbf D_{t+1}\mathbf y_t=\mathbf D_{t}\mathbf y_t+\mathbf P_{t}\mathbf y_t+\mathbf Q_{t}\mathbf y_t=\mathbf s_t
+\begin{aligned}
+\mathbf s_t&=\mathbf D_{t}\mathbf y_t+\mathbf u(a\mathbf u^T\mathbf y_t)+\mathbf v(b\mathbf v^T\mathbf y_t) \\
+&=\mathbf D_{t}\mathbf y_t+(a\mathbf u^T\mathbf y_t)\mathbf u+(b\mathbf v^T\mathbf y_t)\mathbf v
+\end{aligned}
 $$
-为使  $\mathbf D_{t+1}$  满足拟牛顿条件，可取
+这里，括号中的$a\mathbf u^T\mathbf y_t$和$b\mathbf v^T\mathbf y_t$均为实数，代表了在 $\mathbf u$ 与 $\mathbf v$ 方向的拉伸程度，为了计算简单，做如下赋值
 $$
-\begin{cases}
-\mathbf P_{t}\mathbf y_t=\mathbf s_t \\
-\mathbf Q_{t}\mathbf y_t=-\mathbf D_{t}\mathbf y_t
-\end{cases}
+a\mathbf u^T\mathbf y_t=1,\quad b\mathbf v^T\mathbf y_t=-1
 $$
-事实上，不难找出这样的解（这组解只是用起来十分方便罢了）
+上式代入待定拟牛顿条件便可得
 $$
-\begin{cases}
-\mathbf P_{t}=\dfrac{\mathbf s_t\mathbf s_t^T}{\mathbf s_t^T\mathbf y_t} \\
-\mathbf Q_{t}=-\dfrac{\mathbf D_{t}\mathbf y_{t}\mathbf y_{t}^T\mathbf D_{t}}{\mathbf y_{t}^T\mathbf D_{t}\mathbf y_{t}}
-\end{cases}
+\mathbf u-\mathbf v=\mathbf s_t-\mathbf D_t\mathbf y_t
 $$
-这样就可得到矩阵 $\mathbf D_{t+1}$ 的迭代公式
+要使上式成立，不妨直接取
 $$
-\mathbf D_{t+1}=\mathbf D_{t}+\dfrac{\mathbf s_t\mathbf s_t^T}{\mathbf s_t^T\mathbf y_t}-\dfrac{\mathbf D_{t}\mathbf y_{t}\mathbf y_{t}^T\mathbf D_{t}}{\mathbf y_{t}^T\mathbf D_{t}\mathbf y_{t}}
+\mathbf u=\mathbf s_t,\quad\mathbf v=\mathbf D_t\mathbf y_t
 $$
-初始矩阵 $\mathbf D_0$ 通常取单位阵 $\mathbf I_n$。可以证明，如果初始矩阵 $\mathbf D_0$ 是正定的，则迭代工程中的每个矩阵 $\mathbf D_{t}$ 都是正定的。
+继而求得 $a,b$ 的值
+$$
+a=\frac{1}{\mathbf s_t^T\mathbf y_t},\quad b=-\frac{1}{(\mathbf D_{t}\mathbf y_{t})^T\mathbf y_{t}}=-\frac{1}{\mathbf y_{t}^T\mathbf D_{t}\mathbf y_{t}}
+$$
+其中，求解 $b$ 时用到了 $\mathbf D_t$ 的对称性。至此，我们可得到矩阵 $\mathbf D_{t+1}$ 的迭代公式
+$$
+\mathbf D_{t+1}=\mathbf D_{t}+\frac{\mathbf s_t\mathbf s_t^T}{\mathbf s_t^T\mathbf y_t}-\frac{\mathbf D_{t}\mathbf y_{t}\mathbf y_{t}^T\mathbf D_{t}}{\mathbf y_{t}^T\mathbf D_{t}\mathbf y_{t}}
+$$
+可以证明，如果初始矩阵 $\mathbf D_0$ 是正定的，则迭代工程中的每个矩阵 $\mathbf D_{t}$ 都是正定的。
 
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/DFP-algorithm.png" style="zoom: 66%;" />
 
 ## BFGS
 
-BFGS 算法（Broyden–Fletcher–Goldfarb–Shanno）是以发明者Broyden、Fletcher、Goldfarb、Shanno 四个人名字的首字母命名。由于BFGS法对一维搜索的精度要求不高，并且由迭代产生的BFGS矩阵不易变为奇异矩阵，因而BFGS法比DFP法在计算中具有更好的数值稳定性。
+BFGS 算法（Broyden–Fletcher–Goldfarb–Shanno）是以发明者Broyden、Fletcher、Goldfarb、Shanno 四个人名字的首字母命名。与DFP算法相比，BFGS算法性能更佳，目前已成为求解无约束非线性优化问题最常用的方法之一。由于BFGS法对一维搜索的精度要求不高，并且由迭代产生的BFGS矩阵不易变为奇异矩阵，因而BFGS法比DFP法在计算中具有更好的数值稳定性。
 
-BFGS 算法将 $\mathbf B_{t+1}$ 作为 $\mathbf H_{t+1}$ 的近似，相应的拟牛顿条件是
+BFGS 算法中的核心公式推导和DFP完全类似。需要注意的是，BFGS 算法直接逼近Hessian矩阵，即将 $\mathbf B_{t+1}\approx \mathbf H_{t+1}$ 。仍采用迭代方法，迭代公式为
+$$
+\mathbf B_{t+1}=\mathbf B_t+\Delta\mathbf B_t
+$$
+其中初始化常取单位矩阵 $\mathbf B_0=\mathbf I$ 。相应的拟牛顿条件是
 $$
 \mathbf B_{t+1}\mathbf s_t=\mathbf y_t
 $$
-和DFP 算法类似。假设每一步迭代中 $\mathbf B_{t+1}$ 是由 $\mathbf B_t$ 和两个附加项构成
+关键是校正矩阵 $\Delta\mathbf B_t$ 的构造了，和DFP 算法类似，有两个附加项构成
 $$
-\mathbf B_{t+1}=\mathbf B_{t}+\mathbf P_{t}+\mathbf Q_{t}
+\Delta\mathbf B_t=a\mathbf{uu}^T+b\mathbf{vv}^T
 $$
-其中 $\mathbf P_t,\mathbf Q_t$ 是待定矩阵。这时
-$$
-\mathbf B_{t+1}\mathbf s_t=\mathbf B_{t}\mathbf s_t+\mathbf P_{t}\mathbf s_t+\mathbf Q_{t}\mathbf s_t=\mathbf y_t
-$$
-为使  $\mathbf B_{t+1}$​  满足拟牛顿条件，可取
-$$
-\begin{cases}
-\mathbf P_{t}\mathbf s_t= \mathbf y_t\\
-\mathbf Q_{t}\mathbf s_t=-\mathbf B_{t}\mathbf s_t
-\end{cases}
-$$
-找出合适的 $\mathbf P_t,\mathbf Q_t$ 得到矩阵 $\mathbf B_{t+1}$ 的迭代公式
+其中，$a,b$为待定系数， $\mathbf u,\mathbf v\in\R^n$ 是待定向量。和DFP一样的求解过程，最后得到矩阵 $\mathbf B_{t+1}$ 的迭代公式
 $$
 \mathbf B_{t+1}=\mathbf B_{t}+\frac{\mathbf y_t\mathbf y_t^T}{\mathbf y_t^T\mathbf s_t}-\frac{\mathbf B_{t}\mathbf s_t\mathbf s_t^T\mathbf B_{t}}{\mathbf s_t^T\mathbf B_{t}\mathbf s_t}
 $$
@@ -1047,7 +1047,61 @@ $$
 
 ## L-BFGS
 
-Limited-memory BFGS
+BFGS的迭代公式为
+$$
+\mathbf D_{t+1}=
+\left(\mathbf I-\frac{\mathbf s_t\mathbf y_t^T}{\mathbf y_t^T\mathbf s_t}\right)
+\mathbf D_{t}
+\left(\mathbf I-\frac{\mathbf y_t\mathbf s_t^T}{\mathbf y_t^T\mathbf s_t}\right)+
+\frac{\mathbf s_t\mathbf s_t^T}{\mathbf y_t^T\mathbf s_t}
+$$
+其中
+$$
+\mathbf y_t=\mathbf g_{t+1}-\mathbf g_t \\
+\mathbf s_t=\mathbf x_{t+1}-\mathbf x_t
+$$
+在BFGS中，需要用到一个 $n$ 阶矩阵 $\mathbf D_t$ ，来计算 $\mathbf D_{t+1}$ 。当 $n$ 很大时，存储这个矩阵会超级占用内存。可以看到，整个过程只与 $\mathbf s_t$ 和 $\mathbf y_t$有关，每次保存这俩个变量，就能恢复每一轮的 $\mathbf D_t$。$\mathbf s_t$ 和 $\mathbf y_t$ 就是中间保存的变量，其都是 $n\times 1$ 向量。相比巨大的 $n$ 阶矩阵，其一般小很多。
+
+**L-BFGS**（Limited-memory BFGS 或 Limited-storage BFGS）对BFGS进行了近似，其基本思想是：不再存储完整的矩阵 $\mathbf D_t$  ，而是存储计算过程中的向量序列 $\{\mathbf s_t,\mathbf y_t\}$。但也不是所有的都存储，而是保留最新的 $m$ 个（一般在实践中 $3\leqslant m \leqslant 20$ ）。每次计算 $\mathbf D_t$ 时，只利用最新的$m$个向量序列 。这样一来，存储空间由 $O(n^2)$ 降至 $O(mn)$。
+
+接下来，讨论 L-BFGS 算法的具体实现过程。在第 $t$ 次迭代，已求得 $\mathbf x_{t+1}$ ，记
+$$
+\rho_t^{-1}=\mathbf y_t^T\mathbf s_t,\quad \mathbf V_t=\mathbf I-\rho_t\mathbf y_t\mathbf s_t^T
+$$
+则迭代公式写为
+$$
+\mathbf D_{t+1}=\mathbf V_t^T\mathbf D_{t}\mathbf V_t+\rho_t\mathbf s_t\mathbf s_t^T
+$$
+如果给定初始矩阵 $\mathbf D_0$ （通常为正定的对角阵，如 $\mathbf D_0=\mathbf I$），递推可得到
+$$
+\begin{aligned}
+\mathbf D_{t+1} &=(\mathbf V_t^T\mathbf V_{t-1}^T\cdots\mathbf V_1^T\mathbf V_0^T)\mathbf D_{0}(\mathbf V_0\mathbf V_1\cdots\mathbf V_{t-1}\mathbf V_t) \\
+&+(\mathbf V_t^T\mathbf V_{t-1}^T\cdots\mathbf V_2^T\mathbf V_1^T)(\rho_0\mathbf s_0\mathbf s_0^T)(\mathbf V_1\mathbf V_2\cdots\mathbf V_{t-1}\mathbf V_t) \\
+&+(\mathbf V_t^T\mathbf V_{t-1}^T\cdots\mathbf V_3^T\mathbf V_2^T)(\rho_1\mathbf s_1\mathbf s_1^T)(\mathbf V_2\mathbf V_3\cdots\mathbf V_{t-1}\mathbf V_t) \\
+&+\cdots \\
+&+(\mathbf V_t^T\mathbf V_{t-1}^T)(\rho_{t-2}\mathbf s_{t-2}\mathbf s_{t-2}^T)(\mathbf V_{t-1}\mathbf V_t) \\
+&+\mathbf V_t^T(\rho_{t-1}\mathbf s_{t-1}\mathbf s_{t-1}^T)\mathbf V_t \\
+&+\rho_t\mathbf s_t\mathbf s_t^T
+\end{aligned}
+$$
+由此可见，计算 $\mathbf D_{t+1}$ 仅需要使用向量序列  $\{\mathbf s_i\}_{i=0}^t$ 和  $\{\mathbf y_i\}_{i=0}^t$ 。当然计算的过程中多涉及到对角矩阵乘法，都是稀疏矩阵，可以大大优化运算速度。此时便不再需要记录一个巨大的矩阵 $\mathbf D_t$ ，便可以直接推得 $\mathbf D_{t+1}$ 了，然而这样做计算量非常之大，因此可以存储近 $m$ 次的的向量序列  $\{\mathbf s_i,\mathbf y_i\}_{i=t-m+1}^{t}$近似来得到  $\mathbf D_{t+1}$ 。算法每次迭代均需选择一个初始的矩阵 $\mathbf D_0^t$
+$$
+\begin{aligned}
+\mathbf D_{t+1} &=(\mathbf V_t^T\mathbf V_{t-1}^T\cdots\mathbf V_{t-m+1}^T)\mathbf D_0^t(\mathbf V_{t-m+1}\cdots\mathbf V_{t-1}\mathbf V_t) \\
+&+(\mathbf V_t^T\mathbf V_{t-1}^T\cdots\mathbf V_{t-m+2}^T)(\rho_{t-m+1}\mathbf s_{t-m+1}\mathbf s_{t-m+1}^T)(\mathbf V_{t-m+2}\cdots\mathbf V_{t-1}\mathbf V_t) \\
+&+\cdots \\
+&+(\mathbf V_t^T\mathbf V_{t-1}^T)(\rho_{t-2}\mathbf s_{t-2}\mathbf s_{t-2}^T)(\mathbf V_{t-1}\mathbf V_t) \\
+&+\mathbf V_t^T(\rho_{t-1}\mathbf s_{t-1}\mathbf s_{t-1}^T)\mathbf V_t \\
+&+\rho_t\mathbf s_t\mathbf s_t^T
+\end{aligned}
+$$
+由 BFGS 算法知道 $\mathbf D_{t+1}$ 的作用仅用来获取搜索方向 $\mathbf d_{t+1}=-\mathbf D_{t+1}\mathbf g_{t+1}$ 。L-BFGS 给出了一种快速算法，使用双循环迭代（two-loop recursion）计算 $\mathbf D_{t+1}\mathbf g_{t+1}$ 。该算法的计算过程如下
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/Two_loop_Recursion.png" style="zoom: 67%;" />
+
+算法L-BFGS的步骤如下所示
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/L-BFGS.png" style="zoom: 80%;" />
 
 # 坐标下降法
 

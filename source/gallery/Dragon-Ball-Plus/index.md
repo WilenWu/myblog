@@ -11,17 +11,17 @@ aside: false
 ---
 
 {% gallery %}
-![](/img/Dragon-Ball-Plus/Android_21.png)
-![](/img/Dragon-Ball-Plus/Android_21_crazy.png)
-![](/img/Dragon-Ball-Plus/Android_Infinity.webp)
-![](/img/Dragon-Ball-Plus/Anroid_39.webp)
-![](/img/Dragon-Ball-Plus/Anroid_Zero.webp)
-![](/img/Dragon-Ball-Plus/Bardock.png)
-![](/img/Dragon-Ball-Plus/Chronoa2.webp)
-![](/img/Dragon-Ball-Plus/Freeuse.png)
-![](/img/Dragon-Ball-Plus/Gotenks.png)
-![](/img/Dragon-Ball-Plus/Majin_Piccolo.png)
-![](/img/Dragon-Ball-Plus/Moro.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Dragon-Ball-Plus/Android_21.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Dragon-Ball-Plus/Android_21_crazy.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Dragon-Ball-Plus/Android_Infinity.webp)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Dragon-Ball-Plus/Anroid_39.webp)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Dragon-Ball-Plus/Anroid_Zero.webp)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Dragon-Ball-Plus/Bardock.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Dragon-Ball-Plus/Chronoa2.webp)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Dragon-Ball-Plus/Freeuse.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Dragon-Ball-Plus/Gotenks.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Dragon-Ball-Plus/Majin_Piccolo.png)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/Dragon-Ball-Plus/Moro.png)
 
 {% endgallery %}
 
