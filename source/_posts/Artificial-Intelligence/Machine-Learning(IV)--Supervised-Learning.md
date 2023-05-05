@@ -15,10 +15,10 @@ description:
 
 # 引言
 
-分类和回归是监督学习的核心问题。
+每个样本都有标签的机器学习称为监督学习。根据标签数值类型的不同，监督学习又可以分为回归问题和分类问题。分类和回归是监督学习的核心问题。
 
-(1) 若目标变量是连续值，此类学习任务称为**回归** (regression)。
-(2) 当目标变量取有限个离散值时，称为**分类**（classification）。当分类变量只有两种结果时称为**二分类**问题 (binary classification)，输出变量通常表示为正样本/负样本(positive/negative)。
+- **回归**(regression)问题中的标签是连续值。
+- **分类**(regression)问题中的标签是离散值。分类问题根据其类别数量又可分为二分类（binary classification）和多分类（multi-class classification）问题。
 
 # 线性回归
 
@@ -378,9 +378,9 @@ Perceptron 是另一种适用于大规模学习的简单分类算法。
 
 线性判别分析（Linear Discriminant Analysis，LDA）亦称 Fisher 判别分析。其基本思想是：将训练样本投影到一条直线上，使得同类的样例尽可能近，不同类的样例尽可能远。如图所示：
 
-## 朴素贝叶斯分类
+## k近邻算法
 
-
+KNN
 
 # 决策树
 
@@ -1587,7 +1587,7 @@ $$
 $$
 下图给出目标函数计算的例子
 
-<img src="Machine-Learning(IV)--Supervised-Learning.assets/tree_structure_score.png" style="zoom: 50%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/tree_structure_score.png" style="zoom: 50%;" />
 
 **学习树结构**：经过一系列推导后，我们的目标变为确定树 $T_m$ 的结构，然后计算叶节点上的值 $c_j^*$ 。
 
@@ -1602,7 +1602,7 @@ $$
 
 > 上式去除了常数因子 1/2 ，不影响增益最大化。
 
-<img src="Machine-Learning(IV)--Supervised-Learning.assets/split_find.png" style="zoom: 80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/split_find.png" style="zoom: 80%;" />
 
 上式中的$\gamma$ 是一个超参数，具有双重含义，一个是对叶结点数目进行控制；另一个是限制树的生长的阈值，当增益大于阈值时才让节点分裂。所以xgboost在优化目标函数的同时相当于做了预剪枝。
 
@@ -1617,7 +1617,7 @@ $$
 
 下图给出不同种分裂策略的AUC变化曲线，横坐标为迭代次数，纵坐标为测试集AUC，eps 为近似算法的精度，其倒数为桶的数量。
 
-<img src="Machine-Learning(IV)--Supervised-Learning.assets/xgboost_eps_parameter.png" style="zoom:50%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/xgboost_eps_parameter.png" style="zoom:50%;" />
 
 > Global 策略在候选点数多时（eps 小）可以和 Local 策略在候选点少时（eps 大）具有相似的精度。此外我们还发现，在 eps 取值合理的情况下，分位数策略可以获得与贪婪算法相同的精度。
 
@@ -1847,4 +1847,3 @@ $$
 > 李航.《统计学习方法》
 > Andrew Ng.《Machine Learning》.Stanford online
 > 《Deep Learning》（花书）
-> [【机器学习】【白板推导系列】](https://www.bilibili.com/video/BV1aE411o7qd)

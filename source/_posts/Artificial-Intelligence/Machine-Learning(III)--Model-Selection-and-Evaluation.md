@@ -235,6 +235,8 @@ $$
 $$
 度量着估计 $\hat y$ 和真实参数 $y$ 之间平方误差的总体期望。MSE 估计包含了偏差和方差，偏差度量着偏离真实函数或参数的误差期望，而方差度量着特定采样可能导致的误差。
 
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/bias-variance-decomposition.png" alt="四种偏差和方差组合情况" style="zoom:80%;" />
+
 偏差和方差的关系和模型假设空间的容量、欠拟合和过拟合的概念紧密相联。
 
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/bias-variance.png"  style="zoom: 67%;" />

@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   x="0"
+   y="0"
+   width="400"
+   height="266.66669"
+   style="fill:none"
+   version="1.1"
+   id="svg359"
+   sodipodi:docname="boxplot.svg"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs363" />
+  <sodipodi:namedview
+     id="namedview361"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="1.454637"
+     inkscape:cx="330.66669"
+     inkscape:cy="133.36661"
+     inkscape:window-width="1920"
+     inkscape:window-height="986"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg359" />
+  <svg
+     version="1.1"
+     id="svg187"
+     width="100%"
+     height="100%" />
+  <svg
+     class="role-diagram-draw-area"
+     version="1.1"
+     id="svg259"
+     width="100%"
+     height="100%">
+    <g
+       class="shapes-region"
+       style="fill:none;stroke:#000000"
+       id="g251">
+      <g
+         class="arrow-line"
+         id="g191">
+        <path
+           class="connection real"
+           stroke-dasharray="none"
+           d="m 321.92,131.33 h -262"
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-opacity:1"
+           id="path189" />
+      </g>
+      <g
+         class="composite-shape"
+         id="g195">
+        <path
+           class="real"
+           d="M 232.5,83.17 V 179.5 H 149.33 V 83.17 Z"
+           style="fill:#f5a623;fill-opacity:1;stroke:#000000;stroke-width:1"
+           id="path193" />
+      </g>
+      <g
+         class="arrow-line"
+         id="g199">
+        <path
+           class="connection real"
+           stroke-dasharray="none"
+           d="M 190.5,83.17 V 179.5"
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2"
+           id="path197" />
+      </g>
+      <g
+         class="arrow-line"
+         id="g203">
+        <path
+           class="connection real"
+           stroke-dasharray="none"
+           d="M 321.92,107.17 V 155.5"
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1"
+           id="path201" />
+      </g>
+      <g
+         class="arrow-line"
+         id="g207">
+        <path
+           class="connection real"
+           stroke-dasharray="none"
+           d="M 59.92,107.17 V 155.5"
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1"
+           id="path205" />
+      </g>
+      <g
+         class="composite-shape"
+         id="g211">
+        <path
+           class="real"
+           d="m 33.67,126.17 c 2.85,0 5.16,2.31 5.16,5.16 0,2.86 -2.31,5.17 -5.16,5.17 -2.86,0 -5.17,-2.31 -5.17,-5.17 0,-2.85 2.31,-5.16 5.17,-5.16 z"
+           style="fill:#d0021b;fill-opacity:1;stroke:#000000;stroke-width:1"
+           id="path209" />
+      </g>
+      <g
+         class="composite-shape"
+         id="g215">
+        <path
+           class="real"
+           d="m 49.67,126.17 c 2.85,0 5.16,2.31 5.16,5.16 0,2.86 -2.31,5.17 -5.16,5.17 -2.86,0 -5.17,-2.31 -5.17,-5.17 0,-2.85 2.31,-5.16 5.17,-5.16 z"
+           style="fill:#d0021b;fill-opacity:1;stroke:#000000;stroke-width:1"
+           id="path213" />
+      </g>
+      <g
+         class="composite-shape"
+         id="g219">
+        <path
+           class="real"
+           d="m 333.67,126.17 c 2.85,0 5.16,2.31 5.16,5.16 0,2.86 -2.31,5.17 -5.16,5.17 -2.86,0 -5.17,-2.31 -5.17,-5.17 0,-2.85 2.31,-5.16 5.17,-5.16 z"
+           style="fill:#d0021b;fill-opacity:1;stroke:#000000;stroke-width:1"
+           id="path217" />
+      </g>
+      <g
+         class="arrow-line"
+         id="g231">
+        <path
+           class="connection real"
+           stroke-dasharray="none"
+           d="M 149.33,69.67 232.5,70"
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1"
+           id="path221" />
+        <g
+           stroke="#000"
+           transform="rotate(-179.77,116.32024,34.766671)"
+           style="stroke:#000000;stroke-width:1"
+           id="g225">
+          <path
+             d="M 0,7.83 V -7.83"
+             id="path223" />
+        </g>
+        <g
+           stroke="#000"
+           transform="rotate(-179.77,74.736572,34.683462)"
+           style="stroke:#000000;stroke-width:1"
+           id="g229">
+          <path
+             d="M 0,7.83 V -7.83"
+             id="path227" />
+        </g>
+      </g>
+      <g
+         class="arrow-line"
+         id="g239">
+        <path
+           class="connection real"
+           stroke-dasharray="none"
+           d="m 38.33,84.67 v 28"
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1"
+           id="path233" />
+        <g
+           stroke="#000"
+           transform="rotate(-90,76.499985,38.166672)"
+           style="stroke:#000000;stroke-width:1"
+           id="g237">
+          <path
+             d="M 10.93,-3.29 Q 4.96,-0.45 0,0 4.96,0.45 10.93,3.29"
+             id="path235" />
+        </g>
+      </g>
+      <g
+         class="arrow-line"
+         id="g247">
+        <path
+           class="connection real"
+           stroke-dasharray="none"
+           d="m 333.33,82.67 v 28"
+           style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1"
+           id="path241" />
+        <g
+           stroke="#000"
+           transform="rotate(-90,222.99998,-110.33333)"
+           style="stroke:#000000;stroke-width:1"
+           id="g245">
+          <path
+             d="M 10.93,-3.29 Q 4.96,-0.45 0,0 4.96,0.45 10.93,3.29"
+             id="path243" />
+        </g>
+      </g>
+      <g
+         id="g249" />
+    </g>
+    <g
+       id="g253" />
+    <g
+       id="g255" />
+    <g
+       id="g257" />
+  </svg>
+  <svg
+     width="660"
+     height="265.33334"
+     style="font-family:Asana-Math, Asana"
+     version="1.1"
+     id="svg357">
+    <g
+       id="g267">
+      <g
+         id="g265">
+        <g
+           id="g263">
+          <text
+             x="16.989563"
+             y="60.666656"
+             style="font-style:normal;font-weight:400;font-size:15px;font-family:Arial, Helvetica, sans-serif;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;dominant-baseline:text-before-edge;white-space:pre;fill:#000000;fill-opacity:1;stroke:none"
+             id="text261">outliers</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g275">
+      <g
+         id="g273">
+        <g
+           id="g271">
+          <text
+             x="310.66669"
+             y="58.666656"
+             style="font-style:normal;font-weight:400;font-size:15px;font-family:Arial, Helvetica, sans-serif;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;dominant-baseline:text-before-edge;white-space:pre;fill:#000000;fill-opacity:1;stroke:none"
+             id="text269">outliers</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g283">
+      <g
+         id="g281">
+        <g
+           id="g279">
+          <text
+             x="165.66669"
+             y="186.66666"
+             style="font-style:normal;font-weight:400;font-size:15px;font-family:Arial, Helvetica, sans-serif;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;dominant-baseline:text-before-edge;white-space:pre;fill:#000000;fill-opacity:1;stroke:none"
+             id="text277">median</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g297">
+      <g
+         id="g289">
+        <g
+           id="g287">
+          <text
+             x="139.5"
+             y="202.66666"
+             style="font-style:normal;font-weight:400;font-size:15px;font-family:Arial, Helvetica, sans-serif;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;dominant-baseline:text-before-edge;white-space:pre;fill:#000000;fill-opacity:1;stroke:none"
+             id="text285">Q1</text>
+        </g>
+      </g>
+      <g
+         id="g295">
+        <g
+           id="g293">
+          <text
+             x="111.98956"
+             y="225"
+             style="font-style:normal;font-weight:400;font-size:13.5px;font-family:Arial, Helvetica, sans-serif;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;dominant-baseline:text-before-edge;white-space:pre;fill:#000000;fill-opacity:1;stroke:none"
+             id="text291">(1st quartile)</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g305">
+      <g
+         id="g303">
+        <g
+           id="g301">
+          <text
+             x="172.32294"
+             y="40.666656"
+             style="font-style:normal;font-weight:400;font-size:15px;font-family:Arial, Helvetica, sans-serif;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;dominant-baseline:text-before-edge;white-space:pre;fill:#000000;fill-opacity:1;stroke:none"
+             id="text299">(IQR)</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g313">
+      <g
+         id="g311">
+        <g
+           id="g309">
+          <text
+             x="124.66669"
+             y="21.666656"
+             style="font-style:normal;font-weight:400;font-size:15px;font-family:Arial, Helvetica, sans-serif;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;dominant-baseline:text-before-edge;white-space:pre;fill:#000000;fill-opacity:1;stroke:none"
+             id="text307">InterQuartile Range</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g327">
+      <g
+         id="g319">
+        <g
+           id="g317">
+          <text
+             x="285.29169"
+             y="164.66666"
+             style="font-style:normal;font-weight:400;font-size:15px;font-family:Arial, Helvetica, sans-serif;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;dominant-baseline:text-before-edge;white-space:pre;fill:#000000;fill-opacity:1;stroke:none"
+             id="text315">&quot;maximum&quot;</text>
+        </g>
+      </g>
+      <g
+         id="g325">
+        <g
+           id="g323">
+          <text
+             x="281.66669"
+             y="187"
+             style="font-style:normal;font-weight:400;font-size:13.5px;font-family:Arial, Helvetica, sans-serif;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;dominant-baseline:text-before-edge;white-space:pre;fill:#000000;fill-opacity:1;stroke:none"
+             id="text321">(Q3+1.5*IQR)</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g341">
+      <g
+         id="g333">
+        <g
+           id="g331">
+          <text
+             x="24.677063"
+             y="165.66666"
+             style="font-style:normal;font-weight:400;font-size:15px;font-family:Arial, Helvetica, sans-serif;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;dominant-baseline:text-before-edge;white-space:pre;fill:#000000;fill-opacity:1;stroke:none"
+             id="text329">&quot;minimum&quot;</text>
+        </g>
+      </g>
+      <g
+         id="g339">
+        <g
+           id="g337">
+          <text
+             x="20.666656"
+             y="188"
+             style="font-style:normal;font-weight:400;font-size:13.5px;font-family:Arial, Helvetica, sans-serif;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;dominant-baseline:text-before-edge;white-space:pre;fill:#000000;fill-opacity:1;stroke:none"
+             id="text335">(Q1-1.5*IQR)</text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g355">
+      <g
+         id="g347">
+        <g
+           id="g345">
+          <text
+             x="224.92706"
+             y="201.66666"
+             style="font-style:normal;font-weight:400;font-size:15px;font-family:Arial, Helvetica, sans-serif;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;dominant-baseline:text-before-edge;white-space:pre;fill:#000000;fill-opacity:1;stroke:none"
+             id="text343">Q3</text>
+        </g>
+      </g>
+      <g
+         id="g353">
+        <g
+           id="g351">
+          <text
+             x="196.66669"
+             y="224"
+             style="font-style:normal;font-weight:400;font-size:13.5px;font-family:Arial, Helvetica, sans-serif;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;dominant-baseline:text-before-edge;white-space:pre;fill:#000000;fill-opacity:1;stroke:none"
+             id="text349">(3rd quartile)</text>
+        </g>
+      </g>
+    </g>
+  </svg>
+</svg>
