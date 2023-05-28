@@ -136,7 +136,7 @@ $$
 
 ## 正则化
 
-**Ridge** (岭回归) 通过引入 $l_2$ 范数正则化(regularization) 项来解决普通最小二乘的过拟合问题
+**Ridge** (岭回归) 通过引入 $\ell_2$ 范数正则化(regularization) 项来解决普通最小二乘的过拟合问题
 
 Cost function
 $$
@@ -148,9 +148,9 @@ $$
 $$
 \mathbf{w=(X^T X}+\alpha \mathbf{I)^{-1}X^T y}
 $$
-其中 $\mathbf I$ 是 $p+1$ 维单位阵。利用$l_2$ 范数进行正则化不仅可以抑制过拟合，同时叶避免了 $\mathbf{X^T X}$ 不可逆的问题。
+其中 $\mathbf I$ 是 $p+1$ 维单位阵。利用$\ell_2$ 范数进行正则化不仅可以抑制过拟合，同时叶避免了 $\mathbf{X^T X}$ 不可逆的问题。
 
-**Lasso** 是一个估计稀疏系数的线性模型。它在某些情况下是有用的，因为它倾向于给出非零系数较少的解，从而有效地减少了给定解所依赖的特征数。 它由一个带有 $l_1$ 范数正则项的线性模型组成。
+**Lasso** (Least Absolute Shrinkage and Selection Operator) 是一个估计稀疏系数的线性模型。它在某些情况下是有用的，因为它倾向于给出非零系数较少的解，从而有效地减少了给定解所依赖的特征数。 它由一个带有 $\ell_1$ 范数正则项的线性模型组成。
 
 Cost function
 $$
@@ -158,7 +158,7 @@ J(\mathbf{w})=\cfrac{1}{2N}\left(\|\mathbf{Xw-y}\|_2^2+ \alpha \|\mathbf w\|_1\r
 $$
 Lasso 中一般采用坐标下降法来实现参数估计。由于Lasso回归产生稀疏模型，因此也可以用来进行特征选择。
 
-**Elastic-Net** 是一个训练时同时用 $l_1$ 和  $l_2$ 范数进行正则化的线性回归模型。这种组合允许学习稀疏模型，其中很少有权重是非零类。当多个特征存在相关时，弹性网是很有用的。Lasso很可能随机挑选其中之一，而弹性网则可能兼而有之。在这种情况下，要最小化的目标函数
+**Elastic-Net** 是一个训练时同时用 $\ell_1$ 和  $\ell_2$ 范数进行正则化的线性回归模型。这种组合允许学习稀疏模型，其中很少有权重是非零类。当多个特征存在相关时，弹性网是很有用的。Lasso很可能随机挑选其中之一，而弹性网则可能兼而有之。在这种情况下，要最小化的目标函数
 
 Cost function
 $$
@@ -670,7 +670,7 @@ $$
 $$
 **最大间隔**：
 
-![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/SVM-maximum-margin.svg)
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/SVM-maximum-margin.svg" style="zoom:80%;" />
 
 距离超平面 $(\mathbf w,b)$ 最近的样本，被称为**支持向量** （support vector）。如上图，设超平面两侧平行边界的方程分别为
 $$
@@ -1048,7 +1048,7 @@ $$
 
 包含多个目标变量的回归任务称为 **Multioutput regression**
 
-**Multi-task Lasso** 是一个估计多任务的稀疏系数的线性模型， $\mathbf Y$ 是一个  $N\times N_{tasks}$ 矩阵。约束条件是，对于所有回归问题（也叫任务），所选的特征是相同的。它混合使用 $l_1l_2$ 范数作为正则化项。
+**Multi-task Lasso** 是一个估计多任务的稀疏系数的线性模型， $\mathbf Y$ 是一个  $N\times N_{tasks}$ 矩阵。约束条件是，对于所有回归问题（也叫任务），所选的特征是相同的。它混合使用 $\ell_1\ell_2$ 范数作为正则化项。
 
 Cost function
 $$
@@ -1058,13 +1058,13 @@ $$
 $$
 \mathbf \|\mathbf A\|_{Fro}=\sqrt{\sum_{ij}a^2_{ij}}=\sqrt{\text{tr}(\mathbf A^T\mathbf A)}
 $$
-混合 $l_1l_2$ 范数
+混合 $\ell_1\ell_2$ 范数
 $$
 \mathbf \|\mathbf A\|_{21}=\sum_i\sqrt{\sum_{j}a^2_{ij}}
 $$
 Multi-task Lasso 也采用坐标下降法来估计参数。
 
-**Multi-task Elastic-Net** 是一个估计多任务的稀疏系数的线性模型， $\mathbf Y$ 是一个  $N\times N_{tasks}$ 矩阵。约束条件是，对于所有回归问题（也叫任务），所选的特征是相同的。它使用混合的 $l_1l_2$ 范数和$l_2$作为正则化项。
+**Multi-task Elastic-Net** 是一个估计多任务的稀疏系数的线性模型， $\mathbf Y$ 是一个  $N\times N_{tasks}$ 矩阵。约束条件是，对于所有回归问题（也叫任务），所选的特征是相同的。它使用混合的 $\ell_1\ell_2$ 范数和$\ell_2$作为正则化项。
 
 Cost function
 $$
@@ -1244,7 +1244,7 @@ $$
 
 \end{aligned}
 $$
-其中 $ w_m^{(i)}=\exp(-y_if_{m-1}(\mathbf x_i))$ 。$ w_m^{(i)}$ 不依赖于 $\alpha$ 和 $h$ ，所以与优化无关。
+其中 $w_m^{(i)}=\exp(-y_if_{m-1}(\mathbf x_i))$ 。$w_m^{(i)}$ 不依赖于 $\alpha$ 和 $h$ ，所以与优化无关。
 
 由 AdaBoost 基分类器 $h(\mathbf x_i)\in\{-1,+1\}$ ，且 $y_i\in\{-1,+1\}$ 则
 $$
@@ -1417,7 +1417,7 @@ $$
 | Setting        | Loss Function                       | Gradient                                               |
 | :------------- | ----------------------------------- | ------------------------------------------------------ |
 | Regression     | $\frac{1}{2}(y_i-f(\mathbf x_i))^2$ | $y_i-f(\mathbf x_i)$                                   |
-| Regression     | $|y_i-f(\mathbf x_i)|$              | $\text{sign} (y_i-f(\mathbf x_i))$                     |
+| Regression     | $\mid y_i-f(\mathbf x_i)\mid$       | $\text{sign} (y_i-f(\mathbf x_i))$                     |
 | Regression     | Huber                               |                                                        |
 | Classification | Deviance                            | $k$th component: $\mathbb I(y_i=c_k)-P_k(\mathbf x_i)$ |
 
@@ -1555,7 +1555,7 @@ T_m(\mathbf x;\Theta)=\sum_{j=1}^Jc_j\mathbb I(\mathbf x\in R_j)
 $$
 参数 $\Theta=\{(R_1,c_1),(R_2,c_2),\cdots,(R_J,c_J)\}$ 表示树的区域划分和对应的值，$J$ 表示叶节点的个数。
 
-然后，定义树的复杂度 $\Omega$ ：包含叶子节点的数量 $J$ 和叶子节点权重向量的 $l_2$ 范数
+然后，定义树的复杂度 $\Omega$ ：包含叶子节点的数量 $J$ 和叶子节点权重向量的 $\ell_2$ 范数
 $$
 \Omega(T_m)=\gamma J+\frac{1}{2}\lambda\sum_{j=1}^Jc_j^2
 $$
