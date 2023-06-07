@@ -109,7 +109,7 @@ $$
 
 性质：
 (1) 设 $Y∼ χ^2(n)$，则 $\mathbb E(Y)=n,D(Y)=2n$
-(2) 分布的可加性：设 $Y_1∼ χ^2(n_1),Y_2∼ χ^2(n_2)$，且$Y_1,Y_2$相互独立，则 $Y_1+Y_2∼ χ^2(n_1+n_2)$
+(2) 分布的可加性：$\text{For ind. }Y_1,Y_2,\text{ if } Y_1∼ χ^2(n_1),Y_2∼ χ^2(n_2),\text{ then }Y_1+Y_2∼ χ^2(n_1+n_2)$ 
 推广：设$Y_1,Y_2,\cdots,Y_m$相互独立，且 $Y_i∼ χ^2(n_i)$，则 $\displaystyle\sum_{i=1}^{m}Y_i∼ χ^2(\sum_{i=1}^{m}n_i)$
 
 ==t 分布==(t-distribution)：设 $X∼ N(0,1),Y∼ χ^2(n)$，且 X与 Y 相互独立，则称随机变量
@@ -457,6 +457,7 @@ $$
 > 百度百科：[非参数检验(Nonparametric tests)](https://baike.baidu.com/item/%E9%9D%9E%E5%8F%82%E6%95%B0%E6%A3%80%E9%AA%8C/6910745?fr=aladdin)
 
 ==Pearson $χ^2$ 拟合优度检验==(Goodness of Fit Test)
+
 拟合优度检验是用卡方统计量根据样本数据，推断总体分布与期望分布或某一理论分布是否存在显著差异，是一种吻合性检验，通常适于对有多项分类值的总体分布的分析。它的原假设是：样本来自的总体分布与期望分布或某一理论分布无差异。
 
 设总体 $X∼ F(x)，F(x)$未知，检验假设 $H_0:F(x)=F_0(x)\quad ∀ x\in\R$，其中 $F_0(x)$为已知分布函数。
@@ -480,6 +481,7 @@ $\implies \displaystyle\sum^{k}_{i=1}C_i(n_i/n-p_i)^2$ 应偏小
 注：根据实践，要求 $n⩾ 50,np_i(或n\hat p_i)⩾ 5$。否则应适当合并相邻的类，以满足要求。
 
 ==Pearson $χ^2$ 独立性检验==(test of independence)
+
 考虑二维总体 $(X,Y)∼ F(x,y)$，且 $X∼ F_1(x),Y∼ F_2(y)$，$(X_1,Y_1),(X_2,Y_2),\cdots,(X_n,Y_n)$是来自总体的样本
 检验假设 $H_0:X,Y$ 独立，$H_1:X,Y$不独立
 即 $H_0:F(x,y)=F_1(x)F_2(y)\quad H_1:F(x,y)\neq F_1(x)F_2(y)$
@@ -509,6 +511,7 @@ $p_{i\bullet}=\displaystyle\sum^{s}_{j=1}p_{ij},\quad p_{\bullet j}=\displaystyl
 拒绝域为 $χ^2⩾ χ^2_{α}((r-1)(s-1))$
 
 ==偏度、峰度检验==
+
 Pearson $χ^2$ 检验方法适合于一般的总体分布，但若总体分布为正态分布，其犯第 $\mathrm{II}$ 类错误的概率往往比较高。为此统计学家们对检验正态总体的方法进行了比较，通过大量模拟运算的结果，认为检验正态分布以偏度和峰度检验法和[夏皮罗-威尔克检验(Shapiro–Wilk test)](https://blog.csdn.net/lvsehaiyang1993/article/details/80473265)最为有效。
 
 随机变量 $X$ 的偏度和峰度为标准变化量 $Y=\cfrac{X-\mathbb E(X)}{\sqrt{D(X)}}$ 的三阶矩和四阶矩。
@@ -528,11 +531,13 @@ $G_2\xrightarrow{P}ν_2\quad (n\to∞)$
 $|U_1|,|U_2|$的观察值 $|u_1|,|u_2|$不应与$ν_1=0,ν_2=3$ 偏离过大，取显著性水平为 $α$，可求得拒绝域为 $|u_1|⩾ z_{α/4}或|u_2|⩾ z_{α/4}$
 
 ==K-S 检验==
+
 单样本K-S检验方法能够利用样本数据推断样本来自的总体是否服从某一理论分布，是一种拟合优度的检验方法，适用于探索连续型随机变量的分布。原假设是：样本来自的总体与指定的理论分布无显著差异。
 K-S检验不仅能够检验单个总体是否服从某一理论分布，还能够检验两总体分布是否存在显著差异。其原假设是：两组独立样本来自的两总体的分布无显著差异。
 这里是以变量值的秩作为分析对象，而非变量值本身。
 
 ==秩和检验==(Rank Sum Test)
+
 如果两个样本来自两个独立的但非正态或形态不清的两总体，要检验两样本之间的差异是否显著，不应运用参数检验中的T检验，而需采用秩和检验。
 秩和检验方法最早是由维尔克松(Wilcoxon)提出，叫维尔克松两样本检验法。后来曼—惠特尼将其应用到两样本容量不等($n_1\ne n_2$)的情况，因而又称为Mann-Whitney U test。这种方法主要用于比较两个独立样本的差异。
 
@@ -582,7 +587,7 @@ $|z|⩾ z_{α/2},\quad z⩾ z_{α},\quad z⩽ -z_{α}$
 
 ## 单因素方差分析
 
-单因素方差分析(One-factor analysis of variance)：设因素 $A$ 有 $r$ 个水平 $A_1,A_2,\cdots,A_r$，在水平 $A_i$下进行 $n_i(n_i⩾ 2)$次试验，得到如下结果，我们假定各个水平下的样本符合正态分布，且方差相等（均值和方差均未知），且不同水平下样本之间相互独立。
+单因素方差分析(One-factor ANOVA)：设因素 $A$ 有 $r$ 个水平 $A_1,A_2,\cdots,A_r$，在水平 $A_i$下进行 $n_i(n_i⩾ 2)$次试验，得到如下结果
 水平|观察结果|样本均值
 :---|:---|:---|
 $A_1: N(μ_1,σ^2)$| $X_{11},X_{12},\cdots,X_{1n_1}$| $\bar X_{1\bullet}$
@@ -590,14 +595,15 @@ $A_2: N(μ_2,σ^2)$| $X_{21},X_{22},\cdots,X_{2n_2}$| $\bar X_{2\bullet}$
 $\cdots$| $\cdots$| $\cdots$
 $A_r: N(μ_r,σ^2)$| $X_{r1},X_{r2},\cdots,X_{rn_r}$| $\bar X_{r\bullet}$
 
-由于 $X_{ij}∼ N(μ_i,σ^2)$，即有 $X_{ij}-μ_i∼ N(0,σ^2)$，故 $ϵ_{ij}=X_{ij}-μ_i$可看做随机误差。各总体间相互独立.。因此， 有如下的数学模型
-$\begin{cases}
+我们假定各个水平下的样本符合正态分布，且方差相等（均值和方差均未知），且不同水平下样本之间相互独立。即 $X_{ij}∼ N(μ_i,σ^2)$，则有
+$$
+\begin{cases}
 X_{ij}=μ_i+ϵ_{ij} \\
- ϵ_{ij}∼  N(0,σ^2),\quad 各ϵ_{ij}独立  \\
-i=1,2,\cdots,r \\
-j=1,2,\cdots,n_i
-\end{cases}$
-记 $n=\displaystyle\sum_{i=1}^{r}n_i$
+ϵ_{ij}∼N(0,σ^2) 
+\end{cases} \\
+\text{s.t. } ϵ_{ij}\text{ are i.i.d}
+$$
+其中 $i=1,2,\cdots,r;\quad j=1,2,\cdots,n_i$ 。记 $n=\displaystyle\sum_{i=1}^{r}n_i$
 
 方差分析的任务是对上述模型：
  - 比较这 $r$ 个总体的均值差异，即检验假设 $H_0:μ_1=μ_2=\cdots=μ_r,\quad H_1:μ_1,μ_2,\cdots,μ_r$不全相等
@@ -606,22 +612,31 @@ j=1,2,\cdots,n_i
 (1) 为了便于讨论，我们引入加权平均值 $μ=\displaystyle\frac{1}{n}\sum_{i=1}^{r}n_iμ_i$，称为==总平均==(total mean)。
 再引入 $δ_i=μ_i-μ$，称为水平 $A_i$ 的==效应==(effect)。此时 $\displaystyle\sum_{i=1}^{r}n_iδ_i=0$
 于是上述模型可改写为
-$\begin{cases}
+$$
+\begin{cases}
 X_{ij}=μ+δ_i+ϵ_{ij} \\
- ϵ_{ij}∼  N(0,σ^2),\quad 各ϵ_{ij}独立  \\
-i=1,2,\cdots,r \\
-j=1,2,\cdots,n_i \\
- \displaystyle\sum_{i=1}^{r}n_iδ_i=0 
-\end{cases}$
+ϵ_{ij}∼N(0,σ^2) 
+\end{cases} \\
+\text{s.t. } ϵ_{ij}\text{ are i.i.d} \\
+\sum_{i=1}^{r}n_iδ_i=0
+$$
 假设等价于 $H_0:δ_1=δ_2=\cdots=δ_r=0,\quad H_1:δ_1,δ_2,\cdots,δ_r$不全为零
-(2) 平方和分解
-引入总偏差平方和$\displaystyle S_T=\sum_{i=1}^{r}\sum_{j=1}^{n_i}(X_{ij}-\bar X)^2$，能反应全部数据间的差异，称为==总离差平方和==(total sum of deviation square)。其中$\displaystyle\bar X=\frac{1}{n}\sum_{i=1}^{r}\sum_{j=1}^{n_i}X_{ij}$是数据的总平均。
-$S_T$ 可分解为两部分 
-一部分是有因素 $A$ 引起的差异，称为==效应平方和==(sum of squares of effects) $S_A=\displaystyle\sum_{i=1}^{r}(X_{i\bullet}-\bar X)^2$
-另一部分则由随机误差所引起的差异，称为==误差平方和==(sum of squares of errors) $S_E=\displaystyle\sum_{i=1}^{r}\sum_{j=1}^{n_i}(X_{ij}-X_{i\bullet})^2$
+
+(2) 平方和分解：引入==总离差平方和==(sum of squares for total)，反应全部数据间的差异
+$$
+S_T=\sum_{i=1}^{r}\sum_{j=1}^{n_i}(X_{ij}-\bar X)^2
+$$
+其中$\displaystyle\bar X=\frac{1}{n}\sum_{i=1}^{r}\sum_{j=1}^{n_i}X_{ij}$是数据的总平均。$S_T$ 可分解为两部分 $S_T=S_A+S_E$
+一部分是有因素 $A$ 引起的差异，称为==组间平方和==(sum of squares for factor A)，也称为效应平方和
+$$
+S_A=\displaystyle\sum_{i=1}^{r}(X_{i\bullet}-\bar X)^2
+$$
+另一部分则由随机误差所引起的差异，称为==误差平方和==(sum of squares for error) ，也称组内平方和。
+$$
+S_E=\displaystyle\sum_{i=1}^{r}\sum_{j=1}^{n_i}(X_{ij}-X_{i\bullet})^2
+$$
 其中水平 $A_i$ 下的样本均值 $\bar X_{i\bullet}=\displaystyle\frac{1}{n_i}\sum_{j=1}^{n_i}X_{ij}$
 (3) 拒绝域
-$S_T=S_A+S_E$
 $S_E/σ^2∼ χ^2(n-r)$
 $S_A$与$S_E$相互独立
 当 $H_0$为真时，$S_A/σ^2∼ χ^2(r-1),\dfrac{S_A/(r-1)}{S_E/(n-r)}∼ F(r-1,n-r)$
@@ -655,15 +670,14 @@ b. 检验假设 $H_0:μ_i=μ_j,\quad H_1:μ_i\neqμ_j$
 ==方差分析的前提==
 (1) 独立性：数据是来自r 个独立总体的简单随机样本.
 (2) 正态性： r 个独立总体均为正态总体.
-(3) 方差齐性： r 个正态总体的方差是相同
+(3) 方差齐性：r 个正态总体的方差是相同
 方差分析和其它统计推断一样，样本的独立性对方差分析是非常重要的，在实际应用中会经常遇到非随机样本的情况，这时使用方差分析得出的结论不可靠。
 在实际中，几乎没有一个总体真正服从正态分布，而方差分析却依赖于正态性假设，不过根据经验，方差分析F检验对正态性的假设并不是非常敏感，即实际所得到的数据，若没有异常值和偏性， 或者说， 数据显示的分布比较对称的话， 即使样本容量比较小(如每个水平下的样本容量仅为5左右)， 方差分析的结果仍是值得依赖的。
 方差齐性对于方差分析是非常重要的， 方差齐性的检验可采用如下的经验准则：当最大样本标准差不超过最小样本标准差的两倍时， 方差分析F检验结果近似正确。
 
 ## 双因素方差分析
 
-**双因素等重复试验的方差分析** 
-设有两个因素作用于试验指标，因素 $A$ 有 $r$ 个水平 $A_1,A_2,\cdots,A_r$，因素 $B$ 有 $s$ 个水平 $B_1,B_2,\cdots,B_s$，在水平 $(A_i,B_j)$下都进行 $t(t ⩾ 2)$次试验，得到如下结果
+**双因素等重复试验的方差分析** ：设有两个因素作用于试验指标，因素 $A$ 有 $r$ 个水平 $A_1,A_2,\cdots,A_r$，因素 $B$ 有 $s$ 个水平 $B_1,B_2,\cdots,B_s$，在水平 $(A_i,B_j)$下都进行 $t(t ⩾ 2)$次试验，得到如下结果
 
 因素A / 因素B|$B_1$|$B_2$|$\cdots$|$B_s$|
 ---|---|---|---|---|
@@ -673,57 +687,73 @@ $\vdots$| $\vdots$| $\vdots$| |$\vdots$
 $A_r$| $X_{r11},X_{r12},\cdots,X_{r1t}$| $X_{r21},X_{r22},\cdots,X_{r2t}$|$\cdots$|$X_{rs1},X_{rs2},\cdots,X_{rst}$|$\cdots$
 
 并设 $X_{ijk}∼ N(μ_{ij},σ^2)$，且方差相等（均值和方差均未知），且不同水平下样本之间相互独立。或写成如下的数学模型
-$\begin{cases}
+$$
+\begin{cases}
 X_{ijk}=μ_{ij}+ϵ_{ijk} \\
- ϵ_{ijk}∼  N(0,σ^2),\quad 各ϵ_{ijk}独立  \\
-i=1,2,\cdots,r ;\quad j=1,2,\cdots,s ;\quad k=1,2,\cdots,t \\
-\end{cases}$
+ϵ_{ijk}∼ N(0,σ^2)
+\end{cases} \\
+\text{s.t. } ϵ_{ijk}\text{ are i.i.d}
+$$
+其中 $i=1,2,\cdots,r ;\quad j=1,2,\cdots,s ;\quad k=1,2,\cdots,t$
 引入记号 
-$\displaystyle μ=\frac{1}{rs}\sum_{i=1}^{r}\sum_{j=1}^{s}μ_{ij} \\
+$$
+μ=\frac{1}{rs}\sum_{i=1}^{r}\sum_{j=1}^{s}μ_{ij} \\
 μ_{i\bullet}=\frac{1}{s}\sum_{j=1}^{s}μ_{ij} \quad(i=1,2,\cdots,r)\\
 μ_{\bullet j}=\frac{1}{r}\sum_{i=1}^{r}μ_{ij} \quad(j=1,2,\cdots,s)\\
 α_i=μ_{i\bullet}-μ \quad(i=1,2,\cdots,r)\\
-β_j=μ_{\bullet j}-μ  \quad(j=1,2,\cdots,s)$
-易见 $\displaystyle\sum_{i=1}^{r}α_i=0,\quad\sum_{j=1}^{s}β_j=0$
-称 $μ$ 为==总平均==，$α_i$为水平 $A_i$ 的==效应==，$β_j$为水平 $B_j$ 的==效应==，这样可将 $μ_{ij}$ 表示为
-$μ_{ij}=μ+α_i+β_j+γ_{ij}$
-$γ_{ij}=μ_{ij}-μ_{i\bullet}-μ_{\bullet j}+μ$ 称为水平$A_i$和水平$β_j$的==交互效应==(interaction)。这是有两个因素联合起来搭配作用而引起的。
-易见 $\displaystyle\sum_{i=1}^{r}γ_{ij}=0,\quad\sum_{j=1}^{s}γ_{ij}=0$
+β_j=μ_{\bullet j}-μ  \quad(j=1,2,\cdots,s)
+$$
+易见 $\sum_{i=1}^{r}α_i=0,\quad\sum_{j=1}^{s}β_j=0$ 。称 $μ$ 为==总平均==，$α_i$为水平 $A_i$ 的==效应==，$β_j$为水平 $B_j$ 的==效应==，这样可将 $μ_{ij}$ 表示为
+$$
+μ_{ij}=μ+α_i+β_j+γ_{ij}
+$$
+$γ_{ij}=μ_{ij}-μ_{i\bullet}-μ_{\bullet j}+μ$ 称为水平$A_i$和水平$β_j$的==交互效应==(interaction)。这是有两个因素联合起来搭配作用而引起的。易见 $\sum_{i=1}^{r}γ_{ij}=0,\quad\sum_{j=1}^{s}γ_{ij}=0$
+
 于是上述模型可改写为
-$\begin{cases}
+$$
+\begin{cases}
 X_{ij}=μ+α_i+β_j+γ_{ij}+ϵ_{ijk} \\
- ϵ_{ij}∼  N(0,σ^2),\quad 各ϵ_{ij}独立  \\
-i=1,2,\cdots,r ;\quad j=1,2,\cdots,s ;\quad k=1,2,\cdots,t \\
-\displaystyle\sum_{i=1}^{r}α_i=0,\quad\sum_{j=1}^{s}β_j=0 ,\quad\sum_{i=1}^{r}γ_{ij}=0,\quad\sum_{j=1}^{s}γ_{ij}=0
-\end{cases}$
+ϵ_{ij}∼N(0,σ^2) \\
+\end{cases} \\
+\text{s.t. } ϵ_{ij}\text{ are i.i.d} \\ 
+\sum_{i=1}^{r}α_i=0,\quad\sum_{j=1}^{s}β_j=0 ,\quad\sum_{i=1}^{r}γ_{ij}=0,\quad\sum_{j=1}^{s}γ_{ij}=0
+$$
 其中 $μ,α_i,β_j,γ_{ij}$ 都是未知参数。
+
 对于这个模型我们要检验三个假设：
 $H_{01}:α_1=α_2=\cdots=α_r=0,\quad H_{11}:α_1,α_2,\cdots,α_r$不全为零
 $H_{02}:β_1=β_2=\cdots=β_s=0,\quad H_{12}:β_1,β_2,\cdots,β_s$不全为零
 $H_{03}:γ_{ij}=0,\quad H_{13}:γ_{ij}$不全为零
 
 与单因素类似，这些问题也建立在平方和分解上，先引入
-$\displaystyle \bar X=\frac{1}{rst}\sum_{i=1}^{r}\sum_{j=1}^{s}\sum_{k=1}^{t}X_{ijk} \\
+$$
+\bar X=\frac{1}{rst}\sum_{i=1}^{r}\sum_{j=1}^{s}\sum_{k=1}^{t}X_{ijk} \\
 \bar X_{ij\bullet}=\frac{1}{t}\sum_{k=1}^{t}X_{ijk} \quad(i=1,2,\cdots,r ;\quad j=1,2,\cdots,s)\\
 \bar X_{i\bullet\bullet}=\frac{1}{st}\sum_{j=1}^{s}\sum_{k=1}^{t}X_{ijk}  \quad(i=1,2,\cdots,r)\\
-\bar X_{\bullet j\bullet}=\frac{1}{rt}\sum_{i=1}^{r}\sum_{k=1}^{t}X_{ijk}  \quad(j=1,2,\cdots,s)$
-
-==总偏差平方和==$\displaystyle S_T=\sum_{i=1}^{r}\sum_{j=1}^{s}\sum_{k=1}^{t}(X_{ijk}-\bar X)^2$
+\bar X_{\bullet j\bullet}=\frac{1}{rt}\sum_{i=1}^{r}\sum_{k=1}^{t}X_{ijk}  \quad(j=1,2,\cdots,s)
+$$
+==总偏差平方和==
+$$
+S_T=\sum_{i=1}^{r}\sum_{j=1}^{s}\sum_{k=1}^{t}(X_{ijk}-\bar X)^2
+$$
 平方和的分解式 $S_T=S_E+S_A+S_B+S_{A× B}$
-$\displaystyle S_E=\displaystyle\sum_{i=1}^{r}\sum_{j=1}^{s}\sum_{k=1}^{t}( X_{ijk}-\bar X_{ij\bullet})^2 \\
+$$
+S_E=\displaystyle\sum_{i=1}^{r}\sum_{j=1}^{s}\sum_{k=1}^{t}( X_{ijk}-\bar X_{ij\bullet})^2 \\
 S_A=st\sum_{i=1}^{r}(\bar X_{i\bullet\bullet}-\bar X)^2 \\
 S_B=rt\sum_{j=1}^{s}(\bar X_{\bullet j\bullet}-\bar X)^2 \\
-S_{A× B}=t\sum_{i=1}^{r}\sum_{j=1}^{s}(\bar X_{ij\bullet}-\bar X_{i\bullet\bullet}-\bar X_{\bullet j\bullet}+\bar X)^2$
-$S_E$称为==误差平方和==，$S_A,S_B$称为因素  $A,B$ 的==效应平方和==，$S_{A× B}$称为 $A,B$ ==交互效应平方和==。
+S_{A× B}=t\sum_{i=1}^{r}\sum_{j=1}^{s}(\bar X_{ij\bullet}-\bar X_{i\bullet\bullet}-\bar X_{\bullet j\bullet}+\bar X)^2
+$$
+$S_E$称为==误差平方和==，$S_A,S_B$ 称为因素  $A,B$ 的==效应平方和==，$S_{A× B}$称为 $A,B$ ==交互效应平方和==。
 
 且可以证明下列
-$\displaystyle
+$$
 E\left(\dfrac{S_E}{rs(t-1)}\right)=σ^2\\ 
 E\left(\dfrac{S_A}{r-1}\right)=σ^2+\dfrac{st}{r-1}\sum_{i=1}^{r}α_i^2 \\
 E\left(\dfrac{S_B}{s-1}\right)=σ^2+\dfrac{rt}{s-1}\sum_{j=1}^{s}β_j^2 \\
-E\left(\dfrac{S_{A× B}}{(r-1)(s-1)}\right)=σ^2+\dfrac{t}{(r-1)(s-1)}\sum_{i=1}^{r}\sum_{j=1}^{s}γ_{ij}^2$
-
+E\left(\dfrac{S_{A× B}}{(r-1)(s-1)}\right)=σ^2+\dfrac{t}{(r-1)(s-1)}\sum_{i=1}^{r}\sum_{j=1}^{s}γ_{ij}^2
+$$
 ==双因素试验方差分析表==
+
 方差来源|平方和 SumSquare|自由度 df|均方 MS|F
 :---|:---|:---|:---|:---
 因素A(组间)|$S_A$|$r-1$|$MS_A=\dfrac{S_A}{(r-1)}$|$F_A=MS_A/MS_E$
@@ -733,16 +763,16 @@ E\left(\dfrac{S_{A× B}}{(r-1)(s-1)}\right)=σ^2+\dfrac{t}{(r-1)(s-1)}\sum_{i=1}
 总和|$S_T$|$rst-1$||
 
 当 $H_{01}$为真时，可以证明
-$F_A∼ F(r-1,rs(t-1)) \\
- F_B∼ F(s-1,rs(t-1)) \\
- F_{A× B}∼ F((r-1)(s-1),rs(t-1))$
-
+$$
+F_A∼F(r-1,rs(t-1)) \\
+ F_B∼F(s-1,rs(t-1)) \\
+ F_{A× B}∼F((r-1)(s-1),rs(t-1))
+$$
 假设 $H_{01}$的拒绝域为 $F_A ⩾ F_α(r-1,rs(t-1))$
 假设 $H_{02}$的拒绝域为 $F_B ⩾ F_α(s-1,rs(t-1))$
 假设 $H_{03}$的拒绝域为 $F_{A× B} ⩾ F_α((r-1)(s-1),rs(t-1))$
 
-**双因素无重复试验的方差分析**
-在以上的讨论中，我们考虑了双因素实验中两个因素的交互作用，为了检验交互作用的效应是否显著，对于两个因素的每个组合 $(A_i,B_j)$ 至少要做两次试验，如果在实际问题中已经知道不存在交互作用，或效应很小，此时可以不考虑交互作用。每组制作一次试验 $k=1$ 也能分析因素 $A,B$ 的效应，此时称为无重复实验的方差分析。
+**双因素无重复试验的方差分析**：在以上的讨论中，我们考虑了双因素实验中两个因素的交互作用，为了检验交互作用的效应是否显著，对于两个因素的每个组合 $(A_i,B_j)$ 至少要做两次试验，如果在实际问题中已经知道不存在交互作用，或效应很小，此时可以不考虑交互作用。每组制作一次试验 $k=1$ 也能分析因素 $A,B$ 的效应，此时称为无重复实验的方差分析。
 
 # 回归分析
 

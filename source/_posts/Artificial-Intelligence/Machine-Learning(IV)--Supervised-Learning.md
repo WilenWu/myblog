@@ -378,7 +378,7 @@ Perceptron 是另一种适用于大规模学习的简单分类算法。
 
 线性判别分析（Linear Discriminant Analysis，LDA）亦称 Fisher 判别分析。其基本思想是：将训练样本投影到一条直线上，使得同类的样例尽可能近，不同类的样例尽可能远。如图所示：
 
-## k近邻算法
+## 最近邻算法
 
 KNN
 
@@ -1018,7 +1018,9 @@ f_{\mathbf{w},b}(\mathbf{x})=\sum_{i=1}^N(\alpha_i-\alpha_i')K(\mathbf x_i,\math
 $$
 能使上式中的 $\alpha_i-\alpha_i'\neq 0$ 的样本即为 SVR 的支持向量，它们必落在 $\epsilon$ 间隔带之外。显然，SVR 的支持向量仅是训练样本的一部分，即其解仍具有稀疏性。
 
-#  贝叶斯分类器
+# 高斯过程
+
+#  朴素贝叶斯
 
 # 多分类和多标签
 
