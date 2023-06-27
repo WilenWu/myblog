@@ -3,7 +3,7 @@
 var shell_exec = function(){  
   var child_process = require('child_process');
   var iconv = require('iconv-lite'); // 解决中文乱码
-  var encoding = 'cp936';  // 解决中文乱码
+  var encoding = 'utf-8';  // 解决中文乱码
   var binaryEncoding = 'binary';  // 解决中文乱码
   const command = 'python ./python_files/guide_update.py';
   child_process.exec(command, { encoding: binaryEncoding }, function(error,stdout,stderr){

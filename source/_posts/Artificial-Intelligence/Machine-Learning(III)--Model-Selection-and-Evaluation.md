@@ -220,7 +220,7 @@ $$
 $$
 \text{var}(\hat y)=\mathbb E(\hat y-\mathbb E(\hat y))^2
 $$
-**噪声**(noise)度量数据集 $D$ 观察到的真实值的误差
+**噪声**(noise)度量数据集 $D$ 观察值和真实值间的误差
 $$
 \epsilon^2=\mathbb E(y_D-y)^2
 $$
@@ -364,6 +364,10 @@ $$
 | --------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **macro** | $\displaystyle\frac{1}{n}\sum_{i=1}^{n}P_i$                  | $\displaystyle\frac{1}{n}\sum_{i=1}^{n}R_i$                  | $\displaystyle\cfrac{2\times\text{macro-}P\times\text{macro-}R}{\text{macro-}P+\text{macro-}R}$ |
 | **micro** | $\displaystyle\frac{\overline{TP}}{\overline{TP}+\overline{FP}}$ | $\displaystyle\frac{\overline{TP}}{\overline{TP}+\overline{FN}}$ | $\displaystyle\cfrac{2\times\text{micro-}P\times\text{micro-}R}{\text{micro-}P+\text{micro-}R}$ |
+
+**Cohen's Kappa score** 是专门针对多分类问题中类别不均衡的问题设计的，用来替代简单的accuracy指标的，该指标**考虑了模型偶然预测准确某一个类别的可能性**，可以一定程度上防止模型因为数据集类别不均衡而导致的偏见。是一种更加鲁棒、有效的度量方式。
+
+**Matthew's correlation coefficient（MCC）**用于多分类模型的性能评价时，同样可以**无视类别不均衡问题**，为模型给出准确、全面的评估。该指标将TP，TN，FP，FN都纳入指标构建的范畴，一些科学家认为 MCC 是在混淆矩阵中建立的最佳的分类器性能评价指标。
 
 ## 回归问题
 

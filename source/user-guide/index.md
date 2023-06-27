@@ -62,11 +62,14 @@ header_color: true
 
 ## Machine Learning
 
-- :ballot_box_with_check: [机器学习(I)--引言](/posts/8638abf9/)
+- :ballot_box_with_check: [机器学习(I)--基础知识](/posts/8638abf9/)
 - :ballot_box_with_check: [机器学习(II)--数据预处理](/posts/5faa8f40/)
 - :ballot_box_with_check: [机器学习(III)--模型选择与评估](/posts/cc734464/)
 - :ballot_box_with_check: [机器学习(IV)--监督学习](/posts/3c1747d9/)
 - :ballot_box_with_check: [机器学习(V)--无监督学习](/posts/43ce4abf/)
+- :ballot_box_with_check: 机器学习(VI)--概率图模型
+- :ballot_box_with_check: 机器学习(VII)--强化学习
+- :ballot_box_with_check: 机器学习(VIII)--半监督学习
 
 ## Deep Learning
 
@@ -78,7 +81,7 @@ header_color: true
 
 - :ballot_box_with_check: [机器学习中的优化](/posts/b0a72714/): 优化是找出函数的最大值或最小值的方法
 - :ballot_box_with_check: [机器学习中的信息论](/posts/8a8bfa9b/)
-- :ballot_box_with_check: [矩阵求导](/posts/99273c32/)
+- :ballot_box_with_check: [机器学习中的矩阵](/posts/99273c32/)
 
 # Big Data
 

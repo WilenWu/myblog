@@ -11,7 +11,6 @@ cover: /img/ML-unsupervised-learning.png
 top_img: /img/artificial-intelligence.jpg
 abbrlink: 43ce4abf
 description:
-date:
 ---
 
 **Unsupervised Learning**：Data only comes with inputs x, but not output labels y. Algorithm has to find structure in the data.
@@ -86,7 +85,7 @@ KMeans超参数：数据标准化（归一化、标准化、无处理）、聚�
 
 对于 $p$ 维多元正态分布 $\mathbf x\sim N(\mathbf\mu,\mathbf\Sigma)$ 的概率密度函数为
 $$
-f(\mathbf x)=\frac{1}{\sqrt{(2\pi)^p|\mathbf\Sigma|}}\exp\left[-\frac{1}{2}(\mathbf x-\mathbf\mu)^T\mathbf\Sigma^{-1}(\mathbf x-\mathbf\mu)\right]
+f(\mathbf x)=\frac{1}{\sqrt{(2\pi)^p|\mathbf\Sigma|}}\exp\left(-\frac{1}{2}(\mathbf x-\mathbf\mu)^T\mathbf\Sigma^{-1}(\mathbf x-\mathbf\mu)\right)
 $$
 其中 $|\mathbf\Sigma|$ 表示协方差矩阵的行列式。$d(\mathbf x,\mathbf\mu)=(\mathbf x-\mathbf\mu)^T\Sigma^{-1}(\mathbf x-\mathbf\mu)$ 为数据点 $\mathbf x$ 与均值之间 $\mathbf\mu$ 的 Mahalanobis 距离。
 
@@ -241,6 +240,14 @@ Gaussian Mixture
 # 流形学习
 
 Manifold learning
+
+# 关联分析
+
+Association Analysis
+
+Apriori algorithm
+
+Apriori算法，FP-growth算法
 
 # 核密度估计
 

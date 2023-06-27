@@ -1,5 +1,5 @@
 ---
-title: 机器学习中的优化
+title: 机器学习中的优化算法
 categories:
   - 'Artificial Intelligence'
   - Appendices

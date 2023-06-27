@@ -18,11 +18,13 @@ description:
 每个样本都有标签的机器学习称为监督学习。根据标签数值类型的不同，监督学习又可以分为回归问题和分类问题。分类和回归是监督学习的核心问题。
 
 - **回归**(regression)问题中的标签是连续值。
-- **分类**(regression)问题中的标签是离散值。分类问题根据其类别数量又可分为二分类（binary classification）和多分类（multi-class classification）问题。
+- **分类**(classification)问题中的标签是离散值。分类问题根据其类别数量又可分为二分类（binary classification）和多分类（multi-class classification）问题。
 
 # 线性回归
 
-## 基本形式
+## 最小二乘法
+
+### 基本形式
 
 给定的数据集  
 $$
@@ -42,23 +44,25 @@ f_{\mathbf{w},b}(\mathbf{x})=\mathbf{w}^T\mathbf{x}+b
 $$
 特征向量 $\mathbf x=(x_1,x_2,\cdots,x_p)^T$，参数 $\mathbf{w}=(w_1,w_2,\cdots,w_p)^T$ 称为系数 (coefficients) 或权重 (weights)，标量 $b$ 称为偏置项(bias) 。求得参数 $\mathbf{w},b$ 后，模型就得以确定。$\mathbf w$ 可以直观表达了各特征在预测中的重要性，因此线性模型有很好的可解释性(comprehensibility) 。
 
-为了计算方便，通常定义 $x_0=1,w_0=b$ 。线性回归模型可简写为
+为了计算方便，线性回归模型可简写为
 $$
 f_{\mathbf{w}}(\mathbf{x}) = \mathbf{w}^T\mathbf{x}
 $$
-其中，特征向量 $\mathbf x=(x_0,x_1,x_2,\cdots,x_p)^T$，权重向量 $\mathbf{w}=(w_0,w_1,w_2,\cdots,w_p)^T$
+其中，特征向量 $\mathbf x=(1,x_1,x_2,\cdots,x_p)^T$，权重向量 $\mathbf{w}=(b,w_1,w_2,\cdots,w_p)^T$
 
-## 最小二乘法
+### 最小二乘法
 
 **普通最小二乘法** (ordinary least squares, OLS) 使用残差平方和来估计参数，使得数据的实际观测值和模型预测值尽可能接近。
 
+> Tip: 在古代汉语中平方称为二乘。
+
 **loss function** ：衡量单个样本预测值 $f_{\mathbf{w}}(\mathbf{x})$ 和真实值 $y$ 之间差异的
 $$
-\text{loss}=(f_{\mathbf{w}}(\mathbf{x})-y)^2
+L(y,f_{\mathbf{w}}(\mathbf{x}))=(f_{\mathbf{w}}(\mathbf{x})-y)^2
 $$
 **cost function** ：衡量样本集的差异 
 $$
-J(\mathbf{w}) = \frac{1}{2N} \sum\limits_{i=1}^{N} \left(f_{\mathbf{w}}(\mathbf{x}_i) - y_i\right)^2
+J(\mathbf{w}) = \frac{1}{2N} \sum\limits_{i=1}^{N} \left(\mathbf{w}^T\mathbf{x}_i - y_i\right)^2
 $$
 为了建立一个不会因训练集变大而变大的代价函数，我们计算均方误差而不是平方误差。额外的 1/2 是为了让后面的计算更简洁些。矩阵形式为
 $$
@@ -107,34 +111,36 @@ $$
 - 假设 $N\geqslant p$ ，这个算法的复杂度为 $O(Np^2)$
 - 如果样本特征的数量太大 (>10k)，模型将执行的非常慢
 
-## 极大似然估计
+### 极大似然估计
 
-对于线性回归来说，也可以假设其为以下模型
+概率学的角度来看，目标变量可看作随机变量。对于线性回归来说，通常假设其服从正态分布
 $$
-f_{\mathbf{w}}(\mathbf{x}) = \mathbf{w}^T\mathbf{x}+e
+y \sim  N(\mathbf{w}^T\mathbf{x}, σ^2)
 $$
-其中，特征向量 $\mathbf x=(x_0,x_1,x_2,\cdots,x_p)^T$，权重向量 $\mathbf{w}=(w_0,w_1,w_2,\cdots,w_p)^T$ 。$e$ 为随机误差，通常假设其服从正态分布 $e∼\mathcal N(0, σ^2)$ 。所以的概率密度函数为
-$$
-\mathbb P(e)=\frac{1}{\sqrt{2\pi}\sigma}\exp(-\frac{e^2}{2\sigma^2})
-$$
-且样本间的误差相互独立 $\mathrm{cov}(e_i,e_j)=0$
+即随机误差服从均值为0的正态分布 $e\sim N(0,σ^2)$ ，且样本间的误差相互独立 $\mathrm{cov}(e_i,e_j)=0$。
 
+目标变量的概率密度函数为
+$$
+\mathbb P(y)=\frac{1}{\sqrt{2\pi}\sigma}\exp(-\frac{(y-\mathbf{w}^T\mathbf{x})^2}{2\sigma^2})
+$$
 **极大似然估计**：(maximum likelihood estimate, MLE) 使得样本误差的联合概率（也称似然函数）取得最大值。为求解方便，对样本联合概率取对数似然函数
 $$
 \begin{aligned}
-\ln L(\mathbf w) &=\ln\prod_{i=1}^N\mathbb P(e_i)=\sum_{i=1}^N\ln\mathbb P(e_i) \\
-&=\sum_{i=1}^N\ln\frac{1}{\sqrt{2\pi}\sigma}\exp(-\frac{(f_{\mathbf{w}}(\mathbf{x}_i) - \mathbf{w}^T\mathbf{x}_i)^2}{2\sigma^2})  \\
-&=N\ln\frac{1}{\sqrt{2\pi}\sigma}-\frac{1}{2\sigma^2}\sum_{i=1}^N(f_{\mathbf{w}}(\mathbf{x}_i) - \mathbf{w}^T\mathbf{x}_i)^2 \\
+\ln L(\mathbf w) &=\ln\prod_{i=1}^N\mathbb P(y_i)=\sum_{i=1}^N\ln\mathbb P(y_i) \\
+&=\sum_{i=1}^N\ln\frac{1}{\sqrt{2\pi}\sigma}\exp(-\frac{(\mathbf{w}^T\mathbf{x}_i-y_i)^2}{2\sigma^2})  \\
+&=N\ln\frac{1}{\sqrt{2\pi}\sigma}-\frac{1}{2\sigma^2}\sum_{i=1}^N(\mathbf{w}^T\mathbf{x}_i-y_i)^2 \\
 \end{aligned}
 $$
 最后，最大化对数似然函数等价于求解
 $$
-\arg\max\limits_{\mathbf w} \ln L(\mathbf{w})=\arg\min\limits_{\mathbf w} \sum_{i=1}^N(f_{\mathbf{w}}(\mathbf{x}_i) - \mathbf{w}^T\mathbf{x}_i)^2
+\arg\max\limits_{\mathbf w} \ln L(\mathbf{w})=\arg\min\limits_{\mathbf w} \sum_{i=1}^N(\mathbf{w}^T\mathbf{x}_i-y_i)^2
 $$
 
 上式与最小二乘法等价。
 
-## 正则化
+## 岭回归和LASSO
+
+### 岭回归
 
 **Ridge** (岭回归) 通过引入 $\ell_2$ 范数正则化(regularization) 项来解决普通最小二乘的过拟合问题
 
@@ -150,6 +156,8 @@ $$
 $$
 其中 $\mathbf I$ 是 $p+1$ 维单位阵。利用$\ell_2$ 范数进行正则化不仅可以抑制过拟合，同时叶避免了 $\mathbf{X^T X}$ 不可逆的问题。
 
+### LASSO
+
 **Lasso** (Least Absolute Shrinkage and Selection Operator) 是一个估计稀疏系数的线性模型。它在某些情况下是有用的，因为它倾向于给出非零系数较少的解，从而有效地减少了给定解所依赖的特征数。 它由一个带有 $\ell_1$ 范数正则项的线性模型组成。
 
 Cost function
@@ -157,6 +165,8 @@ $$
 J(\mathbf{w})=\cfrac{1}{2N}\left(\|\mathbf{Xw-y}\|_2^2+ \alpha \|\mathbf w\|_1\right)
 $$
 Lasso 中一般采用坐标下降法来实现参数估计。由于Lasso回归产生稀疏模型，因此也可以用来进行特征选择。
+
+### 弹性网
 
 **Elastic-Net** 是一个训练时同时用 $\ell_1$ 和  $\ell_2$ 范数进行正则化的线性回归模型。这种组合允许学习稀疏模型，其中很少有权重是非零类。当多个特征存在相关时，弹性网是很有用的。Lasso很可能随机挑选其中之一，而弹性网则可能兼而有之。在这种情况下，要最小化的目标函数
 
@@ -166,6 +176,106 @@ J(\mathbf{w})=\cfrac{1}{2N}\left(\|\mathbf{Xw-y}\|_2^2+ \alpha\rho \|\mathbf w\|
 $$
 
 Elastic-Net 使用坐标下降法来估计参数。
+
+## 贝叶斯线性回归
+
+贝叶斯线性回归（Bayesian linear regression）是使用统计学中贝叶斯推断（Bayesian inference）方法求解的线性回归模型。线性模型的权重系数视为随机变量，并通过先验分布计算其后验分布。
+
+对于贝叶斯线性回归来说，目标变量 $y$ 看作随机变量，服从正态分布
+$$
+y =\mathbf{w}^T\mathbf{x}+e
+$$
+通常假设随机误差服从均值为0的正态分布 $e\sim N(0,σ^2)$ ，且样本间独立同分布。对于数据集 $D=(\mathbf X,\mathbf y)$ ，可记为服从多元正态分布
+$$
+\mathbf y \sim N(\mathbf{Xw},σ^2\mathbf I)
+$$
+其中 $\mathbf I$ 为单位阵。概率密度函数为
+$$
+p(\mathbf y|\mathbf X,\mathbf w)=(\frac{1}{\sqrt{2\pi\sigma^2}})^N\exp\left(-\frac{(\mathbf y-\mathbf{Xw})^T(\mathbf y-\mathbf{Xw})}{2\sigma^2}\right)
+$$
+由贝叶斯定理可推出，权重系数 $\mathbf w$ 的后验概率分布为
+$$
+p(\mathbf w|\mathbf X,\mathbf y)=\frac{p(\mathbf w)p(\mathbf y|\mathbf X,\mathbf w)}{p(\mathbf y|\mathbf X)}
+$$
+根据似然和先验的类型，可用于求解贝叶斯线性回归的方法有三类，即最大后验估计（MAP）、贝叶斯估计（共轭先验）和数值方法。
+
+最大后验估计认为最优参数为后验概率最大的参数。由于$p(\mathbf y|\mathbf X)$与$\mathbf w$ 无关，等价于求解
+$$
+\mathbf w_{MAP}=\arg\max_{\mathbf w} p(\mathbf w)p(\mathbf y|\mathbf X,\mathbf w)
+$$
+贝叶斯估计使用共轭先验求解后验概率分布 $p(\mathbf w|\mathbf X,\mathbf y)$，通常使用期望$\mathbb E(\mathbf w)$ 作为估计值。
+
+(1) 引入权重向量的正态先验分布 $\mathbf w\sim N(0,\sigma^2_w\mathbf I)$，即均值为零独立同分布。
+$$
+p(\mathbf w)=\frac{1}{\sqrt{2\pi\sigma_w^2}}\exp(-\frac{\mathbf w^T\mathbf w}{2\sigma_w^2})
+$$
+可使用最大后验估计。为求解方便，使用对数推导
+$$
+\begin{aligned}
+\mathbf w_{MAP}&=\arg\max_{\mathbf w}\ln p(\mathbf y|\mathbf X,\mathbf w)+\ln p(\mathbf w) \\
+&=\arg\max_{\mathbf w}-\frac{1}{2\sigma^2}\|\mathbf{Xw}-\mathbf y\|_2^2-\frac{\mathbf w^T\mathbf w}{2\sigma_w^2} \\
+&=\arg\min_{\mathbf w} \|\mathbf{Xw-y}\|_2^2+ \frac{\sigma^2}{\sigma_w^2} \|\mathbf w\|_2^2
+\end{aligned}
+$$
+在估计过程中引入了 $\ell_2$ 范数正则化项（先验分布），等价于岭回归。
+
+(2) 引入权重向量的Laplace先验分布 $w_j\sim Laplace(0,b)$，即均值为零独立同分布。
+$$
+p(w_j)=\frac{1}{2b}\exp(-\frac{|w_j|}{b})
+$$
+使用最大后验估计。为求解方便，使用对数推导
+$$
+\begin{aligned}
+\mathbf w_{MAP}&=\arg\max_{\mathbf w}\ln p(\mathbf y|\mathbf X,\mathbf w)+\ln p(\mathbf w) \\
+&=\arg\max_{\mathbf w}-\frac{1}{2\sigma^2}\|\mathbf y-\mathbf{Xw}\|_2^2-\sum_{j=1}^p\frac{|w_j|}{b} \\
+&=\arg\min_{\mathbf w} \|\mathbf{Xw-y}\|_2^2+ \frac{2\sigma^2}{b} \|\mathbf w\|_1
+\end{aligned}
+$$
+在估计过程中引入了 $\ell_2$ 范数正则化项（先验分布），等价于LASSO。
+
+(3) 引入权重向量的共轭先验 $\mathbf w\sim N(0,\Sigma_w)$ ，其中 $\Sigma_w^{-1}=\text{diag}(\lambda_1,\lambda_2,\cdots,\lambda_p)$ ，即权重系数独立分布，方差不同。此时称为**自关联判定**（Automatic Relevance Determination，ARD）回归。
+$$
+p(\mathbf w)=\frac{1}{\sqrt{(2\pi)^p\det \Sigma_w}}\exp\left(-\frac{1}{2}\mathbf w^T\Sigma_w^{-1}\mathbf w\right)
+$$
+则权重向量的联合概率
+$$
+\begin{aligned}
+p(\mathbf w)p(\mathbf y|\mathbf X,\mathbf w) 
+\propto & \exp(-\frac{1}{2}\mathbf w^T\Sigma_w^{-1}\mathbf w)\exp(-\frac{1}{2\sigma^2}(\mathbf{Xw}-\mathbf y)^T(\mathbf{Xw}-\mathbf y)) \\
+\propto&\exp\left(-\frac{1}{2}(\mathbf w^T(\Sigma_w^{-1}+\sigma^{-2}\mathbf X^T\mathbf X)\mathbf w-2\sigma^{-2}\mathbf y^T\mathbf{Xw})\right) \\
+\propto&\exp\left(-\frac{1}{2}(\mathbf w-\Lambda^{-1}\mathbf X^T\mathbf y)^T(\sigma^{-2}\Lambda)(\mathbf w-\Lambda^{-1}\mathbf X^T\mathbf y)\right)
+\end{aligned}
+$$
+
+其中 $\Lambda=\mathbf X^T\mathbf X+\sigma^2\Sigma_w^{-1}$。于是得到$\mathbf w$的后验分布为正态分布
+$$
+\mathbf w|\mathbf X,\mathbf y\sim N(\Lambda^{-1}\mathbf X^T\mathbf y,\sigma^2\Lambda^{-1})
+$$
+权重系数的贝叶斯估计为
+$$
+\hat{\mathbf w}=(\mathbf X^T\mathbf X+\sigma^2\Sigma_w^{-1})^{-1}\mathbf X^T\mathbf y
+$$
+(4) 引入一般的共轭先验 $\mathbf w\sim N(\mu_w,\Sigma_w)$。
+$$
+p(\mathbf w)=\frac{1}{\sqrt{(2\pi)^p\det \Sigma_w}}\exp\left(-\frac{1}{2}(\mathbf w-\mu_w)^T\Sigma_w^{-1}(\mathbf w-\mu_w)\right)
+$$
+则权重向量的联合概率
+$$
+\begin{aligned}
+p(\mathbf w)p(\mathbf y|\mathbf X,\mathbf w) 
+\propto & \exp(-\frac{1}{2}(\mathbf w-\mu_w)^T\Sigma_w^{-1}(\mathbf w-\mu_w))\exp(-\frac{1}{2\sigma^2}(\mathbf{Xw}-\mathbf y)^T(\mathbf{Xw}-\mathbf y)) \\
+\propto&\exp\left(-\frac{1}{2}(\mathbf w-\Lambda^{-1}\mathbf u)^T(\sigma^{-2}\Lambda)(\mathbf w-\Lambda^{-1}\mathbf u)\right)
+\end{aligned}
+$$
+
+其中 $\Lambda=\mathbf X^T\mathbf X+\sigma^2\Sigma_w^{-1},\quad \mathbf u=\mathbf X^T\mathbf y+\sigma^2\Sigma_w^{-1}\mu_w$。于是得到$\mathbf w$的后验分布为正态分布
+$$
+\mathbf w|\mathbf X,\mathbf y\sim N(\Lambda^{-1}\mathbf u,\sigma^2\Lambda^{-1})
+$$
+权重系数的贝叶斯估计为
+$$
+\hat{\mathbf w}=(\mathbf X^T\mathbf X+\sigma^2\Sigma_w^{-1})^{-1}(\mathbf X^T\mathbf y+\sigma^2\Sigma_w^{-1}\mu_w)
+$$
 
 ## 广义线性回归
 
@@ -200,6 +310,43 @@ $$
 
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/polynomial-features.svg" style="zoom: 67%;" />
 
+## 多标签回归
+
+包含多个目标变量的回归任务称为 **Multi-output regression**
+
+**Multi-task Lasso** 是一个估计多任务的稀疏系数的线性模型， $\mathbf Y$ 是一个  $N\times N_{tasks}$ 矩阵。约束条件是，对于所有回归问题（也叫任务），所选的特征是相同的。它混合使用 $\ell_1\ell_2$ 范数作为正则化项。
+
+Cost function
+$$
+J(\mathbf{W})=\cfrac{1}{2N}\left(\|\mathbf{XW-Y}\|^2_{Fro}+ \alpha \|\mathbf W\|_{21}\right)
+$$
+其中 Fro 表示Frobenius范数
+$$
+\mathbf \|\mathbf A\|_{Fro}=\sqrt{\sum_{ij}a^2_{ij}}=\sqrt{\text{tr}(\mathbf A^T\mathbf A)}
+$$
+混合 $\ell_1\ell_2$ 范数
+$$
+\mathbf \|\mathbf A\|_{21}=\sum_i\sqrt{\sum_{j}a^2_{ij}}
+$$
+Multi-task Lasso 也采用坐标下降法来估计参数。
+
+**Multi-task Elastic-Net** 是一个估计多任务的稀疏系数的线性模型， $\mathbf Y$ 是一个  $N\times N_{tasks}$ 矩阵。约束条件是，对于所有回归问题（也叫任务），所选的特征是相同的。它使用混合的 $\ell_1\ell_2$ 范数和$\ell_2$作为正则化项。
+
+Cost function
+$$
+J(\mathbf{W})=\cfrac{1}{2N}\left(\|\mathbf{XW-Y}\|^2_{Fro}+ \alpha\rho \|\mathbf W\|_{21}+ \frac{\alpha(1-\rho)}{2} \|\mathbf W\|_{Fro}^2\right)
+$$
+Multi-task Elastic-Net 也采用坐标下降法来估计参数。
+
+## 泊松回归
+
+泊松回归：预测一个代表频数的响应变量
+
+## Cox 回归
+
+Cox回归的因变量就有些特殊，它不仅考虑结果而且考虑结果出现时间的回归模型。它用一个或多个自变量预测一个事件（死亡、失败或旧病复发）发生的时间。Cox回归的主要作用发现风险因素并用于探讨风险因素的强弱。但它的因变量必须同时有2个，一个代表状态，必须是分类变量，一个代表时间，应该是连续变量。只有同时具有这两个变量，才能用Cox回归分析。
+
+
 # 线性分类
 
 ## Logistic 回归
@@ -210,26 +357,30 @@ $$
 $$
 D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N\}
 $$
-包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T$ 。目标变量 $y_i\in \{0,1\}$ 。逻辑回归试图预测正样本的概率，那我们需要一个输出 $[0,1]$ 区间的激活函数。假设二分类数据集不同类别的特征值服从均值不同、方差相同的正态分布
+包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T$ 。目标变量 $y_i\in \{0,1\}$ 。逻辑回归试图预测正样本的概率，那我们需要一个输出 $[0,1]$ 区间的激活函数。假设二分类数据集服从均值不同、方差相同的正态分布
 $$
 \begin{cases}
-\mathbb P(\mathbf x|y=1)∼\mathcal N(\mathbf \mu_1, \mathbf\Sigma) \\
-\mathbb P(\mathbf x|y=0)∼\mathcal N(\mathbf \mu_0, \mathbf\Sigma)
+\mathbb P(\mathbf x|y=1)=\mathcal N(\mathbf x;\mathbf \mu_1, \mathbf\Sigma) \\
+\mathbb P(\mathbf x|y=0)=\mathcal N(\mathbf x;\mathbf \mu_0, \mathbf\Sigma)
 \end{cases}
 $$
-其中，协方差矩阵$\mathbf\Sigma$ 为对称阵。利用贝叶斯定理，正样本条件概率
+其中，协方差矩阵$\mathbf\Sigma$ 为对称阵。正态分布概率密度函数为
+$$
+\mathcal N(\mathbf x;\mathbf \mu, \mathbf\Sigma)=\frac{1}{\sqrt{(2\pi)^p\det\mathbf\Sigma}}\exp\left(-\frac{1}{2}(\mathbf x-\mathbf\mu)^T\mathbf\Sigma^{-1}(\mathbf x-\mathbf\mu)\right)
+$$
+利用贝叶斯定理，正样本条件概率
 $$
 \mathbb P(y=1|\mathbf x)=\frac{\mathbb P(\mathbf x|y=1)\mathbb P(y=1)}{\mathbb P(\mathbf x|y=0)\mathbb P(y=0)+\mathbb P(\mathbf x|y=1)\mathbb P(y=1)}
 $$
-令 
+令 [^cdot]
 $$
 \begin{aligned}
 z&=\ln\frac{\mathbb P(\mathbf x|y=1)\mathbb P(y=1)}{\mathbb P(\mathbf x|y=0)\mathbb P(y=0)} \\
-&=\frac{1}{2}[(\mathbf x-\mathbf μ_0)^T\mathbf\Sigma^{-1}(\mathbf x-\mathbf μ_0)-(\mathbf x-\mathbf μ_1)^T\mathbf\Sigma^{-1}(\mathbf x-\mathbf μ_1)]+\ln\frac{\mathbb P(y=1)}{\mathbb P(y=0)} \\
-&=(\mathbf μ_1-\mathbf μ_0)^T\mathbf\Sigma^{-1}\mathbf x+\ln\frac{\mathbb P(y=1)}{\mathbb P(y=0)}
+&=-\frac{1}{2}(\mathbf x-\mathbf \mu_1)^T\mathbf\Sigma^{-1}(\mathbf x-\mathbf \mu_1)+\frac{1}{2}(\mathbf x-\mathbf \mu_0)^T\mathbf\Sigma^{-1}(\mathbf x-\mathbf \mu_0)+\ln\frac{\mathbb P(y=1)}{\mathbb P(y=0)} \\
+&=(\mathbf \mu_1-\mathbf \mu_0)^T\mathbf\Sigma^{-1}\mathbf x-\frac{1}{2}\mu_1^T\mathbf\Sigma^{-1}\mu_1+\frac{1}{2}\mu_0^T\mathbf\Sigma^{-1}\mu_0+\ln\frac{\mathbb P(y=1)}{\mathbb P(y=0)} \\
 \end{aligned}
 $$
-由于 $\mathbb P(y=1)$ 和 $\mathbb P(y=0)$ 是先验概率为常数，上式可简化为
+其中先验概率 $\mathbb P(y=1)$ 和 $\mathbb P(y=0)$ 是常数，上式可简化为
 $$
 z=\mathbf w^T\mathbf x+b
 $$
@@ -251,11 +402,11 @@ g(z) = \frac{1}{1+e^{-z}}
 $$
 式中特征向量 $\mathbf x=(x_1,x_2,\cdots,x_p)^T$，参数 $\mathbf{w}=(w_1,w_2,\cdots,w_p)^T$ 称为系数 (coefficients) 或权重 (weights)，标量 $b$ 称为偏置项(bias) 。
 
-为计算方便，引入 $x_0=1,w_0=b$ 。模型简写为
+为计算方便，模型简写为
 $$
 f_{\mathbf{w}}(\mathbf{x}) = \frac{1}{1+\exp(-\mathbf{w}^T\mathbf{x})}
 $$
-其中，特征向量 $\mathbf x=(x_0,x_1,x_2,\cdots,x_p)^T$，权重向量 $\mathbf{w}=(w_0,w_1,w_2,\cdots,w_p)^T$
+其中，特征向量 $\mathbf x=(1,x_1,x_2,\cdots,x_p)^T$，权重向量 $\mathbf{w}=(b,w_1,w_2,\cdots,w_p)^T$
 
 可以通过引入阈值（默认0.5）实现分类预测
 $$
@@ -293,7 +444,7 @@ $$
 因此，可定义 **loss function**  
 $$
 \begin{aligned}
-\text{loss}&=-y\log f_{\mathbf{w}}(\mathbf{x})-(1-y)\log(1-f_{\mathbf{w}}(\mathbf{x})) \\
+L(f_{\mathbf{w}}(\mathbf{x}),y)&=-y\log f_{\mathbf{w}}(\mathbf{x})-(1-y)\log(1-f_{\mathbf{w}}(\mathbf{x})) \\
 &=-y\mathbf{w}^T\mathbf{x}+\log(1+e^{\mathbf{w}^T\mathbf{x}})
 \end{aligned}
 $$
@@ -306,6 +457,31 @@ $$
 $$
 \arg\min\limits_{\mathbf w} J(\mathbf{w})
 $$
+
+### 最大期望算法
+
+**最大期望算法**：（Expectation-Maximization algorithm, EM）与真实分布最接近的模拟分布即为最优分布，因此可以通过最小化交叉熵来求出最优分布。
+
+对任意样本 $(\mathbf x_i,y_i)$，真实分布可写为（真实分布当然完美预测）
+$$
+\mathbb P(y_i|\mathbf x_i)=1
+$$
+模拟分布可写为 
+$$
+\mathbb Q(y_i|\mathbf x_i)=[f_{\mathbf{w}}(\mathbf{x}_i)]^{y}[1-f_{\mathbf{w}}(\mathbf{x}_i)]^{1-y}
+$$
+交叉熵为
+$$
+\begin{aligned}
+H(\mathbb P,\mathbb Q) &=-\sum_{i=1}^N \mathbb P(y_i|\mathbf x_i)\log \mathbb Q(y_i|\mathbf x_i) \\
+&=\sum_{i=1}^{N}(-y_i\mathbf{w}^T\mathbf{x}+\log(1+e^{\mathbf{w}^T\mathbf{x}}))
+\end{aligned}
+$$
+**cost function**
+$$
+J(\mathbf w)=\frac{1}{N}\sum_{i=1}^{N}(-y_i\mathbf{w}^T\mathbf{x}+\log(1+e^{\mathbf{w}^T\mathbf{x}}))
+$$
+与极大似然估计相同。
 
 ### 决策边界
 
@@ -329,6 +505,88 @@ $f(x_1,x_2) = g(x_1^2+x_2^2-36)\text{ where } g(z) = \cfrac{1}{1+e^{-z}}$
 决策边界方程为 $x_1^2+x_2^2-36=0$
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/DecisionBoundary.svg)
+
+## Softmax 回归
+
+### 基本形式
+
+Softmax 回归是 Logistic 回归在多分类（Multi-Class）问题上的推广。给定的数据集  
+$$
+D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N\}
+$$
+包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T$ 。目标变量 $y_i\in \{c_1,c_2,\cdots,c_K\}$​ 。假设$K$个类的数据集服从均值不同、方差相同的正态分布
+$$
+\mathbb P(\mathbf x|y=c_k)=\frac{1}{\sqrt{(2\pi)^p\det\mathbf\Sigma}}\exp\left(-\frac{1}{2}(\mathbf x-\mathbf\mu_k)^T\mathbf\Sigma^{-1}(\mathbf x-\mathbf\mu_k)\right),	\quad k=1,2,\cdots,K
+$$
+其中，协方差矩阵$\mathbf\Sigma$ 为对称阵。利用贝叶斯定理，于类别 $c_k$ 的条件概率为
+$$
+\mathbb P(y=c_k|\mathbf x)=\frac{\mathbb P(\mathbf x|y=c_k)\mathbb P(y=c_k)}{\sum_{s=1}^K\mathbb P(\mathbf x|y=c_s)\mathbb P(y=c_s)}
+$$
+参考Logistic 回归，计算[^cdot]
+$$
+\begin{aligned}
+\phi&=\ln\frac{\mathbb P(\mathbf x|y=c_s)\mathbb P(y=c_s)}{\mathbb P(\mathbf x|y=c_t)\mathbb P(y=c_t)} \\
+&=-\frac{1}{2}(\mathbf x-\mathbf \mu_s)^T\mathbf\Sigma^{-1}(\mathbf x-\mathbf \mu_s)+\frac{1}{2}(\mathbf x-\mathbf \mu_t)^T\mathbf\Sigma^{-1}(\mathbf x-\mathbf \mu_t)+\ln\frac{\mathbb P(y=c_s)}{\mathbb P(y=c_t)} \\
+&=(\mathbf \mu_s-\mathbf \mu_t)^T\mathbf\Sigma^{-1}\mathbf x-\frac{1}{2}(\mu_s^T\mathbf\Sigma^{-1}\mu_s-\mu_t^T\mathbf\Sigma^{-1}\mu_t)+\ln\mathbb P(y=c_s)-\ln\mathbb P(y=c_t) \\
+&=(\mathbf w_s^T+b_s)-(\mathbf w_t^T+b_t)
+\end{aligned}
+$$
+其中
+$$
+\mathbf w_k^T =\mu_k^T\mathbf\Sigma^{-1},\quad b_k =-\frac{1}{2}\mu_k^T\mathbf\Sigma^{-1}\mu_k+\ln\mathbb P(y=c_k)
+$$
+记 $z_k=\mathbf w_k^T\mathbf x+b_k$，则后验概率
+$$
+\begin{aligned}
+\mathbb P(y=c_k|\mathbf x)&=\frac{1}{\sum\limits_{s=1}^K\dfrac{\mathbb P(\mathbf x|y=c_s)\mathbb P(y=c_s)}{\mathbb P(\mathbf x|y=c_k)\mathbb P(y=c_k)}} \\
+&=\frac{1}{\sum_{s=1}^K\exp(z_s-z_k)} \\
+&=\frac{\exp(z_k)}{\sum_{s=1}^K\exp(z_s)}
+\end{aligned}
+$$
+类别 $c_k$ 的条件概率可化简为
+$$
+\mathbb P(y=c_k|\mathbf x)=\text{softmax}(\mathbf w_k^T\mathbf x)=\frac{\exp(\mathbf w_k^T\mathbf x)}{\sum_{k=1}^{K}\exp(\mathbf w_k^T\mathbf x)}
+$$
+其中，参数 $\mathbf{w_k}=(b_k,w_{k1},w_{k2},\cdots,w_{kp})^T$ 是类别 $c_k$ 的权重向量，特征向量 $\mathbf x=(1,x_1,x_2,\cdots,x_p)^T$。
+
+**Model**: Softmax 回归输出每个类别的概率
+$$
+\mathbf f(\mathbf{x};\mathbf W) = \frac{1}{\sum_{k=1}^{K}\exp(\mathbf w_k^T\mathbf x)}\begin{pmatrix}
+\exp(\mathbf w_1^T\mathbf x) \\
+\exp(\mathbf w_2^T\mathbf x) \\
+\vdots \\
+\exp(\mathbf w_K^T\mathbf x) \\
+\end{pmatrix}
+$$
+上式结果向量中最大值的对应类别为最终类别
+$$
+\hat y=\arg\max_{c_k}\mathbf w_k^T\mathbf x
+$$
+
+### 极大似然估计
+
+为了方便起见，我们用 $K$ 维的 one-hot 向量来表示类别标签。若第 $i$ 个样本类别为 $c$，则向量表示为
+$$
+\begin{aligned}
+\mathbf y_i&=(y_{i1},y_{i2},\cdots,y_{iK})^T \\
+&=(\mathbb I(c_1=c),\mathbb I(c_2=c),\cdots,\mathbb I(c_K=c))^T \\
+\end{aligned}
+$$
+对样本联合概率取对数似然函数
+$$
+\begin{aligned}
+\log L(\mathbf W) & =\log\prod_{i=1}^{N} \mathbb P(y_i|\mathbf x_i)=\sum_{i=1}^N\log \mathbb P(y_i|\mathbf x_i) \\
+&=\sum_{i=1}^{N}\log\mathbf y_i^T\mathbf f(\mathbf x_i;\mathbf W)
+\end{aligned}
+$$
+**参数估计**：可通过梯度下降法、牛顿法等求解$K\times(p+1)$权重矩阵 $\mathbf W$
+$$
+\hat{\mathbf W}=\arg\max_{\mathbf W}\sum_{i=1}^{N}\log\mathbf y_i^T\mathbf f(\mathbf x_i;\mathbf W)
+$$
+对数似然函数 $\log L(\mathbf W)$ 关于$\mathbf W$ 的梯度为
+$$
+\frac{\partial \log L(\mathbf W)}{\partial\mathbf W}=\sum_{i=1}^{N}\mathbf x_i(\mathbf y_i-\mathbf f(\mathbf x_i;\mathbf W))^T
+$$
 
 ## 感知机
 
@@ -361,7 +619,6 @@ $$
 \nabla J(\mathbf w)=-\sum_{\mathbf x_i\in M}y_i\mathbf{x}_i
 $$
 
-
 感知机有无穷多个解，其解由于不同的初始值或不同的迭代顺序而有所不同。
 
 Perceptron 是另一种适用于大规模学习的简单分类算法。
@@ -374,11 +631,42 @@ Perceptron 是另一种适用于大规模学习的简单分类算法。
 
 **被动感知算法** (Passive Aggressive Algorithms) 是一种大规模学习的算法。和感知机相似，因为它们不需要设置学习率。然而，与感知器不同的是，它们包含正则化参数。
 
+
 ## 线性判别分析
 
 线性判别分析（Linear Discriminant Analysis，LDA）亦称 Fisher 判别分析。其基本思想是：将训练样本投影到一条直线上，使得同类的样例尽可能近，不同类的样例尽可能远。如图所示：
 
-## 最近邻算法
+## 二次判别分析
+
+
+
+## 多类别分类
+
+**Multi-class classification**：目标变量包含两个以上离散值的分类任务 $y\in\{c_1,c_2,\cdots,c_K\}$。每个样本只能标记为一个类。例如，使用从一组水果图像中提取的特征进行分类，其中每一幅图像都可能是一个橙子、一个苹果或一个梨。每个图像就是一个样本，并被标记为三个可能的类之一。
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/multiclass-classification.svg" style="zoom: 67%;" />
+
+- One-Vs-Rest (OVR) 也称为one-vs-all，为每个类分别拟合一个二分类模型，这是最常用的策略，对每个类都是公平的。这种方法的一个优点是它的可解释性，每个类都可以查看自己模型的相关信息。
+
+- One-Vs-One (OVO) 是对每一对类分别拟合一个二分类模型。在预测时，选择得票最多的类别。在票数相等的两个类别中，它选择具有最高总分类置信度的类别，方法是对由底层二分类器计算的对分类置信度进行求和。
+
+  由于它需要拟合 $\frac{K(K-1)}{2}$ 个分类器，这种方法通常比one-vs-rest要慢，原因就在于其复杂度 O(K^2^) 。然而，这个方法也有优点，比如说是在没有很好的缩放样本数的核方法中。这是因为每个单独的学习问题只涉及一小部分数据，而对于一个 one-vs-rest，完整的数据集将会被使用 K 次。
+
+**One-Vs-Rest**：为每个类分别拟合一个二分类模型
+$$
+f^i_{\mathbf{w},b}(\mathbf{x})=\mathbb P(y=i|\mathbf x;\mathbf w,b)
+$$
+模型预测值，一种方法是选择概率最大的类别
+$$
+\hat y=\arg\max\limits_{i} f^i_{\mathbf{w},b}(\mathbf{x})
+$$
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/one-vs-all.svg)
+
+## 多标签分类
+
+包含多个目标变量的分类任务称为 **Multilabel classification**
+
+# 最近邻算法
 
 KNN
 
@@ -1018,65 +1306,234 @@ f_{\mathbf{w},b}(\mathbf{x})=\sum_{i=1}^N(\alpha_i-\alpha_i')K(\mathbf x_i,\math
 $$
 能使上式中的 $\alpha_i-\alpha_i'\neq 0$ 的样本即为 SVR 的支持向量，它们必落在 $\epsilon$ 间隔带之外。显然，SVR 的支持向量仅是训练样本的一部分，即其解仍具有稀疏性。
 
-# 高斯过程
 
-#  朴素贝叶斯
+#  贝叶斯分类
+## 后验概率最大化
 
-# 多分类和多标签
-
-## 多类别分类任务
-
-**Multiclass classification**：目标变量包含两个以上离散值的分类任务 $y\in\{0,1,2,\cdots,K\}$。每个样本只能标记为一个类。例如，使用从一组水果图像中提取的特征进行分类，其中每一幅图像都可能是一个橙子、一个苹果或一个梨。每个图像就是一个样本，并被标记为三个可能的类之一。
-
-<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/multiclass-classification.svg" style="zoom: 67%;" />
-
-- One-Vs-Rest (OVR) 也称为one-vs-all，为每个类分别拟合一个二分类模型，这是最常用的策略，对每个类都是公平的。这种方法的一个优点是它的可解释性，每个类都可以查看自己模型的相关信息。
-
-- One-Vs-One (OVO) 是对每一对类分别拟合一个二分类模型。在预测时，选择得票最多的类别。在票数相等的两个类别中，它选择具有最高总分类置信度的类别，方法是对由底层二分类器计算的对分类置信度进行求和。
-
-  由于它需要拟合 $\frac{K(K-1)}{2}$ 个分类器，这种方法通常比one-vs-rest要慢，原因就在于其复杂度 O(K^2^) 。然而，这个方法也有优点，比如说是在没有很好的缩放样本数的核方法中。这是因为每个单独的学习问题只涉及一小部分数据，而对于一个 one-vs-rest，完整的数据集将会被使用 K 次。
-
-**One-Vs-Rest**：为每个类分别拟合一个二分类模型
+从概率学讲，特征变量可看作特征空间 $\mathcal X\sube \R^p$ 上的随机向量 $\mathbf X=(X_1,X_2,\cdots,X_p)^T$ ，目标变量可看作输出空间 $\mathcal Y=\{c_1,\cdots,c_K\}$ 上的随机变量 $Y$。数据集  
 $$
-f^i_{\mathbf{w},b}(\mathbf{x})=\mathbb P(y=i|\mathbf x;\mathbf w,b)
+D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N)\}
 $$
-模型预测值，一种方法是选择概率最大的类别
-$$
-\hat y=\arg\max\limits_{i} f^i_{\mathbf{w},b}(\mathbf{x})
-$$
-![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/one-vs-all.svg)
+是由 $\mathbf X$ 和 $Y$ 的联合概率 $\mathbb P(\mathbf X,Y)$ 独立同分布产生。数据集 $D$ 包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T\in\mathcal X$ 。目标变量 $y_i\in\mathcal Y$ 。
 
-## Lasso和Elastic-Net
+在概率框架下，分类任务是基于条件概率 $\mathbb P(Y=y|\mathbf X=\mathbf x)$ 的损失最小化，这个条件概率称为类 $y$ 的**后验概率**（posterior probability）。对于任意样本 $\mathbf x$ ，在每个类别的后验概率分别为 $\mathbb P(Y=c_k|\mathbf X=\mathbf x)$ 。假设模型$f$对样本 $\mathbf x$ 的预测类别为 $f(\mathbf x)=c\in \mathcal Y$ 。则期望损失为
 
-包含多个目标变量的回归任务称为 **Multioutput regression**
+$$
+\mathbb E[L(y,c)]=\sum_{k=1}^K L(c_k,c)\mathbb P(Y=c_k|\mathbf X=\mathbf x)
+$$
+假设选择0-1损失函数 $L(y,f(\mathbf x))=\mathbb I(y\neq f(\mathbf x))$ ，则损失最小化的输出为
+$$
+\begin{aligned}
+\hat y &=\arg\min_{c\in\mathcal Y}\sum_{k=1}^K \mathbb I(c_k\neq c)\mathbb P(Y=c_k|\mathbf X=\mathbf x) \\
+&=\arg\min_{c\in\mathcal Y}\mathbb P(Y\neq c|\mathbf X=\mathbf x) \\
+&=\arg\min_{c\in\mathcal Y} [1-\mathbb P(Y= c|\mathbf X=\mathbf x)] \\
+&=\arg\max_{c\in\mathcal Y} \mathbb P(Y= c|\mathbf X=\mathbf x)
+\end{aligned}
+$$
+即对每个样本$\mathbf x$ ，选择后验概率 $\mathbb P(Y=c|\mathbf X=\mathbf x)$ 最大的类别
+$$
+\hat y=\arg\max_{y\in\mathcal Y} \mathbb P(Y= y|\mathbf X=\mathbf x)
+$$
+期望损失最小化等价于后验概率最大化。
 
-**Multi-task Lasso** 是一个估计多任务的稀疏系数的线性模型， $\mathbf Y$ 是一个  $N\times N_{tasks}$ 矩阵。约束条件是，对于所有回归问题（也叫任务），所选的特征是相同的。它混合使用 $\ell_1\ell_2$ 范数作为正则化项。
+后验概率可由联合概率求得
+$$
+\mathbb P(Y=y|\mathbf X=\mathbf x)=\frac{\mathbb P(\mathbf X=\mathbf x,Y=y)}{\mathbb P(\mathbf X=\mathbf x)}
+$$
+后文中对概率事件 $\mathbf X=\mathbf x$ 及 $Y=y$ 统一用值 $\mathbf x$ 和 $y$ 简写。
+$$
+\mathbb P(y|\mathbf x)=\frac{\mathbb P(\mathbf x,y)}{\mathbb P(\mathbf x)}
+$$
+从概率角度来说，机器学习主要有两种策略：
+- **判别式模型**（discriminative models）：直接通过最小化损失函数学习后验概率分布 $\mathbb P(y|\mathbf x)$ 来预测 $y$。例如，决策树、SVM等。
+- **生成式模型**（generative models）：先学习联合概率分布 $\mathbb P(\mathbf x,y)$ 建模，然后求得后验概率分布 $\mathbb P(y|\mathbf x)$。例如，贝叶斯分类等。
 
-Cost function
+## 贝叶斯定理
+假设 $A,B$​ 是一对随机变量，他们的联合概率和条件概率满足如下关系
 $$
-J(\mathbf{W})=\cfrac{1}{2N}\left(\|\mathbf{XW-Y}\|^2_{Fro}+ \alpha \|\mathbf W\|_{21}\right)
+\mathbb P(A,B)=\mathbb P(A)\mathbb P(B|A)=\mathbb P(B)\mathbb P(A|B)
 $$
-其中 Fro 表示Frobenius范数
+由此可得到**贝叶斯定理**（Bayes’ theorem）
 $$
-\mathbf \|\mathbf A\|_{Fro}=\sqrt{\sum_{ij}a^2_{ij}}=\sqrt{\text{tr}(\mathbf A^T\mathbf A)}
+\mathbb P(B|A)=\frac{\mathbb P(B)\mathbb P(A|B)}{\mathbb P(A)}
 $$
-混合 $\ell_1\ell_2$ 范数
-$$
-\mathbf \|\mathbf A\|_{21}=\sum_i\sqrt{\sum_{j}a^2_{ij}}
-$$
-Multi-task Lasso 也采用坐标下降法来估计参数。
 
-**Multi-task Elastic-Net** 是一个估计多任务的稀疏系数的线性模型， $\mathbf Y$ 是一个  $N\times N_{tasks}$ 矩阵。约束条件是，对于所有回归问题（也叫任务），所选的特征是相同的。它使用混合的 $\ell_1\ell_2$ 范数和$\ell_2$作为正则化项。
-
-Cost function
+以贝叶斯定理为基础的分类方法称为**贝叶斯分类**（Naive Bayes Classifier），是一种典型的生成学习方法。基于贝叶斯定理，后验概率可写为
 $$
-J(\mathbf{W})=\cfrac{1}{2N}\left(\|\mathbf{XW-Y}\|^2_{Fro}+ \alpha\rho \|\mathbf W\|_{21}+ \frac{\alpha(1-\rho)}{2} \|\mathbf W\|_{Fro}^2\right)
+\mathbb P(y|\mathbf x)=\frac{\mathbb P(y)\mathbb P(\mathbf x|y)}{\mathbb P(\mathbf x)}
 $$
-Multi-task Elastic-Net 也采用坐标下降法来估计参数。
+相对地， $\mathbb P(y)$ 称为类 $y$ 的**先验概率**（prior probability），$\mathbb P(\mathbf x|y)$ 称为类 $y$ 的**类条件概率**（class-conditional probability）。在比较不同 $y$ 值的后验概率时，分母$\mathbb P(\mathbf x)$是常数，可以忽略。因此我们可以使用以下分类规则：
+$$
+\hat y=\arg\max_{y}\mathbb P(y)\mathbb P(\mathbf x|y)
+$$
+因此，在训练阶段，我们需要基于训练数据集 $D$ 估计类先验概率 $\mathbb P(c_k)$和类条件概率$\mathbb P(\mathbf x|c_k)$。知道这些概率后，通过找出使后验概率 $\mathbb P(y'|\mathbf x')$ 最大的类 $y'$ 可以对测试记录 $\mathbf x'$ 进行分类。 
 
-## 多标签分类任务
+先验概率 $\mathbb P(c_k)$表达了各类样本所占的比例，根据大数定律，当训练集包含充足的独立同分布样本时，$\mathbb P(c_k)$ 可通过各类样本出现的频率来进行估计。
 
-包含多个目标变量的分类任务称为 **Multilabel classification**
+对类条件概率 $\mathbb P(\mathbf x|c_k)$ 来说，需要估计特征变量 $\mathbf x$ 所有取值和目标变量 $y$ 的所有组合。假设特征 $x_j$ 可取值有 $S_j$ 个，$y$ 可取值有 $K$ 个，那么所有组合的数量为 $K\prod\limits_{j=1}^p S_j$ 。可见类条件概率有指数级的数量，在现实应用中，这个值往往大于训练样本数，用频率来估计显然不可行。
+
+## 朴素贝叶斯
+
+### 条件独立性假设
+
+朴素贝叶斯（Naive Bayes）在估计类条件概率时假设特征之间条件独立
+$$
+\mathbb P(\mathbf x|y)=\mathbb P(x_1,\cdots,x_p|y)=\prod_{j=1}^p\mathbb P(x_j|y)
+$$
+这是一个较强的假设。由于这一假设，模型包含的条件概率的数量大为减少，朴素贝叶斯法的学习与预测大为简化，因而朴素贝叶斯法高效，且易于实现，但同时也会牺牲一定的准确率。
+
+基于条件独立性假设，后验概率可以重写为
+$$
+\mathbb P(y|\mathbf x)=\frac{\mathbb P(y)\prod\limits_{j=1}^p\mathbb P(x_j|y)}{\mathbb P(\mathbf x)}
+$$
+由于$\mathbb P(\mathbf x)$是常量，朴素贝叶斯分类规则变为 
+$$
+\hat y=\arg\max_{y}\mathbb P(y)\prod_{j=1}^p\mathbb P(x_j|y)
+$$
+因此，只需计算每一个特征的条件概率 $\mathbb P(x_j|y)$，总的组合数变为 $K\sum\limits_{j=1}^p S_j$，它不需要很大的训练集就能获得较好的概率估计。我们可以用极大似然估计（MLP）来估计先验概率 $\mathbb P(y)$和条件概率$\mathbb P(x_j|y)$ 。
+
+朴素贝叶斯分类器可将涉及的所有概率估值事先计算好存储起来，这样在进行预测时只需"查表"即可进行判别。
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/NaiveBayesAlgorithm.png" style="zoom: 50%;" />
+
+尽管条件独立性假设过于简单化，但是经验表明，朴素贝叶斯分类器已经能很好的工作，最出名的就是文档分类和垃圾邮件过滤。它们需要少量的训练数据来估计必要的参数。但是，朴素贝叶斯分类器不能很好的输出模型概率。
+
+不同的朴素贝叶斯分类器主要根据它们对特征分布所作的假设而不同。接下来，我们描述几种估计分类特征和连续特征的条件概率的方法。
+
+### 高斯朴素贝叶斯
+
+朴素贝叶斯分类法使用两种方法估计连续特征的类条件概率：
+
+1. 可以把每一个连续特征离散化，然后用相应的离散区间的频率估计条件概率。
+2. 可以假设连续特征服从某种概率分布，然后使用训练数据估计分布的参数。
+
+**高斯朴素贝叶斯**（Gaussian Naive Bayes）假设连续特征服从高斯分布，对每个类别 $c_k$ ，特征 $x_j$ 的类条件概率等于
+$$
+\mathbb P(x_j|y)=\frac{1}{\sqrt{2\pi\sigma^2_{jk}}}\exp\left(-\frac{(x_j-\mathbf\mu_{jk})^2}{2\sigma^2_{jk}}\right)
+$$
+
+参数 $\mu_{jk}$ 和 $\sigma^2_{jk}$可以用对应的样本均值和方差估计。
+
+注意，前面对类条件概率的解释有一定的误导性。上式子的右边对应于一个概率密度函数 $\mathcal N(x_j;\mu_{jk},\sigma^2_{jk})$。因为该函数是连续的，所以随机变量 $X_j$ 取某一特定值的概率为0。取而代之，我们应该计算 $X_j$ 落在区间 $x_j$ 到 $x_j+\epsilon$ 的条件概率，其中$\epsilon$是一个很小的常数：
+$$
+\mathbb P(x_j\leqslant X_j\leqslant x_j+\epsilon|Y=c_k)=\int_{x_j}^{x_j+\epsilon}\mathcal N(x_j;\mu_{jk},\sigma^2_{jk})\mathrm dx_j \approx \epsilon\cdot N(x_j;\mu_{jk},\sigma^2_{jk})
+$$
+由于$\epsilon$是每个类的一个常量乘法因子，在对后验概率 $\mathbb P(\mathbf x|y)$ 进行规范化的时候就抵消掉了。因此，我们仍可以使用概率密度公式来估计类条件概率 $\mathbb P(x_j|y)$ 。
+
+考虑分类任务：预测 一个货款者是否会违约，训练集如下
+
+| Tid  | Gender | Married | Income | Defaulted |
+| :--: | :----: | :-----: | :----: | :-------: |
+|  1   | Female |   No    |  125K  |    No     |
+|  2   |  Male  |   Yes   |  100K  |    No     |
+|  3   |  Male  |   No    |  70K   |    No     |
+|  4   | Female |   Yes   |  120K  |    No     |
+|  5   |  Male  |   No    |  95K   |    Yes    |
+|  6   |  Male  |   Yes   |  60K   |    No     |
+|  7   | Female |   No    |  220K  |    No     |
+|  8   |  Male  |   No    |  85K   |    Yes    |
+|  9   |  Male  |   Yes   |  75K   |    No     |
+|  10  |  Male  |   Yes   |  90K   |    Yes    |
+
+首先，估计类先验概率
+
+P(Defaulted=No)=7/10, P(Defaulted=Yes)=3/10
+
+然后，为每个特征估计条件概率
+
+P(Gender=Female|Defaulted=No)=3/7,  P(Gender=Male|Defaulted=No)=4/7
+P(Gender=Female|Defaulted=Yes)=0,  P(Gender=Male|Defaulted=Yes)=1
+P(Married=No|Defaulted=No)=3/7,  P(Married=Yes|Defaulted=No)=4/7
+P(Married=No|Defaulted=Yes)=2/3,  P(Married=Yes|Defaulted=Yes)=1/3
+For Income: 
+If Defaulted=No: sample mean=110,  sample variance=2975
+If Defaulted=Yes: sample mean=90,  sample variance=25
+
+对于测试样本 (Gender=Male, Married=No, Income=120K)，有
+
+P(Defaulted=No)P(Gender=Male|Defaulted=No)P(Married=No|Defaulted=No)P(Income=120K|Defaulted=No)=7/10×4/7×3/7×0.0072=1.2×10^-3^
+P(Defaulted=Yes)P(Gender=Male|Defaulted=Yes)P(Married=No|Defaulted=Yes)P(Income=120K|Defaulted=Yes)=3/10×1×2/3×1.2×10^-9^=2.4×10^-10^
+
+由于 1.2×10^-3^ > 2.4×10^-10^，因此朴素贝叶斯将测试样本分类为No。
+
+
+### 多项式朴素贝叶斯
+
+**多项式朴素贝叶斯**（Multinomial Naive Bayes，MNB）是文本分类中使用的两个经典朴素贝叶斯变体之一。假设离散特征 $x_j$ 有$S_j$个可能值 $x_j\in\{a_{j1},a_{j2},\cdots,a_{jS_j}\}$ ，则类条件概率可以用极大似然估计（频率）
+$$
+\mathbb P_{\alpha}(x_j=a_{js}|c_k)=\frac{N_{ks}}{N_k}
+$$
+其中 $N_{ks}=\sum_{i=1}^N\mathbb I(x_{ij}=a_{js},y_i=c_k)$ 是类别为$c_k$ 样本中特征值 $a_{js}$ 出现的次数。$N_k$为类别为$c_k$的样本个数。
+
+用极大似然估计可能会出现所要估计的概率值为0的情况。这时会影响到后验概率的计算结果，使分类产生偏差。这时可采用贝叶斯估计类条件概率
+$$
+\mathbb P_{\alpha}(x_j=a_{js}|c_k)=\frac{N_{ks}+\alpha}{N_k+\alpha S_j}
+$$
+其中 $\alpha>0$ 为先验平滑因子，为在学习样本中没有出现的类别而设计。如果数据集中类别 $c_k$没有样本，即$N_k=0$，则 $\hat P(x_j=a_{js}|c_k)=1/S_j$ ，即假设类别 $c_k$中的样本均匀分布。当训练集越大时，平滑修正引入的影响越来越小。
+
+### 伯努利朴素贝叶斯
+
+**伯努利朴素贝叶斯**（Bernoulli Naive Bayes）是多项式分布的特例，假设每个特征都是二值变量，服从伯努利分布。贝叶斯估计为
+$$
+\mathbb P_{\alpha}(x_j=1|c_k)=\frac{N_{k1}+\alpha}{N_k+2\alpha}
+$$
+
+### 补充朴素贝叶斯
+
+**补充朴素贝叶斯**（Complement Naive Bayes，CNB）是标准多项式朴素贝叶斯算法的一种自适应算法，特别适用于不平衡的数据集。具体而言，CNB使用来自每个类的补充的统计数据来计算模型的权重。经验表明，CNB的参数估计比MNB的参数估计更稳定。此外，CNB在文本分类任务方面经常优于MNB(通常以相当大的幅度)。计算权重的程序如下：
+$$
+\hat\theta_{ci}=\frac{\alpha_i+\sum_{j:y_j\neq c} d_{ij}}{\alpha+\sum_{j:y_j\neq c}\sum_k d_{kj}}
+$$
+
+$$
+w_{ci}=\log\hat\theta_{ci}
+$$
+
+$$
+w_{ci}=\frac{w_{ci}}{\sum_j|w_{cj}|}
+$$
+
+其中对不在类$c$中的所有记录$j$求和, $d_{ij}$要么是记录$j$中的$i$的计数， 要么是tf-idf形式的值， $\alpha_i$就像MNB中的一个光滑的超参数， 同时$\alpha=\sum_i\alpha_i$ 。
+
+第二个归一化解决了较长记录在MNB中支配参数估计的趋势。分类规则是：
+$$
+\hat c=\arg\max_c\sum_it_i w_{ci}
+$$
+也就是说， 记录被分配给最糟糕的匹配度的类。
+
+## 贝叶斯网络
+
+朴素贝叶斯分类器的条件独立假设似乎太严格了，特别是对那些特征之间有一定相关性的分类问题。贝叶斯网不要求给定的所有特征都条件独立，而是允许指定哪些特征条件独立。
+
+**贝叶斯网**：令 $\mathbf x_{\pi_j}$ 表示变量 $x_j$ 所依赖的所有变量集合，则 $\mathbf x$ 的概率分布表示为
+$$
+\mathbb P(\mathbf x)=\prod_{j=1}^p\mathbb P(x_j|\mathbf x_{\pi_j})
+$$
+
+$\mathbf x_{\pi_j}$ 称为变量 $x_j$ 的父特征集。贝叶斯网用图形表示一组随机变量之间的概率关系，之后章节会具体介绍。
+
+**独依赖估计**（One-Dependent Estimator，ODE）是最常用的一种策略。假设每个特征在类别之外最多仅依赖于一个其他特征，即
+$$
+\mathbb P(\mathbf x|y)=\prod_{j=1}^p\mathbb P(x_j|y,x_{\pi_j})
+$$
+其中，$x_{\pi_j}$为变量$x_j$的父特征。
+
+**SPODE**（Super-Parent ODE）：假设所有特征都依赖于同一个特征，称为超父（Super-Parent）。然后通过交叉验证等模型选择方法来确定超父特征。
+
+**TAN**（Tree Augmented naive Bayes）是在最大生成树（maximum weighted spanning tree）基础上，通过意两个特征间的条件互信息将特征间的依赖关系约简为如图所示的树形结构。
+$$
+I(x_i,x_j|y)=\sum_{i,j,k}\mathbb P(x_i,x_j|c_k)\log\frac{\mathbb P(x_i,x_j|c_k)}{\mathbb P(x_i|c_k)\mathbb P(x_j|c_k)}
+$$
+通过最大生成树算法，TAN实际上仅保留了强相关特征之间的依赖性。
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML//TAN_DAG.svg" style="zoom:80%;" />
+
+**OADE**（Averaged One-Dependent Estimator）是一种基于集成学习机制、更为强大的独依赖分器。与SPODE通过模型选择确定超父特征不同，AODE尝试将每个特征作为超父来构建 SPODE，然后将那些具有足够训练数据支撑的 SPODE 集成起来作为最终结果。
+
+# EM 算法
+
+## 高斯过程
+
 
 # 集成学习
 
@@ -1842,7 +2299,7 @@ $$
 
 [^taylor]: 泰勒展开式 $f(x+\Delta x)=f(x)+f'(x)\Delta x+\dfrac{1}{2}f''(x)(\Delta x)^2+\cdots$
 
-
+[^cdot]: 上述推导中用到一个公式 $\mathbf x^T\mathbf{Ay}=\mathbf y^T\mathbf{Ax}$，其中 $\mathbf x,\mathbf y$ 为向量，$\mathbf A$ 为对称阵，即 $\mathbf A^T=\mathbf A$。可通过转置的计算法则得到，过程如下：由于 $\mathbf x^T\mathbf{Ay}$ 为常数，所以 $\mathbf x^T\mathbf{Ay}=(\mathbf x^T\mathbf{Ay})^T=\mathbf y^T\mathbf A^T\mathbf x=\mathbf y^T\mathbf{Ax}$
 
 > **参考文献**：
 > 周志华.《机器学习》（西瓜书）
