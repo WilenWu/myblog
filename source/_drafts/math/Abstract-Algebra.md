@@ -1,11 +1,10 @@
 ---
 title: 抽象代数
 date: 
-updated:
-tags:
 categories:
   - Mathematics
-  -  Modern Mathematics
+  - Modern Mathematics
+tags:
 cover:
 top_img: '#66CCFF'
 description:

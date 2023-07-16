@@ -1,14 +1,15 @@
 ---
 title: 基础物理学(下册)
-date: 
-updated:
-tags:
 categories:
-top_img: '#66CCFF'
-cover:
+  - Physics
+  - Basic Physics
+tags:
+cover: 
+top_img: 
 katex: true
-sticky: 
-description:
+abbrlink: 
+date: 
+description: 
 ---
 
 本课程分上下两篇，上篇内容包括牛顿力学，相对论，引力，热力学，和波；下篇内容包括电学、磁力学、光学、量子力学等。
@@ -149,6 +150,26 @@ Field
 21-11 Interference
 21-12 Interference from Thin Films
 21-13 Michelson's Interferometer
+
+
+
+![凸透镜成像原理](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/physics/Convex_lens_imaging.svg)
+
+![凹透镜成像原理](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/physics/Concave_lens_imaging.svg)
+
+
+
+
+
+![伽利略望远镜原理](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/physics/Galileo_telescope.svg)
+
+
+
+![开普勒望远镜原理](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/physics/Kepler_telescope.svg)
+
+
+
+![显微镜原理](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/physics/microscope.svg)
 
 
 # 22 Relativity 相对论

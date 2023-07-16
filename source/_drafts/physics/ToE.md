@@ -1,10 +1,18 @@
 ---
-title: 万有理论概述
-date: 
+title: 万物理论概述
+categories:
+  - Physics
+  - Advanced Physics
+tags:
+cover: 
+top_img: 
 katex: true
+abbrlink: 
+date: 
+description: 
 ---
 
-[万有理论][toe](Theory of Everything, ToE) 指的是假定存在的一种具有总括性、一致性的物理理论框架，能够解释宇宙的所有物理奥秘。
+[万物理论][toe](Theory of Everything, ToE) 指的是假定存在的一种具有总括性、一致性的物理理论框架，能够解释宇宙的所有物理奥秘。
 
 [toe]: https://baike.baidu.com/item/%E4%B8%87%E6%9C%89%E7%90%86%E8%AE%BA/630145?fr=aladdin
 
@@ -35,5 +43,7 @@ E -.-> F
 
 量子引力：弦论，圈量子引力等
 
-![](ToE.assets/M-theory.jpg)
+基础物理：力学，热学，光学，电磁学，原子物理
+
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/physics/M-theory.jpg)
 

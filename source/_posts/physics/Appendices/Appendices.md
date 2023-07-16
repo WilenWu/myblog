@@ -1,18 +1,16 @@
 ---
 title: 附录
 date: 2022-04-06 21:27:18
-updated:
 tags:
 categories: 
-  - 物理
-  - 附录
+  - Physics
+  - Appendices
 top_img: '#66CCFF'
 cover: /img/Solvay-V.jpg
 katex: true
+abbrlink: 
 description:
 ---
-
-<!-- more -->
 
 # The International System of Units (SI)
 
@@ -65,7 +63,6 @@ description:
 
 
 # Some Astronomical Data
-
 
 # Conversion Factors
 

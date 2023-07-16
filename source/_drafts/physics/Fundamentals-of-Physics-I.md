@@ -1,14 +1,15 @@
 ---
 title: 基础物理学(上册)
-date: 
-updated:
-tags:
 categories:
-top_img: '#66CCFF'
-cover:
+  - Physics
+  - Basic Physics
+tags:
+cover: 
+top_img: 
 katex: true
-sticky: 
-description:
+abbrlink: 
+date: 
+description: 
 ---
 
 本课程分上下两篇，上篇内容包括牛顿力学，相对论，引力，热力学，和波；下篇内容包括电学、磁力学、光学、量子力学等。
@@ -127,5 +128,4 @@ Temperature, Thermal Expansion and Ideal Gases
 温度，热膨胀和理想气体
 Heat Transfer热传递
 热力学定律(The Laws of Thermodynamics)
-
 

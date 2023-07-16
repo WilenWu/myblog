@@ -1,12 +1,13 @@
 ---
 title: 变分原理
 date: 
-updated:
-tags:
 categories:
+  - Mathematics
+  - Modern Mathematics
+tags:
 cover:
 top_img: '#66CCFF'
-description:
+description: 研究的是一般无穷维的带有一定拓扑的线性空间
 ---
 
 # 变分法初步
@@ -266,5 +267,4 @@ $$
 $$
 \left(\cfrac{∂}{∂y}-\cfrac{\mathrm d}{\mathrm dx}\cfrac{∂}{∂y'}\right)(F-λG)=0
 $$
-
 

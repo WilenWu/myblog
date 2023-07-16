@@ -503,7 +503,7 @@ $$
 $$
 则参数 $\mu$ 和 $\mathbf\Sigma$ 的极大似然估计为
 $$
-\hat\mu=\frac{1}{N}\sum_{i=1}^N\mathbf x_i=\bar{\mathbf x} \\
+\hat\mu=\bar{\mathbf x}=\frac{1}{N}\sum_{i=1}^N\mathbf x_i \\
 \hat\Sigma=\frac{1}{N}\sum_{i=1}^N(\mathbf x_i-\bar{\mathbf x})(\mathbf x_i-\bar{\mathbf x})^T
 $$
 也就是说，通过极大似然法得到的正态分布均值和方差是一个符合直觉的结果。对于离散特征，也可通过类似的方式估计。

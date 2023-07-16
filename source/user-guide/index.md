@@ -79,9 +79,9 @@ header_color: true
 
 ## Appendices
 
-- :ballot_box_with_check: [机器学习中的优化](/posts/b0a72714/): 优化是找出函数的最大值或最小值的方法
+- :ballot_box_with_check: [机器学习中的优化算法](/posts/b0a72714/): 优化是找出函数的最大值或最小值的方法
 - :ballot_box_with_check: [机器学习中的信息论](/posts/8a8bfa9b/)
-- :ballot_box_with_check: [机器学习中的矩阵](/posts/99273c32/)
+- :ballot_box_with_check: [机器学习中的矩阵运算](/posts/99273c32/)
 
 # Big Data
 
@@ -428,20 +428,18 @@ Natural Language Processing(自然语言处理)
 
 - :ballot_box_with_check: [线性代数](/posts/c23efd5b/): 矩阵，行列式，向量空间，二次型，线性变换
 - :white_large_square: 多项式代数
+- :ballot_box_with_check: [线性代数引论](/posts/40113498/): 矩阵，行列式，向量空间，二次型，线性变换
 
 ## Modern Mathematics
 
-- :ballot_box_with_check: [抽象代数](AbstractAlgebra): (又称近世代数) 群论、环论、伽罗瓦理论等
+- :ballot_box_with_check: [抽象代数](/posts/AbstractAlgebra): (又称近世代数) 群论、环论、伽罗瓦理论等
 
-- :heart: [泛函分析](FunctionalAnalysis): 研究的是一般无穷维的带有一定拓扑的线性空间
+- :heart: [变分原理](/posts/FunctionalAnalysis): 研究的是一般无穷维的带有一定拓扑的线性空间
 
-- :heart: [一般拓扑学](GeneralTopology): 也称点集拓扑学，主要研究拓扑空间以及定义在其上的数学结构的基本性质
+- :heart: [一般拓扑学](/posts/GeneralTopology): 也称点集拓扑学，主要研究拓扑空间以及定义在其上的数学结构的基本性质
 - :white_large_square: 微分拓扑: 微分流形和可微映射
 
-## Differential Geometry
-
-- :heart: [微分几何初步](DifferentialGeometry): 包括曲线和曲面论、外微分形式和活动标架、黎曼几何
-- :ballot_box_with_check: 《张量分析》: (黄克智) 是微分几何中研究张量场的微分运算的一个分支。张量分析是用共变微分表示各种几何量和微分算子性质的运算方法，可以看作是微分流形上的“微分法”，是研究流形上的几何和分析的一种重要工具。
+- :heart: [微分几何初步](/posts/DifferentialGeometry): 包括曲线和曲面论、外微分形式和活动标架、黎曼几何
 
 ## Appendices
 
@@ -460,7 +458,7 @@ Natural Language Processing(自然语言处理)
 
 ## 基础物理
 
-- :ballot_box_with_check: 普通物理学: 包括力学，热学，光学，电磁学等，对初高中知识进行一定的扩展
+- :ballot_box_with_check: 普通物理学: 包括力学，热学，光学，电磁学等
 - :ballot_box_with_check: 理论力学: 静力学、运动学与动力学
 - :ballot_box_with_check: 电动力学: 电磁现象的经典动力学理论，包括狭义相对论
 - :ballot_box_with_check: 统计力学: 热力学与统计物理
@@ -477,4 +475,7 @@ Natural Language Processing(自然语言处理)
 
 ## Appendices
 - :ballot_box_with_check: [固有洛伦兹变换的严格推导](/posts/55b8eadb/): 根据狭义相对论的两条基本原理来严格推导固有洛伦兹变换
+- :ballot_box_with_check: 天文学
+- :heart: 附录
+- :ballot_box_with_check: [附录](/posts/None/)
 

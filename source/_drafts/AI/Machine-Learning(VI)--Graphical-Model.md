@@ -54,7 +54,7 @@ work）或信念
 1. **有向无环图**（Directed Acyclic Graph，DAG ）：表示变量之间的依赖关系；
 2. **概率表**（Probability Table）：把各结点和它的直接父结点关联起来。
 
-![](Machine-Learning(VI)--Graphical-Model.assets/DAG.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/DAG.svg)
 
 # 隐马尔可夫模型
 

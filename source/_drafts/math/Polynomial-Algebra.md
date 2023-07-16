@@ -1,9 +1,10 @@
 ---
 title: 多项式代数
 date: 
-updated:
-tags:
 categories:
+  - Mathematics
+  - Advanced Algebra
+tags:
 cover:
 top_img: '#66CCFF'
 description:
