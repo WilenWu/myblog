@@ -2,7 +2,7 @@
 title: 复变函数和积分变换(一)
 categories:
   - Mathematics
-  - Complex Analysis
+  - 基础数学
 tags:
   - 数学
   - 复变函数

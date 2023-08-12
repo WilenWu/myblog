@@ -2,7 +2,7 @@
 title: 固有洛伦兹变换的严格推导
 categories:
   - Physics
-  - Appendices
+  - 附录
 tags:
   - 物理
   - 相对论

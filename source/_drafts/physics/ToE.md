@@ -2,7 +2,7 @@
 title: 万物理论概述
 categories:
   - Physics
-  - Advanced Physics
+  - 高等物理
 tags:
 cover: 
 top_img: 
@@ -43,7 +43,6 @@ E -.-> F
 
 量子引力：弦论，圈量子引力等
 
-基础物理：力学，热学，光学，电磁学，原子物理
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/physics/M-theory.jpg)
 

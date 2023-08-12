@@ -2,7 +2,7 @@
 title: 概率论与数理统计(下册)
 categories:
   - Mathematics
-  - Statistics
+  - 基础数学
 tags:
   - 数学
   - 参数估计

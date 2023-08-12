@@ -1,20 +1,23 @@
 ---
-title: 附录
-date: 2022-04-06 21:27:18
-tags:
-categories: 
+title: 通用物理常数
+categories:
   - Physics
-  - Appendices
-top_img: '#66CCFF'
+  - 附录
+tags:
+  - 物理
+top_img: /img/韦伯太空望远镜.webp
 cover: /img/Solvay-V.jpg
 katex: true
-abbrlink: 
+abbrlink: 40832a91
+date: 2022-04-06 21:27:18
 description:
 ---
 
-# The International System of Units (SI)
+# 国际单位制
 
-## SI base units
+国际单位制（The International System of Units，SI）是国际计量大会（CGPM）采纳和推荐的一种一贯单位制。在国际单位制中，将单位分成三类：基本单位、导出单位和辅助单位。7个严格定义的基本单位是：长度（米）、质量（千克）、时间（秒）、电流（安培）、热力学温度（开尔文）、物质的量（摩尔）和发光强度（坎德拉）。基本单位在量纲上彼此独立，导出单位很多，都是由基本单位组合起来而构成的。辅助单位只有两个，纯系几何单位。
+
+## SI基本单位
 
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/physics/SI.svg" style="zoom:50%;" />
 
@@ -28,7 +31,7 @@ description:
 |mol|mole|amount of substance|
 |cd|candela|luminous intensity|
 
-## SI defining constants
+## SI定义的常数
 
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/physics/SI-units-definitions.svg" style="zoom:75%;" />
 
@@ -59,21 +62,6 @@ description:
 |zetta|Z|10^21^|zepto|z|10^-21^|
 |yotta|Y|10^24^|yocto|y|10^-24^|
 
-# Some Fundamental Constants of Physics
-
-
-# Some Astronomical Data
-
-# Conversion Factors
-
-
-# Mathematical Formulas
-
-
-# Properties of the Elements
-
-
-# Periodic Table of the Elements
-
+# 通用物理常数
 
 

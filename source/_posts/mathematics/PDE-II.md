@@ -2,7 +2,7 @@
 title: 偏微分方程(二)
 categories:
   - Mathematics
-  - Partial Differential Equations
+  - 微分方程
 tags:
   - 数学
   - PDE

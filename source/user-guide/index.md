@@ -36,7 +36,7 @@ header_color: true
 
 - :heart: [标记语言概览](/posts/2957012b/)
 - :ballot_box_with_check: [GitHub Flavored Markdown 规范](/posts/b6db1d88/)
-- :ballot_box_with_check: [KaTeX 数学符号列表](/posts/b9652820/)
+- :ballot_box_with_check: [KaTeX 基本数学符号](/posts/b9652820/)
 - :ballot_box_with_check: [JSON 介绍](/posts/17cdf739/)
 - :white_large_square: [YAML 基础语法](/posts/6ab72750/)
 - :heart: [SVG 入门教程](/posts/c18c7e9b/): SVG是一种开放标准的矢量图形语言，基于XML标记语言
@@ -391,57 +391,47 @@ Natural Language Processing(自然语言处理)
 
 [Awesome Math](https://github.com/rossant/awesome-math): A curated list of awesome mathematics resources.
 
-## Mathematical Analysis 
+## 基础数学 
 
 - :ballot_box_with_check: [数学分析(一)](/posts/e6ee81b3/): 实数集合、极限、一元函数微分、不定积分、定积分
 - :ballot_box_with_check: [数学分析(二)](/posts/49df1ad1/): 多元函数微积分，重积分、曲线积分和曲面积分、场论初步
 - :ballot_box_with_check: [数学分析(三)](/posts/372c3afa/): 无穷级数、幂级数、傅里叶级数、三角级数
 - :ballot_box_with_check: [空间解析几何](/posts/c1a88ebe/): 向量代数和空间解析几何
-
-## Statistics
-
+- :ballot_box_with_check: [复变函数和积分变换(一)](/posts/501a1a66/): 复变函数、解析函数、积分
+- :ballot_box_with_check: [复变函数和积分变换(二)](/posts/ff2b8104/): 级数、留数、共形映射
+- :ballot_box_with_check: [复变函数和积分变换(三)](/posts/81d8a12f/): 傅里叶变换、拉普拉斯变换
 - :ballot_box_with_check: [概率论与数理统计(上册)](/posts/304d9389/): 概率论
 - :ballot_box_with_check: [概率论与数理统计(下册)](/posts/d2dba39/): 数理统计
 - :heart: 多元统计分析
 
-## Complex Analysis
-
-- :ballot_box_with_check: [复变函数和积分变换(一)](/posts/501a1a66/): 复变函数、解析函数、积分
-- :ballot_box_with_check: [复变函数和积分变换(二)](/posts/ff2b8104/): 级数、留数、共形映射
-- :ballot_box_with_check: [复变函数和积分变换(三)](/posts/81d8a12f/): 傅里叶变换、拉普拉斯变换
-
-## Ordinary Differential Equation
+## 微分方程
 
 - :ballot_box_with_check: [常微分方程(一)](/posts/1d08ba54/): 一阶常微分方程
 - :ballot_box_with_check: [常微分方程(二)](/posts/b2392136/): 高阶常微分方程
 - :ballot_box_with_check: [常微分方程(三)](/posts/ccca011d/): 一阶线性常微分方程组
 - :ballot_box_with_check: [常微分方程(四)](/posts/3689ee12/): 非线性微分方程、定性理论、边值问题
-
-## Partial Differential Equations
-
 - :ballot_box_with_check: [偏微分方程(一)](/posts/644684db/): （拟）线性偏微分方程、定解问题、分离变量法
 - :ballot_box_with_check: [偏微分方程(二)](/posts/cb771fb9/): 球函数、柱函数
 - :ballot_box_with_check: [偏微分方程(三)](/posts/b5843f92/): 积分变换法、基本解和格林函数
 - :ballot_box_with_check: [偏微分方程(四)](/posts/4fc7d09d/): 变分法、非线性偏微分方程
 
-## Advanced Algebra
+## 现代数学
 
-- :ballot_box_with_check: [线性代数](/posts/c23efd5b/): 矩阵，行列式，向量空间，二次型，线性变换
+- :ballot_box_with_check: [线性代数](/posts/40113498/): 本文试图从线性变换出发理解线性代数的本质
+- :ballot_box_with_check: [线性代数（摘要）](/posts/c23efd5b/)
 - :white_large_square: 多项式代数
-- :ballot_box_with_check: [线性代数引论](/posts/40113498/): 矩阵，行列式，向量空间，二次型，线性变换
-
-## Modern Mathematics
-
-- :ballot_box_with_check: [抽象代数](/posts/AbstractAlgebra): (又称近世代数) 群论、环论、伽罗瓦理论等
-
-- :heart: [变分原理](/posts/FunctionalAnalysis): 研究的是一般无穷维的带有一定拓扑的线性空间
-
-- :heart: [一般拓扑学](/posts/GeneralTopology): 也称点集拓扑学，主要研究拓扑空间以及定义在其上的数学结构的基本性质
+- :ballot_box_with_check: 抽象代数: (又称近世代数) 群论、环论、伽罗瓦理论等
+- :heart: 变分原理: 研究的是一般无穷维的带有一定拓扑的线性空间
+- :heart: 一般拓扑学: 也称点集拓扑学，主要研究拓扑空间以及定义在其上的数学结构的基本性质
 - :white_large_square: 微分拓扑: 微分流形和可微映射
+- :heart: 微分几何初步: 包括曲线和曲面论、外微分形式和活动标架、黎曼几何
+- :ballot_box_with_check: [线性代数基础](/posts/None/): 从解线性方程组角度学习线性代数
+- :ballot_box_with_check: [线性代数基础](/posts/74e95c64/): 从解线性方程组角度学习线性代数
+- :ballot_box_with_check: [线性代数的本质](/posts/None/): 本文试图从线性变换出发理解线性代数的本质
+- :ballot_box_with_check: [线性代数的本质](/posts/None/): 本文试图从线性变换出发理解线性代数的本质
+- :ballot_box_with_check: [线性代数的本质](/posts/66517499/): 本文试图从线性变换出发理解线性代数的本质
 
-- :heart: [微分几何初步](/posts/DifferentialGeometry): 包括曲线和曲面论、外微分形式和活动标架、黎曼几何
-
-## Appendices
+## 附录
 
 - :ballot_box_with_check: [经典数学公式](/posts/375d0704/)
 - :ballot_box_with_check: [几种常用的曲线](/posts/7020ba93/)
@@ -451,31 +441,29 @@ Natural Language Processing(自然语言处理)
 
 [Awesome Physics](https://github.com/wbierbower/awesome-physics): 🌌 A collaborative list of awesome software for exploring Physics concepts. Feel free to contribute!
 
-- :heart: 《物理手册》: （斯托克）这本物理手册系统介绍了当代物理学的各种基本概念、定理、定律以及各种有用的实验方法，并收进了大量最新科学研究成果。
-- :heart: 《朗道十卷》: 是一部享誉世界的理论物理学巨著，是反映经典物理学向现代物理学转变的里程碑式的重要著作，包括力学、场论、量子力学、相对论性量子理论（量子电动力学）、 统计物理学（1）、流体力学 、弹性理论 、连续媒质电动力学、 物理动力学 、统计物理学（2）共十卷。
-- :heart: 《费曼物理学讲义》: (The Feynman's Lectures on Physics) 被誉为本世纪最经典的物理导引。本讲义共分三卷，第1卷包括力学、相对论、光学、气体分子动理论、热力学、波等，第2卷主要是电磁学，第3卷是量子力学。全书内容十分丰富，在深度和广度上都超过了传统的普通物理教材。
+- 《物理手册》: （斯托克）这本物理手册系统介绍了当代物理学的各种基本概念、定理、定律以及各种有用的实验方法，并收进了大量最新科学研究成果。
 - [Cambridge Notes](http://dec41.user.srcf.net/notes/): 剑桥笔记
 
 ## 基础物理
 
-- :ballot_box_with_check: 普通物理学: 包括力学，热学，光学，电磁学等
+- :ballot_box_with_check: 大学物理学: 包括力学，热学，光学，电磁学，原子物理
 - :ballot_box_with_check: 理论力学: 静力学、运动学与动力学
 - :ballot_box_with_check: 电动力学: 电磁现象的经典动力学理论，包括狭义相对论
 - :ballot_box_with_check: 统计力学: 热力学与统计物理
 - :ballot_box_with_check: 量子力学: 研究物质世界微观粒子运动规律的物理学分支
 - :ballot_box_with_check: 原子物理: 研究原子的结构、运动规律及相互作用，是承接经典物理和量子力学的桥梁
+- :heart: 天体物理
 
 ## 高等物理
 
 - :ballot_box_with_check: 高等量子力学: 以五条基本公理和测量公理作为出发点，推出量子力学中解释的所有现象
 - :ballot_box_with_check: 高等统计力学: 使用量子力学的语言，讲述量子统计物理的基本原理及其应用
-- :ballot_box_with_check: 量子场论: 量子力学、狭义相对论和经典场论相结合的物理理论
+- :ballot_box_with_check: [量子场论](/posts/d56d6970/): 量子力学、狭义相对论和经典场论相结合的物理理论
 - :ballot_box_with_check: 广义相对论: 是描述物质间引力相互作用的理论
-- :ballot_box_with_check: 量子引力: 想要把广义相对论量子化，进而统一包括引力在内的四种基本力。当前主流尝试理论有弦理论/超弦理论/M理论、超引力、圈量子引力、扭量理论等
+- :ballot_box_with_check: 量子引力: 想要把广义相对论量子化，进而统一包括引力在内的四种基本力。
 
-## Appendices
+## 附录
+
 - :ballot_box_with_check: [固有洛伦兹变换的严格推导](/posts/55b8eadb/): 根据狭义相对论的两条基本原理来严格推导固有洛伦兹变换
-- :ballot_box_with_check: 天文学
-- :heart: 附录
-- :ballot_box_with_check: [附录](/posts/None/)
+- :ballot_box_with_check: [通用物理常数](/posts/40832a91/)
 

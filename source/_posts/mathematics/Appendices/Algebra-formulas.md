@@ -2,7 +2,7 @@
 title: 经典数学公式
 categories:
   - Mathematics
-  - Appendices
+  - 附录
 tags:
   - 数学
   - 三角函数

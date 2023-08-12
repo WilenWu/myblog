@@ -2,7 +2,7 @@
 title: 天体物理
 categories:
   - Physics
-  - Basic Physics
+  - 基础物理
 tags:
 cover: 
 top_img: 

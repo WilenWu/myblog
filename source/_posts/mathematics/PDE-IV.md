@@ -2,7 +2,7 @@
 title: 偏微分方程(四)
 categories:
   - Mathematics
-  - Partial Differential Equations
+  - 微分方程
 tags:
   - 数学
   - PDE

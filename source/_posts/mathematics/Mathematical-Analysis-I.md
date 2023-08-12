@@ -2,7 +2,7 @@
 title: 数学分析(一)
 categories:
   - Mathematics
-  - Mathematical Analysis 
+  - 基础数学
 tags:
   - 数学
   - 极限

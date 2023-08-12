@@ -3,10 +3,10 @@ title: 一般拓扑学
 date: 
 categories:
   - Mathematics
-  - Modern Mathematics
+  - 现代数学
 tags:
 cover:
-top_img: '#66CCFF'
+top_img: /img/math-top-img.png
 description: 一般拓扑学也称点集拓扑学，主要研究拓扑空间以及定义在其上的数学结构的基本性质
 ---
 

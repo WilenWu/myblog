@@ -2,7 +2,7 @@
 title: δ 函数简介
 categories:
   - Mathematics
-  - Appendices
+  - 附录
 tags:
   - 数学
 katex: true
@@ -54,7 +54,7 @@ $$
 $$
 ![delat函数](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/delta-fun2.png)
 
-  <kbd>筛选性质(sifting property)</kbd>： 设函数 $f(t)$ 是定义在 $\R$上的有界函数，且在 $t = 0$ 处连续，则有
+  <kbd>筛选性质</kbd>：(sifting property)设函数 $f(t)$ 是定义在 $\R$上的有界函数，且在 $t = 0$ 处连续，则有
 $$
 \displaystyle\int_{-∞}^{+∞}δ(t)f(t)dt=f(0)
 $$
@@ -141,19 +141,23 @@ $$
 一般的有 $f(t)*δ(t-t_0)=f(t-t_0)$
 
 [^unit]: 单位阶跃函数(unit step function)，也称Heaviside单位函数
-    $$
-    u(t)=\begin{cases}
-    0 & t<0 \\ 1 &t>0 \end{cases}
-    $$
-    ![单位阶跃函数](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/unit-step-fun.png)
-    按广义函数理论，定义为
-    $$
-    \displaystyle\int_{-∞}^{+∞}u(t)f(t)dt=\int_{0}^{+∞}f(t)dt
-    $$
-    单位阶跃函数的积分为：
-    $$
-    \int_{-\infty}^{t}u(\tau)\mathrm d\tau=tu(t)
-    $$
+
+$$
+u(t)=\begin{cases}
+0 & t<0 \\ 1 &t>0 \end{cases}
+$$
+
+![单位阶跃函数](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ComplexFunction/unit-step-fun.png)
+
+按广义函数理论，定义为
+
+$$
+\displaystyle\int_{-∞}^{+∞}u(t)f(t)dt=\int_{0}^{+∞}f(t)dt
+$$
+单位阶跃函数的积分为：
+$$
+\int_{-\infty}^{t}u(\tau)\mathrm d\tau=tu(t)
+$$
 
 # Fourier 变换
 

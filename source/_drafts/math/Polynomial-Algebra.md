@@ -3,10 +3,10 @@ title: 多项式代数
 date: 
 categories:
   - Mathematics
-  - Advanced Algebra
+  - 现代数学
 tags:
 cover:
-top_img: '#66CCFF'
+top_img: /img/math-top-img.png
 description:
 ---
 

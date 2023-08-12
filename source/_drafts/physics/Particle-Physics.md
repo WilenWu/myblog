@@ -2,7 +2,7 @@
 title: 粒子物理
 categories:
   - Physics
-  - Advanced Physics
+  - 高等物理
 tags:
 cover: 
 top_img: 

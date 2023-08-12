@@ -2,7 +2,7 @@
 title: 数学分析(二)
 categories:
   - Mathematics
-  - Mathematical Analysis 
+  - 基础数学
 tags:
   - 数学
   - 偏导数

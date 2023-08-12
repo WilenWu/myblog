@@ -2,7 +2,7 @@
 title: 高等量子力学
 categories:
   - Physics
-  - Advanced Physics
+  - 高等物理
 tags:
 cover: 
 top_img: 

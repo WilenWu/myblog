@@ -1,12 +1,12 @@
 ---
 title: 变分原理
-date: 
+date: 2020-07-10 16:52:58
 categories:
   - Mathematics
-  - Modern Mathematics
+  - 现代数学
 tags:
 cover:
-top_img: '#66CCFF'
+top_img: /img/math-top-img.png
 description: 研究的是一般无穷维的带有一定拓扑的线性空间
 ---
 

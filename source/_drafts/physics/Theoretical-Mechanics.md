@@ -2,7 +2,7 @@
 title: 理论力学
 categories:
   - Physics
-  - Basic Physics
+  - 基础物理
 tags:
 cover: 
 top_img: 
@@ -27,3 +27,16 @@ Reference Frames
 Rocket Equation
 Static Equilibrium
 Work
+
+# Lagrange力学
+
+# Hamilton力学
+
+# Hamilton-Jacobi理论
+
+# 狭义相对论
+
+# 刚体力学
+
+# 振动和波
+

@@ -2,7 +2,7 @@
 title: 常微分方程(一)
 categories:
   - Mathematics
-  - Ordinary Differential Equation
+  - 微分方程
 tags:
   - 数学
   - ODE

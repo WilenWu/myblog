@@ -2,7 +2,7 @@
 title: 量子力学
 categories:
   - Physics
-  - Basic Physics
+  - 基础物理
 tags:
 cover: 
 top_img: 
@@ -33,3 +33,19 @@ Schrodinger Equation
 Spin
 Uncertainty Principles
 Vector Spaces
+
+# 23 Quantum Physics 量子物理
+
+23-2 The Photon, the Quantum of Light
+23-3 Electrons and Matter Waves
+23-4 Schrrdinger's Equation and Heisenberg's Uncertainty Principle
+23-5 Energies of a Trapped Electron One-Dimensional Traps
+23-6 The Bohr Model of the Hydrogen tom
+23-7 Some Properties of Atoms
+23-8 Angular Momenta and Magnetic Dipole Moments
+23-9 The Stern-Gerlach Experiment
+23-10 Magnetic Resonance
+23-11 The Pauli Exclusion Principle
+23-12 Building the Periodic Table
+23-13 X Rays and the Ordering of the Elements
+23-14 Lasers and Laser Light

@@ -2,7 +2,7 @@
 title: 几种常用的曲线
 categories:
   - Mathematics
-  - Appendices
+  - 附录
 tags:
   - 数学
   - 曲线
