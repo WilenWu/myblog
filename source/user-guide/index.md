@@ -418,18 +418,13 @@ Natural Language Processing(自然语言处理)
 ## 现代数学
 
 - :ballot_box_with_check: [线性代数](/posts/40113498/): 本文试图从线性变换出发理解线性代数的本质
-- :ballot_box_with_check: [线性代数（摘要）](/posts/c23efd5b/)
+- :ballot_box_with_check: [线性代数摘要](/posts/c23efd5b/)
 - :white_large_square: 多项式代数
 - :ballot_box_with_check: 抽象代数: (又称近世代数) 群论、环论、伽罗瓦理论等
 - :heart: 变分原理: 研究的是一般无穷维的带有一定拓扑的线性空间
 - :heart: 一般拓扑学: 也称点集拓扑学，主要研究拓扑空间以及定义在其上的数学结构的基本性质
 - :white_large_square: 微分拓扑: 微分流形和可微映射
 - :heart: 微分几何初步: 包括曲线和曲面论、外微分形式和活动标架、黎曼几何
-- :ballot_box_with_check: [线性代数基础](/posts/None/): 从解线性方程组角度学习线性代数
-- :ballot_box_with_check: [线性代数基础](/posts/74e95c64/): 从解线性方程组角度学习线性代数
-- :ballot_box_with_check: [线性代数的本质](/posts/None/): 本文试图从线性变换出发理解线性代数的本质
-- :ballot_box_with_check: [线性代数的本质](/posts/None/): 本文试图从线性变换出发理解线性代数的本质
-- :ballot_box_with_check: [线性代数的本质](/posts/66517499/): 本文试图从线性变换出发理解线性代数的本质
 
 ## 附录
 

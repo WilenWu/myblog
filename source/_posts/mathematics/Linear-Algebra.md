@@ -16,13 +16,12 @@ top_img: /img/matrix-logo.jpg
 katex: true
 description: 本文试图从线性变换出发理解线性代数的本质
 abbrlink: '40113498'
-date: 2023-07-23 23:17:34
+date: 2023-09-10 23:51:00
 ---
 
 > [《线性代数的本质》 - 3blue1brown](https://www.bilibili.com/video/BV1ys411472E/)
 > 高中数学A版选修4-2 矩阵与变换
-> [《线性代数及其应用》(第五版)](https://www.bilibili.com/video/BV1nf4y1n7P1) 
-> [《高等代数》(第二版) - 邱维声](https://www.bilibili.com/video/BV1jR4y1M78W/)
+> 《线性代数及其应用》(第五版)
 > 《高等代数简明教程》- 蓝以中
 
 # 向量空间
@@ -35,7 +34,7 @@ date: 2023-07-23 23:17:34
 
 向量通常定义两种运算：加法和数乘。加法遵循三角形法则(平行四边形法则)，数乘被称为缩放(scaling)。运算法则如下图
 
-<img src="Linear-Algebra.assets/linear_operation.svg" style="zoom:90%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/linear_operation.svg" style="zoom:90%;" />
 
 {% label  性质 orange %}：根据向量的几何性质可证明向量的加法和数乘满足以下八条性质：
 
@@ -77,18 +76,18 @@ $$
 
 2. 向量组的所有线性组合构成的向量集称为由该向量组张成的空间，记作
    $$
-   \text{span}\set{\mathbf a_1,\cdots,\mathbf a_n}=\set{x_1\mathbf a_1+\cdots+x_n\mathbf a_n\mid x_1,\cdots,x_n\in\R}
+   \text{span}\{\mathbf a_1,\cdots,\mathbf a_n\}=\{x_1\mathbf a_1+\cdots+x_n\mathbf a_n\mid x_1,\cdots,x_n\in\R\}
    $$
-   若 $\mathbf u,\mathbf v\in\R^3$ 不共线，则 $\text{span}\set{\mathbf a,\mathbf b}$ 是$\R^3$中包含 $\mathbf u,\mathbf v$ 和原点的平面，图示
+   如下图，若 $\mathbf u,\mathbf v\in\R^3$ 不共线，则 $\text{span}\{\mathbf u,\mathbf v\}$ 是$\R^3$中包含 $\mathbf u,\mathbf v$ 和原点的平面，图示
 
-   ![](Linear-Algebra.assets/span.svg)
+   ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/span.svg)
 
 3. 当且仅当系数 $x_1=x_2=\cdots=x_r=0$ 时，线性组合为零
    $$
    x_1\mathbf a_1+x_2\mathbf a_2+\cdots+x_r\mathbf a_r=0
    $$
-   则称向量组**线性无关**(linearlyindependence)。反之，如果存在不全为零的数使上式成立，则称向量组**线性相关**(linearly dependence)。
-   ![](Linear-Algebra.assets/linear_representations.svg)
+   则称向量组**线性无关**(linearly independence)。反之，如果存在不全为零的数使上式成立，则称向量组**线性相关**(linearly dependence)。
+   ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/linear_representations.svg)
 
 <kbd>定理</kbd>：若向量 $\mathbf v$ 可由线性无关的向量组$\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_r$ 线性表示，则表示系数是唯一的。
 
@@ -111,9 +110,10 @@ $$
 
 <kbd>向量空间的基</kbd>：张成向量空间$V$的一个线性无关的向量集合称为该空间的一组**基**(basis)。基向量组所含向量的个数，称为向量空间 $V$的**维数**(dimension)，记为 $\dim V$。
 
-> 单由零向量组成的向量空间称为**零空间**。零空间的维数定义为零。
+> 可以证明，向量空间的任意一组基的向量个数是相等的。
+> 单由零向量组成的向量空间$\{0\}$称为**零空间**。零空间的维数定义为零。
 
-<kbd>定理</kbd>：$n$维向量空间中，任意 $n$ 个线性无关的向量组都是它的一组基，反之，它的任意一组基也一定恰好有 $n$ 个向量。
+<kbd>基定理</kbd>：$n$ 维向量空间的任意 $n$ 个线性无关的向量构成空间的一组基。
 
 ## 向量的坐标运算
 
@@ -130,7 +130,31 @@ $$
 $$
 类似于三维几何空间，由$n$个有序数构成的向量称为$n$维向量。
 
-![](Linear-Algebra.assets/coordinate.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/coordinate.svg)
+
+例：设 $\mathbf v_1=\begin{bmatrix}3\\6\\2\end{bmatrix},\mathbf v_2=\begin{bmatrix}-1\\0\\1\end{bmatrix},\mathbf x=\begin{bmatrix}3\\12\\7\end{bmatrix}$ 。判断 $\mathbf x$ 是否在 $H=\text{span }\{\mathbf v_1,\mathbf v_2\}$ 中，如果是，求 $\mathbf x$ 相对于基向量$B=\{\mathbf v_1,\mathbf v_2\}$ 的坐标。
+
+解：如果 $\mathbf x$ 在 $H=\text{span }\{\mathbf v_1,\mathbf v_2\}$ 中，则下列方程是有解的
+$$
+c_1\begin{bmatrix}3\\6\\2\end{bmatrix}+c_2\begin{bmatrix}-1\\0\\1\end{bmatrix}=\begin{bmatrix}3\\12\\7\end{bmatrix}
+$$
+如果数 $c_1,c_2$存在，则它们是 $\mathbf x$ 相对于$B$ 的坐标。由初等行变换得
+$$
+\begin{bmatrix}\begin{array}{cc:c}
+3&-1&3\\6&0&12\\2&1&7
+\end{array}\end{bmatrix}\to
+\begin{bmatrix}\begin{array}{cc:c}
+1&0&2\\0&1&3\\0&0&0
+\end{array}\end{bmatrix}
+$$
+于是， $\mathbf x$ 相对于$\mathbf v_1,\mathbf v_2$ 的坐标
+$$
+\mathbf v_B=\begin{bmatrix}3\\2\end{bmatrix}
+$$
+
+> 有时为了区分坐标的基向量，向量 $\mathbf v$ 在基 $B=\{\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_n\}$ 下的坐标，记作 $\mathbf v_B$
+
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/coordinate2.svg)
 
 建立了坐标之后，$V$中抽象的向量 $\mathbf v$ 和$\R^n$中具体的数组 $(x_1,x_2,\cdots,x_n)^T$ 实现了一一对应，并且向量的线性运算也可以表示为坐标的线性运算。
 
@@ -161,11 +185,8 @@ c\begin{bmatrix}v_1\\ v_2\\ \vdots \\ v_n\end{bmatrix}=
 \begin{bmatrix}cv_1\\ cv_2\\ \vdots \\ cv_n\end{bmatrix}
 $$
 
-总之，在$n$维向量空间 $V_n$ 中任取一组基，则 $V_n$ 中的向量与 $\R^n$ 中的数组之间就有一一对应的关系，且这个对应关系保持线性组合(线性运算)的一一对应。因此，**后续将对向量实体和坐标不做区分**。
+向量的坐标取值依托于坐标系的基向量。选取的基向量不同，其所对应的坐标值就不同。当然，基向量自身的坐标总是：
 
-向量的坐标取值依托于坐标系的基向量。选取的基向量不同，其所对应的坐标值就不同。接下来我们将默认使用 Grant 的坐标系：坐标原点为 $O$，基向量组为 $\mathbf e_1,\mathbf e_2,\cdots,\mathbf e_n$ 。
-
-当然，基向量自身的坐标总是：
 $$
 \mathbf e_1=\begin{bmatrix}1\\0\\\vdots\\0\end{bmatrix},\quad
 \mathbf e_2=\begin{bmatrix}0\\1\\\vdots\\0\end{bmatrix},\quad
@@ -173,6 +194,8 @@ $$
 \mathbf e_n=\begin{bmatrix}0\\0\\\vdots\\1\end{bmatrix},\quad
 $$
 这种坐标形式通常称为**标准向量组**(或**单位坐标向量组**)。
+
+总之，在$n$维向量空间 $V_n$ 中任取一组基，则 $V_n$ 中的向量与 $\R^n$ 中的数组之间就有一一对应的关系，且这个对应关系保持线性组合(线性运算)的一一对应。接下来我们将默认使用标准坐标系：坐标原点为 $O$，基向量组为 $\mathbf e_1,\mathbf e_2,\cdots,\mathbf e_n$ 。**后续将对向量实体和坐标不做区分**。
 
 # 线性变换与矩阵
 
@@ -241,7 +264,7 @@ $$
 
 事实上，这两条性质才是线性变换的严格定义。
 
-<img src="Linear-Algebra.assets/linear_transformation_additivity.svg" style="zoom:80%;" />
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/linear_transformation_additivity.svg" style="zoom:80%;" />
 
 为了进一步了解线性变换的本质，取任意向量 $\mathbf v=x\mathbf i+y\mathbf j$ ，在线性变换 $T$ 的作用下
 $$
@@ -278,7 +301,9 @@ $$
 
 至此，任何一个线性变换都可以写为矩阵与向量乘积的形式。反之，确定了坐标系后，任何一个矩阵都唯一确定了一个线性变换。矩阵和向量的乘积与线性变换实现了一一对应。
 
-**一般地，直线在线性变换后仍然保持直线**。<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/vector_equation_of_line.svg" align="right"/>
+**一般地，直线在线性变换后仍然保持直线**。
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/vector_equation_of_line.svg" />
 
 证明：如图 $l$ 为向量 $\mathbf w_1,\mathbf w_2$ 终点所确定的直线，$\mathbf v$ 为终点在直线 $l$ 上的任意向量。
 $$
@@ -295,7 +320,7 @@ $$
 (1) 如果 $A\mathbf w_1\neq A\mathbf w_2$，那么 $\mathbf v'$ 表示由向量 $A\mathbf w_1,A\mathbf w_2$ 的终点确定的直线。此时矩阵 $A$ 对应的线性变换把直线变成直线；
 (2) 如果 $A\mathbf w_1 = A\mathbf w_2$，那么 $\lambda_1 A\mathbf w_1+\lambda_2 A\mathbf w_2=A\mathbf w_1$ 。由于向量 $A\mathbf w_1$ 的终点是一个确定的点，因而，矩阵 $A$ 所对应的线性变换把直线 $l$ 映射成了一个点 $A\mathbf w_1$ 。
 
-## 常见的平面线性变换
+## 常见的线性变换
 
 > Grant：我们可以使用无限网格刻画二维空间所有点的变换。==线性变换是操作空间的一种手段，它能够保持网格线平行且等距，并保持原点不动==。
 
@@ -303,11 +328,11 @@ $$
 
 根据向量加法的平行四边形法则，单位正方形区域可用向量形式表示为
 $$
-\begin{bmatrix}x_1\\x_2\end{bmatrix}=x_1\mathbf i+x_2\mathbf j  \quad(0\leqslant x_1,x_2\leqslant 1)
+\begin{bmatrix}x\\y\end{bmatrix}=x\mathbf i+y\mathbf j  \quad(0\leqslant x,y\leqslant 1)
 $$
 由线性变换基本性质知，变换后的区域为
 $$
-A\begin{bmatrix}x_1\\x_2\end{bmatrix}=x_1(A\mathbf i)+x_2(A\mathbf j) \quad(0\leqslant x_1,x_2\leqslant 1)
+A\begin{bmatrix}x\\y\end{bmatrix}=x(A\mathbf i)+y(A\mathbf j) \quad(0\leqslant x,y\leqslant 1)
 $$
 
 表示以 $A\mathbf i,A\mathbf j$ 为邻边的平行四边形区域。因此，我们只需考虑单位向量 $\mathbf i,\mathbf j$ 在线性变换作用下的结果，就能得到单位正方形区域在线性变换作用下所变成的图形。
@@ -419,19 +444,19 @@ $$
 0 & 0 & 1
 \end{bmatrix}
 $$
-![](Linear-Algebra.assets/Translation.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/Translation.svg)
 
 ## 复合变换与矩阵乘法
 
-<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/composite_transformation.svg" align="right" />平面内任意一向量，依次做旋转变换
-
- $R_{\theta_1}:\begin{bmatrix}
+平面内任意一向量，依次做旋转变换 $R_{\theta_1}:\begin{bmatrix}
 \cos{\theta_1} & -\sin{\theta_1}\\
 \sin{\theta_1} & \cos{\theta_1}
 \end{bmatrix}$ 和 $R_{\theta_2}:\begin{bmatrix}
 \cos{\theta_2} & -\sin{\theta_2}\\
 \sin{\theta_2} & \cos{\theta_2}
 \end{bmatrix}$
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/composite_transformation.svg" />
 
 很显然最终作用的效果可以用一个变换 $R_{\theta_1+\theta_2}$ 来表示，对应的矩阵为
 $$
@@ -513,6 +538,25 @@ $$
 4. 不在主对角线上的元素全为零的方阵称为**对角阵**(diagonal matrix)，记作 $\mathrm{diag}(a_1,a_2,\cdots,a_n)$
 5. 主对角线上的元素全为1的对角阵，称为**单位阵**(identity matrix)。记$n$ 阶单位阵记作$E_n$或$I_n$
 
+**矩阵的线性运算**：因为矩阵 $A_{m\times n}$ 的各列是 $m$维向量，写作 $A=\begin{bmatrix}\mathbf a_1&\mathbf a_2&\cdots&\mathbf a_n\end{bmatrix}$ ，因此矩阵可看作向量集，向量的线性运算自然推广到矩阵。
+
+设矩阵$A=(a_{ij})$ 与 $B=(b_{ij})$ 
+
+1. 他们的对应元素完全相同 $a_{ij}=b_{ij}$，则称矩阵 $A$ 与 $B$ 相等，记作$A=B$；
+2. 矩阵的加法定义为 $A+B=(a_{ij}+b_{ij})$ 
+3. 矩阵的数乘定义为$kA=(ka_{ij})$
+
+{% label  性质 orange %}：线性运算满足以下性质
+
+1. 加法交换律：$A+B=B+A$
+2. 加法结合律：$A+(B+C)=(A+B)+C$
+3. 零矩阵：$O+A=A$
+4. 负矩阵：$A+(-A)=O$
+5. 数乘结合律：$k(lA)=(kl)A$
+6. 数乘分配律：$k(A+B)=kA+kB$
+7. 数乘分配律：$(k+l)A=kA+lA$
+8. 数乘单位元：$1A=A$
+
 **矩阵向量的乘法**： 矩阵与向量的乘法来源于线性变换，它有着直观的、深刻的几何背景。设$m\times n$ 维矩阵$A=(a_{ij})$ 与 $n$维向量 $\mathbf v=(x_1,x_2,\cdots,x_n)^T$ 的乘积
 $$
 \begin{bmatrix}
@@ -528,24 +572,47 @@ x_n\begin{bmatrix}a_{1n}\\a_{2n}\\\vdots\\a_{mn}\end{bmatrix}=
 $$
 一般地，$m\times n$ 维的矩阵，表示将 $n$ 维空间中的向量映射到 $m$ 维空间中。矩阵的第$j$列表示第 $j$ 个基向量变换后的坐标。
 
-**矩阵乘法**：矩阵与矩阵乘法来源于复合线性变换。设矩阵$A=(a_{ij})_{m\times n}$与$B=(b_{ij})_{n\times p}$ 的乘积 $AB=(c_{ij})_{m× p}$。则乘积元素
+**矩阵乘法**：矩阵与矩阵乘法来源于复合线性变换。设矩阵$A=(a_{ij})_{m\times n}$与$B=(b_{ij})_{n\times p}$，向量 $\mathbf v=(x_1,x_2,\cdots,x_p)$ ，用 $\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_p$表示矩阵 $B$ 的各列，则
 $$
-c_{ij}=\sum_{k=1}^{n}a_{ik}b_{kj}
+B\mathbf v=x_1\mathbf b_1+x_2\mathbf b_2+\cdots+x_p\mathbf b_p
 $$
-这里 $i=1,2,\cdots,m;j=1,2,\cdots,p$ 。矩阵 $A$的列数必须和$B$ 的行数相等，乘积才有意义 。之前定义的矩阵向量乘法是矩阵乘法的特例。
-
-{% label  性质 orange %}：易知
+由线性变换的性质
+$$
+\begin{aligned}
+A(B\mathbf v)&=A(x_1\mathbf b_1)+A(x_2\mathbf b_2)+\cdots+A(x_p\mathbf b_p) \\
+&=x_1A\mathbf b_1+x_2A\mathbf b_2+\cdots+x_pA\mathbf b_p \\
+&=\begin{bmatrix}A\mathbf b_1&A\mathbf b_2&\cdots&A\mathbf b_p\end{bmatrix}\mathbf v
+\end{aligned}
+$$
+于是可定义矩阵的乘积 $AB$ 为$m\times p$ 矩阵
+$$
+AB=A\begin{bmatrix}\mathbf b_1&\mathbf b_2&\cdots&\mathbf b_p\end{bmatrix}=
+\begin{bmatrix}A\mathbf b_1&A\mathbf b_2&\cdots&A\mathbf b_p\end{bmatrix}
+$$
+矩阵 $A$的列数必须和$B$ 的行数相等，乘积才有意义 。之前定义的矩阵向量乘法是矩阵乘法的特例。通常，更方便的方法是用元素定义矩阵乘法。设乘积 $AB=(c_{ij})_{m× p}$。则元素
+$$
+c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{ip}b_{pj}
+$$
+{% label  性质 orange %}：矩阵乘法满足以下性质
 
 1. 矩阵乘法满足结合率：$A(BC)=(AB)C$
-2. 矩阵乘法不满足交换率，即一般情况下 $AB\neq BA$
-3. 矩阵乘法不满足消去率，即若 $AB=AC$，不能推出 $B=C$ ；同样由 $AB=O$，不能推出 $A=O$  或 $B=O$。
+2. 矩阵乘法满足左分配律：$A(B+C)=AB+AC$
+3. 矩阵乘法满足右分配律：$(B+C)A=BA+CA$
+4. 矩阵乘法满足数乘分配律：$k(AB)=(kA)B=A(kB)$
+5. 矩阵乘法单位元：$IA=AI=A$
 
 证明：(1) 可从矩阵乘法的定义证明满足结合率。从线性变换角度来看，对于复合变换 $A(BC)$ 和 $(AB)C$ 是同样的变换，且依次作用的顺序并不会发生改变，变换的最终结果自然不变。
 $$
 \mathbf v\xrightarrow{C}C\mathbf v\xrightarrow{B}BC\mathbf v\xrightarrow{A}ABC\mathbf v
 $$
-(2) 一般地，复合变换 $f\circ g\neq g\circ f$ ，自然 $AB\neq BA$，矩阵乘法不满足交换率。
-(3) 可举例证明矩阵乘法不满足消去率
+
+注意：
+
+1. 矩阵乘法不满足交换率，即一般情况下 $AB\neq BA$
+2. 矩阵乘法不满足消去率，即若 $AB=AC$，不能推出 $B=C$ ；同样由 $AB=O$，不能推出 $A=O$  或 $B=O$。
+
+证明：(1) 一般地，复合变换 $f\circ g\neq g\circ f$ ，自然 $AB\neq BA$，矩阵乘法不满足交换率。
+(2) 可举例证明矩阵乘法不满足消去率
 
 设矩阵
 $$
@@ -562,25 +629,60 @@ BA=\begin{bmatrix}0&0&1\\ 0&0&0\\ 0&0&0\end{bmatrix}
 \begin{bmatrix}0&0&1\\ 0&0&0\\ 0&0&0\end{bmatrix}\neq O
 $$
 
-## 列空间与矩阵的秩
+## 列空间与基
 
-<kbd>值域</kbd>：线性变换 $T$ 的像集$T(V)$是一个线性空间，称为线性变换 $T$ 的**值域**，记作
-$$
-\text{range}(T)=\set{T(\mathbf v)\mid\mathbf v\in V}
-$$
-<kbd>列空间和秩</kbd>：在前面几节的分析中，我们始终将矩阵的列看成是向量。而这些列向量所张成的空间，称为**列空间**，若 $A=(\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n)$
-$$
-\text{col }A=\text{span}\set{\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n}
-$$
+<kbd>定义</kbd>：为方便使用，先介绍几个简单的定义
 
-而**矩阵的秩**就是列空间的维度，记作 $\text{rank }A=\dim(\text{col }A)$。
+1. 线性变换是一种映射，称变换后的向量 $T(\mathbf v)$ 为向量 $\mathbf v$ 在映射 $T$ 下的**像**，而称 $\mathbf v$ 为 $T(\mathbf v)$ 在映射 $T$ 下的**原像**。
 
-同样，矩阵 $A$ 的行向量所张成的空间，称为**行空间**，记作 $\text{row }A$ 。
+2. 线性变换 $T$ 的像集$T(V)$是一个线性空间，称为线性变换 $T$ 的**值域**，记作
+   $$
+   \text{range}(T)=\{T(\mathbf v)\mid\mathbf v\in V\}
+   $$
+   
+3. 在前面几节的分析中，我们始终将矩阵的列看成是向量。而这些列向量所张成的空间，称为**列空间**，若 $A=(\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n)$
+   $$
+   \text{col }A=\text{span}\{\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n\}
+   $$
 
 我们已经知道，变换后的向量 $A\mathbf v$ 是变换后的基向量以同样的系数线性组合，而矩阵的列就是基向量变换之后的位置。因此，矩阵 $A$ 线性变换后的空间即是矩阵 $A$ 的列空间
 $$
-\text{range }A=\set{A\mathbf v\mid\mathbf v\in V}=\text{col }A
+\text{col }A=\text{range }A=\{A\mathbf v\mid\mathbf v\in V\}
 $$
+<kbd>定理</kbd>：矩阵 $A$ 的主元列构成 $\text{col }A$ 的一组基。
+
+下面两个例子给出对列空间求基的简单算法。
+
+例1：求 $\text{Col }B$ 的一组基，其中
+$$
+B=(\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_n)=\begin{bmatrix}1&4&0&2&0\\ 0&0&1&-1&0\\ 0&0&0&0&1\\0&0&0&0&0\end{bmatrix}
+$$
+事实上，$B$ 的每个非主元列都是主元列的线性组合 $\mathbf b_2=4\mathbf b_1,\mathbf b_4=2\mathbf b_1-\mathbf b_3$  且主元列时线性无关的，所以主元列构成列空间的一组基 $\text{col }B=\text{span }\{\mathbf b_1,\mathbf b_3,\mathbf b_5\}$ 。
+
+当矩阵不是阶梯型矩阵时，回顾矩阵 $A=(\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n)$ 中列向量间的线性关系都可以用方程 $A\mathbf x=0$ 的形式刻画。当 $A$ 被行简化为阶梯型矩阵 $B=(\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_n)$ 时，即存在可逆矩阵 $P$ 使 $B=PA$ 。若 $B$ 的列向量线性相关，即存在系数 $\mathbf x$ 使得 $B\mathbf x=0$ ，即
+$$
+x_1\mathbf b_1+x_2\mathbf b_2+\cdots+x_n\mathbf b_n=0
+$$
+同样的系数 $\mathbf x$ 也适用于矩阵 $A$ 的列向量，$A\mathbf x=P^{-1}B\mathbf x=0$，即
+$$
+x_1\mathbf a_1+x_2\mathbf a_2+\cdots+x_n\mathbf a_n=0
+$$
+==综上，即矩阵$A$的列与阶梯型矩阵 $B$ 的列具有完全相同的线性相关关系。==
+
+例2：
+$$
+A=(\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n)=\begin{bmatrix}1&4&0&2&-1\\ 3&12&1&5&5\\ 2&8&1&3&2\\5&20&2&8&8\end{bmatrix}
+$$
+已知矩阵 $A$ 行等价于上例中的矩阵$B$ ，求  $\text{Col }A$ 的一组基。
+
+由于上例中 $\mathbf b_2=4\mathbf b_1,\mathbf b_4=2\mathbf b_1-\mathbf b_3$ ，相关关系完全适用于矩阵 $A$ 的列向量 $\mathbf a_2=4\mathbf a_1,\mathbf a_4=2\mathbf a_1-\mathbf a_3$ 。于是线性无关集 $\mathbf a_1,\mathbf a_3,\mathbf a_5$ 是 $\text{Col }A$ 的一组基 $\text{col }A=\text{span }\{\mathbf a_1,\mathbf a_3,\mathbf a_5\}$。
+
+> 注意：阶梯形矩阵的主元列通常不在原矩阵的列空间中。
+
+## 矩阵的秩
+
+**矩阵的秩**就是列空间的维度，记作 $\text{rank }A=\dim(\text{col }A)$。
+
 前面介绍的都是方阵，表示向量空间到自身的映射。下面简单说下非方阵的映射关系。
 
 一般地，$m\times n$ 维的矩阵，表示将 $n$ 维空间中的向量映射到 $m$ 维空间中。矩阵的第$j$列表示第 $j$ 个基向量变换后的坐标。例如：
@@ -592,7 +694,7 @@ $$
 \begin{bmatrix}1\\3\\0\end{bmatrix}x+
 \begin{bmatrix}-1\\2\\3\end{bmatrix}y
 $$
-![](Linear-Algebra.assets/matrix_3x2.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/matrix_3x2.svg)
 
 $2\times 3$ 维矩阵是把三维空间映射到二维空间上，因为矩阵有三列，说明输入空间有三个基向量，二行表示每一个基向量在变换后用二个独立的坐标来描述。
 $$
@@ -600,23 +702,15 @@ $$
 \begin{bmatrix}x\\y\\z\end{bmatrix}=
 \begin{bmatrix}2\\1\end{bmatrix}x+
 \begin{bmatrix}2\\0\end{bmatrix}y+
-\begin{bmatrix}1\\-1\end{bmatrix}y
+\begin{bmatrix}1\\-1\end{bmatrix}z
 $$
-![](Linear-Algebra.assets/matrix_2x3.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/matrix_2x3.svg)
 
-若矩阵的秩等于列数，则称为**满秩矩阵**，零向量一定在列空间内，满秩变换中，唯一能落在原点的就是零向量自身。满秩矩阵的列即为列空间的基。
+若矩阵的秩等于列数，则称为**满秩矩阵**(full rank matrix)，零向量一定在列空间内，满秩变换中，唯一能落在原点的就是零向量自身。满秩矩阵的列即为列空间的基。
 
 对于**非满秩矩阵**，意味着该线性变换会将空间压缩到一个更低维的空间，通俗来讲，就是会有一系列直线上不同方向的向量压缩为原点。
 
 由此可得，**秩可以用来描述线性变换对空间的压缩程度**。
-
-{% label  性质 orange %}：
-
-1. 矩阵的秩在初等变换下保持不变
-2. 矩阵的列向量组的秩等于行向量组的秩
-3. $\text{rank}(A+B)\leqslant \text{rank}(A)+\text{rank}(B)$
-4. $\text{rank}(kA)=\text{rank}(A)$
-5. $\text{rank}(AB)\leqslant \min\{\text{rank}(A),\text{rank}(B)\}$
 
 
 ## 逆变换与逆矩阵
@@ -629,14 +723,13 @@ $$
 $$
 AB=BA=I
 $$
-则称矩阵 $A$ **可逆**(invertible)，$B$ 是 $A$ 的**逆矩阵**。不可逆矩阵有时称为奇异矩阵，而可逆矩阵也称为非奇异矩阵。
+则称矩阵 $A$ **可逆**(invertible)，$B$ 是 $A$ 的**逆矩阵**。实际上， $A$ 的逆矩阵是唯一的，记为 $A^{-1}$。因为，若 $B,C$ 都是 $A$ 的逆矩阵，则
 
-**唯一性**：如果矩阵 $A$ 可逆，则 $A$ 的逆矩阵是唯一的，记为 $A^{-1}$。
-
-证明：设 $B,C$ 都是 $A$ 的逆矩阵，则
 $$
 B=(CA)B=C(AB)=C
 $$
+
+不可逆矩阵有时称为**奇异矩阵**，而可逆矩阵也称为**非奇异矩阵**。
 
 {% label  性质 orange %}：逆矩阵满足下列性质
 
@@ -781,7 +874,7 @@ $$
 称形如 $B_1$ 的矩阵为**行阶梯形矩阵**(Row Echelon Form，REF)。其特点是：
 
 (1) 若有零行(元素全为零的行)，零行均在非零行的下方；
-(2) 非零行第一个非零元素(称为主元，pivot)以下的元素全为零。
+(2) 非零行第一个非零元素(称为**主元**，pivot)以下的元素全为零。
 
 使用初等行变换对行阶梯形矩阵进一步化简
 $$
@@ -808,21 +901,51 @@ $$
 
 从最后的简化行阶梯形矩阵可以直接写出一般解，但注意把自由变量的系数变号移到等式右边。
 
-## 线性方程组解的情况
+## 线性方程组的解
 
-无解，有唯一解，有无穷多解
+假设某方程组的增广矩阵行已变换为阶梯形矩阵
+$$
+\begin{bmatrix}\begin{array}{ccc:c}
+1 & 0 & -5 & 1 \\
+0 & 1 & 1 & 4\\
+0 & 0 & 0 & 0
+\end{array}\end{bmatrix}
+$$
+对应的线性方程组是
+$$
+\begin{cases}
+\begin{alignedat}{4} 
+x_1&&-5x_3& = 1 \\
+&\quad\ x_2&+x_3 &= 4 \\ 
+&\quad &\quad 0& =0
+\end{alignedat}
+\end{cases}
+$$
+方程组的解可显示表示为 $x_1=1+5x_3,\ x_2=4-x_3$ ，显然有无穷多组解。
 
-把 $n$ 元线性方程组的增广矩阵化成行阶梯形矩阵后，若有 $r$ 个非零行，则行阶梯形矩阵有 $r$ 个主元。以主元为系数的末知量称为**主变量**，剩下的 $n-r$ 个未知量是**自由变量**，其值可任取。
+把 $n$ 元线性方程组的增广矩阵化成行阶梯形矩阵后，若有 $r$ 个非零行，则行阶梯形矩阵有 $r$ 个主元。以主元为系数的末知量称为**主变量**，剩下的 $n-r$ 个未知量称为**自由变量**，其值可任取。
 
+假设某方程组的增广矩阵行已变换为阶梯形矩阵
+$$
+\begin{bmatrix}\begin{array}{ccc:c}
+2 & -3 & 2 & 1 \\
+0 & 1 & -4 & 8\\
+0 & 0 & 0 & 15 
+\end{array}\end{bmatrix}
+$$
+对应的线性方程组是
+$$
+\begin{cases}
+\begin{alignedat}{4} 
+2x_1&-3x_2&+2x_3& = 1 \\
+&\quad\ x_2&-4x_3 &= 8 \\ 
+&\quad &\quad 0& = 15
+\end{alignedat}
+\end{cases}
+$$
+这个阶梯形方程组显然是矛盾的，故原方程组无解。
 
-
-**一般解**
-
-
-
-<kbd>存在与唯一性定理</kbd>：
-
-如果最后得出的行阶梯形方程组包含矛盾方程，则原方程组无解。
+<kbd>解的情况</kbd>：线性方程组有解的充要条件是增广矩阵的增广列不是主元列，即行阶梯形方程组不包含矛盾方程。若线性方程组有解，则解有两种情况：(1) 当没有自由变量时，有唯 一解；(2) 当有自由变量是，有无穷多解。
 
 ## 向量方程
 
@@ -830,32 +953,31 @@ $$
 $$
 x_1\mathbf a_1+x_2\mathbf a_2+\cdots+x_n\mathbf a_n=\mathbf b
 $$
-其中 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n$ 为系数矩阵 $A$ 的列向量组，$\mathbf b$ 为常数向量。它的一组解 $\eta=(k_1,k_2,\cdots,k_n)^T$ 称为方程组的**解向量**。
+其中 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n$ 为系数矩阵 $A$ 的列向量组，$\mathbf b$ 为常数向量。它的一组解 $s=(x_1,x_2,\cdots,x_n)^T$ 称为方程组的**解向量**。
 
-上面的例子可以表述为：
+例如，方程组
+$$
+\begin{cases}
+\begin{alignedat}{4} 
+2x_1&-x_2&+x_3& = 4 \\
+4x_1&+2x_2&-x_3& = -1
+\end{alignedat}
+\end{cases}
+$$
+可以表述为
 $$
 \begin{bmatrix}2\\4\end{bmatrix}x_1+
 \begin{bmatrix}-1\\2\end{bmatrix}x_2+
 \begin{bmatrix}1\\-1\end{bmatrix}x_3=
 \begin{bmatrix}4\\-1\end{bmatrix}
 $$
-既然可表示为向量的形式，那么就可以从向量的角度分析，方程的解的判断就变成了已知向量能否由系数向量线性组合表述。
+既然可表示为向量的形式，那么就可以从向量的角度分析。向量方程是否有解的问题等价于判断常数向量 $\mathbf b$ 能否由系数矩阵列向量组线性表示，即向量 $\mathbf b$ 是否属于系数矩阵的列空间 $\text{col }A=\text{span}\{\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n\}$。
 
-向量方程是否有解的问题等价于常数向量 $\mathbf b$ 能否由系数矩阵列向量组线性表示，即向量 $\mathbf b$ 是否属于系数矩阵的列空间 $\text{col }A=\text{span}\set{\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n}$。
+<kbd>结论</kbd>：方程 $A\mathbf x=\mathbf b$有解的充要条件是 $\mathbf b$ 是 $A$ 的各列的线性组合。
 
-<kbd>结论</kbd>：
+以线性变换的角度理解，希望找出未知向量 $\mathbf x$ ，使得该向量在线性变换 $A$ 的作用下变成已知向量 $\mathbf b$。因此，我们可以从逆变换的角度获得未知向量。显然，如果变换后维度压缩，方程不一定有解。即列空间的维度低于未知向量维度。
 
-(1) 由线性表示的定义可知，线性方程组有解等价于常数向量 $\mathbf b$ 能被系数向量组 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n$ 线性表示。
-(2) 由线性相关的定义可知，齐次线性方程组($\mathbf b=0$)有非零解等价于系数向量组 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n$ 线性相关。
-
-方程Ax=b有解当且仅当b是A的各列的线性组合。
-
-以线性变换的角度理解，希望找出未知向量 $\mathbf x$ ，使得该向量在线性变换 $A$ 的作用下变成已知向量 $\mathbf b$。因此，我们可以从逆变换的角度获得未知向量。
-显然，如果变换后维度压缩，方程不一定有解。即列空间的维度低于未知向量维度。
-
-
-
-## 齐次线性方程组解的结构
+## 齐次线性方程组的解
 
 常数项都为零的线性方程组 $A\mathbf{x}=0$ 称为**齐次线性方程组**。向量方程为
 $$
@@ -868,46 +990,37 @@ x_1=x_2=\cdots=x_n=0
 $$
 这组解称为**零解**或**平凡解**。除此之外的其他解称为**非零解**或**非平凡解**。
 
-齐次线性方程组有非零解等价于系数矩阵的列向量组线性相关，即 $\text{rank}(A)<n$
-
-系数矩阵的列向量组线性无关，方程 $A\mathbf{x}=0$ 仅有平凡解。
-
-判断齐次向量方程 $x_1\mathbf a_1+x_2\mathbf a_2+\cdots+x_n\mathbf a_n=0$ 是否有非零解，等价于判断向量组 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n$ 是否线性相关。
-
-矩阵 $A_{m\times n}$ 列向量组线性相关的充要条件是 $\text{rank}(A)<n$。
+ 方程 $A_{m\times n}\mathbf{x}=0$ 有非零解等价于 $A$ 的列向量组线性相关，即 $\text{rank}(A)<n$
 
 齐次线性方程组的解有如下性质
 
-1. 如果 $\eta_1,\eta_2$ 是齐次线性方程组的两个解向量，则 $\eta_1+\eta_2$ 也是方程组的解向量。
-2. 如果 $\eta$ 是齐次线性方程组的解向量，则对任意常数$k$， $k\eta$ 也是方程组的解向量。
+1. 如果 $s_1,s_2$ 是齐次线性方程组的两个解向量，则 $s_1+s_2$ 也是方程组的解向量。
+2. 如果 $s$ 是齐次线性方程组的解向量，则对任意常数$k$， $ks$ 也是方程组的解向量。
 
 > 这两条性质只要直接代入向量方程进行验证就可以。 
 
 显然，系数矩阵为 $A$ 的齐次线性方程组的解集 
 $$
-\ker A=\set{\mathbf x|A\mathbf{x}=0}
+\ker A=\{\mathbf x|A\mathbf{x}=0\}
 $$
-满足向量空间的条件， 称为**零空间**(nullspace)或**核**(kernel)。解空间的一组基 $\eta_1,\eta_2,\cdots,\eta_{n-r}$ 称为该方程组的**基础解系**。
+满足向量空间的条件， 称为**零空间**(nullspace)或**核**(kernel)。解空间的一组基 $s_1,s_2,\cdots,s_{n-r}$ 称为该方程组的**基础解系**。==零空间的维数即为自由变量的个数==。
 
 如果能找到基础解系，就能描述整个解空间。
 
-定理：$n$ 元齐次线性方程组 $A\mathbf{x}=0$ 基础解系中解向量的个数等于 $n-\text{rank}(A)$。
+<kbd>定理</kbd>：
 
-定理：$n$ 元齐次线性方程组 $A\mathbf{x}=0$ 有非零解的充要条件是 $\text{rank}(A)<n$。
+1. 方程 $A_{m\times n}\mathbf{x}=0$ 有非零解的充要条件是 $\text{rank}(A)<n$。
+2. 方程 $A_{m\times n}\mathbf{x}=0$ 基础解系中自由变量的个数等于 $n-\text{rank}(A)$。
+3. 设 $A$ 是向量空间 $V$ 内的线性变换
 
-
-
-方程组的任意解向量都可线性表示为
 $$
-k_1\eta_1+k_2\eta_2+\cdots+k_{n-r}\eta_{n-r}
+\dim V=\dim(\text{range }A)+\dim(\ker A)
 $$
 
 
-<kbd>推论</kbd>：如果 $\eta_1,\eta_2,\cdots,\eta_r$ 是齐次线性方程组的一组解向量，则它们的任意线性组合 $k_1\eta_1+k_2\eta_2+\cdots+k_r\eta_r$ 仍为方程组的解向量。
+可以用系数矩阵的初等行变换来求基础解系。
 
-可以用齐次线性方程系数矩阵的初等行变换求基础解系。
-
-示例：求齐次线性方程组
+示例：求下列齐次线性方程组的解集。
 $$
 \begin{cases}
 x_2-x_3+x_4-x_5=0 \\
@@ -916,8 +1029,6 @@ x_1+x_2+3x_4-2x_5=0 \\
 2x_1+2x_2+6x_4-3x_5=0 
 \end{cases}
 $$
-的一个基础解系。
-
 解：先做矩阵消元法获得阶梯形矩阵和简化阶梯形矩阵
 $$
 A=\begin{bmatrix}
@@ -939,7 +1050,7 @@ A=\begin{bmatrix}
 0&0&0&0&0 
 \end{bmatrix}
 $$
-可知 $\text{rank}(A)=3$，故基础解系中应包含 $n-r=2$ 个向量。由简化阶梯形矩阵可知
+因此 
 $$
 \begin{cases}
 x_1=-x_3-2x_4 \\
@@ -954,75 +1065,65 @@ x_3\begin{bmatrix}-1 \\ 1 \\ 1 \\ 0 \\ 0\end{bmatrix}
 +x_4\begin{bmatrix}-2\\-1\\0\\1\\0\end{bmatrix}
 $$
 
-## 非齐次线性方程组解的结构
+## 非齐次线性方程组的解
 
-判断向量方程 $x_1\mathbf a_1+x_2\mathbf a_2+\cdots+x_n\mathbf a_n=\mathbf b$ 是否有解，等价于判断常数向量 $\mathbf b$ 是否属于 $\text{span}\set{\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n}$。
+对于非齐次线性方程组 $A\mathbf{x}=0$ 。判断向量方程 $x_1\mathbf a_1+x_2\mathbf a_2+\cdots+x_n\mathbf a_n=\mathbf b$ 是否有解，等价于判断常数向量 $\mathbf b$ 是否属于 $\text{span}\{\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n\}$。
 
-判别定理：线性方程组有解的充要条件是其系数矩阵$A$与增广矩阵$\bar A$的秩相等 $\text{rank}(A)=\text{rank}(\bar A)$。
+<kbd>判别定理</kbd>：线性方程组有解的充要条件是其系数矩阵$A$与增广矩阵$\bar A$的秩相等 $\text{rank}(A)=\text{rank}(\bar A)$。
 
 > 通俗理解就是，变换后的阶梯形方程组不存在 $0=b$ 的矛盾方程。
-
-非齐次解平面平移
-
-
-
-非齐次线性方程组 $A\mathbf x=\mathbf b$ 对应的齐次线性方程组 $A\mathbf x=0$ 称为**导出方程组**。解的关系：
-
-1. 非齐次线性方程组的任意两个解向量之差是导出方程组的一个解向量；
-2. 非齐次线性方程组通解是其任一解向量与其导出方程组通解之和。
 
 解的结构：设 $n$ 元非齐次线性方程组 $\text{rank}(A)=\text{rank}(\bar A)$
 
 (1) 若 $\text{rank}(A)=n$，方程组有唯一解；
 (2) 若 $\text{rank}(A)<n$，方程组有无穷多解。
 
-示例：求线性方程组
+非齐次线性方程组 $A\mathbf x=\mathbf b$ 对应的齐次线性方程组 $A\mathbf x=0$ 称为**导出方程组**。解的关系：
+
+1. $A\mathbf x=\mathbf b$ 的任意两个解向量之差是 $A\mathbf x=0$ 的一个解向量；
+2. $A\mathbf x=\mathbf b$ 的通解是其任一解向量与 $A\mathbf x=\mathbf b$ 通解之和。
+
+如下图
+
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/Nonhomogeneous_linear_equation.svg)
+
+示例：求下列线性方程组的全部解
 
 $$
 \begin{cases}
-x_2-x_3+x_4-x_5=0 \\
-x_1+x_3+2x_4-x_5=0 \\
-x_1+x_2+3x_4-2x_5=0 \\
-2x_1+2x_2+6x_4-3x_5=0 
+\begin{alignedat}{4} 
+x_1&+4x_2&-5x_3& = 0 \\
+2x_1&-x_2&+8x_3& = 9
+\end{alignedat}
 \end{cases}
 $$
-的全部解。
-
 解：对方程组的增广矩阵做初等行变换获得阶梯形矩阵和简化阶梯形矩阵
 $$
-\bar A=\begin{bmatrix}\begin{array}{ccccc:c}
-0&1&-1&1&-1&0 \\
-1&0&1&2&-1&0 \\
-1&1&0&3&-2&0 \\
-2&2&0&6&-3&0 
+\bar A=\begin{bmatrix}\begin{array}{ccc:c}
+1&4&-5&0 \\
+2&-1&8&9
 \end{array}\end{bmatrix}\to
-\begin{bmatrix}\begin{array}{ccccc:c}
-1&0&1&2&-1&0 \\
-0&1&-1&1&-1&0 \\
-0&0&0&0&1&0 \\
-0&0&0&0&0&0 
+\begin{bmatrix}\begin{array}{ccc:c}
+1&4&-5&0 \\
+0&-9&18&9
 \end{array}\end{bmatrix}\to
-\begin{bmatrix}\begin{array}{ccccc:c}
-1&0&1&2&0&2 \\
-0&1&-1&1&0&0 \\
-0&0&0&0&1&1 \\
-0&0&0&0&0&0
+\begin{bmatrix}\begin{array}{ccc:c}
+1&0&3&4 \\
+0&1&-2&1
 \end{array}\end{bmatrix}
 $$
-(1) 只要取 $x_4=x_5=0$ 即可获得一个特解 $(2,0,0,0,1)^T$
-
-(2) 再求导出组的通解。由简化阶梯形矩阵可知
+因此
 $$
-\begin{bmatrix}x_1\\x_2\\x_3\\x_4\\x_5\end{bmatrix}
-=x_3\begin{bmatrix}-1 \\ 1 \\ 1 \\ 0 \\ 0\end{bmatrix}
-+x_4\begin{bmatrix}-2\\-1\\0\\1\\0\end{bmatrix}
+\begin{cases}
+x_1=4-3x_3 \\
+x_2=1+2x_3
+\end{cases}
 $$
-故原方程组的全部解为
+解向量的形式为
 $$
-\begin{bmatrix}x_1\\x_2\\x_3\\x_4\\x_5\end{bmatrix}=
-\begin{bmatrix}2\\0\\0\\0\\1\end{bmatrix}
-+x_3\begin{bmatrix}-1 \\ 1 \\ 1 \\ 0 \\ 0\end{bmatrix}
-+x_4\begin{bmatrix}-2\\-1\\0\\1\\0\end{bmatrix}
+\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}=
+\begin{bmatrix}4\\1\\0\end{bmatrix}
++x_3\begin{bmatrix}-3 \\ 2 \\ 1 \end{bmatrix}
 $$
 
 # 行列式
@@ -1158,6 +1259,18 @@ $$
 \end{vmatrix}=\prod_{1⩽ i<j⩽n}(a_j-a_i)
 $$
 
+**行列式函数**：若 $A$ 为$n$阶矩 阵，可以将 $\det A$ 看作 $A$ 中 $n$ 个列向量的函数。若 $A$ 中除了一列之外都是固定的向量，则 $\det A$ 是线性函数。
+
+假设第 $j$ 列是变量，定义映射 $\mathbf x\mapsto T(\mathbf x)$ 为
+$$
+T(\mathbf x)=\det A=\det\begin{bmatrix}\mathbf a_1\cdots\mathbf x\cdots\mathbf a_n\end{bmatrix}
+$$
+ 则有
+$$
+T(c\mathbf x)=cT(\mathbf x) \\
+T(\mathbf u+\mathbf v)=T(\mathbf u)+T(\mathbf v)
+$$
+
 ## 克拉默法则
 
 这里只讨论方程个数和未知数相等的$n$元线性方程组
@@ -1166,43 +1279,53 @@ A\mathbf x=\mathbf b
 $$
 若 $\det A\neq0$，那么它有唯一解
 $$
-x_j=\frac{\det(A_j)}{\det A},\quad(j=1,2,\cdots,n)
+x_j=\frac{\det A_j(\mathbf b)}{\det A},\quad(j=1,2,\cdots,n)
 $$
-其中$A_j$是把系数矩阵$A$中的第$j$列换成常数项 $\mathbf b$ 所得的矩阵。
+> 约定 $A_j(\mathbf b)$ 表示用向量 $\mathbf b$ 替换矩阵$A$的第$j$列。
+
+证：用$\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n$ 表示矩阵$A$ 的各列，$\mathbf e_1,\mathbf e_2,\cdots,\mathbf e_n$ 表示单位阵$I_n$ 的各列。由分块矩阵乘法
+$$
+\begin{aligned}
+AI_j(\mathbf x)&=A\begin{bmatrix}\mathbf e_1&\cdots&\mathbf x&\cdots&\mathbf e_n\end{bmatrix} \\
+&=\begin{bmatrix}A\mathbf e_1&\cdots& A\mathbf x&\cdots& A\mathbf e_n\end{bmatrix} \\
+&=\begin{bmatrix}\mathbf a_1&\cdots&\mathbf b&\cdots&\mathbf a_n\end{bmatrix} \\
+&=A_j(\mathbf b)
+\end{aligned}
+$$
+由行列式的乘法性质
+$$
+\det A\det I_j(\mathbf x)=\det A_j(\mathbf b)
+$$
+左边第二个行列式可沿第 $j$ 列余子式展开求得 $\det I_j(\mathbf x)=x_j$。从而
+$$
+x_j\det A=\det A_j(\mathbf b)
+$$
+若 $\det A\neq0$，则上式得证。
 
 
-## 行列式的直观理解
+## 行列式的几何理解
 
 > Grant：行列式告诉你一个线性变换对区域的缩放比例。
 
-我们已经知道，线性变换保持网格线平行且等距。为了方便，我们只考虑在平面直角坐标系内，单位正方形区域的线性变换。
+我们已经知道，线性变换保持网格线平行且等距。为了方便，我们只考虑在平面直角坐标系内，单位基向量 $\mathbf i,\mathbf j$ 所围成的单位正方形区域的线性变换。
 
-根据向量加法的平行四边形法则，单位正方形区域可用向量形式表示为
-$$
-\begin{bmatrix}x_1\\x_2\end{bmatrix}=x_1\mathbf i+x_2\mathbf j  \quad(0\leqslant x_1,x_2\leqslant 1)
-$$
-由线性变换基本性质知，变换后的区域为
-$$
-A\begin{bmatrix}x_1\\x_2\end{bmatrix}=x_1(A\mathbf i)+x_2(A\mathbf j) \quad(0\leqslant x_1,x_2\leqslant 1)
-$$
+根据向量加法的平行四边形法则和线性变换基本性质知，变换后的区域为矩阵 $A=\begin{bmatrix}a & b\\c & d\end{bmatrix}$ 的列向量 $\begin{bmatrix}a\\c\end{bmatrix}$ 和 $\begin{bmatrix}b\\d\end{bmatrix}$ 为邻边的平行四边形区域。
 
-表示以 $A\mathbf i,A\mathbf j$ 为邻边的平行四边形区域。因此，我们只需考虑基向量 $\mathbf i,\mathbf j$ 在线性变换作用下的结果，就能得到单位正方形区域在线性变换作用下所变成的图形。
+<kbd>结论</kbd>：二阶行列式的值表示由 $A$ 的列确定的有向平行四边形的面积。
 
-二维空间中行列式的值代表着面积的缩放比例，我们关注的是单位正方形进行线性变换后的体积变化，二阶行列式的值表示变换后有向平行四边形的面积。
-
-(1) 行列式 $\det\begin{bmatrix}a & b\\0 & d\end{bmatrix}$ 表示底为 $a$，高为 $d$ 的平行四边形面积
+(1) 若 $A$ 为对角阵，显然行列式 $\det\begin{bmatrix}a & b\\0 & d\end{bmatrix}$ 表示底为 $a$，高为 $d$ 的平行四边形面积
 
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/det_shears.svg" style="zoom:80%;" />
 
-(2) 矩阵 $\begin{bmatrix}a^2 & a\\a & 1\end{bmatrix}$ 表示将单位正方形压缩成线段，面积自然为0，行列式的值为0
+(2) 更一般的情况 $A=\begin{bmatrix}a & b\\c & d\end{bmatrix}$ ，可以看出，行列式的值与面积有着紧密的联系。
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/determinant.svg" style="zoom:100%;" />
+
+(3) 矩阵 $\begin{bmatrix}a^2 & a\\a & 1\end{bmatrix}$ 表示将单位正方形压缩成线段，面积自然为0，行列式的值为0
 
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/det_projection.svg" style="zoom:80%;" />
 
-(3) 更一般的情况，可以看出，行列式的值与面积有着紧密的联系。
-
-<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/determinant.svg" style="zoom:80%;" />
-
-单位正方形区域缩放的比例，就可以代表任意给定区域缩放的比例。这是因为，线性变换保持网格线平行且等距。对于空间中任意区域的面积，借助微积分的思想，我们可以采用足够的小方格来逼近区域的面积，对所有小方格等比例缩放，则整个区域也以同样的比例缩放。
+单位正方形区域缩放的比例，其实可以代表任意给定区域缩放的比例。这是因为，线性变换保持网格线平行且等距。对于空间中任意区域的面积，借助微积分的思想，我们可以采用足够的小方格来逼近区域的面积，对所有小方格等比例缩放，则整个区域也以同样的比例缩放。
 $$
 \text{volume }T(\Omega) = (\det T)(\text{volume }\Omega)
 $$
@@ -1217,31 +1340,7 @@ $$
 
 2. 行列式的值为零，表示将空间压缩到更低的维度，矩阵的列向量线性相关
 
-
 # 矩阵的运算
-
-## 矩阵的基本运算
-
-<kbd>定义</kbd>：设两个 $m\times n$ 维矩阵$A=(a_{ij})$ 与 $B=(b_{ij})$ 
-
-1. 他们的对应元素完全相同 $a_{ij}=b_{ij}$，则称矩阵 $A$ 与 $B$ 相等，记作$A=B$；
-2. 矩阵的加法定义为 $A+B=(a_{ij}+b_{ij})$ 
-3. 矩阵的数乘定义为$kA=(ka_{ij})$
-
-{% label  性质 orange %}：矩阵基本运算满足以下性质
-
-1. 加法交换律：$A+B=B+A$
-2. 加法结合律：$A+(B+C)=(A+B)+C$
-3. 零矩阵：$O+A=A$
-4. 负矩阵：$A+(-A)=O$
-5. 数乘结合律：$k(lA)=(kl)A$
-6. 数乘分配律：$k(A+B)=kA+kB$
-7. 数乘分配律：$(k+l)A=kA+lA$
-8. 数乘单位元：$1A=A$
-9. 乘法结合率：$A(BC)=(AB)C$
-10. 左分配律：$A(B+C)=AB+AC$
-11. 右分配律：$(B+C)A=BA+CA$
-12. $k(AB)=(kA)B=A(kB)$
 
 ## 矩阵的转置
 
@@ -1273,8 +1372,10 @@ a_{n1}&a_{n2}&\cdots&a_{nn} \\
 \end{bmatrix}
 $$
 
-上(下)三角阵的行列式为主对角线元素的乘积 $\det A=a_{11}a_{22}\cdots a_{nn}$
-
+**上(下)三角阵的行列式为主对角线元素的乘积**
+$$
+\det A=a_{11}a_{22}\cdots a_{nn}
+$$
 **对角阵**：不在主对角线上的元素全为零的矩阵称为**对角阵**(diagonal matrix)，记作
 $$
 \mathrm{diag}(a_1,a_2,\cdots,a_n)=\begin{bmatrix}
@@ -1320,14 +1421,7 @@ I_3=\begin{bmatrix}1&0&0 \\0&1&0 \\0&0&1 \\ \end{bmatrix}
 $$
 **对称阵**与**反对称阵**：设 $A=(a_{ij})$ 为 $n$阶方阵，若$A^T=A$ ，即$a_{ij}=a_{ji}$，则称为**对称阵**(symmetric matrix)；若$A^T=-A$ ，即 $a_{ij}=-a_{ji}$，则称为**反对称阵**(skew-symmetric matrix)。
 
-对称阵构造：
-$$
-\left(\frac{A+A^T}{2}\right)^T=\frac{A+A^T}{2}
-$$
-反对称阵构造：
-$$
-\left(\frac{A-A^T}{2}\right)^T=-\left(\frac{A-A^T}{2}\right)
-$$
+==易证明 $AA^T$ 和 $A^TA$ 是对称阵。==
 
 **方阵的幂**：由于矩阵满足结合律，我们可以定义矩阵的幂运算
 $$
@@ -1357,58 +1451,6 @@ $$
 1. $\overline{A+B}=\overline A+\overline B$
 2. $\overline{kA}=\bar k \bar A$
 3. $\overline{AB}=\bar A\bar B$
-
-## 分块矩阵
-
-> 分块矩阵是矩阵运算的一种技巧。
-
-在矩阵的运算和理论研究中，有时对矩阵进行分块处理，常常会简化矩阵的运算，或者使原矩阵显得结构简单而清晰。
-$$
-\begin{bmatrix}
-\begin{array}{cc:cc} 
-1&0 & 0 & 0 \\ 
-0&1 & 0 &0 \\ 
-\hdashline 
-0&0 & 1 & 5
-\end{array}\end{bmatrix}
-=\begin{bmatrix}
-   I_2 & O \\
-   O & A
-\end{bmatrix}
-$$
-像这样，结合矩阵本身的特点，把一个矩阵用横线和竖线划分为若干个子块，并以所分的子块为元素的矩阵称为**分块矩阵**(Block matrix)。一个矩阵可用不同的方法分块。
-
-分块矩阵的运算形式上和普通矩阵相同，把子块当成元素计算即可。
-
-**加法**：设分块 $A,B$ 是同型矩阵，且对它们的分法相同，则 $A+B=(A_{ij}+B_{ij})$
-$$
-\begin{bmatrix}A_1 & B_1 \\C_1 & D_1 \end{bmatrix}+
-\begin{bmatrix}A_2 & B_2 \\C_2 & D_2 \end{bmatrix}=\begin{bmatrix}A_1+A_2 & B_1+B_2 \\C_1+C_2 & D_1+D_2 \end{bmatrix}
-$$
-**数乘**：分块矩阵 $A$ ，数乘作用于每个子块。
-$$
-k\begin{bmatrix}A & B \\C & D \end{bmatrix}=\begin{bmatrix}kA & kB \\kC & kD \end{bmatrix}
-$$
-**乘法**：分块矩阵的乘法按矩阵乘法的形式计算。
-$$
-AB=A[\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_p]=
-[A\mathbf b_1,A\mathbf b_2,\cdots,A\mathbf b_p]
-$$
-**转置**：分块矩阵 $A=(A_{ij})$ 的转置等于各子块的转置 $A^T=(A_{ij}^T)$
-
-由上面的特点易知，对角分块矩阵拥有良好的性质。
-
-(1) 对角分块矩阵的和、积仍为对角分块矩阵
-(2) 若对角分块矩阵的各个子块可逆，则该对角分块矩阵可逆
-$$
-\begin{bmatrix}A_1 \\&A_2 \\&&\ddots \\&&&A_s \end{bmatrix}^{-1}=
-\begin{bmatrix}A_1^{-1} \\&A_2^{-1} \\&&\ddots \\&&&A_s^{-1} \end{bmatrix}
-$$
-(3) 对角分块矩阵的行列式为对角位置的行列式乘积
-$$
-\det\begin{bmatrix}A_1 \\&A_2 \\&&\ddots \\&&&A_s \end{bmatrix}
-=\det A_1\det A_2\cdots\det A_s
-$$
 
 ## 初等矩阵
 
@@ -1454,9 +1496,115 @@ $$
 \begin{bmatrix}I_r&O \\O&O\end{bmatrix}
 $$
 
+
+## 分块矩阵
+
+> 分块矩阵是矩阵运算的一种技巧。
+
+在矩阵的运算和理论研究中，有时对矩阵进行分块处理，常常会简化矩阵的运算，或者使原矩阵显得结构简单而清晰。
+$$
+\begin{bmatrix}
+\begin{array}{cc:cc} 
+1&0 & 0 & 0 \\ 
+0&1 & 0 &0 \\ 
+\hdashline 
+0&0 & 1 & 5
+\end{array}\end{bmatrix}
+=\begin{bmatrix}
+   I_2 & O \\
+   O & A
+\end{bmatrix}
+$$
+像这样，结合矩阵本身的特点，把一个矩阵用横线和竖线划分为若干个子块，并以所分的子块为元素的矩阵称为**分块矩阵**(Block matrix)。一个矩阵可用不同的方法分块。
+
+分块矩阵的运算形式上和普通矩阵相同，把子块当成元素计算即可。
+
+**加法**：设分块 $A,B$ 是同型矩阵，且对它们的分法相同，则 $A+B=(A_{ij}+B_{ij})$
+$$
+\begin{bmatrix}A_1 & B_1 \\C_1 & D_1 \end{bmatrix}+
+\begin{bmatrix}A_2 & B_2 \\C_2 & D_2 \end{bmatrix}=\begin{bmatrix}A_1+A_2 & B_1+B_2 \\C_1+C_2 & D_1+D_2 \end{bmatrix}
+$$
+**数乘**：分块矩阵 $A$ ，数乘作用于每个子块。
+$$
+k\begin{bmatrix}A & B \\C & D \end{bmatrix}=\begin{bmatrix}kA & kB \\kC & kD \end{bmatrix}
+$$
+**乘法**：分块矩阵的乘法按矩阵乘法的形式计算。
+$$
+AB=A\begin{bmatrix}\mathbf b_1&\mathbf b_2&\cdots&\mathbf b_p\end{bmatrix}=
+\begin{bmatrix}A\mathbf b_1&A\mathbf b_2&\cdots&A\mathbf b_p\end{bmatrix}
+$$
+矩阵乘法的列行展开
+$$
+AB=\begin{bmatrix}\mathbf a_1&\mathbf a_2&\cdots&\mathbf a_n\end{bmatrix}
+\begin{bmatrix}\mathbf b_1\\\mathbf b_2\\\vdots\\\mathbf b_n\end{bmatrix}
+=\mathbf a_1\mathbf b_1+\mathbf a_2\mathbf b_2+\cdots+\mathbf a_n\mathbf b_n
+$$
+**转置**：分块矩阵 $A=(A_{ij})$ 的转置等于各子块的转置 $A^T=(A_{ij}^T)$
+
+**分块上三角矩阵**：
+$$
+\begin{bmatrix}A&B\\O&D\end{bmatrix}^{-1}=
+\begin{bmatrix}A^{-1}&-A^{-1}BD^{-1}\\O&D^{-1}\end{bmatrix}
+$$
+设分块矩阵 $\begin{bmatrix}X_1&X_2\\X_3&X_4\end{bmatrix}$ 是矩阵 $\begin{bmatrix}A&B\\O&D\end{bmatrix}$ 的逆，则
+$$
+\begin{bmatrix}A&B\\O&D\end{bmatrix}
+\begin{bmatrix}X_1&X_2\\X_3&X_4\end{bmatrix}
+=\begin{bmatrix}I_p&O\\O&I_q\end{bmatrix}
+$$
+这个矩阵方程包含了4个未知子块的方程
+$$
+AX_1+BX_3=I_p \\
+AX_2+BX_4=O \\
+DX_3=O \\
+DX_4=I_q
+$$
+若 $D$ 可逆，从后两个方程可以得到 $X_3=O,X_4=D^{-1}$ ；若 $A$ 可逆，进一步可以得到$X_1=A^{-1},X_2=-A^{-1}BD^{-1}$ 。便可获得分块上三角矩阵的逆。
+
+**分块对角矩阵**：分块对角矩阵拥有良好的性质。
+
+(1) 分块对角矩阵乘积
+$$
+\begin{bmatrix}A_1 \\&A_2 \\&&\ddots \\&&&A_s \end{bmatrix}
+\begin{bmatrix}B_1 \\&B_2 \\&&\ddots \\&&&B_s \end{bmatrix}
+=\begin{bmatrix}A_1B_1 \\&A_2B_2 \\&&\ddots \\&&&A_sB_s \end{bmatrix}
+$$
+(2) 若分块对角矩阵的各个子块可逆，则该对角分块矩阵可逆
+$$
+\begin{bmatrix}A_1 \\&A_2 \\&&\ddots \\&&&A_s \end{bmatrix}^{-1}=
+\begin{bmatrix}A_1^{-1} \\&A_2^{-1} \\&&\ddots \\&&&A_s^{-1} \end{bmatrix}
+$$
+(3) 分块对角矩阵的行列式为对角位置的行列式乘积
+$$
+\det\begin{bmatrix}A_1 \\&A_2 \\&&\ddots \\&&&A_s \end{bmatrix}
+=\det A_1\det A_2\cdots\det A_s
+$$
+
+
 ## 逆矩阵
 
-**利用伴随矩阵计算逆矩阵**：由行列式 $\det A$的各个元素 $a_{ij}$ 的代数余子式$A_{ij}$ 所构成的矩阵
+利用克拉默法可以容易地导出一个求矩阵的逆的一般公式。设矩阵 $A=(a_{ij})_{n\times n}$ 的逆矩阵 $A^{-1}=(b_{ij})_{n\times n}$ ，利用分块矩阵的乘法
+$$
+AA^{-1}=A\begin{bmatrix}\mathbf b_1&\mathbf b_2&\cdots&\mathbf b_n\end{bmatrix}
+=I_n=\begin{bmatrix}\mathbf e_1&\mathbf e_2&\cdots&\mathbf e_n\end{bmatrix}
+$$
+其中 $\mathbf b_j$ 是矩阵 $A^{-1}$ 的第 $j$ 列， $\mathbf e_j$ 是单位阵 $I_n$ 的第 $j$ 列。于是
+$$
+A\mathbf b_j=\mathbf e_j
+$$
+向量 $\mathbf b_j$ 的第 $i$ 个元素是 $A^{-1}$ 的元素 $b_{ij}$ 。由克拉默法则求得
+$$
+b_{ij}=\frac{\det A_i(\mathbf e_j)}{\det A}
+$$
+回顾代数余子式的定义，它是把矩阵 $A$ 中元素 $a_{ij}$ 所在的行和列划掉后得到的。$\det A_i(\mathbf e_j)$ 按第 $i$ 列的余子展开式为
+$$
+\det A_i(\mathbf e_j)=(-1)^{i+j}M_{ji}=A_{ji}
+$$
+于是可写出矩阵 $A$ 的逆
+$$
+A^{-1}=\dfrac{1}{\det A}A^*
+$$
+其中 $A^*$ 是矩阵 $A$ 的各个元素的代数余子式$A_{ji}$ 所构成的矩阵
 $$
 A^*=\begin{bmatrix}
 A_{11}&A_{21}&\cdots&A_{n1} \\
@@ -1465,19 +1613,26 @@ A_{12}&A_{22}&\cdots&A_{n2} \\
 A_{1n}&A_{2n}&\cdots&A_{nn} \\
 \end{bmatrix}
 $$
-叫做矩阵$A$的**伴随矩阵**(Adjugate Matrix)。再由行列式的展开定理有
+做矩阵$A$的**伴随矩阵**(Adjugate Matrix) 。
+
+> 注意，伴随矩阵里代数余子式的排列顺序是颠倒的。
+
+<kbd>定理</kbd>：方阵 $A$ 可逆的充要条件是 $\det A\neq0$ ，且 $A^{-1}=\dfrac{1}{\det A}A^*$
+
+此定理仅适用于理论上的计算矩阵的逆，使我们不用实际计算出$A^{-1}$ 就可以推导出性质。
+
+这里给出二阶方阵 $A=\begin{bmatrix}a&b\\c&d\end{bmatrix}$ 的逆，若 $\det A=ad-bc\neq0$ 则
 $$
-AA^*=A^*A=\det AI_n
+A^{-1}=\frac{1}{ad-bc}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}
 $$
-<kbd>定理</kbd>：方阵 $A$ 可逆的充要条件是 $\det A=0$ ，且 $A^{-1}=\dfrac{1}{\det A}A^*$
 
-证明：当  $A$ 可逆时，$\det A\det(A^{-1})=\det(AA^{-1})=1\neq 0$，即 $\det A\neq 0$
 
-另一方面，当 $\det A\neq 0$，由伴随矩阵的性质可知 $A^{-1}=\dfrac{1}{\det A}A^*$
+<kbd>推论</kbd>：
 
-<kbd>推论</kbd>：若 $n$ 阶方阵  $A,B$ 满足 $AB=I$ 或 $BA=I$ ，则 $B=A^{-1}$ 。
+1. 若 $n$ 阶方阵  $A,B$ 满足 $AB=I$ 或 $BA=I$ ，则 $B=A^{-1}$ 。
+2. $AA^*=A^*A=(\det A)I$
 
-有了这个推论，只需判断 $AB=I$ 或 $BA=I$ 中的一个条件就可判定逆矩阵，要比定义简单一些。
+有了推论1，只需判断 $AB=I$ 或 $BA=I$ 中的一个条件就可判定逆矩阵，要比定义简单一些。
 
 **利用初等变换计算逆矩阵**：写出增广矩阵 $(A\mid I)$， 用初等行变换把左边矩阵 $A$ 处化为单位矩阵 $I$ ，则右边出来的就是逆矩阵$A^{-1}$，示意如下：
 $$
@@ -1518,21 +1673,72 @@ $$
 $$
 故
 $$
-\begin{bmatrix}x_1&y_1\\x_2&y_2\\x_3&y_3\\\end{bmatrix}=
-\begin{bmatrix}3&1\\5&2\\-2&0\\\end{bmatrix}
+\begin{bmatrix}x_1&y_1\\x_2&y_2\\x_3&y_3\end{bmatrix}=
+\begin{bmatrix}3&1\\5&2\\-2&0\end{bmatrix}
 $$
 
-## 列空间与矩阵的秩
+## 矩阵的秩
 
-<kbd>定理</kbd>：初等变换不改变矩阵的秩。
+**行空间**：矩阵$A=(\mathbf r_1,\mathbf r_2,\cdots,\mathbf r_m)^T$ 的所有行向量张成的空间称为 $A$ 的行空间，记为
+$$
+\text{row }A=\text{span}\{\mathbf r_1,\mathbf r_2,\cdots,\mathbf r_m\}
+$$
+若两个矩阵 $A$ 和 $B$ 行等价，则它们的的行空间相同。若 $B$ 是阶梯型矩阵，则 $B$ 的非零行构成 $\text{row }B$ 的一组基，同时也是$\text{row }A$ 的一组基。
 
-设矩阵 $A$ 经有限次初等变换变为$B$，即 $P_s\cdots P_1AQ_1\cdots Q_t=B$ 。取 $P=P_s\cdots P_1,\ Q=Q_1\cdots Q_t$，则 $B=PAQ$ ，即 $B$ 的所有列向量可由 $A$ 的列向量线性表示，所以 $\text{col }B\sube \text{col }A$ 。由于 $P,Q$ 可逆，则 $A=P^{-1}BQ^{-1}$ ，同样 $A$ 的所有列向量可由 $B$ 的列向量线性表示，所以 $\text{col }A\sube \text{col }B$ 。于是，$\text{col }A=\text{col }B$ ，即**初等变换不改变矩阵列向量张成的空间**。
+证明：若 $B$ 是由 $A$ 经行变换得到的，则 $B$ 的行是$A$ 的行的线性组合，于是 $B$ 的行的任意线性组合自然是 $A$ 的行的线性组合，从而 $B$ 的行空间包含于 $A$ 的行空间。因为行变换可逆，同理知 $A$ 的行空间是 $B$ 的行空间的子集，从而这两个空间相同。若 $B$ 是一个阶梯形矩阵，则其非零行是线性无关的，这是因为任何一个非零行均不为它下面的非零行的线性组合，于是 $B$ 的非零行构成 $B$ 的行空间的一组基，当然也是 $A$ 的行空间的一组基。
 
-**利用初等变换计算矩阵的秩**：
+例：分别求矩阵 $A$ 的行空间、列空间和零空间的基
+$$
+A=\begin{bmatrix}-2&-5&8&0&-17\\1&3&-5&1&5\\3&11&-19&7&1\\1&7&-13&5&-3\end{bmatrix}
+$$
+解：为了求行空间和列空间的基，行化简$A$成阶梯形
+$$
+A\to \begin{bmatrix}1&3&-5&1&5\\0&1&-2&2&-7\\0&0&0&-4&20\\0&0&0&0&0\end{bmatrix}=B
+$$
+ 矩阵 $B$ 的前 3 行构成$B$的行空间的一个基，也是$A$的行空间的一组基。
 
+$\text{row }A$ 的基：$(1,3,-5,1,5),(0,1,-2,2,-7),(0,0,0,-4,20)$
 
+对列空间，$B$ 的主元列在第1，2和4列，从而 $A$ 的第1，2和4列构成 $\text{col }A$ 的一组基。
 
+ $\text{col }A$ 的基：$(-2,1,3,1)^T,(-5,3,11,7)^T,(0,1,7,5)^T$
 
+对于核空间，需要进一步行变换得简化阶梯型矩阵
+$$
+B\to\begin{bmatrix}1&0&1&0&1\\0&1&-2&0&3\\0&0&0&1&-5\\0&0&0&0&0\end{bmatrix}=C
+$$
+方程 $A\mathbf x=0$ 的解空间等价于 $C\mathbf x=0$  的解空间，即
+$$
+\begin{cases}
+x_1+x_3+x_5=0 \\
+x_2-2x_3+3x_5=0  \\
+x_4-5x_5=0
+\end{cases}
+$$
+所以
+$$
+\begin{bmatrix}x_1\\x_2\\x_3\\x_4\\x_5\end{bmatrix}=
+x_3\begin{bmatrix}-1\\2\\1\\0\\0\end{bmatrix}+
+x_5\begin{bmatrix}-1\\-3\\0\\5\\1\end{bmatrix}
+$$
+$\ker A$ 的基：$(-1,2,1,0,0)^T,(-1,-3,0,5,1)^T$ 
+
+通过观察可见，与 $\text{col }A$ 的基不同，$\text{row }A$ 和 $\ker A$ 的基与$A$ 中的元素没有直接的关系。
+
+<kbd>定理</kbd>：对于 $m\times n$ 维矩阵 $A$ 
+
+1. $\dim(\text{row }A)=\dim(\text{col }A)=\text{rank }A$
+2. $\text{rank }A+\dim(\ker A)=n$
+
+证明：$\text{rank }A$ 是$A$中主元列的个数，也是$A$的等价阶梯形矩阵$B$中主元列的个数。进一步，因为 $B$ 的每个主元都对应一个非零行，同时这些非零行构成 $A$ 的行空间的一组基，所以 $A$ 的秩等于 $\text{row }A$ 的维数。由于 $\ker A$ 的维数等于方程 $A\mathbf x=0$ 中自由变量的个数，换句话说， $\ker A$ 的维数是 $A$ 中非主元列的个数。上面的定理证闭。
+
+{% label  性质 orange %}：
+
+1. 矩阵的秩在初等变换下保持不变
+2. 矩阵的列向量组的秩等于行向量组的秩
+3. $\text{rank}(A+B)\leqslant \text{rank}(A)+\text{rank}(B)$
+4. $\text{rank}(kA)=\text{rank}(A)$
+5. $\text{rank}(AB)\leqslant \min\{\text{rank}(A),\text{rank}(B)\}$
 
 # 线性空间
 
@@ -1589,16 +1795,22 @@ $$
 
 <kbd>子空间</kbd>：设 $U$ 是向量空间 $V$ 的一个非空子集，如果$U$中的线性运算封闭，则 $U$ 也是向量空间，称为 $V$ 的**子空间**。
 
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/subspace.svg)
+
 <kbd>子空间的和</kbd>：设 $U_1,U_2$ 为线性空间 $V$ 的两个子空间，则
 $$
-U_1+U_2=\set{\mathbf u_1+\mathbf u_2\mid \mathbf u_1\in U_1,\mathbf u_2\in U_2}
+U_1+U_2=\{\mathbf u_1+\mathbf u_2\mid \mathbf u_1\in U_1,\mathbf u_2\in U_2\}
 $$
 称为子空间 $U_1,U_2$ 的**和**(sum of subspaces) 。两个子空间的和是分别由两个子空间中各任取一个向量相加所组成的集合。注意 $U_1+U_2$ 和 $U_1\cup U_2$ 不同，后者只是把两个子空间的向量简单地聚拢在一起，成为一个新的集合而已，它们的向量之间并不相加，在一般情况下，$U_1\cup U_2\neq U_1+U_2$ 。
 
-![](Linear-Algebra.assets/sum_of_subspaces-1332282.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/sum_of_subspaces.svg)
 
 $U_1+U_2$ 是包含子空间 $U_1,U_2$ 的最小子空间。
 
+设 $U_1=\text{span}\{\mathbf a_1,\cdots,\mathbf a_p\},\quad U_2=\text{span}\{\mathbf b_1,\cdots,\mathbf b_q\}$ 则
+$$
+U_1+U_2=\text{span}\{\mathbf a_1,\cdots,\mathbf a_p,\mathbf b_1,\cdots,\mathbf b_q\}
+$$
 **维数公式**：
 $$
 \dim(U_1+U_2)=\dim U_1+\dim U_2-\dim(U_1\cap U_2)
@@ -1610,7 +1822,7 @@ $$
 $$
 则称子空间 $U_1+U_2$ 为**直和**(direct sum)，记作 $U_1\oplus U_2$ 。
 
-$U_1+U_2$ 是直和 $\iff$ $U_1\cap U_2=\set{O}$
+$U_1+U_2$ 是直和 $\iff$ $U_1\cap U_2=\{O\}$
 
 
 ## 坐标与同构
@@ -1618,10 +1830,6 @@ $U_1+U_2$ 是直和 $\iff$ $U_1\cap U_2=\set{O}$
 类似之前向量空间讨论过的，确定线性空间 $V$ 的一组基后，对于任一向量 $\mathbf v\in V$ 可唯一线性表示为
 $$
 \mathbf v=x_1\mathbf a_1+x_2\mathbf a_2+\cdots+x_n\mathbf a_n
-$$
-借助矩阵乘法的形式，可改写为
-$$
-\mathbf v=(\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n)\begin{bmatrix}x_1\\x_2\\\vdots\\x_n\end{bmatrix}
 $$
 向量的坐标为
 $$
@@ -1638,7 +1846,7 @@ $$
 
 因此可以说 $V_n$ 与 $\R^n$ 有相同的结构。
 
-一般地，设 $V$ 与 $U$ 是两个线性空间，如果在它们的元素之间有一一对应关系，且这个对应关系保持线性组合的对应，那么就说线性空间  $V$ 与 $U$ **同构**。
+一般地，设 $V$ 与 $U$ 是两个线性空间，如果在它们的元素之间有一一对应关系，且这个对应关系保持线性组合的对应，那么就说线性空间  $V$ 与 $U$ **同构**(isomorphism)。
 
 显然，任何实数域上的$n$维线性空间都与 $\R^n$ 同构，即维数相同的线性空间都同构，从而可知，**线性空间的结构完全被它的维数所决定**。
 
@@ -1646,7 +1854,7 @@ $$
 
 ## 线性变换与矩阵
 
-变换是线性空间的一种映射
+**变换**(transformation)是线性空间的一种映射
 $$
 T:\quad \mathbf v\mapsto T(\mathbf v)
 $$
@@ -1657,65 +1865,21 @@ $$
 1. 可加性(additivity)：$T(\mathbf v+\mathbf w)=T(\mathbf v)+T(\mathbf w)$
 2. 伸缩性(scaling)：$T(c\mathbf v)=cT(\mathbf v)$
 
-设$V$ 是数域 $\R$ 上的$n$ 维线性空间，$\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n$ 是 $V$ 的一组基，对于任一向量 $\mathbf v\in V$ ，设
+设$V$ 是数域 $\R$ 上的$n$ 维线性空间，$\mathbf e_1,\mathbf e_2,\cdots,\mathbf e_n$ 是 $V$ 的一组基。基向量$\mathbf e_j$ 是单位阵 $I_j$ 的第 $j$ 列。对于任一向量 $\mathbf v\in V$ ，设
+$$
+\mathbf v=\begin{bmatrix}x_1\\x_2\\\vdots\\x_n\end{bmatrix}=x_1\mathbf e_1+x_2\mathbf e_2+\cdots+x_n\mathbf e_n
+$$
+对于线性变换 $T$，由线性变换的基本性质知
 $$
 \begin{aligned}
-\mathbf v&=x_1\mathbf a_1+x_2\mathbf a_2+\cdots+x_n\mathbf a_n \\
-&=(\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n)\mathbf x
+T(\mathbf v)&=T(x_1\mathbf e_1+x_2\mathbf e_2+\cdots+x_n\mathbf e_n)
+=x_1T(\mathbf e_1)+x_2T(\mathbf e_2)+\cdots+x_nT(\mathbf e_n) \\
+&=\begin{bmatrix}T(\mathbf e_1)&T(\mathbf e_2)&\cdots&T(\mathbf e_n)\end{bmatrix}\begin{bmatrix}x_1\\x_2\\\vdots\\x_n\end{bmatrix}
+=A\mathbf v
 \end{aligned}
 $$
-其中  $\mathbf x=(x_1,x_2,\cdots,x_n)^T$ 是向量 $\mathbf v$ 在这组基下的坐标。对于线性变换 $T$，有
-$$
-\begin{aligned}
-T(\mathbf v)&=x_1T(\mathbf a_1)+x_2T(\mathbf a_2)+\cdots+x_nT(\mathbf a_n) \\
-&=(T(\mathbf a_1),T(\mathbf a_2),\cdots,T(\mathbf a_n))\mathbf x \\
-&=T(\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n)\mathbf x
-\end{aligned}
-$$
-上式表明，只要知道了基向量的像，那么线性空间中的任意一个元素的像也就知道了。
+矩阵 $A$ 称为线性变换 $T$ 在基 $\mathbf e_1,\mathbf e_2,\cdots,\mathbf e_n$ 下的矩阵。其中，矩阵 $A$ 的第 $j$ 列是基向量$\mathbf e_j$ 的像 $T(\mathbf e_j)$。==显然，矩阵 $A$ 由基的像唯一确定==。
 
-> 基向量的像集 $T(\mathbf a_1),T(\mathbf a_2),\cdots,T(\mathbf a_n)$ 简记为 $T(\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n)$ 。
-
-下面通过线性变换建立基向量的像。
-
- 对于线性变换 $T$ ，设基向量 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n$的像在该组基下线性表示为
-$$
-\begin{cases}
-T(\mathbf a_1)=a_{11}\mathbf a_1+a_{21}\mathbf a_2+\cdots+a_{n1}\mathbf a_n \\
-T(\mathbf a_2)=a_{12}\mathbf a_1+a_{22}\mathbf a_2+\cdots+a_{n2}\mathbf a_n \\
-\cdots  \\
-T(\mathbf a_n)=a_{1n}\mathbf a_1+a_{2n}\mathbf a_2+\cdots+a_{nn}\mathbf a_n \\
-\end{cases}
-$$
-上式用矩阵表示为
-$$
-T(\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n)=
-(\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n)A
-$$
-其中矩阵
-$$
-A=\begin{bmatrix}
-a_{11}&a_{12}&\cdots&a_{1n} \\
-a_{21}&a_{22}&\cdots&a_{2n} \\
-\vdots&\vdots&\ddots&\vdots \\
-a_{n1}&a_{n2}&\cdots&a_{nn} 
-\end{bmatrix}
-$$
-称为线性变换 $T$ 在基 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n$ 下的矩阵，其中 $A$ 的第 $j$ 列是 $T(\mathbf a_j)$ 在这组基下的坐标。==显然，矩阵 $A$ 由基的像唯一确定==。
-
-如果有两个线性变换 $T_1,T_2$ ，它们在同一组基下的像相同，即 $T_1(\mathbf a_j)=T_2(\mathbf a_j)$ ，则对于 $V$ 中的任一元素 $\mathbf v$ 都有 $T_1(\mathbf v)=T_2(\mathbf v)$，那么 $T_1=T_2$，即**线性变换完全被它在一组基下的作用所决定**。
-
-于是向量  $\mathbf v=(\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n)\mathbf x$ 的像
-$$
-T(\mathbf v)=T(\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n)
-\mathbf x=
-(\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n)A
-\mathbf x
-$$
-即像 $T(\mathbf v)$ 在这组基下的坐标
-$$
-\mathbf y=A\mathbf x
-$$
 示例：函数是一种特殊的线性空间，定义一个映射：
 $$
 D=\frac{\mathrm d}{\mathrm dx}:\quad f(x)\mapsto f'(x)
@@ -1772,7 +1936,7 @@ $$
 \mathbf i'=\begin{bmatrix} a \\ c \end{bmatrix},\quad
 \mathbf j'=\begin{bmatrix} b \\ d \end{bmatrix}
 $$
-实际上在各自的坐标系统，基向量均为 $(1,0),(0,1)$ 。特别的，两个坐标系**原点的定义**是一致的。
+> 实际上在各自的坐标系统，基向量均为 $(1,0),(0,1)$ 。特别的，两个坐标系**原点的定义**是一致的。
 
 同一个向量在不同基向量下表示不同。在 Jennifer 的坐标系中，向量 $\mathbf v=\begin{bmatrix} x' \\ y' \end{bmatrix}$，可以写成基向量的线性组合形式
 
@@ -1787,7 +1951,7 @@ $$
 $$
 \mathbf v=\begin{bmatrix} a&b \\ c&d \end{bmatrix}\begin{bmatrix} x' \\ y' \end{bmatrix}=\begin{bmatrix} x \\ y \end{bmatrix}
 $$
-![](Linear-Algebra.assets/change_of_basis.svg)
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/change_of_basis.svg)
 
 $\begin{bmatrix} x \\ y \end{bmatrix}$ 和 $\begin{bmatrix} x' \\ y’ \end{bmatrix}$ 实际是同一个向量，只不过是在不同基下的坐标。特别的，这里的 $\begin{bmatrix} a&b \\ c&d \end{bmatrix}$ 称为基变换矩阵，意味着同一个向量从 Jennifer 的坐标到 Grant 的坐标的映射，即以我们的视角描述 Jennifer 的向量。
 
@@ -1797,7 +1961,7 @@ $$
 $$
 现讨论 $n$维线性空间 $V_n$ 中的情形。任取 $n$ 个线性无关的向量都可以作为 $V_n$ 的一组基，对于不同的基，同一个向量的坐标是不同的。接下来，寻找同一个向量在不同基下的坐标之间的关系。
 
-<kbd>基变换公式</kbd>：设 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n$ 与 $\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_n$ 是$n$维线性空间 $V_n$ 的两组基，则它们可以互相线性表示。若
+<kbd>基变换公式</kbd>：设矩阵 $A=(\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n)$ 的列向量与 $B=(\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_n)$ 的列向量是$n$维线性空间 $V_n$ 的两组基，则它们可以互相线性表示。若
 $$
 \begin{cases}
 \mathbf b_1=p_{11}\mathbf a_1+p_{21}\mathbf a_2+\cdots+p_{n1}\mathbf a_n \\
@@ -1808,7 +1972,7 @@ $$
 $$
 利用分块矩阵的乘法形式，可将上式记为
 $$
-(\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_n)=(\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n)P
+B=AP
 $$
 称为**基变换公式**。其中，矩阵
 $$
@@ -1819,18 +1983,45 @@ p_{21}&p_{22}&\cdots&p_{2n} \\
 p_{n1}&p_{2n}&\cdots&p_{nn} \\
 \end{bmatrix}
 $$
-称为由基 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n$ 到 $\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_n$ 的**过渡矩阵**。由于 $\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_n$ 线性无关，故过渡矩阵 $P$ 可逆。利用过渡矩阵可逆这个性质，我们可以通过线性空间中的一组基构造另一组基。
+称为由基 $A=\{\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n\}$ 到 $B=\{\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_n\}$ 的**过渡矩阵**(transition matrix)。显然 $P^{-1}$ 为由基$B=\{\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_n\}$到基$A=\{\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n\}$的过渡矩阵。
 
-<kbd>坐标变换公式</kbd>：设线性空间 $V$ 中的元素 $\mathbf v$ 在基 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n$ 下的坐标为 $(v_1,v_2,\cdots,v_n)^T$ ，在基 $\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_n$ 下的坐标为 $(v_1',v_2',\cdots,v_n')^T$ ，则有
+<kbd>坐标变换公式</kbd>：设线性空间 $V$ 中的元素 $\mathbf v$ 在基 $A=\{\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n\}$ 下的坐标为 $\mathbf v_A$ ，在基 $B=\{\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_n\}$ 下的坐标为 $\mathbf v_B$ ，则有
 $$
-\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}=P\begin{bmatrix}v_1'\\v_2'\\\vdots\\v_n'\end{bmatrix}
+\mathbf v_A=P\mathbf v_B
 $$
-其中矩阵 $P$ 为由基 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n$ 到 $\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_n$ 的过渡矩阵。
+其中矩阵 $P$ 为由基 $A=\{\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n\}$ 到 $B=\{\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_n\}$ 的过渡矩阵。
 
 **计算过渡矩阵**：对于基变换公式 $B=AP$ ，可知过渡矩阵 $P=A^{-1}B$ 。写出增广矩阵 $(A\mid B) ，$用初等行变换把左边矩阵 $A$ 处化为单位矩阵 $I$ ，则右边出来的就是过渡矩阵$P$，示意如下：
 $$
 (A\mid B)\xrightarrow{}(I\mid A^{-1}B)
 $$
+
+例：设 $\mathbf b_1=\begin{bmatrix} -9 \\ 1 \end{bmatrix},\mathbf b_2=\begin{bmatrix} -5 \\ -1 \end{bmatrix},\mathbf c_1=\begin{bmatrix} 1 \\ -4 \end{bmatrix},\mathbf c_2=\begin{bmatrix} 3 \\ -5 \end{bmatrix}$ 考虑 $\R^2$ 中的基 $B=\{\mathbf b_1,\mathbf b_2\},C=\{\mathbf c_1,\mathbf c_2\}$ ，求 $B$ 到 $C$ 的过渡矩阵。
+
+解：设基向量 $\mathbf c_1,\mathbf c_2$ 在基 $B$ 下的坐标分别为
+$$
+[\mathbf c_1]_B=\begin{bmatrix} x_1 \\ x_2 \end{bmatrix},\quad 
+[\mathbf c_2]_B=\begin{bmatrix} y_1 \\ y_2 \end{bmatrix}
+$$
+由坐标的定义，可知
+$$
+(\mathbf b_1,\mathbf b_2)\begin{bmatrix} x_1 \\ x_2 \end{bmatrix}=\mathbf c_1,\quad
+(\mathbf b_1,\mathbf b_2)\begin{bmatrix} y_1 \\ y_2 \end{bmatrix}=\mathbf c_2
+$$
+为了同步解出这两个方程组，使用增广矩阵 $(B\mid C)$ 求解 
+$$
+(\mathbf b_1,\mathbf b_2\mid \mathbf c_1,\mathbf c_2)=
+\begin{bmatrix}\begin{array}{cc:cc} -9&-5&1&3 \\ 1&-1&-4&-5 \end{array}\end{bmatrix}\to
+\begin{bmatrix}\begin{array}{cc:cc} 1&0&-3/2&-2 \\0&1&5/2&3  \end{array}\end{bmatrix}
+$$
+因此， 由$B$ 到 $C$ 的过渡矩阵
+$$
+P=\begin{bmatrix} -3/2&-2 \\5/2&3 \end{bmatrix}
+$$
+
+# 特征值和特征向量
+
+本章特征值和特征向量的概念只在方阵的范畴内探讨。
 
 ## 相似矩阵
 
@@ -1871,17 +2062,15 @@ $$
 B=P^{-1}AP
 $$
 
-因此， $A$ 和 $P^{-1}AP$ 表示同一种线性变换在不同基向量下的表示。
+因此， $B$ 和 $P^{-1}AP$ 表示同一种线性变换在不同基向量下的表示。
 
 <kbd>相似矩阵</kbd>：设 $A,B$ 都是 $n$ 阶矩阵，若有 $n$ 阶可逆矩阵 $P$ ，使
 $$
 B=P^{-1}AP
 $$
-则称矩阵 $A$ 与 $B$ **相似**，记作 $A\sim B$。
+则称矩阵 $A$ 与 $B$ **相似**(similar)，记作 $A\sim B$。
 
-# 特征值和特征向量
-
-本章特征值和特征向量的概念只在方阵的范畴内探讨。
+**用初等行变换计算相似矩阵**：计算相似矩阵 $P^{-1}AP$ 的一种有效方法是先计算 $AP$ ，然后用行变换将增广矩阵 $(P\mid AP)$ 化为 $(I\mid P^{-1}AP)$，这样就不需要单独计算$P^{-1}$了 。
 
 ## 特征值与特征向量
 
@@ -1948,31 +2137,6 @@ f(\lambda)=\det(A-\lambda I)
 $$
 称为矩阵 $A$ 的**特征多项式**(characteristic polynomial)。
 
-{% label  性质 orange %}：
-
-1. 相似矩阵(同样的线性变换)有相同的特征多项式，从而有相同的特征值和特征向量；
-2. 矩阵 $A$ 与其转置矩阵 $A^T$ 有相同的特征值；
-3. 属于矩阵不同特征值的特征向量不共线；
-4. 矩阵的所有特征值之和等于其主对角线元素之和(矩阵的迹)；
-5. 矩阵的所有特征值之积等于矩阵的行列式；
-6. 对角阵的特征值是其主对角线元素；
-
-证明：(性质1)设 $A\sim B$，即 $B=P^{-1}AP$ ，于是 
-$$
-\begin{aligned}
-\det(B-\lambda I)&=\det(P^{-1}(A-\lambda I)P) \\
-&=\det(P^{-1})\det(A-\lambda I)\det(P) \\
-&=\det(A-\lambda I) \\
-\end{aligned}
-$$
-故 $A$ 与 $B$ 有相同的特征多项式，从而有相同的特征值和特征向量
-
-(性质4)设$n$阶矩阵$A$ 的特征值为 $\lambda_1,\lambda_2,\cdots,\lambda_n$。由于矩阵的特征值就是其特征方程的根，从而
-$$
-f(\lambda)=\det(A-\lambda I)=(\lambda_1-\lambda)(\lambda_2-\lambda)\cdots(\lambda_n-\lambda)
-$$
-上式取 $\lambda=0$ ，有 $f(0)=\det A=\lambda_1\lambda_2\cdots\lambda_n$
-
 由上面的讨论可以得出求$n$阶矩阵$A$的特征值与特征向量的**简要步骤**：
 
 1. 求出 $A$ 的特征多项式，即计算$n$阶行列式 $\det(A-\lambda I)$；
@@ -1994,24 +2158,90 @@ $$
 \begin{bmatrix}-3&2\\3&-2\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}=0 \\
 \begin{bmatrix}-3&2\\3&-2\end{bmatrix}\to\begin{bmatrix}3&-2\\0&0\end{bmatrix}
 $$
-求得特征值 $\lambda_1=4$ 对应的一个特征向量 $\mathbf v_1=c\begin{bmatrix}2\\3\end{bmatrix}$
+求得特征值 $\lambda_1=4$ 对应的一个特征向量 $\mathbf u_1=c\begin{bmatrix}2\\3\end{bmatrix}$
 
 将  $\lambda_1=-1$ 带入矩阵方程 $(A-\lambda I)\mathbf x=0$ ，有
 $$
 \begin{bmatrix}2&2\\3&3\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}=0 \\
 \begin{bmatrix}2&2\\3&3\end{bmatrix}\to\begin{bmatrix}1&1\\0&0\end{bmatrix}
 $$
-求得特征值 $\lambda_2=-1$ 对应的特征向量 $\mathbf v_2=c\begin{bmatrix}-1\\1\end{bmatrix}$
+求得特征值 $\lambda_2=-1$ 对应的特征向量 $\mathbf u_2=c\begin{bmatrix}-1\\1\end{bmatrix}$
+
+{% label  性质 orange %}：
+
+1. 相似矩阵(同样的线性变换)有相同的特征多项式，从而有相同的特征值；
+2. 矩阵 $A$ 与其转置矩阵 $A^T$ 有相同的特征值；
+3. 属于矩阵不同特征值的特征向量线性无关；
+4. 矩阵的所有特征值之和等于其主对角线元素之和(矩阵的迹)；
+5. 矩阵的所有特征值之积等于矩阵的行列式；
+6. 三角阵的特征值是其主对角线元素；
+7. 矩阵乘积 $AB$ 和 $BA$ 具有相同的非零特征值
+
+证明：(性质1)设 $A\sim B$，即 $B=P^{-1}AP$ ，于是 
+$$
+\begin{aligned}
+\det(B-\lambda I)&=\det(P^{-1}(A-\lambda I)P) \\
+&=\det(P^{-1})\det(A-\lambda I)\det(P) \\
+&=\det(A-\lambda I) \\
+\end{aligned}
+$$
+故 $A$ 与 $B$ 有相同的特征多项式，从而有相同的特征值
+
+(性质4)设$n$阶矩阵$A$ 的特征值为 $\lambda_1,\lambda_2,\cdots,\lambda_n$。由于矩阵的特征值就是其特征方程的根，从而
+$$
+f(\lambda)=\det(A-\lambda I)=(\lambda_1-\lambda)(\lambda_2-\lambda)\cdots(\lambda_n-\lambda)
+$$
+上式取 $\lambda=0$ ，有 $f(0)=\det A=\lambda_1\lambda_2\cdots\lambda_n$
+
+(性质7)假设矩阵 $A$ 与 $B$ 分别是 $m\times n$ 与 $n\times m$ 矩阵。
+
+证法1：设 $\lambda$ 是 $AB$ 的任一非零特征值，$\mathbf u$ 是这一特征值的特征向量，则 $(AB)\mathbf u=\lambda\mathbf u$ ，等式两边同时左乘 $B$ 有
+
+$$
+(BA)(B\mathbf u)=\lambda(B\mathbf u)
+$$
+
+又由于 $AB\mathbf u=\lambda\mathbf u\neq0$ 可知 $B\mathbf u\neq 0$ 。所以 $B\mathbf u$ 是 $BA$ 关于特征值 $\lambda$ 的特征向量。这也证明了$\lambda$ 也是$BA$ 的特征值。
+
+同理可证 $BA$ 的非零特征值也是$AB$ 的特征值。这就证明了$AB$ 和 $BA$ 具有相同的非零特征值。
+
+证法2：易知
+$$
+\begin{bmatrix}I_m&-A\\O&I_n\end{bmatrix}
+\begin{bmatrix}AB&O\\B&O\end{bmatrix}
+\begin{bmatrix}I_m&A\\O&I_n\end{bmatrix}=
+\begin{bmatrix}O&O\\B&AB\end{bmatrix}
+$$
+
+又由于
+$$
+\begin{bmatrix}I_m&-A\\O&I_n\end{bmatrix}
+\begin{bmatrix}I_m&A\\O&I_n\end{bmatrix}=
+I_{m+n}
+$$
+
+可知
+$$
+\begin{bmatrix}AB&O\\B&O\end{bmatrix}\sim
+\begin{bmatrix}O&O\\B&BA\end{bmatrix}
+$$
+
+它们有相同的特征多项式，即
+$$
+\lambda^n\det(\lambda I_m-AB)=\lambda^m\det(\lambda I_n-BA)
+$$
+
+上式称为**Sylvester降幂公式**。这里表明，$AB$ 和 $BA$ 的只相差了个 $m-n$ 个零特征值，其余非零特征值相同。
 
 ## 特征基与对角化
 
-由上节知道，特征值和特征向量定义的初衷是为了线性变换的对角化，即
+由上节知道，特征值和特征向量定义的初衷是为了线性变换的相似对角化，即
 $$
 P^{-1}AP=\Lambda
 $$
-由定义的推理知道，矩阵 $A$ 的每个特征向量就是 $P$ 的一个列向量，而 $P$ 是矩阵 $A$ 的基向量到对角阵 $\Lambda$ 基向量的过渡矩阵。过渡矩阵 $P$ 也可看作对角阵 $\Lambda$ 的基向量在矩阵 $A$ 基向量下的坐标，所以对基向量的限制条件也适用于特征向量组。
+由定义的推理知道，矩阵 $A$ 的每个特征向量就是 $P$ 的一个列向量，而 $P$ 是矩阵 $A$ 的基向量到对角阵 $\Lambda$ 基向量的过渡矩阵。过渡矩阵 $P$ 也可看作对角阵 $\Lambda$ 的基向量组在矩阵 $A$ 基向量下的坐标，所以对基向量的限制条件也适用于特征向量组。
 
-<kbd>定理</kbd>：矩阵 $A$ 可对角化(与对角阵相似)的充要条件是 $A$ 的所有特征向量线性无关，对角元素就是对应的特征值。
+<kbd>定理</kbd>：矩阵 $A_n$ 可以相似对角化的充要条件是 $A_n$ 有 $n$ 个线性无关的特征向量。此时，对角元素就是对应的特征值。
 
 设矩阵$A$的特征值与特征向量对应关系 $A\mathbf u_1=\lambda_1\mathbf u_1,\quad A\mathbf u_2=\lambda_2\mathbf u_2$ ，令$P=[\mathbf u_1,\mathbf u_2]$ 
 $$
@@ -2030,50 +2260,45 @@ $$
 
 > 特征基的坐标使用的是矩阵 $A$ 的基向量。
 
-并非所有的矩阵都可对角化，例如
+例：尝试将下列矩阵对角化
+$$
+A=\begin{bmatrix} 1&3&3 \\ -3&-5&-3 \\ 3&3&1 \end{bmatrix}
+$$
+解：对角化工作可分为4步来完成
 
-(1) 二维旋转变换 $R_{90\degree}$ 
+step 1：求出特征值。矩阵 $A$ 的特征方程为
 $$
-\begin{bmatrix}0 &-1\\1 &0\end{bmatrix}
+\det(A-\lambda I)=-(\lambda-1)(\lambda+2)^2
 $$
-特征值 $\lambda=i$ 或 $\lambda=-i$ ，不存在特征向量。
+特征值是 $\lambda=1$ 和 $\lambda=-2$ 
 
-与 $i$ 相乘在复平面中表示为90度旋转，这和 $i$ 是这个二维实向量旋转变换的特征值有所关联。值得注意的一点就是，特征值出现虚数的情况一般对应于变换中的某一种旋转。
+step 2：求出线性无关的特征向量。对于 $\lambda=1$ 的特征向量 $\mathbf u_1=(1,-1,1)^T$
 
-(2) 水平剪切变换
-$$
-\begin{bmatrix}1 &1\\0 &1\end{bmatrix}
-$$
-只有一个特征值$\lambda=1$ ，特征向量不能张成整个平面。
+对于 $\lambda=-2$ 的特征向量 $\mathbf u_2=(-1,1,0)^T$ 和  $\mathbf u_3=(-1,0,1)^T$
 
-(3) 等比例缩放线性变换
-$$
-\begin{bmatrix}2 &0\\0 &2\end{bmatrix}
-$$
-它仅存在唯一的特征值 2，但平面内任意一个向量都属于这个特征值的特征向量。
+可以验证 $\mathbf u_1,\mathbf u_2,\mathbf u_3$ 是线性无关的。
 
-**实对称矩阵的对角化**：
+step 3：使用特征向量构造过渡矩阵(向量的次序不重要)
+$$
+P=\begin{bmatrix} 1&-1&-1 \\ -1&1&0 \\ 1&0&1 \end{bmatrix}
+$$
+step 4：使用对应的特征值构造对角阵(特征值的次序必须和矩阵$P$的列选择的特征向量的次序一致)
+$$
+\Lambda=\begin{bmatrix} 1&0&0 \\ 0&-2&0 \\ 0&0&-2 \end{bmatrix}
+$$
+可简单验证 $AP=P\Lambda$，这等价于验证当 $P$ 可逆时 $\Lambda=P^{-1}AP$ 。
 
-1. 实对称矩阵对应于不同特征值的特征向量必正交。
-2. 实对称矩阵 $A$ 必有正交矩阵 $P$ ，使 $A$ 与对角阵 $\Lambda=P^{-1}AP$ 相似。
+**一些常见变换的特征值与特征向量列举如下**：
 
-证明：设实对称矩阵 $A$ 对应不同特征值 $\lambda_1,\lambda_2$ 的特征向量分别为 $\mathbf u_1,\mathbf u_2$ 。则
-$$
-A^T=A,\quad A\mathbf u_1=\lambda_1\mathbf u_1,\quad A\mathbf u_2=\lambda_2\mathbf u_2
-$$
-对 $A\mathbf u_1=\lambda_1\mathbf u_1$两边求转置，再右乘向量 $\mathbf u_2$，有 
-$$
-\mathbf u_1^TA\mathbf u_2=\lambda_1\mathbf u_1^T\mathbf u_2
-$$
- 对 $A\mathbf u_2=\lambda_2\mathbf u_2$两边左乘向量 $\mathbf u_1^T$，有 
-$$
-\mathbf u_1^TA\mathbf u_2=\lambda_2\mathbf u_1^T\mathbf u_2
-$$
-两式相减，得到
-$$
-(\lambda_1-\lambda_2)\mathbf u_1^T\mathbf u_2=0
-$$
-由于 $\lambda_1\neq \lambda_2$ ，所以 $\mathbf u_1^T\mathbf u_2=0$ ，即特征向量 $\mathbf u_1,\mathbf u_2$ 正交。
+(1) 等比例缩放变换 $\begin{bmatrix}k &0\\0 &k\end{bmatrix}$ 的特征多项式为 $(\lambda-k)^2$ ，有两个相等的特征值 $\lambda=k$ ，但平面内任意非零向量都属于这个特征值的特征向量。
+
+(2) 普通缩放变换 $\begin{bmatrix}k_1 &0\\0 &k_2\end{bmatrix}$ 的特征多项式为 $(\lambda-k_1)(\lambda-k_2)$ ，有两个特征值 $\lambda_1=k_1,\lambda_2=k_2$ ，特征向量分别为 $\mathbf u_1=\begin{bmatrix}1\\0\end{bmatrix},\mathbf u_2=\begin{bmatrix}0\\1\end{bmatrix}$。
+
+(3) 旋转变换 $\begin{bmatrix}\cos\theta &-\sin\theta\\ \sin\theta &\cos\theta\end{bmatrix}$  的特征多项式为 $\lambda^2+2\lambda\cos\theta+1$ ，有两个复特征值 $\lambda_1=\cos\theta+i\sin\theta,\lambda_2=\cos\theta-i\sin\theta$ ，对应两个复特征向量 $\mathbf u_1=\begin{bmatrix}1\\-i\end{bmatrix},\mathbf u_2=\begin{bmatrix}1\\i\end{bmatrix}$。
+
+值得注意的是，特征值出现虚数的情况一般对应于变换中的某一种旋转。
+
+(4) 水平剪切变换 $\begin{bmatrix}1 &k\\0 &1\end{bmatrix}$ 的特征多项式为 $(\lambda-1)^2$ ，有两个相等的特征值 $\lambda=1$ ，只有一个特征向量 $\mathbf u_1=\begin{bmatrix}1\\0\end{bmatrix}$ ，不能张成整个平面。
 
 ## 特征向量的应用
 
@@ -2178,35 +2403,6 @@ $$
 那么，我们可以得到，不管该物质最初的气液比率如何，最终将达到一个平衡状态，此时该物质的 $5/6$ 是气态的，$1/6$ 是液体的。
 
 
-# 奇异值分解
-
-矩阵的奇异值分解是指将$m\times n$实矩阵$A$表示为以下三个实矩阵乘积形式的运算
-$$
-A=U\mit\Sigma V^\mathrm T
-$$
-
- 中间有一句，可以假设正交矩阵$V$的列的排列使得对应的特征值形成降序排列。这句怎么理解？
-
-列是轴，实际上不同列的排列，对应的是坐标轴的顺序，不同坐标系顺序的选择，和实际上拿到的最后的向量是没有关系的。
-
-### 几何解释
-
-$A_{m\times n}$表示了一个从$n$维空间$\mathbf{R}^n$到$m$维空间$\mathbf{R}^m$的一个**线性变换**
-$$
-T:x\rightarrow Ax\\
-x\in\mathbf{R}^n\\
-Ax\in \mathbf{R}^m
-$$
-线性变换可以分解为三个简单的变换：
-
-1. 坐标系的旋转或反射变换，$V^\mathrm{T}$
-1. 坐标轴的缩放变换，$\Sigma$
-1. 坐标系的旋转或反射变换，$U$
-
-
-
-
-
 # 内积空间
 
 ## 内积空间
@@ -2218,8 +2414,11 @@ $$
 1. $\lang\mathbf u,\mathbf v\rang=\lang\mathbf v,\mathbf u\rang$
 2. $\lang\mathbf u,\mathbf v+\mathbf w\rang=\lang\mathbf u,\mathbf v\rang+\lang\mathbf u,\mathbf w\rang$
 3. $c\lang\mathbf u,\mathbf v\rang=\lang c\mathbf u,\mathbf v\rang=\lang \mathbf u,c\mathbf v\rang$
+4. $\lang\mathbf v,\mathbf v\rang\geqslant 0,\ \lang\mathbf v,\mathbf v\rang=0\text{ iff }\mathbf v=0$
 
-定义了内积运算的向量空间称为**内积空间**或**欧几里得空间**。
+定义了内积运算的向量空间称为**内积空间**(innerproductspace)。
+
+> 注意，内积只给出了性质，而没给出具体的计算法则。
 
 对于向量空间 $V$ 中的任意两向量
 $$
@@ -2239,40 +2438,59 @@ $$
 $$
 \delta_{ij}=\lang\mathbf e_i,\mathbf e_j\rang
 $$
-<kbd>定义</kbd>：三维几何空间的概念也推广到向量空间中
+<kbd>定义</kbd>：三维几何空间的度量概念也推广到向量空间中
 
 1. $\|\mathbf v\|=\sqrt{\lang\mathbf v,\mathbf v\rang}$ 称为向量的**长度**或**范数**；
-2. 两向量的夹角余弦 $\cos\theta=\dfrac{\lang\mathbf u,\mathbf v\rang}{\|\mathbf u\|\cdot\|\mathbf v\|}$
-3. 若 $\lang\mathbf u,\mathbf v\rang=0$ ，则称 $\mathbf u,\mathbf v$ **正交**；
+2. $\text{dist}(\mathbf u,\mathbf v)=\|\mathbf u-\mathbf v\|$ 称为向量 $\mathbf u,\mathbf v$ 间的**距离**；
+3. 两向量的夹角余弦 $\cos\theta=\dfrac{\lang\mathbf u,\mathbf v\rang}{\|\mathbf u\|\cdot\|\mathbf v\|}$
+4. 若 $\lang\mathbf u,\mathbf v\rang=0$ ，则称 $\mathbf u,\mathbf v$ **正交**(orthogonal)；
+5. 长度为1的向量称为**单位向量**；
+6. 如果向量空间的基向量都为单位向量且两两正交，则称为**标准正交基**(orthonormal basis)；
 
-<kbd>范数的基本性质</kbd>：
+{% label  性质 orange %}：
 
 1. $\|\mathbf v\|\geqslant 0,\quad \|\mathbf v\|=0\text{ iff }\mathbf v=0$
 2. $c\|\mathbf v\|=|c|\ \|\mathbf v\|$
+3. <kbd>勾股定理</kbd>：若 $\mathbf u,\mathbf v$ 是 $V$ 中的正交向量，则 $\|\mathbf u+\mathbf v\|^2=\|\mathbf u\|^2+\|\mathbf v\|^2$
+4. <kbd>柯西-施瓦茨不等式</kbd>：$|\lang\mathbf u,\mathbf v\rang|\leqslant\|\mathbf u\|\cdot\|\mathbf v\|$
+5. <kbd>三角不等式</kbd>： $\|\mathbf u+\mathbf v\|\leqslant\|\mathbf u\|+\|\mathbf v\|$
+6. 若向量组是一组两两正交的非零向量，则向量组线性无关
 
-长度为1的向量称为**单位向量**。
-
-若向量组是一组两两正交的非零向量，则向量组线性无关。
-
-如果向量空间的基向量都为单位向量，且两两正交，则称为**标准正交基**。
-
-<kbd>勾股定理</kbd>：设 $\mathbf u,\mathbf v$ 是 $V$ 中的正交向量，则
-$$
-\|\mathbf u+\mathbf v\|^2=\|\mathbf u\|^2+\|\mathbf v\|^2
-$$
-
-<kbd>柯西-施瓦茨不等式</kbd>：
-
-
-
-示例：现在若采用的是标准正交基，则有
-$$
-\delta_{ij}=\begin{cases}1, &i=j \\0, &i\neq j\end{cases}
-$$
-度量矩阵为单位阵，于是得到
+示例：向量空间的**欧几里得内积**定义为
 $$
 \lang\mathbf u,\mathbf v\rang=\mathbf u^T\mathbf v=u_1v_1+u_2v_2+\cdots+u_nv_n
 $$
+
+即采用的是标准正交基，度量矩阵为单位阵
+$$
+\delta_{ij}=\begin{cases}1, &i=j \\0, &i\neq j\end{cases}
+$$
+**以后，当我们讨论内积空间时，总默认采用欧几里得内积。**
+
+<kbd>正交补</kbd>：设 $W$ 是 $V$ 的子空间，如果向量 $\mathbf z$ 与子空间 $W$ 中的任意向量都正交 ，则称 $\mathbf z$ **正交于** $W$。与子空间 $W$ 正交的全体向量的集合称为 $W$ 的**正交补**(orthogonal complement)，并记作 $W^{\perp}$ 。
+$$
+W^{\perp}=\{\mathbf z\in V\mid \forall\mathbf w\in W,\lang\mathbf z,\mathbf w\rang=0\}
+$$
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/orthogonal_complement.svg)
+
+由其次方程 $A\mathbf x=0$ 的解空间易知：
+
+1. $(\text{row }A)^{\perp}=\ker A$
+2. $(\text{col }A)^{\perp}=\ker A^T$
+
+<kbd>定理</kbd>：若 $\mathbf z$ 与$\mathbf u_1,\mathbf u_2,\cdots,\mathbf u_p$ 均正交，则 $\mathbf z$ 正交于 $W=\text{span }\{\mathbf u_1,\mathbf u_2,\cdots,\mathbf u_p\}$ 。
+
+证：对于任意 $\mathbf v\in W$ ，可线性表示为
+$$
+\mathbf v=x_1\mathbf u_1+x_2\mathbf u_2+\cdots+x_p\mathbf u_p
+$$
+由内积的性质知
+$$
+\lang\mathbf z,\mathbf v\rang=x_1\lang\mathbf z,\mathbf u_1\rang+x_2\lang\mathbf z,\mathbf u_2\rang+\cdots+x_p\lang\mathbf z,\mathbf u_p\rang=0
+$$
+于是可知$\mathbf z$ 正交于 $W$ 。
+
+## 正交矩阵与正交变换
 
 <kbd>定义</kbd>：若矩阵 $A$ 满足 $A^TA=I$，即 $A^{-1}=A^T$，则称 $A$ 为**正交矩阵**。
 
@@ -2285,13 +2503,67 @@ $$
 $$
 \mathbf a_i\mathbf a_j=\begin{cases}1, &i=j\\ 0, &i\neq j\end{cases}
 $$
-**这说明 $A$ 为正交矩阵的充要条件是$A$ 的列向量都是单位向量且两两正交。**
+<kbd>定理</kbd>：矩阵 $A$ 为正交矩阵的充要条件是$A$ 的列向量都是单位向量且两两正交。
 
 考虑到 $A^TA=I$ 与 $AA^T=I$ 等价，所以上述结论对 $A$ 的行向量亦成立。
 
+正交矩阵 $A$  对应的线性变换称为**正交变换**。设 $\mathbf u,\mathbf v\in V$ ，则变换后的内积
+$$
+\lang A\mathbf u,A\mathbf v\rang=(A\mathbf u)^T(A\mathbf v)=\mathbf u^T\mathbf v=\lang\mathbf u,\mathbf v\rang
+$$
+<kbd>定理</kbd>：正交变换后向量内积保持不变，从而向量的长度、距离和夹角均保持不变。
+
+## 正交投影
+
+<kbd>正交分解定理</kbd>：设 $W$ 是 $V$ 的子空间，那么对于任意 $\mathbf v\in V$ 可唯一表示为
+$$
+\mathbf v=\hat{\mathbf v}+\mathbf z
+$$
+其中 $\hat{\mathbf v}\in W,\mathbf z\in W^{\perp}$ 。$\hat{\mathbf v}$ 称为$\mathbf v$ 在 $W$ 上的**正交投影**(orthogonal projection)，记作 $\text{proj}_W\mathbf v$ 。若 $\mathbf u_1,\mathbf u_2,\cdots,\mathbf u_p$ 是 $W$ 的任意正交基，则
+$$
+\hat{\mathbf v}=\text{proj}_W\mathbf v=\frac{\lang\mathbf v,\mathbf u_1\rang}{\lang\mathbf u_1,\mathbf u_1\rang}\mathbf u_1+\frac{\lang\mathbf v,\mathbf u_2\rang}{\lang\mathbf u_2,\mathbf u_2\rang}\mathbf u_2+\cdots+\frac{\lang\mathbf v,\mathbf u_p\rang}{\lang\mathbf u_p,\mathbf u_p\rang}\mathbf u_p
+$$
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/orthogonal_projection.svg)
+
+证：若$\mathbf u_1,\mathbf u_2,\cdots,\mathbf u_p$ 是 $W$ 的任意正交基，则任意 $\mathbf v\in V$ 的投影可线性表示
+$$
+\hat{\mathbf v}=x_1\mathbf u_1+x_2\mathbf u_2+\cdots+x_p\mathbf u_p
+$$
+令 $\mathbf z=\mathbf v-\hat{\mathbf v}$ ，由于任意基向量$\mathbf u_j$ 与其他基向量正交且 $\mathbf z\in W^{\perp}$，则
+$$
+\lang\mathbf z,\mathbf u_j\rang=\lang\mathbf v-\hat{\mathbf v},\mathbf u_j\rang=
+\lang\mathbf v,\mathbf u_j\rang-x_j\lang\mathbf u_j,\mathbf u_j\rang=0
+$$
+于是便求得了投影的系数
+$$
+x_j=\frac{\lang\mathbf v,\mathbf u_j\rang}{\lang\mathbf u_j,\mathbf u_j\rang}
+$$
+<kbd>性质</kbd>：设 $W$ 是 $V$ 的子空间，$\mathbf v\in V,\hat{\mathbf v}=\text{proj}_W\mathbf v$
+
+1. (最佳逼近定理) $\hat{\mathbf v}$ 是 $W$ 中最接近 $\mathbf v$ 的点，即对于 $\forall\mathbf w\in W,\ \|\mathbf v-\hat{\mathbf v}\|\leqslant \|\mathbf v-\mathbf w\|$
+2. 若$U=(\mathbf u_1,\mathbf u_2,\cdots,\mathbf u_p)$ 的列向量是 $W$ 的单位正交基，则 $\text{proj}_W\mathbf v=UU^T\mathbf v$
+
+证：(1) 取$W$ 中的任一向量 $\mathbf w$ ，由于 
+$$
+\mathbf v-\mathbf w=(\mathbf v-\hat{\mathbf v})+(\hat{\mathbf v}-\mathbf w)
+$$
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/orthogonal_projection-2.svg)
+
+由勾股定理定理知道
+$$
+\|\mathbf v-\mathbf w\|^2=\|\mathbf v-\hat{\mathbf v}\|^2+\|\hat{\mathbf v}-\mathbf w\|^2
+$$
+ 由于 $\|\hat{\mathbf v}-\mathbf w\|^2\geqslant 0$ 从而不等式得证。
+
+(2) 由于$\mathbf u_1,\mathbf u_2,\cdots,\mathbf u_p$是 $W$ 的单位正交基，那么
+$$
+\text{proj}_W\mathbf v=\lang\mathbf v,\mathbf u_1\rang\mathbf u_1+\lang\mathbf v,\mathbf u_2\rang\mathbf u_2\cdots++\lang\mathbf v,\mathbf u_p\rang\mathbf u_p\\
+=\mathbf u_1^T\mathbf v\mathbf u_1+\mathbf u_2^T\mathbf v\mathbf u_2+\cdots+\mathbf u_p^T\mathbf v\mathbf u_p=UU^T\mathbf v
+$$
+
 ## 施密特正交化
 
-设 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_r$ 是线性无关的向量组，它们未必两两正交，但可以由它们导出一组两两正交的单位向量 $\mathbf e_1,\mathbf e_2,\cdots,\mathbf e_r$  ，这一过程称为**施密特(Schmidt)正交化过程**。其方法如下：
+**施密特(Schmidt)正交化**方法是将向量空间 $V$ 的任意一组基 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_r$ 构造成标准正交基 $\mathbf e_1,\mathbf e_2,\cdots,\mathbf e_r$  的简单算法。
 
 取
 $$
@@ -2303,21 +2575,130 @@ $$
 &\mathbf b_r=\mathbf a_r-\frac{\mathbf b_1^T\mathbf a_r}{\mathbf b_1^T\mathbf b_1}\mathbf b_1-\frac{\mathbf b_2^T\mathbf a_r}{\mathbf b_2^T\mathbf b_2}\mathbf b_2-\cdots-\frac{\mathbf b_{r-1}^T\mathbf a_{r-1}}{\mathbf b_{r-1}^T\mathbf b_{r-1}}\mathbf b_{r-1} \\
 \end{aligned}
 $$
-容易验证 $\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_r$ 两两正交，且与 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_r$ 可互相线性表示。
-
-再把它们单位化，取
+那么 $\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_r$ 是 $V$ 的一组正交基
+$$
+V=\text{span }\{\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_r\}=\text{span }\{\mathbf b_1,\mathbf b_2,\cdots,\mathbf b_r\}
+$$
+再把它们单位化
 $$
 \mathbf e_1=\frac{1}{\|\mathbf b_1\|}\mathbf b_1,\quad\mathbf e_2=\frac{1}{\|\mathbf b_2\|}\mathbf b_2,\quad\cdots,\quad\mathbf e_r=\frac{1}{\|\mathbf b_r\|}\mathbf b_r
 $$
-即得所求，这也称把向量组 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_r$ **正交规范化**。
+最终获得 $V$ 的一组标准正交基。
 
-# 二次型
+例：设 $\mathbf a_1=\begin{bmatrix}1\\1\\1\\1\end{bmatrix},\mathbf a_2=\begin{bmatrix}0\\1\\1\\1\end{bmatrix},\mathbf a_3=\begin{bmatrix}0\\0\\1\\1\end{bmatrix}$ 是子空间$V$的一组基，试构造 $V$ 的一组正交基
+
+解：step 1 取第一个基向量 $\mathbf b_1=\mathbf a_1,W_1=\text{span}\{\mathbf a_1\}=\text{span}\{\mathbf b_1\}$ 
+
+step 2 取第二个基向量
+$$
+\mathbf b_2=\mathbf a_2-\text{proj}_{W_1}\mathbf a_2=
+\mathbf a_2-\frac{\mathbf b_1^T\mathbf a_2}{\mathbf b_1^T\mathbf b_1}\mathbf b_1\\
+=\begin{bmatrix}0\\1\\1\\1\end{bmatrix}-\frac{3}{4}\begin{bmatrix}1\\1\\1\\1\end{bmatrix}=
+\begin{bmatrix}-3/4\\1/4\\1/4\\1/4\end{bmatrix}
+$$
+
+为计算方便，缩放 $\mathbf b_2=(-3,1,1,1)^T$ 。同样取 $W_2=\text{span}\{\mathbf b_1,\mathbf b_2\}$
+
+step 3 取第三个基向量
+$$
+\mathbf b_3=\mathbf a_3-\text{proj}_{W_2}\mathbf a_3=
+\mathbf a_3-\frac{\mathbf b_1^T\mathbf a_3}{\mathbf b_1^T\mathbf b_1}\mathbf b_1-\frac{\mathbf b_2^T\mathbf a_3}{\mathbf b_2^T\mathbf b_2}\mathbf b_2\\
+=\begin{bmatrix}0\\0\\1\\1\end{bmatrix}-
+\frac{2}{4}\begin{bmatrix}1\\1\\1\\1\end{bmatrix}-
+\frac{2}{12}\begin{bmatrix}-3\\1\\1\\1\end{bmatrix}=
+\begin{bmatrix}0\\-2/3\\1/3\\1/3\end{bmatrix}
+$$
+![Schmidt](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/Schmidt.svg)
+
+## 实对称矩阵的对角化
+
+<kbd>定理</kbd>：
+
+1. 实对称矩阵对应于不同特征值的特征向量必正交。
+2. 实对称矩阵可正交相似对角化。即对于对称矩阵 $A$ ，存在正交矩阵 $P$ ，使 $\Lambda=P^{-1}AP$ 。 $\Lambda$ 的对角元素为 $A$ 的特征值。
+
+证明：(1) 设实对称矩阵 $A$ 对应不同特征值 $\lambda_1,\lambda_2$ 的特征向量分别为 $\mathbf u_1,\mathbf u_2$ 。则
+$$
+A^T=A,\quad A\mathbf u_1=\lambda_1\mathbf u_1,\quad A\mathbf u_2=\lambda_2\mathbf u_2
+$$
+对 $A\mathbf u_1=\lambda_1\mathbf u_1$两边求转置，再右乘向量 $\mathbf u_2$，有 
+$$
+\mathbf u_1^TA\mathbf u_2=\lambda_1\mathbf u_1^T\mathbf u_2
+$$
+ 对 $A\mathbf u_2=\lambda_2\mathbf u_2$两边左乘向量 $\mathbf u_1^T$，有 
+$$
+\mathbf u_1^TA\mathbf u_2=\lambda_2\mathbf u_1^T\mathbf u_2
+$$
+两式相减，得到
+$$
+(\lambda_1-\lambda_2)\mathbf u_1^T\mathbf u_2=0
+$$
+由于 $\lambda_1\neq \lambda_2$ ，所以 $\mathbf u_1^T\mathbf u_2=0$ ，即特征向量 $\mathbf u_1,\mathbf u_2$ 正交。
+
+例：将矩阵$A=\begin{bmatrix}3&-2&4\\-2&6&2\\4&2&3\end{bmatrix}$正交对角化
+
+解：特征方程 $\det(A-\lambda I)=-(\lambda-7)^2(\lambda+2)=0$ ，特征值和特征向量分别为
+$$
+\lambda=7:\mathbf v_1=\begin{bmatrix}1\\0\\1\end{bmatrix},
+\mathbf v_2=\begin{bmatrix}-1/2\\1\\0\end{bmatrix}; \quad
+\lambda=-2:\mathbf v_1=\begin{bmatrix}-1\\-1/2\\1\end{bmatrix}
+$$
+尽管 $\mathbf v_1,\mathbf v_2$ 是线性无关的，但它们并不正交。我们可以用施密特正交化方法，计算与 $\mathbf v_1$ 正交的 $\mathbf v_2$ 分量
+$$
+\mathbf z_2=\mathbf v_2-\frac{\mathbf v_1^T\mathbf v_2}{\mathbf v_1^T\mathbf v_1}\mathbf v_1=\begin{bmatrix}-1/4\\1\\1/4\end{bmatrix}
+$$
+由于 $\mathbf z_2$ 是特征值$\lambda=7$ 的特征向量 $\mathbf v_1,\mathbf v_2$ 的线性组合，从而 $\mathbf z_2$ 是特征值$\lambda=7$ 的特征向量。
+
+分别将 $\mathbf v_1,\mathbf v_2,\mathbf v_3$ 标准化
+$$
+\mathbf u_1=\begin{bmatrix}1/\sqrt{2}\\0\\1/\sqrt{2}\end{bmatrix},
+\mathbf u_2=\begin{bmatrix}-1/\sqrt{18}\\4/\sqrt{18}\\1/\sqrt{18}\end{bmatrix},
+\mathbf u_3=\begin{bmatrix}-2/3\\-1/3\\2/3\end{bmatrix}
+$$
+令
+$$
+P=(\mathbf u_1,\mathbf u_2,\mathbf u_3)=\begin{bmatrix}1/\sqrt{2}&-1/\sqrt{18}&-2/3\\0&4/\sqrt{18}&-1/3\\1/\sqrt{2}&1/\sqrt{18}&2/3\end{bmatrix},\quad 
+\Lambda=\begin{bmatrix}7&0&0\\0&7&0\\0&0&-2\end{bmatrix}
+$$
+于是正交矩阵 $P$ 将 $A$ 正交对角化，即 $A=P\Lambda P^{-1}$
+
+**对称矩阵的谱**：矩阵 $A$ 的特征值的集合称为 $A$ 的**谱**(spectrum)
+
+{% label  性质 orange %} 设 $A$ 为 $n$ 阶对称阵
+
+1. $A$ 有 $n$ 个实特征值(包含重复的特征值)；
+2. 对于每一个特征值，对应的特征空间的维数等于特征方程的根的重数；
+3. 不同特征值的特征空间相互正交的；
+4. $A$ 可正交対角化;
+
+**谱分解**：假设对称矩阵 $A=P\Lambda P^{-1}$ 。其中 $P$ 为正交矩阵，其列是 $A$ 的正交特征向量 $\mathbf u_1,\mathbf u_2,\cdots,\mathbf u_n$ ，对应的特征值 $\lambda_1,\lambda_2,\cdots,\lambda_n$是 $\Lambda$ 的对角线元素。由于 $P^T=P^{-1}$ ，故
+$$
+\begin{aligned}
+A&=P\Lambda P^{-1}=(\mathbf u_1,\mathbf u_2,\cdots,\mathbf u_n)
+\begin{bmatrix}\lambda_1\\&\lambda_2\\&&\ddots\\&&&\lambda_n\end{bmatrix}
+\begin{bmatrix}\mathbf u_1^T\\\mathbf u_2^T\\\vdots\\\mathbf u_n^T\end{bmatrix} \\
+&=(\lambda_1\mathbf u_1,\lambda_2\mathbf u_2,\cdots,\lambda_n\mathbf u_n)
+\begin{bmatrix}\mathbf u_1^T\\\mathbf u_2^T\\\vdots\\\mathbf u_n^T\end{bmatrix} \\
+&=\lambda_1\mathbf u_1\mathbf u_1^T+\lambda_2\mathbf u_2\mathbf u_2^T+\cdots+\lambda_n\mathbf u_n\mathbf u_n^T
+\end{aligned}
+$$
+由于它将 $A$ 分解为由 $A$ 的特征值确定的小块，因此这个 $A$ 的表示就称为 $A$ 的**谱分解**。 上式中的每一项都是一个秩为1的 $n$ 阶方阵。例如，$\lambda_1\mathbf u_1\mathbf u_1^T$的每一列都是 $\mathbf u_1$ 的倍数。
+
+# 二次型与合同
 
 ## 二次型与标准型
 
-内积是一个二次型函数
+> Grant：二次型研究的是二次曲面在不同基下的坐标变换
 
-二次型函数在基下的解析表达式。
+由解析几何的知识，我们了解到二次函数的一次项和常数项只是对函数图像进行平移，并不会改变图形的形状和大小。以一元二次函数为例
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/quadratic_form_img01.svg" style="zoom:80%;" />
+
+而二次函数的二次项控制函数图像的大小和形状。以二元二次函数为例，观察 $f(x,y)=1$ 的截面图形
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/quadratic_form_img02.svg" style="zoom:80%;" />
+
+线性代数主要研究这些图形的二次项，通过线性变换使二次曲面变得规范简洁。
 
 <kbd>定义</kbd>：$n$ 元二次齐次多项式
 $$
@@ -2327,7 +2708,9 @@ f(x_1,\cdots,x_n)=&a_{11}x_1^2+2a_{12}x_1x_2+\cdots+2a_{1n}x_1x_n \\
 &+a_{nn}x_n^2
 \end{aligned}
 $$
-称为**二次型**。利用矩阵乘法，二次型可简记为
+称为**二次型**(quadratic form)，这其实是二次曲面在一组坐标基下的解析表达式。
+
+利用矩阵乘法，二次型可简记为
 $$
 f=\begin{bmatrix}x_1&x_2&\cdots&x_n\end{bmatrix}
 \begin{bmatrix}
@@ -2339,74 +2722,440 @@ a_{m1}&a_{m2}&\cdots&a_{mn} \\
 \begin{bmatrix}x_1\\x_2\\\vdots\\x_n\end{bmatrix}
 =\mathbf x^TA\mathbf x
 $$
-其中 $A$ 是对称阵，其主对角线元素是平方项的系数，其余元素 $a_{ij}=a_{ji}$ 是 $x_{ij}$ 系数 $2a_{ij}$ 的一半。显然，对称矩阵 $A$ 与二次型 $f$ 是相互唯一确定的。矩阵 $A$ 及其秩分别称为二次型的矩阵和**秩**。
+其中 $A$ 是对称阵，其主对角线元素是平方项的系数，其余元素 $a_{ij}=a_{ji}$ 是二次项 $x_ix_j$ 系数 $2a_{ij}$ 的一半。显然，对称矩阵 $A$ 与二次型 $f$ 是相互唯一确定的。矩阵 $A$ 及其秩分别称为二次型的矩阵和秩。
 
-对于二次型，我们讨论的主要问题是化简二次型，即寻求可逆的线性变换 $\mathbf x=C\mathbf y$，消去二次型非平方的二次项
+在某些情况下，没有交叉乘积项的二次型会更容易使用，即通过线性变换 $\mathbf x=C\mathbf y$ 来消除交叉乘积项
 $$
-f=d_1y_1^2+d_2y_2^2+\cdots+d_ny_n^2
+f=\mathbf x^TA\mathbf x\xlongequal{\mathbf x=C\mathbf y}\mathbf y^T(C^TAC)\mathbf y=\mathbf y^T\Lambda\mathbf y
 $$
-这种只含平方项的二次型，称为二次型的**标准型**。显然，标准形的矩阵是对角阵。
+由于矩阵 $A$ 是对称阵，由上节对称矩阵的对角化知道，总有正交矩阵 $C$，使
+$$
+C^{-1}AC=C^TAC=\Lambda
+$$
+而 $\Lambda$ 的对角线元素是 $A$ 的特征值，于是二次型可简化为
+$$
+f=\lambda_1y_1^2+\lambda_2y_2^2+\cdots+\lambda_ny_n^2
+$$
+这种只含平方项的二次型称为**标准型**(standard form)。显然，标准形的矩阵是对角阵。**任何二次型都可通过正交变换化为标准型**。系数全为 +1,-1或 0 的标准型叫做**规范型**(gauge form)。
 
-$$
-f=\mathbf x^TA\mathbf x\xlongequal{\mathbf x=C\mathbf y}\mathbf y^T(C^TAC)\mathbf y=\mathbf y^TB\mathbf y
-$$
-<kbd>合同</kbd>：设$A$和$B$是$n$阶矩阵，若有$n$阶可逆矩阵$C$，使
+<kbd>定义</kbd>：设$A$和$B$是$n$阶矩阵，若有$n$阶可逆矩阵$C$，使
 $$
 B=C^TAC
 $$
-则称矩阵$A$和$B$**合同**，记为 $A\simeq B$ 。
+则称矩阵$A$和$B$**合同**，记为 $A\simeq B$ 。显然，合同矩阵即为二次型在不同基下的矩阵。
 
-这就是不同基下度量矩阵之间的关系。
-
-{% label 性质 orange %}：矩阵 $A\simeq B$，则
+{% label 性质 orange %}：设矩阵 $A\simeq B$
 
 1. 若 $A$ 为对称阵，则 $B$ 也为对称阵；
 2. 合同矩阵的秩相等 $\text{rank}(A)=\text{rank}(B)$；
 
-要使二次型 $f=\mathbf x^TA\mathbf x$ 经可逆变换 $\mathbf x=C\mathbf y$ 变成标准型，则矩阵$B=C^TAC$是对角阵，即求矩阵 $A$ 合同于一个对角阵，这也称为对称矩阵的合同化简问题。
+**化二次型为标准型的三种方法：**
 
-由对称矩阵对角化问题可知，任何对称阵$A$，总有正交阵 $P$，使 $P^{-1}AP=P^TAP=\Lambda$。把此结论应用于二次型，即有下列定理。
+1. 求矩阵 $A$ 的特征值和特征向量化为标准型；
 
-<kbd>定理</kbd>：任何二次型$f=\mathbf x^TA\mathbf x$ ，都存在正交变换 $\mathbf x=C\mathbf y$ ，使$f$ 化为标准型
-$$
-f=\mathbf y^T\Lambda\mathbf y
-$$
-其中，对角阵 $\Lambda=C^TAC=\text{diag}(\lambda_1,\lambda_1,\cdots,\lambda_1)$ 的主对角线元素是矩阵 $A$ 的特征值。
-
-
-
-化二次型为标准型的三种方法：
-
-1. 正交变换法，直接求矩阵的特征值
-
-2. 使用多项式配方法化简
+2. 使用多项式配方法化为标准型；
 
 3. 使用初等变换法将上方的矩阵 $A$ 的位置变为对角阵(左乘为行变换，不影响下方单位阵变换)
    $$
    \begin{bmatrix}A\\I\end{bmatrix}\xrightarrow{}\begin{bmatrix}C^TAC\\C\end{bmatrix}
    $$
 
-## 正定二次型
+例：将椭圆方程 $5x_1^2-4x_1x_2+5x_2^2=48$ 标准化
 
-<kbd>定义</kbd>：设有二次型$f=\mathbf x^TA\mathbf x$ ，如果对于任何 $\mathbf x\neq 0$ 都有 $\mathbf x^TA\mathbf x>0$，则称 $f$ 为**正定二次型**，称 $A$ 为**正定矩阵**；如果对于任何 $\mathbf x\neq 0$ 都有 $\mathbf x^TA\mathbf x<0$，则称 $f$ 为**负定二次型**，称 $A$ 为**负定矩阵**。
+解：二次型的矩阵 $A=\begin{bmatrix}5&-2\\-2&5\end{bmatrix}$ ，特征值分别为 3和 7，对应的单位特征向量为
+$$
+\mathbf u_1=\begin{bmatrix}1/\sqrt{2}\\1/\sqrt{2}\end{bmatrix},
+\mathbf u_2=\begin{bmatrix}-1/\sqrt{2}\\1/\sqrt{2}\end{bmatrix}
+$$
+可使用特征向量 $\mathbf u_1,\mathbf u_2$ 作为二次型的标准正交基。正交变换矩阵和标准型矩阵分别为
+$$
+C=(\mathbf u_1,\mathbf u_2)=\begin{bmatrix}1/\sqrt{2}&-1/\sqrt{2}\\1/\sqrt{2}&1/\sqrt{2}\end{bmatrix},\quad \Lambda=\begin{bmatrix}3&0\\0&7\end{bmatrix}
+$$
+$C$ 可将 $A$ 正交对角化，$\Lambda=C^TAC$ 。所以正交变换 $\mathbf x=P\mathbf y$ 得到的标准型为
+$$
+\mathbf y^TC\mathbf y=3y_1^2+7y_2^2
+$$
+新的坐标轴如图
 
-从前面的示例可以看出二次型的标准型是不唯一的，但二次型的秩是唯一的，在化成标准型的过程中是不变的，即标准型中含有的非零平方项的个数是不变的。
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/quadratic_form_img03.svg)
+
+## 二次型的分类
+
+<kbd>定义</kbd>：设二次型$f=\mathbf x^TA\mathbf x$ ，如果对于任何 $\mathbf x\neq 0$ 
+
+1. 都有 $f(\mathbf x)>0$，则称 $f$ 为**正定二次型**，称 $A$ 为**正定矩阵**；
+2. 都有 $f(\mathbf x)<0$，则称 $f$ 为**负定二次型**，称 $A$ 为**负定矩阵**；
+3. 如果 $f(\mathbf x)$ 既有正值又有负值，则称为**不定二次型**；
+
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/quadratic_form_img04.png)
+
+从上节可以看出二次型的标准型是不唯一的，但二次型的秩是唯一的，在化成标准型的过程中是不变的，即标准型中含有的非零平方项的个数是不变的。
 
 <kbd>惯性定理</kbd>：二次型和标准型中系数为正的平方项的个数相同，称为**正惯性指数**；系数为负的平方项的个数也相同，称为**负惯性指数**；正负惯性指数之差称为**符号差**。
 
-<kbd>定理</kbd>：$n$元二次型为正定的充要条件是它的正惯性指数为 $n$。
+<kbd>定理</kbd>：
 
-<kbd>推论</kbd>：对称阵$A$正定 $\iff$ 特征值全为正 $\iff$ 与单位阵合同 $A\simeq I$ 
+1. $n$元二次型为正定的充要条件是它的正惯性指数为 $n$；
+2. 对称阵$A$正定 $\iff$ 特征值全为正 $\iff$ 与单位阵合同 $A\simeq I$ ；
+3. 对称阵$A$ 正定 $\implies$ $A^{-1}$ 正定；
 
-如果对称阵 $A$ 为正定矩阵，则 $A^{-1}$ 也是正定矩阵。
 
+## 度量矩阵与合同
+
+> Grant：合同矩阵为不同坐标系下的度量矩阵。
+
+以二维空间为例，Grant 选用标准坐标系下的基向量 $\mathbf i,\mathbf j$，度量矩阵
+$$
+A=\begin{bmatrix} \lang\mathbf i,\mathbf i\rang&\lang\mathbf i,\mathbf j\rang \\ \lang\mathbf j,\mathbf i\rang&\lang\mathbf j,\mathbf j\rang \end{bmatrix}
+$$
+
+而 Jennifer 使用另外一组基向量 $\mathbf i',\mathbf j'$，过渡矩阵 $P=\begin{bmatrix} a&b \\ c&d \end{bmatrix}$。即基向量  $\mathbf i',\mathbf j'$ 在 Grant 的坐标系下的坐标表示为
+$$
+\mathbf p_1=\begin{bmatrix} a \\ c \end{bmatrix},\quad
+\mathbf p_2=\begin{bmatrix} b \\ d \end{bmatrix}
+$$
+因此， Jennifer 的基向量间的内积
+$$
+\lang\mathbf i',\mathbf i'\rang=\mathbf p_1^TA\mathbf p_1\\
+\lang\mathbf i',\mathbf j'\rang=\mathbf p_1^TA\mathbf p_2 \\
+\lang\mathbf j',\mathbf i'\rang=\mathbf p_2^TA\mathbf p_1 \\
+\lang\mathbf j',\mathbf j'\rang=\mathbf p_2^TA\mathbf p_2
+$$
+于是，Jennifer坐标系的度量矩阵
+$$
+B=\begin{bmatrix} \mathbf p_1^TA\mathbf p_1&\mathbf p_1^TA\mathbf p_2 \\ 
+\mathbf p_2^TA\mathbf p_1&\mathbf p_2^TA\mathbf p_2 \end{bmatrix}=
+\begin{bmatrix} \mathbf p_1^T \\ \mathbf p_2^T \end{bmatrix}A\begin{bmatrix} \mathbf p_1 & \mathbf p_2 \end{bmatrix}
+=P^TAP
+$$
+由此可知，**合同矩阵刻画了两度量矩阵间的关系**。
+
+当然，也可通过两个向量的内积在不同的坐标系中的计算公式获得两个度量矩阵间的关系。由过渡矩阵知道，同一个向量从 Jennifer 的坐标到 Grant 的坐标变换公式为
+$$
+\mathbf y=P\mathbf x
+$$
+在 Jennifer 的坐标系中，两向量 $\mathbf u,\mathbf v$ 的坐标为 $\mathbf x_1,\mathbf x_2$ ，度量矩阵为 $B$ 。内积计算公式
+$$
+\lang\mathbf u,\mathbf v\rang=\mathbf x_1^TB\mathbf x_2
+$$
+在 Grant 的坐标系中，两向量 $\mathbf u,\mathbf v$ 的的坐标为$\mathbf y_1,\mathbf y_2$，度量矩阵为 $A$ 。内积计算公式
+$$
+\lang\mathbf u,\mathbf v\rang=\mathbf y_1^TA\mathbf y_2
+=(P\mathbf x_1)^TA(P\mathbf x_2)=\mathbf x_1^T(P^TAP)\mathbf x_2
+$$
+于是，我们得到了两坐标系中度量矩阵的关系
+$$
+B=P^TAP
+$$
+
+
+# 矩阵分解
+
+矩阵的因式分解是把矩阵表示为多个矩阵的乘积，这种结构更便于理解和计算。
+
+## LU分解
+
+设 $A$ 是 $m\times n$ 矩阵，若 $A$ 可以写成乘积
+$$
+A=LU
+$$
+其中，$L$ 为 $m$ 阶下三角方阵，主对角线元素全是1。$U$ 为 $A$ 得到一个行阶梯形矩阵。这样一个分解称为**LU分解**。 $L$ 称为单位下三角方阵。
+
+我们先来看看，LU分解的一个应用。当 $A=LU$ 时，方程 $A\mathbf x=\mathbf b$ 可写成 $L(U\mathbf x)=\mathbf b$，于是分解为下面两个方程
+$$
+L\mathbf y=\mathbf b \\
+U\mathbf x=\mathbf y
+$$
+因为 $L$ 和 $U$ 都是三角矩阵，每个方程都比较容易解。
+
+**LU 分解算法**：本节只讲述仅用行倍加变换求解。可以证明，单位下三角矩阵的乘积和逆也是单位下三角矩阵 。此时，可以用行倍加变换寻找 $L$ 和 $U$ 。假设存在单位下三角初等矩阵 $P_1,\cdots,P_s$ 使
+$$
+P_1\cdots P_sA=U
+$$
+于是便得到了 $U$ 和 $L$
+$$
+L=(P_1,\cdots,P_s)^{-1}
+$$
+
+## QR分解
+
+如果 $m\times n$ 矩阵 $A$ 的列向量线性无关，那么 $A$ 可以分解为 $A=QR$，其中 $Q$ 是一个 $m\times n$ 正交矩阵，其列为 $\text{col }A$ 的一组标准正交基，$R$ 是一个上 $n\times n$ 三角可逆矩阵，且其对角线上的元素全为正数。
+
+证：矩阵 $A=(\mathbf x_1,\mathbf x_2,\cdots,\mathbf x_n)$ 的列向量是 $\text{col }A$ 的一组基，使用施密特正交化方法可以构造一组标准正交基 $\mathbf u_1,\mathbf u_2,\cdots,\mathbf u_n$ ，取
+$$
+Q=(\mathbf u_1,\mathbf u_2,\cdots,\mathbf u_n)
+$$
+因为在正交化过程中 $\mathbf x_k\in\text{span}\{\mathbf x_1,\cdots,\mathbf x_k\}=\text{span}\{\mathbf u_1,\cdots,\mathbf u_k\},\quad k=1,2,\cdots,n$ 。所以 $\mathbf x_k$ 可线性表示为 
+$$
+\mathbf x_k=r_{1k}\mathbf u_1+\cdots+r_{kk}\mathbf u_k+0\cdot\mathbf u_{k+1}+\cdots+0\cdot\mathbf u_n
+$$
+于是
+$$
+\mathbf x_k=Q\mathbf r_k
+$$
+其中 $\mathbf r_k=(r_{1k},\cdots,r_{kk},0,\cdots,0)^T$ ，且 $r_{kk}\geqslant 0$ (在正交化过程中，若 $r_{kk}<0$ ，则$r_{kk}$ 和 $\mathbf u_k$ 同乘-1)。取 $R=(\mathbf r_1,\mathbf r_2,\cdots,\mathbf r_n)$ ，则
+$$
+A=(Q\mathbf r_1,Q\mathbf r_2,\cdots,Q\mathbf r_n)=QR
+$$
+例：求 $A=\begin{bmatrix}1&0&0\\1&1&0\\1&1&1\\1&1&1\end{bmatrix}$ 的一个 QR 分解
+
+解：通过施密特正交化方法我们可以得到 $\text{col }A$ 的一组标准正交基，将这些向量组成矩阵
+$$
+Q=\begin{bmatrix}1/2&-3/\sqrt{12}&0\\1/2&1/\sqrt{12}&-2/\sqrt{6}\\1/2&1/\sqrt{12}&1/\sqrt{6}\\1/2&1/\sqrt{12}&1/\sqrt{6}\end{bmatrix}
+$$
+注意到 $Q$ 是正交矩阵，$Q^T=Q^{-1}$ 。所以 $R=Q^{-1}A=Q^TA$
+$$
+R=\begin{bmatrix}1/2&1/2&1/2&1/2\\
+-3/\sqrt{12}&1/\sqrt{12}&1/\sqrt{12}&1/\sqrt{12} \\
+0&-2/\sqrt{6}&1/\sqrt{6}&1/\sqrt{6} 
+\end{bmatrix}
+\begin{bmatrix}1&0&0\\1&1&0\\1&1&1\\1&1&1\end{bmatrix}=
+\begin{bmatrix}2&3/2&1\\0&3/\sqrt{12}&2/\sqrt{12}\\0&0&2/\sqrt{6} \end{bmatrix}
+$$
+
+## 特征值分解
+
+特征值分解是将矩阵分解成特征值和特征向量形式：
+$$
+A=Q\Sigma Q^{-1}
+$$
+其中，$\Sigma=\text{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)$ 是一个对角阵，其对角线元素是矩阵 $A$ 的特征值按降序排列 $\lambda_1\geqslant\lambda_2\geqslant\cdots\geqslant\lambda_n$，$Q=(\mathbf u_1,\mathbf u_2,\dots,\mathbf u_n)$ 是特征值对应的特征向量组成的矩阵。
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/eigen_decomposition.svg" style="zoom:100%;" />
+
+特征值分解后，方阵的幂变得更容易计算
+$$
+A^t=Q\Sigma^t Q^{-1}=Q\begin{bmatrix}\lambda_1^t\\&\ddots\\&&\lambda_n^t\end{bmatrix}Q^{-1}
+$$
+特征值分解可以理解为：先切换基向量，然后伸缩变换，最后再切换回原来的基向量。其中，$\Sigma$ 中的特征向量描述伸缩变换的程度，特征向量描述变换的方向。
+
+特征值分解有一定的局限性，因为它只适用于满秩的方阵。
+
+例：求矩阵 $A=\begin{bmatrix}-2&1&1\\0&2&0\\-4&1&3\end{bmatrix}$ 的特征值分解。
+
+解：矩阵 $A$ 的特征多项式为 $\det(A-\lambda I)=-(\lambda-2)^2(\lambda+1)$ 。特征值和特征向量分别为
+$$
+\lambda_1=-1:\mathbf u_1=\begin{bmatrix}1\\0\\1\end{bmatrix};\quad
+\lambda_2=2:\mathbf u_2=\begin{bmatrix}0\\1\\-1\end{bmatrix},
+\mathbf u_3=\begin{bmatrix}1\\0\\4\end{bmatrix}
+$$
+可通过行变换计算逆矩阵
+$$
+(Q,I)=\begin{bmatrix}\begin{array}{ccc:ccc}
+0&1&1&1&0&0\\1&0&0&0&1&0\\-1&4&1&0&0&1
+\end{array}\end{bmatrix}\to
+\begin{bmatrix}\begin{array}{ccc:ccc}
+1&0&0&0&1&0\\0&1&0&-1/3&1/3&1/3\\0&0&1&4/3&-1/3&-1/3
+\end{array}\end{bmatrix}=(I,Q^{-1})
+$$
+所以
+$$
+A=\begin{bmatrix}0&1&1\\1&0&0\\-1&4&1\end{bmatrix}
+\begin{bmatrix}2&0&0\\0&2&0\\0&0&-1\end{bmatrix}
+\begin{bmatrix}0&1&0\\-1/3&1/3&1/3\\4/3&-1/3&-1/3\end{bmatrix}
+$$
+
+## 奇异值分解
+
+### 奇异值分解
+
+奇异值分解(Singular Value Decomposition, SVD)是线性代数中一种重要的矩阵分解，在生物信息学、信号处理、金融学、统计学等领域有重要应用。
+
+SVD 可以理解为同一线性变换 $T:\R^n\mapsto\R^m$ 在不同基下的矩阵表示。假设 Grant 选用标准基，对应的矩阵为 $A_{m\times n}$ 。类似于特征值分解， Jennifer 通过选择合适的基向量，对应的矩阵变为简单的长方形对角矩阵 $\Sigma_{m\times n}$，即只有伸缩变换。
+
+假定 Jennifer 使用矩阵 $V_n=(\mathbf v_1,\cdots,\mathbf v_n)$ 的列向量作为 $R^n$ 的基，使用矩阵 $U_n=(\mathbf u_1,\cdots,\mathbf u_m)$的列向量作为 $R^m$ 的基 。那么，对于 Jennifer 视角下的向量 $\mathbf x\in R^n$ 
+
+1. 同样的向量，用 Grant 的坐标系表示为 $V\mathbf x$ 
+2. 用 Grant 的语言描述变换后的向量 $AV\mathbf x$
+3. 将变换后的结果变回 Jennifer 的坐标系 $U^{-1}AV\mathbf x$
+
+于是，我们得到同一个线性变换 $T$ 在 Jennifer 的坐标系下对应的矩阵 $\Sigma=U^{-1}AV$ ，也可理解为矩阵 $A$ 分解为 $A_{m\times n}=U_m\Sigma_{m\times n}V^{-1}_n$ 。
+
+接下来，自然是探讨上述矩阵分解的适用条件。
+
+注意到
+$$
+A^TA=(U\Sigma V^{-1})^T(U\Sigma V^{-1})=V^{-T}\Sigma^TU^TU\Sigma V^{-1} 
+$$
+不妨取 $U,V$ 为单位正交基，即$U,V$ 为正交矩阵 $U^TU=I,V^TV=I$ ，则
+$$
+A^TA=V\Sigma^T\Sigma V^T
+$$
+于是，可知 $V$ 的列向量为 $A^TA$ 的特征向量，$\Sigma^T\Sigma$ 为$n$ 阶对角阵，其对角元素为$A^TA$ 的特征值。事实上 $A^TA$ 为对称阵，必定存在正交矩阵 $V$ 相似对角化。
+
+同理
+$$
+AA^T=U\Sigma\Sigma^T U^T
+$$
+可知 $U$ 的列向量为 $AA^T$ 的特征向量，$\Sigma\Sigma^T$ 为$m$ 阶对角阵，其对角元素为$AA^T$ 的特征值。矩阵 $A^TA$ 为对称阵，必定存在正交矩阵 $U$ 相似对角化。
+
+目前 $U,V$ 我们都求出来了，只剩下求出长方形对角矩阵 $\Sigma$ 。根据 Sylvester降幂公式， $A^TA$ 和 $AA^T$ 有相同的非零特征值。
+
+令 $\Sigma=\begin{bmatrix}\Lambda_r&O\\O&O\end{bmatrix}$ ，其中 $\Lambda_r=\text{diag}(\sigma_1,\cdots,\sigma_r)$ 。则
+$$
+\Sigma^T\Sigma=\begin{bmatrix}\Lambda_r^2&O\\O&O\end{bmatrix}_n,\quad
+\Sigma\Sigma^T=\begin{bmatrix}\Lambda_r^2&O\\O&O\end{bmatrix}_m
+$$
+其中 $\Lambda_r^2=\text{diag}(\sigma_1^2,\cdots,\sigma_r^2)$ 。因此，矩阵 $\Sigma$ 的对角元素是 $A^TA$ 和 $AA^T$ 的特征值 $\lambda_j$ 的平方根
+$$
+\sigma_j=\sqrt{\lambda_j}
+$$
+综上，**任意矩阵均可奇异值分解**。
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/SVD.svg" alt="SVD"  />
+
+<kbd>定义</kbd>：SVD是指将秩为 $r$ 的 $m\times n$ 矩阵$A$分解为
+$$
+A=U\Sigma V^T
+$$
+
+其中 $U$ 为 $m$ 阶正交阵， $V$ 为 $n$ 阶正交阵，$\Sigma$ 为 $m\times n$ 维长方形对角矩阵，对角元素称为矩阵 $A$ 的**奇异值**，一般按降序排列 $\sigma_1\geqslant\sigma_2\geqslant\cdots\geqslant\sigma_r>0$ ，这样 $\Sigma$ 就唯一确定了。矩阵 $U$ 的列向量称为**左奇异向量**(left singular vector)，矩阵 $V$ 的列向量称为**右奇异向量**(right singular vector)。
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/svd.png" style="zoom:80%;" />
+
+例：这里我们用一个简单的矩阵来说明奇异值分解的步骤。求矩阵 $A=\begin{bmatrix}0&1\\1&1\\1&0\end{bmatrix}$ 的奇异值分解
+
+解：首先求出对称阵 $A^TA$ 和 $AA^T$
+$$
+A^TA=\begin{bmatrix}0&1&1\\1&1&0\end{bmatrix}
+\begin{bmatrix}0&1\\1&1\\1&0\end{bmatrix}=
+\begin{bmatrix}2&1\\1&2\end{bmatrix} \\
+AA^T=\begin{bmatrix}0&1\\1&1\\1&0\end{bmatrix}
+\begin{bmatrix}0&1&1\\1&1&0\end{bmatrix}=
+\begin{bmatrix}1&1&0\\1&2&1\\0&1&1\end{bmatrix}
+$$
+然后求出 $A^TA$ 的特征值和特征向量
+$$
+\lambda_1=3:\mathbf v_1=\begin{bmatrix}1/\sqrt{2}\\1/\sqrt{2}\end{bmatrix};\quad 
+\lambda_2=1:\mathbf v_2=\begin{bmatrix}-1/\sqrt{2}\\1/\sqrt{2}\end{bmatrix}
+$$
+求出  $AA^T$ 的特征值和特征向量
+$$
+\lambda_1=3:\mathbf u_1=\begin{bmatrix}1/\sqrt{6}\\2/\sqrt{6}\\1/\sqrt{6}\end{bmatrix};\quad 
+\lambda_2=1:\mathbf u_2=\begin{bmatrix}1/\sqrt{2}\\0\\-1/\sqrt{2}\end{bmatrix};\quad
+\lambda_3=0:\mathbf u_3=\begin{bmatrix}1/\sqrt{3}\\-1/\sqrt{3}\\1/\sqrt{3}\end{bmatrix};
+$$
+其次可以利用 $\sigma_i=\sqrt{\lambda_i}$ 求出奇异值 $\sqrt{3},1$
+
+最终得到$A$的奇异值分解
+$$
+A=U\Sigma V^T=\begin{bmatrix}1/\sqrt{6}&1/\sqrt{2}&1/\sqrt{3}\\2/\sqrt{6}&0&-1/\sqrt{3}\\1/\sqrt{6}&-1/\sqrt{2}&1/\sqrt{3}\end{bmatrix}
+\begin{bmatrix}\sqrt{3}&0\\0&1\\0&0\end{bmatrix}
+\begin{bmatrix}1/\sqrt{2}&1/\sqrt{2}\\-1/\sqrt{2}&1/\sqrt{2}\end{bmatrix}
+$$
+
+### 矩阵的基本子空间
+
+设矩阵 $A=U\Sigma V^T$ ，有$r$ 个不为零的奇异值，则可以得到矩阵 $A$ 的四个基本子空间：
+
+1. 正交阵 $U$ 的前 $r$ 列是 $\text{col }A$ 的一组单位正交基
+2. 正交阵 $U$ 的后 $m-r$ 列是 $\ker A^T$ 的一组单位正交基
+3. 正交阵 $V$ 的前 $r$ 列是 $\text{col }A^T$ 的一组单位正交基
+4. 正交阵 $V$ 的后 $n-r$ 列是 $\ker A$ 的一组单位正交基
+
+
+$$
+A(\underbrace{\mathbf v_1,\cdots,\mathbf v_r}_{\text{col }A^T},\underbrace{\mathbf v_{r+1}\cdots\mathbf v_n}_{\ker A})=
+(\underbrace{\mathbf u_1,\cdots,\mathbf u_r}_{\text{col }A},\underbrace{\mathbf u_{r+1}\cdots\mathbf u_m}_{\ker A^T})
+\underbrace{\begin{bmatrix}\sigma_1\\&\ddots\\&&\sigma_r\\&&&O
+\end{bmatrix}}_{\Sigma_{m\times n}}
+$$
+
+证：易知 $AV=U\Sigma$ ，即
+$$
+\begin{cases}
+A\mathbf v_i=\sigma_i\mathbf u_i, &1\leqslant i\leqslant r \\
+A\mathbf v_i=0, &r< i\leqslant n
+\end{cases}
+$$
+取 $\mathbf v_1,\cdots,\mathbf v_n$ 为 $\R^n$ 的单位正交基，对于 $\forall\mathbf x\in \R^n$ ，可以写出 $\mathbf x=c_1\mathbf v_1+\cdots+c_n\mathbf v_n$，于是
+$$
+\begin{aligned}
+A\mathbf x&=c_1A\mathbf v_1+\cdots+c_rA\mathbf v_r+c_{r+1}A\mathbf v_{r+1}+\cdots+c_n\mathbf v_n \\
+&=c_1\sigma_1\mathbf u_1+\cdots+c_r\sigma_1\mathbf u_r+0+\cdots+0
+\end{aligned}
+$$
+所以 $A\mathbf x\in\text{span}\{\mathbf u_1,\cdots,\mathbf u_r\}$ ，这说明矩阵  $U$ 的前 $r$ 列是 $\text{col }A$ 的一组单位正交基，因此 $\text{rank }A=r$ 。同时可知，对于任意的 $\mathbf x\in\text{span}\{\mathbf v_{r+1},\cdots,\mathbf v_n\}\iff A\mathbf x=0$ ，于是 $V$ 的后 $n-r$ 列是 $\ker A$ 的一组单位正交基。
+
+同样通过 $A^TU=V\Sigma$  可说明 $V$ 的前 $r$ 列是 $\text{col }A^T$ 的一组单位正交基， $U$ 的后 $m-r$ 列是 $\ker A^T$ 的一组单位正交基。
+
+### 奇异值分解的性质
+
+设矩阵 $A=U\Sigma V^T$ ，秩 $\text{rank }A=r$ ，分别将 $U,\Sigma,V$ 进行分块
+$$
+U=(U_r,U_{m-r})  \\
+V=(V_r,V_{n-r}) \\
+\Sigma=\begin{bmatrix}\Lambda_r&O\\O&O\end{bmatrix}
+$$
+其中 $U_r=(\mathbf u_1,\cdots,\mathbf u_r)$ 为 $m\times r$维矩阵， $V_r=(\mathbf v_1,\cdots,\mathbf v_r)$ 为 $n\times r$维矩阵，$\Lambda_r=\text{diag}(\sigma_1,\cdots,\sigma_r)$ 为 $r$ 阶对角阵。应用矩阵乘法的性质，奇异值分解可以简化为
+$$
+A=U_r\Lambda_r V^T_r
+$$
+这个分解称为**简化奇异值分解**。
+
+由于 $\Lambda_r$ 的对角线元素非零，所以 $\Lambda_r$ 可逆，进一步定义矩阵 $A$ 的**伪逆**
+$$
+A^+=V_r\Lambda_r^{-1} U^T_r
+$$
+
+{% label  性质 orange %}：
+
+1. 奇异值分解可理解为将线性变换分解为三个简单的变换：正交变换 $V^T$，伸缩变换 $\Sigma$ 和正交变换 $U$ 。
+
+2. 矩阵 $A$ 的奇异值分解中，奇异值是唯一的，但矩阵 $U,V$ 不是唯一的。
+
+3. 令 $\lambda$ 为$A^TA$ 的一个特征值，$\mathbf v$ 是对应的特征向量，则
+   $$
+   \|A\mathbf v\|^2=\mathbf v^TA^TA\mathbf v=\lambda\mathbf v^T\mathbf v=\lambda\|\mathbf v\|
+   $$
+
+4. 易知 $AV=U\Sigma$  或 $A^TU=V\Sigma^T$，则左奇异向量和右奇异向量存在关系
+   $$
+   A\mathbf v_j=\sigma_j\mathbf u_j \\
+   A^T\mathbf u_j=\sigma_j\mathbf v_j
+   $$
+
+### 矩阵的外积展开式
+
+矩阵 $A=U\Sigma V^T$ 可展开为若干个秩为1的 $m\times n$矩阵之和
+$$
+A=\sigma_1\mathbf u_1\mathbf v_1^T+\sigma_2\mathbf u_2\mathbf v_2^T+\cdots+\sigma_r\mathbf u_r\mathbf v_r^T
+$$
+
+上式称为矩阵 $A$ 的外积展开式。
+
+在长方形对角矩阵 $\Sigma$ 中奇异值按从大到小的顺序排列  $\sigma_1\geqslant\sigma_2\geqslant\cdots\geqslant\sigma_r>0$ 。在很多情况下，由于奇异值递减很快，前10%甚至1%的奇异值的和就占了全部的奇异值之和的99%以上。因此，我们可以用前面 $k$ 个大的奇异值来近似描述矩阵。
+
+奇异值分解也是一种矩阵近似的方法，这个近似是在矩阵范数意义下的近似。矩阵范数是向量范数的直接推广。
+$$
+\|A\|_2=(\sum_{j=1}^{n}\sum_{i=1}^{m} a_{ij}^2)^{1/2}=\sqrt{\sigma_1^2+\sigma_2^2+\cdots+\sigma_r^2}
+$$
+设矩阵
+$$
+A_k=\sum_{i=1}^k\sigma_i\mathbf u_i\mathbf v_i^T
+$$
+则 $A_k$ 的秩为 $k$ ，矩阵 $A_k$ 称为 $A$ 的**截断奇异值分解**。并且 $A_k$ 是秩为 $k$ 时的最优近似，即 $A_k$ 为以下最优问题的解
+$$
+\min\|A-X\|_2 \\
+\text{s.t. rank }A=k
+$$
+上式称为低秩近似(low-rank approximation)。于是奇异值分解可近似为
+$$
+A\approx \sum_{i=1}^k\sigma_i\mathbf u_i\mathbf v_i^T=U_{m\times k}\Sigma_{k\times k}V_{n\times k}^T
+$$
+
+其中 $k$ 是一个远远小于$m$和$n$的数，从计算机内存的角度来说，矩阵左(右)奇异向量和奇异值的存储要远远小于矩阵$A$的。所以，截断奇异值分解就是在计算精度和时间空间之间做选择。如果$k$越大，右边的三个矩阵相乘的结果越接近于$A$。
+
+截断奇异值分解常用于图像压缩，如下图
+
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/digit_SVD.svg"  />
 
 
 # 附录
 
 ## 极大线性无关组
 
-由以上的定义，容易得到以下结论：
+由向量组线性相关的定义，容易得到以下结论：
 
 (1) 向量组线性相关$\iff$向量组中存在向量能被其余向量线性表示。
 (2) 向量组线性无关$\iff$向量组中任意一个向量都不能由其余向量线性表示。
@@ -2425,7 +3174,7 @@ $$
 (1) 部分向量组 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_r$ 线性无关
 (2) 从$A$ 中任取$r+1$个向量组成的向量组 都线性相关。
 
-则称向量组 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_r$ 为**极大线性无关组**(maximum linearly independent group)。极大线性无关组包含的向量个数为向量组的秩，记作 $\text{rank}(A)$。
+则称向量组 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_r$ 为**极大线性无关组**(maximum linearly independent group)。极大线性无关组包含的向量个数为向量组的秩。
 
 {% label  性质 orange %}：
 
@@ -2434,10 +3183,6 @@ $$
 (3) 一个向量组的任意两个极大线性无关组中包含的向量个数相同，称为向量组的**秩**(rank)。全由零向量组成的向量组的秩为零；
 (4) 两个线性等价的向量组的秩相等；
 (5) 两个等价的向量组生成的向量空间相同。
-
-矩阵的秩等于它的列向量组的秩，也等于它的行向量组的秩。
-
-一个向量组的任一极大线性无关组中包含向量的个数相同，称为该向量组的**秩**。
 
 ## 叉积
 
@@ -2451,5 +3196,5 @@ $$
 $$
 \begin{bmatrix}v_1\\v_2\\v_3\end{bmatrix}\times\begin{bmatrix}w_1\\w_2\\w_3\end{bmatrix}=\det\begin{bmatrix}\mathbf i & v_1 & w_1\\\mathbf j & v_2 & w_2 \\\mathbf k & v_3 & w_3 \end{bmatrix}
 $$
-大小等于 $v,w$ 围成的平行四边形的面积，方向遵循右手定则。
+大小等于 $v,w$ 围成的平行六面体的体积，方向遵循右手定则。
 

@@ -1,5 +1,5 @@
 ---
-title: 线性代数（摘要）
+title: 线性代数摘要
 categories:
   - Mathematics
   - 现代数学
