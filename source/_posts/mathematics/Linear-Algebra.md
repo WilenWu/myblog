@@ -17,6 +17,7 @@ katex: true
 description: 本文试图从线性变换出发理解线性代数的本质
 abbrlink: '40113498'
 date: 2023-09-10 23:51:00
+
 ---
 
 > [《线性代数的本质》 - 3blue1brown](https://www.bilibili.com/video/BV1ys411472E/)
@@ -36,7 +37,7 @@ date: 2023-09-10 23:51:00
 
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/linear_operation.svg" style="zoom:90%;" />
 
-{% label  性质 orange %}：根据向量的几何性质可证明向量的加法和数乘满足以下八条性质：
+<kbd>性质</kbd>：根据向量的几何性质可证明向量的加法和数乘满足以下八条性质：
 
 1. 加法交换律：$\mathbf v+\mathbf w=\mathbf w+\mathbf v$
 2. 加法结合律：$\mathbf u+(\mathbf v+\mathbf w)=(\mathbf u+\mathbf v)+\mathbf w$
@@ -546,7 +547,7 @@ $$
 2. 矩阵的加法定义为 $A+B=(a_{ij}+b_{ij})$ 
 3. 矩阵的数乘定义为$kA=(ka_{ij})$
 
-{% label  性质 orange %}：线性运算满足以下性质
+<kbd>性质</kbd>：线性运算满足以下性质
 
 1. 加法交换律：$A+B=B+A$
 2. 加法结合律：$A+(B+C)=(A+B)+C$
@@ -593,7 +594,7 @@ $$
 $$
 c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{ip}b_{pj}
 $$
-{% label  性质 orange %}：矩阵乘法满足以下性质
+<kbd>性质</kbd>：矩阵乘法满足以下性质
 
 1. 矩阵乘法满足结合率：$A(BC)=(AB)C$
 2. 矩阵乘法满足左分配律：$A(B+C)=AB+AC$
@@ -639,7 +640,7 @@ $$
    $$
    \text{range}(T)=\{T(\mathbf v)\mid\mathbf v\in V\}
    $$
-   
+
 3. 在前面几节的分析中，我们始终将矩阵的列看成是向量。而这些列向量所张成的空间，称为**列空间**，若 $A=(\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n)$
    $$
    \text{col }A=\text{span}\{\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n\}
@@ -731,7 +732,7 @@ $$
 
 不可逆矩阵有时称为**奇异矩阵**，而可逆矩阵也称为**非奇异矩阵**。
 
-{% label  性质 orange %}：逆矩阵满足下列性质
+<kbd>性质</kbd>：逆矩阵满足下列性质
 
 1. $(A^{-1})^{-1}=A$
 2. $(kA)^{-1}=\dfrac{1}{k}A^{-1},\quad(k\neq0)$
@@ -1207,7 +1208,7 @@ $$
 
 ## 行列式的性质
 
-{% label  性质 orange %}：使用数学归纳法可知
+<kbd>性质</kbd>：使用数学归纳法可知
 
 1. 行列式与其转置行列式相等：$\det A^T=\det A$
 
@@ -1281,6 +1282,7 @@ $$
 $$
 x_j=\frac{\det A_j(\mathbf b)}{\det A},\quad(j=1,2,\cdots,n)
 $$
+
 > 约定 $A_j(\mathbf b)$ 表示用向量 $\mathbf b$ 替换矩阵$A$的第$j$列。
 
 证：用$\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_n$ 表示矩阵$A$ 的各列，$\mathbf e_1,\mathbf e_2,\cdots,\mathbf e_n$ 表示单位阵$I_n$ 的各列。由分块矩阵乘法
@@ -1346,7 +1348,7 @@ $$
 
 **转置**：矩阵$A$的行列互换得到的矩阵称为 $A$ 的转置(transpose)，记作 $A^T$。
 
-{% label  性质 orange %}：矩阵转置运算满足下列性质：
+<kbd>性质</kbd>：矩阵转置运算满足下列性质：
 
 1. $(A+B)^T=A^T+B^T$
 2. $(A^T)^T=A$
@@ -1399,7 +1401,6 @@ $$
    \begin{bmatrix}a_1 \\&a_2 \\&&\ddots \\&&&a_n \end{bmatrix}^k=
    \begin{bmatrix}a_1^k \\&a_2^k \\&&\ddots \\&&&a_n^k \end{bmatrix}
    $$
-   
 
 **数量阵**：主对角线上的元素都相等的对角阵，称为**数量阵**(scalar matrix)。
 $$
@@ -1438,19 +1439,6 @@ $$
 
 注意：因为矩阵乘法无交换率，因此一般情况下 $(AB)^k\neq A^kB^k$
 
-## 共轭矩阵
-
-当 $A=(a_{ij})$ 为复矩阵时，即 $a_{ij}\in\C$ ，元素$a_{ij}$的的共轭记为 $\overline{a_{ij}}$ ，则称
-$$
-\overline A=(\overline{a_{ij}})
-$$
-为矩阵 $A$ 的共轭矩阵。
-
-{% label 性质 orange %}：共轭矩阵满足下列性质
-
-1. $\overline{A+B}=\overline A+\overline B$
-2. $\overline{kA}=\bar k \bar A$
-3. $\overline{AB}=\bar A\bar B$
 
 ## 初等矩阵
 
@@ -1602,11 +1590,11 @@ $$
 $$
 于是可写出矩阵 $A$ 的逆
 $$
-A^{-1}=\dfrac{1}{\det A}A^*
+A^{-1}=\dfrac{1}{\det A}\text{adj }A
 $$
-其中 $A^*$ 是矩阵 $A$ 的各个元素的代数余子式$A_{ji}$ 所构成的矩阵
+其中 $\text{adj }A$ 是矩阵 $A$ 的各个元素的代数余子式$A_{ji}$ 所构成的矩阵
 $$
-A^*=\begin{bmatrix}
+\text{adj }A=\begin{bmatrix}
 A_{11}&A_{21}&\cdots&A_{n1} \\
 A_{12}&A_{22}&\cdots&A_{n2} \\
 \vdots&\vdots&\ddots&\vdots \\
@@ -1617,7 +1605,7 @@ $$
 
 > 注意，伴随矩阵里代数余子式的排列顺序是颠倒的。
 
-<kbd>定理</kbd>：方阵 $A$ 可逆的充要条件是 $\det A\neq0$ ，且 $A^{-1}=\dfrac{1}{\det A}A^*$
+<kbd>定理</kbd>：方阵 $A$ 可逆的充要条件是 $\det A\neq0$ ，且 $A^{-1}=\dfrac{1}{\det A}\text{adj }A$
 
 此定理仅适用于理论上的计算矩阵的逆，使我们不用实际计算出$A^{-1}$ 就可以推导出性质。
 
@@ -1630,7 +1618,7 @@ $$
 <kbd>推论</kbd>：
 
 1. 若 $n$ 阶方阵  $A,B$ 满足 $AB=I$ 或 $BA=I$ ，则 $B=A^{-1}$ 。
-2. $AA^*=A^*A=(\det A)I$
+2. $A(\text{adj }A)=(\text{adj }A)A=(\det A)I$
 
 有了推论1，只需判断 $AB=I$ 或 $BA=I$ 中的一个条件就可判定逆矩阵，要比定义简单一些。
 
@@ -1732,13 +1720,47 @@ $\ker A$ 的基：$(-1,2,1,0,0)^T,(-1,-3,0,5,1)^T$
 
 证明：$\text{rank }A$ 是$A$中主元列的个数，也是$A$的等价阶梯形矩阵$B$中主元列的个数。进一步，因为 $B$ 的每个主元都对应一个非零行，同时这些非零行构成 $A$ 的行空间的一组基，所以 $A$ 的秩等于 $\text{row }A$ 的维数。由于 $\ker A$ 的维数等于方程 $A\mathbf x=0$ 中自由变量的个数，换句话说， $\ker A$ 的维数是 $A$ 中非主元列的个数。上面的定理证闭。
 
-{% label  性质 orange %}：
+<kbd>性质</kbd>：
 
 1. 矩阵的秩在初等变换下保持不变
 2. 矩阵的列向量组的秩等于行向量组的秩
 3. $\text{rank}(A+B)\leqslant \text{rank}(A)+\text{rank}(B)$
 4. $\text{rank}(kA)=\text{rank}(A)$
 5. $\text{rank}(AB)\leqslant \min\{\text{rank}(A),\text{rank}(B)\}$
+
+## 广义逆矩阵
+
+对于非其次线性方程组 $A\mathbf x=\mathbf b$ ，当 $A$ 可逆时，则方程组存在唯一解 $\mathbf x=A^{-1}\mathbf b$，通常矩阵 $A$ 是任意的 $m\times n$ 矩阵，不可逆的，这就促使人们去推广逆矩阵的概念，引进某种具有普通逆矩阵类似性质的矩阵 $G$，使得方程组的解仍可表示为 $\mathbf x=G\mathbf b$ 这种简单的形式。
+
+- 若 $AGA=A$，则 $A\mathbf x=AGA\mathbf x=A(G\mathbf b)=\mathbf b$，于是$G\mathbf b$ 是方程的解；
+- 若 $GAG=G$，由于 $GA\mathbf x=G\mathbf b$，所以 $GA\mathbf x=GAGA\mathbf x=GA(G\mathbf b)=G\mathbf b$，于是$G\mathbf b$ 是方程的解；
+
+对于$m\times n$ 维矩阵 $A$，若存在 $n\times m$ 维矩阵 $G$ 满足以下 M-P 方程
+(1) $AGA=A$
+(2) $GAG=G$
+(3) $(AG)^T=AG$
+(4) $(GA)^T=GA$
+
+的全部或一部分，则称 $G$ 为 $A$ 的一个**广义逆矩阵**。若 $G$ 满足全部 M-P 方程，则称 $G$ 为 $A$ 的 Moore-Penrose 广义逆矩阵，简称M-P 广义逆矩阵，也称为伪逆矩阵，记为 $A^+$。事实上，只有伪逆矩阵存在且唯一，其他各类广义逆矩阵都不唯一。
+
+
+<kbd>性质</kbd>：
+1. $(A^+)^+=A$
+2. $(A^T)^+=(A^+)^T$
+3. $\text{rank }A^+=\text{rank }A$
+
+若非其次线性方程组 $A\mathbf x=\mathbf b$ 有解，则解为
+$$
+\mathbf x=A^+\mathbf b+(I-A^+A)\mathbf c
+$$
+其中 $\mathbf c$ 是维数与 $\mathbf x$ 的维数相同的任意向量。显然，当 $A$ 可逆时，$\mathbf x=A^{-1}\mathbf b+(I-A^{-1}A)\mathbf c=A^{-1}\mathbf b$ 。
+
+
+求伪逆矩阵的一个方法是利用奇异值分解 $A=U\Sigma V^T$ 。由于 $\Lambda_r$ 的对角线元素非零，所以 $\Lambda_r$ 可逆，可求得伪逆为
+$$
+A^+=V_r\Lambda_r^{-1} U^T_r
+$$
+
 
 # 线性空间
 
@@ -1785,7 +1807,7 @@ $\ker A$ 的基：$(-1,2,1,0,0)^T,(-1,-3,0,5,1)^T$
 例 2：全体 $m×n$ 实矩阵构成线性空间，记为 $\R^{m\times n}$。
 例 3：全体函数的集合构成线性空间，也称函数空间。
 
-{% label  性质 orange %}：
+<kbd>性质</kbd>：
 
 1. 零元素是唯一的；
 2. 任一元素的负元素是唯一的；
@@ -1936,6 +1958,7 @@ $$
 \mathbf i'=\begin{bmatrix} a \\ c \end{bmatrix},\quad
 \mathbf j'=\begin{bmatrix} b \\ d \end{bmatrix}
 $$
+
 > 实际上在各自的坐标系统，基向量均为 $(1,0),(0,1)$ 。特别的，两个坐标系**原点的定义**是一致的。
 
 同一个向量在不同基向量下表示不同。在 Jennifer 的坐标系中，向量 $\mathbf v=\begin{bmatrix} x' \\ y' \end{bmatrix}$，可以写成基向量的线性组合形式
@@ -2167,7 +2190,7 @@ $$
 $$
 求得特征值 $\lambda_2=-1$ 对应的特征向量 $\mathbf u_2=c\begin{bmatrix}-1\\1\end{bmatrix}$
 
-{% label  性质 orange %}：
+<kbd>性质</kbd>：
 
 1. 相似矩阵(同样的线性变换)有相同的特征多项式，从而有相同的特征值；
 2. 矩阵 $A$ 与其转置矩阵 $A^T$ 有相同的特征值；
@@ -2304,7 +2327,7 @@ $$
 
 许多实际问题都可归结为研究矩阵的方幂 $A^n\quad (n\in\N^*)$ 乘以向量 $\mathbf v$ ，不难想象，当方幂很大时，直接用矩阵的乘法、矩阵与向量的乘法进行计算会非常麻烦。而矩阵的特征值和特征向量矩阵对幂运算十分友好，因此在数学和实际问题中有着广泛的应用。
 
-{% label  性质 orange %}：
+<kbd>性质</kbd>：
 
 1. 设矩阵 $A$ 特征值 $\lambda$ 的特征向量为 $\mathbf u$，则用数学归纳法可以得到
    $$
@@ -2447,7 +2470,7 @@ $$
 5. 长度为1的向量称为**单位向量**；
 6. 如果向量空间的基向量都为单位向量且两两正交，则称为**标准正交基**(orthonormal basis)；
 
-{% label  性质 orange %}：
+<kbd>性质</kbd>：
 
 1. $\|\mathbf v\|\geqslant 0,\quad \|\mathbf v\|=0\text{ iff }\mathbf v=0$
 2. $c\|\mathbf v\|=|c|\ \|\mathbf v\|$
@@ -2663,8 +2686,10 @@ $$
 于是正交矩阵 $P$ 将 $A$ 正交对角化，即 $A=P\Lambda P^{-1}$
 
 **对称矩阵的谱**：矩阵 $A$ 的特征值的集合称为 $A$ 的**谱**(spectrum)
-
-{% label  性质 orange %} 设 $A$ 为 $n$ 阶对称阵
+$$
+\text{spec }A=\{\lambda\in\Complex\mid\det(A-\lambda I)=0\}
+$$
+<kbd>性质</kbd> 设 $A$ 为 $n$ 阶对称阵
 
 1. $A$ 有 $n$ 个实特征值(包含重复的特征值)；
 2. 对于每一个特征值，对应的特征空间的维数等于特征方程的根的重数；
@@ -2744,7 +2769,7 @@ B=C^TAC
 $$
 则称矩阵$A$和$B$**合同**，记为 $A\simeq B$ 。显然，合同矩阵即为二次型在不同基下的矩阵。
 
-{% label 性质 orange %}：设矩阵 $A\simeq B$
+<kbd>性质</kbd>：设矩阵 $A\simeq B$
 
 1. 若 $A$ 为对称阵，则 $B$ 也为对称阵；
 2. 合同矩阵的秩相等 $\text{rank}(A)=\text{rank}(B)$；
@@ -3093,12 +3118,7 @@ A=U_r\Lambda_r V^T_r
 $$
 这个分解称为**简化奇异值分解**。
 
-由于 $\Lambda_r$ 的对角线元素非零，所以 $\Lambda_r$ 可逆，进一步定义矩阵 $A$ 的**伪逆**
-$$
-A^+=V_r\Lambda_r^{-1} U^T_r
-$$
-
-{% label  性质 orange %}：
+<kbd>性质</kbd>：
 
 1. 奇异值分解可理解为将线性变换分解为三个简单的变换：正交变换 $V^T$，伸缩变换 $\Sigma$ 和正交变换 $U$ 。
 
@@ -3128,7 +3148,11 @@ $$
 
 奇异值分解也是一种矩阵近似的方法，这个近似是在矩阵范数意义下的近似。矩阵范数是向量范数的直接推广。
 $$
-\|A\|_2=(\sum_{j=1}^{n}\sum_{i=1}^{m} a_{ij}^2)^{1/2}=\sqrt{\sigma_1^2+\sigma_2^2+\cdots+\sigma_r^2}
+\|A\|_2=(\sum_{j=1}^{n}\sum_{i=1}^{m} |a_{ij}|^2)^{1/2}
+$$
+可以证明
+$$
+\|A\|_2^2=\text{tr}(A^TA)= \sum_{i=1}^{r} \sigma_i^2
 $$
 设矩阵
 $$
@@ -3150,6 +3174,31 @@ $$
 
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/math/digit_SVD.svg"  />
 
+# 复数矩阵
+
+
+矩阵 $A$ 的元素 $a_{ij}\in\Complex$ ，称为复矩阵。现将实数矩阵的一些概念推广到复数矩阵，相应的一些性质在复数矩阵同样适用。
+
+
+<kbd>定义</kbd>：设复矩阵 $A=(a_{ij})_{m\times n}$
+
+1. 矩阵 $\bar A=(\overline{a_{ij}})$ 称为矩阵 $A$ 的共轭矩阵.
+2. 矩阵 $A^H=\bar A^T$ 称为矩阵 $A$ 的共轭转置，又叫Hermite转置。
+3. 若 $A^H=A$，则称 $A$ 为 Hermitian 矩阵，是实数域对称阵的推广。
+4. 若 $A^HA=AA^H=I$，即 $A^{-1}=A^H$ ，则称 $A$ 为酉矩阵(unitary matrix)，是实数域正交阵的推广。
+5. 复向量长度 $\|\mathbf z\|^2=|z_1|^2+|z_1|^2+\cdots+|z_n|^2$
+6. 内积 $\mathbf u^H\mathbf v=\bar u_1v_1+\bar u_2v_2+\cdots+\bar u_nv_n$
+7. 正交 $\mathbf u^H\mathbf v=0$
+
+
+<kbd>性质</kbd>：
+- $\overline{A+B}=\overline A+\overline B$
+- $\overline{kA}=\bar k \bar A$
+- $\overline{AB}=\bar A\bar B$
+- $(AB)^H=B^HA^H$
+- 一般 $\mathbf u^H\mathbf v\neq \mathbf v^H\mathbf u$
+- Hermitian 矩阵可正交对角化 $A=P\Lambda P^{-1}=P\Lambda P^H$
+- Hermitian 矩阵的每个特征值都是实数
 
 # 附录
 
@@ -3176,7 +3225,7 @@ $$
 
 则称向量组 $\mathbf a_1,\mathbf a_2,\cdots,\mathbf a_r$ 为**极大线性无关组**(maximum linearly independent group)。极大线性无关组包含的向量个数为向量组的秩。
 
-{% label  性质 orange %}：
+<kbd>性质</kbd>：
 
 (1) 一个向量组的极大线性无关组不一定是惟一的；
 (2) 一个向量组与它的极大线性无关组是等价的；
@@ -3184,7 +3233,7 @@ $$
 (4) 两个线性等价的向量组的秩相等；
 (5) 两个等价的向量组生成的向量空间相同。
 
-## 叉积
+## 向量叉积
 
 平面叉积
 $$
