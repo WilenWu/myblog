@@ -26,60 +26,60 @@ DESCRIBE FUNCTION EXTENDED function_name;
 
 ## 数学函数
 
-| Return Type   | Name (Signature)                             | Description                                         |
-| ------------- | -------------------------------------------- | --------------------------------------------------- |
-| BIGINT        | round(DOUBLE a)                              | 四舍五入取整                                        |
-| DOUBLE        | round(DOUBLE a, INT d)                       | 四舍五入，保留d位小数                               |
-| BIGINT        | floor(DOUBLE a)                              | 向下取整                                            |
-| BIGINT        | ceil(DOUBLE a), ceiling(DOUBLE a)            | 向上取整                                            |
-| DOUBLE        | rand(), rand(INT seed)                       | 返回0到1间的随机数                                  |
-| DOUBLE        | exp(DOUBLE a),                               | $e^a$                                               |
-| DOUBLE        | ln(DOUBLE a)                                 | $\ln a$                                             |
-| DOUBLE        | log10(DOUBLE a)                              | $\log_{10}a$                                        |
-| DOUBLE        | log2(DOUBLE a)                               | $\log_{2}a$                                         |
-| DOUBLE        | log(DOUBLE b, DOUBLE a)                      | $\log_{b}a$                                         |
-| DOUBLE        | pow(DOUBLE a, DOUBLE p)                      | $a^p$                                               |
-| DOUBLE        | sqrt(DOUBLE a)                               | $\sqrt{a}$                                          |
-| STRING        | bin(BIGINT a)                                | 返回二进制数字对应的字段                            |
-| STRING        | hex(BIGINT a), hex(STRING a), hex(BINARY a)  | 返回十六进制数字对应的字段                          |
-| BINARY        | unhex(STRING a)                              | hex的逆方法                                         |
-| DOUBLE        | abs(DOUBLE a)                                | 绝对值                                              |
-| INT or DOUBLE | pmod(INT a, INT b), pmod(DOUBLE a, DOUBLE b) | $a \mod b$                                          |
-| DOUBLE        | sin(DOUBLE a)                                | 正弦值                                              |
-| DOUBLE        | asin(DOUBLE a)                               | 反正弦值                                            |
-| DOUBLE        | cos(DOUBLE a)                                | 余弦值                                              |
-| DOUBLE        | acos(DOUBLE a)                               | 反余弦值                                            |
-| DOUBLE        | tan(DOUBLE a)                                | 正切值                                              |
-| DOUBLE        | atan(DOUBLE a)                               | 反正切值                                            |
-| DOUBLE        | degrees(DOUBLE a)                            | 将弧度值转换角度值                                  |
-| DOUBLE        | radians(DOUBLE a)                            | 将角度值转换成弧度值                                |
-| INT or DOUBLE | positive(INT a), positive(DOUBLE a)          | 返回a                                               |
-| INT or DOUBLE | negative(INT a), negative(DOUBLE a)          | 返回-a                                              |
-| DOUBLE or INT | sign(DOUBLE a)                               | 如果a是正数则返回1.0，是负数则返回-1.0，否则返回0.0 |
-| DOUBLE        | e()                                          | 数学常数e                                           |
-| DOUBLE        | pi()                                         | 数学常数$\pi$                                       |
-| BIGINT        | factorial(INT a)                             | 求a的阶乘                                           |
-| DOUBLE        | cbrt(DOUBLE a)                               | 求a的立方根                                         |
-| TYPE          | greatest(T v1, T v2, ...)                    | 求最大值                                            |
-| TYPE          | least(T v1, T v2, ...)                       | 求最小值                                            |
+| Return Type   | Name (Signature)              | Description                                         |
+| ------------- | ----------------------------- | --------------------------------------------------- |
+| BIGINT        | round(a)                      | 四舍五入取整                                        |
+| DOUBLE        | round(a, d)                   | 四舍五入，保留d位小数                               |
+| BIGINT        | floor(a)                      | 向下取整                                            |
+| BIGINT        | ceil(a), ceiling(a)           | 向上取整                                            |
+| DOUBLE        | rand(), rand(seed)            | 返回0到1间的随机数                                  |
+| DOUBLE        | exp(a),                       | $e^a$                                               |
+| DOUBLE        | ln(a)                         | $\ln a$                                             |
+| DOUBLE        | log10(a)                      | $\log_{10}a$                                        |
+| DOUBLE        | log2(a)                       | $\log_{2}a$                                         |
+| DOUBLE        | log(b, a)                     | $\log_{b}a$                                         |
+| DOUBLE        | pow(a, p)                     | $a^p$                                               |
+| DOUBLE        | sqrt(a)                       | $\sqrt{a}$                                          |
+| STRING        | bin(a)                        | 返回二进制数字对应的字段                            |
+| STRING        | hex(a), hex(a), hex(BINARY a) | 返回十六进制数字对应的字段                          |
+| BINARY        | unhex(a)                      | hex的逆方法                                         |
+| DOUBLE        | abs(a)                        | 绝对值                                              |
+| INT or DOUBLE | pmod(a, b), pmod(a, b)        | $a \mod b$                                          |
+| DOUBLE        | sin(a)                        | 正弦值                                              |
+| DOUBLE        | asin(a)                       | 反正弦值                                            |
+| DOUBLE        | cos(a)                        | 余弦值                                              |
+| DOUBLE        | acos(a)                       | 反余弦值                                            |
+| DOUBLE        | tan(a)                        | 正切值                                              |
+| DOUBLE        | atan(a)                       | 反正切值                                            |
+| DOUBLE        | degrees(a)                    | 将弧度值转换角度值                                  |
+| DOUBLE        | radians(a)                    | 将角度值转换成弧度值                                |
+| INT or DOUBLE | positive(a), positive(a)      | 返回a                                               |
+| INT or DOUBLE | negative(a), negative(a)      | 返回-a                                              |
+| DOUBLE or INT | sign(a)                       | 如果a是正数则返回1.0，是负数则返回-1.0，否则返回0.0 |
+| DOUBLE        | e()                           | 数学常数e                                           |
+| DOUBLE        | pi()                          | 数学常数$\pi$                                       |
+| BIGINT        | factorial(a)                  | 求a的阶乘                                           |
+| DOUBLE        | cbrt(a)                       | 求a的立方根                                         |
+| TYPE          | greatest(T v1, T v2, ...)     | 求最大值                                            |
+| TYPE          | least(T v1, T v2, ...)        | 求最小值                                            |
 
 ## 集合函数
 
-| Return Type | Name(Signature)                                   | Description                                                  |
-| ----------- | ------------------------------------------------- | ------------------------------------------------------------ |
-| int         | `size(Map)`                                       | 返回map的长度                                                |
-| int         | `size(Array)`                                     | 返回数组的长度                                               |
-| boolean     | map_contains_key(map, key)                        | map的所有键是否包含key                                       |
-| array       | map_keys(Map)                                     | 返回map中的所有key                                           |
-| array       | map_values(Map)                                   | 返回map中的所有value                                         |
-| boolean     | `array_contains(Array, value)`                    | 数组中是否包含value                                          |
-| array       | `sort_array(Array)`                               | 对数组进行排序并返回                                         |
-| string      | `concat_ws(string SEP, array)`                    | Array中的元素拼接                                            |
-| array       | sentences(string str, string lang, string locale) | 字符串str将被转换成单词数组                                  |
-| array       | split(string str, string pat)                     | 按照正则表达式pat来分割字符串str                             |
-| map         | str_to_map(text[, delimiter1, delimiter2])        | 将字符串str按照指定分隔符转换成Map，第一个参数是需要转换字符串，第二个参数是键值对之间的分隔符，默认为逗号；第三个参数是键值之间的分隔符，默认为"=" |
-| ARRAY       | collect_set(col)                                  | 返回一组消除了重复元素的对象                                 |
-| ARRAY       | collect_list(col)                                 | 返回具有重复项的对象列表                                     |
+| Return Type | Name(Signature)                            | Description                                                  |
+| ----------- | ------------------------------------------ | ------------------------------------------------------------ |
+| int         | `size(Map)`                                | 返回map的长度                                                |
+| int         | `size(Array)`                              | 返回数组的长度                                               |
+| boolean     | map_contains_key(map, key)                 | map的所有键是否包含key                                       |
+| array       | map_keys(Map)                              | 返回map中的所有key                                           |
+| array       | map_values(Map)                            | 返回map中的所有value                                         |
+| boolean     | `array_contains(Array, value)`             | 数组中是否包含value                                          |
+| array       | `sort_array(Array)`                        | 对数组进行排序并返回                                         |
+| string      | `concat_ws(SEP, array)`                    | Array中的元素拼接                                            |
+| array       | sentences(str, lang, locale)               | 字符串str将被转换成单词数组                                  |
+| array       | split(str, pat)                            | 按照正则表达式pat来分割字符串str                             |
+| map         | str_to_map(text[, delimiter1, delimiter2]) | 将字符串str按照指定分隔符转换成Map，第一个参数是需要转换字符串，第二个参数是键值对之间的分隔符，默认为逗号；第三个参数是键值之间的分隔符，默认为"=" |
+| ARRAY       | collect_set(col)                           | 返回一组消除了重复元素的对象                                 |
+| ARRAY       | collect_list(col)                          | 返回具有重复项的对象列表                                     |
 
 ```sql
 SELECT str_to_map('a:1,b:2,c:3', ',', ':');
@@ -99,39 +99,39 @@ SELECT str_to_map('a:1,b:2,c:3', ',', ':');
 
 ## 日期函数
 
-| Return Type     | Name(Signature)                                              | Description                                                  |
-| --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| string          | from_unixtime(bigint unixtime[, string format])              | 将Unix时间戳 (1970-01-0100:00:00 UTC 为起始秒) 转化为时间字符 |
-| bigint          | unix_timestamp()                                             | 获取本地时区下的时间戳                                       |
-| bigint          | unix_timestamp(string date)                                  | 将格式为 yyyy-MM-dd HH:mm:ss 的时间字符串转换成时间戳        |
-| bigint          | unix_timestamp(string date, string fmt)                      | 将指定时间字符串格式字符串转换成Unix时间戳                   |
-| string<br> date | to_date(string timestamp) <br>to_date(string date_str[, fmt]) | 返回时间字符串的日期部分 <br> spark中可以将 fmt 格式的字符串转化为日期 |
-| timestamp       | to_timestamp(timestamp_str[, fmt])                           | spark中可以将 fmt 格式的字符串转化为时间戳                   |
-| int             | year(string date)                                            | 年份部分                                                     |
-| int             | quarter(date/timestamp/string)                               | 季度部分                                                     |
-| int             | month(string date)                                           | 月份部分                                                     |
-| int             | dayofyear(date)                                              | the day of year                                              |
-| int             | dayofweek(date)                                              | the day of week                                              |
-| int             | dayofmonth(date)                                             | the day of month                                             |
-| int             | day(string date)                                             | 天                                                           |
-| int             | hour(string date)                                            | 小时                                                         |
-| int             | minute(string date)                                          | 分钟                                                         |
-| int             | second(string date)                                          | 秒                                                           |
-| int             | weekofyear(string date)                                      | 一年中的第几个周内                                           |
-| int             | extract(field FROM source)                                   | 提取日期组件                                                 |
-| int             | datediff(string enddate, string startdate)                   | 相差的天数                                                   |
-| string          | date_add(string startdate, int days)                         | 从开始时间startdate加上days                                  |
-| string          | date_sub(string startdate, int days)                         | 从开始时间startdate减去days                                  |
-| timestamp       | from_utc_timestamp(timestamp, string timezone)               | 如果给定的时间戳并非UTC，则将其转化成指定的时区下时间戳      |
-| timestamp       | to_utc_timestamp(timestamp, string timezone)                 | 如果给定的时间戳指定的时区下时间戳，则将其转化成UTC下的时间戳 |
-| date            | current_date                                                 | 返回当前时间日期                                             |
-| timestamp       | current_timestamp                                            | 返回当前时间戳                                               |
-| string          | add_months(string start_date, int num_months)                | 返回当前时间下再增加num_months个月的日期                     |
-| string          | last_day(string date)                                        | 返回这个月的最后一天的日期，忽略时分秒部分（HH:mm:ss）       |
-| string          | next_day(string start_date, string day_of_week)              | 返回当前时间的下一个星期X所对应的日期                        |
-| string          | trunc(string date, string format)                            | 返回时间的最开始年份或月份。注意所支持的格式为MONTH/MON/MM, YEAR/YYYY/YY |
-| double          | months_between(date1, date2)                                 | 返回date1与date2之间相差的月份                               |
-| string          | date_format(date/timestamp/string ts, string fmt)            | 按指定[Format][dt]返回日期字符                               |
+| Return Type     | Name(Signature)                                 | Description                                                  |
+| --------------- | ----------------------------------------------- | ------------------------------------------------------------ |
+| string          | from_unixtime(unixtime[, format])               | 将Unix时间戳 (1970-01-0100:00:00 UTC 为起始秒) 转化为时间字符 |
+| bigint          | unix_timestamp()                                | 获取本地时区下的时间戳                                       |
+| bigint          | unix_timestamp(date)                            | 将格式为 yyyy-MM-dd HH:mm:ss 的时间字符串转换成时间戳        |
+| bigint          | unix_timestamp(date, fmt)                       | 将指定时间字符串格式字符串转换成Unix时间戳                   |
+| string<br> date | to_date(timestamp) <br>to_date(date_str[, fmt]) | 返回时间字符串的日期部分 <br> spark中可以将 fmt 格式的字符串转化为日期 |
+| timestamp       | to_timestamp(timestamp_str[, fmt])              | spark中可以将 fmt 格式的字符串转化为时间戳                   |
+| int             | year(date)                                      | 年份部分                                                     |
+| int             | quarter(date/timestamp/string)                  | 季度部分                                                     |
+| int             | month(date)                                     | 月份部分                                                     |
+| int             | dayofyear(date)                                 | the day of year                                              |
+| int             | dayofweek(date)                                 | the day of week                                              |
+| int             | dayofmonth(date)                                | the day of month                                             |
+| int             | day(date)                                       | 天                                                           |
+| int             | hour(date)                                      | 小时                                                         |
+| int             | minute(date)                                    | 分钟                                                         |
+| int             | second(date)                                    | 秒                                                           |
+| int             | weekofyear(date)                                | 一年中的第几个周内                                           |
+| int             | extract(field FROM source)                      | 提取日期组件                                                 |
+| int             | datediff(enddate, startdate)                    | 相差的天数                                                   |
+| string          | date_add(startdate, days)                       | 从开始时间startdate加上days                                  |
+| string          | date_sub(startdate, days)                       | 从开始时间startdate减去days                                  |
+| timestamp       | from_utc_timestamp(timestamp, timezone)         | 如果给定的时间戳并非UTC，则将其转化成指定的时区下时间戳      |
+| timestamp       | to_utc_timestamp(timestamp, timezone)           | 如果给定的时间戳指定的时区下时间戳，则将其转化成UTC下的时间戳 |
+| date            | current_date                                    | 返回当前时间日期                                             |
+| timestamp       | current_timestamp                               | 返回当前时间戳                                               |
+| string          | add_months(start_date, num_months)              | 返回当前时间下再增加num_months个月的日期                     |
+| string          | last_day(date)                                  | 返回这个月的最后一天的日期，忽略时分秒部分（HH:mm:ss）       |
+| string          | next_day(start_date, day_of_week)               | 返回当前时间的下一个星期X所对应的日期                        |
+| string          | trunc(date, format)                             | 返回时间的最开始年份或月份。注意所支持的格式为MONTH/MON/MM, YEAR/YYYY/YY |
+| double          | months_between(date1, date2)                    | 返回date1与date2之间相差的月份                               |
+| string          | date_format(date/timestamp/ts, fmt)             | 按指定[Format][dt]返回日期字符                               |
 
 [dt]: https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.htm
 
@@ -160,55 +160,83 @@ SELECT to_date('2016-12-31', 'yyyy-MM-dd') -- results in 2016-12-31
 
 ## 字符函数
 
-| Return Type | Name(Signature)                                              | Description                                                  |
-| ----------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| string      | A \|\| B                                                     | 字符串连接（从HIve 2.2开始支持）                             |
-| string      | concat(string A, string B...)                                | 字符串连接                                                   |
-| array       | `context_ngrams(array<array<string>>, array<string>, int K, int pf)` |                                                              |
-| string      | concat_ws(string SEP, string A, string B...)                 | 指定分隔符拼接                                               |
-| string      | `concat_ws(string SEP, array<string>)`                       | Array中的元素拼接                                            |
-| string      | elt(N int,str1 string,str2 string,str3 string,...)           | 返回索引号处的字符串。例如 elt(2,'hello','world') 返回 'world'。如果 N 小于 1 或大于参数数量，则返回 NULL。 |
-| int         | field(val T,val1 T,val2 T,val3 T,...)                        | 返回 val1,val2,val3,... 参数列表中 val 的索引，如果未找到则返回 0。例如field ('world','say','hello','world') 返回 3。 |
-| int         | find_in_set(string str, string strList)                      | 返回以逗号分隔的字符串中str出现的位置，如果参数str为逗号或查找失败将返回0 |
-| string      | format_number(number x, int d)                               | 数字转字符串                                                 |
-| string      | get_json_object(string json_string, string path)             |                                                              |
-| boolean     | in_file(string str, string filename)                         | 在文件中查找字符串                                           |
-| int         | instr(string str, string substr)                             | 查找子字符串substr出现的位置，如果查找失败将返回0            |
-| int         | length(string A)                                             | 字符串的长度                                                 |
-| int         | locate(string substr, string str[, int pos])                 | 查找字符串str中的pos位置后字符串substr第一次出现的位置       |
-| string      | lower(string A) <br />lcase(string A)                        | 小写                                                         |
-| string      | lpad(string str, int len, string pad)                        | 在左端填充字符串 pad，长度为len                              |
-| string      | ltrim(string A)                                              | 去掉左边空格                                                 |
-| array       | `ngrams(array<array<string>>, int N, int K, int pf)`         |                                                              |
-| string      | regexp_extract(string subject, string pattern, int index)    | 抽取字符串subject中符合正则表达式pattern的第index个部分的子字符串 |
-| string      | regexp_replace(string INITIAL_STRING, string PATTERN, string REPLACEMENT) | 按照Java正则表达式PATTERN将字符串INTIAL_STRING中符合条件的部分成REPLACEMENT所指定的字符串 |
-| string      | repeat(string str, int n)                                    | 重复输出n次字符串str                                         |
-| string      | reverse(string A)                                            | 反转字符串                                                   |
-| string      | rpad(string str, int len, string pad)                        | 在右端填充字符串 pad，长度为len                              |
-| string      | rtrim(string A)                                              | 去掉右边空格                                                 |
-| array       | sentences(string str, string lang, string locale)            | 字符串str将被转换成单词数组                                  |
-| string      | space(int n)                                                 | 返回n个空格                                                  |
-| array       | split(string str, string pat)                                | 按照正则表达式pat来分割字符串str                             |
-| map         | str_to_map(text[, delimiter1, delimiter2])                   | 将字符串str按照指定分隔符转换成Map，第一个参数是需要转换字符串，第二个参数是键值对之间的分隔符，默认为逗号;第三个参数是键值之间的分隔符，默认为"=" |
-| string      | substr(string A, int start) <br />substring(string A, int start) | 提取子字符串                                                 |
-| string      | substr(string A, int start, int len) <br />substring(string A, int start, int len) | 提取长度为len的子字符串                                      |
-| string      | substring_index(string A, string delim, int count)           | 截取第count分隔符之前的字符串，如count为正则从左边开始截取，如果为负则从右边开始截取 |
-| string      | translate(string input, string from, string to)              | 字符串替换                                                   |
-| string      | trim(string A)                                               | 去掉两边空格                                                 |
-| string      | upper(string A) <br />ucase(string A)                        | 大写                                                         |
-| string      | initcap(string A)                                            | 首字母大写                                                   |
-| int         | levenshtein(string A, string B)                              | 计算两个字符串之间的差异大小                                 |
+| Return Type | Name(Signature)                                      | Description                                                  |
+| ----------- | ---------------------------------------------------- | ------------------------------------------------------------ |
+| string      | A \|\| B                                             | 字符串连接（从HIve 2.2开始支持）                             |
+| string      | concat(A, B...)                                      | 字符串连接                                                   |
+| string      | concat_ws(SEP, A, B...)                              | 指定分隔符拼接                                               |
+| string      | `concat_ws(SEP, array<string>)`                      | Array中的元素拼接                                            |
+| string      | elt(N,str1, str2, ...)                               | 返回索引号处的字符串。例如 elt(2,'hello','world') 返回 'world'。如果 N 小于 1 或大于参数数量，则返回 NULL。 |
+| int         | field(val T,val1 T,val2 T,val3 T,...)                | 返回 val1,val2,val3,... 参数列表中 val 的索引，如果未找到则返回 0。例如field ('world','say','hello','world') 返回 3。 |
+| int         | find_in_set(str, strList)                            | 返回以逗号分隔的字符串中str出现的位置，如果参数str为逗号或查找失败将返回0 |
+| string      | format_number(number x, d)                           | 数字转字符串                                                 |
+| string      | get_json_object(json_string, path)                   |                                                              |
+| boolean     | in_file(str, filename)                               | 在文件中查找字符串                                           |
+| int         | instr(str, substr)                                   | 查找子字符串substr出现的位置，如果查找失败将返回0            |
+| int         | length(A)                                            | 字符串的长度                                                 |
+| int         | locate(substr, str[, pos])                           | 查找字符串str中的pos位置后字符串substr第一次出现的位置       |
+| string      | lower(A) <br />lcase(A)                              | 小写                                                         |
+| string      | lpad(str, len, pad)                                  | 在左端填充字符串 pad，长度为len                              |
+| string      | ltrim(A)                                             | 去掉左边空格                                                 |
+| string      | parse_url(url, part [, key])                         | 从URL返回指定的部分，part的有效值包括 HOST, PATH, QUERY, REF, PROTOCOL, AUTHORITY, FILE, and USERINFO |
+| tuple       | parse_url_tuple(url, p1, p2, ...)                    | 同时提取URL的多个部分                                        |
+| string      | regexp_extract(subject, pattern, index)              | 抽取字符串subject中符合正则表达式pattern的第index个部分的子字符串 |
+| string      | regexp_replace(INITIAL_STRING, PATTERN, REPLACEMENT) | 按照Java正则表达式PATTERN将字符串INTIAL_STRING中符合条件的部分成REPLACEMENT所指定的字符串 |
+| string      | repeat(str, n)                                       | 重复输出n次字符串str                                         |
+| string      | reverse(A)                                           | 反转字符串                                                   |
+| string      | rpad(str, len, pad)                                  | 在右端填充字符串 pad，长度为len                              |
+| string      | rtrim(A)                                             | 去掉右边空格                                                 |
+| array       | sentences(str, lang, locale)                         | 字符串str将被转换成单词数组                                  |
+| string      | space(n)                                             | 返回n个空格                                                  |
+| array       | split(str, pat)                                      | 按照正则表达式pat来分割字符串str                             |
+| map         | str_to_map(text[, delimiter1, delimiter2])           | 将字符串str按照指定分隔符转换成Map，第一个参数是需要转换字符串，第二个参数是键值对之间的分隔符，默认为逗号;第三个参数是键值之间的分隔符，默认为"=" |
+| string      | substr(A, start) <br />substring(A, start)           | 提取子字符串                                                 |
+| string      | substr(A, start, len) <br />substring(A, start, len) | 提取长度为len的子字符串                                      |
+| string      | substring_index(A, delim, count)                     | 截取第count分隔符之前的字符串，如count为正则从左边开始截取，如果为负则从右边开始截取 |
+| string      | translate(input, from, to)                           | 字符串替换                                                   |
+| string      | trim(A)                                              | 去掉两边空格                                                 |
+| string      | upper(A) <br />ucase(A)                              | 大写                                                         |
+| string      | initcap(A)                                           | 首字母大写                                                   |
+| int         | levenshtein(A, B)                                    | 计算两个字符串之间的差异大小                                 |
+
+```sql
+hive> select parse_url('http://facebook.com/path1/p.php?k1=v1&k2=v2#Ref1', 'HOST');
+facebook.com
+hive> select parse_url('http://facebook.com/path1/p.php?k1=v1&k2=v2#Ref1', 'QUERY', 'k1');
+v1
+hive> SELECT b.* FROM src LATERAL VIEW parse_url_tuple(fullurl, 'HOST', 'QUERY:k1', 'QUERY:k2') b as host, query_k1, query_k2;
+```
+
+```sql
+-- json 示例
+                               json
++----+
+{"store":
+  {"fruit":\[{"weight":8,"type":"apple"},{"weight":9,"type":"pear"}],
+   "bicycle":{"price":19.95,"color":"red"}
+  },
+ "email":"amy@only_for_json_udf_test.net",
+ "owner":"amy"
+}
++----+
+
+hive> SELECT get_json_object(src_json.json, '$.owner') FROM src_json;
+amy
+ 
+hive> SELECT get_json_object(src_json.json, '$.store.fruit\[0]') FROM src_json;
+{"weight":8,"type":"apple"}
+```
 
 ## 数据掩码函数
 
-| Return Type | Name(Signature)                                              | Description                                                  |
-| :---------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| string      | mask(string str[, string upper[, string lower[, string number]]]) | 返回 str 的掩码版本。默认情况下，大写字母转换为“X”，小写字母转换为“x”，数字转换为“n”。 |
-| string      | mask_first_n(string str[, int n])                            | 返回前 n 个值被屏蔽的掩码版本。                              |
-| string      | mask_last_n(string str[, int n])                             | 返回后 n 个值被屏蔽的掩码版本。                              |
-| string      | mask_show_first_n(string str[, int n])                       | 返回前 n 个值未被屏蔽的掩码版本。                            |
-| string      | mask_show_last_n(string str[, int n])                        | 返回后 n 个值未被屏蔽的掩码版本。                            |
-| string      | mask_hash(string str)                                        | 返回hash掩码                                                 |
+| Return Type | Name(Signature)                       | Description                                                  |
+| :---------- | :------------------------------------ | :----------------------------------------------------------- |
+| string      | mask(str[, upper[, lower[, number]]]) | 返回 str 的掩码版本。默认情况下，大写字母转换为“X”，小写字母转换为“x”，数字转换为“n”。 |
+| string      | mask_first_n(str[, n])                | 返回前 n 个值被屏蔽的掩码版本。                              |
+| string      | mask_last_n(str[, n])                 | 返回后 n 个值被屏蔽的掩码版本。                              |
+| string      | mask_show_first_n(str[, n])           | 返回前 n 个值未被屏蔽的掩码版本。                            |
+| string      | mask_show_last_n(str[, n])            | 返回后 n 个值未被屏蔽的掩码版本。                            |
+| string      | mask_hash(str)                        | 返回hash掩码                                                 |
 
 ## Misc. Functions
 
@@ -229,31 +257,31 @@ SELECT to_date('2016-12-31', 'yyyy-MM-dd') -- results in 2016-12-31
 
 ## 聚合函数
 
-| Return Type               | Name(Signature)                                          | Description                                                  |
-| ------------------------- | -------------------------------------------------------- | ------------------------------------------------------------ |
-| BIGINT                    | count(*)                                                 | 统计总行数，包括含有NULL值的行                               |
-| BIGINT                    | count([DISTINCT ] expr, ...)                             | 统计提供非NULL的expr表达式值的行数                           |
-| DOUBLE                    | sum(col)                                                 | 求和                                                         |
-| DOUBLE                    | sum(DISTINCT col)                                        | 去重后求和                                                   |
-| DOUBLE                    | avg(col)                                                 | 平均值                                                       |
-| DOUBLE                    | avg(DISTINCT col)                                        | 去重后平均值                                                 |
-| DOUBLE                    | min(col)                                                 | 最小值                                                       |
-| DOUBLE                    | max(col)                                                 | 最大值                                                       |
-| DOUBLE                    | variance(col)<br />var_pop(col)                          | 方差                                                         |
-| DOUBLE                    | var_samp(col)                                            | 样本方差                                                     |
-| DOUBLE                    | stddev_pop(col)                                          | 标准偏差                                                     |
-| DOUBLE                    | stddev_samp(col)                                         | 样本标准偏差                                                 |
-| DOUBLE                    | covar_pop(col1, col2)                                    | 协方差                                                       |
-| DOUBLE                    | covar_samp(col1, col2)                                   | 样本协方差                                                   |
-| DOUBLE                    | corr(col1, col2)                                         | 相关系数                                                     |
-| DOUBLE                    | percentile(BIGINT col, p)                                | 返回col的p分位数（不适用于浮点类型）                         |
-| ARRAY                     | percentile(BIGINT col, array(p1 [, p2]...))              | 与上面相同，接收并返回数组                                   |
-| DOUBLE                    | percentile_approx(BIGINT col, p [, B])                   | 返回col的近似p分位数（包括浮点类型），B 参数控制近似精度。较高的值会产生更好的近似值，默认值为 10,000。当 col 中不同值的数量小于 B 时，这会给出精确的百分位值。 |
-| ARRAY                     | percentile_approx(DOUBLE col, array(p1 [, p2]...) [, B]) | 与上面相同，接收并返回数组                                   |
-| `array<struct {'x','y'}>` | histogram_numeric(col, b)                                | 使用 b 个非均匀间隔的 bin 计算组中数字列的直方图。输出是一个大小为 b 的双值 (x,y) 坐标数组，表示 bin 中心和高度 |
-| ARRAY                     | collect_set(col)                                         | 行收集成数组，消除重复元素                                   |
-| ARRAY                     | collect_list(col)                                        | 行收集成数组，具有重复项                                     |
-| INTEGER                   | ntile(INTEGER x)                                         |                                                              |
+| Return Type               | Name(Signature)                                   | Description                                                  |
+| ------------------------- | ------------------------------------------------- | ------------------------------------------------------------ |
+| BIGINT                    | count(*)                                          | 统计总行数，包括含有NULL值的行                               |
+| BIGINT                    | count([DISTINCT ] expr, ...)                      | 统计提供非NULL的expr表达式值的行数                           |
+| DOUBLE                    | sum(col)                                          | 求和                                                         |
+| DOUBLE                    | sum(DISTINCT col)                                 | 去重后求和                                                   |
+| DOUBLE                    | avg(col)                                          | 平均值                                                       |
+| DOUBLE                    | avg(DISTINCT col)                                 | 去重后平均值                                                 |
+| DOUBLE                    | min(col)                                          | 最小值                                                       |
+| DOUBLE                    | max(col)                                          | 最大值                                                       |
+| DOUBLE                    | variance(col)<br />var_pop(col)                   | 方差                                                         |
+| DOUBLE                    | var_samp(col)                                     | 样本方差                                                     |
+| DOUBLE                    | stddev_pop(col)                                   | 标准偏差                                                     |
+| DOUBLE                    | stddev_samp(col)                                  | 样本标准偏差                                                 |
+| DOUBLE                    | covar_pop(col1, col2)                             | 协方差                                                       |
+| DOUBLE                    | covar_samp(col1, col2)                            | 样本协方差                                                   |
+| DOUBLE                    | corr(col1, col2)                                  | 相关系数                                                     |
+| DOUBLE                    | percentile(col, p)                                | 返回col的p分位数（不适用于浮点类型）                         |
+| ARRAY                     | percentile(col, array(p1 [, p2]...))              | 与上面相同，接收并返回数组                                   |
+| DOUBLE                    | percentile_approx(col, p [, B])                   | 返回col的近似p分位数（包括浮点类型），B 参数控制近似精度。较高的值会产生更好的近似值，默认值为 10,000。当 col 中不同值的数量小于 B 时，这会给出精确的百分位值。 |
+| ARRAY                     | percentile_approx(col, array(p1 [, p2]...) [, B]) | 与上面相同，接收并返回数组                                   |
+| `array<struct {'x','y'}>` | histogram_numeric(col, b)                         | 使用 b 个非均匀间隔的 bin 计算组中数字列的直方图。输出是一个大小为 b 的双值 (x,y) 坐标数组，表示 bin 中心和高度 |
+| ARRAY                     | collect_set(col)                                  | 行收集成数组，消除重复元素                                   |
+| ARRAY                     | collect_list(col)                                 | 行收集成数组，具有重复项                                     |
+| INTEGER                   | ntile(INTEGER x)                                  |                                                              |
 
 ```sql
 hive> create table as student
@@ -283,15 +311,14 @@ id	score
 
 ## 表生成函数
 
-| Return Type | Name(Signature)                   | Description                                                  |
-| ----------- | --------------------------------- | ------------------------------------------------------------ |
-| N rows      | explode(ARRAY a)                  | 将数组a分解为单列，每行对应数组中的每个元素                  |
-| N rows      | explode(MAP m)                    | 将映射m分解为两列，每行对应每个key-value对                   |
-| N rows      | posexplode(ARRAY a)               | 与explode类似，不同的是还返回一列各元素在数组中的位置        |
-| N rows      | stack(INT n, v_1, v_2, ..., v_k)  | 将k列转换为n行，每行有k/n个字段                              |
-| tuple       | json_tuple(jsonStr, k1, k2, ...)  | 从一个JSON字符串中获取多个键并作为一个元组返回，与get_json_object不同的是此函数能一次获取多个键值 |
-| tuple       | parse_url_tuple(url, p1, p2, ...) | 返回从URL中抽取指定N部分的内容                               |
-| N rows      | `inline(ARRAY<STRUCT>)`           | 将结构数组分解为多行，数组中每个结构体一行                   |
+| Return Type | Name(Signature)                  | Description                                                  |
+| ----------- | -------------------------------- | ------------------------------------------------------------ |
+| N rows      | explode(ARRAY a)                 | 将数组a分解为单列，每行对应数组中的每个元素                  |
+| N rows      | explode(MAP m)                   | 将映射m分解为两列，每行对应每个key-value对                   |
+| N rows      | posexplode(ARRAY a)              | 与explode类似，不同的是还返回一列各元素在数组中的位置        |
+| N rows      | stack(n, v_1, v_2, ..., v_k)     | 将k列转换为n行，每行有k/n个字段                              |
+| tuple       | json_tuple(jsonStr, k1, k2, ...) | 从一个JSON字符串中获取多个键并作为一个元组返回，与get_json_object不同的是此函数能一次获取多个键值 |
+| N rows      | `inline(ARRAY<STRUCT>)`          | 将结构数组分解为多行，数组中每个结构体一行                   |
 
 ```sql
 -- 创建示例表

@@ -93,38 +93,38 @@ description:
 
 一般而言，样本特征由于来源以及度量单位不同，它们的尺度（Scale）（即取值范围）往往差异很大，不进行处理可能会影响到数据分析的结果，因此，需要对数据按照一定比例进行缩放，使之落在一个特定的区域，便于进行综合分析。
 
-**特征缩放（Feature Scaling）**泛指把数据特征转换为相同尺度的方法。在数据处理中较为常用，也被称之为标准化（Normalization）或归一化。对于每一维特征，通常先计算它的均值和方差方便使用
+**特征缩放**（Feature Scaling）泛指把数据特征转换为相同尺度的方法。在数据处理中较为常用，也被称之为标准化（Normalization）或归一化。对于每一维特征，通常先计算它的均值和方差方便使用
 $$
-\begin{align}
+\begin{aligned}
 \mu &= \frac{1}{N} \sum_{i=1}^N x_i\\
 \sigma^2 &= \frac{1}{N} \sum_{i=1}^N (x_i - \mu)^2
-\end{align}
+\end{aligned}
 $$
 
 **Min-Max Normalization**：使用最大最小值将数据映射到 $[0,1]$ 区间
 $$
-x_i'=\frac{x_i-x_\min}{x_\max-x_\min}
+z_i=\frac{x_i-\min(x)}{\max(x)-\min(x)}
 $$
 **Mean Normalization**：使用平均值 $\mu$ 将数据映射到 $[-1,1]$ 区间
 $$
-x_i'=\frac{x_i-\mu}{x_\max-x_\min}
+z_i=\frac{x_i-\mu}{\max(x)-\min(x)}
 $$
 **Standardization**：又称 Z-score Normalization。在实践中，我们通常会忽略分布的形状。使用平均值 $\mu$ 和标准差 $\sigma$ 将样本特征值转换为均值为0，标准差为1的数据分布
 $$
-x_i'=\frac{x_i-\mu}{\sigma}
+z_i=\frac{x_i-\mu}{\sigma}
 $$
 **Log Scaling**：适用于数据量级相差较大的特征
 $$
-x_i'=\log x_i
+z_i=\log x_i
 $$
 **L2 Normalization** 使用特征向量的$\ell_2$范数 $\|\mathbf x\|$ 将特征归一化
 $$
-x_i'=\frac{x_i}{\|\mathbf x\|}=\frac{x_i}{\sqrt{\sum x_i^2}}
+z_i=\frac{x_i}{\|\mathbf x\|}=\frac{x_i}{\sqrt{\sum x_i^2}}
 $$
 
 **Robust Scaling**：如果数据中包含许多离群值，使用数据的均值和方差进行缩放可能效果不佳。在这种情况下，可以使用对异常值鲁棒的统计信息来缩放特征，例如中位数（median）和四分位数间距（IQR）。
 $$
-x_i'=\frac{x_i-\text{median}(x)}{\text{IQR}}
+z_i=\frac{x_i-\text{median}(x)}{\text{IQR}}
 $$
 
 ## 非线性变换

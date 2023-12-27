@@ -10,7 +10,7 @@ tags:
   - RDD 
 cover: /img/apache-spark-core.png
 top_img: /img/apache-spark-top-img.svg
-description: false
+description: Spark的环境配置及RDD
 abbrlink: 264c088
 date: 2020-01-03 16:20:25
 ---

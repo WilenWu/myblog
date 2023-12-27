@@ -111,6 +111,10 @@ Field
 18-11 Transformers
 
 
+
+小马达工作原理示意图
+
+
 # 麦克斯韦方程组
 
 19 MaxweH's Equations; Magnetism of Matter

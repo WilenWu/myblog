@@ -11,7 +11,7 @@ cover: /img/apache-spark-sql.png
 top_img: /img/apache-spark-top-img.svg
 abbrlink: bb755aa3
 date: 2020-01-03 16:20:25
-description:
+description: DataFrame 抽象
 ---
 
 
@@ -312,5 +312,4 @@ df=df.na.replace(['Alice','Bob'],['A','B'],'name')
 # Column
 
 # Built-In Functions
-
 

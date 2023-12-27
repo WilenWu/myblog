@@ -449,6 +449,86 @@ CalibratedClassifierCV
 
 # 附录
 
+## 建模 Demo
+
+```py
+# load module
+import pandas as pd
+from sklearn.ensemble import GradientBoostingClassifier
+from xgboost.sklearn import XGBClassifier
+import lightgbm as LGB
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, roc_auc_score
+import matplotlib.pyplot as plt
+
+# load datasets
+data = pd.read_csv('digits.csv', encoding='utf8')
+
+# data analysis
+print(data.shape)
+print(data.dtypes)
+
+# data split
+X_train, X_test, y_train, y_test = train_test_split(data[:-1], data[-1], test_size=0.3, random_state=42)
+X_train, X_valid, y_train, y_valid = train_test_split(X_train, y_train, test_size=0.2, random_state=42)
+
+# Model Fitting
+train_data = LGB.Dataset(X_train, y_train)
+valid_data = LGB.Dataset(X_valid, y_valid)
+
+# 先利用一些常规超参数设置，使用较高的学习率获得一个基础模型，方便后续的调参效率。
+params = {
+    'task': 'train', # 指定任务，可选train，predict等
+    'boosting_type': 'gbdt',  # 提升方法，可选gbdt、rf等。
+     'objective': 'binary',  # 目标函数，如果是回归任务，可l2、l1、huber、quantile等；如果是分类任务，可选binary、multiclass等
+     'metric': {'auc'},
+     'nthread': 4,
+     'learning_rate': 0.1, # 学习率
+     'verbosity': -1,
+    'num_trees' = 2,  # 树的数量
+     'num_leaves': 60,  # 每棵树的叶子数
+     'max_depth': 5,  # 树的最大深度
+     'scale_pos_weight':1.5, #正负样本比
+     'feature_fraction': 1.0,  # 特征的随机采样率
+     'bagging_ fraction': 0.9,  # 样本的随机采样率
+     'bagging_freq': 5,  # 若启用bagging并设置迭代轮次，上述的特征与样本的的随机采样需要设置
+     'lambda_l1': 0.001,  # L1正则化
+     'lambda_12': 0.001, # L2正则化
+     'min_split_gain': 1.0
+    }
+
+# 使用callback回调方法early stopping控制过拟合风险，当验证集上的精度若干轮不下降，提前停止训练。
+callback=[LGB.early_stopping(stopping_rounds=10,verbose=True), LGB.log_evaluation(period=10,show_stdv=True)]
+
+# train
+clf=lgb.train(params, train_data, valid_sets=[valid_data], num_boost_round=2000, callbacks=callback)
+
+# model evaluate
+y_pred=clf.predict(X_test)  # predict_proba()
+print(roc_auc_score(y_test,y_pred))
+
+# feature_importance
+print(clf.feature_importance())
+plt.figure(figsize=(12,6))
+LGB.plot_importance(clf)
+plt.title("Feature importances")
+plt.show()
+
+# save 
+clf.save_model('LGB.txt')
+
+# load 
+clf=LGB.Booster(model_file='LGB.txt')
+
+# prediction
+X=spark.sql('select...').toPandas()
+y_pred=clf.predict(X)
+
+df=pd.concat([X, y_pred],axis=0)
+df=spark.createDataFrame(df,df.columns)
+df.write.mode('overwrite').saveAsTable(tablename,partitionBy=None)
+```
+
 ## 决策树可视化
 
 ```python

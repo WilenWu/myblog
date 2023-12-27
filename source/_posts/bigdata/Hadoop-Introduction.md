@@ -1,5 +1,5 @@
 ---
-title: Hadoop生态概述及常见报错
+title: Hadoop简介及安装配置
 date: '2021-05-04 14:28:1'
 categories:
   - 'Big Data'
@@ -16,7 +16,7 @@ abbrlink: c5386d49
 emoji: white_large_square
 ---
 
-# Hadoop
+# Hadoop 简介
 
 Apache Hadoop 是一种开源框架，用于高效存储和处理从 GB 级到 PB 级的大型数据集。利用 Hadoop，您可以将多台计算机组成集群以便更快地并行分析海量数据集，而不是使用一台大型计算机来存储和处理数据。
 
@@ -32,7 +32,7 @@ Hadoop 由四个主要模块组成：
 
 ![hadoop_cluster](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/hadoop_cluster.png)
 
-## Hadoop 如何运作
+# Hadoop 如何运作
 
 Hadoop 让利用集群服务器中的全部存储和处理能力，针对大量数据执行分布式处理变得更简单。Hadoop 提供构建基块，然后在其上方构建其他服务和应用程序。
 
@@ -52,27 +52,6 @@ Hadoop 让利用集群服务器中的全部存储和处理能力，针对大量�
 
 ![hadoop_core_components](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/hadoop_core_components.png)
 
-# 数据仓库
-
-数据仓库(Data Warehousing, DW) 的本质，其实就是整合多个数据源的历史数据进行细粒度的、多维的分析，帮助高层管理者或者业务分析人员做出商业战略决策或商业报表。这里面就涉及到了[数据仓库的分层方法](https://www.cnblogs.com/itboys/p/10592871.html)：
-- 数据运营层：ODS（Operational Data Store）：存放原始数据，直接加载原始日志、数据，数据保存原貌不做处理。
-- 数据仓库层：DW（Data Warehouse）
-   数据仓库层是我们在做数据仓库时要核心设计的一层，在这里，从 ODS 层中获得的数据按照主题建立各种数据模型。DW层又细分为 DWD（Data Warehouse Detail）层、DWM（Data WareHouse Middle）层和DWS（Data WareHouse Servce）层。
-   1. 数据明细层：DWD（Data Warehouse Detail）：结构与粒度与原始表保持一致，对ODS层数据进行ETL清洗
-   2. 数据服务层：DWS（Data WareHouse Servce）：以DWD为基础，进行轻度汇总
-- 数据应用层: ADS（Application Data Servce）：主要是提供给数据产品和数据分析使用的数据
-- 维表层（Dimension）
-
-如何搭建数据仓库
-1、 分析业务需求，确定数据仓库主题
-2、 构建逻辑模型：明确需求目标、维度、指标、方法、源数据等
-3、 逻辑模型转换为物理模型：事实表表名，包括列名、数据类型、是否是空值以及长度等
-4、 ETL过程
-5、 OLAP建模，报表设计，数据展示
-OLAP(Online analytical processing)，即联机分析处理，主要用于支持企业决策管理分析
-ETL（Extract-Transform-Load的缩写，即数据抽取、转换、装载的过程），Kettle就是强大的ETL工具。
-
-![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/Data-Warehousing.png)
 
 # Hadoop安装配置
 - [mysql-connector-java-2.0.14.tar.gz 下载地址](http://ftp.ntu.edu.tw/MySQL/Downloads/Connector-J/)

@@ -46,7 +46,6 @@ import pandas as pd
    
    > 赋值方法 ：index=dict.keys,  data=dict.values
 
-   
 
 ## 属性
 
@@ -75,7 +74,7 @@ import pandas as pd
 |`s.str`|Series的str属性可访问字符串的方法，`data.str.contains('gmail')`|
 > 切片格式：`start:stop:step`
 > 当切片由数字组成时：左闭右开区间  s[:10]
-> 当切片由数字组成时：左右都是闭区间  s['a':'n']
+> 当切片由字符组成时：左右都是闭区间  s['a':'n']
 
 ## Series部分方法
 
@@ -698,34 +697,31 @@ with ExcelWriter('foo.xlsx') as writer:
 ```
 
 **MemoryError问题**：
-[参考链接](https://blog.csdn.net/weixin_39750084/article/details/81501395)
-pandas设计时应该是早就考虑到了这些可能存在的问题，所以在read功能中设计了块读取的功能，也就是不会一次性把所有的数据都放到内存中来，而是分块读到内存中，最后再将块合并到一起，形成一个完整的DataFrame。
+
+Pandas的read函数提供2个参数实现分块读取的功能，也就是不会一次性把所有的数据都放到内存中来，而是分块读到内存中，最后再将块合并到一起，形成一个完整的DataFrame。
+
+- 参数chunksize，通过指定一个chunksize分块大小来读取文件，返回的是一个可迭代的对象TextFileReader，以便逐块处理
+- 指定参数iterator=True 也可以返回一个可迭代对象TextFileReader
 
 ```python
-data = pd.read_csv(path, sep=',',engine = 'python',iterator=True)
+import pandas as pd
 
-def read_csv(data,chunkSize = 100000)
-  loop = True  
-  chunks = []
-  index = 1
-  while loop:
-      try:
-          print('reading')
-          print(index+' chunk')
-          chunk = data.get_chunk(chunkSize)
-          chunks.append(chunk)
-          index += 1
-  
-      except StopIteration:
-          loop = False
-          print("Iteration is stopped.")
-  print('concat chunks ...')
-  return pd.concat(chunks, ignore_index= True)
-
-data = read_csv(data,chunkSize = 100000) 
+# 建立可迭代对象 reader
+reader = pd.read_csv('filePath', sep=',',engine = 'python',iterator=True)
+# 循环读取分块
+loop = True  
+chunks = []
+print('reading...')
+while loop:
+    try:
+        chunk = reader.get_chunk(chunkSize = 100000)
+        chunks.append(chunk)
+    except StopIteration:
+        loop = False
+        print("Iteration is stopped.")
+print('concat chunks ...')
+df = pd.concat(chunks, ignore_index= True)
 ```
-
-
 
 ## 合并和匹配
 

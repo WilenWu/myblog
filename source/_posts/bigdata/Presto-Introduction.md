@@ -2,7 +2,7 @@
 title: 大数据手册(Presto)--Presto 简介
 categories:
   - Big Data
-  - Hadoop
+  - Appendices
 tags:
   - 大数据
   - Presto

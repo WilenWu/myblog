@@ -11,8 +11,6 @@ header_color: true
 
 本人依据个人爱好和工作需要制定了一份详细的学习计划。依据本「指南」在博客不定时更新学习笔记，尝试用费曼学习法深刻理解所学的知识。
 
-<!-- more -->
-
 其中
 
 - 标记 :ballot_box_with_check: 是必修
@@ -40,11 +38,6 @@ header_color: true
 - :ballot_box_with_check: [JSON 介绍](/posts/17cdf739/)
 - :white_large_square: [YAML 基础语法](/posts/6ab72750/)
 - :heart: [SVG 入门教程](/posts/c18c7e9b/): SVG是一种开放标准的矢量图形语言，基于XML标记语言
-
-- :heart: HTML: 是一种用于创建网页的标准标记语言。
-- :heart: XML:  指可扩展标记语言，被设计用来传输和存储数据。
-- :heart: JavaScript: 是一种属于网络的高级脚本语言。
-- :heart: [Chart.js](https://chartjs.bootcss.com/): 为设计和开发人员准备的简单、灵活的 JavaScript 图表工具
 
 # Blog
 
@@ -74,30 +67,24 @@ header_color: true
 ## Deep Learning
 
 - :ballot_box_with_check: 深度学习
-- :ballot_box_with_check: TensorFlow
-- :ballot_box_with_check: PyTorch
+- :ballot_box_with_check: 自然语言处理(NLP)
+- :ballot_box_with_check: 图像识别
 
 ## Appendices
 
 - :ballot_box_with_check: [机器学习中的优化算法](/posts/b0a72714/): 优化是找出函数的最大值或最小值的方法
-- :ballot_box_with_check: [机器学习中的信息论](/posts/8a8bfa9b/)
 - :ballot_box_with_check: [机器学习中的矩阵运算](/posts/99273c32/)
 
 # Big Data
 
 ## Hadoop
 
-- :white_large_square: Hadoop安装配置
+- :white_large_square: [Hadoop简介及安装配置](/posts/c5386d49/)
 - :white_large_square: Hadoop基础知识
-- :white_large_square: [Hadoop生态概述及常见报错](/posts/c5386d49/)
-- :white_large_square: Apache-Sqoop
-- :white_large_square: Apache-Kylin
-- :heart: [Apache-Flink](https://flink.apache.org/zh/): 数据流上的有状态计算
-- :ballot_box_with_check: [Presto 简介](/posts/b33c6284/)
+- :white_large_square: [数据仓库和数据湖简介](/posts/b557dff1/)
 
 ## Hive
 
-- :white_large_square: Hive安装配置
 - :ballot_box_with_check: [Hive基础知识](https://blog.csdn.net/zhongqi2513/article/details/69388239)
 - :ballot_box_with_check: [HiveQL(Introduction)](/posts/e6bd78c5/): Hive 命令、数据类型
 - :ballot_box_with_check: [HiveQL(DQL)](/posts/297bd708/): 数据查询语言(Data Query Language, DQL）：用以从表中获得数据，包括 SELECT，WHERE，ORDER BY，GROUP BY和HAVING等。
@@ -108,21 +95,41 @@ header_color: true
 ## Spark
 
 - :ballot_box_with_check: [Spark 简介](/posts/32722c50/)
-- :ballot_box_with_check: [PySpark Core](/posts/264c088/)
-- :ballot_box_with_check: [PySpark MLlib](/posts/75974533/)
-- :ballot_box_with_check: [PySpark Streaming](/posts/34eba6aa/)
-- :ballot_box_with_check: [PySpark SQL](/posts/bb755aa3/)
+- :ballot_box_with_check: [PySpark Core](/posts/264c088/): Spark的环境配置及RDD
+- :ballot_box_with_check: [PySpark MLlib](/posts/75974533/): 机器学习库
+- :ballot_box_with_check: [PySpark Streaming](/posts/34eba6aa/): mini-batch 数据流处理
+- :ballot_box_with_check: [PySpark SQL](/posts/bb755aa3/): DataFrame 抽象
 - :ballot_box_with_check: [Pandas API on Spark](/posts/f67b0909/)
-- :heart: Scala: spark 基础语言
+
+## Kafka
+
+- :ballot_box_with_check: Kafka 简介: 是一种分布式的，基于发布 / 订阅的消息系统，支持数据集成和数据流处理。
+
+## Flink
+
+- :ballot_box_with_check: Flink 简介: 是一个框架和分布式处理引擎，用于在无边界和有边界数据流上进行有状态的计算。
+- :ballot_box_with_check: FlinkSQL
+
+## ES
+
+- :ballot_box_with_check: ES 简介: (Elasticsearch)是一个分布式的、开源的搜索分析引擎，基于倒排索引实现文档检索。
 
 ## Oracle
 
 - :ballot_box_with_check: [Oracle SQL(Introduction)](/posts/eb28907e/)
 - :ballot_box_with_check: [Oracle SQL(DQL)](/posts/5122306f/): 数据查询语言(Data Query Language, DQL）：用以从表中获得数据，包括 SELECT，WHERE，ORDER BY，GROUP BY和HAVING等。
-- :ballot_box_with_check: [Oracle SQL(TCL)](/posts/6c7e4677/): 事务控制语言(Transaction Control Language, TCL)：它的语句能确保被DML语句影响的表的所有行及时得以更新。包括COMMIT（提交）命令、SAVEPOINT（保存点）命令、ROLLBACK（回滚）命令。
 - :ballot_box_with_check: [Oracle SQL(DML)](/posts/36f93ce2/): 数据操作语言(Data Manipulation Language, DML）：其语句包括动词 INSERT、UPDATE、DELETE。它们分别用于添加、修改和删除。
 - :ballot_box_with_check: [Oracle SQL(DDL)](/posts/3928076d/): 数据定义语言(Data Definition Language, DDL)：其语句包括动词CREATE、ALTER和DROP。
 - :ballot_box_with_check: [Oracle SQL(Functions)](/posts/fc1e9a84/): Oracle 常用函数
+- :ballot_box_with_check: [Oracle SQL(TCL)](/posts/6c7e4677/): 事务控制语言(Transaction Control Language, TCL)：它的语句能确保被DML语句影响的表的所有行及时得以更新。包括COMMIT（提交）命令、SAVEPOINT（保存点）命令、ROLLBACK（回滚）命令。
+
+## Appendices
+
+[**Presto**](/posts/b33c6284/): 开源分布式 SQL 查询引擎，设计用于对 HDFS 和其他源中的数据进行快速交互式查询。对于多表关联的需求，我们可以通过 Presto 跨数据源完成多表的 join 操作。
+
+**ClickHouse**是一个用于联机分析(OLAP)的列式数据库管理系统(DBMS)。对于固定类报表，可以将数据打平成宽表的，充分发挥在单表查询的性能优势。
+
+**StarRocks** 致力于全场景联机分析(OLAP)统一服务。采用了全面向量化引擎(列存储)。可以接收批量或者流式数据存储，也可以在数据湖上直接使用 StarRocks 分析。
 
 # Python
 
@@ -158,10 +165,8 @@ header_color: true
 ## Scientific Computing
 
 - :ballot_box_with_check: [NumPy](/posts/5ba1c941/): 使用 Python 进行科学计算的基础包
-- :white_large_square: PyDy: PyDy 是 Python Dynamics 的缩写，用来为动力学运动建模工作流程提供帮助， 基于NumPy, SciPy, IPython 和 matplotlib。
 - :heart: [SciPy](/posts/b1aa3aed/): 由一些基于 Python ，用于数学、科学和工程的开源软件构成的生态系统
 - :heart: [SymPy](/posts/890725ca/): 是一个符号计算的Python库
-- :white_large_square: astropy: 一个天文学 Python 库。
 - :heart: [柏林噪声](/posts/c38b4d63/)
 
 
@@ -197,16 +202,14 @@ The Website is the API(Application Programming Interface, 应用程序接口)...
 
 - :ballot_box_with_check: [sklearn](/posts/861261b5/): 基于 SciPy 构建的机器学习 Python 模块
 - :ballot_box_with_check: [statsmodels](/posts/6c94e349/): 统计建模和计量经济学
-- :heart: [xgboost](http://xgboost.apachecn.org/#/): 一种可扩展，可移植且分布式的渐变增强库
+- :heart: [XGBoost](http://xgboost.apachecn.org/#/)
+- :ballot_box_with_check: [LightGBM](https://lightgbm.readthedocs.io/en/latest/index.html)
 
 
 ## Deep Learning
 
-- :ballot_box_with_check: [TensorFlow](https://tensorflow.google.cn/tutorials/?hl=zh-cn): Google开源的最受欢迎的深度学习框架。
-- :ballot_box_with_check: [PyTorch](https://blog.csdn.net/u010510350/article/details/72526821): Facebook 的 AI 研究团队发布了一个 Python 工具包，专门针对 GPU 加速的深度神经网络（DNN）编程。
-- :heart: [Keras](https://tensorflow.google.cn/guide/keras?hl=zh-cn): 以 tensorflow/theano/CNTK 为后端的深度学习封装库，快速上手神经网络。[(莫烦PYTHON)](https://morvanzhou.github.io/tutorials/machine-learning/theano/)
-- :white_large_square: [Theano](http://deeplearning.net/software/theano/##): 基于TensorFlow，用于快速数值计算的库。
-- :white_large_square: Caffe: 卷积神经网络框架
+- :white_large_square: [TensorFlow](https://tensorflow.google.cn/tutorials/?hl=zh-cn): Google开源的深度学习框架。
+- :ballot_box_with_check: [PyTorch](https://blog.csdn.net/u010510350/article/details/72526821): Facebook研发的专门针对 GPU 加速的深度学习框架。
 
 
 ## NLP
@@ -264,7 +267,6 @@ Natural Language Processing(自然语言处理)
 
 
 - :ballot_box_with_check: [DBI](/posts/ec283a1d/): definition for communication between R and RDBMSs
-- :heart: RHive: 通过Apache Hive促进分布式计算的R扩展
 
 
 ## Web Technologies
@@ -321,7 +323,6 @@ Natural Language Processing(自然语言处理)
 
 - :heart: [foreach](/posts/a235a5ba/): 在循环(loop)中并行化运算
 
-
 ## Model Tools
 
 - :ballot_box_with_check: [broom](/posts/251f7bf9/): Convert statistical analysis objects into tidy format
@@ -331,18 +332,10 @@ Natural Language Processing(自然语言处理)
 ## Machine Learning
 
 - :ballot_box_with_check: [mlr](/posts/76507660/): 机器学习（分类，回归，生存分析，聚类等）的可扩展框架，提供了用于分析的整套工具，包括重抽样，缺失值插补，模型评估(cv,etc)，超参数调优(grid-search,etc)，特征选择，可视化(ROC,learnning-curve,etc)等
-- :white_large_square: mlapi: 提供模型的统一接口，以便机器学习流程化(借鉴python scikit-learn，尚未开发完整)
 - :ballot_box_with_check: xgboost: 以其速度和性能而著称的eXtreme Gradient Boosting Tree模型
 - :ballot_box_with_check: arules: 关联规则挖掘和频繁项集
 - :white_large_square: survival: 生存分析模型
 - :white_large_square: nnet: 神经网络
-
-
-## Deep Learning
-
-- :heart: tensorflow: Google开源的最受欢迎的深度学习框架
-- :heart: h2o: 深度学习框架
-- :heart: keras: 以 tensorflow/theano/CNTK 为后端的深度学习封装库
 
 ## NLP
 
@@ -402,7 +395,6 @@ Natural Language Processing(自然语言处理)
 - :ballot_box_with_check: [复变函数和积分变换(三)](/posts/81d8a12f/): 傅里叶变换、拉普拉斯变换
 - :ballot_box_with_check: [概率论与数理统计(上册)](/posts/304d9389/): 概率论
 - :ballot_box_with_check: [概率论与数理统计(下册)](/posts/d2dba39/): 数理统计
-- :heart: 多元统计分析
 
 ## 微分方程
 
@@ -417,9 +409,9 @@ Natural Language Processing(自然语言处理)
 
 ## 现代数学
 
-- :ballot_box_with_check: [线性代数](/posts/40113498/): 本文试图从线性变换出发理解线性代数的本质
+- :ballot_box_with_check: [线性代数(上册)](/posts/40113498/): 本文从线性变换出发理解线性代数的本质
+- :ballot_box_with_check: [线性代数(下册)](/posts/f92cc4e9/): 线性空间和内积、特征值与特征向量、二次型与合同、矩阵分解等
 - :ballot_box_with_check: [线性代数摘要](/posts/c23efd5b/)
-- :white_large_square: 多项式代数
 - :ballot_box_with_check: 抽象代数: (又称近世代数) 群论、环论、伽罗瓦理论等
 - :heart: 变分原理: 研究的是一般无穷维的带有一定拓扑的线性空间
 - :heart: 一般拓扑学: 也称点集拓扑学，主要研究拓扑空间以及定义在其上的数学结构的基本性质

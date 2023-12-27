@@ -98,6 +98,10 @@
       link: https://tinypng.com/#go-pro
       avatar:  /img/tinypng-icon.png
       descr: Compress WebP, PNG and JPEG images intelligently
+    - name: iLoveIMG
+      link: https://www.iloveimg.com/zh-cn
+      avatar:  /img/iloveimg-heart.svg
+      descr: 你的在线图片编辑器就在这里，而且永远免费
     - name: iLovePDF
       link: https://www.ilovepdf.com/zh-cn
       avatar:  /img/ilovepdf-heart.svg

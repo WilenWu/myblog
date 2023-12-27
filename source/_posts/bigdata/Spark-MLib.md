@@ -12,7 +12,7 @@ cover: /img/apache-spark-mllib.png
 top_img: /img/apache-spark-top-img.svg
 abbrlink: '75974533'
 date: 2020-01-09 16:29:34
-description:
+description: 机器学习库
 ---
 
 Spark 包含 MLlib，它是在大规模数据上进行机器学习所需的算法库。数据科学家可以在任何 Hadoop 数据源上使用 R 或 Python 对机器学习模型进行训练，这些数据源使用 MLlib 保存，并且被导入到基于 Java 或 Scala 的管道当中。Spark 专为在内存中运行的快速交互式计算而设计，使机器学习可以快速运行。它的算法包含分类、回归、集群、协同过滤和模式挖掘等功能。
@@ -34,7 +34,7 @@ MLlib概括了其公开三个核心机器学习功能：
 -   Rating：(mllib.recommendation)，用户对一个产品的评分，用于产品推荐
 -   各种Model类：每个Model都是训练算法的结果，一般都有一个predict()方法可以用来对新的数据点或者数据点组成的RDD应用该模型进行预测
 
-　　一般来说，大多数算法直接操作由Vector、LabledPoint或Rating组成的RDD，通常我们从外部数据读取数据后需要进行转化操作构建RDD。
+一般来说，大多数算法直接操作由Vector、LabledPoint或Rating组成的RDD，通常我们从外部数据读取数据后需要进行转化操作构建RDD。
 
 具体代码：（摘自[Learning Spark学习笔记 | 胡晓曼](https://ask.hellobi.com/people/CharlotteDataMining)）
 ```python
