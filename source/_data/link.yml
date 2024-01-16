@@ -50,10 +50,14 @@
       link: https://www.logo.wine/
       avatar:  /img/logo.wine.svg
       descr: Brand Logos Free Download in SVG Vector & PNG File Format
-    - name: 清华大学 TUNA 协会
+    - name: 清华大学开源软件镜像站
       link: https://mirror.tuna.tsinghua.edu.cn/
       avatar: /img/tuna-logo.png
-      descr: 清华大学开源软件镜像站
+      descr: 清华大学 TUNA 协会
+    - name: 华为开源镜像站
+      link: https://mirrors.huaweicloud.com/home
+      avatar: /img/huawei-logo.svg
+      descr: 华为开源镜像站
     - name: ApacheCN
       link: https://github.com/apachecn/
       avatar: /img/apachecn.svg

@@ -29,6 +29,7 @@ header_color: true
 - :white_large_square: [电子书文件格式](/posts/4fd8493d/)
 - :ballot_box_with_check: [Git 快速参考指南](/posts/f48f437a/)
 - :ballot_box_with_check: [看不懂的数字](/posts/12a72af8/)
+- :ballot_box_with_check: [Mac终端配置文件](/posts/2da646b7/)
 
 # Markup Language
 
@@ -79,12 +80,13 @@ header_color: true
 
 ## Hadoop
 
-- :white_large_square: [Hadoop简介及安装配置](/posts/c5386d49/)
-- :white_large_square: Hadoop基础知识
+- :ballot_box_with_check: [Hadoop安装配置](/posts/250f35c4/)
+- :white_large_square: [Hadoop简介](/posts/c5386d49/)
 - :white_large_square: [数据仓库和数据湖简介](/posts/b557dff1/)
 
 ## Hive
 
+- :ballot_box_with_check: [Hive安装配置](/posts/dd512a75/)
 - :ballot_box_with_check: [Hive基础知识](https://blog.csdn.net/zhongqi2513/article/details/69388239)
 - :ballot_box_with_check: [HiveQL(Introduction)](/posts/e6bd78c5/): Hive 命令、数据类型
 - :ballot_box_with_check: [HiveQL(DQL)](/posts/297bd708/): 数据查询语言(Data Query Language, DQL）：用以从表中获得数据，包括 SELECT，WHERE，ORDER BY，GROUP BY和HAVING等。
@@ -94,8 +96,9 @@ header_color: true
 
 ## Spark
 
+- :ballot_box_with_check: [Spark安装配置](/posts/d02a6da3/)
 - :ballot_box_with_check: [Spark 简介](/posts/32722c50/)
-- :ballot_box_with_check: [PySpark Core](/posts/264c088/): Spark的环境配置及RDD
+- :ballot_box_with_check: [PySpark Core](/posts/264c088/): Spark的核心RDD
 - :ballot_box_with_check: [PySpark MLlib](/posts/75974533/): 机器学习库
 - :ballot_box_with_check: [PySpark Streaming](/posts/34eba6aa/): mini-batch 数据流处理
 - :ballot_box_with_check: [PySpark SQL](/posts/bb755aa3/): DataFrame 抽象
@@ -124,12 +127,9 @@ header_color: true
 - :ballot_box_with_check: [Oracle SQL(TCL)](/posts/6c7e4677/): 事务控制语言(Transaction Control Language, TCL)：它的语句能确保被DML语句影响的表的所有行及时得以更新。包括COMMIT（提交）命令、SAVEPOINT（保存点）命令、ROLLBACK（回滚）命令。
 
 ## Appendices
-
-[**Presto**](/posts/b33c6284/): 开源分布式 SQL 查询引擎，设计用于对 HDFS 和其他源中的数据进行快速交互式查询。对于多表关联的需求，我们可以通过 Presto 跨数据源完成多表的 join 操作。
-
-**ClickHouse**是一个用于联机分析(OLAP)的列式数据库管理系统(DBMS)。对于固定类报表，可以将数据打平成宽表的，充分发挥在单表查询的性能优势。
-
-**StarRocks** 致力于全场景联机分析(OLAP)统一服务。采用了全面向量化引擎(列存储)。可以接收批量或者流式数据存储，也可以在数据湖上直接使用 StarRocks 分析。
+- :ballot_box_with_check: [Presto 简介](/posts/b33c6284/)
+- :white_large_square: ClickHouse: 是一个用于联机分析(OLAP)的列式数据库管理系统(DBMS)。对于固定类报表，可以将数据打平成宽表的，充分发挥在单表查询的性能优势。
+- :white_large_square: StarRocks: 致力于全场景联机分析(OLAP)统一服务。采用了全面向量化引擎(列存储)。可以接收批量或者流式数据存储，也可以在数据湖上直接使用 StarRocks 分析。
 
 # Python
 
@@ -445,7 +445,7 @@ Natural Language Processing(自然语言处理)
 
 - :ballot_box_with_check: 高等量子力学: 以五条基本公理和测量公理作为出发点，推出量子力学中解释的所有现象
 - :ballot_box_with_check: 高等统计力学: 使用量子力学的语言，讲述量子统计物理的基本原理及其应用
-- :ballot_box_with_check: [量子场论](/posts/d56d6970/): 量子力学、狭义相对论和经典场论相结合的物理理论
+- :ballot_box_with_check: 量子场论: 量子力学、狭义相对论和经典场论相结合的物理理论
 - :ballot_box_with_check: 广义相对论: 是描述物质间引力相互作用的理论
 - :ballot_box_with_check: 量子引力: 想要把广义相对论量子化，进而统一包括引力在内的四种基本力。
 

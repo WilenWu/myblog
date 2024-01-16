@@ -10,47 +10,46 @@ tags:
   - RDD 
 cover: /img/apache-spark-core.png
 top_img: /img/apache-spark-top-img.svg
-description: Spark的环境配置及RDD
+description: Spark的核心RDD
 abbrlink: 264c088
 date: 2020-01-03 16:20:25
 ---
 
 # Spark 初始化
 
-## spark 交互式执行环境
+## 提交应用程序脚本
 
-```bash
-spark-shell --master <master-url>  # scala
-pyspark  --master <master-url> # python
-```
-下面介绍几种常用Spark应用程序提交方式
-  - local：采用单线程运行spark，常用于本地开发测
-  - local[n]：使用n线程运行spark
-  - local[*]：逻辑CPU个数的线程运行
-  - standalone：利用Spark自带的资源管理与调度器运行Spark集群，采用Master/Slave结构。
-  - mesos ：运行在著名的Mesos资源管理框架基础之上，该集群运行模式将资源管理交给Mesos，Spark只负责进行任务调度和计算
-  - yarn : 集群运行在Yarn资源管理器上，资源管理交给Yarn，Spark只负责进行任务调度和计算。
-
-
-用户编写完Spark应用程序之后，需要将应用程序提交到集群中运行，提交时使用脚本spark-submit进行，spark-submit可以带多种参数
-
-## 运行 spark 应用程序
+用户编写完Spark应用程序之后，需要将应用程序提交到集群中运行，提交时使用spark-submit命令进行，spark-submit可以带多种参数
 
 ```bash
 spark-submit --master <master-url> code.py [*args]
 ```
 
+下面介绍几种spark常用的资源管理器 `<master-url>`
+
+  - local：采用单线程运行spark，常用于本地开发测
+  - local[n]：使用n线程运行spark
+  - local[*]：逻辑CPU个数的线程运行
+  - standalone：利用Spark自带的资源管理与调度器运行Spark集群，采用Master/Slave结构
+  - yarn : 集群运行在Yarn资源管理器上，资源管理交给Yarn，Spark只负责进行任务调度和计算
+
+## 终端交互式执行
+
+```bash
+spark-shell --master <master-url>  # scala
+pyspark  --master <master-url> # python
+```
 ## SparkContext
 
 默认情况下，Spark 交互式环境已经为 SparkContext 创建了名为 sc 的变量，因此创建新的环境变量将不起作用。但是，在独立spark 应用程序中，需要自行创建SparkContext 对象。
 ```python
-from spark import SparkConf,SparkContext
+from pyspark import SparkConf,SparkContext
 conf=SparkConf()\
     .setMaster('yarn')\
-    .setAppName('XXX')
+    .setAppName('test')
 spark=SparkContext(conf=conf)
 ```
-> 一旦SparkConf对象被传递给SparkContext，它就不能被修改。
+一旦SparkConf对象被传递给SparkContext，它就不能被修改。
 
 ```python
 conf.contains(key) # 配置中是否包含一个指定键。
@@ -72,7 +71,14 @@ sc.defaultMinPartitions    # RDD默认最小分区数
 sc.stop()  # 终止SparkContext
 ```
 
-# RDD
+# 弹性分布式数据集(RDD)
+
+在Spark里，对数据的所有操作，基本上就是围绕RDD来的，譬如创建、转换、求值等等。某种意义上来说，RDD变换操作是惰性的，因为它们不立即计算其结果，RDD的转换操作会生成新的RDD，新的RDD的数据依赖于原来的RDD的数据，每个RDD又包含多个分区。那么一段程序实际上就构造了一个由相互依赖的多个RDD组成的有向无环图(DAG)。并通过在RDD上执行行动将这个有向无环图作为一个Job提交给Spark执行。
+
+该延迟执行会产生更多精细查询：DAGScheduler可以在查询中执行优化，包括能够避免shuffle数据。RDD支持两种类型的操作：
+
+-   **变换**(Transformation) ：调用一个变换方法应用于RDD，不会有任何求值计算，返回一个新的RDD。
+-   **行动**(Action)  ：它指示Spark执行计算并将结果返回。
 
 ## RDD创建
 
@@ -230,6 +236,23 @@ defaultdict(<type 'int'>,{('b',2):1,('a',2):1,('a',7):1})
 >>> rdd1.join(rdd2).collect()
 [('b',(2,'B'))]
 ```
+
+## 窄依赖与宽依赖
+
+在前面讲的Spark编程模型当中，我们对RDD中的常用transformation与action 函数进行了讲解，我们提到RDD经过transformation操作后会生成新的RDD，前一个RDD与tranformation操作后的RDD构成了lineage关系，也即后一个RDD与前一个RDD存在一定的依赖关系，根据tranformation操作后RDD与父RDD中的分区对应关系，可以将依赖分为两种：
+
+- **窄依赖**(narrow dependency)：变换操作后的RDD仅依赖于父RDD的固定分区，则它们是窄依赖的。
+- **宽依赖**(wide dependency)：变换后的RDD的分区与父RDD所有的分区都有依赖关系（即存在shuffle过程，需要大量的节点传送数据），此时它们就是宽依赖的。
+
+如下图所示：
+![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/spark/spark-dependency.png)
+图中的实线空心矩形代表一个RDD，实线空心矩形中的带阴影的小矩形表示分区(partition)。从上图中可以看到， map,filter,union等transformation是窄依赖；而groupByKey是宽依赖；join操作存在两种情况，如果分区仅仅依赖于父RDD的某一分区，则是窄依赖的，否则就是宽依赖。
+
+**优化**：fork/join
+
+宽依赖需要进行shuffle过程，需要大量的节点传送数据，无法进行优化；而所有窄依赖则不需要进行I/O传输，可以优化执行。
+
+当RDD触发相应的action操作后，DAGScheduler会根据程序中的transformation类型构造相应的DAG并生成相应的stage，所有窄依赖构成一个stage，而单个宽依赖会生成相应的stage。
 
 ## 分区和缓存
 

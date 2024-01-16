@@ -94,12 +94,13 @@ Anaconda作为管理平台，包含以下应用程序：
 
 pip 是一个现代的，通用的 Python 包管理工具。提供了对 Python 包的查找、下载、安装、卸载的功能。pip 已内置于 Python 3.4 和 2.7 及以上版本，其他版本需另行安装。
 
-| shell 命令                         | 说明           |
-| :--------------------------------- | :------------- |
-| pip install package_name           | 导入包         |
-| pip install --upgrade package_name | 更新包         |
-| pip uninstall package_name         | 卸载包         |
-| pip list                           | 列出已安装的包 |
+| shell 命令                         | 说明                       |
+| :--------------------------------- | :------------------------- |
+| pip install package_name           | 导入包                     |
+| pip install --upgrade package_name | 更新包                     |
+| pip uninstall package_name         | 卸载包                     |
+| pip list                           | 列出已安装的包             |
+| pip show package_name              | 显示包的信息，包括安装路径 |
 
 ## conda
 
@@ -134,6 +135,28 @@ conda将conda、python等都视为package
 conda update conda
 # 更新python，假设当前环境是python 3.4, conda会将python升级为3.4.x系列的当前最新版本
 conda update python
+```
+
+## 包的路径
+
+```python
+# pip 命令显示包的信息，包括安装路径
+pip show package_name
+
+# python环境查看包的信息，包括安装路径
+>>> import package_name
+>>> print(package_name.__file__)
+```
+
+如果包不在管理路径下，可以在python环境变量中增加包的安装路径，也能正常加载
+
+```shell
+# 例如想在默认python中加载pyspark包，则将pyspark路径加载到python环境变量中
+vi ~/.profile 
+# 然后将下面的语句添加到文件末尾
+export PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
+# 重新加载
+source ~/.profile
 ```
 
 # Jupyter Notebook

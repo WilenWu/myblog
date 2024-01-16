@@ -18,6 +18,7 @@ description: DataFrame 抽象
 # SparkSession
 
 Spark SQL用于对结构化数据进行处理，它提供了DataFrame的抽象，作为分布式平台数据查询引擎，可以在此组件上构建大数据仓库。DataFrame是一个分布式数据集，在概念上类似于传统数据库的表结构，数据被组织成命名的列，DataFrame的数据源可以是结构化的数据文件，也可以是Hive中的表或外部数据库，也还可以是现有的RDD。
+
 DataFrame的一个主要优点是，Spark引擎一开始就构建了一个逻辑执行计划，而且执行生成的代码是基于成本优化程序确定的物理计划。与Java或者Scala相比，Python中的RDD是非常慢的，而DataFrame的引入则使性能在各种语言中都保持稳定。
 
 在过去，你可能会使用SparkConf、SparkContext、SQLContext和HiveContext来分别执行配置、Spark环境、SQL环境和Hive环境的各种Spark查询。SparkSession现在是读取数据、处理元数据、配置会话和管理集群资源的入口。SparkSession本质上是这些环境的组合，也包括StreamingContext。
@@ -26,11 +27,15 @@ DataFrame的一个主要优点是，Spark引擎一开始就构建了一个逻辑
 from pyspark.sql import SparkSession
 spark=SparkSession \
    .builder \
+	 .enableHiveSupport() \
    .appName('test') \
    .config('master','yarn') \
    .getOrCreate()
+sc=spark.sparkContext
 ```
 Spark 交互式环境下，默认已经创建了名为 spark 的 SparkSession 对象，不需要自行创建。
+
+在使用Spark与Hive集成时，需要使用enableHiveSupport方法来启用Hive支持。启用Hive支持后，就可以在Spark中使用Hive的元数据、表和数据源。
 
 # DataFrame
 
@@ -290,8 +295,6 @@ df=df.na.replace(['Alice','Bob'],['A','B'],'name')
 `df.repartition(n)`  |将df拆分为10个分区
 `df.coalesce(n)`  |将df合并为n个分区
 `df.cache()`|缓存
-
-
 
 参考链接：
 - Spark 编程基础 - 厦门大学 | 林子雨
