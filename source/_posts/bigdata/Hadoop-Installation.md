@@ -39,7 +39,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 ```sh
 cd ~/.ssh/                     # 若没有该目录，请先执行一次ssh localhost
-ssh-keygen -t rsa              # 会有提示，都按回车就可以
+ssh-keygen -t rsa -C username@email.com  # 会有提示，都按回车就可以
 cat ./id_rsa.pub >> ./authorized_keys  # 加入授权
 ```
 
@@ -102,8 +102,6 @@ Hadoop 的配置文件位于 etc/hadoop/ 中，伪分布式主要需要修改2�
 </configuration>
 ```
 
-有时候会因为localhost地址出错，可直接将 fs.default.name 值修改为 hdfs://127.0.0.1:9000
-
 同样的，修改配置文件 **hdfs-site.xml**：
 
 ```xml
@@ -121,18 +119,6 @@ Hadoop 的配置文件位于 etc/hadoop/ 中，伪分布式主要需要修改2�
         <name>dfs.datanode.data.dir</name>
         <value>file:/usr/local/hadoop/tmp/dfs/data</value>
     </property>
-
-  <!--当losthost解析出错时配置以下声明-->
-    <property>
-        <name>dfs.http.address</name>
-        <value>127.0.0.1:9870</value>
-        <description>NameNode address</description>
-    </property> 
-    <property>
-        <name>dfs.secondary.http.address</name>
-        <value>127.0.0.1:9890</value>
-        <description>SecondaryNameNode address<description>
-    </property> 
 </configuration>
 ```
 
@@ -178,6 +164,12 @@ Hadoop 的运行方式是由配置文件决定的（运行 Hadoop 时会读取�
 
 ```sh
 export JAVA_HOME=/usr/opt/jdk-1.8.0_391
+```
+
+当datanode或resourcemanager无法正常启动时，很可能是hostname无法正常解析，可在 /etc/hosts 文件中添加hostname。例如，本机hostname为hadoop，则添加
+
+```sh
+127.0.0.1 localhost hadoop
 ```
 
 配置完成后，执行 NameNode 的格式化，相当于一个文件系统的初始化

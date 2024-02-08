@@ -13,7 +13,6 @@ date: 2018-05-09 00:10:30
 
 Python 是一种易于学习又功能强大的编程语言。它提供了高效的高层次的数据结构，还有简单有效的面向对象编程。Python 优雅的语法和动态类型，以及解释型语言的本质，使它成为在很多领域多数平台上写脚本和快速开发应用的理想语言。
 
-<!-- more -->
 
 # Python 简介
 
@@ -40,6 +39,8 @@ python 中万物皆对象。`reset`关键字或`reset()`函数可清空所有对
 - IDE 中运行Python
 
 在主提示符中，输入文件结束符（Unix 里是 Control-D，Windows 里是 Control-Z），就会退出解释器，退出状态码为 0。如果不能退出，还可以输入这个命令：`quit()`。
+
+
 
 ## 解释器的运行环境
 
@@ -69,6 +70,7 @@ print( "你好，世界" )
    `# -*- coding: UTF-8 -*-` 或者 `# coding=utf-8` 
 
   > 注意：`# coding=utf-8` 的 = 号两边不要空格。
+
 
 ## 行和缩进
 
@@ -372,41 +374,45 @@ True
 | set.issuperset(b) | if b∈a return True  |  |
 | set.isdisjoint(b) | if $a∩b=\emptyset$(交集)  return True |  |
 
-## 推导式
+## 迭代器
+
+**迭代器** (iterator) 是一个可以记住遍历的位置的对象。字符串，列表或元组对象都可用`iter()`函数创建迭代器。
 
 ```python
-list_comp = [expr for val in collection if condition]  
-set_comp = {expr for value in collection if condition}  
-dict_comp = {key-expr :value-expr for value in collection if condition} 
-
-# list推导式等价for循环
- list_comp = []
- for val in collection:  
-   if condition: 
-     list_comp.append(expr) 
+iterator = iter([1,2,3,4])
 ```
 
-## 迭代器和生成器
+迭代器对象从集合的第一个元素开始访问，直到所有的元素被访问完结束。迭代器只能往前不会后退。
 
-- 迭代器 (iterator)
-` iterator = iter(obj)` 
-`range(start=0,end,step=1)`  返回一个迭代器，它产生一个均匀分布的整数序列 `[start,end) by step`
-序列对象（tuple, dict, ...）都可以作为迭代器使用
-`next(iterator)`  （迭代函数）下一个
-- 生成器 (generator)
-在 Python 中，使用了 yield 的函数被称为生成器（generator），生成器是一个返回迭代器的函数，只能用于迭代操作
-- [Python itertools模块详解](https://www.cnblogs.com/fengshuihuan/p/7105545.html)
+迭代器对象可以使用常规for语句进行遍历：
+
+```python
+for i in iterator:
+  print(i)
+```
+
+也可以使用 `next()` 函数返回下一个迭代器对象：
+
+```python
+while True:
+    try:
+        print(next(iterator))
+    except StopIteration:
+        sys.exit()
+```
+
+`next()` 函数在完成指定循环次数后触发 StopIteration 异常来结束迭代，防止出现无限循环的情况。
+
+## 生成器
+
+**生成器** (generator)：在 Python 中，使用了 yield 的函数被称为生成器，生成器是一个返回迭代器的函数，只能用于迭代操作。生成器函数可以逐步产生值，而不需要一次性计算并返回所有结果。
 
 
 ```python
-# 排列，组合，笛卡儿积：
-from itertools import combinations,permutations,product,combinations_with_replacement
-
-# 自建迭代器
 def squares(n=10):  
-  print('Generating squares from1 to {0}'.format(n ** 2))  
+  print('Generating squares from 1 to {0}'.format(n ** 2))  
   for i in range(1, n + 1): 
-    yield i ** 2  #将return替换为yield即可返回迭代器
+    yield i ** 2 
 gen = squares() 
 for x in gen: 
   print(x, end=' ') 
@@ -502,9 +508,23 @@ case 401 | 403 | 404:
     return "Not allowed"
 ```
 
+# 推导式
+
+```python
+list_comp = [expr for val in collection if condition]  
+set_comp = {expr for value in collection if condition}  
+dict_comp = {key-expr :value-expr for value in collection if condition} 
+
+# list推导式等价for循环
+ list_comp = []
+ for val in collection:  
+   if condition: 
+     list_comp.append(expr) 
+```
+
 # 函数
 
-## 内建函数
+## 常用函数
 
 | **输入输出**  |  |
 | :--- | :--- |
@@ -564,6 +584,8 @@ exec(expr)
 | reversed(seq)  | 反转序列，返回迭代器  |
 | callable(object)  | 判断对象是否是可调用，对于函数, 方法, lambda 函式, 类, 以及实现了 `__call__ `方法的类实例, 它都返回 True |
 
+## 高阶函数
+
 | **高阶函数**  | 说明  |
 | --- | :--- |
 | map(function,obj)  | 对序列中所有元素函数映射  |
@@ -576,6 +598,55 @@ set(map(len, strings))
 reduce(lambda x, y: x+y, [1,2,3,4,5])
 filter(lambda x: x%2==0, range(1, 101))
 ```
+
+## 序列函数
+
+**`enumerate`函数**，可以返回`(i, value)`元组序列，常用于loop：
+
+```
+for i, value in enumerate(collection): 
+  #do something with value
+```
+
+**sorted函数**
+` sorted(list)` 返回排序好的list副本 
+ `sorted(str)`  拆分str，返回排序好的list副本 
+`sorted` 也可使用 `key` 参数对字典进行排序
+
+```python
+In [150]: d = {'a':3, 'b':2, 'c':1}
+In [151]: sorted(d.items(),key=lambda x:x[1])
+Out[151]: [('c', 1), ('b', 2), ('a', 3)]
+```
+
+**zip函数**
+`zip(seq1,seq2)` 可以将多个列表、元组或其它序列成对组合成一个元组对
+zip可以处理任意多的序列，元素的个数取决于最短的序列
+`zip(*tup)`逆转用法
+
+```python
+In [89]: seq1 = ['foo', 'bar', 'baz'] 
+In [90]: seq2 = ['one', 'two', 'three']
+In [92]: list(zip(seq1, seq2)) 
+Out[92]: [('foo', 'one'), ('bar', 'two'), ('baz', 'three')]
+
+In [95]: for i, (a, b) in enumerate(zip(seq1, seq2)):
+   ....:     print('{0}: {1}, {2}'.format(i, a, b))
+   ....:
+0: foo, one
+1: bar, two
+2: baz, three
+```
+
+**排列，组合，笛卡儿积**
+
+`from itertools import product,permutations,combinations`
+
+> 参考链接：https://blog.csdn.net/specter11235/article/details/71189486
+
+**range函数**
+
+`range(start=0,end,step=1)`  返回一个迭代器，它产生一个均匀分布的整数序列 `[start,end) by step`
 
 ## 自定义函数
 
@@ -667,11 +738,6 @@ Annotations: {'eggs': <class 'int'>, 'return': 'Nothing to see here', 'ham': 42}
 Arguments: wonderful spam
 ```
 
-### 匿名（lambda）函数
-
-`lambda vars:expr` 不用写return，返回值就是该表达式的结果 
-` lambda x,y:x**y`
-
 
 ### 变量的作用域
 
@@ -695,7 +761,8 @@ def outer():
 
 Python 中只有模块（module），类（class）以及函数（def、lambda）才会引入新的作用域，其它的代码块（如 if/elif/else/、try/except、for/while等）是不会引入新的作用域的，也就是说这些语句内定义的变量，外部也可以访问
 
-### global 和 nonlocal关键字
+### 局域变量和全局变量
+
 当内部作用域想修改外部作用域的变量时，就要用到global和nonlocal关键字了
 
 ```python
@@ -708,50 +775,10 @@ def outer():
         print(num+num2)
 ```
 
-## 序列函数
+## lambda 函数
 
-- **`enumerate`函数**，可以返回`(i, value)`元组序列，常用于loop：
-
-```
-for i, value in enumerate(collection): 
-  #do something with value
-```
-
-- **sorted函数**
-` sorted(list)` 返回排序好的list副本 
- `sorted(str)`  拆分str，返回排序好的list副本 
-`sorted` 也可使用 `key` 参数对字典进行排序
-
-```python
-In [150]: d = {'a':3, 'b':2, 'c':1}
-In [151]: sorted(d.items(),key=lambda x:x[1])
-Out[151]: [('c', 1), ('b', 2), ('a', 3)]
-```
-
-- **zip函数**
-  `zip(seq1,seq2)` 可以将多个列表、元组或其它序列成对组合成一个元组对
-  zip可以处理任意多的序列，元素的个数取决于最短的序列
-  `zip(*tup)`逆转用法
-
-```python
-In [89]: seq1 = ['foo', 'bar', 'baz'] 
-In [90]: seq2 = ['one', 'two', 'three']
-In [92]: list(zip(seq1, seq2)) 
-Out[92]: [('foo', 'one'), ('bar', 'two'), ('baz', 'three')]
-
-In [95]: for i, (a, b) in enumerate(zip(seq1, seq2)):
-   ....:     print('{0}: {1}, {2}'.format(i, a, b))
-   ....:
-0: foo, one
-1: bar, two
-2: baz, three
-```
-
-- **排列组合**
-
-`from itertools import product,permutations,combinations`
-
-> 参考链接：https://blog.csdn.net/specter11235/article/details/71189486
+`lambda vars:expr` 不用写return，返回值就是该表达式的结果 
+` lambda x,y:x**y`
 
 
 # 闭包
@@ -828,6 +855,7 @@ plt.show()
 
 
 # 装饰器
+
 装饰器实际上是在不改变原程序的情况下，给某程序增添功能，避免大量雷同代码。
 > 菜鸟教程（包括带参数的装饰器和装饰器类等）
 > http://www.runoob.com/w3cnote/python-func-decorators.html
@@ -867,7 +895,7 @@ finally:
   statements       # 不管有没异常都会执行的代码
 ```
 
-`try/except` 语句按照如下方式工作：
+`try-except` 语句按照如下方式工作：
 
 - 首先，执行 try 子句（在 try 和 except 关键字之间的语句）
 
@@ -934,15 +962,103 @@ Traceback (most recent call last):
 NameError: HiThere
 ```
 
-# 导入模块
+# 模块管理
+
+## pip
+
+pip 是一个现代的，通用的 Python 包管理工具。提供了对 Python 包的查找、下载、安装、卸载的功能。pip 已内置于 Python 3.4 和 2.7 及以上版本，其他版本需另行安装。
+
+| shell 命令                         | 说明                       |
+| :--------------------------------- | :------------------------- |
+| pip install package_name           | 导入包                     |
+| pip install --upgrade package_name | 更新包                     |
+| pip uninstall package_name         | 卸载包                     |
+| pip list                           | 列出已安装的包             |
+| pip show package_name              | 显示包的信息，包括安装路径 |
+
+**添加镜像源** `vim ~.pip/pip.conf`
+
+```sh
+[global]  
+index-url = https://pypi.mirrors.ustc.edu.cn/simple/
+```
+
+```sh
+# 指定版本安装
+pip install xgboost==1.7.1
+```
+
+## conda
+
+Miniconda是一款小巧的python环境管理工具，安装包大约只有50M多点，其安装程序中包含conda软件包管理器和Python。一旦安装了Miniconda，就可以使用conda命令安装任何其他软件工具包并创建环境等。
+
+**下载安装**
+
+```shell
+wget -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+```
+
+**添加镜像源**
+
+```shell
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+```
+
+| shell 命令     | 说明 |
+| --------------------------------- | ----------------------------------- |
+| conda list                        | 查看已经安装的包                    |
+| conda install package_name        | 导入包                              |
+| conda update package_name         | 更新包                              |
+| conda remove package_name | 删除包 |
+| conda search package_name         | 查找package信息                     |
+
+conda将conda、python等都视为package
+
+```shell
+# 更新conda
+conda update conda
+# 更新python，假设当前环境是python 3.4, conda会将python升级为3.4.x系列的当前最新版本
+conda update python
+# 指定版本安装
+conda install py-xgboost=1.7.1
+```
+
+## 模块路径
 
 ```python
-# 以 numpy 包为例 
- 
+# pip 命令显示包的信息，包括安装路径
+pip show package_name
+
+# python环境查看包的信息，包括安装路径
+>>> import package_name
+>>> print(package_name.__file__)
+```
+
+如果包不在管理路径下，可以在python环境变量中增加包的安装路径，也能正常加载
+
+```shell
+# 例如想在默认python中加载pyspark包，则将pyspark路径加载到python环境变量中
+vi ~/.zshrc
+# 然后将下面的语句添加到文件末尾
+export PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
+# 重新加载
+source ~/.zshrc
+```
+
+
+## 加载模块
+
+以 numpy 包为例 
+
+```python
 # 导入整个模块
 import numpy as np 
+
 # 导入多个子模块
-from numpy import array, arrange  
+from numpy import array, arrange 
+ 
 # 导入全部子模块
 from numpy import * 
 

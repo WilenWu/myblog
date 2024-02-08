@@ -26,11 +26,11 @@ import time
 def progress(percent=0, width=50, desc="Processing"):
     left = width * percent // 100
     right = width - left
-    
+
     tags = "#" * left
     spaces = "-" * right
     percents = f"{percent:.0f}%"
-    
+
     print(f"\r{desc}: [{tags}{spaces}]{percents}", end="", flush=True)
 
 # Example run
@@ -227,4 +227,3 @@ with Progress() as progress:
         progress.update(task3, advance=0.9)
         time.sleep(0.02)
 ```
-

@@ -6,7 +6,7 @@ categories:
 tags:
   - 大数据
   - hive
-cover: /img/hive-cover.jpg
+cover: /img/apache-hive-circ.jpg
 top_img: /img/apache-hive-bg.png
 abbrlink: dd512a75
 date: '2024-01-15 22:00:00'
@@ -147,6 +147,95 @@ hive>
 # HIVE常见报错
 
 - [HIVE启动报错：Exception in thread "main" java.lang.NoSuchMethodError](https://www.cnblogs.com/jaysonteng/p/13412763.html)
-- [解决Hive中文乱码](https://segmentfault.com/a/1190000021105525)
 - [Hive中运行任务报错：Error during job, obtaining debugging information...](https://blog.csdn.net/qq_41428711/article/details/86169029)
 - [hive shell 方向键、退格键不能使用：使用rlwrap包装，并在用户配置文件重名民配置](https://blog.csdn.net/weixin_34050519/article/details/92353909)
+
+## HIVE 中文乱码
+
+Windows中Mysql的配置文件名字叫my.ini，linux 中配置文件路径为 `/usr/my.cnf`，mac中通常无配置文件。
+
+以mac为例，先停止mysql服务
+
+```sh
+brew services stop mysql
+```
+
+查看mysql读取配置文件的默认顺序
+
+```sh
+mysqld --help --verbose | more
+```
+
+查看帮助，下翻，会看到表示配置文件默认读取顺序，如下：
+
+```
+Default options are read from the following files in the given order:
+/etc/my.cnf /etc/mysql/my.cnf /usr/local/etc/my.cnf ~/.my.cnf
+```
+
+通常，这些位置上没有配置文件，所以需要创建文件，默认的样例文件 my-default.cnf 可自行百度
+
+```sh
+touch /etc/my.cnf
+sudo vim /etc/my.cnf
+```
+
+在配置文件 `[mysqld]` 后添加以下内容
+
+```
+[mysqld]
+init_connect='SET collation_connection = utf8_unicode_ci' 
+init_connect='SET NAMES utf8'
+character-set-server=utf8 
+collation-server=utf8_unicode_ci
+skip-character-set-client-handshake 
+```
+
+修改完成后，需要重新启动mysql服务
+
+```sh
+brew services start mysql
+```
+
+ 然后，验证是否修改成功，进入mysql中，输入命令：`show variables like 'char%';`
+
+```
++--------------------------+--------------------+
+| Variable_name            | Value              |
++--------------------------+--------------------+
+| character_set_client     | utf8mb4            |
+| character_set_connection | utf8mb4            |
+| character_set_database   | utf8mb4            |
+| character_set_filesystem | binary             |
+| character_set_results    | utf8mb4            |
+| character_set_server     | utf8mb4            |
+| character_set_system     | utf8mb3            |
+| character_sets_dir       | /usr/local/mysql-8.0.35-macos13-arm64/share/charsets/ |
++--------------------------+-----------------------+
+```
+
+最后，修改mysql中hive元数据的编码：
+
+```sql
+-- 切换到元数据库
+use metastore;
+
+-- 1. 修改表字段和表注解
+alter table COLUMNS_V2 modify column COMMENT varchar(256) character set utf8;
+alter table TABLE_PARAMS modify column PARAM_VALUE varchar(4000) character set utf8;
+
+-- 2. 修改分区字段注解
+alter table PARTITION_PARAMS modify column PARAM_VALUE varchar(4000) character set utf8;
+alter table PARTITION_KEYS modify column PKEY_COMMENT varchar(4000) character set utf8;
+
+-- 3. 修改索引注解
+alter table INDEX_PARAMS modify column PARAM_VALUE varchar(4000) character set utf8;
+```
+
+最后重启mysql服务：
+
+```sh
+brew services restart mysql
+```
+
+重启hive客户端，删掉之前的表结构，再新建表结构。

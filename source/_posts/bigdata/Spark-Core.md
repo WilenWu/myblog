@@ -46,7 +46,7 @@ pyspark  --master <master-url> # python
 from pyspark import SparkConf,SparkContext
 conf=SparkConf()\
     .setMaster('yarn')\
-    .setAppName('test')
+    .setAppName('myApp')
 spark=SparkContext(conf=conf)
 ```
 一旦SparkConf对象被传递给SparkContext，它就不能被修改。

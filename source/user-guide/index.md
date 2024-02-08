@@ -24,12 +24,11 @@ header_color: true
 - :ballot_box_with_check: [正则表达式](/posts/2f57a694/)
 - :ballot_box_with_check: [Linux基础知识](/posts/df41aea9/)
 - :ballot_box_with_check: [Linux shell教程](/posts/d30f8ab/)
-- :ballot_box_with_check: [VScode 常用快捷键](/posts/af83e57c/)
-- :ballot_box_with_check: [Win10 常用快捷键](/posts/eb0a36a4/)
 - :white_large_square: [电子书文件格式](/posts/4fd8493d/)
 - :ballot_box_with_check: [Git 快速参考指南](/posts/f48f437a/)
 - :ballot_box_with_check: [看不懂的数字](/posts/12a72af8/)
 - :ballot_box_with_check: [Mac终端配置文件](/posts/2da646b7/)
+- :white_large_square: Docker: 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows操作系统的机器上。
 
 # Markup Language
 
@@ -104,14 +103,19 @@ header_color: true
 - :ballot_box_with_check: [PySpark SQL](/posts/bb755aa3/): DataFrame 抽象
 - :ballot_box_with_check: [Pandas API on Spark](/posts/f67b0909/)
 
+## Dask
+
+- :heart:Dask: Dask is a Python library for parallel and distributed computing
+
 ## Kafka
 
-- :ballot_box_with_check: Kafka 简介: 是一种分布式的，基于发布 / 订阅的消息系统，支持数据集成和数据流处理。
+- :ballot_box_with_check: Kafka: 是一种分布式的，基于发布 / 订阅的消息系统，支持数据集成和数据流处理。
+- :ballot_box_with_check: [Kafka安装配置](/posts/3adf88b8/)
 
 ## Flink
 
-- :ballot_box_with_check: Flink 简介: 是一个框架和分布式处理引擎，用于在无边界和有边界数据流上进行有状态的计算。
-- :ballot_box_with_check: FlinkSQL
+- :ballot_box_with_check: Flink: 是一个框架和分布式处理引擎，用于在无边界和有边界数据流上进行有状态的计算。
+- :ballot_box_with_check: [Flink安装配置](/posts/7ff308e2/)
 
 ## ES
 
@@ -127,9 +131,10 @@ header_color: true
 - :ballot_box_with_check: [Oracle SQL(TCL)](/posts/6c7e4677/): 事务控制语言(Transaction Control Language, TCL)：它的语句能确保被DML语句影响的表的所有行及时得以更新。包括COMMIT（提交）命令、SAVEPOINT（保存点）命令、ROLLBACK（回滚）命令。
 
 ## Appendices
-- :ballot_box_with_check: [Presto 简介](/posts/b33c6284/)
+- :white_large_square: Presto 简介: 设计用于对 HDFS 和其他源中的数据进行快速交互式查询。对于多表关联的需求，我们可以通过 Presto 跨数据源完成多表的 join 操作。
 - :white_large_square: ClickHouse: 是一个用于联机分析(OLAP)的列式数据库管理系统(DBMS)。对于固定类报表，可以将数据打平成宽表的，充分发挥在单表查询的性能优势。
 - :white_large_square: StarRocks: 致力于全场景联机分析(OLAP)统一服务。采用了全面向量化引擎(列存储)。可以接收批量或者流式数据存储，也可以在数据湖上直接使用 StarRocks 分析。
+- :white_large_square: Kylin: 的核心思想是以空间换时间。即多维分析可能用到的度量进行预计算，将计算好的结果保存成`Cube`并存储到`HBase`中，供查询时直接访问。
 
 # Python
 
@@ -174,13 +179,8 @@ header_color: true
 
 - :ballot_box_with_check: [pandas](/posts/2a180ec0/): 提供高性能，易用的数据结构和数据分析工具
 - :ballot_box_with_check: [pandas(Time Series)](/posts/31520356/): Pandas 时间序列数据处理工具
-- :heart: blaze: NumPy 和 Pandas 的大数据接口。
-- :heart: orange: 通过可视化编程或 Python 脚本进行数据挖掘，数据可视化，分析和机器学习。
-
 
 ## Web Crawling
-
-The Website is the API(Application Programming Interface, 应用程序接口)...
 
 - :ballot_box_with_check: requests: 自动爬取HTML页面，自动网路请求提交。
 - :ballot_box_with_check: [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/): 解析HTML页面。
@@ -194,7 +194,6 @@ The Website is the API(Application Programming Interface, 应用程序接口)...
 - :ballot_box_with_check: [seaborn](/posts/49513cf1/): 基于matplotlib封装的数据可视化库
 - :white_large_square: bqplot: Jupyter Notebook的交互式绘图库
 - :white_large_square: bokeh: 用 Python 进行交互式 web 绘图。
-- :white_large_square: plotly: 协同 Python 和 matplotlib 工作的 web 绘图库。
 - :white_large_square: pyecharts: 基于百度 Echarts 的数据可视化库。
 - :heart:  [dtreeviz](https://github.com/parrt/dtreeviz) : A python library for decision tree visualization and model interpretation.
 
@@ -202,9 +201,8 @@ The Website is the API(Application Programming Interface, 应用程序接口)...
 
 - :ballot_box_with_check: [sklearn](/posts/861261b5/): 基于 SciPy 构建的机器学习 Python 模块
 - :ballot_box_with_check: [statsmodels](/posts/6c94e349/): 统计建模和计量经济学
-- :heart: [XGBoost](http://xgboost.apachecn.org/#/)
-- :ballot_box_with_check: [LightGBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-
+- :ballot_box_with_check: [XGBoost](/posts/c46d5dae/)
+- :ballot_box_with_check: [LightGBM](/posts/44910830/)
 
 ## Deep Learning
 

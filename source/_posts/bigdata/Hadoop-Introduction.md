@@ -51,12 +51,19 @@ yarn: http://localhost:8088
 ```
 
 ```sh
-hdfs dfs -ls -R / # 查看目录结构
-hdfs dfs -put [本地目录] [hdfs目录] # 将本地文件夹存储至hdfs
-hdfs dfs -get [hdfs目录] [本地目录] # 将hdfs文件下载至本地
-hdfs dfs -rm -r [目录地址] # 删除文件夹
-hdfs dfs –ls [hdfs目录] # 列出目录及文件信息
-hdfs dfs –cat [hdfs文件] # 查看文件
-hdfs dfs –head [hdfs文件] 
-hdfs dfs –tail [hdfs文件] 
+hdfs dfs -help # 查看帮助
+hdfs dfs -put [localPath] [hdfsPath] # 将本地文件存储至hdfs
+hdfs dfs -get [hdfsPath] [localPath] # 将hdfs文件下载至本地
+hdfs dfs -rm [hdfsFile] # 删除文件
+hdfs dfs -rmr [hdfsPath] # 删除目录
+hdfs dfs -mkdir [hdfsPath] # 创建新目录
+hdfs dfs -touchz [hdfsFile] # 创建空文件
+hdfs dfs -mv [hdfsPath] [hdfsPath] # 文件重命名 
+hdfs dfs -getmerge [hdfsPath] [localPath] # 将所有文件合并为单个文件，下载至本地
+hdfs dfs –ls [hdfsPath] # 列出目录及文件信息
+hdfs dfs –text [hdfsFile] # 查看文件内容
+hdfs dfs –cat [hdfsFile] # 查看文件内容
+hdfs dfs –head [hdfsFile] # 查看前1kb内容
+hdfs dfs –tail [hdfsFile] # 查看最后1kb内容
+hadoop job –kill [job-id] # 将正在运行的作业kill掉
 ```

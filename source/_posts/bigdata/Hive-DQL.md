@@ -462,7 +462,7 @@ SELECT null, null, SUM(c) FROM tab1;
 
 ## GROUPING__ID 伪列
 
-`GROUPING__ID` 表示结果属于哪一个分组集合，第一个集合 `GROUPING__ID` 为0，按数学中的组合顺序依次加1，如果部分分组集合未在统计范围， `GROUPING__ID` 序号仍会保留。
+`GROUPING__ID` 表示结果属于哪一个分组组合。`GROUP BY`语句中每个位置对应一个值，例如 `GROUP BY a, b, c` 中 `c` 对应 2^0^， `c` 对应 2^1^， `c` 对应 2^2^，依次类推。去除缺失分组后，`GROUPING__ID` 的值由剩余的值加和得到。例如，缺失的分组为 `b` ，则`GROUPING__ID` 等于 2^0^+2^2^=5。
 
 ```sql
 SELECT a, b, SUM(c), GROUPING__ID FROM tab1 GROUP BY a, b GROUPING SETS ( (a, b), a, b, ( ) ) ;

@@ -29,23 +29,21 @@ import pandas as pd
 ## 创建Series
 
 - array like
-
-   ```python
-   s=pd.Series(data,index=None,dtype=None) 
-   ```
-   
-   > data：tuple,list,dict,ndarray 
-   > index：list对象赋值索引 
-
+  
+  ```python
+  s=pd.Series(data,index=None,dtype=None) 
+  ```
+  
+  > data：tuple,list,dict,ndarray 
+  > index：list对象赋值索引 
 
 - dict
-
-   ```python
-   pd.Series(dict)
-   ```
-   
-   > 赋值方法 ：index=dict.keys,  data=dict.values
-
+  
+  ```python
+  pd.Series(dict)
+  ```
+  
+  > 赋值方法 ：index=dict.keys,  data=dict.values
 
 ## 属性
 
@@ -53,25 +51,25 @@ import pandas as pd
 将两个 pandas Series 进行向量化运算的时候，如果某个 key 索引只在其中一个 Series 里出现，计算的结果会是 NaN，此时我们可以用对应函数的 fill_value 参数填充处理，例如
 `s1.add(s2, fill_value=0)`
 
-| 属性  | 可赋值修改|
-|:---|:---|
-| s.dtype | 数据类型 |
-| s.index | 返回index对象  |
-| s.values| 返回ndarrary对象 |
-| s.size| 元素个数|
-| s.index.name | 索引名字 |
-
+| 属性           | 可赋值修改        |
+|:------------ |:------------ |
+| s.dtype      | 数据类型         |
+| s.index      | 返回index对象    |
+| s.values     | 返回ndarrary对象 |
+| s.size       | 元素个数         |
+| s.index.name | 索引名字         |
 
 ## 索引和切片
 
-| 索引和切片  | 可赋值修改|
-|:---|:---|
-| `s[index]`| num  or str  |
-|`s[[index]]`|获得数值|
-| `s[start:stop:step]`  | slice|
-| `s[index_list]`   | 花式索引|
-| `s2[(s2>0)&(s2<12)]`  | 逻辑索引 |
-|`s.str`|Series的str属性可访问字符串的方法，`data.str.contains('gmail')`|
+| 索引和切片                | 可赋值修改                                              |
+|:-------------------- |:-------------------------------------------------- |
+| `s[index]`           | num  or str                                        |
+| `s[[index]]`         | 获得数值                                               |
+| `s[start:stop:step]` | slice                                              |
+| `s[index_list]`      | 花式索引                                               |
+| `s2[(s2>0)&(s2<12)]` | 逻辑索引                                               |
+| `s.str`              | Series的str属性可访问字符串的方法，`data.str.contains('gmail')` |
+
 > 切片格式：`start:stop:step`
 > 当切片由数字组成时：左闭右开区间  s[:10]
 > 当切片由字符组成时：左右都是闭区间  s['a':'n']
@@ -80,134 +78,152 @@ import pandas as pd
 
 > DataFrame的方法，Series基本都能用，下表摘取了有别于DataFrame的部分方法
 
-| 方法  |     |
-|:---|:---|
-| s.astype(dtype,copy=True)   | 数据类型转换 |
-| s.append(to_append,ignore_index=False)|追加，to_append : Series or list/tuple of Series  |
-| s.unique()  | 唯一值 |
-|s.map(func)|func映射至每个元素|
-|s.isin(values)|成员判断|
+| 方法                                     |                                               |
+|:-------------------------------------- |:--------------------------------------------- |
+| s.astype(dtype,copy=True)              | 数据类型转换                                        |
+| s.append(to_append,ignore_index=False) | 追加，to_append : Series or list/tuple of Series |
+| s.unique()                             | 唯一值                                           |
+| s.map(func)                            | func映射至每个元素                                   |
+| s.isin(values)                         | 成员判断                                          |
 
+```python
+In [199]: s = pd.Series(["six", "seven", "six", "seven", "six"])
+In [200]: t = {"six": 6.0, "seven": 7.0}
+In [201]: s
+Out[201]: 
+0      six
+1    seven
+2      six
+3    seven
+4      six
+dtype: object
+In [202]: s.map(t)
+Out[202]: 
+0    6.0
+1    7.0
+2    6.0
+3    7.0
+4    6.0
+dtype: float64
+```
 
 # DataFrame
 
 ## 创建DataFrame
 
 - array like
-
-   ```python
-   df=pd.DataFrame(data,index,columns,dtype,copy=False)
-   ```
-   
-   > data：tuple,list,dict,ndarray,Series ,DataFrame
-   > index,  columns：list赋值
-
+  
+  ```python
+  df=pd.DataFrame(data,index,columns,dtype,copy=False)
+  ```
+  
+  > data：tuple,list,dict,ndarray,Series ,DataFrame
+  > index,  columns：list赋值
 
 - dict
-
-   ```python
-   pd.DataFrame(dict)
-   ```
-   
+  
+  ```python
+  pd.DataFrame(dict)
+  ```
+  
    `dict={key1:value1,...}` 单层字典创建(*columns.name=dict.keys,data=dict.values* )
    `dict={key1:{key:value},...}` 嵌套字典创建 (*外层字典的键作为列索引，内层键则作为行索引*)
-
 
 ## 属性
 
 默认情况下，DataFrame和Series之间的算术运算(`+,-,*,...`)会将Series的索引匹配到DataFrame的列，然后沿着行一直向下广播
 
-|属性|可赋值修改|
-|:---|:---|
-| df.dtypes| 元素类型，极为精细|
-| df.index | 返回index对象（不可变），允许包含重复标签  |
-| df.columns   | 返回index对象，所有列名   |
-| df.values| 返回values（二维ndarrary，统一化dtype）|
-| df.index.name| 索引名字 |
-| df.columns.name  | columns的name属性   |
-| df.shape | 维度信息tupple  |
-| df.ndim  | 维度数量 |
-| df.size  | 元素总个数|
-| df.T | 转置   |
-
+| 属性              | 可赋值修改                         |
+|:--------------- |:----------------------------- |
+| df.dtypes       | 元素类型，极为精细                     |
+| df.index        | 返回index对象（不可变），允许包含重复标签       |
+| df.columns      | 返回index对象，所有列名                |
+| df.values       | 返回values（二维ndarrary，统一化dtype） |
+| df.index.name   | 索引名字                          |
+| df.columns.name | columns的name属性                |
+| df.shape        | 维度信息tupple                    |
+| df.ndim         | 维度数量                          |
+| df.size         | 元素总个数                         |
+| df.T            | 转置                            |
 
 ## 索引和切片
 
-|索引和切片|建议用iloc,loc,ix方法赋值修改 |
-|:---|:---|
-| `df['index','columns']`| 筛选（str or num） |
-| `df['columns']['index']`   |  |
-| `df['column']` | 返回列Series  |
-| `df.column`   | 返回列Series |
-| `df.loc['index']`| 返回行Series |
-| `df.iloc[index_num]`| 返回行Series |
-| `df.loc['index','columns']`| 字符筛选 |
-| `df.iloc[index_num,columns_num]`| 数字筛选，与bool类型不可混用 |
-| `df.ix[]`  | 混合筛选（不建议用） |
-| `df.filter(items=None,like=None,regex=None, axis=None)` | 筛选方法，like: 字符列表 |
-|`df.query(expr,inplace=False)`|逻辑筛选<br>`df.query('c1=="auto" & c2>=5')`|
+| 索引和切片                                                   | 建议用iloc,loc,ix方法赋值修改                     |
+|:------------------------------------------------------- |:---------------------------------------- |
+| `df['index','columns']`                                 | 筛选（str or num）                           |
+| `df['columns']['index']`                                |                                          |
+| `df['column']`                                          | 返回列Series                                |
+| `df.column`                                             | 返回列Series                                |
+| `df.loc['index']`                                       | 返回行Series                                |
+| `df.iloc[index_num]`                                    | 返回行Series                                |
+| `df.loc['index','columns']`                             | 字符筛选                                     |
+| `df.iloc[index_num,columns_num]`                        | 数字筛选，与bool类型不可混用                         |
+| `df.ix[]`                                               | 混合筛选（不建议用）                               |
+| `df.filter(items=None,like=None,regex=None, axis=None)` | 筛选方法，like: 字符列表                          |
+| `df.query(expr,inplace=False)`                          | 逻辑筛选<br>`df.query('c1=="auto" & c2>=5')` |
 
 ![df](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/python-dataframe.png)
 
-## 方法 
+## 方法
 
 > axis参数：0 ( 'index') 代表行,  1 ('columns')  代表列
 
-| **索引**  |  |
-|:---|:---|
-| df.reindex(index,column,method,fill_value) | 重命名轴索引<br>method:重新索引时缺失插补方式<br>fill_value:重新索引时填充值   |
-| df.rename(index,columns,inplace=False) | 重命名<br>`data.rename(index=str.title, columns=str.upper)`<br>`data.rename(index={'oldname': 'newname'})` 字典赋值参数 |
-|df.set_index(keys, drop=True, append=False, inplace=False)|将其一个或多个列转换为行索引|
-|df.reset_index(level=None, drop=False, inplace=False, col_level=0, col_fill='')|层次化索引级别被转移到列里面|
+| **索引**                                                                          |                                                                                                                |
+|:------------------------------------------------------------------------------- |:-------------------------------------------------------------------------------------------------------------- |
+| df.reindex(index,column,method,fill_value)                                      | 重命名轴索引<br>method:重新索引时缺失插补方式<br>fill_value:重新索引时填充值                                                            |
+| df.rename(index,columns,inplace=False)                                          | 重命名<br>`data.rename(index=str.title, columns=str.upper)`<br>`data.rename(index={'oldname': 'newname'})` 字典赋值参数 |
+| df.set_index(keys, drop=True, append=False, inplace=False)                      | 将其一个或多个列转换为行索引                                                                                                 |
+| df.reset_index(level=None, drop=False, inplace=False, col_level=0, col_fill='') | 层次化索引级别被转移到列里面                                                                                                 |
 
-| **数据预览** |  |
-|:---|:---|
-| df.info()| df 结构信息   |
-| df.head(n=5) |  |
-| df.tail(n=5) |  |
+| **数据预览**     |         |
+|:------------ |:------- |
+| df.info()    | df 结构信息 |
+| df.head(n=5) |         |
+| df.tail(n=5) |         |
 
-| **合并、插入和删除** |  |
-|:---|:---|
-| df.append(other,ignore_index=True) |other:DataFrame,Series,...(列表格式) |
-| df.insert(loc, column, value, allow_duplicates=False)   | 插入列，loc(int)  |
-| df.combine_first(other) | 合并重叠数据   |
-| df.pop(column)   | 删除列，返回删除的列  |
-| df.drop(labels,axis=0,inplace=False) | 删除行/列 |
-| del df[column]  | del关键字删除列|
+| **合并、插入和删除**                                          |                                  |
+|:----------------------------------------------------- |:-------------------------------- |
+| df.append(other,ignore_index=True)                    | other:DataFrame,Series,...(列表格式) |
+| df.insert(loc, column, value, allow_duplicates=False) | 插入列，loc(int)                     |
+| df.combine_first(other)                               | 合并重叠数据                           |
+| df.pop(column)                                        | 删除列，返回删除的列                       |
+| df.drop(labels,axis=0,inplace=False)                  | 删除行/列                            |
+| del df[column]                                        | del关键字删除列                        |
 
-| **描述和汇总统计** |  |
-|:---|:---|
-| df.describe()| 针对0轴统计汇总 |
-| df.mean(axis)| 平均值 |
-| df.median(axis)  |  中位数 |
-| df.count(axis)   |  计数 |
-|df.nunique()|去重后计数|
-| df.quantile(q=0.5, axis=0)|百分位数（默认中位数）|
-| df.mad(axis)|平均绝对离差|
-|df.var(axis)|方差|
-|df.std(axis)|标准差|
-|df.skew(axis)|偏度|
-|df.kurt(axis)|峰度|
-| df.cov(min_periods=None) | 协方差矩阵|
-| df.corr(method='pearson', min_periods=1)| method : {'pearson', 'kendall',  'spearman'} |
-|df.corrwith(other, axis=0, drop=False)|配对相关系数|
-|df.diff(periods=1, axis=0)|一阶差分（对时间序列很有用）|
-|df.pct_change(periods=1, fill_method='pad')|百分数变化|
-| df.sum(axis) |  |
-| df.idmax()/df.idmin()| 最大值/最小值的索引   |
-| df.cumsum(axis)  | 累积求和 |
-| df.cumprod(axis) | 累积求积 |
-| df.cummax(axis)  | 累积最大值|
-| df.cummin(axis)  | 累积最小值|
-| df.rolling(window,axis).mean()   | 移动平均值|
-| df.rolling(window,axis).min()| 移动最小值|
+| **描述和汇总统计**                                 |                                              |
+|:------------------------------------------- |:-------------------------------------------- |
+| df.describe()                               | 针对0轴统计汇总                                     |
+| df.mean(axis)                               | 平均值                                          |
+| df.median(axis)                             | 中位数                                          |
+| df.count(axis)                              | 计数                                           |
+| df.nunique()                                | 去重后计数                                        |
+| df.quantile(q=0.5, axis=0)                  | 百分位数（默认中位数）                                  |
+| df.mad(axis)                                | 平均绝对离差                                       |
+| df.var(axis)                                | 方差                                           |
+| df.std(axis)                                | 标准差                                          |
+| df.skew(axis)                               | 偏度                                           |
+| df.kurt(axis)                               | 峰度                                           |
+| df.cov(min_periods=None)                    | 协方差矩阵                                        |
+| df.corr(method='pearson', min_periods=1)    | method : {'pearson', 'kendall',  'spearman'} |
+| df.corrwith(other, axis=0, drop=False)      | 配对相关系数                                       |
+| df.diff(periods=1, axis=0)                  | 一阶差分（对时间序列很有用）                               |
+| df.pct_change(periods=1, fill_method='pad') | 百分数变化                                        |
+| df.sum(axis)                                |                                              |
+| df.idmax()/df.idmin()                       | 最大值/最小值的索引                                   |
+| df.cumsum(axis)                             | 累积求和                                         |
+| df.cumprod(axis)                            | 累积求积                                         |
+| df.cummax(axis)                             | 累积最大值                                        |
+| df.cummin(axis)                             | 累积最小值                                        |
+| df.rolling(window,axis).mean()              | 移动平均值                                        |
+| df.rolling(window,axis).min()               | 移动最小值                                        |
 
-| **缺失值处理**| NaN（np.nan, Not a Number）  |
-|:---|:---|
-| df.isnull()  | 缺失值bool数组|
-| df.notnull() |  |
-| df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False)  | how:{'any','all'}<br> thresh: int,非NaN的最小值|
-| df.fillna(value, method, axis, inplace=False, limit) | value:填充的标量值或字典<br>method :  {'backfill', 'bfill', 'pad', 'ffill', None} <br>limit: 可以连续填充的最大数量 |
+| **缺失值处理**                                                             | NaN（np.nan, Not a Number）                                                                       |
+|:--------------------------------------------------------------------- |:----------------------------------------------------------------------------------------------- |
+| df.isnull()                                                           | 缺失值bool数组                                                                                       |
+| df.notnull()                                                          |                                                                                                 |
+| df.dropna(axis=0, how='any', thresh=None, subset=None, inplace=False) | how:{'any','all'}<br> thresh: int,非NaN的最小值                                                      |
+| df.fillna(value, method, axis, inplace=False, limit)                  | value:填充的标量值或字典<br>method :  {'backfill', 'bfill', 'pad', 'ffill', None} <br>limit: 可以连续填充的最大数量 |
+
 ```python
 df.dropna(thresh=4)
 df.dropna(axis=1, how='all')
@@ -216,42 +232,42 @@ df.fillna(method='ffill')
 df.fillna(value={'A':np.mean(df.A), 'B': 1, 'C': 2, 'D': 3}, limit=1)
 ```
 
+| **替换**                                                                                         |     |
+|:---------------------------------------------------------------------------------------------- |:--- |
+| df.replace(to_replace, value, inplace=False, limit=None, regex=False, method='pad', axis=None) |     |
 
-|**替换**||
-|:---|:---|
-|df.replace(to_replace, value, inplace=False, limit=None, regex=False, method='pad', axis=None)||
 ```python
 data.replace([-999, -1000], [np.nan, 0]`)
 data.replace({-999: np.nan, -1000: 0})   #参数为字典
 ```
 
-| **数据转换**|   |
-|:---|:---|
-| df.transform(func)   | 数据转换，返回的形状和df完全一样<br>`df.transform(lambda x: (x - x.mean()) / x.std())`|
-| df.astype(dtype,copy=False)   | 数据类型转换|
-| df['column'].str.title()  | 转换成首字母大写（字符的属性和方法对pandas适用） |
-| df['datetime'].dt.day | 获取日期（datetime类的属性和方法对pandas适用） |
-| df.round() | 保留小数位数 |
+| **数据转换**                    |                                                                         |
+|:--------------------------- |:----------------------------------------------------------------------- |
+| df.transform(func)          | 数据转换，返回的形状和df完全一样<br>`df.transform(lambda x: (x - x.mean()) / x.std())` |
+| df.astype(dtype,copy=False) | 数据类型转换                                                                  |
+| df['column'].str.title()    | 转换成首字母大写（字符的属性和方法对pandas适用）                                             |
+| df['datetime'].dt.day       | 获取日期（datetime类的属性和方法对pandas适用）                                          |
+| df.round()                  | 保留小数位数                                                                  |
 
-|**重复值**|默认判断全部列|
-|:---|:---|
-|df.duplicated(subset=None, keep='first',inplace=False)|返回重复值布尔型Series<br>keep : {'first', 'last', False}|
-|df.drop_duplicates(subset=None, keep='first', inplace=False)||
+| **重复值**                                                      | 默认判断全部列                                           |
+|:------------------------------------------------------------ |:------------------------------------------------- |
+| df.duplicated(subset=None, keep='first',inplace=False)       | 返回重复值布尔型Series<br>keep : {'first', 'last', False} |
+| df.drop_duplicates(subset=None, keep='first', inplace=False) |                                                   |
 
-| **排序**   |  |
-|:---|:---|
-| df.sort_index(axis=0,ascending=True)| 索引排序 |
-| df.sort_values(by,axis=0,ascending=True)| 按列数值排序   |
-| df.rank(axis=0,method='average',ascending=True)| 排名，method : {'average', 'min', 'max', 'first', 'dense'}  |
+| **排序**                                          |                                                         |
+|:----------------------------------------------- |:------------------------------------------------------- |
+| df.sort_index(axis=0,ascending=True)            | 索引排序                                                    |
+| df.sort_values(by,axis=0,ascending=True)        | 按列数值排序                                                  |
+| df.rank(axis=0,method='average',ascending=True) | 排名，method : {'average', 'min', 'max', 'first', 'dense'} |
 
-| **抽样**   |  |
-|:---|:---|
-| df.sample(n, frac, replace=False)| 随机抽样 |
+| **抽样**                            |      |
+|:--------------------------------- |:---- |
+| df.sample(n, frac, replace=False) | 随机抽样 |
 
-| **轴向旋转** |  |
-|:---|:---|
-| df.stack(level=-1, dropna=True)   | 把最内层列转换成行   |
-| df.unstack(level=-1, fill_value=None) | stack逆运算，把行转换成最内层列   |
+| **轴向旋转**                              |                    |
+|:------------------------------------- |:------------------ |
+| df.stack(level=-1, dropna=True)       | 把最内层列转换成行          |
+| df.unstack(level=-1, fill_value=None) | stack逆运算，把行转换成最内层列 |
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/reshaping_stack.png)
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/reshaping_unstack.png)
@@ -259,20 +275,20 @@ data.replace({-999: np.nan, -1000: 0})   #参数为字典
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/reshaping_unstack_0.png)
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/reshaping_unstack_1.png)
 
-|**融合和重构**||
-|:---|:---|
-|pd.melt(frame, id_vars, value_vars, var_name, value_name='value', col_level=None)|宽格式变长格式|
-|df.pivot(index=None, columns=None, values=None)|reshape|
-| df.apply(func,axis=0)| 单函数聚合|
+| **融合和重构**                                                                         |         |
+|:--------------------------------------------------------------------------------- |:------- |
+| pd.melt(frame, id_vars, value_vars, var_name, value_name='value', col_level=None) | 宽格式变长格式 |
+| df.pivot(index=None, columns=None, values=None)                                   | reshape |
+| df.apply(func,axis=0)                                                             | 单函数聚合   |
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/reshaping_melt.png)
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/reshaping_pivot.png)
 
-|**分组和聚合**|(介绍分组时举例)|
-|:---|:---|
-|df.groupby()|分组|
-| df.applymap(func)| 映射至每个元素  |
-| df.agg(func,axis=0)  | 多函数聚合|
+| **分组和聚合**           | (介绍分组时举例) |
+|:------------------- |:--------- |
+| df.groupby()        | 分组        |
+| df.applymap(func)   | 映射至每个元素   |
+| df.agg(func,axis=0) | 多函数聚合     |
 
 ```python
 import numpy as np
@@ -288,44 +304,45 @@ Out[10]:
 
 **透视表**
 `df.pivot_table(values=None, index=None, columns=None, aggfunc='mean', fill_value=None, margins=False, dropna=True, margins_name='All')` 
-> margins: (boolean, default False) 分类汇总 
 
+> margins: (boolean, default False) 分类汇总 
 
 # Index对象
 
 ## 创建索引
 
 - index
-
-   ```python
-   pd.Index(data=None, dtype=None, copy=False, name=None)
-   ```
-
-   > dtype : NumPy dtype (default: object)
+  
+  ```python
+  pd.Index(data=None, dtype=None, copy=False, name=None)
+  ```
+  
+  > dtype : NumPy dtype (default: object)
 
 - periods
-   ```python
-   pd.date_range(start, end, periods, freq='D', normalize=False, name=None)
-   pd.DatetimeIndex(data, freq, start, end, periods, copy=False, name)
-   ```
-
+  
+  ```python
+  pd.date_range(start, end, periods, freq='D', normalize=False, name=None)
+  pd.DatetimeIndex(data, freq, start, end, periods, copy=False, name)
+  ```
 
 ## Index方法
 
-| 方法   |  |
-|:---|:---|
-|a.to_frame()|转化为DataFrame|
-|a.to_series()|转化为series|
-| a.append(b)  | 追加，生成副本  |
-| a.difference(b)  | 差集，生成副本  |
-| a.intersec(b)| 交集，生成副本  |
-| a.union(b)   | 并集，生成副本  |
-| a.isin(b)| 返回bool数组 |
-| a.delete(loc)| 删除索引loc处元素，生成副本  |
-| a.insert(loc,item)   | 在索引loc出插入元素iterm，生成副本|
-|a.is_unique()|索引是否唯一|
+| 方法                 |                       |
+|:------------------ |:--------------------- |
+| a.to_frame()       | 转化为DataFrame          |
+| a.to_series()      | 转化为series             |
+| a.append(b)        | 追加，生成副本               |
+| a.difference(b)    | 差集，生成副本               |
+| a.intersec(b)      | 交集，生成副本               |
+| a.union(b)         | 并集，生成副本               |
+| a.isin(b)          | 返回bool数组              |
+| a.delete(loc)      | 删除索引loc处元素，生成副本       |
+| a.insert(loc,item) | 在索引loc出插入元素iterm，生成副本 |
+| a.is_unique()      | 索引是否唯一                |
 
 ## 层次化索引
+
 层次化索引（hierarchical indexing）是pandas的一项重要功能，它使你能在一个轴上拥有多个（两个以上）索引级别。
 |创建| |
 |:---|:---|
@@ -333,7 +350,6 @@ pd.MultiIndex(levels=None, labels=None, sortorder=None, names=None, copy=False)|
 pd.MultiIndex.from_arrays(arrays, sortorder=None, names=None) |由数组创建
 pd.MultiIndex.from_product(iterables, sortorder=None, names=None) |生成笛卡儿积
 pd.MultiIndex.from_tuples(tuples, sortorder=None, names=None)|
-
 
 ```python
 columns = pd.MultiIndex.from_arrays([['US', 'US', 'US', 'JP', 'JP'],
@@ -365,17 +381,17 @@ obj.groupby(by=None, axis=0, level=None, as_index=True,
 ```
 
 > **Return GroupBy object**
-Parameters: 
-**by** : (mapping, function, str, or iterable) 分组
-**axis** :(int, default 0) 索引轴
-**level** :(int, level name, or sequence of such) 根据层次化索引级别分组
-**as_index** : (boolean, default True) 以行索引形式返回
-**sort** : (boolean, default True) 索引排序
-**group_keys** : (boolean, default True)
-**squeeze** : (boolean, default False) 减少返回类型的维度
-
+> Parameters: 
+> **by** : (mapping, function, str, or iterable) 分组
+> **axis** :(int, default 0) 索引轴
+> **level** :(int, level name, or sequence of such) 根据层次化索引级别分组
+> **as_index** : (boolean, default True) 以行索引形式返回
+> **sort** : (boolean, default True) 索引排序
+> **group_keys** : (boolean, default True)
+> **squeeze** : (boolean, default False) 减少返回类型的维度
 
 Examples:
+
 ```python
 df = pd.DataFrame({'key1' : ['a', 'a', 'b', 'b', 'a'],
                    'key2' : ['one', 'two', 'one', 'two', 'one'],
@@ -405,7 +421,8 @@ df2=df.set_index(['key1','key2'])
 df2.groupby(level='key1').mean()
 ```
 
-##  对分组进行迭代
+## 对分组进行迭代
+
 GroupBy对象支持迭代，可以产生一组二元元组（由分组名和数据块组成），对于多重键的情况，元组的第一个元素将会是由键值组成的元组。
 
 ```python
@@ -418,18 +435,19 @@ for (k1, k2), group in df.groupby(['key1', 'key2']):
      print(group)
 ```
 
-
 ## 数据聚合(GroupBy对象)
+
 不能被聚合的列，将会被剔除。
 `grouped=df.groupby(key)`
 
-| **聚合方法**| 说明（非NA值） |
-|:---|:---|
-|size|每组的大小（包括NA）|
-|count, sum, prod, mean, median||
-|std, var|无偏标准差和方差|
-|min, max||
-|first, last|第一个和最后一个|
+| **聚合方法**                       | 说明（非NA值）    |
+|:------------------------------ |:----------- |
+| size                           | 每组的大小（包括NA） |
+| count, sum, prod, mean, median |             |
+| std, var                       | 无偏标准差和方差    |
+| min, max                       |             |
+| first, last                    | 第一个和最后一个    |
+
 ```python
 # SELECT count(distinct CLIENTCODE) FROM table GROUP BY YEARMONTH
 table.groupby('YEARMONTH').CLIENTCODE.nunique()
@@ -437,6 +455,7 @@ table.groupby('YEARMONTH').CLIENTCODE.nunique()
 
 **apply聚合方法**: 调用任意函数 split-apply-combine（拆分－应用－合并）
 `grouped.apply(func, *args, **kwargs)`
+
 ```python
 def top(df, n=5, column):
      return df.sort_values(by=column)[-n:]
@@ -446,13 +465,15 @@ df.groupby(['key1', 'key2']).apply(top, n=1, column='data1')
 **agg聚合方法**
 
 `grouped.agg(arg)`
+
 > **Parameters: arg**(聚合函数)
 > string function name
- > function, list of functions
- >  rename:  `[(name1,func1),(name2,func2),...] `
- >   dict of column names: `{'colname1':func1, 'colname2':func2,...}`
+> function, list of functions
+>  rename:  `[(name1,func1),(name2,func2),...] `
+>   dict of column names: `{'colname1':func1, 'colname2':func2,...}`
 
 Examples:
+
 ```python
 # 函数，函数名混合列表
 grouped.agg(['mean', 'std', sum])
@@ -464,7 +485,9 @@ iris.groupby('Species')['Sepal.Length'].agg({'count':len,'sum':np.sum,'mean':np.
 ```
 
 ## 桶(bucket)分析
+
 pandas有一些能根据指定面元或样本分位数将数据拆分成多块的工具（比如cut和qcut），将这些函数跟groupby结合起来分析。
+
 ```python
 In [82]: frame = pd.DataFrame({'data1': np.random.randn(1000),
    ....:                       'data2': np.random.randn(1000)})
@@ -483,7 +506,9 @@ data1
 ```
 
 ## 示例
+
 **用特定于分组的值填充缺失值**
+
 ```python
 In [102]: fill_mean = lambda g: g.fillna(g.mean())
 In [103]: data.groupby(group_key).apply(fill_mean)
@@ -492,7 +517,9 @@ In [104]: fill_values = {'A': 0.5, 'B': -1}
 In [105]: fill_func = lambda g: g.fillna(fill_values[g.name])
 In [106]: data.groupby(group_key).apply(fill_func)
 ```
+
 **随机采样和排列**
+
 ```python
 # Hearts, Spades, Clubs, Diamonds
 In [103   ]: suits = ['H', 'S', 'C', 'D']
@@ -509,7 +536,9 @@ In [109]: def draw(deck, n=5):
 In [111]: get_suit = lambda card: card[-1] # last letter is suit
 In [112]: deck.groupby(get_suit).apply(draw, n=2)
 ```
+
 **分组加权平均数**
+
 ```python
 In [114]: df = pd.DataFrame({'category': ['a', 'a', 'a', 'a',
    .....:                                 'b', 'b', 'b', 'b'],
@@ -521,6 +550,7 @@ In [118]: grouped.apply(get_wavg)
 ```
 
 **组级别的线性回归**
+
 ```python
 import statsmodels.api as sm
 def regress(data, yvar, xvars):
@@ -533,7 +563,6 @@ def regress(data, yvar, xvars):
 In [129]: by_year.apply(regress, 'AAPL', ['SPX'])
 ```
 
-
 # 分类数据
 
 用整数表示字符数据的方法称为分类或字典编码表示法。表示分类的整数值称为分类编码或简单地称为编码。
@@ -542,6 +571,7 @@ In [129]: by_year.apply(regress, 'AAPL', ['SPX'])
 
 - **`df.take`方法**
   `df.take(indices, axis=0, convert=True, is_copy=True, **kwargs)`
+  
   > **Parameters：**
   > indices : (list / array of ints) 字符变量
   > axis : int, default 0
@@ -557,12 +587,12 @@ cat=factor.take(values)
 - **`pd.Categorical`函数**
   `pd.Categorical(values, categories=None, ordered=False, fastpath=False)`
   `pd.Categorical.from_codes(codes, categories, ordered=False)`
+  
   > **Parameters:**
   > values : (list-like) 字符变量
   > codes: (array-like, integers) 编码变量
   > categories : Index-like (unique, optional) 类别标签
   > ordered : boolean, (default False) 有序
-  
 
 ```python
 my_cats = pd.Categorical(['foo', 'bar', 'baz', 'foo', 'bar'])
@@ -573,42 +603,44 @@ my_cats2 = pd.Categorical.from_codes(codes, categories)
 ```
 
 - **astype方法**
-`df['col'].astype('category')`
+  `df['col'].astype('category')`
 
 ## pd.Categorical对象属性
+
 `my_cat = pd.Categorical(values)`
 `my_cat.values.categories` : (Index) 类别
 `my_cat.values.codes` : (ndarray) 编码
 `my_cat.values.ordered` : boolean
 
-
 ## 分类方法
+
 `my_cat = pd.Categorical(values)`
 `pd.Categorical` 对象的cat属性提供了分类方法的入口
 
-|方法（`my_cat.cat` 属性）| 说明 |
-|:---|:---|
-|add_categories(new_categories, inplace=False)|添加新的分类
-|as_ordered(inplace=False)|使分类有序
-|as_unordered(inplace=False)|使分类无序
-|remove_categories(removals, inplace=False)|移除分类
-|remove_unused_categories(inplace=False)|移除任意不出现在数据中的分类
-|rename_categories(new_categories, inplace=False)|重命名分类
-|reorder_categories(new_categories, ordered=None, inplace=False)|重排序分类
-|set_categories(new_categories, ordered=None, rename=False, inplace=False)|重新设置分类
-
+| 方法（`my_cat.cat` 属性）                                                       | 说明             |
+|:------------------------------------------------------------------------- |:-------------- |
+| add_categories(new_categories, inplace=False)                             | 添加新的分类         |
+| as_ordered(inplace=False)                                                 | 使分类有序          |
+| as_unordered(inplace=False)                                               | 使分类无序          |
+| remove_categories(removals, inplace=False)                                | 移除分类           |
+| remove_unused_categories(inplace=False)                                   | 移除任意不出现在数据中的分类 |
+| rename_categories(new_categories, inplace=False)                          | 重命名分类          |
+| reorder_categories(new_categories, ordered=None, inplace=False)           | 重排序分类          |
+| set_categories(new_categories, ordered=None, rename=False, inplace=False) | 重新设置分类         |
 
 ## 为建模创建虚拟变量
+
 **one-hot编码**：将分类变量转换为哑变量
 `pd.get_dummies(data, prefix=None, prefix_sep='_', dummy_na=False, columns=None, sparse=False, drop_first=False)`
-  > **Parameters:**
-  > data : (array-like, Series, or DataFrame) 数据
-  > prefix : (string, list of strings, or dict of strings) 列名
-  > prefix_sep : (string) 列名分隔符
-  > dummy_na : (bool) 是否删除NA
-  > columns : (list-like) 选择列
-  > sparse : bool, default False
-  > drop_first : (bool) 去除第一个类别
+
+> **Parameters:**
+> data : (array-like, Series, or DataFrame) 数据
+> prefix : (string, list of strings, or dict of strings) 列名
+> prefix_sep : (string) 列名分隔符
+> dummy_na : (bool) 是否删除NA
+> columns : (list-like) 选择列
+> sparse : bool, default False
+> drop_first : (bool) 去除第一个类别
 
 ```python
 In : s = pd.Series(list('abca'))
@@ -626,47 +658,46 @@ Out :
 ` import matplotlib.pyplot as plt`
 `df.plot()`
 
-参数|说明
-:---|:---
-label|图例标签
-ax|matplotlib subplot对象（位置）
-style|matploblib风格
-alpha|图表的透明度
-kind|{'line','bar','barh','kde'}
-use_index|将对象的索引用作刻度标签
-rot|旋转刻度标签（0：360）
-xsticks/ysticks|x/y刻度
-xlim/ylim|x/y界限
-grid|显示网格线
+| 参数              | 说明                          |
+|:--------------- |:--------------------------- |
+| label           | 图例标签                        |
+| ax              | matplotlib subplot对象（位置）    |
+| style           | matploblib风格                |
+| alpha           | 图表的透明度                      |
+| kind            | {'line','bar','barh','kde'} |
+| use_index       | 将对象的索引用作刻度标签                |
+| rot             | 旋转刻度标签（0：360）               |
+| xsticks/ysticks | x/y刻度                       |
+| xlim/ylim       | x/y界限                       |
+| grid            | 显示网格线                       |
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/04_plot_overview.svg)
 
+| 可视化                                |                                |
+|:---------------------------------- | ------------------------------ |
+| s.hist(bins)                       | 直方图                            |
+| s.plot.kde()/s.plot.density()      | Kernel Density Estimate，核密度估计） |
+| df.plot.bar(stacked)               | 条形图（参数stacked=True设置堆叠）        |
+| df.plot.barh(stacked)              | 水平条形图                          |
+| df.plot.line(x,y)                  | 线图                             |
+| df.plot.scatter(x,y,s=None,c=None) | 散点图，s(size)，c(color)           |
+| df.plot.hexbin(x, y, C=None)       | 六角形分箱图                         |
+| df.plot.hist(bins)                 | bins指定直方图宽度                    |
+| df.plot.box(by)                    | 箱线图                            |
+| df.plot.area(x,y)                  |                                |
+| df.plot.pie(y)                     |                                |
 
-| 可视化 |  |
-|:---|---|
-| s.hist(bins)| 直方图 |
-|s.plot.kde()/s.plot.density()|Kernel Density Estimate，核密度估计）|
-| df.plot.bar(stacked) | 条形图（参数stacked=True设置堆叠）  |
-| df.plot.barh(stacked)| 水平条形图|
-|  df.plot.line(x,y)|线图|
-| df.plot.scatter(x,y,s=None,c=None) | 散点图，s(size)，c(color)  |
-|df.plot.hexbin(x, y, C=None)|六角形分箱图
-| df.plot.hist(bins)   | bins指定直方图宽度  |
-| df.plot.box(by)| 箱线图 |
-| df.plot.area(x,y)   |  |
-| df.plot.pie(y)   |  |
+| Plotting Tools函数       | import pandas.plotting |
+|:---------------------- | ---------------------- |
+| scatter_matrix()       | 散点图矩阵                  |
+| andrews_curves()       | Andrews Curves         |
+| Parallel Coordinates() | 平行坐标                   |
+| lag_plot()             | 滞积                     |
+| autocorrelation_plot() | 自相关图                   |
+| bootstrap_plot()       | Bootstrap              |
+| radviz()               |                        |
 
-|Plotting Tools函数|import pandas.plotting |
-|:---|---|
-|scatter_matrix()|散点图矩阵|
-|andrews_curves()|Andrews Curves|
-|Parallel Coordinates()|平行坐标|
-|lag_plot()|滞积|
-|autocorrelation_plot()|自相关图|
-|bootstrap_plot()|Bootstrap|
-|radviz()||
-
-# Pandas函数 
+# Pandas函数
 
 NumPy的ufuncs（元素级数组函数）也可用于操作pandas对象（例如`np.abs(df)`）
 
@@ -698,41 +729,42 @@ with ExcelWriter('foo.xlsx') as writer:
 
 **MemoryError问题**：
 
-Pandas的read函数提供2个参数实现分块读取的功能，也就是不会一次性把所有的数据都放到内存中来，而是分块读到内存中，最后再将块合并到一起，形成一个完整的DataFrame。
+Pandas的read函数提供2个参数实现分块读取的功能，也就是不会一次性把所有的数据都放到内存中来，而是分块读到内存中。
 
-- 参数chunksize，通过指定一个chunksize分块大小来读取文件，返回的是一个可迭代的对象TextFileReader，以便逐块处理
-- 指定参数iterator=True 也可以返回一个可迭代对象TextFileReader
+参数chunksize，通过指定分块大小来读取文件，返回的是一个可迭代的对象TextFileReader，以便逐块处理
 
 ```python
-import pandas as pd
-
-# 建立可迭代对象 reader
-reader = pd.read_csv('filePath', sep=',',engine = 'python',iterator=True)
-# 循环读取分块
-loop = True  
-chunks = []
-print('reading...')
-while loop:
-    try:
-        chunk = reader.get_chunk(chunkSize = 100000)
-        chunks.append(chunk)
-    except StopIteration:
-        loop = False
-        print("Iteration is stopped.")
-print('concat chunks ...')
-df = pd.concat(chunks, ignore_index= True)
+chunks = pd.read_csv(path_to_file,engine = 'python',chunksize = 1000)
+for chunk in chunks:
+  print(chunk.shape)
 ```
+
+指定参数 iterator=True 也可以返回一个可迭代对象TextFileReader
+
+```python
+chunks = pd.read_csv(path_to_file,engine = 'python',iterator=True)
+while True:
+    try:
+        chunk = chunks.get_chunk(size = 1000)
+        print(chunk.shape)
+    except StopIteration:
+        sys.exit()
+```
+
+get_chunk 方法等价于next函数，迭代结束后会抛出StopIteration异常。
 
 ## 合并和匹配
 
 `pd.concat(objs, axis=0, join='outer',ignore_index=False,keys=None)` 
 pandas合并,自动匹配
+
 > keys:层次化索引
 > join:{'inner','outer'}
 > ignore_index：重新生成索引   |
 
 `pd.merge(left,right,how='inner',on=None,indicator,suffixes=('_x', '_y'),left_index,right_index)` 
 pandas匹配
+
 > how:{'left','right','inner','outer'}
 > indicator:{'left_only','right_only','both'}
 > suffixes：列名前缀
@@ -789,15 +821,15 @@ pd.pivot_table(data, values=None, index=None, columns=None, aggfunc='mean',
 ```
 
 > Parameters:
-**data** : DataFrame
-**values** : 要聚合的列（可选）
-**index** : 分组的列名或其他分组键，透视表的行
-**columns** : 分组的列名或其他分组键，透视表的列
-**aggfunc** : 聚合函数或函数列表，可以是任何对groupby有效的函数
-**fill_value** : 替换表中的缺失值
-**margins** : boolean, 分类汇总
-**dropna** : boolean, default True
-**margins_name** : string, default 'All', 分类汇总名字
+> **data** : DataFrame
+> **values** : 要聚合的列（可选）
+> **index** : 分组的列名或其他分组键，透视表的行
+> **columns** : 分组的列名或其他分组键，透视表的列
+> **aggfunc** : 聚合函数或函数列表，可以是任何对groupby有效的函数
+> **fill_value** : 替换表中的缺失值
+> **margins** : boolean, 分类汇总
+> **dropna** : boolean, default True
+> **margins_name** : string, default 'All', 分类汇总名字
 
 ## 交叉表(cross-tabulation)
 
@@ -807,23 +839,57 @@ pd.crosstab(index, columns, values=None, rownames=None, colnames=None,
 ```
 
 > Parameters:
-**index** : array-like, Series, or list of arrays/Series
-**columns** : array-like, Series, or list of arrays/Series
-**values** : array-like, optional
-**aggfunc** : function, optional
-**rownames** : sequence, default None
-**colnames** : sequence, default None
-**margins** : boolean, default False
-**dropna** : boolean, default True
-**normalize** : boolean, {'all', 'index', 'columns'}, or {0,1}, default False
-    Normalize by dividing all values by the sum of values.
+> **index** : array-like, Series, or list of arrays/Series
+> **columns** : array-like, Series, or list of arrays/Series
+> **values** : array-like, optional
+> **aggfunc** : function, optional
+> **rownames** : sequence, default None
+> **colnames** : sequence, default None
+> **margins** : boolean, default False
+> **dropna** : boolean, default True
+> **normalize** : boolean, {'all', 'index', 'columns'}, or {0,1}, default False
+>     Normalize by dividing all values by the sum of values.
 
-   - If passed 'all' or `True`, will normalize over all values.
-   - If passed 'index' will normalize over each row.
-   - If passed 'columns' will normalize over each column.
-   - If margins is `True`, will also normalize margin values.
+- If passed 'all' or `True`, will normalize over all values.
+- If passed 'index' will normalize over each row.
+- If passed 'columns' will normalize over each column.
+- If margins is `True`, will also normalize margin values.
 
-# 链式编程技术
+## pd.to_numberic
+
+```py
+pd.to_numeric(arg, errors='raise', downcast=None)
+```
+
+将字符型数字转化为数字类型，默认返回dtype为float64或int64， 具体取决于提供的数据。可以使用downcast参数获取其他dtype。
+
+```python
+>>> import pandas as pd  
+>>> s = pd.Series(['1.0', '2', -3])
+>>> pd.to_numeric(s)
+0    1.0
+1    2.0
+2   -3.0
+dtype: float64
+>>> df = pd.DataFrame({'A': [1, 2, 3, 4, 5],
+...                    'B': ['a', 'b', 'c', 'd', 'e'],
+...                    'C': ['1.1', '1.0', '1.3', '2', '5'] })  
+>>> cols = df.columns.drop('B')
+>>> df[cols] = df[cols].apply(pd.to_numeric, errors='coerce')
+>>> df.dtypes
+A      int64
+B     object
+C    float64
+dtype: object
+```
+
+如果要选择所有string(object)列，请使用以下简单技巧：
+
+```python
+cols = df.columns[df.dtypes == 'object']
+```
+
+# Pipeline
 
 ```python
 df.pipe(func, *args, **kwargs)   # df.pipe(f)等价于f(df)
@@ -835,8 +901,3 @@ df.pipe(func, *args, **kwargs)   # df.pipe(f)等价于f(df)
     .pipe(f, arg2=b, arg3=c)
 ) # 加外括号便于换行
 ```
-
-
-
-
-

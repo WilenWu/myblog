@@ -17,31 +17,12 @@ swiper_index: 1
 
 **Markdown**是一种轻量级**标记语言**，它以纯文本形式编写文档，易读（看起来舒服）、易写（语法简单）、易更改，并最终以HTML格式发布。由于markdown没有明确指定语法，随着编译器不一样，实现方式有很大差异。GitHub Flavored Markdown(GFM) 是GitHub基于CommonMark，正式规范了markdown的语法和语义。
 
-<!-- more -->
-
 # 编辑器推荐
-
-## Markdown In browser
-
-- [~~StackEdit~~](https://stackedit.io/app):  markdown editor
-- [Modoko](https://www.madoko.net/): Write Beautiful Documents
-- [~~Markdown Here~~](https://markdown-here.com/):   这是一个Chrome浏览器插件
-- [马克飞象](https://maxiang.io/): 专为印象笔记打造的Markdown编辑器（付费）
-- [小书匠](http://markdown.xiaoshujiang.com/): 支持第三方数据存储集成(evernote,印象笔记,github,dropbox等)。
-
-## Markdown Client
 
 - [Typora](https://typoraio.cn/) (Win+Mac+Linux) : What You See Is What You Get
 - [Mou](http://25.io/mou/) (Mac): Markdown editor for developers.
 - [Bear](http://www.bear-writer.com/)(Mac): Write beautifully on iPhone, iPad, and Mac
-- [~~MarkdownPad~~](http://markdownpad.com/)(Windows): MarkdownPad is a full-featured Markdown editor for Windows
-- [MarkPad](http://code52.org/MarkPadRT/): Markdown works better with MarkPad
-
-## Text Editor
-
-- [Atom](https://atom.io/) (all): A hackable text editor for the 21st Century
-- [Sublime Text](http://www.sublimetextcn.com/)  (all): 是程序员圈子里口口相传的「神器」级代码编辑器
-- [~~Notepad++~~](https://notepad-plus-plus.org/zh/) (Windows): Windows强大的轻量级文本编辑器
+- [MarkText](https://www.marktext.cc)(Win+Mac+Linux): Simple and Elegant Markdown Editor.
 
 # [Markdown语法](https://help.github.com/cn/categories/writing-on-github)
 

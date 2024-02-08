@@ -25,13 +25,19 @@ DataFrame的一个主要优点是，Spark引擎一开始就构建了一个逻辑
 
 ```python
 from pyspark.sql import SparkSession
-spark=SparkSession \
+spark = SparkSession \
    .builder \
 	 .enableHiveSupport() \
-   .appName('test') \
+   .appName('myApp') \
    .config('master','yarn') \
+	 .config('spark.driver.memory','2g') \
+	 .config('spark.driver.memoryOverhead','1g') \
+	 .config('spark.executor.memory','2g') \
+	 .config('spark.executor.memoryOverhead','1g') \
+	 .config('spark.driver.cores','2') \
+   .config('spark.executor.cores','2') \
    .getOrCreate()
-sc=spark.sparkContext
+sc = spark.sparkContext
 ```
 Spark 交互式环境下，默认已经创建了名为 spark 的 SparkSession 对象，不需要自行创建。
 

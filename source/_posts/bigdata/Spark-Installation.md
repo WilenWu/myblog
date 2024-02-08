@@ -6,7 +6,7 @@ categories:
 tags:
   - 大数据
   - Spark
-cover: /img/apache-spark-overview.png
+cover: /img/spark-install.jpg
 top_img: /img/apache-spark-top-img.svg
 abbrlink: d02a6da3
 date: '2024-01-15 22:00:00'
@@ -57,15 +57,11 @@ ln -s /usr/local/spark-3.5.0-bin-hadoop3 spark
 
 # Local 模式配置
 
-编辑配置文件 `vi ./conf/spark-env.sh`，添加以下配置信息：
+要先确保已配置hadoop环境变量 `vi ~/.zshrc`
 
 ```sh
-# 已有Hadoop集群时配置
-export HADOOP_HOME=/usr/local/hadoop
-export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
+export HADOOP_CONF_DIR=${HADOOP_HOME}/etc/hadoop
 ```
-
-配置完成后就可以直接使用，不需要像Hadoop运行启动命令。
 
 通过运行Spark自带的示例，验证Spark是否安装成功。执行时会输出非常多的运行信息，输出结果不容易找到，可以通过 grep 命令进行过滤.
 
@@ -105,19 +101,20 @@ Spark context available as sc.
 
 # 配置pyspark包
 
-将 `$SPARK_HOME/python/lib` 下的 py4j 和 pyspark 两个压缩包解压后放到python的包安装路径下（一般为sīte-pages文件夹），则可在一般python环境中加载 pyspark
+由于pyspark包不在python包管理路径下，在本地python环境中无法加载 pyspark，我们可以通过以下方法配置：
+
+方法一：可以在python环境变量中增加包的安装路径，也能正常加载
 
 ```sh
-$ python # 启动python
->>> from pyspark.sql import SparkSession
->>> spark=SparkSession \
->>>    .builder \
->>>    .enableHiveSupport() \
->>>    .appName('pyspark') \
->>>    .config('master','yarn') \
->>>    .getOrCreate()
->>> sc=spark.sparkContext
+# 将pyspark路径加载到python环境变量中
+vi ~/.zshrc
+# 然后将下面的语句添加到文件末尾
+export PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
+# 重新加载
+source ~/.zshrc
 ```
+
+方法二：将 `$SPARK_HOME/python/lib` 下的 py4j 和 pyspark 两个压缩包解压后放到python的包安装路径下（一般为sīte-pages文件夹），则可在一般python环境中加载 pyspark
 
 # 连接外置hive数仓
 

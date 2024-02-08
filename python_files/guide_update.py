@@ -8,6 +8,7 @@ import argparse
 import datetime
 import yaml 
 import numpy as np 
+import zlib
 
 #------------------------------ 参数获取
 parser = argparse.ArgumentParser(description='更新目录文件')
@@ -105,7 +106,13 @@ for addr, dirs, files in os.walk(posts_dir,topdown=False):
         title = re.sub('Python ?手册\(.+?\)--', '', title)
         title = re.sub('大数据手册 ?\(.+?\)--', '', title)
         # 读取 front_matter 信息
-        abbrlink = front_matter['abbrlink']
+        try:
+            abbrlink = front_matter['abbrlink']
+        except:
+            post_id = datetime.now().isoformat() + title
+            crc32 = zlib.crc32(post_id.encode('utf-8'))
+            print(f'请更新文章「{post_url}」的 abbrlink = {hex(crc32)}')
+            continue
         url = f'/posts/{abbrlink}/'
         cat_name = ', '.join(front_matter['categories'][:2])
         desc = front_matter.get('description')

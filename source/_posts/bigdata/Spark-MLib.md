@@ -193,7 +193,7 @@ dataStandardized=pipeline.fit(df).transform(df)
 
 **加载数据**：以 iris 数据集为例
 ```python
->>> import pyspark.feature as ft
+>>> import pyspark.ml.feature as ft
 >>> df = spark.read.csv("iris.csv.gz",header=True)
 >>> df.show(5)
 +------+------------+-----------+------------+-----------+-------+  

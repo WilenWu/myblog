@@ -32,10 +32,7 @@ category_dir: categories     # 类别页所在的文件夹
 code_dir: downloads/code     # 代码页所在的文件夹(根目录 
 i18n_dir: :lang              # 国际语言所在的文件夹
 skip_render:                 # 忽略文档(根目录 source_dir/)，不做改动地输出到 public 目录
-  - "docs/**"
-  - "_drafts/**"
-  - "python_files/**"
-  - "references/**"
+  - "HTML/**"
 
 
 # Writing
@@ -190,22 +187,6 @@ baidu_url_submit:
   host: wilenwu.gitee.io            # 在百度站长平台中注册的域名
   token: P8wBelFwcBp0yS8z           # 秘钥，百度站长平台 > 普通收录 > 接口调用地址中token字段
   path: baidu_urls.txt              # 文本文档的地址， 新链接会保存在此文本文档里，不用改
-
-
-# abbrlink config
-abbrlink:
-  alg: crc32      #support crc16(default) and crc32
-  rep: hex        #support dec(default) and hex
-  drafts: false   #(true)Process draft,(false)Do not process draft. false(default) 
-  # Generate categories from directory-tree
-  # depth: the max_depth of directory-tree you want to generate, should > 0
-  auto_category:
-     enable: true  #true(default)
-     depth:        #3(default)
-     over_write: false 
-  auto_title: false #enable auto title, it can auto fill the title by path
-  auto_date: false #enable auto date, it can auto fill the date by time today
-  force: false #enable force mode,in this mode, the plugin will ignore the cache, and calc the abbrlink for every post even it already had abbrlink.
 
 # 统计图表，支持发布文章统计、发布日历、Top标签统计、分类统计、分类雷达。
 # see https://www.npmjs.com/package/hexo-butterfly-charts
