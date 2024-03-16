@@ -1,5 +1,5 @@
 ---
-title: R手册(HTML Widgets)--shiny
+title: R(HTML Widgets)--shiny
 tags:
   - R
   - 可视化

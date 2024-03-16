@@ -1,5 +1,5 @@
 ---
-title: R手册(NLP)--wordcloud2
+title: R(NLP)--wordcloud2
 tags:
   - R
   - NLP

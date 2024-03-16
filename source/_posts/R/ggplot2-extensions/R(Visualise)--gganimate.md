@@ -1,5 +1,5 @@
 ---
-title: R手册(Visualise)--gganimate(ggplot2 extensions)
+title: R(Visualise)--gganimate(ggplot2 extensions)
 categories:
   - R
   - Visualise

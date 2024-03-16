@@ -1,5 +1,5 @@
 ---
-title: Python手册(Documentation)--PyYAML
+title: Python(Documentation)--PyYAML
 tags:
   - Python
   - 标记语言

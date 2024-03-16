@@ -1,5 +1,5 @@
 ---
-title: Python手册(Visualise)--seaborn
+title: Python(Visualise)--seaborn
 tags:
   - Python
   - 可视化

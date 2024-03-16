@@ -1,5 +1,5 @@
 ---
-title: R手册(Data Cleaning)--dplyr and plyr
+title: R(Data Cleaning)--dplyr and plyr
 tags:
   - R
   - tidyverse

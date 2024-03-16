@@ -1,5 +1,5 @@
 ---
-title: R手册(Visualise)--RColorBrewer and extrafont
+title: R(Visualise)--RColorBrewer and extrafont
 tags:
   - R
   - 可视化

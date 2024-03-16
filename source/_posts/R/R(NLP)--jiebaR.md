@@ -1,5 +1,5 @@
 ---
-title: R手册(NLP)--jiebaR
+title: R(NLP)--jiebaR
 tags:
   - R
   - NLP

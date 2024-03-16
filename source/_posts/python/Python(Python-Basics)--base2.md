@@ -1,5 +1,5 @@
 ---
-title: Python手册(Python Basics)--Python基础（二）
+title: Python(Python Basics)--Python基础（二）
 categories:
   - Python
   - General

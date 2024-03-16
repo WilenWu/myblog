@@ -632,6 +632,10 @@ HTML 的区段（行内）标签如 `<span>`、`<cite>`、`<del>` 可以在 Mark
   framespacing="0" allowfullscreen="true"> </iframe>
 ```
 
+```html
+<iframe src="xxx.html" width="100%" height="600"></iframe>
+```
+
 ## 音视频
 
 ```html

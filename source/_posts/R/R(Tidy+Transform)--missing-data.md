@@ -1,5 +1,5 @@
 ---
-title: R手册(Data Cleaning)--naniar and simputation
+title: R(Data Cleaning)--naniar and simputation
 tags:
   - R
   - 数据清洗

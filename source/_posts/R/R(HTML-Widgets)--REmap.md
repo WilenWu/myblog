@@ -1,5 +1,5 @@
 ---
-title: R手册(HTML Widgets)--REmap
+title: R(HTML Widgets)--REmap
 tags:
   - R
   - 地图

@@ -1,5 +1,5 @@
 ---
-title: R手册(NLP)--text2vec
+title: R(NLP)--text2vec
 tags:
   - R
   - NLP

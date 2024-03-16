@@ -1,5 +1,5 @@
 ---
-title: R手册(Visualise)--GGally(ggplot2 extensions)
+title: R(Visualise)--GGally(ggplot2 extensions)
 categories:
   - R
   - Visualise

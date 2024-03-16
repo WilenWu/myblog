@@ -56,10 +56,24 @@ header_color: true
 ## Machine Learning
 
 - :ballot_box_with_check: [机器学习(I)--基础知识](/posts/8638abf9/)
+- :ballot_box_with_check: [机器学习(I)--参数估计](/posts/8006d3d0/)
 - :ballot_box_with_check: [机器学习(II)--数据预处理](/posts/5faa8f40/)
 - :ballot_box_with_check: [机器学习(III)--模型选择与评估](/posts/cc734464/)
-- :ballot_box_with_check: [机器学习(IV)--监督学习](/posts/3c1747d9/)
-- :ballot_box_with_check: [机器学习(V)--无监督学习](/posts/43ce4abf/)
+- :ballot_box_with_check: [机器学习(IV)--监督学习(一)线性回归](/posts/3c1747d9/)
+- :ballot_box_with_check: [机器学习(IV)--监督学习(二)线性分类](/posts/d36d7213/)
+- :ballot_box_with_check: [机器学习(IV)--监督学习(三)决策树](/posts/e81d370b/)
+- :ballot_box_with_check: [机器学习(IV)--监督学习(四)支持向量机](/posts/72ac77c8/)
+- :ballot_box_with_check: [机器学习(IV)--监督学习(五)最近邻算法](/posts/da278d94/)
+- :ballot_box_with_check: [机器学习(IV)--监督学习(六)贝叶斯分类](/posts/8216e77c/)
+- :ballot_box_with_check: [机器学习(IV)--监督学习(七)集成学习](/posts/6eef4242/)
+- :ballot_box_with_check: [机器学习(V)--无监督学习(一)聚类](/posts/8c3d002c/)
+- :ballot_box_with_check: [机器学习(V)--无监督学习(二)降维](/posts/c929642b/)
+- :ballot_box_with_check: [机器学习(V)--无监督学习(三)高斯混合模型](/posts/4f81b9fa/)
+- :ballot_box_with_check: [机器学习(V)--无监督学习(四)协方差估计](/posts/5a518d6f/)
+- :ballot_box_with_check: [机器学习(V)--无监督学习(五)异常检测](/posts/43ce4abf/)
+- :ballot_box_with_check: [机器学习(V)--无监督学习(六)流形学习](/posts/26cd5aa6/)
+- :ballot_box_with_check: [机器学习(V)--无监督学习(七)关联分析](/posts/c818004b/)
+- :ballot_box_with_check: [机器学习(V)--无监督学习(八)核密度估计](/posts/a6d4f9a8/)
 - :ballot_box_with_check: 机器学习(VI)--概率图模型
 - :ballot_box_with_check: 机器学习(VII)--强化学习
 - :ballot_box_with_check: 机器学习(VIII)--半监督学习
@@ -131,6 +145,7 @@ header_color: true
 - :ballot_box_with_check: [Oracle SQL(TCL)](/posts/6c7e4677/): 事务控制语言(Transaction Control Language, TCL)：它的语句能确保被DML语句影响的表的所有行及时得以更新。包括COMMIT（提交）命令、SAVEPOINT（保存点）命令、ROLLBACK（回滚）命令。
 
 ## Appendices
+
 - :white_large_square: Presto 简介: 设计用于对 HDFS 和其他源中的数据进行快速交互式查询。对于多表关联的需求，我们可以通过 Presto 跨数据源完成多表的 join 操作。
 - :white_large_square: ClickHouse: 是一个用于联机分析(OLAP)的列式数据库管理系统(DBMS)。对于固定类报表，可以将数据打平成宽表的，充分发挥在单表查询的性能优势。
 - :white_large_square: StarRocks: 致力于全场景联机分析(OLAP)统一服务。采用了全面向量化引擎(列存储)。可以接收批量或者流式数据存储，也可以在数据湖上直接使用 StarRocks 分析。
@@ -203,6 +218,10 @@ header_color: true
 - :ballot_box_with_check: [statsmodels](/posts/6c94e349/): 统计建模和计量经济学
 - :ballot_box_with_check: [XGBoost](/posts/c46d5dae/)
 - :ballot_box_with_check: [LightGBM](/posts/44910830/)
+- :ballot_box_with_check: [超参数优化](/posts/794d8498/)
+- :heart: Dask: 是一个灵活的开源库，适用于 Python 中的并行和分布式计算
+- :heart: [imblearn](https://imbalanced-learn.org/stable/user_guide.html): 专门用于处理不平衡数据集的机器学习问题。该库提供了一系列的重采样技术、组合方法和机器学习算法，旨在提高在不平衡数据集上的分类性能。
+- :heart: [featuretools](https://zhuanlan.zhihu.com/p/114943596): 实际上就是把常见的特征工程方法进行了自动化封装
 
 ## Deep Learning
 

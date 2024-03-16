@@ -1,5 +1,5 @@
 ---
-title: R手册(Common)--R语言基础包
+title: R(Common)--R语言基础包
 tags:
   - R
 categories:

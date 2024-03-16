@@ -1,5 +1,5 @@
 ---
-title: R手册(Visualise)--ggplot2
+title: R(Visualise)--ggplot2
 tags:
   - R
   - 可视化

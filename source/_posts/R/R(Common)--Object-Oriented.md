@@ -1,5 +1,5 @@
 ---
-title: R手册(Common)--面向对象
+title: R(Common)--面向对象
 tags:
   - R
   - 面向对象

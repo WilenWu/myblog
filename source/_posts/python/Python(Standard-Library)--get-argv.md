@@ -1,5 +1,5 @@
 ---
-title: Python手册(Python Basics)--命令行参数
+title: Python(Python Basics)--命令行参数
 categories:
   - Python
   - 'Standard Library'

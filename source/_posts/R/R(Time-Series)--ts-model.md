@@ -1,5 +1,5 @@
 ---
-title: R手册(Time Series)--forecast and prophet
+title: R(Time Series)--forecast and prophet
 tags:
   - R
   - 时间序列

@@ -1,5 +1,5 @@
 ---
-title: R手册(Common)--data.table
+title: R(Common)--data.table
 tags:
   - R
 categories:

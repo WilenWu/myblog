@@ -1,5 +1,5 @@
 ---
-title: Python手册(Standard Library)--数学模块
+title: Python(Standard Library)--数学模块
 tags:
   - Python
   - 科学计算

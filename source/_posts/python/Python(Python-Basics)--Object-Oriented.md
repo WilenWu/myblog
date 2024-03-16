@@ -1,5 +1,5 @@
 ---
-title: Python手册(Python Basics)--Python面向对象
+title: Python(Python Basics)--Python面向对象
 tags:
   - Python
   - 面向对象
@@ -103,6 +103,8 @@ delattr(obj, name)  #删除属性。
 type(object) #判断类别，不考虑继承关系
 isinstance(object, classinfo) #判断类别，考虑继承关系，classinfo可以传递tuple
 issubclass(class, classinfo)
+
+dir(np) # 列出模块的方法和属性
 ```
 
 # 继承
@@ -186,15 +188,17 @@ print(super(People,Lucy).speak())  #My name is Lucy, my age is 18 .
 
 # 类的魔术方法
 
-魔术方法(magic methods)|说明|调用方法
+魔术方法|说明|调用方法
 --|:--|:--
-`__init__( self,[,args...] )`|构造函数，在生成对象时调用| obj = className(args)
+`__init__(self,[,args...] )`|构造函数，在生成对象时调用| obj = className(args)
 `__del__(self)`|析构函数，释放对象时使用|del obj
 `__dir__(self)`|控制`dir()`输出|dir(obj)
 `__setitem__(self)`|按照索引赋值|
 `__getitem__(self)`| 按照索引获取值|
 `__len__(self)`| 获得长度|len(obj)
 `__call__(self)`| 函数调用|
+`__name__`| 对象名字 |
+`__file__`| 指向该对象的导入文件名 |
 **转换成字符串**||
 `__repr__(self)`| 打印，转换| repr(obj)
 `__str__(self)`|转换成字符，print对象时会调用此方法|str(obj)

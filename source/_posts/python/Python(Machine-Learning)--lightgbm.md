@@ -1,5 +1,5 @@
 ---
-title: Python手册(Machine Learning)--LightGBM
+title: Python(Machine Learning)--LightGBM
 tags:
   - Python
   - 机器学习
@@ -13,21 +13,49 @@ date: 2024-01-25 22:15:00
 description:
 ---
 
+
 # Overview
+
+LightGBM（Light Gradient Boosting Machine）是一种高效的 Gradient Boosting 算法， 主要用于解决GBDT在海量数据中遇到的问题，以便更好更快的用于工业实践中。
+
+| 数据结构                                                     | 说明                   |
+| ------------------------------------------------------------ | ---------------------- |
+| [`lightgbm.Dataset`](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.Dataset.html#lightgbm.Dataset) | LightGBM数据集         |
+| [`lightgbm.Booster`](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.Booster.html#lightgbm.Booster) | LightGBM中的返回的模型 |
+| `lightgbm.CVBooster`                                         | CVBooster in LightGBM  |
+
+```python
+lightgbm.Dataset(data, 
+                 label=None, 
+                 reference=None, 
+                 weight=None, 
+                 group=None, 
+                 init_score=None, 
+                 feature_name='auto', 
+                 categorical_feature='auto', 
+                 params=None, 
+                 free_raw_data=True)
+```
+
+常用参数：
+
+- data 内部数据集的数据源
+- label 数据标签
+- reference 在lightgbm中验证数据集应使用训练数据集作为参考。
+- weight 每个样本的权重
+- feature_name (list of str, or 'auto') 特征名称，默认 auto，如果数据是pandas.DataFrame，则使用数据列名称。
+- categorical_feature (list of str, or 'auto') 分类特征名称。
+- free_raw_data 如果为True，则在构建内部数据集后释放原始数据。如果想重复使用 Dataset ，则设为 False
 
 ```python
 import lightgbm as lgb
 ```
 
-## Data Structure
+而在实际建模环节，LGBM支持Python、Java、C++等多种编程语言进行调用，并同时提供了Sklearn API和原生API两套调用方法。
 
-| 数据结构                                                     | 说明                   |
-| ------------------------------------------------------------ | ---------------------- |
-| `lgb.Dataset`(data)                                          | LightGBM数据集         |
-| [`lgb.Booster`](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.Booster.html#lightgbm.Booster) | LightGBM中的模型       |
-| `lgb.CVBooster`                                              | CVBooster in LightGBM. |
+从建模流程上来看，使用原生LGBM API时需要先对数据集进行封装，转化成一种LGBM库定义的一种特殊的数据格式，然后再设置超参数字典，最终带入封装好的数据集和定义好的超参数字典进行训练，而在训练的过程，则支持多种不同的损失函数设置、以及交叉验证的优化流程的自动实现，并且原生API还提供了非常多实用功能，例如提供了GPU加速、精细化控制每一轮迭代的超参数等方法。
 
-## Simple example
+Simple example：
 
 **Step 1:**  Load the dataset
 
@@ -52,6 +80,7 @@ LightGBM 可以直接使用分类特征，而不需要 one-hot 编码，且比�
 
 ```python
 # Specific feature names and categorical features
+dtrain = lgb.Dataset(X_train, y_train, categorical_feature='name:c1,c2,c3')
 ```
 
 > Note: 在构建 Dataset 前，先把分类特征转换成整数型
@@ -133,129 +162,363 @@ rmse_test = mean_squared_error(y_test, y_pred) ** 0.5
 print(f'The RMSE of prediction is: {rmse_test}')
 ```
 
+# 参数
 
-# Parameters
+lightgbm 的参数以 dict 的格式配置，然后训练的时候传递给 lightgbm.train 的 params 参数。接下来我们就逐个解释这些参数，并对其使用方法进行说明。
 
-## Booster parameters
+## 基本参数
 
-learning_rate = 0.1
-num_leaves = 255
-num_trees = 500
-num_threads = 16
-min_data_in_leaf = 0
-min_sum_hessian_in_leaf = 100
+**task**：指定任务类型。default = `train`，aliases：`task_type`
 
-lightgbm.train(params, train_set, num_boost_round=100, valid_sets=None, valid_names=None, feval=None, init_model=None, feature_name='auto', categorical_feature='auto', keep_training_booster=False, callbacks=None)
+- `train` 用于训练，alias：`training`
+- `predict` 用于预测，alias：`prediction`，`test`
+- `convert_model` 将模型文件转换为if-else格式
+- `refit` 用新数据刷新现有模型，alias：`refit_tree`
+- `save_binary` 将数据集保存到二进制文件中
 
-## Training
+**objective**：指定目标函数。default = `regression`
 
+- 回归问题：`regression`, `regression_l1`, `huber`, `fair`, `poisson`, `quantile`, `mape`, `gamma`, `tweedie`
+- 分类问题：`binary`, `multiclass`,  `multiclassova` 。对于多分类`num_class`参数也应该设置
+- 交叉熵：`cross_entropy`, `cross_entropy_lambda`, 
+- 排序问题：`lambdarank`, `rank_xendcg`
 
+**boosting**：指定算法类型。default = `gbdt`, aliases: `boosting_type`, `boost`
 
-## Callbacks
+- `gbdt`：传统的梯度提升算法，是最常用、且性能最稳定的 boosting 类型。alias：`gbrt`。
+- `rf`：传统的梯度促进决策树，alias：`random_forest`
+- `dart`： (Dropouts meet Multiple Additive Regression Trees)是一种结合了 Dropout 和多重加性回归树的方法。它在每次迭代过程中随机选择一部分树进行更新，会较大程度增加模型随机性，可以用于存在较多噪声的数据集或者数据集相对简单（需要减少过拟合风险）的场景中
 
-| 方法                                      | Create a callback             |
-| ----------------------------------------- | ----------------------------- |
-| `lgb.early_stopping(stopping_rounds)`     | 传递提前停止策略              |
-| `lgb.log_evaluation([period, show_stdv])` | 输出评估结果的频率            |
-| `lgb.record_evaluation(eval_result)`      | 在`eval_result`中记录评估结果 |
-| `lgb.reset_parameter(**kwargs)`           | 第一次迭代后重置参数          |
+**data_sample_strategy**：default = bagging
+
+- `bagging`：机装袋取样。注意，当 bagging_freq > 0 且 bagging_fraction < 1.0 时起作用。
+- `goss`：（Gradient-based One-Side Sampling）是一种基于梯度的单侧采样方法。它在每次迭代中只使用具有较大梯度的样本进行训练，适用于大规模数据集，可以在保持较高精度的同时加速训练过程。
+
+**num_threads**：并行的线程数。default = 0, aliases: `num_thread`, `nthread`, `nthreads`, `n_jobs`
+
+**device_type**：学习设备。default = `cpu`, options: `cpu`, `gpu`, `cuda`, aliases: `device`
+
+**seed**：随机种子。default = `None`, aliases: `random_seed`, `random_state`
+
+**verbosity**：日志输出详细程度，default = 1 。aliases: `verbose`
+
+- `< 0` 仅输出致命错误
+- `= 0`显示警告和报错
+- `= 1` 用于打印全部信息
+- `> 1` Debug
+
+## 样本处理参数
+
+| Name                | Description                                                  | aliases                    |
+| :------------------ | :----------------------------------------------------------- | -------------------------- |
+| is_unbalance        | 是否不平衡数据集，仅用于分类任务。默认 False                 | unbalance, unbalanced_sets |
+| scale_pos_weight    | 调整正样本权重，仅用于分类任务。默认1.0                      |                            |
+| feature_name        | (list of str, or 'auto') 特征名称，默认 auto，如果数据是pandas.DataFrame，则使用数据列名称。 |                            |
+| categorical_feature | (list of str, or 'auto') 分类特征名称。                      |                            |
+
+## 特征处理参数
+
+| Name                          | Description                                                  | aliases           |
+| :---------------------------- | :----------------------------------------------------------- | ----------------- |
+| bin_construct_sample_cnt      | 该参数表示对连续变量进行分箱时（直方图优化过程）抽取样本的个数，默认取值为200000 | subsample_for_bin |
+| saved_feature_importance_type | 特征重要性计算方式，默认为 0，表示在模型中被选中作为分裂特征的次数，可选1，表示在模型中的分裂增益之和作为重要性评估指标 |                   |
+| max_cat_threshold             | 分类特征的最大拆分点数量，默认值为32                         |                   |
+| cat_l2                        | 分类特征L2 正则化系数，默认值为10.0                          |                   |
+| cat_smooth                    | 减少分类特征中噪声的影响，特别是对于数据很少的类别，默认值为10.0 |                   |
+| max_cat_to_onehot             | 当分类特征类别数小于或等于max_cat_to_onehot 时将使用其他拆分算法 |                   |
+
+## 决策树生成
+
+| Name                    | Description                                                  | aliases                                                      |
+| :---------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ |
+| max_depth               | 树的最大深度，默认值为 -1，表示无限制                        |                                                              |
+| num_leaves              | 一棵树上的叶子节点数，默认值为 31                            | num_leaf, max_leaves, max_leaf, max_leaf_nodes               |
+| min_data_in_leaf        | 单个叶子节点上的最小样本数量，默认值为 20。较大的值可以防止过拟合。 | min_data_per_leaf, min_data, min_child_samples, min_samples_leaf |
+| min_sum_hessian_in_leaf | 一片叶子节点的最小权重和，默认值为 1e-3。较大的值可以防止过拟合。 | min_sum_hessian_per_leaf, min_sum_hessian, min_hessian, min_child_weight |
+| bagging_fraction        | 训练时的抽样比例，默认值为 1.0。对于二分类问题，还可控制正负样本抽样比例 pos_bagging_fraction 和 neg_bagging_fraction | sub_row, subsample, bagging                                  |
+| bagging_freq            | 抽样频率，表示每隔几轮进行一次样本抽样，默认取值为0，表示不进行随机抽样。 | subsample_freq                                               |
+| feature_fraction        | 在每次迭代（树的构建）时，随机选择特征的比例，取值范围为 (0, 1]，默认为1.0。 | sub_feature, colsample_bytree                                |
+| feature_fraction_bynode | 每个树节点上随机选择一个特征子集，默认为1.0。                | sub_feature_bynode, colsample_bynode                         |
+| extra_trees             | 极端随机树。默认为 False，如果设置为True，在节点拆分时，LightGBM将只为每个特征选择一个随机选择的阈值 |                                                              |
+| min_gain_to_split       | 再分裂所需最小增益，默认值为 0，表示无限制                   | min_split_gain                                               |
+
+注意：feature_fraction 不受subsample_freq影响。同时需要注意的是，LGBM和随机森林不同，随机森林是每棵树的每次分裂时都随机分配特征，而LGBM是每次构建一颗树时随机分配一个特征子集，这颗树在成长过程中每次分裂都是依据这个特征子集进行生长。
+
+## 训练过程控制
+
+| Name               | Description                                                  | aliases                                                      |
+| :----------------- | :----------------------------------------------------------- | ------------------------------------------------------------ |
+| data               | 用于训练的数据集                                             | train, train_data, train_data_file, data_filename            |
+| valid              | 验证/测试数据，支持多个验证数据，使用逗号`,`分隔             | test, valid_data, valid_data_file, test_data, test_data_file, valid_filenames |
+| num_iterations     | 提升迭代次数，即生成的基学习器的数量，默认值100。注意：对于多分类问题，树的数量等于 num_class * num_iterations | num_iteration, n_iter, num_tree, num_trees, num_round, num_rounds, nrounds, num_boost_round, n_estimators, max_iter |
+| learning_rate      | 学习率，即每次迭代中梯度提升的步长，默认值0.1。              | shrinkage_rate, eta                                          |
+| lambda_l1          | L1 正则化系数，默认值为 0                                    | reg_alpha, l1_regularization                                 |
+| lambda_l2          | L2 正则化系数，默认值为 0                                    | reg_lambda, lambda, l2_regularization                        |
+| metric             | 评估指标，默认“”                                             | metrics, metric_types                                        |
+| min_data_per_group | 每个分类组的最小数据数量，默认值为 100                       |                                                              |
+| input_model        | 对于prediction任务，该模型将用于预测；对于train任务，将从在这个模型基础上继续训练 | model_input, model_in                                        |
+
+其中部分参数在可模型训练 lightgbm.train 时传递值：
 
 ```python
-evals_result = {}  # to record eval results for plotting
-bst = lgb.train(params, 
-                dtrain, 
-                num_boost_round=20, 
-                valid_sets=deval, 
-                callbacks=[lgb.early_stopping(stopping_rounds=5)]
-               )
-bst.save_model('model.txt', num_iteration=bst.best_iteration)
+lightgbm.train(params, 
+               train_set, 
+               num_boost_round=100, 
+               valid_sets=None, 
+               valid_names=None, 
+               feval=None, 
+               init_model=None, 
+               feature_name='auto', 
+               categorical_feature='auto', 
+               keep_training_booster=False, 
+               callbacks=None)
+
+lightgbm.cv(params, 
+            train_set, 
+            num_boost_round=100, 
+            folds=None, nfold=5, 
+            stratified=True, 
+            shuffle=True, 
+            metrics=None, 
+            feval=None, 
+            init_model=None, 
+            feature_name='auto', 
+            categorical_feature='auto', 
+            fpreproc=None, 
+            seed=0, 
+            callbacks=None, 
+            eval_train_metric=False, 
+            return_cvbooster=False)
 ```
 
-## Self-define
+注意：通过 params (dict) 传递的值优先于通过参数提供的值。
+
+其中 feval 用来自定义评估函数。
 
 ```python
+# self-defined eval metric
+# f(y_true: array, y_pred: array) -> name: str, eval_result: float, is_higher_better: bool
+# Relative Absolute Error (RAE)
+def rae(y_true, y_pred):
+    return 'RAE', np.sum(np.abs(y_pred - y_true)) / np.sum(np.abs(np.mean(y_true) - y_true)), False
+
+# Starting training with custom eval functions...
+lgb.train(dtrain
+        valid_sets=[dtrain, dtest],
+        feval=rae,
+        callbacks=[lgb.early_stopping(5)])
+```
+
+## 回调参数
+
+callbacks 参数标识在每次迭代中应用的回调函数列表。
+
+| 方法                                           | Create a callback                                            |
+| ---------------------------------------------- | ------------------------------------------------------------ |
+| `lightgbm.early_stopping(stopping_rounds)`     | 回调提前停止策略，控制过拟合风险，当验证集上的精度若干轮不下降，提前停止训练。 |
+| `lightgbm.log_evaluation([period, show_stdv])` | 输出评估结果的频率                                           |
+| `lightgbm.record_evaluation(eval_result)`      | 在`eval_result`中记录评估结果                                |
+| `lightgbm.reset_parameter(**kwargs)`           | 第一次迭代后重置参数                                         |
+
+lightgbm 可通过在callback中添加reset_parameter传递学习率，从而实现学习率衰减(learning rate decay)。
+
+学习率接受两种参数类型：
+
+1. num_boost_round 长度的 list
+2. 以当前迭代次数为参数的函数 function(curr_iter)
+
+```python
+# reset_parameter callback accepts:
+# 1. list with length = num_boost_round
+# 2. function(curr_iter)
+bst = lgb.train(params,
+                dtrain,
+                num_boost_round=10,
+                init_model=gbm,
+                valid_sets=deval,
+                callbacks=[lgb.reset_parameter(learning_rate=lambda iter: 0.05 * (0.99 ** iter))])
+
+# change other parameters during training
+bst = lgb.train(params,
+                dtrain,
+                num_boost_round=10,
+                init_model=gbm,
+                valid_sets=deval,
+                callbacks=[lgb.reset_parameter(bagging_fraction=[0.7] * 5 + [0.6] * 5)])
+```
+
+## 自定义损失函数
+
+lightgbm 在lgb.train中通过参数fobj和feval来自定损失函数和评估函数
+
+[advanced_example.py](https://github.com/microsoft/LightGBM/blob/master/examples/python-guide/advanced_example.py)
+
+注意：
+1. 在LightGBM中，自定义损失函数需要返回损失函数的一阶(grad)和二阶(hess)导数。
+2. 自定义损失函数后，模型的输出不在是 [0,1] 概率输出，而是 sigmoid 函数之前的输入值。
+3. 自定义损失函数后，模型的输出已经发生改变，需要写出对应的评估函数。
+4. 自定义损失函数后，LightGBM默认的boost_from_average=True失效，按照GBDT的框架，对于利用logloss来优化的二分类问题，样本的初始值为训练集标签的均值，在自定义损失函数后,系统无法获取到这个初始化值，导致收敛速度变慢。可以在构建lgb.Dataset时，利用init_score参数手动完成。
+5. 自定义损失函数后，模型输出需要手动进行sigmoid函数变换
+
+```python
+# NOTE: when you do customized loss function, the default prediction value is margin
+# This may make built-in evaluation metric calculate wrong results
+# For example, we are doing log likelihood loss, the prediction is score before logistic transformation
+# Keep this in mind when you use the customization
+
 # self-defined objective function
 # f(preds: array, train_data: Dataset) -> grad: array, hess: array
 # log likelihood loss
+from scipy import special
 def loglikelihood(preds, train_data):
     labels = train_data.get_label()
-    preds = 1. / (1. + np.exp(-preds))
+    preds = 1.0 / (1.0 + np.exp(-preds))
     grad = preds - labels
-    hess = preds * (1. - preds)
+    hess = preds * (1.0 - preds)
     return grad, hess
 
 # self-defined eval metric
 # f(preds: array, train_data: Dataset) -> name: str, eval_result: float, is_higher_better: bool
-# binary error
-# NOTE: when you do customized loss function, the default prediction value is margin
-# This may make built-in evaluation metric calculate wrong results
-# For example, we are doing log likelihood loss, the prediction is score before logistic transformation
-# Keep this in mind when you use the customization
 def binary_error(preds, train_data):
     labels = train_data.get_label()
-    preds = 1. / (1. + np.exp(-preds))
-    return 'error', np.mean(labels != (preds > 0.5)), False
+    preds = 1.0 / (1.0 + np.exp(-preds))
+    return "error", np.mean(labels != (preds > 0.5)), False
 
 # Pass custom objective function through params
-params_custom_obj = copy.deepcopy(params)
-params_custom_obj['objective'] = loglikelihood
+params_custom_obj["objective"] = loglikelihood
 
-bst = lgb.train(params_custom_obj,
-                lgb_train,
-                num_boost_round=10,
-                feval=binary_error,
-                valid_sets=lgb_eval)
+gbm = lgb.train(
+    params_custom_obj, lgb_train, num_boost_round=10, feval=binary_error, valid_sets=lgb_eval
+)
+
+y_pred = special.expit(gbm.predict(X_test))
+
 
 # another self-defined eval metric
 # f(preds: array, train_data: Dataset) -> name: str, eval_result: float, is_higher_better: bool
 # accuracy
-# NOTE: when you do customized loss function, the default prediction value is margin
-# This may make built-in evaluation metric calculate wrong results
-# For example, we are doing log likelihood loss, the prediction is score before logistic transformation
-# Keep this in mind when you use the customization
+
 def accuracy(preds, train_data):
     labels = train_data.get_label()
-    preds = 1. / (1. + np.exp(-preds))
-    return 'accuracy', np.mean(labels == (preds > 0.5)), True
- # Pass custom objective function through params
-params_custom_obj = copy.deepcopy(params)
-params_custom_obj['objective'] = loglikelihood
+    preds = 1.0 / (1.0 + np.exp(-preds))
+    return "accuracy", np.mean(labels == (preds > 0.5)), True
 
-bst = lgb.train(params_custom_obj,
-                lgb_train,
-                num_boost_round=10,
-                feval=[binary_error, accuracy],
-                valid_sets=lgb_eval)
+# Pass custom objective function through params
+params_custom_obj["objective"] = loglikelihood
+
+gbm = lgb.train(
+    params_custom_obj,
+    lgb_train,
+    num_boost_round=10,
+    feval=[binary_error, accuracy],
+    valid_sets=lgb_eval,
+)
+
+y_pred = special.expit(gbm.predict(X_test))
 ```
 
-# Plotting
+# Scikit-Learn API
 
-| [`plot_importance`](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.plot_importance.html#lightgbm.plot_importance)(booster[, ax, height, xlim, ...]) | Plot model's feature importances.                            |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [`plot_split_value_histogram`](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.plot_split_value_histogram.html#lightgbm.plot_split_value_histogram)(booster, feature) | Plot split value histogram for the specified feature of the model. |
-| [`plot_metric`](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.plot_metric.html#lightgbm.plot_metric)(booster[, metric, ...]) | Plot one metric during training.                             |
-| [`plot_tree`](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.plot_tree.html#lightgbm.plot_tree)(booster[, ax, tree_index, ...]) | Plot specified tree.                                         |
-| [`create_tree_digraph`](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.create_tree_digraph.html#lightgbm.create_tree_digraph)(booster[, tree_index, ...]) | Create a digraph representation of specified tree.           |
+LGBM的 sklearn API支持使用sklearn的调用风格和语言习惯进行LGBM模型训练，数据读取环节支持直接读取本地的Numpy或Pandas格式数据，而在实际训练过程中需要先实例化评估器并设置超参数，然后通过.fit的方式进行训练，并且可以直接调用grid search进行超参数搜索，也可以使用其他sklearn提供的高阶工具，如构建机器学习流、进行特征筛选或者进行模型融合等。
 
-plot_importance(booster[, ax, height, xlim, ...])
+总的来看，LGBM的sklearn API更加轻量、便捷，并且能够无缝衔接sklearn中其他评估器，快速实现sklearn提供的高阶功能，对于熟悉sklearn的用户而言非常友好；而原生API则会复杂很多，但同时也提供了大量sklearn API无法实现的复杂功能，若能够合理使用，则可以实现相比sklearn API更精准的建模结果、更高效的建模流程。
 
-Plot model's feature importances.
+| module                                                       | comment                                              |
+| ------------------------------------------------------------ | ---------------------------------------------------- |
+| [`LGBMModel`](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.LGBMModel.html#lightgbm.LGBMModel) | Implementation of the scikit-learn API for LightGBM. |
+| [`LGBMClassifier`](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.LGBMClassifier.html#lightgbm.LGBMClassifier) | LightGBM classifier.                                 |
+| [`LGBMRegressor`](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.LGBMRegressor.html#lightgbm.LGBMRegressor) | LightGBM regressor.                                  |
+| [`LGBMRanker`](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.LGBMRanker.html#lightgbm.LGBMRanker) | LightGBM ranker.                                     |
 
-plot_split_value_histogram(booster, feature)
+其中LGBMModel是 LightGBM 的基本模型类，它是一个泛型模型类，可以用于各种类型的问题（如分类、回归等）。通常，我们不直接使用 LGBMModel，而是使用针对特定任务的子类使用不同的类，即分类问题使用 LGBMClassifier 、回归问题使用 LGBMRegressor，而排序问题则使用LGBMRanker。
 
-Plot split value histogram for the specified feature of the model.
+以 LGBMClassifier 为例，默认参数如下：
 
-plot_metric(booster[, metric, ...])
+```python
+LGBMClassifier(
+    boosting_type: str = 'gbdt',
+    num_leaves: int = 31,
+    max_depth: int = -1,
+    learning_rate: float = 0.1,
+    n_estimators: int = 100,
+    subsample_for_bin: int = 200000,
+    objective: Union[str, Callable, NoneType] = None,
+    class_weight: Union[Dict, str, NoneType] = None,
+    min_split_gain: float = 0.0,
+    min_child_weight: float = 0.001,
+    min_child_samples: int = 20,
+    subsample: float = 1.0,
+    subsample_freq: int = 0,
+    colsample_bytree: float = 1.0,
+    reg_alpha: float = 0.0,
+    reg_lambda: float = 0.0,
+    random_state: Union[int, numpy.random.mtrand.RandomState, NoneType] = None,
+    n_jobs: int = -1,
+    silent: Union[bool, str] = 'warn',
+    importance_type: str = 'split',
+    **kwargs,
+)
+```
 
-Plot one metric during training.
+具体的模型训练过程和sklearn中其他模型一样，通过fit进行训练，并利用predict进行结果输出：
 
-plot_tree(booster[, ax, tree_index, ...])
+```python
+import lightgbm as lgb
+from sklearn.datasets import load_boston
+from sklearn.model_selection import train_test_split
 
-Plot specified tree.
+# Step 1: load or create your dataset
+X, y = load_boston(return_X_y=True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
-create_tree_digraph(booster[, tree_index, ...])
+# Step 2: Training
+gbm = lgb.LGBMRegressor(num_leaves=31,
+                        learning_rate=0.05,
+                        n_estimators=20)
+gbm.fit(X_train, y_train,
+        eval_set=[(X_test, y_test)],
+        eval_metric='l1',
+        callbacks=[lgb.early_stopping(5)])
 
-Create a digraph representation of specified tree.
+
+# Step 5:  Predict
+y_pred = gbm.predict(X_test, num_iteration=gbm.best_iteration_)
+y_score = gbm.predict_proba(X_test num_iteration=gbm.best_iteration_)
+
+# Step 6:  Evaluate
+rmse_test = mean_squared_error(y_test, y_pred) ** 0.5
+print(f'The RMSE of prediction is: {rmse_test}')
+
+# feature importances
+print(f'Feature importances: {list(gbm.feature_importances_)}')
+```
+
+可以与sklearn中其他方法无缝衔接：
+
+```python
+# other scikit-learn modules
+from sklearn.model_selection import GridSearchCV
+
+param_grid = {
+    'learning_rate': [0.01, 0.1, 1],
+    'n_estimators': [20, 40]
+}
+
+gbm = GridSearchCV(estimator, param_grid, cv=3)
+gbm.fit(X_train, y_train)
+
+print(f'Best parameters found by grid search are: {gbm.best_params_}')
+```
+
+# 可视化
+
+| module                                       | comment                        |
+| -------------------------------------------- | ------------------------------ |
+| plot_importance(booster)                     | 绘制模型的特征重要性。         |
+| plot_split_value_histogram(booster, feature) | 绘制模型指定特征的拆分值直方图 |
+| plot_metric(booster)                         | 绘制训练期间的模型得分         |
+| plot_tree(booster)                           | 绘制指定的树                   |
+| create_tree_digraph(booster)                 | 创建指定树的二叉图文件         |
 
 ```python
 evals_result = {}  # to record eval results for plotting
@@ -263,7 +526,7 @@ gbm = lgb.train(
     params,
     dtrain,
     num_boost_round=100,
-    valid_sets=[dtrain, dtest],
+    valid_sets=[dtrain, deval],
     callbacks=[
         lgb.log_evaluation(10),
         lgb.record_evaluation(evals_result)
@@ -291,43 +554,31 @@ graph = lgb.create_tree_digraph(gbm, tree_index=53, name='Tree54')
 graph.render(view=True)
 ```
 
-# Continue training
+# 继续训练
 
-```python
-    gbm = lgb.train(params,
-                    lgb_train,
-                    num_boost_round=1000,
-                    valid_sets=lgb_eval,
-                    init_model=gbm,
-                    feature_name=x_cols,
-                    early_stopping_rounds=10,
-                    verbose_eval=False,
-                    keep_training_booster=True) # 增量训练
-```
+lightGBM有两种增量学习方式：
 
-lightGBM有两种增量的方式训练，一种是增加树的方式，一种是更新叶子节点权重的方式
-
-方案1. lgb.train(init_model,keep_training_booster=True) https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.train.html#lightgbm.train
-		init_model=clf,
-方案2. 调用refit方法 https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.Booster.html#lightgbm.Booster.refit
+1. **init_model参数**：如果 init_model不为None，将从这个模型基础上继续训练，添加 num_boost_round 棵新树
 
 ```python
 # init_model accepts:
 # 1. model file name
 # 2. Booster()
-bst = lgb.train(params,
-                dtrain,
+bst = lgb.train(previous_params,
+                new_data,
                 num_boost_round=10,
-                init_model=bst, # or 'model.txt'
-                valid_sets=deval)
+                init_model=previous_model, 
+                valid_sets=eval_data,
+                keep_training_booster=True
+               )
 ```
 
-如果gbm不为None，那么就是在上次的基础上添加 num_boost_round 棵新树
+其中 keep_training_booster (bool) 参数表示返回的模型 (booster) 是否将用于保持训练，默认False。当模型非常大并导致内存错误时，可以尝试将此参数设置为True，以避免 model_to_string 转换。然后仍然可以使用返回的booster作为init_model，用于未来的继续训练。
 
-
+2. **调用 refit 方法**：在原有模型的树结构都不变的基础上，重新拟合新数据更新叶子节点权重
 
 ```python
-reader = pd.read_csv('./data cleaned.csv', chunksize=500000) 
+# 在参数字典中配置
 params = {
 	'task':'refit', 
 	'refit_decay_rate': 0.9,
@@ -336,55 +587,31 @@ params = {
 	'metric':'auc'
 	}
 
-for i, chunk in enumerate(reader):
-	X_train, y_train = chunk.drop('label', axis=1), chunk['label'] 
-	dtrain=lgb.Dataset(X_train, y_train, free_raw_data=False) 
-	print('--'*15 + f'chunk {i+1}, size = {len(y_train)}' + '--'*15) 
-	clf = lgb.train(
+bst = lgb.train(
 		params,
 		dtrain,
 		num_boost_round=20, 
-		valid_sets=[dtrain, dtest]
-		)
+		valid_sets=[dtrain, deval]
+	)
 
-clf.params
-print(clf.current_iteration(), clf.best_iteration, clf.num_trees(),sep='\n')
-
-refitted = clf.refit(X_test,y_test) 
-refitted.params
-print(refitted.current_iteration(), refitted.best_iteration, refitted.num_trees(), sep='\n')
+# 用返回的模型 (Booster) 重新拟合
+bst.refit(
+    data=X_train,
+    label=y_train,
+    decay_rate=0.9,
+    reference=None
+  )
 ```
 
-## Learning rate decay
+其中 refit_decay_rate 控制 refit 任务中学习率的衰减。重新拟合后，叶子结点的输出的计算公式为
 
-学习率衰减，通过callback中添加reset_parameter传递学习率，接受两种参数类型：
-
-1. num_boost_round 长度的 list
-2. 以当前迭代次数为参数的函数 function(curr_iter)
-
-```python
-# reset_parameter callback accepts:
-# 1. list with length = num_boost_round
-# 2. function(curr_iter)
-bst = lgb.train(params,
-                lgb_train,
-                num_boost_round=10,
-                init_model=gbm,
-                valid_sets=lgb_eval,
-                callbacks=[lgb.reset_parameter(learning_rate=lambda iter: 0.05 * (0.99 ** iter))])
-
-# change other parameters during training
-bst = lgb.train(params,
-                lgb_train,
-                num_boost_round=10,
-                init_model=gbm,
-                valid_sets=lgb_eval,
-                callbacks=[lgb.reset_parameter(bagging_fraction=[0.7] * 5 + [0.6] * 5)])
+```
+leaf_output = refit_decay_rate * old_leaf_output + (1.0 - refit_decay_rate) * new_leaf_output
 ```
 
+# 分布式学习
 
-
-# LightGBM with PySpark
+LGBM还提供了分布式计算版本和GPU计算版本进行加速计算，其中分布式计算模式下支持从HDFS（Hadoop Distributed File System）系统中进行数据读取和计算，而GPU计算模式下则提供了GPU version（借助OpenCL，即Open Computing Language来实现多种不同GPU的加速计算）和CUDA version（借助CUDA，即Compute Unified Device Architecture来实现NVIDIA GPU加速）。不过，不同于深度学习更倾向于使用CUDA加速，对于LGBM而言，由于目前CUDA version只能在Linux操作系统下实现，因此大多数情况下，我们往往会选择支持Windows系统的GPU version进行GPU加速计算。
 
 LightGBM 目前提供3种分布式学习算法：
 
@@ -401,71 +628,162 @@ LightGBM 目前提供3种分布式学习算法：
 | #feature is small | Feature Parallel | Data Parallel   |
 | #feature is large | Feature Parallel | Voting Parallel |
 
-Apache Spark users can use SynapseML for machine learning workflows with LightGBM. This project is not maintained by LightGBM’s maintainers.
+**tree_learner** 参数控制分布式学习方法。default = serial,  aliases: `tree`, `tree_type`, `tree_learner_type`
 
-See this SynapseML example for additional information on using LightGBM on Spark.
+- serial：单机学习
+- feature：特征并行，别名：feature_parallel
+- data：数据并行，别名：data_parallel
+- voting：投票平行，别名：voting_parallel
 
-SynapseML原名MMLSpark
+## LightGBM with PySpark
 
-Simple and Distributed Machine Learning
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/python/SynapseML.svg" height="80%;" align="right"/> 要在spark上使用LightGBM，需要安装[SynapseML](https://microsoft.github.io/SynapseML/)包，原名MMLSpark，由微软开发维护。SynapseML建立在Apache Spark分布式计算框架上，与SparkML/MLLib库共享相同的API，允许您将SynapseML模型无缝嵌入到现有的Apache Spark工作流程中。
 
-SynapseML.svg
-
-# Scikit-Learn API
-
-| [`LGBMModel`](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.LGBMModel.html#lightgbm.LGBMModel)([boosting_type, num_leaves, ...]) | Implementation of the scikit-learn API for LightGBM. |
-| ------------------------------------------------------------ | ---------------------------------------------------- |
-| [`LGBMClassifier`](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.LGBMClassifier.html#lightgbm.LGBMClassifier)([boosting_type, num_leaves, ...]) | LightGBM classifier.                                 |
-| [`LGBMRegressor`](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.LGBMRegressor.html#lightgbm.LGBMRegressor)([boosting_type, num_leaves, ...]) | LightGBM regressor.                                  |
-| [`LGBMRanker`](https://lightgbm.readthedocs.io/en/stable/pythonapi/lightgbm.LGBMRanker.html#lightgbm.LGBMRanker)([boosting_type, num_leaves, ...]) | LightGBM ranker.                                     |
+SynapseML在Python中安装：首先，默认已经安装好了PySpark，然后，通过pyspark.sql.SparkSession配置会自动下载并安装到现有的Spark集群上
 
 ```python
-import lightgbm as lgb
-from sklearn.datasets import load_boston
-from sklearn.model_selection import train_test_split
-
-# Step 1: 
-# load or create your dataset
-X, y = load_boston(return_X_y=True)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
-
-# Step 2: Training
-gbm = lgb.LGBMRegressor(num_leaves=31,
-                        learning_rate=0.05,
-                        n_estimators=20)
-gbm.fit(X_train, y_train,
-        eval_set=[(X_test, y_test)],
-        eval_metric='l1',
-        callbacks=[lgb.early_stopping(5)])
-
-
-# Step 5:  Predict
-y_pred = gbm.predict(X_test, num_iteration=gbm.best_iteration_)
-
-# Step 6:  Evaluate
-rmse_test = mean_squared_error(y_test, y_pred) ** 0.5
-print(f'The RMSE of prediction is: {rmse_test}')
-
-# feature importances
-print(f'Feature importances: {list(gbm.feature_importances_)}')
+import pyspark
+# Use 0.11.4-spark3.3 version for Spark3.3 and 1.0.2 version for Spark3.4
+spark = pyspark.sql.SparkSession.builder.appName("MyApp") \
+            .config("spark.jars.packages", "com.microsoft.azure:synapseml_2.12:1.0.2") \
+            .config("spark.jars.repositories", "https://mmlspark.azureedge.net/maven") \
+            .getOrCreate()
+import synapse.ml
 ```
 
-
+或者通过启动Spark时配置`--packages`选项
 
 ```python
-# other scikit-learn modules
-estimator = lgb.LGBMRegressor(num_leaves=31)
-
-param_grid = {
-    'learning_rate': [0.01, 0.1, 1],
-    'n_estimators': [20, 40]
-}
-
-gbm = GridSearchCV(estimator, param_grid, cv=3)
-gbm.fit(X_train, y_train)
-
-print(f'Best parameters found by grid search are: {gbm.best_params_}')
+# Use 0.11.4-spark3.3 version for Spark3.3 and 1.0.2 version for Spark3.4
+spark-shell --packages com.microsoft.azure:synapseml_2.12:1.0.2
+pyspark --packages com.microsoft.azure:synapseml_2.12:1.0.2
+spark-submit --packages com.microsoft.azure:synapseml_2.12:1.0.2 MyApp.jar
 ```
 
+这个包比较大，第一次安装需要较长时间。
 
+| 算法               | 说明                                                         |
+| ------------------ | ------------------------------------------------------------ |
+| LightGBMClassifier | 用于构建分类模型。例如，为了预测公司是否破产，我们可以使用LightGBMClassifier构建一个二进制分类模型。 |
+| LightGBMRegressor  | 用于构建回归模型。例如，为了预测房价，我们可以用LightGBMRegressor建立一个回归模型。 |
+| LightGBMRanker     | 用于构建排名模型。例如，为了预测网站搜索结果的相关性，我们可以使用LightGBMRanker构建一个排名模型。 |
+
+在PySpark中，您可以通过以下方式运行`LightGBMClassifier`：
+
+```python
+from synapse.ml.lightgbm import LightGBMClassifier
+model = LightGBMClassifier(learningRate=0.3,
+                           numIterations=100,
+                           numLeaves=31).fit(train)
+```
+
+LightGBM的参数比SynapseML公开的要多得多，若要添加额外的参数，请使用passThroughArgs字符串参数配置。
+
+```python
+from synapse.ml.lightgbm import LightGBMClassifier
+model = LightGBMClassifier(passThroughArgs="force_row_wise=true min_sum_hessian_in_leaf=2e-3",
+                           numIterations=100,
+                           numLeaves=31).fit(train)
+```
+
+您可以混合passThroughArgs和显式args，如示例所示。SynapseML合并它们以创建一个要发送到LightGBM的参数字符串。如果您在两个地方都设置参数，则以passThroughArgs为优先。
+
+示例：
+
+```python
+# Read dataset
+from synapse.ml.core.platform import *
+df = (
+    spark.read.format("csv")
+    .option("header", True)
+    .option("inferSchema", True)
+    .load(
+        "wasbs://publicwasb@mmlspark.blob.core.windows.net/company_bankruptcy_prediction_data.csv"
+    )
+)
+# print dataset size
+print("records read: " + str(df.count()))
+print("Schema: ")
+df.printSchema()
+display(df)
+
+# Split the dataset into train and test
+train, test = df.randomSplit([0.85, 0.15], seed=1)
+
+# Add featurizer to convert features to vector
+from pyspark.ml.feature import VectorAssembler
+
+feature_cols = df.columns[1:]
+featurizer = VectorAssembler(inputCols=feature_cols, outputCol="features")
+train_data = featurizer.transform(train)["Bankrupt?", "features"]
+test_data = featurizer.transform(test)["Bankrupt?", "features"]
+
+# Check if the data is unbalanced
+display(train_data.groupBy("Bankrupt?").count())
+
+# Model Training
+from synapse.ml.lightgbm import LightGBMClassifier
+
+model = LightGBMClassifier(
+    objective="binary", featuresCol="features", labelCol="Bankrupt?", isUnbalance=True
+)
+model = model.fit(train_data)
+
+# "saveNativeModel" allows you to extract the underlying lightGBM model for fast deployment after you train on Spark.
+from synapse.ml.lightgbm import LightGBMClassificationModel
+
+if running_on_synapse():
+    model.saveNativeModel("/models/lgbmclassifier.model")
+    model = LightGBMClassificationModel.loadNativeModelFromFile(
+        "/models/lgbmclassifier.model"
+    )
+if running_on_synapse_internal():
+    model.saveNativeModel("Files/models/lgbmclassifier.model")
+    model = LightGBMClassificationModel.loadNativeModelFromFile(
+        "Files/models/lgbmclassifier.model"
+    )
+else:
+    model.saveNativeModel("/tmp/lgbmclassifier.model")
+    model = LightGBMClassificationModel.loadNativeModelFromFile(
+        "/tmp/lgbmclassifier.model"
+    )
+
+# Feature Importances Visualization
+import pandas as pd
+import matplotlib.pyplot as plt
+
+feature_importances = model.getFeatureImportances()
+fi = pd.Series(feature_importances, index=feature_cols)
+fi = fi.sort_values(ascending=True)
+f_index = fi.index
+f_values = fi.values
+
+# print feature importances
+print("f_index:", f_index)
+print("f_values:", f_values)
+
+# plot
+x_index = list(range(len(fi)))
+x_index = [x / len(fi) for x in x_index]
+plt.rcParams["figure.figsize"] = (20, 20)
+plt.barh(
+    x_index, f_values, height=0.028, align="center", color="tan", tick_label=f_index
+)
+plt.xlabel("importances")
+plt.ylabel("features")
+plt.show()
+
+# Model Prediction
+predictions = model.transform(test_data)
+predictions.limit(10).toPandas()
+
+from synapse.ml.train import ComputeModelStatistics
+
+metrics = ComputeModelStatistics(
+    evaluationMetric="classification",
+    labelCol="Bankrupt?",
+    scoredLabelsCol="prediction",
+).transform(predictions)
+display(metrics)
+```
 

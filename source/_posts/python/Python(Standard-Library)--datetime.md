@@ -1,5 +1,5 @@
 ---
-title: Python手册(Standard Library)--日期时间模块
+title: Python(Standard Library)--日期时间模块
 tags:
   - Python
 categories:

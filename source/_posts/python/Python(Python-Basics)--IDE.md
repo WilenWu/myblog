@@ -1,5 +1,5 @@
 ---
-title: Python手册(IDE)--常用的Python IDE
+title: Python(IDE)--常用的Python IDE
 tags:
   - Python
   - IDE
@@ -61,7 +61,7 @@ emoji: heart
    1. shell窗口打开配置文件`sudo ~/.bashrc`
    2. 添加语句`alias pycharm = "bash /download/pycharm-community-2018.1.4/bin/pycharm.sh"`(**pycharm.sh所在的路径**)
    3. 重新加载`source ~/.bashrc`
-   4. shell命令行输入`pycharn`即可打开
+   4. shell命令行输入`pycharm`即可打开
 
 [**Anaconda**](https://www.anaconda.com/download/)<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/anaconda.png" width="20%" height="20%" align="right"/>
 

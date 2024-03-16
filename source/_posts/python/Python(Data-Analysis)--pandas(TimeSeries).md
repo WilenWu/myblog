@@ -1,5 +1,5 @@
 ---
-title: Python手册(Data Analysis)--pandas(Time Series)
+title: Python(Data Analysis)--pandas(Time Series)
 tags:
   - Python
   - 数据清洗

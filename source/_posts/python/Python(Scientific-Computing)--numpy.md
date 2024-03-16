@@ -1,5 +1,5 @@
 ---
-title: Python手册(Scientific Computing)--NumPy
+title: Python(Scientific Computing)--NumPy
 categories:
   - Python
   - 'Scientific Computing'

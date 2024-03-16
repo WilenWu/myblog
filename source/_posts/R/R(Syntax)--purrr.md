@@ -1,5 +1,5 @@
 ---
-title: R手册(Syntax)--purrr
+title: R(Syntax)--purrr
 tags:
   - R
   - tidyverse

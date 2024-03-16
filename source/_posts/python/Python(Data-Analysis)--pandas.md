@@ -1,5 +1,5 @@
 ---
-title: Python手册(Data Analysis)--pandas
+title: Python(Data Analysis)--pandas
 tags:
   - Python
   - 数据清洗
@@ -232,22 +232,24 @@ df.fillna(method='ffill')
 df.fillna(value={'A':np.mean(df.A), 'B': 1, 'C': 2, 'D': 3}, limit=1)
 ```
 
-| **替换**                                                                                         |     |
-|:---------------------------------------------------------------------------------------------- |:--- |
-| df.replace(to_replace, value, inplace=False, limit=None, regex=False, method='pad', axis=None) |     |
+| **替换**                                                     |                                             |
+| :----------------------------------------------------------- | :------------------------------------------ |
+| df.replace(to_replace, value, inplace=False, limit=None, regex=False, method='pad', axis=None) | to_replace替换成value                       |
+| df.where(cond,other)                                         | 符合条件的行保持原值不变，其它行用other替换 |
 
 ```python
 data.replace([-999, -1000], [np.nan, 0]`)
 data.replace({-999: np.nan, -1000: 0})   #参数为字典
 ```
 
-| **数据转换**                    |                                                                         |
-|:--------------------------- |:----------------------------------------------------------------------- |
-| df.transform(func)          | 数据转换，返回的形状和df完全一样<br>`df.transform(lambda x: (x - x.mean()) / x.std())` |
-| df.astype(dtype,copy=False) | 数据类型转换                                                                  |
-| df['column'].str.title()    | 转换成首字母大写（字符的属性和方法对pandas适用）                                             |
-| df['datetime'].dt.day       | 获取日期（datetime类的属性和方法对pandas适用）                                          |
-| df.round()                  | 保留小数位数                                                                  |
+| **数据转换**                    |                                                              |
+| :------------------------------ | :----------------------------------------------------------- |
+| df.transform(func)              | 数据变换，等同于applymap<br>`df.transform(lambda x: (x - x.mean()) / x.std())` |
+| df.astype(dtype,copy=False)     | 数据类型转换                                                 |
+| df['column'].str.title()        | 转换成首字母大写（字符的属性和方法对pandas适用）             |
+| df['datetime'].dt.day           | 获取日期（datetime类的属性和方法对pandas适用）               |
+| df.round()                      | 保留小数位数                                                 |
+| df.clip(lower=None, upper=None) | 将边界外的值指定给边界值                                     |
 
 | **重复值**                                                      | 默认判断全部列                                           |
 |:------------------------------------------------------------ |:------------------------------------------------- |
@@ -275,20 +277,20 @@ data.replace({-999: np.nan, -1000: 0})   #参数为字典
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/reshaping_unstack_0.png)
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/reshaping_unstack_1.png)
 
-| **融合和重构**                                                                         |         |
-|:--------------------------------------------------------------------------------- |:------- |
+| **融合和重构**                                               |                |
+| :----------------------------------------------------------- | :------------- |
 | pd.melt(frame, id_vars, value_vars, var_name, value_name='value', col_level=None) | 宽格式变长格式 |
-| df.pivot(index=None, columns=None, values=None)                                   | reshape |
-| df.apply(func,axis=0)                                                             | 单函数聚合   |
+| df.pivot(index=None, columns=None, values=None)              | reshape        |
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/reshaping_melt.png)
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/reshaping_pivot.png)
 
-| **分组和聚合**           | (介绍分组时举例) |
-|:------------------- |:--------- |
-| df.groupby()        | 分组        |
-| df.applymap(func)   | 映射至每个元素   |
-| df.agg(func,axis=0) | 多函数聚合     |
+| **分组和聚合**        | (介绍分组时举例) |
+| :-------------------- | :--------------- |
+| df.groupby()          | 分组             |
+| df.applymap(func)     | 映射至每个元素   |
+| df.apply(func,axis=0) | 单函数聚合或变换 |
+| df.agg(func,axis=0)   | 多函数聚合       |
 
 ```python
 import numpy as np

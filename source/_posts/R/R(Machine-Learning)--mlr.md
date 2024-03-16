@@ -1,5 +1,5 @@
 ---
-title: R手册(Machine Learning)--mlr
+title: R(Machine Learning)--mlr
 tags:
   - R
   - 机器学习

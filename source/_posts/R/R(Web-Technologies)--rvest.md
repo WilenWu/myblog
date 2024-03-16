@@ -1,5 +1,5 @@
 ---
-title: R手册(Import)--rvest
+title: R(Import)--rvest
 tags:
   - R
   - tidyverse

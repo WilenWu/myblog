@@ -1,5 +1,5 @@
 ---
-title: Python手册(Python Basics)--RPy2
+title: Python(Python Basics)--RPy2
 categories:
   - Python
   - General

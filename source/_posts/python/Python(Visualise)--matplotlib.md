@@ -1,5 +1,5 @@
 ---
-title: Python手册(Visualise)--matplotlib
+title: Python(Visualise)--matplotlib
 tags:
   - Python
   - 可视化

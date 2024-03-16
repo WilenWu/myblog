@@ -1,5 +1,5 @@
 ---
-title: R手册(Model Tools)--broom
+title: R(Model Tools)--broom
 tags:
   - R
   - tidyverse

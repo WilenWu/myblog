@@ -1,5 +1,5 @@
 ---
-title: R手册(Time Series)--zoo
+title: R(Time Series)--zoo
 tags:
   - R
   - 时间序列

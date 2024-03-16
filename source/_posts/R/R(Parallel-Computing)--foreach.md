@@ -1,5 +1,5 @@
 ---
-title: R手册(Parallel Computing)--foreach
+title: R(Parallel Computing)--foreach
 tags:
   - R
   - 并行运算

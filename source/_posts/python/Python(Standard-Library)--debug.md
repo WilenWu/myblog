@@ -1,5 +1,5 @@
 ---
-title: Python手册(Standard Library)--Python 代码调试工具
+title: Python(Standard Library)--Python 代码调试工具
 categories:
   - Python
   - 'Standard Library'

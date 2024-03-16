@@ -1,5 +1,5 @@
 ---
-title: R手册(Import)--DBI
+title: R(Import)--DBI
 tags:
   - R
   - tidyverse

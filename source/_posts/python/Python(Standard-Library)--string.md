@@ -1,5 +1,5 @@
 ---
-title: Python手册(Standard Library)--string
+title: Python(Standard Library)--string
 categories:
   - Python
   - 'Standard Library'

@@ -1,5 +1,5 @@
 ---
-title: R手册(Visualise)--ggforce(ggplot2 extensions)
+title: R(Visualise)--ggforce(ggplot2 extensions)
 categories:
   - R
   - Visualise

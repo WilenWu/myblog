@@ -1,5 +1,5 @@
 ---
-title: R手册(Data Cleaning)--forcats
+title: R(Data Cleaning)--forcats
 tags:
   - R
   - tidyverse

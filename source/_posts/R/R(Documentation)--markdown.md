@@ -1,5 +1,5 @@
 ---
-title: R手册(Documentation)--R Markdown
+title: R(Documentation)--R Markdown
 tags:
   - R
   - markdown

@@ -1,5 +1,5 @@
 ---
-title: R手册(Visualise)--ggmap and baidumap
+title: R(Visualise)--ggmap and baidumap
 tags:
   - R
   - ggplot2

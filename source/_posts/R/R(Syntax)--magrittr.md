@@ -1,5 +1,5 @@
 ---
-title: R手册(Syntax)--magrittr
+title: R(Syntax)--magrittr
 tags:
   - R
   - tidyverse

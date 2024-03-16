@@ -1,5 +1,5 @@
 ---
-title: R手册(Data Cleaning)--日期时间
+title: R(Data Cleaning)--日期时间
 tags:
   - R
   - tidyverse

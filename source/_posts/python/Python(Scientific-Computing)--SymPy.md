@@ -1,5 +1,5 @@
 ---
-title: Python手册(Scientific Computing)--SymPy
+title: Python(Scientific Computing)--SymPy
 tags:
   - Python
   - 科学计算

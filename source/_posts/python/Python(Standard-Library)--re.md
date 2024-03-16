@@ -1,5 +1,5 @@
 ---
-title: Python手册(Standard Library)--re
+title: Python(Standard Library)--re
 tags:
   - Python
   - 正则表达式

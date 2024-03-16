@@ -1,5 +1,5 @@
 ---
-title: R手册(HTML Widgets)--leaflet
+title: R(HTML Widgets)--leaflet
 tags:
   - R
   - 可视化

@@ -1,5 +1,5 @@
 ---
-title: R手册(Common)--tibble
+title: R(Common)--tibble
 tags:
   - R
   - tidyverse

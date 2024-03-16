@@ -1,5 +1,5 @@
 ---
-title: R手册(Model Tools)--modelr
+title: R(Model Tools)--modelr
 tags:
   - R
   - 机器学习

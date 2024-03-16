@@ -1,5 +1,5 @@
 ---
-title: R手册(Data Cleaning)--stringr
+title: R(Data Cleaning)--stringr
 tags:
   - R
   - tidyverse

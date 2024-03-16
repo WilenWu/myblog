@@ -1,5 +1,5 @@
 ---
-title: Python手册(Machine Learning)--statsmodels
+title: Python(Machine Learning)--statsmodels
 categories:
   - Python
   - 'Machine Learning'

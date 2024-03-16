@@ -1,5 +1,5 @@
 ---
-title: 'R手册(Import)--读取常用文件'
+title: 'R(Import)--读取常用文件'
 tags:
   - R
   - tidyverse

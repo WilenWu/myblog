@@ -1,5 +1,5 @@
 ---
-title: R手册(Common)--R语言入门
+title: R(Common)--R语言入门
 tags:
   - R
 categories:

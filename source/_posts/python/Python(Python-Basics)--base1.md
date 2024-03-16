@@ -1,5 +1,5 @@
 ---
-title: Python手册(Python Basics)--Python基础（一）
+title: Python(Python Basics)--Python基础（一）
 tags:
   - Python
 categories:
@@ -522,9 +522,11 @@ dict_comp = {key-expr :value-expr for value in collection if condition}
      list_comp.append(expr) 
 ```
 
-# 函数
+# 内置函数
 
 ## 常用函数
+
+`globals() `和 `locals()` 函数可被用来返回全局和局部命名空间里的名字。
 
 | **输入输出**  |  |
 | :--- | :--- |
@@ -603,9 +605,9 @@ filter(lambda x: x%2==0, range(1, 101))
 
 **`enumerate`函数**，可以返回`(i, value)`元组序列，常用于loop：
 
-```
+```python
 for i, value in enumerate(collection): 
-  #do something with value
+  # do something with value
 ```
 
 **sorted函数**
@@ -648,87 +650,102 @@ In [95]: for i, (a, b) in enumerate(zip(seq1, seq2)):
 
 `range(start=0,end,step=1)`  返回一个迭代器，它产生一个均匀分布的整数序列 `[start,end) by step`
 
-## 自定义函数
+# 自定义函数
+
+## 函数语法
+
+1. 函数代码块以 def 关键词开头，后接函数标识符名称和圆括号 `()`。
+2. 圆括号之间可以用于定义参数。
+3. 函数内容以冒号起始，并且缩进。
+4. 函数的第一行语句可以选择性地使用文档字符串用于存放函数说明。
+5. `return`  关键字结束函数，返回函数值。不带表达式的`return`相当于返回 None。
 
 ```python
-def fun_name(var1,var2=default,*args,**kwargs): 
-  '说明文档'
-  statements  
-  return result 
+def area(a, b):
+  '计算正方形面积'
+  return a*b
 ```
 
-- 函数代码块以 def 关键词开头，后接函数标识符名称和圆括号 ()。
-- 任何传入参数和自变量必须放在圆括号中间，圆括号之间可以用于定义参数。
-- 函数的第一行语句可以选择性地使用文档字符串—用于存放函数说明。
-- 函数内容以冒号起始，并且缩进。
-- return [表达式] 结束函数，选择性地返回一个值给调用方。不带表达式的return相当于返回 None。
+> 通常，函数的一半代码行是文档。编写适当的文档字符串不仅对其他人理解我们的代码至关重要，而且当我们回看它时，我们可以理解自己的代码！
 
-- **参数顺序**：必选参数，默认参数，可变参数， 关键字参数
-  - `*args`是可变参数，以tuple的形式返回
-  - `**kwargs`是关键字参数，以dict的形式返回
-  - 可变参数(`*`)之后的参数必须指定参数名，否则就会被归到可变参数之中。
-  - 关键字参数都只能作为最后一个参数。
+## 参数顺序
+
+```python
+def fun(var1, var2=default, *args, **kwargs): 
+  pass  
+```
+
+**参数顺序**：必选参数>默认参数>可变参数>关键字参数
+
+在Python中，`*args` 和 `**kwargs` 是用来处理可变数量的参数的特殊符号。它们允许函数接受任意数量的位置参数和关键字参数，使得函数更加灵活。
+
+1. 参数 `*args` 用于接收可变数量的参数，可以将多个参数打包成元组传递给函数
+2. 参数 `**kwargs` 用于接收可变数量的key-word参数，可以将多个key-word参数打包成字典传递给函数
+
+通过示例演示如何使用这两种特殊参数，以及如何在函数中处理和打印这些参数。
 
 ```python
 >>> def test(a,*args, b, **kwargs): 
- 	   print(a)
- 	   print(args)
-       print(b)
- 	   print(kwargs)
+ 	   print(a,args,b,kwargs,sep='\n')
 >>> test('a',1, 2, b='b',key1=2,key2='c')
 'a'
 (1,2)
 'b'
 {'key1':2,'key2':'c'}
-
->>> def myfun(*, a, b): # 可变参数也可不用命名
-...   pass
-
->>> def fib(n):    # write Fibonacci series up to n
-...     """Print a Fibonacci series up to n."""
-...     a, b = 0, 1
-...     while a < n:
-...         print(a, end=' ')
-...         a, b = b, a+b
-...     print()
-...
->>> # Now call the function we just defined:
->>> fib(2000)
-0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597
 ```
 
-- **解压序列作为参数传入函数中**
+可变参数之后的参数必须指定参数名，否则都会被归到可变参数之中。关键字参数都只能作为最后一个参数。
+
+## 函数参数拆包
+
+Python中可以在函数参数中使用星号(`*`)拆包列表、元祖和字典
+
+例如，自定义函数
 
 ```python
->>> def myfun(a, b):
-...   print(a + b)
+>>> def mySum(a, b):
+        print(a + b)
 
-# 解压列表元组
 >>> n = [1, 2]
->>> myfun(*n)
+>>> mySum(*n)
 3
->>> m = (1, 2)
->>> myfun(*m)
-3
+```
 
-# 解压字典
->>> mydict = {'a':1, 'b': 2}
->>> myfun(**mydict)
+单个星号解压列表元组
+
+```python
+>>> m = (1, 2)
+>>> mySum(*m)
 3
->>> myfun(*mydict)
+```
+
+两个星号解压字典
+
+```python
+>>> mydict = {'a':1, 'b': 2}
+>>> mySum(**mydict)
+3
+>>> mySum(*mydict)
 ab
 ```
 
-### 函数注解
+## 函数注解
 
-- 我们知道 Python 是一种动态语言，变量以及函数的参数是不区分类型。
+我们知道 Python 是一种动态语言，变量以及函数的参数是不区分类型的。
+
 Python解释器会在运行的时候动态判断变量和参数的类型，这样的好处是编写代码速度很快，很灵活，但是坏处也很明显，不好维护，可能代码写过一段时间重新看就很难理解了，因为那些变量、参数、函数返回值的类型，全都给忘记了。
-- 所以Python3里有了这个新特性，可以给参数、函数返回值和变量的类型加上注解，不过这个仅仅是注释而已，对代码的运行来说没有任何影响，变量的真正类型还是会有Python解释器来确定，你所做的只是在提高代码的可读性，让 IDE 了解类型，从而提供更准确的代码提示、补全和语法检查，仅此而已。
-- 注解是以字典形式存储在函数的 `__annotations__ `属性中，对函数的其它部分没有任何影响。
+
+所以Python3里有了这个新特性，可以给参数、函数返回值和变量的类型加上注解，不过这个仅仅是注释而已，对代码的运行来说没有任何影响，变量的真正类型还是会有Python解释器来确定，你所做的只是在提高代码的可读性，让 IDE 了解类型，从而提供更准确的代码提示、补全和语法检查，仅此而已。
+
+注解是以字典形式存储在函数的 `__annotations__ `属性中，对函数的其它部分没有任何影响。
 
 ```python
 >>> def add(x:int, y:int) -> int:
 ...     return x+y
+...
+>>> print(add.__annotations__)
+{'x': <class 'int'>, 'y': <class 'int'>, 'return': <class 'int'>}
+
 >>> def f(ham: 42, eggs: int = 'spam') -> "Nothing to see here":
 ...     print("Annotations:", f.__annotations__)
 ...     print("Arguments:", ham, eggs)
@@ -738,15 +755,15 @@ Annotations: {'eggs': <class 'int'>, 'return': 'Nothing to see here', 'ham': 42}
 Arguments: wonderful spam
 ```
 
+## 变量的作用域
 
-### 变量的作用域
+Python中变量的作用域一共有4种，分别是：
 
-Python的作用域一共有4种，分别是：
+- L （Local） 局部作用域
+- E （Enclosing） 闭包函数外的函数中
+- G （Global） 全局作用域
+- B （Built-in） 内建作用域
 
-L （Local） 局部作用域
-E （Enclosing） 闭包函数外的函数中
-G （Global） 全局作用域
-B （Built-in） 内建作用域
 以 L –> E –> G –>B 的规则查找，即：在局部找不到，便会去局部外的局部找（例如闭包），再找不到就会去全局找，再者去内建中找。
 
 ```python
@@ -759,9 +776,9 @@ def outer():
         i_count = 2  # 局部作用域
 ```
 
-Python 中只有模块（module），类（class）以及函数（def、lambda）才会引入新的作用域，其它的代码块（如 if/elif/else/、try/except、for/while等）是不会引入新的作用域的，也就是说这些语句内定义的变量，外部也可以访问
+Python 中只有模块（module），类（class）以及函数（def、lambda）才会引入新的作用域，其它的代码块（如 if/elif/else/、try/except、for/while等）是不会引入新的作用域的，也就是说这些语句内定义的变量，外部也可以访问。
 
-### 局域变量和全局变量
+## 局域变量和全局变量
 
 当内部作用域想修改外部作用域的变量时，就要用到global和nonlocal关键字了
 
@@ -777,8 +794,17 @@ def outer():
 
 ## lambda 函数
 
-`lambda vars:expr` 不用写return，返回值就是该表达式的结果 
-` lambda x,y:x**y`
+lambda 函数不用写return，返回值就是该表达式的结果 
+
+```python
+lambda vars : expr
+```
+
+例如
+
+```python
+add = lambda x,y : x+y
+```
 
 
 # 闭包
@@ -808,52 +834,6 @@ another()
 
 这里的 another 就是一个闭包，闭包本质上是一个函数，它由两部分组成，printer 函数和变量 msg。闭包使得这些变量的值始终保存在内存中。
 
-**示例：**
-
-闭包常用于解偏微分方程，如下例：求解陨石运动轨迹
-
-运动半径：$r=\sqrt{x^2+y^2+z^2}$
-单位向量：$\hat{r}=\cfrac{\vec{r}}{r}$    
-加速度：$\cfrac{d\vec{v}}{dt}=-\cfrac{GM}{r^2}\cdot\hat{r}$   
-速度：$\vec{v}=\cfrac{d\vec{r}}{dt}$
-使用 `scipy` 包求解坐标 `(x,y,z)`
-
-```python
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.integrate import solve_ivp
-
-def gravity(GM=1):
-    '''             
-    dr/dt=v
-    r_norm=sqrt(x^2+y^2+z^2)
-    dv/dt=-GM/dot(r,r)*r/r_norm
-    ''' 
-    def force(t,X_and_V):
-        'GM loading...'
-        x,y,z,vx,vy,vz=X_and_V
-        r=np.array([x,y,z])
-        v=np.array([vx,vy,vz])
-        dr=v
-        r_norm=np.linalg.norm(r)
-        dv=-GM/np.dot(r,r)*r/r_norm
-        return np.concatenate([dr,dv])
-    return force
-
-r0=(20,30,0)
-v0=(0.8,0.5,0)
-t0,t1=0,100
-
-F=gravity(GM=1000)
-motion=solve_ivp(fun=F,t_span=(t0,t1),y0=r0+v0, t_eval=np.linspace(t0,t1,1001))
-
-plt.plot(motion.y[0,:],motion.y[1,:])
-plt.show()
-```
-![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/common/motion.png)
-
-
 # 装饰器
 
 装饰器实际上是在不改变原程序的情况下，给某程序增添功能，避免大量雷同代码。
@@ -879,9 +859,9 @@ def func():
 
 # 错误和异常处理
 
-## 异常处理
+## 捕获异常
 
-异常捕捉可以使用 `try/except` 语句
+异常捕捉可以使用 `try-except` 语句
 
 ```python
 try: 
@@ -908,7 +888,7 @@ finally:
 
   - 如果最终仍找不到对应的处理语句，它就成为一个 未处理异常，终止程序运行，显示提示信息。
 
-  - 一个 `try/except` 语句可能包含多个 except 子句，分别指定处理不同的异常。至多只会有一个分支被执行。
+  - 一个 `try-except` 语句可能包含多个 except 子句，分别指定处理不同的异常。至多只会有一个分支被执行。
 
   - 一个except子句可以同时处理多个异常，这些异常将被放在一个括号里成为一个元组，例如：
 
@@ -919,7 +899,7 @@ finally:
 
   - 最后一个except子句可以忽略异常的名称，它将被当作通配符使用。你可以使用这种方法打印一个错误信息，然后再次把异常抛出。
 
-- `try/except` 语句还有一个可选的 else 子句，如果使用这个子句，那么必须放在所有的 except 子句之后。else 子句将在 try 子句没有发生任何异常的时候执行。
+- `try-except` 语句还有一个可选的 else 子句，如果使用这个子句，那么必须放在所有的 except 子句之后。else 子句将在 try 子句没有发生任何异常的时候执行。
 
 - finally 语句无论是否发生异常都将执行最后的代码
 
@@ -964,6 +944,8 @@ NameError: HiThere
 
 # 模块管理
 
+在Python中，每个脚本都可以作为一个单独的脚本进行运行，也可以作为一个模块被其他脚本引入。
+
 ## pip
 
 pip 是一个现代的，通用的 Python 包管理工具。提供了对 Python 包的查找、下载、安装、卸载的功能。pip 已内置于 Python 3.4 和 2.7 及以上版本，其他版本需另行安装。
@@ -986,6 +968,8 @@ index-url = https://pypi.mirrors.ustc.edu.cn/simple/
 ```sh
 # 指定版本安装
 pip install xgboost==1.7.1
+# 指定镜像源
+pip install lightgbm -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
 ## conda
@@ -1027,6 +1011,14 @@ conda install py-xgboost=1.7.1
 
 ## 模块路径
 
+当你导入一个模块，Python 解析器对模块位置的搜索顺序是：
+
+1. 当前目录
+2. 如果不在当前目录，Python 则搜索在 shell 变量 PYTHONPATH 下的每个目录。
+3. 如果都找不到，Python会察看默认路径。UNIX下，默认路径一般为/usr/local/lib/python/。
+
+模块搜索路径存储在 system 模块的 sys.path 变量中。变量里包含当前目录，PYTHONPATH和由安装过程决定的默认目录。
+
 ```python
 # pip 命令显示包的信息，包括安装路径
 pip show package_name
@@ -1061,7 +1053,17 @@ from numpy import array, arrange
  
 # 导入全部子模块
 from numpy import * 
-
-# 列出模块里的函数
-dir(np)
 ```
+
+一个模块只会被导入一次，不管你执行了多少次import。这样可以防止导入模块被一遍又一遍地执行。
+
+因此，如果你想重新执行模块里顶层部分的代码，可以用 reload() 函数。该函数会重新导入之前导入过的模块。语法如下：
+
+```python
+reload(numpy)
+```
+
+## `__name__` 变量
+
+在Python中经常会看到 `if __name__ == '__main__'` 这行代码，它的作用是判断当前脚本是被直接执行还是作为模块被导入。通过判断`__name__`变量的取值，可以确定当前的执行情况。这样可以确保测试代码只在直接执行脚本时被执行，而在导入为模块时不被执行。 
+
