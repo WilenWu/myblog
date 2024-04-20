@@ -595,7 +595,7 @@ for key, value in study.best_trial.params.items():
 optuna.visualization.plot_optimization_history(study)
 ```
 
-![](/img/feature_engineering_with_python/output_42_1.png)
+![](/img/feature_engineering_with_python/ML_output_42_1.png)
 
 绘制study目标值的edf
 
@@ -603,7 +603,7 @@ optuna.visualization.plot_optimization_history(study)
 optuna.visualization.plot_edf(study)
 ```
 
-![](/img/feature_engineering_with_python/output_44_0.png)
+![](/img/feature_engineering_with_python/ML_output_44_0.png)
 
 # Step 5: Training
 
@@ -700,7 +700,7 @@ ax = lgb.plot_metric(eval_results, metric='auc')
 plt.show()
 ```
 
- ![](/img/feature_engineering_with_python/output_51_0.png)
+ ![](/img/feature_engineering_with_python/ML_output_51_0.png)
 ​    
 
 
@@ -802,7 +802,7 @@ plot_roc_curve(
 )
 ```
 
-![](/img/feature_engineering_with_python/output_55_0.png)
+![](/img/feature_engineering_with_python/ML_output_55_0.png)
 ​    
 
 
@@ -859,7 +859,7 @@ plt.title(label = 'Frequency', loc ='center')
 ```
 
 
-![](/img/feature_engineering_with_python/output_59_1.png)
+![](/img/feature_engineering_with_python/ML_output_59_1.png)
     
 
 
@@ -874,7 +874,7 @@ sns.kdeplot(data=valid_pred, x='score', hue='target', common_norm=False)
 plt.title(label = 'Frequency', loc ='center') 
 ```
 
-![](/img/feature_engineering_with_python/output_61_1.png)
+![](/img/feature_engineering_with_python/ML_output_61_1.png)
 
 验证集正负样本累积分布
 
@@ -886,7 +886,7 @@ plt.title(label = 'Cumulative', loc ='center')
 ```
 
 
-![](/img/feature_engineering_with_python/output_63_1.png)
+![](/img/feature_engineering_with_python/ML_output_63_1.png)
     
 
 
@@ -931,7 +931,7 @@ ax = lgb.plot_importance(bst, max_num_features=20)
 plt.show()
 ```
 
-![](/img/feature_engineering_with_python/output_66_0.png)
+![](/img/feature_engineering_with_python/ML_output_66_0.png)
 
 观察重点特征的分布 
 
@@ -971,7 +971,7 @@ for col in feature_imp.index[:10]:
     (0.0682, 0.124]                  14146  1229
 
 
-![](/img/feature_engineering_with_python/output_68_1.png)
+![](/img/feature_engineering_with_python/ML_output_68_1.png)
 
 
     label                                          0     1
@@ -1036,7 +1036,7 @@ for col in feature_imp.index[:10]:
     (1.264, 1.681]                      15011   365
 
 
-![](/img/feature_engineering_with_python/output_68_3.png)
+![](/img/feature_engineering_with_python/ML_output_68_3.png)
 
 
     label                                       0     1
@@ -1048,7 +1048,7 @@ for col in feature_imp.index[:10]:
     (1735.0, 31199.0]                       13969  1384
 
 
-![](/img/feature_engineering_with_python/output_68_5.png)
+![](/img/feature_engineering_with_python/ML_output_68_5.png)
 
 
     label                               0     1
@@ -1060,7 +1060,7 @@ for col in feature_imp.index[:10]:
     (-134.0, -1.0]                  13745  1601
 
 
-![](/img/feature_engineering_with_python/output_68_7.png)
+![](/img/feature_engineering_with_python/ML_output_68_7.png)
 
 
     label                                          0     1
@@ -1129,7 +1129,7 @@ for col in feature_imp.index[:10]:
     (148125.9, 43650000.0]                   13984  1392
 
 
-![](/img/feature_engineering_with_python/output_68_9.png)
+![](/img/feature_engineering_with_python/ML_output_68_9.png)
 
 
 # Step 8: Visualize the model
@@ -1142,7 +1142,7 @@ plt.show()
 ```
 
 
-![](/img/feature_engineering_with_python/output_70_0.png)
+![](/img/feature_engineering_with_python/ML_output_70_0.png)
 
 ```python
 # Plotting 54th tree (one tree use categorical feature to split)
