@@ -31,10 +31,10 @@ switch(site_url, gitee_url, github_push, gitee_push)
 print('推送到 gitee')
 os.system('hexo clean && hexo g')
 
-# books = ['球状闪电.html','三体1-地球往事.html','三体2-黑暗森林.html','三体3-死神永生.html']
-# location = './public/ebook'
-# for f in books:
-#     path = os.path.join(location, f)
-#     os.remove(path)
+books = ['球状闪电.html','三体1-地球往事.html','三体2-黑暗森林.html','三体3-死神永生.html']
+location = './public/ebook'
+for f in books:
+    path = os.path.join(location, f)
+    os.remove(path)
 
 os.system('hexo d')

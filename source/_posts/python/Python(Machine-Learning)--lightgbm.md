@@ -13,10 +13,13 @@ date: 2024-01-25 22:15:00
 description:
 ---
 
-
-# Overview
+# Quick Start
 
 LightGBM（Light Gradient Boosting Machine）是一种高效的 Gradient Boosting 算法， 主要用于解决GBDT在海量数据中遇到的问题，以便更好更快的用于工业实践中。
+
+在实际建模环节，LGBM支持Python、Java、C++等多种编程语言进行调用，并同时提供了Sklearn API和原生API两套调用方法。
+
+使用原生LGBM API时需要先将数据集转化成一种LGBM库定义的一种特殊的数据格式 Dataset，然后以字典形式设置参数，最终使用LGBM中自带的方法`lgb.train`或`lgb.cv`进行训练。
 
 | 数据结构                                                     | 说明                   |
 | ------------------------------------------------------------ | ---------------------- |
@@ -51,20 +54,16 @@ lightgbm.Dataset(data,
 import lightgbm as lgb
 ```
 
-而在实际建模环节，LGBM支持Python、Java、C++等多种编程语言进行调用，并同时提供了Sklearn API和原生API两套调用方法。
+现在，我们来简单看看原生代码是如何实现的。
 
-从建模流程上来看，使用原生LGBM API时需要先对数据集进行封装，转化成一种LGBM库定义的一种特殊的数据格式，然后再设置超参数字典，最终带入封装好的数据集和定义好的超参数字典进行训练，而在训练的过程，则支持多种不同的损失函数设置、以及交叉验证的优化流程的自动实现，并且原生API还提供了非常多实用功能，例如提供了GPU加速、精细化控制每一轮迭代的超参数等方法。
-
-Simple example：
-
-**Step 1:**  Load the dataset
+## Step 1:  Load the dataset
 
 ```python
 # load or create your dataset
 from sklearn.datasets import load_boston
 from sklearn.model_selection import train_test_split
 
-X, y = load_boston(return_X_y=True)
+X, y = load_boston(as_frame=True, return_X_y=True)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
 # create train dataset for lightgbm
@@ -80,12 +79,10 @@ LightGBM 可以直接使用分类特征，而不需要 one-hot 编码，且比�
 
 ```python
 # Specific feature names and categorical features
-dtrain = lgb.Dataset(X_train, y_train, categorical_feature='name:c1,c2,c3')
+dtrain = lgb.Dataset(X_train, y_train, feature_name=['c1', 'c2', 'c3'], categorical_feature=['c3'])
 ```
 
-> Note: 在构建 Dataset 前，先把分类特征转换成整数型
-
-**Step 2: Setting Parameters**
+## Step 2: Setting Parameters
 
 ```python
 # LightGBM can use a dictionary to set Parameters.
@@ -107,7 +104,7 @@ params['metric'] = 'l2'
 params['metric'] = ['l2', 'l1']
 ```
 
-**Step 3: Training**
+## Step 3: Training
 
 ```python
 # Training a model requires a parameter list and data set:
@@ -121,7 +118,7 @@ bst = lgb.train(params,
 lgb.cv(params, dtrain, num_boost_round=20, nfold=5)
 ```
 
-**Step 4: Save and load model**
+## Step 4: Save and load model
 
 ```python
 # Save model to file:
@@ -144,7 +141,7 @@ with open('model.pkl', 'rb') as fin:
 # can predict with any iteration when loaded in pickle way
 ```
 
-**Step 5:  Predict**
+## Step 5:  Predict
 
 ```python
 # A model that has been trained or loaded can perform predictions on datasets:
@@ -154,7 +151,7 @@ y_pred = bst.predict(X_test)
 y_pred = bst.predict(X_test, num_iteration=bst.best_iteration)
 ```
 
-**Step 6:  Evaluating**
+## Step 6:  Evaluating
 
 ```python
 from sklearn.metric import mean_squared_error
@@ -176,18 +173,18 @@ lightgbm 的参数以 dict 的格式配置，然后训练的时候传递给 ligh
 - `refit` 用新数据刷新现有模型，alias：`refit_tree`
 - `save_binary` 将数据集保存到二进制文件中
 
-**objective**：指定目标函数。default = `regression`
-
-- 回归问题：`regression`, `regression_l1`, `huber`, `fair`, `poisson`, `quantile`, `mape`, `gamma`, `tweedie`
-- 分类问题：`binary`, `multiclass`,  `multiclassova` 。对于多分类`num_class`参数也应该设置
-- 交叉熵：`cross_entropy`, `cross_entropy_lambda`, 
-- 排序问题：`lambdarank`, `rank_xendcg`
-
 **boosting**：指定算法类型。default = `gbdt`, aliases: `boosting_type`, `boost`
 
 - `gbdt`：传统的梯度提升算法，是最常用、且性能最稳定的 boosting 类型。alias：`gbrt`。
 - `rf`：传统的梯度促进决策树，alias：`random_forest`
 - `dart`： (Dropouts meet Multiple Additive Regression Trees)是一种结合了 Dropout 和多重加性回归树的方法。它在每次迭代过程中随机选择一部分树进行更新，会较大程度增加模型随机性，可以用于存在较多噪声的数据集或者数据集相对简单（需要减少过拟合风险）的场景中
+
+**objective**：指定目标函数。str or callable, default = regression
+
+- 回归问题：`regression`, `regression_l1`, `huber`, `fair`, `poisson`, `quantile`, `mape`, `gamma`, `tweedie`
+- 分类问题：`binary`, `multiclass`,  `multiclassova` 。对于多分类`num_class`参数也应该设置
+- 交叉熵：`cross_entropy`, `cross_entropy_lambda`, 
+- 排序问题：`lambdarank`, `rank_xendcg`
 
 **data_sample_strategy**：default = bagging
 
@@ -213,8 +210,7 @@ lightgbm 的参数以 dict 的格式配置，然后训练的时候传递给 ligh
 | :------------------ | :----------------------------------------------------------- | -------------------------- |
 | is_unbalance        | 是否不平衡数据集，仅用于分类任务。默认 False                 | unbalance, unbalanced_sets |
 | scale_pos_weight    | 调整正样本权重，仅用于分类任务。默认1.0                      |                            |
-| feature_name        | (list of str, or 'auto') 特征名称，默认 auto，如果数据是pandas.DataFrame，则使用数据列名称。 |                            |
-| categorical_feature | (list of str, or 'auto') 分类特征名称。                      |                            |
+| categorical_feature | 识别分类特征名称。e.g. `categorical_feature=0,1,2 `  or `categorical_feature=name:c1,c2,c3` |                            |
 
 ## 特征处理参数
 
@@ -244,7 +240,7 @@ lightgbm 的参数以 dict 的格式配置，然后训练的时候传递给 ligh
 
 注意：feature_fraction 不受subsample_freq影响。同时需要注意的是，LGBM和随机森林不同，随机森林是每棵树的每次分裂时都随机分配特征，而LGBM是每次构建一颗树时随机分配一个特征子集，这颗树在成长过程中每次分裂都是依据这个特征子集进行生长。
 
-## 训练过程控制
+## 模型训练
 
 | Name               | Description                                                  | aliases                                                      |
 | :----------------- | :----------------------------------------------------------- | ------------------------------------------------------------ |
@@ -258,7 +254,13 @@ lightgbm 的参数以 dict 的格式配置，然后训练的时候传递给 ligh
 | min_data_per_group | 每个分类组的最小数据数量，默认值为 100                       |                                                              |
 | input_model        | 对于prediction任务，该模型将用于预测；对于train任务，将从在这个模型基础上继续训练 | model_input, model_in                                        |
 
-其中部分参数在可模型训练 lightgbm.train 时传递值：
+损失函数
+$$
+Obj_k = \sum_{i=1}^Nl(y_i,\hat{y_i}) + \gamma T + \frac{1}{2}\lambda\sum_{j=1}^Tw_j^2 + \alpha\sum_{j=1}^Tw_j
+$$
+其中$T$表示当前第$k$棵树上的叶子总量，$w_j$则代表当前树上第$j$片叶子的叶子权重（leaf weights），即当前叶子$j$的预测值。正则项有两个：使用平方的 $\ell_2$正则项与使用绝对值的 $\ell_1$正则项。
+
+部分参数在可模型训练 lightgbm.train 时传递值：
 
 ```python
 lightgbm.train(params, 
@@ -297,10 +299,11 @@ lightgbm.cv(params,
 
 ```python
 # self-defined eval metric
-# f(y_true: array, y_pred: array) -> name: str, eval_result: float, is_higher_better: bool
+# f(preds: array, train_data: Dataset) -> name: str, eval_result: float, is_higher_better: bool
 # Relative Absolute Error (RAE)
-def rae(y_true, y_pred):
-    return 'RAE', np.sum(np.abs(y_pred - y_true)) / np.sum(np.abs(np.mean(y_true) - y_true)), False
+def rae(preds, train_data):
+    labels = train_data.get_label()
+    return 'RAE', np.sum(np.abs(preds - labels)) / np.sum(np.abs(np.mean(labels) - labels)), False
 
 # Starting training with custom eval functions...
 lgb.train(dtrain
@@ -308,6 +311,8 @@ lgb.train(dtrain
         feval=rae,
         callbacks=[lgb.early_stopping(5)])
 ```
+
+> 注意：sklearn API 自定义评估函数有所不同 `f(y_true, y_pred) -> name, eval_result, is_higher_better` 。调用 `fit` 方法时传递给 eval_metric 参数。
 
 ## 回调参数
 
@@ -345,76 +350,6 @@ bst = lgb.train(params,
                 init_model=gbm,
                 valid_sets=deval,
                 callbacks=[lgb.reset_parameter(bagging_fraction=[0.7] * 5 + [0.6] * 5)])
-```
-
-## 自定义损失函数
-
-lightgbm 在lgb.train中通过参数fobj和feval来自定损失函数和评估函数
-
-[advanced_example.py](https://github.com/microsoft/LightGBM/blob/master/examples/python-guide/advanced_example.py)
-
-注意：
-1. 在LightGBM中，自定义损失函数需要返回损失函数的一阶(grad)和二阶(hess)导数。
-2. 自定义损失函数后，模型的输出不在是 [0,1] 概率输出，而是 sigmoid 函数之前的输入值。
-3. 自定义损失函数后，模型的输出已经发生改变，需要写出对应的评估函数。
-4. 自定义损失函数后，LightGBM默认的boost_from_average=True失效，按照GBDT的框架，对于利用logloss来优化的二分类问题，样本的初始值为训练集标签的均值，在自定义损失函数后,系统无法获取到这个初始化值，导致收敛速度变慢。可以在构建lgb.Dataset时，利用init_score参数手动完成。
-5. 自定义损失函数后，模型输出需要手动进行sigmoid函数变换
-
-```python
-# NOTE: when you do customized loss function, the default prediction value is margin
-# This may make built-in evaluation metric calculate wrong results
-# For example, we are doing log likelihood loss, the prediction is score before logistic transformation
-# Keep this in mind when you use the customization
-
-# self-defined objective function
-# f(preds: array, train_data: Dataset) -> grad: array, hess: array
-# log likelihood loss
-from scipy import special
-def loglikelihood(preds, train_data):
-    labels = train_data.get_label()
-    preds = 1.0 / (1.0 + np.exp(-preds))
-    grad = preds - labels
-    hess = preds * (1.0 - preds)
-    return grad, hess
-
-# self-defined eval metric
-# f(preds: array, train_data: Dataset) -> name: str, eval_result: float, is_higher_better: bool
-def binary_error(preds, train_data):
-    labels = train_data.get_label()
-    preds = 1.0 / (1.0 + np.exp(-preds))
-    return "error", np.mean(labels != (preds > 0.5)), False
-
-# Pass custom objective function through params
-params_custom_obj["objective"] = loglikelihood
-
-gbm = lgb.train(
-    params_custom_obj, lgb_train, num_boost_round=10, feval=binary_error, valid_sets=lgb_eval
-)
-
-y_pred = special.expit(gbm.predict(X_test))
-
-
-# another self-defined eval metric
-# f(preds: array, train_data: Dataset) -> name: str, eval_result: float, is_higher_better: bool
-# accuracy
-
-def accuracy(preds, train_data):
-    labels = train_data.get_label()
-    preds = 1.0 / (1.0 + np.exp(-preds))
-    return "accuracy", np.mean(labels == (preds > 0.5)), True
-
-# Pass custom objective function through params
-params_custom_obj["objective"] = loglikelihood
-
-gbm = lgb.train(
-    params_custom_obj,
-    lgb_train,
-    num_boost_round=10,
-    feval=[binary_error, accuracy],
-    valid_sets=lgb_eval,
-)
-
-y_pred = special.expit(gbm.predict(X_test))
 ```
 
 # Scikit-Learn API
@@ -509,6 +444,99 @@ gbm.fit(X_train, y_train)
 
 print(f'Best parameters found by grid search are: {gbm.best_params_}')
 ```
+
+# 自定义损失函数
+
+## 原生接口
+
+在lgb.train中通过参数 `params["objective"]` 和 `feval` 来自定义损失函数和评估函数。
+
+> 老版本lightgbm自定义损失函数需要通过lgb.train中的参数fobj传递，最新版本改为直接在配置params时通过objective传递，fobj参数已经废弃。
+
+[advanced_example.py](https://github.com/microsoft/LightGBM/blob/master/examples/python-guide/advanced_example.py)
+
+注意：
+
+1. 在LightGBM中，自定义损失函数需要返回损失函数的一阶(grad)和二阶(hess)导数。
+2. 自定义损失函数后，模型的输出不在是 [0,1] 概率输出，而是 sigmoid 函数之前的输入值。
+3. 自定义损失函数后，模型的输出已经发生改变，需要写出对应的评估函数。
+4. 自定义损失函数后，LightGBM默认的boost_from_average=True失效，按照GBDT的框架，对于利用logloss来优化的二分类问题，样本的初始值为训练集标签的均值，在自定义损失函数后,系统无法获取到这个初始化值，导致收敛速度变慢。可以在构建lgb.Dataset时，利用init_score参数手动完成。
+5. 自定义损失函数后，模型输出需要手动进行sigmoid函数变换
+
+- 损失函数： `f(preds, train_data) -> grad, hess` ，配置在lgb.train的params字典中，使用 objective 参数传递。
+- 评估函数： `f(preds, train_data) -> name, eval_result, is_higher_better` ，使用lgb.train的 feval 参数传递。
+
+```python
+# NOTE: when you do customized loss function, the default prediction value is margin
+# This may make built-in evaluation metric calculate wrong results
+# For example, we are doing log likelihood loss, the prediction is score before logistic transformation
+# Keep this in mind when you use the customization
+
+# self-defined objective function
+# f(preds: array, train_data: Dataset) -> grad: array, hess: array
+# log likelihood loss
+from scipy import special
+
+def loglikelihood(preds, train_data):
+    labels = train_data.get_label()
+    preds = special.expit(preds)
+    grad = preds - labels
+    hess = preds * (1.0 - preds)
+    return grad, hess
+
+# Pass custom objective function through params
+params = {"objective": loglikelihood}
+
+# self-defined eval metric
+# f(preds: array, train_data: Dataset) -> name: str, eval_result: float, is_higher_better: bool
+def binary_error(preds, train_data):
+    labels = train_data.get_label()
+    preds = special.expit(preds)
+    return "error", np.mean(labels != (preds > 0.5)), False
+
+gbm = lgb.train(
+    params, train_data, num_boost_round=100, feval=binary_error, valid_sets=test_data
+)
+
+y_pred = special.expit(gbm.predict(X_test))
+```
+
+## sklearn API
+
+sklearn API 自定义损失函数和评估函数和原生接口有所不同。
+
+- 损失函数： `f(y_true, y_pred) -> grad, hess` ，新建sklearn模型实例时使用 objective 参数传递。
+- 评估函数： `f(y_true, y_pred) -> name, eval_result, is_higher_better` ，调用 `fit` 方法时传递给 eval_metric 参数。
+
+```python
+# self-defined objective function
+
+# f(y_true: array, y_pred: array) -> grad: array, hess: array
+# log likelihood loss
+from scipy import special
+
+def loglikelihood(y_true, y_pred):
+    y_pred = special.expit(y_pred)
+    grad = y_pred - y_true
+    hess = y_pred * (1.0 - y_pred)
+    return grad, hess
+
+# Pass custom objective function through objective
+model = LGBMModel(objective=loglikelihood, n_estimators=100)
+
+# self-defined eval metric
+# f(y_true: array, y_pred: array) -> name: str, eval_result: float, is_higher_better: bool
+def binary_error(y_true, y_pred):
+    y_pred = special.expit(y_pred)
+    return "error", np.mean(y_true != (y_pred > 0.5)), False
+
+model.fit(
+    X_train, y_train, eval_metric=binary_error, eval_set=[(X_test, y_test)]
+)
+
+y_pred = special.expit(model.predict_proba(X_test))
+```
+
 
 # 可视化
 

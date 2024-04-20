@@ -529,6 +529,8 @@ study.optimize(objective, n_trials=100, timeout=300)
 print("Number of finished trials: ", len(study.trials))
 ```
 
+> 注意：多目标优化使用的参数 directions 和单目标参数direction不同。
+
 ## 常见问题
 
 官方链接：https://optuna.readthedocs.io/en/stable/faq.html
@@ -627,3 +629,22 @@ study.optimize(objective, n_trials=10, gc_after_trial=True)
 study.optimize(objective, n_trials=10, callbacks=[lambda study, trial: gc.collect()])
 ```
 
+## 如何保存和恢复 study？
+
+有两种方法可以将 study 持久化。具体采用哪种取决于你是使用内存存储 (in-memory) 还是远程数据库存储 (RDB). 通过 `pickle` 或者 `joblib`, 采用了内存存储的 study 可以和普通的 Python 对象一样被存储和加载。比如用 `joblib` 的话：
+
+```python
+study = optuna.create_study()
+joblib.dump(study, "study.pkl")
+```
+
+恢复 study:
+
+```python
+study = joblib.load("study.pkl")
+print("Best trial until now:")
+print(" Value: ", study.best_trial.value)
+print(" Params: ")
+for key, value in study.best_trial.params.items():
+    print(f"    {key}: {value}")
+```

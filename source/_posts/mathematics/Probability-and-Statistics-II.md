@@ -400,15 +400,15 @@ $H_0: θ=θ_0,\quad H_1: θ\neq θ_0$ (双边检验)
 
 任一检验规则在应用时，都有可能发生错误的判断，为此在确定检验法则时，应尽量避免犯两类错误的概率。
 
-||原假设为真|原假设不真|
+||H~0~ is true|H~0~ is false|
 |---|---|---|
-|根据样本**拒绝**原假设|**type Ⅰ error**|正确|
-|根据样本**接受**原假设|正确|**type Ⅱ error**|
+|Reject H~0~  (Test is declared significant)|Type I error (FP) (probability=$\alpha$)|Correct inference (TP)(probability=$1-\beta$)|
+|Fail to reject H~0~  (Test is declared non-significant)|Correct inference (TN)(probability=$1-\alpha$)|Type II error (FN) (probability=$\beta$)|
 
 犯两类错误的概率记为
 
-$P\{\text{ type I error}\}=P\{X\in C|H_0\text{ is true}\}$
-$P\{\text{ type II error}\}=P\{X\not\in C|H_1\text{ is true}\}$
+$P\{\text{ Type I error}\}=P\{X\in C|H_0\text{ is true}\}$
+$P\{\text{ Type II error}\}=P\{X\not\in C|H_1\text{ is true}\}$
 
 而不考虑犯第Ⅱ类错误的检验称为==显著性检验==(significance test)。
 
