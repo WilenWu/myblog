@@ -56,6 +56,8 @@ import lightgbm as lgb
 
 现在，我们来简单看看原生代码是如何实现的。
 
+[Jupyter Notebook Demo](/ipynb/classification_demo.html#LightGBM)
+
 ## Step 1:  Load the dataset
 
 ```python
@@ -255,9 +257,11 @@ lightgbm 的参数以 dict 的格式配置，然后训练的时候传递给 ligh
 | input_model        | 对于prediction任务，该模型将用于预测；对于train任务，将从在这个模型基础上继续训练 | model_input, model_in                                        |
 
 损失函数
+
 $$
 Obj_k = \sum_{i=1}^Nl(y_i,\hat{y_i}) + \gamma T + \frac{1}{2}\lambda\sum_{j=1}^Tw_j^2 + \alpha\sum_{j=1}^Tw_j
 $$
+
 其中$T$表示当前第$k$棵树上的叶子总量，$w_j$则代表当前树上第$j$片叶子的叶子权重（leaf weights），即当前叶子$j$的预测值。正则项有两个：使用平方的 $\ell_2$正则项与使用绝对值的 $\ell_1$正则项。
 
 部分参数在可模型训练 lightgbm.train 时传递值：
@@ -586,52 +590,60 @@ graph.render(view=True)
 
 lightGBM有两种增量学习方式：
 
+[Jupyter notebook 增量学习Demo](/ipynb/incremental_learning_demo.html/#LightGBM)
+
 1. **init_model参数**：如果 init_model不为None，将从这个模型基础上继续训练，添加 num_boost_round 棵新树
 
 ```python
 # init_model accepts:
 # 1. model file name
 # 2. Booster()
-bst = lgb.train(previous_params,
-                new_data,
-                num_boost_round=10,
-                init_model=previous_model, 
-                valid_sets=eval_data,
-                keep_training_booster=True
-               )
+
+bst = lgb.train(
+    previous_params,
+    new_data,
+    num_boost_round=10,
+    init_model=previous_model, 
+    valid_sets=eval_data,
+    keep_training_booster=True
+)
 ```
 
 其中 keep_training_booster (bool) 参数表示返回的模型 (booster) 是否将用于保持训练，默认False。当模型非常大并导致内存错误时，可以尝试将此参数设置为True，以避免 model_to_string 转换。然后仍然可以使用返回的booster作为init_model，用于未来的继续训练。
 
 2. **调用 refit 方法**：在原有模型的树结构都不变的基础上，重新拟合新数据更新叶子节点权重
 
+在参数字典中配置
+
 ```python
-# 在参数字典中配置
 params = {
 	'task':'refit', 
 	'refit_decay_rate': 0.9,
 	'boosting_type':'gbdt',
 	'objective':'binary',
 	'metric':'auc'
-	}
+}
 
 bst = lgb.train(
 		params,
 		dtrain,
 		num_boost_round=20, 
-		valid_sets=[dtrain, deval]
-	)
+		valid_sets=[dtrain, deval],
+    init_model=previous_model 
+)
+```
 
-# 用返回的模型 (Booster) 重新拟合
+或用返回的模型 (Booster) 重新拟合
+
+```python
 bst.refit(
     data=X_train,
     label=y_train,
-    decay_rate=0.9,
-    reference=None
+    decay_rate=0.9
   )
 ```
 
-其中 refit_decay_rate 控制 refit 任务中学习率的衰减。重新拟合后，叶子结点的输出的计算公式为
+其中 refit_decay_rate 控制 refit 任务中叶节点的衰减率。重新拟合后，叶子结点的输出的计算公式为
 
 ```
 leaf_output = refit_decay_rate * old_leaf_output + (1.0 - refit_decay_rate) * new_leaf_output
@@ -700,21 +712,27 @@ spark-submit --packages com.microsoft.azure:synapseml_2.12:1.0.2 MyApp.jar
 
 ```python
 from synapse.ml.lightgbm import LightGBMClassifier
-model = LightGBMClassifier(learningRate=0.3,
-                           numIterations=100,
-                           numLeaves=31).fit(train)
+model = LightGBMClassifier(
+    learningRate=0.3,
+    numIterations=100,
+    numLeaves=31
+).fit(train)
 ```
 
 LightGBM的参数比SynapseML公开的要多得多，若要添加额外的参数，请使用passThroughArgs字符串参数配置。
 
 ```python
 from synapse.ml.lightgbm import LightGBMClassifier
-model = LightGBMClassifier(passThroughArgs="force_row_wise=true min_sum_hessian_in_leaf=2e-3",
-                           numIterations=100,
-                           numLeaves=31).fit(train)
+model = LightGBMClassifier(
+    passThroughArgs="force_row_wise=true min_sum_hessian_in_leaf=2e-3",
+    numIterations=100,
+    numLeaves=31
+).fit(train)
 ```
 
 您可以混合passThroughArgs和显式args，如示例所示。SynapseML合并它们以创建一个要发送到LightGBM的参数字符串。如果您在两个地方都设置参数，则以passThroughArgs为优先。
+
+[Jupyter notebook 分布式学习Demo](/ipynb/distributed_learning_demo.html#LightGBM-with-spark)
 
 示例：
 

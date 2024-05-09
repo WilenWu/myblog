@@ -1,5 +1,5 @@
 ---
-title: 大数据手册(Spark)--PySpark Core
+title: 大数据手册(Spark)--Spark Core and RDDs
 categories:
   - 'Big Data'
   - Spark
@@ -15,17 +15,17 @@ abbrlink: 264c088
 date: 2020-01-03 16:20:25
 ---
 
-# Spark 初始化
+# Spark Core
 
-## 提交应用程序脚本
+## 独立应用程序
 
-用户编写完Spark应用程序之后，需要将应用程序提交到集群中运行，提交时使用spark-submit命令进行，spark-submit可以带多种参数
+用户编写完Spark应用程序之后，需要将应用程序提交到集群中运行，提交时使用spark-submit命令进行：
 
 ```bash
-spark-submit --master <master-url> code.py [*args]
+spark-submit --master "local[2]" examples/src/main/python/pi.py
 ```
 
-下面介绍几种spark常用的资源管理器 `<master-url>`
+下面介绍几种spark常用的资源管理器 `master`
 
   - local：采用单线程运行spark，常用于本地开发测
   - local[n]：使用n线程运行spark
@@ -33,29 +33,37 @@ spark-submit --master <master-url> code.py [*args]
   - standalone：利用Spark自带的资源管理与调度器运行Spark集群，采用Master/Slave结构
   - yarn : 集群运行在Yarn资源管理器上，资源管理交给Yarn，Spark只负责进行任务调度和计算
 
-## 终端交互式执行
+## 使用 Spark Shell 进行交互
+
+若要在 Python 解释器中以交互方式运行 Spark，请使用：`bin/pyspark`
 
 ```bash
-spark-shell --master <master-url>  # scala
-pyspark  --master <master-url> # python
+pyspark  --master "local[2]"
 ```
 ## SparkContext
 
-默认情况下，Spark 交互式环境已经为 SparkContext 创建了名为 sc 的变量，因此创建新的环境变量将不起作用。但是，在独立spark 应用程序中，需要自行创建SparkContext 对象。
+Spark Connect 是 Spark 3.4 中引入的一种新的客户端-服务器体系结构，用于解耦 Spark 客户端应用程序，并允许远程连接到 Spark 群集。
+
+在 Spark 3.4 中，Spark Connect 在 PySpark 和 Scala 中的 DataFrame/Dataset API 支持。
+
+在使用bin/pyspark命令打开Spark交互式环境后，默认情况下，Spark 已经为 SparkContext 创建了名为 sc 的变量，因此创建新的环境变量将不起作用。
+
+但是，在提交的独立spark 应用程序中或者常规的python环境，需要自行创建SparkContext 对象连接集群。
+
 ```python
 from pyspark import SparkConf,SparkContext
-conf=SparkConf()\
+conf = SparkConf()\
     .setMaster('yarn')\
     .setAppName('myApp')
-spark=SparkContext(conf=conf)
+spark = SparkContext(conf=conf)
 ```
 一旦SparkConf对象被传递给SparkContext，它就不能被修改。
 
 ```python
 conf.contains(key) # 配置中是否包含一个指定键。
-conf.get(key,defaultValue=None) # 获取配置的某些键值，或者返回默认值。
+conf.get(key, defaultValue=None) # 获取配置的某些键值，或者返回默认值。
 conf.getAll() # 得到所有的键值对的list。
-conf.set(key,value) # 设置配置属性
+conf.set(key, value) # 设置配置属性
 
 # 获取 SparkContext 信息
 sc.version                 # 获取 SparkContext 版本
@@ -71,7 +79,26 @@ sc.defaultMinPartitions    # RDD默认最小分区数
 sc.stop()  # 终止SparkContext
 ```
 
-# 弹性分布式数据集(RDD)
+# RDD
+
+Spark运行基本流程
+
+弹性分布式数据集(RDD, Resilient Distributed Dataset)是Spark框架中的核心概念，它们是在多个节点上运行和操作以在集群上进行并行处理的元素。
+
+Spark通过分析各个RDD的依赖关系生成有向无环图DAG(Directed Acyclic Graph)，通过分析各个RDD中的分区之间的依赖关系来决定如何划分Stage进行任务优化。
+
+spark-submit提交Spark应用程序后，其执行流程如下：
+
+1. 创建SparkContext对象，然后SparkContext会向Clutser Manager（例如Yarn、Standalone、Mesos等）申请资源。
+2. 资源管理器在worker node上创建executor并分配资源（CPU、内存等)
+3. SparkContext启动DAGScheduler，将提交的作业（Job）转换成若干Stage，各Stage构成DAG（Directed Acyclic Graph有向无环图），各个Stage包含若干相task，这些task的集合被称为TaskSet
+4. TaskSet发送给TaskSet Scheduler，TaskSet Scheduler将Task发送给对应的Executor，同时SparkContext将应用程序代码发送到Executor，从而启动任务的执行
+5. Executor执行Task，完成后释放相应的资源。
+   ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/spark/spark-submit.png)
+
+- Job：一个Job包含多个RDD及作用于相应RDD上的各种操作构成的DAG图。
+- Stages：是Job的基本调度单位(DAGScheduler)，一个Job会分解为多组Stage，每组Stage包含多组任务(Task)，称为TaskSet，代表一组关联的，相互之间没有Shuffle依赖关系(最耗费资源)的任务组成的任务集。
+- Tasks：负责Stage的任务分发(TaskScheduler)，Task分发遵循基本原则：计算向数据靠拢，避免不必要的磁盘I/O开销。
 
 在Spark里，对数据的所有操作，基本上就是围绕RDD来的，譬如创建、转换、求值等等。某种意义上来说，RDD变换操作是惰性的，因为它们不立即计算其结果，RDD的转换操作会生成新的RDD，新的RDD的数据依赖于原来的RDD的数据，每个RDD又包含多个分区。那么一段程序实际上就构造了一个由相互依赖的多个RDD组成的有向无环图(DAG)。并通过在RDD上执行行动将这个有向无环图作为一个Job提交给Spark执行。
 
@@ -79,6 +106,8 @@ sc.stop()  # 终止SparkContext
 
 -   **变换**(Transformation) ：调用一个变换方法应用于RDD，不会有任何求值计算，返回一个新的RDD。
 -   **行动**(Action)  ：它指示Spark执行计算并将结果返回。
+
+> 请注意，在 Spark 2.0 之前，Spark 的主要编程接口是弹性分布式数据集 （RDD）。在 Spark 2.0 之后，RDD 被 Dataset 取代，后者具有与 RDD 类似的强类型，但在后台进行了更丰富的优化。
 
 ## RDD创建
 

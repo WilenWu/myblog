@@ -7,9 +7,9 @@ categories:
   - 'Machine Learning'
 cover: /img/FeatureEngine.png
 top_img: /img/sklearn-top-img.svg
-description: 
-abbrlink: 76296591
+abbrlink: 799016ae
 date: 2024-04-18 23:40:52
+description:
 ---
 
 有这么一句话在业界广泛流传：数据和特征决定了机器学习的上限，而模型和算法只是逼近这个上限而已。由此可见，特征工程在机器学习中占有相当重要的地位。在实际应用当中，可以说特征工程是机器学习成功的关键。

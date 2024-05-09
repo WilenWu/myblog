@@ -111,11 +111,10 @@ header_color: true
 
 - :ballot_box_with_check: [Spark安装配置](/posts/d02a6da3/)
 - :ballot_box_with_check: [Spark 简介](/posts/32722c50/)
-- :ballot_box_with_check: [PySpark Core](/posts/264c088/): Spark的核心RDD
-- :ballot_box_with_check: [PySpark MLlib](/posts/75974533/): 机器学习库
+- :ballot_box_with_check: [Spark Core and RDDs](/posts/264c088/): Spark的核心RDD
+- :ballot_box_with_check: [PySpark MLlib](/posts/75974533/): spark 机器学习库
 - :ballot_box_with_check: [PySpark Streaming](/posts/34eba6aa/): mini-batch 数据流处理
-- :ballot_box_with_check: [PySpark SQL](/posts/bb755aa3/): DataFrame 抽象
-- :ballot_box_with_check: [Pandas API on Spark](/posts/f67b0909/)
+- :ballot_box_with_check: [Spark SQL and DataFrames](/posts/bb755aa3/): DataFrame 抽象
 
 ## Dask
 
@@ -226,8 +225,9 @@ header_color: true
 - :ballot_box_with_check: [特征工程(II)--数据预处理](/posts/ce19bbb1/)
 - :ballot_box_with_check: [特征工程(III)--特征构造](/posts/ca507391/)
 - :ballot_box_with_check: [特征工程(IV)--特征选择](/posts/61a3ce5f/)
-- :ballot_box_with_check: [特征工程(V)--时序特征工程](/posts/c8fe03db/)
+- :ballot_box_with_check: [特征工程(V)--时间序列特征](/posts/799016ae/)
 - :ballot_box_with_check: [特征工程(VI)--机器学习](/posts/3d0ef432/)
+- :ballot_box_with_check: [特征工程(VII)--模型集成](/posts/425f9947/)
 
 ## Deep Learning
 

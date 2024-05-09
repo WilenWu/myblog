@@ -110,7 +110,7 @@ for addr, dirs, files in os.walk(posts_dir,topdown=False):
         if abbrlink is None:
             post_id = datetime.datetime.now().isoformat() + title
             crc32 = zlib.crc32(post_id.encode('utf-8'))
-            print(f'请更新文章「{post_url}」的 abbrlink = {hex(crc32)}')
+            print(f'请更新文章「{title}」的 abbrlink = {hex(crc32)[2:]}')
             continue
         url = f'/posts/{abbrlink}/'
         cat_name = ', '.join(front_matter['categories'][:2])

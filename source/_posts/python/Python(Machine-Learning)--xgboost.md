@@ -62,6 +62,8 @@ xgboost.DMatrix(data,
 
 现在，我们来简单看看原生代码是如何实现的。
 
+[Jupyter Notebook Demo](/ipynb/classification_demo.html#XGBoost)
+
 ## Step 1:  Load the dataset
 
 DMatrix会将特征矩阵与标签打包在同一个对象中，且一次只能转换一组数据。并且，我们无法通过索引或循环查看内部的内容，一旦数据被转换为DMatrix，就难以调用或修改了。
@@ -241,9 +243,11 @@ Feature Interaction Constraints 特征交互约束
 - `gamma` 依照叶子总量对目标函数施加惩罚的系数。default=0，别名：`min_split_loss`
 
 目标函数
+
 $$
 Obj_k = \sum_{i}l(y_i,\hat{y_i}) + \gamma T + \frac{1}{2}\lambda\sum_{j=1}^Tw_j^2 + \alpha\sum_{j=1}^Tw_j
 $$
+
 其中$T$表示当前第$k$棵树上的叶子总量，$w_j$则代表当前树上第$j$片叶子的叶子权重（leaf weights），即当前叶子$j$的预测值。正则项有两个：使用平方的 $\ell_2$正则项与使用绝对值的 $\ell_1$正则项。
 
 - `subsample` 训练集的采样比率。子采样将在每次提升迭代中发生一次。default=1
@@ -509,6 +513,8 @@ XGBoost提供两种增量学习的方式：
 - 一种是在当前迭代树的基础上增加新树，原树不变；
 - 一种是当前迭代树结构不变，重新计算叶节点权重和/或叶节点值。
 
+[Jupyter notebook 增量学习Demo](/ipynb/incremental_learning_demo.html/#XGBoost)
+
 在初始化模型 `xgb_model` 上继续训练
 
 ```python
@@ -590,6 +596,8 @@ pruned = xgb.train(
 |[xgboost.spark.SparkXGBClassifier](https://xgboost.readthedocs.io/en/stable/python/python_api.html#module-xgboost.spark)|PySpark分类算法|
 |xgboost.spark.SparkXGBRegressor|PySpark回归算法|
 |xgboost.spark.SparkXGBRanker|PySpark排名算法|
+
+[Jupyter notebook 分布式学习Demo](/ipynb/distributed_learning_demo.html#XGBoost-with-spark)
 
 以 SparkXGBClassifier 为例，介绍下XGBoost在spark中的用法
 
