@@ -39,6 +39,8 @@ spark = SparkSession \
    .config('spark.executor.cores','2') \
    .getOrCreate()
 sc = spark.sparkContext
+
+spark.stop() # Stop the underlying SparkContext.
 ```
 在 Spark 交互式环境下，默认已经创建了名为 spark 的 SparkSession 对象，不需要自行创建。
 
@@ -48,7 +50,8 @@ sc = spark.sparkContext
 |`SparkSession.builder.master(master)`|设置Spark master URL|
 |  `SparkSession.builder.config(key, value, …)`|配置选项|
 | `SparkSession.builder.enableHiveSupport()` |启用Hive支持|
-`SparkSession.builder.getOrCreate`|创建SparkSession|
+|`SparkSession.builder.getOrCreate`|创建SparkSession|
+|`SparkSession.range()`|创建一个只含id列的DataFrame|
 
 在使用Spark与Hive集成时，需要使用enableHiveSupport方法来启用Hive支持。启用Hive支持后，就可以在Spark中使用Hive的元数据、表和数据源。
 
@@ -1082,11 +1085,10 @@ Spark SQL 还拥有丰富的函数库，包括字符串操作、日期算术、�
 | pyspark.sql                                           | 函数                          |
 | :---------------------------------------------------- | :---------------------------- |
 | `functions.coalesce(*cols)`                           | `COALESCE` in SQL             |
-|`functions.nvl(col1, col2)`|`NVL` in SQL
+|`functions.nvl(col1, col2)`|`NVL` in SQL|
 | `functions.greatest(*cols)`                           | 最大列的值                    |
 | `functions.least(*cols)`                              | 最小列的值                    |
 | `functions.monotonically_increasing_id()`             | 单调递增ID列                  |
-| `SparkSession.range()`                                | 创建一个只含id列的DataFrame   |
 | `functions.rand(seed)`                                | 生成随机列，服从 0-1 均匀分布 |
 | `functions.randn(seed)`                               | 生成随机列，服从标准正态分布  |
 | `Column.substr(startPos, length)`                     | 截取字符串                    |
