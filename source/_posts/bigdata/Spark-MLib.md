@@ -178,7 +178,7 @@ pipeline = Pipeline(stages=[indexer, assembler, classifier])
 # Fit the pipeline to training dataset.
 model = pipeline.fit(train)
 
-# Make predictions on training datasett.
+# Make predictions on training dataset.
 prediction = model.transform(train)
 ```
 
@@ -443,13 +443,14 @@ OneHotEncoder方法来对离散特征进行编码。但是，该方法不接受S
 ```
 
 ElementwiseProduct 输出每个输入向量与提供的“权重”向量的Hadamard积（即元素乘积）。换句话说，它用标量乘数缩放数据集的每一列。
+
 $$
 \begin{pmatrix}v_1\\ \vdots \\ v_N\end{pmatrix}\circ
 \begin{pmatrix}w_1\\ \vdots \\ w_N\end{pmatrix}=
 \begin{pmatrix}v_1w_1\\ \vdots \\ v_Nw_N\end{pmatrix}
 $$
 
-```py
+```python
 >>> from pyspark.ml.feature import ElementwiseProduct
 >>> from pyspark.ml.linalg import Vectors
 >>> 
@@ -543,7 +544,7 @@ DenseVector([0.7944, 0.2056, 0.0])
 Imputer(strategy, missingValue, ...)
 ```
 
-使用缺失值所在列的平均值、中位数或众数完成缺失值的插。输入列应为数字类型。目前`Imputer`不支持分类功能，并可能为包含分类功能的列创建不正确的值。
+使用缺失值所在列的平均值、中位数或众数完成缺失值的插。输入列应为数字类型。目前`Imputer`不支持分类特征，并可能为包含分类特征的列创建不正确的值。
 
 ```python
 >>> from pyspark.ml.feature import Imputer
@@ -850,8 +851,8 @@ ML支持使用CrossValidator和TrainValidationSplit进行模型评估和选择�
 
 | pyspark.ml.evaluation             | Desc               | metricName                                                   |
 | --------------------------------- | ------------------ | ------------------------------------------------------------ |
-| RegressionEvaluator               | 回归模型评估       | areaUnderROC, areaUnderPR                                    |
-| BinaryClassificationEvaluator     | 二分类模型评估     | rmse, mse, r2, mae, var                                      |
+| RegressionEvaluator               | 回归模型评估       | rmse, mse, r2, mae, var                                      |
+| BinaryClassificationEvaluator     | 二分类模型评估     | areaUnderROC, areaUnderPR                                    |
 | MulticlassClassificationEvaluator | 多分类模型评估     | f1, accuracy, weightedPrecision, weightedRecall,  logLoss, … |
 | MultilabelClassificationEvaluator | 多标签分类模型评估 | precisionByLabel, recallByLabel, f1MeasureByLabel            |
 | ClusteringEvaluator               | 聚类模型评估       | silhouette                                                   |

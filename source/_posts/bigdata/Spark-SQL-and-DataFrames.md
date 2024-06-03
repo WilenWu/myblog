@@ -220,7 +220,8 @@ PySpark DataFrame还提供了转化为其他结构化数据类型的方法
 | `DataFrame.rdd`                  | 转化为RDD              |
 | `DataFrame.to_pandas_on_spark()` | 转化为pandas-on-Spark  |
 | `DataFrame.pandas_api()`         | 转化为pandas-on-Spark  |
-| `DataFrame.toJSON()`             | 转化为Json字符串       |
+| `DataFrame.toJSON()`             | 转化为Json字符串RDD    |
+| `DataFrame.to(schema)` | 改变列顺序和数据类型 |
 
 请注意，转换为Pandas DataFrame 时，会将所有数据收集到本地。当数据太大时，很容易导致 out-of-memory-error。
 
@@ -605,6 +606,7 @@ df.selectExpr("age * 2", "abs(age)").show()
 | :----------------------------------------- | :------------------- |
 |`DataFrame.withColumnRenamed(existing, new)` | 重命名列             |
 |`DataFrame.withColumnsRenamed(colsMap)`     | 重命名多列           |
+|`DataFrame.toDF(*cols)` | 重命名所有列 |
 |`DataFrame.withColumn(colName, col)`                   | 修改单列             |
 |`DataFrame.withColumns(*colsMap)`                      | 修改多列             |
 |`DataFrame.drop(*cols)`                             | 删除列               |
@@ -688,11 +690,6 @@ df.dropDuplicates(subset=["name"]).show()
 | `Column.startswith(pattern)`             | 匹配开始              |
 | `Column.endswith(pattern)`               | 匹配结尾              |
 | `Column.between(lowerBound, upperBound)` | `BETWEEN ... AND ...` in SQL |
-| `Column.eqNullSafe(other)`               | 安全处理NULL          |
-| `Column.isNotNull()`                     | `IS NOT NULL`  in SQL |
-| `Column.isNull()`                        | `IS NULL`  in SQL     |
-|`functions.isnan(col)`|`IS NaN`|
-|`functions.isnull(col)`| `IS NULL` |
 
 
 ```python
@@ -735,26 +732,6 @@ df.filter(df.name.isin('Andy','Justin')).show()
 | 30|   Andy|
 | 19| Justin|
 +---+-------+
-
-df.filter(df.age.isNotNull()).show()
-+---+-------+                                                                   
-|age|   name|
-+---+-------+
-| 30|   Andy|
-| 19| Justin|
-+---+-------+
-
-df.select(
-    df["age"].eqNullSafe(30),
-    df["age"].eqNullSafe(None),
-).show()
-+------------+--------------+
-|(age <=> 30)|(age <=> NULL)|
-+------------+--------------+
-|       false|          true|
-|        true|         false|
-|       false|         false|
-+------------+--------------+
 ```
 
 ### Group
@@ -1454,13 +1431,14 @@ spark.sql("SELECT * FROM square_numbers(1, 3)").show()
 |pyspark.sql|统计信息|
 |:---|:---|
 |`DataFrame.describe(*cols)`|描述性统计|
-|`DataFrame.summary(*statistics)`|
+|`DataFrame.summary(*statistics)`|描述性统计|
 |`DataFrame.count()`|行数|
-|`DataFrame.agg(*exprs)`|
-|`DataFrame.approxQuantile(col, prob, relativeError)`|百分位数
-|`DataFrame.corr(col1, col2, method=None)`|相关系数
+|`DataFrame.agg(*exprs)`|聚合|
+|`DataFrame.approxQuantile(col, prob, relativeError)`|百分位数|
+|`DataFrame.corr(col1, col2, method=None)`|相关系数|
 |`DataFrame.cov(col1, col2)`|方差|
 | `DataFrame.freqItems(cols, support)`    | 收集频繁条目|
+| `DataFrame.observe(observation, *exprs)` | 提取统计信息 |
 
 ```python
 df = spark.createDataFrame([
@@ -1499,6 +1477,27 @@ df.summary().show()
 +-------+------------------+-----+
 ```
 
+```python
+from pyspark.sql.functions import col, count, lit, max
+from pyspark.sql import Observation
+
+observation = Observation("my metrics")
+observed_df = df.observe(observation, count(lit(1)).alias("count"), max(col("age")))
+observed_df.show()
++---+-----+
+|age| name|
++---+-----+
+|  2|Alice|
+|  3|Alice|
+|  5|  Bob|
+| 10|  Bob|
++---+-----+
+observation.get
+# {'count': 4, 'max(age)': 10}
+```
+
+
+
 ## 缺失值处理
 
 pyspark.sql|缺失值处理
@@ -1506,6 +1505,11 @@ pyspark.sql|缺失值处理
 `DataFrame.na.fill(value, subset=None)`|缺失值填充
 `DataFrame.na.drop(how='any', thresh=None, subset=None)`|缺失值删除
 `DataFrame.na.replace(to_teplace, value, subset=None)`|替换
+| `Column.eqNullSafe(other)` | 安全处理NULL          |
+| `Column.isNotNull()`       | `IS NOT NULL`  in SQL |
+| `Column.isNull()`          | `IS NULL`  in SQL     |
+| `functions.isnan(col)`     | `IS NaN`              |
+| `functions.isnull(col)`    | `IS NULL`             |
 
 ```python
 df = spark.createDataFrame([
@@ -1530,7 +1534,45 @@ df.na.drop().show()
 +---+------+
 | 30|  Andy|
 | 19|Justin|
-+---+------+
++---+------+df.filter(df.age.isNotNull()).show()
++---+-------+                                                                   
+|age|   name|
++---+-------+
+| 30|   Andy|
+| 19| Justin|
++---+-------+
+
+df.select(
+    df["age"].eqNullSafe(30),
+    df["age"].eqNullSafe(None),
+).show()
++------------+--------------+
+|(age <=> 30)|(age <=> NULL)|
++------------+--------------+
+|       false|          true|
+|        true|         false|
+|       false|         false|
++------------+--------------+
+
+df.filter(df.age.isNotNull()).show()
++---+-------+                                                                   
+|age|   name|
++---+-------+
+| 30|   Andy|
+| 19| Justin|
++---+-------+
+
+df.select(
+    df["age"].eqNullSafe(30),
+    df["age"].eqNullSafe(None),
+).show()
++------------+--------------+
+|(age <=> 30)|(age <=> NULL)|
++------------+--------------+
+|       false|          true|
+|        true|         false|
+|       false|         false|
++------------+--------------+
 ```
 
 ## 临时视图

@@ -115,6 +115,10 @@ header_color: true
 - :ballot_box_with_check: [PySpark MLlib](/posts/75974533/): spark 机器学习库
 - :ballot_box_with_check: [PySpark Streaming](/posts/34eba6aa/): mini-batch 数据流处理
 - :ballot_box_with_check: [Spark SQL and DataFrames](/posts/bb755aa3/): DataFrame 抽象
+- :ballot_box_with_check: [PySpark机器学习Demo](/posts/90489eb7/): spark 机器学习库
+- :ballot_box_with_check: [PySpark 特征工程(III)--特征选择](/posts/d099726d/)
+- :ballot_box_with_check: [PySpark 特征工程(II)--特征构造](/posts/a1358f89/)
+- :ballot_box_with_check: [PySpark 特征工程(I)--数据预处理](/posts/59da38ae/)
 
 ## Dask
 
@@ -219,8 +223,8 @@ header_color: true
 - :ballot_box_with_check: [Python(Machine Learning)--LightGBM](/posts/44910830/)
 - :ballot_box_with_check: [Python(Machine Learning)--超参数优化](/posts/794d8498/)
 - :heart: Dask: 是一个灵活的开源库，适用于 Python 中的并行和分布式计算
-- :heart: [imblearn](https://imbalanced-learn.org/stable/user_guide.html): 专门用于处理不平衡数据集的机器学习问题。该库提供了一系列的重采样技术、组合方法和机器学习算法，旨在提高在不平衡数据集上的分类性能。
-- :heart: [featuretools](https://zhuanlan.zhihu.com/p/114943596): 实际上就是把常见的特征工程方法进行了自动化封装
+- :heart: [imblearn](https://imbalanced-learn.org/stable/user_guide.html): 专门用于处理不平衡数据集
+- :heart: [featuretools](https://zhuanlan.zhihu.com/p/114943596): 把常见的特征工程方法进行了自动化封装
 - :ballot_box_with_check: [特征工程(I)--探索性数据分析](/posts/29bf27e3/)
 - :ballot_box_with_check: [特征工程(II)--数据预处理](/posts/ce19bbb1/)
 - :ballot_box_with_check: [特征工程(III)--特征构造](/posts/ca507391/)

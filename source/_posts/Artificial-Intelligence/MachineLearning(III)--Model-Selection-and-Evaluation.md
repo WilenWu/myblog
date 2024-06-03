@@ -272,7 +272,7 @@ $$
 $$
 **召回率**（查全率）：是找到正样本的能力
 $$
-\text{Recall(Sensitivity)}=\frac{TP}{TP+TN}
+\text{Recall(Sensitivity)}=\frac{TP}{TP+FN}
 $$
 
 $$

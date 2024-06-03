@@ -97,14 +97,10 @@ PYSPARK_DRIVER_PYTHON=ipython ./bin/pyspark
 若要使用 Jupyter Notebook：
 
 ```bash
-PYSPARK_DRIVER_PYTHON=jupyter
+PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS=notebook ./bin/pyspark
 ```
 
 可以通过设置`PYSPARK_DRIVER_PYTHON_OPTS`来自定义`ipython`或`jupyter`命令。
-
-```bash
-PYSPARK_DRIVER_PYTHON_OPTS=notebook ./bin/pyspark
-```
 
 在使用 `bin/pyspark`命令打开Spark交互式环境后，默认情况下，Spark 已经创建了名为 sc 的  SparkContext 变量，因此创建新的环境变量将不起作用。
 
