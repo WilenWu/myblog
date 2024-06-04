@@ -261,19 +261,6 @@ class DropCorrelatedFeatures(Estimator, Transformer):
         return df.drop(*self.to_drop)
 ```
 
-上述函数会倾向于删除最后出现的相关特征，为了尽可能保留原始特征，我们调换下特征顺序：
-
-
-```python
-features = df.drop("SK_ID_CURR", "label").columns
-original_df = spark.sql("select * from home_credit_default_risk.prepared_data").limit(1).toPandas()
-
-original_features = [f for f in features if f in original_df.columns]
-derived_features =  [f for f in features if f not in original_features]
-
-features = derived_features + original_features
-```
-
 
 ```python
 # Drops features that are correlated
@@ -585,7 +572,7 @@ print(f'Dropped {len(features_to_drop)} features.')
     Dropped 132 features.
 
 
-在2167个总特征中只保留了239个，表明我们创建的许多特征是多余的。
+在371个总特征中只保留了239个，表明我们创建的许多特征是多余的。
 
 ## 递归消除特征
 
@@ -661,7 +648,7 @@ print("Dropped {} features with zero importance.".format(len(zero_importance)))
     The number of selected features: 232
     Dropped 7 features with zero importance.
 
-删除0重要性的特征后，我们还有229个特征。如果我们认为此时特征量依然非常大，我们可以继续删除重要性最小的特征。   
+删除0重要性的特征后，我们还有232个特征。如果我们认为此时特征量依然非常大，我们可以继续删除重要性最小的特征。   
 下图显示了累积重要性与特征数量：
 
 
@@ -716,17 +703,19 @@ feature_importances = score_dataset(df, inputCols=import_features)
 
  在继续之前，我们应该记录我们采取的特征选择步骤，以备将来使用：
 
-1. 删除互信息为0的无效特征：删除了117个特征
-2. 删除相关系数大于0.9的共线变量：删除了1108个特征
-3. 根据GBM删除0.0重要特征：删除108个特征
-4. (可选)仅保留95%特征重要性所需的特征：删除了586个特征
+1. 删除互信息为0的无效特征：删除了5个特征
+2. 删除相关系数大于0.9的共线变量：删除了127个特征
+3. 根据GBM删除0.0重要特征：删除7个特征
+4. (可选)仅保留95%特征重要性所需的特征：删除了75个特征
 
 我们看下特征组成：
 
 
 ```python
-original = set(original_features) & set(selected_features)
-derived = set(selected_features) - set(original)
+original_df = spark.sql("select * from home_credit_default_risk.prepared_data").limit(1).toPandas()
+
+original_features = [f for f in selected_features if f in original_df.columns]
+derived_features =  [f for f in selected_features if f not in original_features]
 
 print(f"Selected features: {len(original)} original features, {len(derived)} derived features.")
 ```
