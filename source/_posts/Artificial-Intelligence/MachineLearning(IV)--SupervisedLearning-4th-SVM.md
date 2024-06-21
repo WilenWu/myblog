@@ -221,6 +221,8 @@ $$
 
 > 可证明，如果原始空间是有限维， 即属性数有限，那么一定存在一个高维特征空间使样本可分。
 
+<img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/feature_space_mapping.png" style="zoom: 50%;" />
+
 令 $\mathbf{\phi(x)}$ 表示将 $\mathbf x$ 映射后的特征向量，于是，在特征空间中划分超平面所对应的模型可表示为
 $$
 f_{\mathbf{w},b}(\mathbf{x})=\text{sign}(\mathbf{w}^T\mathbf{\phi(x)}+b)

@@ -18,6 +18,8 @@ description: DataFrame 抽象
 
 Spark SQL用于对结构化数据进行处理，它提供了DataFrame的抽象，作为分布式平台数据查询引擎，可以在此组件上构建大数据仓库。
 
+> [PySpark 3.5 Tutorial For Beginners with Examples](https://sparkbyexamples.com/pyspark-tutorial/#google_vignette)
+
 ## SparkSession
 
 在过去，你可能会使用 SparkContext、SQLContext和HiveContext来分别配置Spark环境、SQL环境和Hive环境。SparkSession本质上是这些环境的组合，包括读取数据、处理元数据、配置会话和管理集群资源。

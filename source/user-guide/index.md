@@ -19,6 +19,8 @@ header_color: true
 
 致谢，[ApacheCN 中文开源组织](https://github.com/apachecn): 致力于官方文档及AI书籍中文翻译。
 
+[标点符](https://www.biaodianfu.com/roadmap): 丰富的机器学习理论知识和Python示例。
+
 # General
 
 - :ballot_box_with_check: [正则表达式](/posts/2f57a694/)
@@ -55,28 +57,28 @@ header_color: true
 
 ## Machine Learning
 
-- :ballot_box_with_check: [机器学习(I)--基础知识](/posts/8638abf9/)
-- :ballot_box_with_check: [机器学习(I)--参数估计](/posts/8006d3d0/)
-- :ballot_box_with_check: [机器学习(II)--数据预处理](/posts/5faa8f40/)
-- :ballot_box_with_check: [机器学习(III)--模型选择与评估](/posts/cc734464/)
-- :ballot_box_with_check: [机器学习(IV)--监督学习(一)线性回归](/posts/3c1747d9/)
-- :ballot_box_with_check: [机器学习(IV)--监督学习(二)线性分类](/posts/d36d7213/)
-- :ballot_box_with_check: [机器学习(IV)--监督学习(三)决策树](/posts/e81d370b/)
-- :ballot_box_with_check: [机器学习(IV)--监督学习(四)支持向量机](/posts/72ac77c8/)
-- :ballot_box_with_check: [机器学习(IV)--监督学习(五)最近邻算法](/posts/da278d94/)
-- :ballot_box_with_check: [机器学习(IV)--监督学习(六)贝叶斯分类](/posts/8216e77c/)
-- :ballot_box_with_check: [机器学习(IV)--监督学习(七)集成学习](/posts/6eef4242/)
-- :ballot_box_with_check: [机器学习(V)--无监督学习(一)聚类](/posts/8c3d002c/)
-- :ballot_box_with_check: [机器学习(V)--无监督学习(二)降维](/posts/c929642b/)
-- :ballot_box_with_check: [机器学习(V)--无监督学习(三)高斯混合模型](/posts/4f81b9fa/)
-- :ballot_box_with_check: [机器学习(V)--无监督学习(四)协方差估计](/posts/5a518d6f/)
-- :ballot_box_with_check: [机器学习(V)--无监督学习(五)异常检测](/posts/43ce4abf/)
-- :ballot_box_with_check: [机器学习(V)--无监督学习(六)流形学习](/posts/26cd5aa6/)
-- :ballot_box_with_check: [机器学习(V)--无监督学习(七)关联分析](/posts/c818004b/)
-- :ballot_box_with_check: [机器学习(V)--无监督学习(八)核密度估计](/posts/a6d4f9a8/)
-- :ballot_box_with_check: 机器学习(VI)--概率图模型
-- :ballot_box_with_check: 机器学习(VII)--强化学习
-- :ballot_box_with_check: 机器学习(VIII)--半监督学习
+- :ballot_box_with_check: [基础知识](/posts/8638abf9/)
+- :ballot_box_with_check: [参数估计](/posts/8006d3d0/)
+- :ballot_box_with_check: [数据预处理](/posts/5faa8f40/)
+- :ballot_box_with_check: [模型选择与评估](/posts/cc734464/)
+- :ballot_box_with_check: [监督学习(一)线性回归](/posts/3c1747d9/)
+- :ballot_box_with_check: [监督学习(二)线性分类](/posts/d36d7213/)
+- :ballot_box_with_check: [监督学习(三)决策树](/posts/e81d370b/)
+- :ballot_box_with_check: [监督学习(四)支持向量机](/posts/72ac77c8/)
+- :ballot_box_with_check: [监督学习(五)k近邻算法](/posts/da278d94/)
+- :ballot_box_with_check: [监督学习(六)贝叶斯分类](/posts/8216e77c/)
+- :ballot_box_with_check: [监督学习(七)集成学习](/posts/6eef4242/)
+- :ballot_box_with_check: [无监督学习(一)聚类](/posts/8c3d002c/)
+- :ballot_box_with_check: [无监督学习(二)主成分分析](/posts/c929642b/)
+- :ballot_box_with_check: [无监督学习(二)流形学习](/posts/26cd5aa6/)
+- :ballot_box_with_check: [无监督学习(三)EM算法](/posts/4f81b9fa/)
+- :ballot_box_with_check: [无监督学习(四)协方差估计](/posts/5a518d6f/)
+- :ballot_box_with_check: [无监督学习(五)异常检测](/posts/43ce4abf/)
+- :ballot_box_with_check: [无监督学习(六)关联分析](/posts/c818004b/)
+- :ballot_box_with_check: [无监督学习(七)核密度估计](/posts/a6d4f9a8/)
+- :ballot_box_with_check: 概率图模型
+- :ballot_box_with_check: 强化学习
+- :ballot_box_with_check: 半监督学习
 
 ## Deep Learning
 
@@ -112,13 +114,13 @@ header_color: true
 - :ballot_box_with_check: [Spark安装配置](/posts/d02a6da3/)
 - :ballot_box_with_check: [Spark 简介](/posts/32722c50/)
 - :ballot_box_with_check: [Spark Core and RDDs](/posts/264c088/): Spark的核心RDD
+- :ballot_box_with_check: [Spark SQL and DataFrames](/posts/bb755aa3/): DataFrame 抽象
 - :ballot_box_with_check: [PySpark MLlib](/posts/75974533/): spark 机器学习库
 - :ballot_box_with_check: [PySpark Streaming](/posts/34eba6aa/): mini-batch 数据流处理
-- :ballot_box_with_check: [Spark SQL and DataFrames](/posts/bb755aa3/): DataFrame 抽象
-- :ballot_box_with_check: [PySpark机器学习Demo](/posts/90489eb7/): spark 机器学习库
-- :ballot_box_with_check: [PySpark 特征工程(III)--特征选择](/posts/d099726d/)
-- :ballot_box_with_check: [PySpark 特征工程(II)--特征构造](/posts/a1358f89/)
 - :ballot_box_with_check: [PySpark 特征工程(I)--数据预处理](/posts/59da38ae/)
+- :ballot_box_with_check: [PySpark 特征工程(II)--特征构造](/posts/a1358f89/)
+- :ballot_box_with_check: [PySpark 特征工程(III)--特征选择](/posts/d099726d/)
+- :ballot_box_with_check: [PySpark机器学习Demo](/posts/90489eb7/): spark 机器学习库
 
 ## Dask
 

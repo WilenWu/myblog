@@ -17,6 +17,8 @@ date: 2020-01-03 16:20:25
 
 # 启动 Spark
 
+> [PySpark 3.5 Tutorial For Beginners with Examples](https://sparkbyexamples.com/pyspark-tutorial/#google_vignette)
+
 ## SparkContext
 
 Spark程序必须做的第一件事是创建一个SparkContext对象，该对象告诉Spark如何访问集群。要创建SparkContext，需要先构建一个包含应用程序信息的SparkConf对象。

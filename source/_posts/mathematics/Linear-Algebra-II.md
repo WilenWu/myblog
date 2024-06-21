@@ -1510,3 +1510,11 @@ $$
 $$
 大小等于 $v,w$ 围成的平行六面体的体积，方向遵循右手定则。
 
+## 矩阵的迹的性质
+
+1. $\text{tr }A=\text{tr }A^T$​
+2. $\text{tr}(A+B)=\text{tr }A+\text{tr }B$​
+3. $\text{tr }kA=k\text{ tr }A$​​
+4. $\text{tr}(AB)=\text{tr}(BA)$
+5. $\text{tr}(ABC)=\text{tr}(CAB)=\text{tr}(BCA)$​
+6. $\|A\|^2_F=\text{tr}(AA^T)$

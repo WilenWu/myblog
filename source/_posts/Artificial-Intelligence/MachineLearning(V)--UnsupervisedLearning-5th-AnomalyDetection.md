@@ -66,9 +66,9 @@ $$
 
 Isolation Forest 简称 iForest，译作孤立森林或隔离森林，由南京大学周志华等人共同开发。孤立森林是一种适用于连续数据的无监督异常检测方法。在孤立森林中，异常被定义为容易被孤立的离群点（more likely to be separated），可以将其理解为分布稀疏且离密度高的群体较远的点。 在特征空间里，分布稀疏的区域表示事件发生在该区域的概率很低，因而可以认为落在这些区域里的数据是异常的。
 
-给定的数据集  
+给定样本矩阵 
 $$
-X=\{\mathbf x_1,\mathbf x_2,\cdots,\mathbf x_N\}
+X=(\mathbf x_1,\mathbf x_2,\cdots,\mathbf x_N)^T
 $$
 包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T$ 。
 

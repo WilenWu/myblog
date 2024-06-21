@@ -105,6 +105,7 @@ for addr, dirs, files in os.walk(posts_dir,topdown=False):
         title = re.sub('\(ggplot2 extensions\)', '', title)
         title = re.sub('Python ?手册\(.+?\)--', '', title)
         title = re.sub('大数据手册 ?\(.+?\)--', '', title)
+        title = re.sub('机器学习 ?\(.+?\)--', '', title)
         # 读取 front_matter 信息
         abbrlink = front_matter['abbrlink']
         if abbrlink is None:

@@ -106,8 +106,15 @@ $$
 (2) 设 $\mathbf{a,b}$ 为常向量，$\mathbf A$ 为常矩阵
 
 - $\dfrac{\partial\mathbf a^T\mathbf{Xb}}{\partial\mathbf X}=\mathbf{ab}^T$
-- $\dfrac{\partial\text{tr}(\mathbf X)}{\partial\mathbf X}=\mathbf I$
-- $\dfrac{\partial\text{tr}(\mathbf{AX)}}{\partial\mathbf X}=\dfrac{\partial\text{tr}(\mathbf{XA)}}{\partial\mathbf X}=\mathbf A^T$
+
+(3) 设 $\mathbf{A,B}$​ 为常矩阵
+
+- $\dfrac{\partial\text{tr}(\mathbf X)}{\partial\mathbf X}=\mathbf I$​​
+- $\dfrac{\partial\text{tr}(\mathbf{AX)}}{\partial\mathbf X}=\dfrac{\partial\text{tr}(\mathbf{XA)}}{\partial\mathbf X}=\mathbf A^T$​
+- $\dfrac{\partial\text{tr}(\mathbf X^T\mathbf A)}{\partial\mathbf X}=\dfrac{\partial\text{tr}(\mathbf{AX}^T)}{\partial\mathbf X}=\mathbf A$
+- $\dfrac{\partial\text{tr}(\mathbf{XAX}^T)}{\partial\mathbf X}=\mathbf{X(A+A}^T)$
+- $\dfrac{\partial\text{tr}(\mathbf X^T \mathbf{AX})}{\partial\mathbf X}=(\mathbf A+\mathbf A^T)\mathbf X$​
+- $\dfrac{\partial\text{tr}(\mathbf{XAX}^T\mathbf B)}{\partial\mathbf X}=\mathbf{BXA}+\mathbf B^T\mathbf{XA}^T$
 
 ## matrix-by-scalar
 

@@ -6,7 +6,7 @@ tags:
 categories:
   - Big Data
   - Spark
-cover: /img/apache-spark-mllib.png
+cover: /img/spark-install.jpg
 top_img: /img/apache-spark-top-img.svg
 abbrlink: a1358f89
 description: 
