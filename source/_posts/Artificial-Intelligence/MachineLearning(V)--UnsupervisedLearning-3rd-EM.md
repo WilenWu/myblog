@@ -1,15 +1,15 @@
 ---
 title: 机器学习(V)--无监督学习(三)EM算法
-date: 
-katex: true
 categories:
   - Artificial Intelligence
   - Machine Learning
 tags:
   - 机器学习
+  - 无监督学习
 cover: /img/ML-unsupervised-learning.png
 top_img: /img/artificial-intelligence.jpg
 abbrlink: 4f81b9fa
+date: 2024-07-07 21:47:30
 description:
 ---
 

@@ -79,6 +79,7 @@ header_color: true
 - :ballot_box_with_check: 概率图模型
 - :ballot_box_with_check: 强化学习
 - :ballot_box_with_check: 半监督学习
+- :ballot_box_with_check: [监督学习(二)线性和二次判别分析](/posts/d5456183/)
 
 ## Deep Learning
 

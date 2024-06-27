@@ -1,7 +1,5 @@
 ---
 title: 机器学习(IV)--监督学习(二)线性分类
-date: 2022-11-27 21:40
-katex: true
 categories:
   - Artificial Intelligence
   - Machine Learning
@@ -10,6 +8,7 @@ tags:
 cover: /img/ML-supervised-learning.png
 top_img: /img/artificial-intelligence.jpg
 abbrlink: d36d7213
+date: 2022-11-27 21:40
 description: 
 ---
 
@@ -199,7 +198,7 @@ $$
 \phi&=\ln\frac{\mathbb P(\mathbf x|y=c_s)\mathbb P(y=c_s)}{\mathbb P(\mathbf x|y=c_t)\mathbb P(y=c_t)} \\
 &=-\frac{1}{2}(\mathbf x-\mathbf \mu_s)^T\mathbf\Sigma^{-1}(\mathbf x-\mathbf \mu_s)+\frac{1}{2}(\mathbf x-\mathbf \mu_t)^T\mathbf\Sigma^{-1}(\mathbf x-\mathbf \mu_t)+\ln\frac{\mathbb P(y=c_s)}{\mathbb P(y=c_t)} \\
 &=(\mathbf \mu_s-\mathbf \mu_t)^T\mathbf\Sigma^{-1}\mathbf x-\frac{1}{2}(\mu_s^T\mathbf\Sigma^{-1}\mu_s-\mu_t^T\mathbf\Sigma^{-1}\mu_t)+\ln\mathbb P(y=c_s)-\ln\mathbb P(y=c_t) \\
-&=(\mathbf w_s^T+b_s)-(\mathbf w_t^T+b_t)
+&=(\mathbf w_s^T\mathbf x+b_s)-(\mathbf w_t^T\mathbf x+b_t)
 \end{aligned}
 $$
 其中
@@ -301,12 +300,6 @@ Perceptron 是另一种适用于大规模学习的简单分类算法。
 最后一个特点意味着Perceptron的训练速度略快于带有合页损失(hinge loss)的SGD，因此得到的模型更稀疏。
 
 **被动感知算法** (Passive Aggressive Algorithms) 是一种大规模学习的算法。和感知机相似，因为它们不需要设置学习率。然而，与感知器不同的是，它们包含正则化参数。
-
-## 线性判别分析
-
-线性判别分析（Linear Discriminant Analysis，LDA）亦称 Fisher 判别分析。其基本思想是：将训练样本投影到低维超平面上，使得同类的样例尽可能近，不同类的样例尽可能远。如图所示：
-
-
 
 ## 多类别分类
 

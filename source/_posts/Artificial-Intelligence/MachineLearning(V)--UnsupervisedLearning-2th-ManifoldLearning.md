@@ -1,15 +1,15 @@
 ---
 title: 机器学习(V)--无监督学习(二)流形学习
-date: 
-katex: true
 categories:
   - Artificial Intelligence
   - Machine Learning
 tags:
   - 机器学习
+  - 降维
 cover: /img/ML-unsupervised-learning.png
 top_img: /img/artificial-intelligence.jpg
 abbrlink: 26cd5aa6
+date: 2024-06-21 22:05:00
 description:
 ---
 
