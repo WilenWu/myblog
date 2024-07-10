@@ -10,6 +10,7 @@ top_img: /img/artificial-intelligence.jpg
 abbrlink: 8c3d002c
 date: 2024-06-12 13:38:00
 description: 
+katex: true
 ---
 
 根据训练样本中是否包含标签信息，机器学习可以分为监督学习和无监督学习。聚类算法是典型的无监督学习，目的是想将那些相似的样本尽可能聚在一起，不相似的样本尽可能分开。

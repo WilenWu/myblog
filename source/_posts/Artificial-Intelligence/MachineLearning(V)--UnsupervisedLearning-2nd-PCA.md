@@ -10,6 +10,7 @@ top_img: /img/artificial-intelligence.jpg
 abbrlink: c929642b
 date: 2024-06-15 13:36:00
 description: 
+katex: true
 ---
 
 当数据的维度很高时，很多机器学习问题变得相当困难，这种现象被称为**维度灾难**（curse of dimensionality）。

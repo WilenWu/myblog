@@ -11,6 +11,7 @@ top_img: /img/artificial-intelligence.jpg
 abbrlink: 26cd5aa6
 date: 2024-06-21 22:05:00
 description:
+katex: true
 ---
 
 # 流形学习

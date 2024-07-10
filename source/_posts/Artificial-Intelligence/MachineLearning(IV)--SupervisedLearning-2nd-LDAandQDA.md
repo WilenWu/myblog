@@ -10,6 +10,7 @@ top_img: /img/artificial-intelligence.jpg
 abbrlink: d5456183
 date: 2024-06-24 19:20
 description: 
+katex: true
 ---
 
 # 线性判别分析

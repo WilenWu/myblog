@@ -10,6 +10,7 @@ top_img: /img/artificial-intelligence.jpg
 abbrlink: d36d7213
 date: 2022-11-27 21:40
 description: 
+katex: true
 ---
 
 每个样本都有标签的机器学习称为监督学习。根据标签数值类型的不同，监督学习又可以分为回归问题和分类问题。分类和回归是监督学习的核心问题。
@@ -25,8 +26,9 @@ description:
 
 给定的数据集  
 $$
-D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N\}
+D=\{(\mathbf x_1,y_1),(\mathbf x_2,y_2),\cdots,(\mathbf x_N,y_N)\}
 $$
+
 包含 $N$ 个样本，$p$ 个特征。其中，第 $i$ 个样本的特征向量为 $\mathbf x_i=(x_{i1},x_{i2},\cdots,x_{ip})^T$ 。目标变量 $y_i\in \{0,1\}$ 。逻辑回归试图预测正样本的概率，那我们需要一个输出 $[0,1]$ 区间的激活函数。假设二分类数据集服从均值不同、方差相同的正态分布
 $$
 \begin{cases}
@@ -128,9 +130,9 @@ $$
 \arg\min\limits_{\mathbf w} J(\mathbf{w})
 $$
 
-### 最大期望算法
+### 期望最大算法
 
-**最大期望算法**：（Expectation-Maximization algorithm, EM）与真实分布最接近的模拟分布即为最优分布，因此可以通过最小化交叉熵来求出最优分布。
+**期望最大算法**：（Expectation-Maximization, EM）与真实分布最接近的模拟分布即为最优分布，因此可以通过最小化交叉熵来求出最优分布。
 
 对任意样本 $(\mathbf x_i,y_i)$，真实分布可写为（真实分布当然完美预测）
 $$

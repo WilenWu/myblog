@@ -10,6 +10,7 @@ top_img: /img/artificial-intelligence.jpg
 abbrlink: da278d94
 date: 2024-06-08 16:00:00
 description: 
+katex: true
 ---
 
 # k近邻算法
