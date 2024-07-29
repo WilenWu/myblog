@@ -63,6 +63,7 @@ header_color: true
 - :ballot_box_with_check: [模型选择与评估](/posts/cc734464/)
 - :ballot_box_with_check: [监督学习(一)线性回归](/posts/3c1747d9/)
 - :ballot_box_with_check: [监督学习(二)线性分类](/posts/d36d7213/)
+- :ballot_box_with_check: [监督学习(二)线性和二次判别分析](/posts/d5456183/)
 - :ballot_box_with_check: [监督学习(三)决策树](/posts/e81d370b/)
 - :ballot_box_with_check: [监督学习(四)支持向量机](/posts/72ac77c8/)
 - :ballot_box_with_check: [监督学习(五)k近邻算法](/posts/da278d94/)
@@ -72,14 +73,11 @@ header_color: true
 - :ballot_box_with_check: [无监督学习(二)主成分分析](/posts/c929642b/)
 - :ballot_box_with_check: [无监督学习(二)流形学习](/posts/26cd5aa6/)
 - :ballot_box_with_check: [无监督学习(三)EM算法](/posts/4f81b9fa/)
-- :ballot_box_with_check: [无监督学习(四)协方差估计](/posts/5a518d6f/)
 - :ballot_box_with_check: [无监督学习(五)异常检测](/posts/43ce4abf/)
 - :ballot_box_with_check: [无监督学习(六)关联分析](/posts/c818004b/)
 - :ballot_box_with_check: [无监督学习(七)核密度估计](/posts/a6d4f9a8/)
-- :ballot_box_with_check: 概率图模型
-- :ballot_box_with_check: 强化学习
-- :ballot_box_with_check: 半监督学习
-- :ballot_box_with_check: [监督学习(二)线性和二次判别分析](/posts/d5456183/)
+- :ballot_box_with_check: [概率图模型(一)隐马尔可夫模型](/posts/69c08fe2/)
+- :ballot_box_with_check: [概率图模型(二)条件随机场](/posts/1ebcf865/)
 
 ## Deep Learning
 
