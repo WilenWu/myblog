@@ -36,17 +36,19 @@ date: 2024-07-29 14:30:00
 
 - 学习 (learning)：对图的结构和参数的学习。
 
-**贝叶斯网**(Bayesian Network)也称信念网络(Belief Network)，它有效地表达了属性间的条件独立性。对于一个 $K$ 维随机向量 $\mathbf x$，假设$\pi_k$ 为 $x_k$ 的所有父节点集合，则联合概率分布为
+**贝叶斯网**(Bayesian Network)也称信念网络(Belief Network)，它有效地表达了属性间的条件独立性。对于一组随机变量集合 $X=\{x_1,x_2,\cdots,x_N\}$，假设$\pi_i$ 为 $x_i$ 的所有父节点集合，则联合概率分布为
 $$
-p(x_1,x_2,\cdots,x_K)=\prod_{k=1}^Kp(x_k|\pi_k)
+p(X)=\prod_{i=1}^Np(x_i|\pi_i)
 $$
-其中 $p(x_k|\pi_k)$ 表示每个随机变量的局部条件概率分布 (Local Conditional Probability Distribution)。很多经典的机器学习模型可以使用贝叶斯网来描述，比如朴素贝叶斯分类器、隐马尔可夫模型、深度信念网络等。
+其中 $p(x_i|\pi_i)$ 表示每个随机变量的局部条件概率分布 (Local Conditional Probability Distribution)。很多经典的机器学习模型可以使用贝叶斯网来描述，比如朴素贝叶斯分类器、隐马尔可夫模型、深度信念网络等。
 
 **条件独立性**：在贝叶斯网络中，如果两个节点是直接连接的，它们肯定是非条件独立的，是直接因果关系。如果两个节点不是直接连接的，但可以由一条经过其他节点的路径来连接， 那么这两个节点之间的条件独立性就比较复杂。以三个节点的贝叶斯网络为例
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/DAG.svg)
 
 # 马尔可夫链
+
+[【超简单解释什么是马尔可夫链！】]( https://www.bilibili.com/video/BV1xa4y1w7aT)
 
 ## 基本概念
 
@@ -212,21 +214,21 @@ $$
 $$
 可见此马尔可夫链的多步转移概率有一个稳定的极限。
 
-## 状态的性质
+## 马尔可夫链的性质
 
-**常返性**：若状态 $s_i$ 和 $s_j$ 间存在转移 $P_{ij}(m)>0$ 和 $P_{ji}(n)>0$ ，则称状态 $s_i$ 和 $s_j$ 互通，记为 $s_i\lrarr s_j$ 。
-
-记 $P_{ij}$ 是从状态 $s_i$ 出发经有限步到达 $s_j$ 的概率
-$$
-P_{ij}=\sum_{n=1}^{\infty} P_{ij}(n)
-$$
-若自身返回概率 $P_{ii}<1$ 的状态 $s_i$ 称为**暂态**（transient state），否则称为**常返状态**（recurrent state）。对于暂态，意味着有概率 $1-P_{ii}$ 从 $s_i$ 出发不能再返回 $s_i$ 。
+**常返性**：若状态 $s_i$ 的自身返回概率 $P_{ii}<1$ ，则称为**暂态**（transient state），否则称为**常返状态**（recurrent state）。对于暂态，意味着有概率 $1-P_{ii}$ 从 $s_i$ 出发不能再返回 $s_i$ 。
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/reducible_Markov_chain.svg)
 
+其中 $P_{ij}$ 表示从状态 $s_i$ 出发经有限步到达 $s_j$ 的概率
+$$
+P_{ij}=\sum_{n=1}^{\infty} P_{ij}(n)
+$$
 **不可约性**：若马尔可夫链有些状态无法从其他状态返回，称这个马尔可夫链**可约**（reducible）。可以从任何一个状态到达其他任何状态的马尔可夫链称为**不可约**(irreducible)。
-
-**周期性**：若状态 $s_i$ 可返回自身的最小步数 $n$ 大于 1，则称 $s_i$ 是周期的，否则称为非周期的。
+$$
+P_{ij}(n)>0,\quad \forall s_i,s_j\in S
+$$
+**周期性**：若状态 $s_i$ 可返回自身的最小步数 $n$ 大于 1，则称 $s_i$ 是周期的 (periodic)，否则称为非周期的 (periodic)。
 $$
 \arg\min_{n}P_{ii}(n)>1
 $$
