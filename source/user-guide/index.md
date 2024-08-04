@@ -78,12 +78,22 @@ header_color: true
 - :ballot_box_with_check: [无监督学习(七)核密度估计](/posts/a6d4f9a8/)
 - :ballot_box_with_check: [概率图模型(一)隐马尔可夫模型](/posts/69c08fe2/)
 - :ballot_box_with_check: [概率图模型(二)条件随机场](/posts/1ebcf865/)
+- :ballot_box_with_check: [半监督学习](/posts/e05c1b59/)
 
 ## Deep Learning
 
-- :ballot_box_with_check: 深度学习
-- :ballot_box_with_check: 自然语言处理(NLP)
-- :ballot_box_with_check: 图像识别
+- :ballot_box_with_check: 多层感知机(MLP)
+- :ballot_box_with_check: 卷积神经网络(CNN): 特别适用于图像处理任务
+- :ballot_box_with_check: 循环神经网络(RNN): 适用于处理序列数据，如时间序列分析和自然语言处理
+- :ballot_box_with_check: 长短期记忆网络(LSTM): 一种特殊的RNN架构，有效解决了传统RNN中的梯度消失问题
+- :ballot_box_with_check: 生成对抗网络(GAN): 用于生成逼真的图像等数据
+- :ballot_box_with_check: 强化神经网络(DQN)
+
+## Large Language Model
+
+- :white_large_square: Generative AI: AI Generated Content (AIGC)
+- :white_large_square: Transformer
+- :white_large_square: Generative Pre-trained Transformer (GPT)
 
 ## Appendices
 
@@ -123,7 +133,7 @@ header_color: true
 
 ## Dask
 
-- :heart:Dask: Dask is a Python library for parallel and distributed computing
+- :heart: Dask: 是一个灵活的开源库，适用于 Python 中的并行和分布式计算
 
 ## Kafka
 
@@ -243,9 +253,6 @@ header_color: true
 ## NLP
 
 Natural Language Processing(自然语言处理)
-
-- :heart: Jieba: Chinese text segmentation
-- :white_large_square: NLTK: Natural Language Toolkit
 
 ## Documentation
 
@@ -368,11 +375,7 @@ Natural Language Processing(自然语言处理)
 ## NLP
 
 - :ballot_box_with_check: [R(NLP)--jiebaR](/posts/cb53c844/): R语言词云和中文词典包
-- :white_large_square: Rwordseg: 中文分词包，安装复杂
 - :ballot_box_with_check: [R(NLP)--wordcloud2](/posts/28aaa9da/): R interface to wordcloud for data visualization
-- :white_large_square: tm: 一个全面的文本挖掘框架
-- :heart: quanteda: 文本挖掘
-- :heart: tidytex: 简单文本挖掘，结合dplyr，ggplot2和其他简洁工具
 - :ballot_box_with_check: [R(NLP)--text2vec](/posts/94c7c255/): 这个 R 包提供了高性能和简洁的 API 来进行文本分析、自然语言处理（jiebaR推荐包）
 
 
@@ -383,16 +386,9 @@ Natural Language Processing(自然语言处理)
 - :ballot_box_with_check: [R(Time Series)--forecast and prophet](/posts/810a7dca/): 线性或非线性模型高质量时间序列预测
 - :white_large_square: CausalImpact: 使用贝叶斯结构时间序列模型进行因果推理
 
-## Finance
-
-- :white_large_square: quantmod: 定量金融建模与交易框架（股票）
-- :white_large_square: PerformanceAnalytics: 用于性能和风险分析的计量经济学工具
-
 ## Documentation
 
 - :ballot_box_with_check: [R(Documentation)--R Markdown](/posts/36ba9291/): 用于创建可重复性报告和动态文档
-- :white_large_square: rticles: 提供了一套RMarkdown模板
-- :white_large_square: knitr: 用于在PDF和HTML文档中嵌入R代码块
 
 
 ## Learning R

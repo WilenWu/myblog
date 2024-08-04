@@ -1,12 +1,12 @@
 ---
-title: 机器学习(VI)--概率图模型(二)条件随机场
+title: 机器学习(VIII)--概率图模型(二)条件随机场
 katex: true
 categories:
   - Artificial Intelligence
   - Machine Learning
 tags:
   - 机器学习
-cover: /img/data-analysis.png
+cover: /img/ML-PGM.png
 top_img: /img/artificial-intelligence.jpg
 abbrlink: 1ebcf865
 description:
@@ -75,6 +75,8 @@ $$
 Z=\sum_X\prod_{C\in\mathcal C}\psi_C(X_C)
 $$
 以确保联合概率 $\mathbb P(X)$ 构成一个概率分布。在实际应用中，精确计算 $Z$ 通常很困难，但许多任务往往并不需获得$Z$ 的精确值。
+
+> 实际上，因子分解定义是根据 Hammersley-Clifford 定理而得。
 
 马尔可夫随机场中的势函数 $\psi_C(X_C)$ 的作用是来量化团 $X_C$ 中节点状态和相邻节点状态组合的联合概率。由于势能函数必须为正，因此我们一般定义为指数函数
 $$

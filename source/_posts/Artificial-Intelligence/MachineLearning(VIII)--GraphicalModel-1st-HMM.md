@@ -1,12 +1,12 @@
 ---
-title: 机器学习(VI)--概率图模型(一)隐马尔可夫模型
+title: 机器学习(VIII)--概率图模型(一)隐马尔可夫模型
 katex: true
 categories:
   - Artificial Intelligence
   - Machine Learning
 tags:
   - 机器学习
-cover: /img/data-analysis.png
+cover: /img/ML-PGM.png
 top_img: /img/artificial-intelligence.jpg
 abbrlink: 69c08fe2
 description:
@@ -45,6 +45,8 @@ $$
 **条件独立性**：在贝叶斯网络中，如果两个节点是直接连接的，它们肯定是非条件独立的，是直接因果关系。如果两个节点不是直接连接的，但可以由一条经过其他节点的路径来连接， 那么这两个节点之间的条件独立性就比较复杂。以三个节点的贝叶斯网络为例
 
 ![](https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/ML/DAG.svg)
+
+生成式模型和判别式模型：一般来说，机器学习的任务是根据输入特征 $x$ 预测输出变量 $y$；生成式模型最终求得联合概率 $P(x,y)$, 而判别式模型最终求得条件概率 $p(y|x)$ 。
 
 # 马尔可夫链
 
