@@ -28,28 +28,21 @@ import pandas as pd
 
 ## 创建Series
 
-- array like
-  
-  ```python
-  s=pd.Series(data,index=None,dtype=None) 
-  ```
-  
-  > data：tuple,list,dict,ndarray 
-  > index：list对象赋值索引 
+```python
+s = pd.Series(data,index=None,dtype=None) # array like
+s = pd.Series(dict) 
+```
 
-- dict
-  
-  ```python
-  pd.Series(dict)
-  ```
-  
-  > 赋值方法 ：index=dict.keys,  data=dict.values
+## 向量化运算
+
+自动匹配索引标签(full  join)
+
+- 数学运算 `+,-,...`
+- 逻辑运算 `&|~`
+
+将两个 pandas Series 进行向量化运算的时候，如果某个 key 索引只在其中一个 Series 里出现，计算的结果会是 NaN，此时我们可以用对应函数的 fill_value 参数填充处理，例如 `s1.add(s2, fill_value=0)`
 
 ## 属性
-
-向量化运算(`+,-,...`)自动匹配索引标签(full  join)
-将两个 pandas Series 进行向量化运算的时候，如果某个 key 索引只在其中一个 Series 里出现，计算的结果会是 NaN，此时我们可以用对应函数的 fill_value 参数填充处理，例如
-`s1.add(s2, fill_value=0)`
 
 | 属性           | 可赋值修改        |
 |:------------ |:------------ |

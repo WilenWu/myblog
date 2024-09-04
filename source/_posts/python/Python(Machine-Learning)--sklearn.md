@@ -1645,7 +1645,7 @@ for i, (X_train, y_train) in enumerate(minibatch_iterators):
 clf.score(X_test, y_test)
 ```
 
-Example: [增量学习Demo之partial_fit 方法](ipynb/incremental_learning_demo.html#调用-partial_fit-方法刷新叶节点)
+Example: [增量学习Demo之partial_fit 方法](/ipynb/incremental_learning_demo.html#调用-partial_fit-方法刷新叶节点)
 
 ## warm_start 参数
 
@@ -1653,7 +1653,7 @@ warm_start 直译为热启动，在模型训练过程中起作用。如果 warm_
 
 在集成算法中，warm_start 将与 n_estimators交互。如果训练好了一个包含 n_estimators=N 个估计器的集成模型后，想在此基础上训练一个包含 n_estimators=M 个估计器的模型，则可以设置 warm_start=True，新模型在原有的基础上再训练 M-N 个新的估计器。
 
-Example: [增量学习Demo之warm_start 参数](ipynb/incremental_learning_demo.html#设置-warm_start-参数增加新树)
+Example: [增量学习Demo之warm_start 参数](/ipynb/incremental_learning_demo.html#设置-warm_start-参数增加新树)
 
 
 

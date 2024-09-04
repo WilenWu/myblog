@@ -30,7 +30,6 @@ header_color: true
 - :ballot_box_with_check: [Git 快速参考指南](/posts/f48f437a/)
 - :ballot_box_with_check: [看不懂的数字](/posts/12a72af8/)
 - :ballot_box_with_check: [Mac终端配置文件](/posts/2da646b7/)
-- :white_large_square: Docker: 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows操作系统的机器上。
 
 # Markup Language
 
@@ -79,6 +78,7 @@ header_color: true
 - :ballot_box_with_check: [概率图模型(一)隐马尔可夫模型](/posts/69c08fe2/)
 - :ballot_box_with_check: [概率图模型(二)条件随机场](/posts/1ebcf865/)
 - :ballot_box_with_check: [半监督学习](/posts/e05c1b59/)
+- :ballot_box_with_check: [强化学习](/posts/a36576b2/)
 
 ## Deep Learning
 
@@ -233,6 +233,7 @@ header_color: true
 - :ballot_box_with_check: [Python(Machine Learning)--XGBoost](/posts/c46d5dae/)
 - :ballot_box_with_check: [Python(Machine Learning)--LightGBM](/posts/44910830/)
 - :ballot_box_with_check: [Python(Machine Learning)--超参数优化](/posts/794d8498/)
+- :heart: Gym: 是OpenAI推出的强化学习实验环境库
 - :heart: Dask: 是一个灵活的开源库，适用于 Python 中的并行和分布式计算
 - :heart: [imblearn](https://imbalanced-learn.org/stable/user_guide.html): 专门用于处理不平衡数据集
 - :heart: [featuretools](https://zhuanlan.zhihu.com/p/114943596): 把常见的特征工程方法进行了自动化封装

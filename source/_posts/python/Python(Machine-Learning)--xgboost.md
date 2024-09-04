@@ -513,7 +513,7 @@ XGBoost提供两种增量学习的方式：
 - 一种是在当前迭代树的基础上增加新树，原树不变；
 - 一种是当前迭代树结构不变，重新计算叶节点权重和/或叶节点值。
 
-[Jupyter notebook 增量学习Demo](/ipynb/incremental_learning_demo.html/#XGBoost)
+[Jupyter notebook 增量学习Demo](/ipynb/incremental_learning_demo.html#XGBoost)
 
 在初始化模型 `xgb_model` 上继续训练
 

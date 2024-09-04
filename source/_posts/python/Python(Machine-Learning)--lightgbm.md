@@ -9,6 +9,7 @@ categories:
 cover: /img/LightGBM_cover.svg
 top_img: /img/LightGBM_cover.svg
 abbrlink: '44910830'
+katex: true
 date: 2024-01-25 22:15:00
 description:
 ---
@@ -590,7 +591,7 @@ graph.render(view=True)
 
 lightGBM有两种增量学习方式：
 
-[Jupyter notebook 增量学习Demo](/ipynb/incremental_learning_demo.html/#LightGBM)
+[Jupyter notebook 增量学习Demo](/ipynb/incremental_learning_demo.html#LightGBM)
 
 1. **init_model参数**：如果 init_model不为None，将从这个模型基础上继续训练，添加 num_boost_round 棵新树
 
