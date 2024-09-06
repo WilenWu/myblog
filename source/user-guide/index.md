@@ -30,6 +30,7 @@ header_color: true
 - :ballot_box_with_check: [Git 快速参考指南](/posts/f48f437a/)
 - :ballot_box_with_check: [看不懂的数字](/posts/12a72af8/)
 - :ballot_box_with_check: [Mac终端配置文件](/posts/2da646b7/)
+- :ballot_box_with_check: [30分钟速成Java](/posts/8f3475e8/)
 
 # Markup Language
 
@@ -78,7 +79,13 @@ header_color: true
 - :ballot_box_with_check: [概率图模型(一)隐马尔可夫模型](/posts/69c08fe2/)
 - :ballot_box_with_check: [概率图模型(二)条件随机场](/posts/1ebcf865/)
 - :ballot_box_with_check: [半监督学习](/posts/e05c1b59/)
-- :ballot_box_with_check: [强化学习](/posts/a36576b2/)
+- :ballot_box_with_check: [强化学习(一)马尔可夫决策过程](/posts/a36576b2/)
+- :ballot_box_with_check: [强化学习(二)动态规划](/posts/6e55c5aa/)
+- :ballot_box_with_check: [强化学习(三)蒙特卡洛方法](/posts/5d47a626/)
+- :ballot_box_with_check: [强化学习(四)时序差分方法](/posts/363ac257/)
+- :ballot_box_with_check: [强化学习(五)值函数近似](/posts/2bd55622/)
+- :ballot_box_with_check: [强化学习(六)策略梯度方法](/posts/3644c10c/)
+- :ballot_box_with_check: [强化学习(七)Actor-Critic](/posts/a14a3278/)
 
 ## Deep Learning
 
