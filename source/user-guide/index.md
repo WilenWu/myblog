@@ -30,7 +30,7 @@ header_color: true
 - :ballot_box_with_check: [Git 快速参考指南](/posts/f48f437a/)
 - :ballot_box_with_check: [看不懂的数字](/posts/12a72af8/)
 - :ballot_box_with_check: [Mac终端配置文件](/posts/2da646b7/)
-- :ballot_box_with_check: [30分钟速成Java](/posts/8f3475e8/)
+- :ballot_box_with_check: [Java速成指南](/posts/db6e5578/)
 
 # Markup Language
 
