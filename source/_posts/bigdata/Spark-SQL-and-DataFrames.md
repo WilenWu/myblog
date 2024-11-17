@@ -1320,6 +1320,33 @@ df.select('name', 'age', mean_udf('age').over(w).alias("mean_age")).show()
 +-----+---+--------+
 ```
 
+当我们训练好一个本地模型，想在大规模的数据上预测时，可以使用pandas_udf进行分布式预测：
+
+```python
+from pyspark.sql.functions import pandas_udf, struct
+import joblib 
+import pandas as pd
+
+def predict_with_spark(spark_df, spark_context, local_model):
+   var = spark_context.broadcast(local_model)
+   model = var.value
+
+   @pandas_udf('float')
+   def transform(X):
+      categorical = [var for var in X.columns if X[var].dtype == 'object']
+      if len(categorical) > 0:
+         X[categorical] = X[categorical].astype('category')
+
+      return pd.Series(model.predict(X))
+
+   cols = struct(*model.feature_names_in_)
+   return spark_df.withColumn('predictions', transform(cols))
+
+bst = joblib.load('bst.txt')
+df = spark.sql("select * from home_credit_default_risk")
+predict_with_spark(df, sc, bst).select('predictions').show()
+```
+
 ### Pandas Function API
 
 Pandas Function API 与Pandas UDF类似，使用Arrow传输数据，使用Pandas处理数据，允许矢量化操作。然而，Pandas Function API是直接作用于PySpark DataFrame而不是Column。

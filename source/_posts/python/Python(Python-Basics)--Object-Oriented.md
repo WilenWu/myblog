@@ -81,7 +81,24 @@ class ClassName:
 	# @x.setter,@x.deleter	
 ```
 
+```python
+def Circle:
+  pi = 3.14
+  
+  def __init__(self, r):
+    self.r = r
+  
+  @classmethod
+  def from_area(cls, s):
+    r = math.sqrt(s / cls.pi)
+    return cls(r)
+
+c1 = Circle(1)
+c2 = Circle.from_area(2)
+```
+
 调用类
+
 ```python
 ClassName.cls_attr # 调用类属性
 ClassName.static_fun(...) #调用静态方法

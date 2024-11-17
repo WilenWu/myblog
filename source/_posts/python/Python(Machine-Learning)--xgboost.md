@@ -154,9 +154,9 @@ xgb.cv(params, dtrain, num_boost_round=20, nfold=5)
 
 ```python
 # Save model
-bst.save_model("model.json")
+bst.save_model("model.txt")
 # load model
-bst = xgb.Booster(model_file="model.json")
+bst = xgb.Booster(model_file="model.txt")
 
 # alternatively, you can pickle the booster
 import pickle
@@ -587,8 +587,6 @@ pruned = xgb.train(
 
 # 分布式学习
 
-## XGBoost with PySpark
-
 > 从1.7.0版本开始，xgboost已经封装了pyspark API，因此不需要纠结spark版本对应的jar包 xgboost4j 和 xgboost4j-spark 的下载问题了，也不需要下载调度包 sparkxgb.zip。
 
 | 算法               | 说明                                                         |
@@ -649,3 +647,34 @@ predict_df = model.transform(df_test)
 classifier_evaluator = MulticlassClassificationEvaluator(metricName="f1")
 print(f"classifier f1={classifier_evaluator.evaluate(predict_df)}")
 ```
+
+# 分布式预测
+
+当我们训练好一个本地模型，想在大规模的数据上预测时，可以使用pandas_udf进行分布式预测：
+
+```python
+from pyspark.sql.functions import pandas_udf, struct
+import xgboost as xgb
+import pandas as pd
+
+def predict_with_spark(spark_df, spark_context, local_model):
+   var = spark_context.broadcast(local_model)
+   model = var.value
+
+   @pandas_udf('float')
+   def transform(X):
+      categorical = [var for var in X.columns if X[var].dtype == 'object']
+      if len(categorical) > 0:
+         X[categorical] = X[categorical].astype('category')
+      
+      X = xgb.DMatrix(X, enable_categorical=True)
+      return pd.Series(model.predict(X))
+
+   cols = struct(*model.feature_names)
+   return spark_df.withColumn('predictions', transform(cols))
+
+bst = xgb.Booster(model_file='bst.txt')
+df = spark.sql("select * from home_credit_default_risk")
+predict_with_spark(df, sc, bst).select('predictions').show()
+```
+

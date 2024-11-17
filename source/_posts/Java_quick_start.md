@@ -1,5 +1,5 @@
 ---
-title: Java速成指南
+title: Java速成入门
 categories:
   - General
 tags:

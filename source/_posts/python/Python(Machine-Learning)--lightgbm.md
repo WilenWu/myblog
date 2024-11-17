@@ -676,8 +676,6 @@ LightGBM 目前提供3种分布式学习算法：
 - data：数据并行，别名：data_parallel
 - voting：投票平行，别名：voting_parallel
 
-## LightGBM with PySpark
-
 <img src="https://warehouse-1310574346.cos.ap-shanghai.myqcloud.com/images/python/SynapseML.svg" height="80%;" align="right"/> 要在spark上使用LightGBM，需要安装[SynapseML](https://microsoft.github.io/SynapseML/)包，原名MMLSpark，由微软开发维护。SynapseML建立在Apache Spark分布式计算框架上，与SparkML/MLLib库共享相同的API，允许您将SynapseML模型无缝嵌入到现有的Apache Spark工作流程中。
 
 SynapseML在Python中安装：首先，默认已经安装好了PySpark，然后，通过pyspark.sql.SparkSession配置会自动下载并安装到现有的Spark集群上
@@ -832,5 +830,30 @@ metrics = ComputeModelStatistics(
     scoredLabelsCol="prediction",
 ).transform(predictions)
 display(metrics)
+```
+
+# 分布式预测
+
+当我们训练好一个本地模型，想在大规模的数据上预测时，可以使用pandas_udf进行分布式预测：
+
+```python
+from pyspark.sql.functions import pandas_udf, struct
+import joblib 
+import pandas as pd
+
+def predict_with_spark(spark_df, spark_context, local_model):
+   var = spark_context.broadcast(local_model)
+   model = var.value
+
+   @pandas_udf('float')
+   def transform(X):
+      return pd.Series(model.predict_proba(X)[:, 1])
+
+   cols = struct(*model.feature_name())
+   return spark_df.withColumn('predictions', transform(cols))
+
+clf = joblib.load('clf.pkl')
+df = spark.sql("select * from home_credit_default_risk")
+predict_with_spark(df, sc, clf).select('predictions').show()
 ```
 
