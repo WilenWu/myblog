@@ -155,6 +155,8 @@ Output:
 
 ## 分布式优化
 
+[并行化 Hyperopt 超参数优化](https://learn.microsoft.com/zh-cn/azure/databricks/machine-learning/automl-hyperparam-tuning/hyperopt-spark-mlflow-integration?source=recommendations)
+
 超参数调优通常涉及训练数百或数千个模型，Hyperopt 允许分布式调优。通过 trials 参数将 SparkTrials 传递给 fmin 函数，在Spark集群上并行运行这些任务。
 
 ```python
@@ -183,6 +185,10 @@ SparkTrials可以通过3个参数进行配置，所有这些参数都是可选�
 - parallelism 最大并行数，默认为 SparkContext.defaultParallelism。
 - timeout 允许的最大时间（以秒为单位），默认为None。
 - spark_session 如果没有给出，SparkTrials将寻找现有的SparkSession。
+
+除了单机训练算法（例如 scikit-learn 中的算法）以外，还可以将 Hyperopt 与分布式训练算法配合使用。将 Hyperopt 与分布式训练算法配合使用时，请不要将 `trials` 参数传递给 `fmin()`，尤其是不要使用 `SparkTrials` 类。 `SparkTrials` 旨在为本身不是分布式算法的算法分配试运行。 对于分布式训练算法，请使用在群集驱动程序上运行的默认 `Trials` 类。 Hyperopt 评估驱动程序节点上的每个试运行，使 ML 算法本身可以启动分布式训练。
+
+[将分布式训练算法与 Hyperopt 配合使用](https://learn.microsoft.com/zh-cn/azure/databricks/machine-learning/automl-hyperparam-tuning/hyperopt-distributed-ml?source=recommendations)
 
 #  Scikit-optimize
 
@@ -530,6 +536,21 @@ print("Number of finished trials: ", len(study.trials))
 ```
 
 > 注意：多目标优化使用的参数 directions 和单目标参数direction不同。
+
+## 分布式优化
+
+可使用 [Joblib Apache Spark 后端](https://github.com/joblib/joblib-spark)将 Optuna 试验分发到 Azure Databricks 群集中的多台计算机。
+
+[使用 Optuna 进行超参数优化](https://learn.microsoft.com/zh-cn/azure/databricks/machine-learning/automl-hyperparam-tuning/optuna?source=recommendations#parallelize-optuna-trials-to-multiple-machines)
+
+```python
+import joblib
+from joblibspark import register_spark
+
+register_spark() # register Spark backend for Joblib
+with joblib.parallel_backend("spark", n_jobs=-1):
+    study.optimize(objective, n_trials=100)
+```
 
 ## 常见问题
 

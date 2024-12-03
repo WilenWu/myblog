@@ -884,6 +884,8 @@ dtype: object
 cols = df.columns[df.dtypes == 'object']
 ```
 
+
+
 # Pipeline
 
 ```python

@@ -1657,3 +1657,21 @@ Example: [增量学习Demo之warm_start 参数](/ipynb/incremental_learning_demo
 
 
 
+# utils
+
+计算 sample_weight
+
+```python
+from sklearn.utils.class_weight import compute_sample_weight
+y = [1, 1, 1, 1, 0, 0]
+compute_sample_weight(class_weight="balanced", y=y)
+```
+
+计算 class_weight
+
+```python
+import numpy as np
+from sklearn.utils.class_weight import compute_class_weight
+y = [1, 1, 1, 1, 0, 0]
+compute_class_weight(class_weight="balanced", classes=np.unique(y), y=y)
+```

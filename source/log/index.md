@@ -4,6 +4,12 @@ date: 2022-03-05 10:13:00
 top_img: false
 ---
 
+{% timeline 2024 %}
+<!-- timeline 2024-12-02 -->
+更新评论系统 Giscus
+<!-- endtimeline -->
+{% endtimeline %}
+
 {% timeline 2023 %}
 <!-- timeline 2023-06-10 -->
 升级主题至hexo-theme-butterfly@4.9.0
@@ -55,7 +61,7 @@ Gitee 真是:dog:啊，被迫把图床迁移到腾讯云
    <!-- endtimeline -->
 
 <!-- timeline 2021-09-12 -->
-1. 在 Gitee 上建立图床
+1. ~~在 Gitee 上建立图床~~
 2. ~~Typora 编辑器上安装图床上传插件 `picgo-plugin-gitee-uploader`~~
 <!-- endtimeline -->
 {% endtimeline %}

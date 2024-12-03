@@ -189,6 +189,8 @@ lightgbm 的参数以 dict 的格式配置，然后训练的时候传递给 ligh
 - 交叉熵：`cross_entropy`, `cross_entropy_lambda`, 
 - 排序问题：`lambdarank`, `rank_xendcg`
 
+**num_class**：仅用于 `multi-class` default = 1
+
 **data_sample_strategy**：default = bagging
 
 - `bagging`：机装袋取样。注意，当 bagging_freq > 0 且 bagging_fraction < 1.0 时起作用。
@@ -211,7 +213,7 @@ lightgbm 的参数以 dict 的格式配置，然后训练的时候传递给 ligh
 
 | Name                | Description                                                  | aliases                    |
 | :------------------ | :----------------------------------------------------------- | -------------------------- |
-| is_unbalance        | 是否不平衡数据集，仅用于分类任务。默认 False                 | unbalance, unbalanced_sets |
+| is_unbalance        | 是否不平衡数据集，仅用于binary和multiclassova。默认 False    | unbalance, unbalanced_sets |
 | scale_pos_weight    | 调整正样本权重，仅用于分类任务。默认1.0                      |                            |
 | categorical_feature | 识别分类特征名称。e.g. `categorical_feature=0,1,2 `  or `categorical_feature=name:c1,c2,c3` |                            |
 
