@@ -1,5 +1,5 @@
 ---
-title: Java速成入门
+title: Java简单使用
 categories:
   - General
 tags:
@@ -316,6 +316,8 @@ boolean result = name instanceof String;
 
 ## 条件语句
 
+### if-else
+
 ```java
 if (age > 60) {
     System.out.println("Elder");
@@ -326,9 +328,26 @@ if (age > 60) {
 }
 ```
 
+## switch
+
+```java
+switch (gender) {
+    case 'M':
+        System.out.println("Male");
+        break;
+    case 'F':
+        System.out.println("Female");
+        break;
+    default:
+        System.out.println("Other");
+}
+```
+
+使用`switch`时，注意`case`语句并没有花括号`{}`，如果遗漏了`break`，后续语句将全部执行，直到遇到`break`语句。当没有匹配到任何`case`时，执行`default`。
+
 ## 循环语句
 
-### while循环
+### while
 
 ```java
 int sum = 0;
@@ -340,7 +359,7 @@ while (n <= 100) {
 System.out.println(sum); // 5050
 ```
 
-### do-while 循环
+### do-while
 
 ```java
 int sum = 0;
@@ -352,7 +371,7 @@ do {
 System.out.println(sum);  // 5050
 ```
 
-### for循环
+### for
 
 `for`循环会先初始化计数器，然后，在每次循环前检测循环条件，在每次循环后更新计数器。
 
@@ -392,23 +411,6 @@ for (int i=1; i<=10; i++) {
 }
 System.out.println(sum); // 25
 ```
-
-## 分支语句
-
-```java
-switch (gender) {
-    case 'M':
-        System.out.println("Male");
-        break;
-    case 'F':
-        System.out.println("Female");
-        break;
-    default:
-        System.out.println("Other");
-}
-```
-
-使用`switch`时，注意`case`语句并没有花括号`{}`，如果遗漏了`break`，后续语句将全部执行，直到遇到`break`语句。当没有匹配到任何`case`时，执行`default`。
 
 # 面向对象
 

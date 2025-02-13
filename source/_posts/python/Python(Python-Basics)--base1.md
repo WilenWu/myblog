@@ -13,7 +13,6 @@ date: 2018-05-09 00:10:30
 
 Python 是一种易于学习又功能强大的编程语言。它提供了高效的高层次的数据结构，还有简单有效的面向对象编程。Python 优雅的语法和动态类型，以及解释型语言的本质，使它成为在很多领域多数平台上写脚本和快速开发应用的理想语言。
 
-
 # Python 简介
 
 Python 是一种解释型、面向对象、动态数据类型的高级程序设计语言。
@@ -330,7 +329,7 @@ del d # 删除字典
 | dict.values() | 返回values迭代器  |
 | dict.items() | 返回dict中所有的(key,val)元祖数组  |
 | dict.get(key,default=None) | 如果key存在，返回value，否则返回default  |
-| dict.setdefault(key, default=None) | 如果key存在，返回value，则插入 key 及设置的默认值 default，并返回 default |
+| dict.setdefault(key, default=None) | 如果键不存在于字典中，将会添加键并将值设为默认值。 |
 
 ```python
 # 对字典进行排序
@@ -511,9 +510,12 @@ case 401 | 403 | 404:
 # 推导式
 
 ```python
-list_comp = [expr for val in collection if condition]  
+list_comp = [expr for value in collection if condition]  
 set_comp = {expr for value in collection if condition}  
 dict_comp = {key-expr :value-expr for value in collection if condition} 
+
+generator = (expr for value in collection if condition) # 生成器
+list_comp = [expr for value1 in collection1 for value2 in collection2] # 多重循环 
 
 # list推导式等价for循环
  list_comp = []

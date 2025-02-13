@@ -5,7 +5,7 @@ var shell_exec = function(){
   var iconv = require('iconv-lite'); // 解决中文乱码
   var encoding = 'utf-8';  // 解决中文乱码
   var binaryEncoding = 'binary';  // 解决中文乱码
-  const command = '/usr/bin/python3 ./python_files/guide_update.py';
+  const command = 'python3 ./python_files/guide_update.py';
   child_process.exec(command, { encoding: binaryEncoding }, function(error,stdout,stderr){
     if(error){
         console.info(stderr);

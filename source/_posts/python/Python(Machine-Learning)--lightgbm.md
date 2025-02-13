@@ -359,6 +359,59 @@ bst = lgb.train(params,
                 callbacks=[lgb.reset_parameter(bagging_fraction=[0.7] * 5 + [0.6] * 5)])
 ```
 
+## 自定义回调函数
+
+自定义回调函数需要遵循LightGBM的回调函数接口。回调函数会在每个训练轮次结束时被调用，接收一个`CallbackEnv`对象。该对象包含了当前训练状态的各种信息，帮助你在回调函数中访问和操作这些信息。
+
+**CallbackEnv 主要属性**：
+
+- `iteration`：当前的迭代次数（从0开始计数）
+- `begin_iteration`：训练开始时的迭代次数。
+- `end_iteration`：训练结束时的迭代次数。
+- `evaluation_result_list`：当前迭代的评估结果列表。每个元素是一个四元组 `(dataset_name, metric_name, value, is_higher_better)`。
+- `model`：当前的模型对象`lightgbm.Booster`
+- `params` ：当前的模型参数
+- `cvfolds`：如果是在交叉验证（CV）模式下训练，这个属性会包含所有折的模型对象 `List[lightgbm.CVBooster]`。否则，这个属性为 `None`。
+
+新版回调函数通过抛出 `EarlyStopException` 触发提前停止，并保存`best_iteration`和`evaluation_result_list`。
+
+以下是一个详细的示例，展示如何在 LightGBM 中定义和使用自定义回调函数，并访问 CallbackEnv 的属性。
+
+```python
+class LearningRateScheduler:
+    def __init__(self, initial_lr=0.1, decay_factor=0.99):
+        self.order = 10  # 回调函数的执行顺序
+        self.initial_lr = initial_lr
+        self.decay_factor = decay_factor
+
+    def __call__(self, env):
+        iteration = env.iteration
+        lr = self.initial_lr * (self.decay_factor ** iteration)
+        env.model.set_param({"learning_rate": lr})
+        print(f"Learning rate set to {lr:.6f} at iteration {iteration}")
+
+
+class CustomEarlyStopping:
+    def __init__(self, rounds):
+        self.rounds = rounds
+        self.best_loss = float('inf')
+        self.best_iteration = 0
+        self.eval_history = []
+
+    def __call__(self, env):
+        # 获取当前轮的训练损失
+        current_loss = env.evaluation_result_list[0][2]
+        epoch = env.iteration
+        if current_loss < self.best_loss:
+            self.best_loss = current_loss
+            self.best_iteration = epoch
+            self.eval_history.apppend(env.evaluation_result_list)
+            print(f"Round {epoch}: Best iteration = {self.best_iteration}, Best loss = {self.best_loss:.4f}")
+        if epoch - self.best_iteration >= self.rounds:
+            print(f'Early stopping at iteration {epoch}')
+            raise lgb.callback.EarlyStopException(self.best_iteration, self.eval_history[-1])
+```
+
 # Scikit-Learn API
 
 LGBM的 sklearn API支持使用sklearn的调用风格和语言习惯进行LGBM模型训练，数据读取环节支持直接读取本地的Numpy或Pandas格式数据，而在实际训练过程中需要先实例化评估器并设置超参数，然后通过.fit的方式进行训练，并且可以直接调用grid search进行超参数搜索，也可以使用其他sklearn提供的高阶工具，如构建机器学习流、进行特征筛选或者进行模型融合等。

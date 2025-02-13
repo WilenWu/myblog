@@ -357,7 +357,47 @@ booster = xgb.train(
     verbose_eval=False)
 ```
 
+## 自定义回调函数
+
+XGBoost 提供了 `TrainingCallback` 基类，用于创建自定义的回调函数。回调函数可以在训练过程中的特定事件发生时被调用，例如在每个迭代（boosting round）之后。通过继承这个基类，你可以实现自定义的逻辑，比如监控训练进度、调整超参数、保存模型等。
+
+**主要方法**
+
+- `before_training(self, model)`：在训练开始前调用，参数`model` 是当前的 `Booster` 模型对象。返回经过可能修改的 `model` 对象。
+- `after_training(self, model)`：在整个训练过程结束后调用，参数`model` 是经过训练后的 Booster 模型对象。返回经过可能修改的 `model` 对象。
+- `before_iteration(self, model, epoch, evals_log)`：每一轮迭代开始前调用，返回布尔值。
+- `after_iteration(self, model, epoch, evals_log)`：每一轮迭代结束后调用，返回值布尔值。如果返回 `True`，则会提前终止训练；否则继续训练。
+  - `model`: 当前的 `Booster` 模型对象。
+  - `epoch`: 当前迭代次数（从0开始计数）。
+  - `evals_log`: 包含评估历史的日志字典。键是数据集名称，值是另一个字典，后者包含度量标准名称和对应的度量值列表 `{"data_name": {"metric_name": [0.5, ...]}}`。
+
+```python
+from xgboost.callback import TrainingCallback
+
+class CustomEarlyStopping(TrainingCallback):
+    def __init__(self, rounds):
+        self.rounds = rounds
+        self.best_loss = float('inf')
+        self.best_iteration = 0
+
+    def after_iteration(self, model, epoch, evals_log):
+        # 获取当前轮的训练损失
+        current_loss = evals_log['validation']['rmse'][epoch]
+        if current_loss < self.best_loss:
+            self.best_loss = current_loss
+            self.best_iteration = epoch
+            print(f"Round {epoch}: Best iteration = {self.best_iteration}, Best loss = {self.best_loss:.4f}")
+        if epoch - self.best_iteration >= self.rounds:
+            print(f'Early stopping at epoch {epoch}')
+            model.set_attr(best_iteration=str(self.best_iteration))
+            return True  # Stop training
+        return False
+```
+
+上述代码中，`CustomEarlyStopping`类实现了根据损失值的变化来决定是否提前停止训练的功能。在`after_iteration`方法中，比较当前轮的损失值和上一轮的损失值，如果连续 rounds 轮损失值没有下降，则返回`True`，表示提前停止训练
+
 ## 自定义损失函数
+
 xgboost 在 xgb.train中通过参数obj和custom_metric来自定损失函数和评估函数。
 
 自定义损失函数接受predt和dtrain作为输入，返回损失函数的一阶(grad)和二阶(hess)导数。
@@ -458,7 +498,7 @@ XGBClassifier(
     base_score : NoneType = None,
     missing : float = np.nan,
     num_parallel_tree : int = None,
-    monotone_constraints : Union[Dict[str, int], str]] = None,
+    monotone_constraints : Union[Dict[str, int], str] = None,
     interaction_constraints : Union[str, List[Tuple[str]]] = None, 
     importance_type : str = None,
     device : {"cpu", "cuda", "gpu"} = None,

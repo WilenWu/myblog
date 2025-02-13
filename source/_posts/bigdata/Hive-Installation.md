@@ -6,7 +6,7 @@ categories:
 tags:
   - 大数据
   - hive
-cover: /img/apache-hive-circ.jpg
+cover: /img/apache-hive-circ.png
 top_img: /img/apache-hive-bg.png
 abbrlink: dd512a75
 date: '2024-01-15 22:00:00'

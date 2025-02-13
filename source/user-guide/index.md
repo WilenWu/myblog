@@ -21,7 +21,7 @@ header_color: true
 
 [标点符](https://www.biaodianfu.com/roadmap): 丰富的机器学习理论知识和Python示例。
 
-# General
+# Basics
 
 - :ballot_box_with_check: [正则表达式](/posts/2f57a694/)
 - :ballot_box_with_check: [Linux基础知识](/posts/df41aea9/)
@@ -138,24 +138,6 @@ header_color: true
 - :ballot_box_with_check: [PySpark 特征工程(III)--特征选择](/posts/d099726d/)
 - :ballot_box_with_check: [PySpark机器学习Demo](/posts/90489eb7/): spark 机器学习库
 
-## Dask
-
-- :heart: Dask: 是一个灵活的开源库，适用于 Python 中的并行和分布式计算
-
-## Kafka
-
-- :ballot_box_with_check: Kafka: 是一种分布式的，基于发布 / 订阅的消息系统，支持数据集成和数据流处理。
-- :ballot_box_with_check: [Kafka安装配置](/posts/3adf88b8/)
-
-## Flink
-
-- :ballot_box_with_check: Flink: 是一个框架和分布式处理引擎，用于在无边界和有边界数据流上进行有状态的计算。
-- :ballot_box_with_check: [Flink安装配置](/posts/7ff308e2/)
-
-## ES
-
-- :ballot_box_with_check: ES 简介: (Elasticsearch)是一个分布式的、开源的搜索分析引擎，基于倒排索引实现文档检索。
-
 ## Oracle
 
 - :ballot_box_with_check: [Oracle SQL(Introduction)](/posts/eb28907e/)
@@ -167,6 +149,9 @@ header_color: true
 
 ## Appendices
 
+- :heart: Dask: 是一个灵活的开源库，适用于 Python 中的并行和分布式计算
+- :ballot_box_with_check: [Flink安装配置](/posts/7ff308e2/): Flink是一个框架和分布式处理引擎，用于在无边界和有边界数据流上进行有状态的计算。
+- :ballot_box_with_check: [Kafka安装配置](/posts/3adf88b8/): Kafka 是一种分布式的，基于发布 / 订阅的消息系统，支持数据集成和数据流处理。
 - :white_large_square: Presto 简介: 设计用于对 HDFS 和其他源中的数据进行快速交互式查询。对于多表关联的需求，我们可以通过 Presto 跨数据源完成多表的 join 操作。
 - :white_large_square: ClickHouse: 是一个用于联机分析(OLAP)的列式数据库管理系统(DBMS)。对于固定类报表，可以将数据打平成宽表的，充分发挥在单表查询的性能优势。
 - :white_large_square: StarRocks: 致力于全场景联机分析(OLAP)统一服务。采用了全面向量化引擎(列存储)。可以接收批量或者流式数据存储，也可以在数据湖上直接使用 StarRocks 分析。
@@ -176,7 +161,7 @@ header_color: true
 
 本手册所列包来自[Awesome-Python](https://awesome-python.com/) ，结合[GitHub](https://github.com/) 和官方文档。 
 
-## General
+## Basics
 
 - :heart: [Python(IDE)--常用的Python IDE](/posts/62196d29/)
 - :ballot_box_with_check: [Python(Python Basics)--Python基础（一）](/posts/dc3e0f7b/)
@@ -187,6 +172,15 @@ header_color: true
 - :white_large_square: [shortuuid](https://github.com/skorokithakis/shortuuid): 基于时间戳,、随机数等生成简单的唯一ID
 - :white_large_square: [rich](https://pypi.org/project/rich/): 用于将富文本、表格、进度条、语法高亮、markdown 等写入终端。
 - :ballot_box_with_check: [Progress Bars with Python](/posts/6fe4228f/): 在Python中实现进度条
+- :heart: [tkinter](http://www.runoob.com/python/python-gui-tkinter/): Python 的标准 GUI 库
+- :heart: [os](http://www.runoob.com/python/os-file-methods.html): 文件和目录处理库
+- :heart: ​Joblib: 是用于高效并行计算的Python开源库
+- :heart:  loguru: 更为优雅、简洁的日志管理模块
+
+## Cython
+
+- :heart: [Cython的简单使用](https://www.bookstack.cn/read/cython-doc-zh/docs-2.md): 
+- :heart: C 语言基本语法: 
 
 ## Standard Library
 
@@ -194,11 +188,6 @@ header_color: true
 - :ballot_box_with_check: [Python(Standard Library)--日期时间模块](/posts/592885c8/): datetime, time, calendar
 - :ballot_box_with_check: [Python(Standard Library)--数学模块](/posts/bb46152f/): 基础包：math, random
 - :ballot_box_with_check: [Python(Standard Library)--re](/posts/cb9fa048/): re 模块使 Python 语言拥有全部的正则表达式功能。
-- :heart: [tkinter](http://www.runoob.com/python/python-gui-tkinter/): Python 的标准 GUI 库
-- :white_large_square: [threading](https://docs.python.org/zh-cn/3/library/threading.html): 基于线程的并行
-- :white_large_square: [multiprocessing](https://docs.python.org/zh-cn/3/library/multiprocessing.html): 基于进程的并行
-- :heart: [os](http://www.runoob.com/python/os-file-methods.html): 文件和目录处理库
-- :white_large_square: [asyncio](https://zhuanlan.zhihu.com/p/59621713): python标准库内置了对异步IO的支持
 - :ballot_box_with_check: [Python(Python Basics)--命令行参数](/posts/97d915c4/): 轻松编写更友好的命令行参数接口，包括 sys.argv, getopt, argparse
 - :ballot_box_with_check: [Python(Standard Library)--Python 代码调试工具](/posts/c924bbe/): assert, pdb, ipdb
 
@@ -215,23 +204,17 @@ header_color: true
 
 - :ballot_box_with_check: [Python(Data Analysis)--pandas](/posts/2a180ec0/): 提供高性能，易用的数据结构和数据分析工具
 - :ballot_box_with_check: [Python(Data Analysis)--pandas(Time Series)](/posts/31520356/): Pandas 时间序列数据处理工具
+- :ballot_box_with_check: ​Polars is a blazingly fast DataFrame library for manipulating structured data
 
 ## Web Crawling
 
-- :ballot_box_with_check: requests: 自动爬取HTML页面，自动网路请求提交。
 - :ballot_box_with_check: [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/): 解析HTML页面。
-- :heart: Scrapy: 专业的网络爬虫框架。
-- :white_large_square: Selenium: 是一个用于Web应用程序测试的工具，能够模拟用户行为与浏览器交互。
 
 
 ## Visualise
 
 - :ballot_box_with_check: [Python(Visualise)--matplotlib](/posts/f347fe66/): Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python
 - :ballot_box_with_check: [Python(Visualise)--seaborn](/posts/49513cf1/): 基于matplotlib封装的数据可视化库
-- :white_large_square: bqplot: Jupyter Notebook的交互式绘图库
-- :white_large_square: bokeh: 用 Python 进行交互式 web 绘图。
-- :white_large_square: pyecharts: 基于百度 Echarts 的数据可视化库。
-- :heart:  [dtreeviz](https://github.com/parrt/dtreeviz) : A python library for decision tree visualization and model interpretation.
 
 ## Machine Learning
 
@@ -240,7 +223,6 @@ header_color: true
 - :ballot_box_with_check: [Python(Machine Learning)--XGBoost](/posts/c46d5dae/)
 - :ballot_box_with_check: [Python(Machine Learning)--LightGBM](/posts/44910830/)
 - :ballot_box_with_check: [Python(Machine Learning)--超参数优化](/posts/794d8498/)
-- :heart: Gym: 是OpenAI推出的强化学习实验环境库
 - :heart: Dask: 是一个灵活的开源库，适用于 Python 中的并行和分布式计算
 - :heart: [imblearn](https://imbalanced-learn.org/stable/user_guide.html): 专门用于处理不平衡数据集
 - :heart: [featuretools](https://zhuanlan.zhihu.com/p/114943596): 把常见的特征工程方法进行了自动化封装
@@ -251,25 +233,19 @@ header_color: true
 - :ballot_box_with_check: [特征工程(V)--时间序列特征](/posts/799016ae/)
 - :ballot_box_with_check: [特征工程(VI)--机器学习](/posts/3d0ef432/)
 - :ballot_box_with_check: [特征工程(VII)--模型集成](/posts/425f9947/)
+- :ballot_box_with_check: [Python(Machine Learning)--CatBoost](/posts/dc8936d5/)
 
 ## Deep Learning
 
 - :white_large_square: [TensorFlow](https://tensorflow.google.cn/tutorials/?hl=zh-cn): Google开源的深度学习框架。
 - :ballot_box_with_check: [PyTorch](https://blog.csdn.net/u010510350/article/details/72526821): Facebook研发的专门针对 GPU 加速的深度学习框架。
 
-
-## NLP
-
-Natural Language Processing(自然语言处理)
-
 ## Documentation
 
-- :white_large_square: MkDocs: Markdown友好的文档生成器。
-- :white_large_square: Python-Markdown2: 纯 Python 实现的 Markdown 解析器，比 Python-Markdown 更快，更准确，可扩展
 - :ballot_box_with_check: [Python(Documentation)--PyYAML](/posts/95bcc2fb/): Python 的 YAML 解析器和发射器
 - :white_large_square: python-docx: for creating and updating Microsoft Word (.docx) files.
 - :heart: [openpyxl](https://openpyxl.readthedocs.io/en/stable/usage/): 全面，包括修改各种Excel格式，不过不能批量修改数据
-- :white_large_square: [xlwings](http://docs.xlwings.org/en/stable/quickstart/): 批量实时修改Excel数据，和pandas,matplotlib完美对接，只能修改个别格式
+- :white_large_square: [xlwings](http://docs.xlwings.org/en/stable/quickstart/): 批量实时修改Excel数据，和pandas, matplotlib完美对接，只能修改个别格式
 
 
 ## Learning Python
@@ -284,7 +260,7 @@ Natural Language Processing(自然语言处理)
 
 本手册所列包基本来自[AwesomeR](https://github.com/qinwf/awesome-R#2020) ，结合[GitHub](https://github.com/)和`help(package="pk_name")`官方文档整理所得，有助于使用时下最实用的包对R进行深入的学习。    
 
-## General
+## Basics
 
 - :ballot_box_with_check: [R(Common)--R语言入门](/posts/81860df8/): 包括Rstudio介绍，R的数据结构和基础语法等
 - :ballot_box_with_check: [R(Common)--R语言基础包](/posts/5d2e7b43/): base, stats等基础包函数
@@ -293,13 +269,9 @@ Natural Language Processing(自然语言处理)
 - :ballot_box_with_check: [R(Common)--tibble](/posts/2b3aa78e/): tibble 重塑了data.frame，可存储任意类型，包括list，tbl_df 等
 - :ballot_box_with_check: [R(Common)--data.table](/posts/4de35808/): 简短的代码实现快速操作数据
 - :heart: devtools: 使开发R包变得更简单(Hadley)
-
-## Syntax
-
 - :ballot_box_with_check: [R(Syntax)--purrr](/posts/d355c8c1/): A functional programming(FP, 函数化编程) toolkit for R (Hadley)
 - :white_large_square: lambda.r: R中的函数式编程和简单模式匹配
 - :ballot_box_with_check: [R(Syntax)--magrittr](/posts/71826e74/): Let’s pipe it (管道语法)
-- :heart: pipeR: 多范式管道编程
 
 
 ## Import
@@ -307,17 +279,12 @@ Natural Language Processing(自然语言处理)
 - :ballot_box_with_check: [R(Import)--读取常用文件](/posts/e48a1906/): for txt, excel, and json
 - :white_large_square: haven: for SPSS,SAS and Stata files.(Hadley)
 - :heart: feather: for sharing with Python and other languages.(Hadley)
-
-
 - :ballot_box_with_check: [R(Import)--DBI](/posts/ec283a1d/): definition for communication between R and RDBMSs
-
 
 ## Web Technologies
 
-- :heart: RCurl: 用于R的通用网络(HTTP/FTP/ ...)接口
 - :ballot_box_with_check: [httr](https://httr.r-lib.org/): for web APIs (RCurl升级版) (Hadley) (Update according to GitHub)
 - :ballot_box_with_check: [R(Import)--rvest](/posts/d0598be7/): Simple web scraping for R (Hadley)
-- :ballot_box_with_check: xml2: 解析XML文件 (Hadley)  (Update according to GitHub)
 
 
 ## Data Cleaning
@@ -329,36 +296,20 @@ Natural Language Processing(自然语言处理)
 - :white_large_square: utf8: 处理和修复R中的多种文本编码问题
 - :ballot_box_with_check: [R(Data Cleaning)--日期时间](/posts/4dcd6b3e/): for date and times.(Hadley)
 - :ballot_box_with_check: [R(Data Cleaning)--forcats](/posts/ea1d43b4/): for factors.(Hadley)
-- :white_large_square: sjmisc: 各种实用功能的集合，支持数据重编码，缺失值处理等，与dplyr包无缝协作。
 - :ballot_box_with_check: [R(Data Cleaning)--naniar and simputation](/posts/71c316f2/): 缺失数据概述、可视化和插补
-
-
-- :white_large_square: ff: 大数据清理。在内存外存储数据，处理起来和在内存一样
-- :white_large_square: bigmemory: 内存外存储、操作。big 系列包提供了其他工具，包括线性模型 (biglm) 和随机森林 (bigrf)。
 
 ## Visualise
 
 - :ballot_box_with_check: [R(Visualise)--RColorBrewer and extrafont](/posts/74875eb3/): 调色板和字体配置
 - :ballot_box_with_check: [R(Visualise)--ggmap and baidumap](/posts/856dfd2b/): 使用ggplot2在R中绘制静态地图
-- :ballot_box_with_check: ggpubr: ggplot2封装，用于绘制适合出版物要求的图形
-- :heart: corrplot: 相关矩阵或一般矩阵的图形显示
-- :white_large_square: misc3d: 处理3D图，等值面等
 - :ballot_box_with_check: [R(Visualise)--ggplot2](/posts/8f6de5fc/): 强大的绘图系统，并实现了许多扩展(Hadley)
 - :ballot_box_with_check: [ggplot2 extensions](/posts/8f6de5fc/#ggplot2-extensions): ggplot2扩展，包括各种补充图形，坐标系统，主题等。
 - :heart: [R(Visualise)--geomnet](/posts/a1e14c06/): 网格图(关系图)和血缘图
 - :heart: [R(Visualise)--GGally](/posts/643fc063/): 矩阵图，生存图，网格图等
 - :heart: [R(Visualise)--gganimate](/posts/a8b6353d/): 用ggplot2创建简单的动画
 - :heart: [R(Visualise)--ggforce](/posts/a07d9d0c/): 饼图
-
-
-## HTML Widgets
-
 - :heart: [R(HTML Widgets)--leaflet](/posts/8a9afcfe/): 最流行的JavaScript库交互式地图之一，动态交互地图。
 - :ballot_box_with_check: [R(HTML Widgets)--REmap](/posts/3c7fb28e/): 基于Echarts的简易动态交互地图
-- :heart: rCharts: 来自R的交互式JS图表。
-- :white_large_square: DiagrammeR: 在R中创建JS图形和流程图。
-- :white_large_square: rbokeh: R与Bokeh的接口。
-- :heart: plotly: R的交互式图形库，基于ggplot2 和shiny。
 - :ballot_box_with_check: [R(HTML Widgets)--shiny](/posts/8217ddda/): 使用R语言开发交互式web应用程序的工具
 
 
@@ -366,33 +317,20 @@ Natural Language Processing(自然语言处理)
 
 - :heart: [R(Parallel Computing)--foreach](/posts/a235a5ba/): 在循环(loop)中并行化运算
 
-## Model Tools
-
-- :ballot_box_with_check: [R(Model Tools)--broom](/posts/251f7bf9/): Convert statistical analysis objects into tidy format
-- :ballot_box_with_check: [R(Model Tools)--modelr](/posts/2e6782e/): 辅助管道建模
-- :heart: caret: 分类和回归问题的数据训练综合工具包（包括交叉验证，网格搜索等）
-
 ## Machine Learning
 
 - :ballot_box_with_check: [R(Machine Learning)--mlr](/posts/76507660/): 机器学习（分类，回归，生存分析，聚类等）的可扩展框架，提供了用于分析的整套工具，包括重抽样，缺失值插补，模型评估(cv,etc)，超参数调优(grid-search,etc)，特征选择，可视化(ROC,learnning-curve,etc)等
-- :ballot_box_with_check: xgboost: 以其速度和性能而著称的eXtreme Gradient Boosting Tree模型
-- :ballot_box_with_check: arules: 关联规则挖掘和频繁项集
-- :white_large_square: survival: 生存分析模型
-- :white_large_square: nnet: 神经网络
+- :ballot_box_with_check: [R(Model Tools)--broom](/posts/251f7bf9/): Convert statistical analysis objects into tidy format
+- :ballot_box_with_check: [R(Model Tools)--modelr](/posts/2e6782e/): 辅助管道建模
+- :heart: caret: 分类和回归问题的数据训练综合工具包（包括交叉验证，网格搜索等）
+- :ballot_box_with_check: [R(Time Series)--zoo](/posts/3b11488b/): zoo是对日期型数据进行清洗的R包
+- :ballot_box_with_check: [R(Time Series)--forecast and prophet](/posts/810a7dca/): 线性或非线性模型高质量时间序列预测
 
 ## NLP
 
 - :ballot_box_with_check: [R(NLP)--jiebaR](/posts/cb53c844/): R语言词云和中文词典包
 - :ballot_box_with_check: [R(NLP)--wordcloud2](/posts/28aaa9da/): R interface to wordcloud for data visualization
 - :ballot_box_with_check: [R(NLP)--text2vec](/posts/94c7c255/): 这个 R 包提供了高性能和简洁的 API 来进行文本分析、自然语言处理（jiebaR推荐包）
-
-
-## Time Series
-
-- :ballot_box_with_check: [R(Time Series)--zoo](/posts/3b11488b/): zoo是对日期型数据进行清洗的R包
-- :heart: [xts](http://joshuaulrich.github.io/xts/): 对时间序列数据(zoo)的一种扩展实现，统一时间序列的操作接口  (Update according to GitHub)
-- :ballot_box_with_check: [R(Time Series)--forecast and prophet](/posts/810a7dca/): 线性或非线性模型高质量时间序列预测
-- :white_large_square: CausalImpact: 使用贝叶斯结构时间序列模型进行因果推理
 
 ## Documentation
 

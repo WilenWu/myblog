@@ -4,10 +4,10 @@ categories:
   - General
 tags:
   - terminal
-top_img: '#66CCFF'
+cover: /img/zshell-cover.png
+top_img: /img/mac-bg.jpg
 abbrlink: 2da646b7
 date: 2024-01-12 21:59:32
-cover:
 description:
 ---
 

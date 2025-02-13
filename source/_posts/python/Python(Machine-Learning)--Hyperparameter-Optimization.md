@@ -66,20 +66,20 @@ Step 4 评估输出
 
 我们使用`dict()`来定义超参数空间，其中key可以任意设置，value则需用hyperopt的hp函数：
 
-|hyperopt.hp |说明|
-|:--|:--|
-|hp.choice(label, options)|	用于分类参数，返回options 中的元素
-|hp.pchoice(label, p_list)|	返回 (probability, option) 元素对
-|hp.randint(label, low, high)|	返回区间 [low, upper) 内的随机整数
-|hp.uniform(label, low, high)|	均匀返回 low, high 之间的浮点数
-|hp.quniform(label, low, high, q)	| 均匀返回 low, high 之间的浮点数，适用于离散值
-|hp.uniformint(label, low, high)|	均匀返回 low, high 之间均的整数，适用于离散值
-|hp.loguniform(label, low, high)	|对数均匀返回 e^low^,e^high^ 之间浮点数
-|hp.qloguniform(label, low, high, q)|   对数均匀返回	e^low^, e^high^ 之间浮点数，适用于离散值
-|hp.normal(label, mu, sigma)	|正态分布返回实数
-|hp.qnormal(label, mu, sigma, q)	| 正态分布返回实数，适用于离散值
-|hp.lognormal(label, mu, sigma)	|对数正态分布返回实数
-|hp.qlognormal(label, mu, sigma, q)	|正态分布返回实数，适用于离散值
+| hyperopt.hp                         | 说明                                     |
+|:----------------------------------- |:-------------------------------------- |
+| hp.choice(label, options)           | 用于分类参数，返回options 中的元素                  |
+| hp.pchoice(label, p_list)           | 返回 (probability, option) 元素对           |
+| hp.randint(label, low, high)        | 返回区间 [low, upper) 内的随机整数               |
+| hp.uniform(label, low, high)        | 均匀返回 low, high 之间的浮点数                  |
+| hp.quniform(label, low, high, q)    | 均匀返回 low, high 之间的浮点数，适用于离散值           |
+| hp.uniformint(label, low, high)     | 均匀返回 low, high 之间均的整数，适用于离散值           |
+| hp.loguniform(label, low, high)     | 对数均匀返回 e^low^,e^high^ 之间浮点数            |
+| hp.qloguniform(label, low, high, q) | 对数均匀返回    e^low^, e^high^ 之间浮点数，适用于离散值 |
+| hp.normal(label, mu, sigma)         | 正态分布返回实数                               |
+| hp.qnormal(label, mu, sigma, q)     | 正态分布返回实数，适用于离散值                        |
+| hp.lognormal(label, mu, sigma)      | 对数正态分布返回实数                             |
+| hp.qlognormal(label, mu, sigma, q)  | 正态分布返回实数，适用于离散值                        |
 
 > 每个hp函数都有一个label作为第一个参数，这些label用于在优化过程中将参数传递给调用方。
 
@@ -116,6 +116,7 @@ def objective(params):
 hyperopt 使用 fmin 函数进行优化。
 
 fmin接收两种搜索算法：
+
 - tpe.suggest 指代TPE (Tree Parzen Estimators) 方法
 - rand.suggest 指代随机网格搜索方法
 
@@ -130,12 +131,13 @@ best = fmin(
     algo=tpe.suggest, # Optimization algorithm
     max_evals=100, # Number of optimization attempts
     trials = trials,
-  	verbose=True,
-  	early_stop_fn=no_progress_loss(5)
+      verbose=True,
+      early_stop_fn=no_progress_loss(5)
 )
 ```
 
 Output: 
+
 ```
 100%|██████| 1000/1000 [02:35<00:00,  6.44trial/s, best loss: 8.932729710763638]
 ```
@@ -149,6 +151,7 @@ print(space_eval(space, best))
 ```
 
 Output: 
+
 ```
 {'learning_rate': 0.2, 'max_depth': 5, 'max_features': 'sqrt', 'n_estimators': 54, 'subsample': 0.9}
 ```
@@ -190,7 +193,7 @@ SparkTrials可以通过3个参数进行配置，所有这些参数都是可选�
 
 [将分布式训练算法与 Hyperopt 配合使用](https://learn.microsoft.com/zh-cn/azure/databricks/machine-learning/automl-hyperparam-tuning/hyperopt-distributed-ml?source=recommendations)
 
-#  Scikit-optimize
+# Scikit-optimize
 
 Scikit-optimize 建立在 Scipy、Numpy 和 Scikit-Learn之上。非常易于使用，它提供了用于贝叶斯优化的通用工具包，可用于超参数调优。
 
@@ -215,11 +218,11 @@ Step 4 评估输出
 
 使用 Scikit-optimize 提供的方法定义参数空间：
 
-|skopt.space | comment|
-|:--|:--|
-|space.Real(low, high,  prior, name)  |用于浮点数参数|
-|space.Integer(low, high,  prior, name) |用于整数参数|
-|space.Categorical(categories, prior, name) |用于分类参数|
+| skopt.space                                | comment |
+|:------------------------------------------ |:------- |
+| space.Real(low, high,  prior, name)        | 用于浮点数参数 |
+| space.Integer(low, high,  prior, name)     | 用于整数参数  |
+| space.Categorical(categories, prior, name) | 用于分类参数  |
 
 通过可选的prior参数可以对整型或浮点型取对数操作，或给类别型先验概率
 
@@ -259,12 +262,12 @@ def objective(**params):
 
 有四种优化算法可供选择：
 
-|skopt.optimizer|说明|
-|:--|:--|
-|dummy_minimize |随机搜索|
-|forest_minimize |使用决策树的贝叶斯优化|
-|gbrt_minimize |使用GBRT的贝叶斯优化|
-|gp_minimize |使用高斯过程的贝叶斯优化|
+| skopt.optimizer | 说明           |
+|:--------------- |:------------ |
+| dummy_minimize  | 随机搜索         |
+| forest_minimize | 使用决策树的贝叶斯优化  |
+| gbrt_minimize   | 使用GBRT的贝叶斯优化 |
+| gp_minimize     | 使用高斯过程的贝叶斯优化 |
 
 ```python
 from skopt import gp_minimize
@@ -319,7 +322,7 @@ params = {
     "subsample": (0.2, 0.9, 'uniform')
     "max_features": ["sqrt", "log2"],  # categorical parameter
 }
-    
+
 # define the search
 optimizer = BayesSearchCV(
     estimator=GradientBoostingRegressor(),
@@ -367,14 +370,14 @@ Optuna 基于 Trial 和 Study 两个组件实现优化（optimization）。在�
 
 Optuna 允许在目标函数中定义参数空间和目标，优化器会通过trail所携带的方法来构造参数空间。
 
-| optuna.trial.Trial | 说明 |
-|--|--|
-| trial.suggest_categorical(name, choices) | 适用于分类参数 |
-| trial.suggest_int(name, low, high, step=1, log=False) | 适用于整数参数 |
+| optuna.trial.Trial                                            | 说明      |
+| ------------------------------------------------------------- | ------- |
+| trial.suggest_categorical(name, choices)                      | 适用于分类参数 |
+| trial.suggest_int(name, low, high, step=1, log=False)         | 适用于整数参数 |
 | trial.suggest_float(name, low, high, *, step=None, log=False) | 适用于浮点参数 |
-| trial.suggest_uniform(name, low, high)| 均匀分布|
-| trial.suggest_loguniform(name, low, high)| 对数均匀分布|
-| trial.suggest_discrete_uniform(name, low, high, q)| 离散均匀分布|
+| trial.suggest_uniform(name, low, high)                        | 均匀分布    |
+| trial.suggest_loguniform(name, low, high)                     | 对数均匀分布  |
+| trial.suggest_discrete_uniform(name, low, high, q)            | 离散均匀分布  |
 
 通过可选的 step 与 log 参数，我们可以对整形或者浮点型参数进行离散化或者取对数操作。
 
@@ -385,13 +388,13 @@ from sklearn.model_selection import cross_val_score
 # define the search space and the objecive function
 def objective(trial):
     # Define the search space
-	params= {
-	   'max_depth': trial.suggest_int('max_depth',  2, 10, 1),
- 	   'learning_rate': trial.suggest_float('learning_rate', 0.001, 1.0, log=True),
- 	   'n_estimators': trial.suggest_int('n_estimators', 100, 400, 100),
- 	   'subsample': trial.suggest_float('subsample', 0.1, 1.0, 0.1),
- 	   'max_features': trial.suggest_categorical('max_features', ['sqrt', 'log2'])
-	}
+    params= {
+       'max_depth': trial.suggest_int('max_depth',  2, 10, 1),
+        'learning_rate': trial.suggest_float('learning_rate', 0.001, 1.0, log=True),
+        'n_estimators': trial.suggest_int('n_estimators', 100, 400, 100),
+        'subsample': trial.suggest_float('subsample', 0.1, 1.0, 0.1),
+        'max_features': trial.suggest_categorical('max_features', ['sqrt', 'log2'])
+    }
     reg = GradientBoostingRegressor(**params)
     mse = cross_val_score(reg, X_train, y_train, scoring='neg_mean_squared_error', cv=5).mean()
     return mse
@@ -459,14 +462,13 @@ print('Best parameters: ', *[f'- {k} = {v}' for k,v in study.best_params], sep='
 
 Optuna 中提供了不同的方法来可视化优化结果：
 
-|  函数|  说明|
-|--|--|
-| plot_contour(study) | 将参数关系绘制成等值线 |
-| plot_intermidiate_values(study) | 绘制所有trial的学习曲线 |
+| 函数                               | 说明               |
+| -------------------------------- | ---------------- |
+| plot_contour(study)              | 将参数关系绘制成等值线      |
+| plot_intermidiate_values(study)  | 绘制所有trial的学习曲线   |
 | plot_optimization_history(study) | 绘制所有trial的优化历史记录 |
-| plot_param_importances(study) | 绘制超参数重要性及其值 |
-| plot_edf(study) | 绘制study目标值的edf |
-
+| plot_param_importances(study)    | 绘制超参数重要性及其值      |
+| plot_edf(study)                  | 绘制study目标值的edf   |
 
 ```python
 optuna.visualization.plot_optimization_history(study)
@@ -518,13 +520,13 @@ def create_model(trial, in_size):
 from sklearn.metrics import make_scorer, root_mean_squared_error
 def objective(trial):
     # Define the search space
-	params= {
-	   'max_depth': trial.suggest_int('max_depth',  2, 10, 1),
- 	   'learning_rate': trial.suggest_float('learning_rate', 0.001, 1.0, log=True),
- 	   'n_estimators': trial.suggest_int('n_estimators', 100, 400, 100),
- 	   'subsample': trial.suggest_float('subsample', 0.1, 1.0, 0.1),
- 	   'max_features': trial.suggest_categorical('max_features', ['sqrt', 'log2'])
-	}
+    params= {
+       'max_depth': trial.suggest_int('max_depth',  2, 10, 1),
+        'learning_rate': trial.suggest_float('learning_rate', 0.001, 1.0, log=True),
+        'n_estimators': trial.suggest_int('n_estimators', 100, 400, 100),
+        'subsample': trial.suggest_float('subsample', 0.1, 1.0, 0.1),
+        'max_features': trial.suggest_categorical('max_features', ['sqrt', 'log2'])
+    }
     reg = GradientBoostingRegressor(**params)
     mse = cross_val_score(reg, X_train, y_train, scoring=make_scorer(root_mean_squared_error), cv=5).mean()
     r2 = cross_val_score(reg, X_train, y_train, scoring='r2', cv=5).mean()
@@ -650,7 +652,7 @@ study.optimize(objective, n_trials=10, gc_after_trial=True)
 study.optimize(objective, n_trials=10, callbacks=[lambda study, trial: gc.collect()])
 ```
 
-## 如何保存和恢复 study？
+### 如何保存和恢复 study？
 
 有两种方法可以将 study 持久化。具体采用哪种取决于你是使用内存存储 (in-memory) 还是远程数据库存储 (RDB). 通过 `pickle` 或者 `joblib`, 采用了内存存储的 study 可以和普通的 Python 对象一样被存储和加载。比如用 `joblib` 的话：
 
@@ -669,3 +671,155 @@ print(" Params: ")
 for key, value in study.best_trial.params.items():
     print(f"    {key}: {value}")
 ```
+
+# Ray[tune]
+
+Ray Tune 是一个标准的超参数调优工具，集成了多种参数搜索算法，并且支持分布式计算，使用方式简单。同时支持pytorch、tensorflow等训练框架，和tensorboard可视化。
+
+官方文档：[Welcome to Ray!](https://docs.ray.io/en/latest/index.html)
+
+首先需要安装 Ray 的 Tune 模块，可以使用以下命令：
+
+```sh
+pip install "ray[tune]"
+```
+
+Ray Tune 优化过程主要分为4步：
+
+Step 1 定义参数空间
+Step 2 定义目标函数
+Step 3 执行优化
+Step 4 评估输出
+
+## Step 1 定义参数空间
+
+我们使用字典来定义超参数空间
+
+| ray.tune                                    | 说明                                  |
+| ------------------------------------------- | ----------------------------------- |
+| tune.choice(categories)                     | 分类数据采样                              |
+| tune.randint(lower, upper)                  | 在区间 lower, upper 均匀采样整数             |
+| tune.qrandint(lower, upper, q)              | 在区间 lower, upper 离散均匀采样整数           |
+| tune.lograndint(lower, upper, base=10)      | 在区间 10^lower^,10^upper^ 对数均匀采样整数    |
+| tune.qlograndint(lower, upper, q,  base=10) | 在区间 10^lower^,10^upper^ 对数离散均匀采样整数  |
+| tune.uniform(lower, upper)                  | 在区间 lower, upper 均匀采样浮点数            |
+| tune.quniform(lower, upper, q)              | 在区间 lower, upper离散均匀采样浮点数           |
+| tune.loguniform(lower, upper, base=10)      | 在区间 10^lower^,10^upper^ 对数均匀采样浮点数   |
+| tune.qloguniform(lower, upper, q, base=10)  | 在区间 10^lower^,10^upper^ 对数离散均匀采样浮点数 |
+| tune.randn(mean, std)                       | 正态分布采样浮点数                           |
+| tune.qrandn(mean, std, q)                   | 正态分布离散采样浮点数                         |
+| tune.grid_search(values)                    | 指定网格搜索                              |
+| tune.sample_from(func)                      | 配置采样函数                              |
+
+```python
+# define a search space
+from ray import tune, train
+space = {
+    'random_state': 42, 
+    'max_depth': tune.randint(2, 10),
+    'learning_rate': tune.loguniform(0.001, 1.0),
+    'n_estimators': tune.qrandint(20, 200, 20),
+    'subsample': tune.quniform(0.1, 1.0, 0.1),
+    'max_features': tune.choice(['sqrt', 'log2'])
+}
+```
+
+## Step 2 定义目标函数
+
+该函数模型训练函数（trainable）接受超参数字典，在整个训练过程结束后 `return {"score": score}` 
+
+```python
+# define an objective function
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.model_selection import cross_val_score
+
+def trainable(params):    
+    reg = GradientBoostingRegressor(**params)
+    mse = cross_val_score(reg, X_train, y_train, scoring='neg_mean_squared_error', cv=5).mean()
+    return return {"score": -mse}
+```
+
+或在训练过程中的每个epoch后进行报告 `train.report({"score": score})`，便于在训练过程中监控指标的变化趋势。
+
+```python
+def objective(x, a, b):  # Define an objective function.
+    return a * (x**0.5) + b
+
+def trainable(config):  # Pass a "config" dictionary into your trainable.
+    for x in range(20):  # "Train" for 20 iterations and compute intermediate scores.
+        score = objective(x, config["a"], config["b"])
+        train.report({"score": score})  # Send the score to Tune.
+```
+
+## Step 3 执行优化
+
+使用 `Tuner` 创建用于调参的优化器（turner），其输入参数包括：
+
+- `trainable`：模型训练函数
+
+- `parame_space`：超参数搜索空间
+
+- `tune_config`：以`tune.TuneConfig`实例作为输入，配置优化算法、度量指标等。
+
+- `run_config`：以 `tune.RunConfig` 实例作为输入，配置训练终止条件，check point，运行结果存储路径等
+
+然后调用方法 `.fit` 启动优化。默认情况下，Tune 会自动使用全部资源并行运行。
+
+```python
+from ray.tune.search.hyperopt import HyperOptSearch 
+
+# Initialize 
+tuner = tune.Tuner(
+    objective, # Objective Function to optimize
+    param_space=search_space,  # Hyperparameter's Search Space
+    tune_config=tune.TuneConfig(
+        metric="score",  
+        mode="min",  # minimize the objective over the space
+        search_alg=HyperOptSearch(),  # Optimization algorithm
+        num_samples=100, # Number of optimization attempts
+        time_budget_s=3600
+    ),
+    run_config=tune.RunConfig(
+        storage_path="~/ray_results",
+        verbose=1,
+        stop=None
+    )
+)
+results = tuner.fit()
+```
+
+tune 具有与许多流行的优化库集成的搜索算法，如果未指定搜索算法，将默认使用随机搜索。
+
+| SearchAlgorithm                                                                                       | Summary                      | Website                                                                | Code Example                                                                                                |
+| ----------------------------------------------------------------------------------------------------- | ---------------------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| [Random search/grid search](https://docs.ray.io/en/latest/tune/api/suggestion.html#tune-basicvariant) | Random search/grid search    |                                                                        | [tune_basic_example](https://docs.ray.io/en/latest/tune/examples/includes/tune_basic_example.html)          |
+| [AxSearch](https://docs.ray.io/en/latest/tune/api/suggestion.html#tune-ax)                            | Bayesian/Bandit Optimization | [[Ax](https://ax.dev/)]                                                | [AX Example](https://docs.ray.io/en/latest/tune/examples/includes/ax_example.html)                          |
+| [HyperOptSearch](https://docs.ray.io/en/latest/tune/api/suggestion.html#tune-hyperopt)                | Tree-Parzen Estimators       | [[HyperOpt](http://hyperopt.github.io/hyperopt)]                       | [Running Tune experiments with HyperOpt](https://docs.ray.io/en/latest/tune/examples/hyperopt_example.html) |
+| [BayesOptSearch](https://docs.ray.io/en/latest/tune/api/suggestion.html#bayesopt)                     | Bayesian Optimization        | [[BayesianOptimization](https://github.com/fmfn/BayesianOptimization)] | [BayesOpt Example](https://docs.ray.io/en/latest/tune/examples/includes/bayesopt_example.html)              |
+| [TuneBOHB](https://docs.ray.io/en/latest/tune/api/suggestion.html#suggest-tunebohb)                   | Bayesian Opt/HyperBand       | [[BOHB](https://github.com/automl/HpBandSter)]                         | [BOHB Example](https://docs.ray.io/en/latest/tune/examples/includes/bohb_example.html)                      |
+| [NevergradSearch](https://docs.ray.io/en/latest/tune/api/suggestion.html#nevergrad)                   | Gradient-free Optimization   | [[Nevergrad](https://github.com/facebookresearch/nevergrad)]           | [Nevergrad Example](https://docs.ray.io/en/latest/tune/examples/includes/nevergrad_example.html)            |
+| [OptunaSearch](https://docs.ray.io/en/latest/tune/api/suggestion.html#tune-optuna)                    | Optuna search algorithms     | [[Optuna](https://optuna.org/)]                                        | [Running Tune experiments with Optuna](https://docs.ray.io/en/latest/tune/examples/optuna_example.html)     |
+
+## Step 4 评估输出
+
+`Tuner.fit()`返回一个`ResultGrid`对象
+
+```python
+best_result = results.get_best_result()  # Get best result object
+best_config = best_result.config  # Get best trial's hyperparameters
+best_logdir = best_result.path  # Get best trial's result directory
+best_checkpoint = best_result.checkpoint  # Get best trial's best checkpoint
+best_metrics = best_result.metrics  # Get best trial's last results
+best_result_df = best_result.metrics_dataframe  # Get best result as pandas dataframe
+```
+
+此对象还可以转化为 DataFrame， 进行临时数据分析。
+
+```python
+# Get a dataframe with the last results for each trial
+df_results = results.get_dataframe()
+
+# Get a dataframe of results for a specific score or mode
+df = results.get_dataframe(filter_metric="score", filter_mode="max")
+```
+
