@@ -30,7 +30,6 @@ header_color: true
 - :ballot_box_with_check: [Git 快速参考指南](/posts/f48f437a/)
 - :ballot_box_with_check: [看不懂的数字](/posts/12a72af8/)
 - :ballot_box_with_check: [Mac终端配置文件](/posts/2da646b7/)
-- :ballot_box_with_check: [Java速成入门](/posts/db6e5578/)
 
 # Markup Language
 
@@ -177,11 +176,6 @@ header_color: true
 - :heart: ​Joblib: 是用于高效并行计算的Python开源库
 - :heart:  loguru: 更为优雅、简洁的日志管理模块
 
-## Cython
-
-- :heart: [Cython的简单使用](https://www.bookstack.cn/read/cython-doc-zh/docs-2.md): 
-- :heart: C 语言基本语法: 
-
 ## Standard Library
 
 - :ballot_box_with_check: [Python(Standard Library)--string](/posts/64b738be/): Python3 字符串方法和格式化输出
@@ -191,20 +185,19 @@ header_color: true
 - :ballot_box_with_check: [Python(Python Basics)--命令行参数](/posts/97d915c4/): 轻松编写更友好的命令行参数接口，包括 sys.argv, getopt, argparse
 - :ballot_box_with_check: [Python(Standard Library)--Python 代码调试工具](/posts/c924bbe/): assert, pdb, ipdb
 
-
 ## Scientific Computing
 
 - :ballot_box_with_check: [Python(Scientific Computing)--NumPy](/posts/5ba1c941/): 使用 Python 进行科学计算的基础包
+- :heart: [Python(Scientific Computing)--Cython](/posts/619a34fc/)
 - :heart: [Python(Scientific Computing)--SciPy](/posts/b1aa3aed/): 由一些基于 Python ，用于数学、科学和工程的开源软件构成的生态系统
 - :heart: [Python(Scientific Computing)--SymPy](/posts/890725ca/): 是一个符号计算的Python库
 - :heart: [柏林噪声](/posts/c38b4d63/)
-
 
 ## Data Analysis
 
 - :ballot_box_with_check: [Python(Data Analysis)--pandas](/posts/2a180ec0/): 提供高性能，易用的数据结构和数据分析工具
 - :ballot_box_with_check: [Python(Data Analysis)--pandas(Time Series)](/posts/31520356/): Pandas 时间序列数据处理工具
-- :ballot_box_with_check: ​Polars is a blazingly fast DataFrame library for manipulating structured data
+- :heart: [Polars](https://pola-rs.github.io/polars-book-cn/user-guide/introduction.html)
 
 ## Web Crawling
 
@@ -253,6 +246,32 @@ header_color: true
 - :ballot_box_with_check: [Python3官方中文文档](https://docs.python.org/zh-cn/3/)
 - :ballot_box_with_check: [Python基础中文教程](http://www.pythondoc.com/pythontutorial3/)
 - :ballot_box_with_check: [Python Cookbook 3rd Edition Documentation](https://python3-cookbook-personal.readthedocs.io/zh_CN/latest/index.html)
+
+------
+
+# Java
+
+## Basics
+
+- :ballot_box_with_check: [Java简单使用](/posts/db6e5578/)
+
+------
+
+
+
+# C++
+
+## Basics
+
+- :ballot_box_with_check: [C++ 快速入门](/posts/3f4b6fbd/)
+- :ballot_box_with_check: C++ 标准库
+- :heart:  [pybind11](/https://geekdaxue.co/read/pybind11-CN/summary.md): 无缝连接 C++11和Python
+
+## Machine Learning
+
+- :heart: [hosseinmoein/DataFrame](https://github.com/hosseinmoein/DataFrame?tab=readme-ov-file)
+
+
 
 ------
 

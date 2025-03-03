@@ -4,7 +4,6 @@ categories:
   - General
 tags: 正则表达式
 cover: /img/regexp.jpeg
-sticky: 2
 abbrlink: 2f57a694
 date: 2018-05-01 18:26:12
 ---

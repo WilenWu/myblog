@@ -9,7 +9,6 @@ tags:
   - katex
 katex: true
 cover: img/katex.png
-sticky: 1
 abbrlink: b9652820
 date: 2019-04-22 18:37:20
 ---

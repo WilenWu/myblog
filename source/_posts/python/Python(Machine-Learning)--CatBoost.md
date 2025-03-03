@@ -17,7 +17,7 @@ description:
 
 Catboost 是旨在高效处理类别特征的梯度提升算法，内置多种正则化手段，减少梯度偏差和预测偏移，提高模型的准确性和泛化能力，采用对称决策树，在每个层级使用相同的特征和分割点，提升训练和预测效率。
 
-[Jupyter Notebook Demo](/ipynb/classification_demo.html#catboost)
+[Jupyter Notebook Demo](/ipynb/classification_demo.html#CatBoost)
 
 ## Step 1:  Load the dataset
 

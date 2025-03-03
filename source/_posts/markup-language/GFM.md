@@ -7,7 +7,6 @@ tags:
   - markdown
 katex: true
 cover: /img/GFM.png
-sticky: 2
 description: 
 abbrlink: b6db1d88
 date: 2018-04-30 13:57:37

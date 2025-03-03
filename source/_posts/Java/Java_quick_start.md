@@ -1,7 +1,8 @@
 ---
 title: Java简单使用
 categories:
-  - General
+  - Java
+  - Basics
 tags:
   - Java
 cover: /img/java_cover.png
