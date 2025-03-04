@@ -188,7 +188,7 @@ header_color: true
 ## Scientific Computing
 
 - :ballot_box_with_check: [Python(Scientific Computing)--NumPy](/posts/5ba1c941/): 使用 Python 进行科学计算的基础包
-- :heart: [Python(Scientific Computing)--Cython](/posts/619a34fc/)
+- :ballot_box_with_check: [Python(Scientific Computing)--Cython](/posts/619a34fc/): 旨在融合 Python 的易用性和 C 语言的高性能
 - :heart: [Python(Scientific Computing)--SciPy](/posts/b1aa3aed/): 由一些基于 Python ，用于数学、科学和工程的开源软件构成的生态系统
 - :heart: [Python(Scientific Computing)--SymPy](/posts/890725ca/): 是一个符号计算的Python库
 - :heart: [柏林噪声](/posts/c38b4d63/)
@@ -266,6 +266,7 @@ header_color: true
 - :ballot_box_with_check: [C++ 快速入门](/posts/3f4b6fbd/)
 - :ballot_box_with_check: C++ 标准库
 - :heart:  [pybind11](/https://geekdaxue.co/read/pybind11-CN/summary.md): 无缝连接 C++11和Python
+- :ballot_box_with_check: [C++ 标准库](/posts/e88bb280/)
 
 ## Machine Learning
 
