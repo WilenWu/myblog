@@ -264,9 +264,8 @@ header_color: true
 ## Basics
 
 - :ballot_box_with_check: [C++ 快速入门](/posts/3f4b6fbd/)
-- :ballot_box_with_check: C++ 标准库
-- :heart:  [pybind11](/https://geekdaxue.co/read/pybind11-CN/summary.md): 无缝连接 C++11和Python
 - :ballot_box_with_check: [C++ 标准库](/posts/e88bb280/)
+- :heart:  [pybind11](/https://geekdaxue.co/read/pybind11-CN/summary.md): 无缝连接 C++11和Python
 
 ## Machine Learning
 

@@ -17,7 +17,6 @@ C语言是一种通用的、过程式的编程语言，广泛用于系统软件�
 https://en.cppreference.com/w/
 https://www.studycpp.cn
 
-
 # 基础知识
 
 ## 程序结构
@@ -2207,7 +2206,6 @@ g++ -o main -I/source/includes main.cpp
 
 目前对 `#pragma once` 的支持是相当普遍的，由于不是由C++标准定义的，因此一些编译器可能不会实现它。
 
-
 # 模块管理
 
 ## 模块
@@ -2244,9 +2242,3 @@ import std.iostream;
 // Variable with internal linkage
 static int animals = 8;
 ```
-
-## make 命令
-
-大型项目的编译，如果全部手动完成，是非常麻烦的，容易出错。一般会使用专门的自动化编译工具，比如 make。
-
-make 是一个命令行工具，使用时会自动在当前目录下搜索配置文件 makefile（也可以写成 Makefile）。该文件定义了所有的编译规则，每个编译规则对应一个编译产物。

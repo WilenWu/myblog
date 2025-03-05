@@ -8,23 +8,22 @@
     - name: 国际数学日
       link: https://www.idm314.org/
       avatar: /img/idm314-pin-black.jpg
-      descr: The International Day of Mathematics (IDM) 
+      descr: The International Day of Mathematics (IDM)
     - name: WolframAlpha
       link: https://www.wolframalpha.com/
       avatar: /img/WolframAlpha.svg
       descr: 科研必备计算搜索引擎
     - name: Math is Fun
       link: https://www.mathsisfun.com/index.htm
-      avatar:  /img/mathisfun-circ.svg
+      avatar: /img/mathisfun-circ.svg
       descr: 趣味数学自学网站
     - name: 小码短链接
       link: https://xiaomark.com/tool
-      avatar:  /img/xiaomark.png
+      avatar: /img/xiaomark.png
       descr: 运营工具大全
 
-
 - class_name: 素材资源
-  class_desc: 
+  class_desc:
   link_list:
     - name: Zlibrary
       link: https://www.zhelper.net/
@@ -40,15 +39,15 @@
       descr: 字体图标
     - name: kindpng
       link: https://www.kindpng.com/
-      avatar:  /img/kindpng-logo.png
+      avatar: /img/kindpng-logo.png
       descr: Millions Of High Quality PNG Images For Free Download
     - name: WallpaperSafari
       link: https://wallpapersafari.com/
-      avatar:  /img/WallpaperSafari.svg
+      avatar: /img/WallpaperSafari.svg
       descr: Your best friend in finding wallpapers and backgrounds
     - name: Logo.wine
       link: https://www.logo.wine/
-      avatar:  /img/logo.wine.svg
+      avatar: /img/logo.wine.svg
       descr: Brand Logos Free Download in SVG Vector & PNG File Format
     - name: 清华大学开源软件镜像站
       link: https://mirror.tuna.tsinghua.edu.cn/
@@ -72,7 +71,7 @@
       descr: Chrome插件扩展推荐与下载
 
 - class_name: 在线工具
-  class_desc: 
+  class_desc:
   link_list:
     - name: remove.bg
       link: https://www.remove.bg/zh
@@ -88,35 +87,35 @@
       descr: 在线图片处理工具
     - name: SVG 在线编辑器
       link: https://c.runoob.com/more/svgeditor/
-      avatar:  /img/runoob-svgeditor.svg
+      avatar: /img/runoob-svgeditor.svg
       descr: 菜鸟工具
     - name: ico51
       link: http://www.ico51.cn/
-      avatar:  /img/ico-logo.png
+      avatar: /img/ico-logo.png
       descr: 在线生成透明ICO图标——ICO图标制作
     - name: docsmall
       link: https://docsmall.com/image-compress
-      avatar:  /img/docsmall.png
+      avatar: /img/docsmall.png
       descr: 在线图片压缩工具
     - name: TinyPNG
       link: https://tinypng.com/#go-pro
-      avatar:  /img/tinypng-icon.png
+      avatar: /img/tinypng-icon.png
       descr: Compress WebP, PNG and JPEG images intelligently
     - name: iLoveIMG
       link: https://www.iloveimg.com/zh-cn
-      avatar:  /img/iloveimg-heart.svg
+      avatar: /img/iloveimg-heart.svg
       descr: 你的在线图片编辑器就在这里，而且永远免费
     - name: iLovePDF
       link: https://www.ilovepdf.com/zh-cn
-      avatar:  /img/ilovepdf-heart.svg
+      avatar: /img/ilovepdf-heart.svg
       descr: 为PDF爱好者提供的PDF文件在线处理工具
     - name: StrErr
       link: https://www.strerr.com/bilibili.html
-      avatar:  /img/icon-googledr.svg
+      avatar: /img/icon-googledr.svg
       descr: b站封面下载
     - name: latexlive
       link: https://www.latexlive.com/
-      avatar:  /img/MommyTalk.webp
+      avatar: /img/MommyTalk.webp
       descr: LaTeX公式编辑器
     - name: Overleaf
       link: https://cn.overleaf.com/
@@ -173,10 +172,10 @@
     - name: Markdown 官方教程
       link: https://markdown.com.cn/
       avatar: /img/mdsolid.svg
-      descr: ''
+      descr: ""
 
 - class_name: 人工智能
-  class_desc: 
+  class_desc:
   link_list:
     - name: TensorFlow
       link: https://tensorflow.google.cn/tutorials?hl=zh-cn
@@ -189,7 +188,7 @@
     - name: Keras
       link: https://keras.io/zh/
       avatar: /img/keras.svg
-      descr: Keras 中文教程  
+      descr: Keras 中文教程
     - name: Theano
       link: https://github.com/Theano/Theano
       avatar: /img/theano-snake.svg
@@ -228,7 +227,7 @@
       descr: 机器学习竞赛社区
 
 - class_name: 科学数据库
-  class_desc: 
+  class_desc:
   link_list:
     - name: 中国科技资源共享网
       link: https://escience.org.cn/
@@ -236,7 +235,7 @@
       descr: 中国科技资源共享网
 
 - class_name: 托管平台
-  class_desc: 
+  class_desc:
   link_list:
     - name: Github
       link: https://github.com/
@@ -260,7 +259,7 @@
       descr: Where software teams break knowledge silos.
 
 - class_name: 博客文档
-  class_desc: 
+  class_desc:
   link_list:
     - name: Hexo
       link: https://hexo.io/zh-cn/
@@ -293,7 +292,7 @@
       descr: Stay Simple. Stay NexT.
     - name: Butterfly 主题
       link: https://butterfly.js.org/
-      avatar: /img/butterfly-avatar.png
+      avatar: /img/butterfly-icon.png
       descr: 今日事，今日毕
     - name: matery 主题
       link: http://blinkfox.com/2018/09/28/qian-duan/hexo-bo-ke-zhu-ti-zhi-hexo-theme-matery-de-jie-shao/
@@ -327,7 +326,7 @@
       descr: a clean design, support for interactive content, and a modern book-like look and feel.
 
 - class_name: 大佬们
-  class_desc: 
+  class_desc:
   link_list:
     - name: DreamyTZK
       link: https://www.antmoe.com/
@@ -345,4 +344,3 @@
       link: https://tding.top/
       avatar: https://tding.top/images/avatar.webp
       descr: 世间所有的相遇，都是久别重逢
-

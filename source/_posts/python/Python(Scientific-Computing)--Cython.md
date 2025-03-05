@@ -546,6 +546,54 @@ cdef double[:, :] array = np.zeros((10, 10))
 
 
 
+{% tabs memoryview %}
+
+<!-- tab Pure Python -->
+
+```python
+import cython
+@cython.boundscheck(False)
+@cython.wraparound(False)
+def compute(array_1: cython.int[:, ::1]):
+    # get the maximum dimensions of the array
+    x_max: cython.size_t = array_1.shape[0]
+    y_max: cython.size_t = array_1.shape[1]
+    
+    #create a memoryview
+    view2d: int[:,:] = array_1
+
+    # access the memoryview by way of our constrained indexes
+    for x in range(x_max):
+        for y in range(y_max):
+            view2d[x,y] = something()
+```
+
+<!-- endtab -->
+
+<!-- tab Cython -->
+
+```python
+cimport cython
+@cython.boundscheck(False)
+@cython.wraparound(False)
+def compute(int[:, ::1] array_1):
+    # get the maximum dimensions of the array
+    cdef Py_ssize_t x_max = array_1.shape[0]
+    cdef Py_ssize_t y_max = array_1.shape[1]
+    
+    #create a memoryview
+    cdef int[:, :] view2d = array_1
+
+    # access the memoryview by way of our constrained indexes
+    for x in range(x_max):
+        for y in range(y_max):
+            view2d[x,y] = something()
+```
+
+<!-- endtab -->
+
+{% endtabs %}
+
 # Cython装饰器
 
 Cython提供了装饰器，可以在Python函数上关闭边界检查和环绕检查。
