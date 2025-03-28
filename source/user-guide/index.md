@@ -184,6 +184,7 @@ header_color: true
 - :ballot_box_with_check: [Python(Standard Library)--re](/posts/cb9fa048/): re 模块使 Python 语言拥有全部的正则表达式功能。
 - :ballot_box_with_check: [Python(Python Basics)--命令行参数](/posts/97d915c4/): 轻松编写更友好的命令行参数接口，包括 sys.argv, getopt, argparse
 - :ballot_box_with_check: [Python(Standard Library)--Python 代码调试工具](/posts/c924bbe/): assert, pdb, ipdb
+- :heart: [cProfile](https://docs.python.org/zh-cn/3.13/library/profile.html): 是一个强大的性能分析工具，提供函数级性能分析，包括调用次数、总耗时等信息
 
 ## Scientific Computing
 
@@ -265,7 +266,7 @@ header_color: true
 
 - :ballot_box_with_check: [C++ 快速入门](/posts/3f4b6fbd/)
 - :ballot_box_with_check: [C++ 标准库](/posts/e88bb280/)
-- :heart:  [pybind11](/https://geekdaxue.co/read/pybind11-CN/summary.md): 无缝连接 C++11和Python
+- :heart:  [pybind11](https://geekdaxue.co/read/pybind11-CN/summary.md): 无缝连接 C++11和Python
 
 ## Machine Learning
 
