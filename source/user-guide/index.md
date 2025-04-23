@@ -168,12 +168,9 @@ header_color: true
 - :ballot_box_with_check: [Python(Python Basics)--Python面向对象](/posts/79a9fda5/)
 - :ballot_box_with_check: [Python Cookbook 3rd](https://python3-cookbook-personal.readthedocs.io/zh_CN/latest/): Python3 魔术语法
 - :white_large_square: [Python(Python Basics)--RPy2](/posts/1b0d2d38/): Python 通过rpy2调用 R语言
-- :white_large_square: [shortuuid](https://github.com/skorokithakis/shortuuid): 基于时间戳,、随机数等生成简单的唯一ID
+- :white_large_square: [shortuuid](https://github.com/skorokithakis/shortuuid): 基于时间戳、随机数等生成简单的唯一ID
 - :white_large_square: [rich](https://pypi.org/project/rich/): 用于将富文本、表格、进度条、语法高亮、markdown 等写入终端。
 - :ballot_box_with_check: [Progress Bars with Python](/posts/6fe4228f/): 在Python中实现进度条
-- :heart: [tkinter](http://www.runoob.com/python/python-gui-tkinter/): Python 的标准 GUI 库
-- :heart: [os](http://www.runoob.com/python/os-file-methods.html): 文件和目录处理库
-- :heart: ​Joblib: 是用于高效并行计算的Python开源库
 - :heart:  loguru: 更为优雅、简洁的日志管理模块
 
 ## Standard Library
@@ -184,7 +181,12 @@ header_color: true
 - :ballot_box_with_check: [Python(Standard Library)--re](/posts/cb9fa048/): re 模块使 Python 语言拥有全部的正则表达式功能。
 - :ballot_box_with_check: [Python(Python Basics)--命令行参数](/posts/97d915c4/): 轻松编写更友好的命令行参数接口，包括 sys.argv, getopt, argparse
 - :ballot_box_with_check: [Python(Standard Library)--Python 代码调试工具](/posts/c924bbe/): assert, pdb, ipdb
+- :heart: tkinter: Python 的标准 GUI 库
+- :heart: [os](http://www.runoob.com/python/os-file-methods.html): 文件和目录处理库
+- :heart: ​Joblib: 是用于高效并行计算的Python开源库
 - :heart: [cProfile](https://docs.python.org/zh-cn/3.13/library/profile.html): 是一个强大的性能分析工具，提供函数级性能分析，包括调用次数、总耗时等信息
+- :heart: [setuptools](https://setuptools.pypa.io/en/latest/userguide/quickstart.html): Python标准的打包分发工具
+- :heart: [pytest](https://pytest.cn/en/stable/): 是一个功能强大的 Python 测试框架
 
 ## Scientific Computing
 
@@ -198,7 +200,7 @@ header_color: true
 
 - :ballot_box_with_check: [Python(Data Analysis)--pandas](/posts/2a180ec0/): 提供高性能，易用的数据结构和数据分析工具
 - :ballot_box_with_check: [Python(Data Analysis)--pandas(Time Series)](/posts/31520356/): Pandas 时间序列数据处理工具
-- :heart: [Polars](https://pola-rs.github.io/polars-book-cn/user-guide/introduction.html)
+- :heart: [Polars](https://pola-rs.github.io/polars-book-cn/user-guide/introduction.html): 是一个用 Rust 编写的并行化 DataFrame 库，旨在提供高性能和灵活的数据分析。
 
 ## Web Crawling
 
@@ -216,6 +218,7 @@ header_color: true
 - :ballot_box_with_check: [Python(Machine Learning)--statsmodels](/posts/6c94e349/): 统计建模和计量经济学
 - :ballot_box_with_check: [Python(Machine Learning)--XGBoost](/posts/c46d5dae/)
 - :ballot_box_with_check: [Python(Machine Learning)--LightGBM](/posts/44910830/)
+- :ballot_box_with_check: [Python(Machine Learning)--CatBoost](/posts/dc8936d5/)
 - :ballot_box_with_check: [Python(Machine Learning)--超参数优化](/posts/794d8498/)
 - :heart: Dask: 是一个灵活的开源库，适用于 Python 中的并行和分布式计算
 - :heart: [imblearn](https://imbalanced-learn.org/stable/user_guide.html): 专门用于处理不平衡数据集
@@ -227,7 +230,6 @@ header_color: true
 - :ballot_box_with_check: [特征工程(V)--时间序列特征](/posts/799016ae/)
 - :ballot_box_with_check: [特征工程(VI)--机器学习](/posts/3d0ef432/)
 - :ballot_box_with_check: [特征工程(VII)--模型集成](/posts/425f9947/)
-- :ballot_box_with_check: [Python(Machine Learning)--CatBoost](/posts/dc8936d5/)
 
 ## Deep Learning
 
@@ -240,6 +242,7 @@ header_color: true
 - :white_large_square: python-docx: for creating and updating Microsoft Word (.docx) files.
 - :heart: [openpyxl](https://openpyxl.readthedocs.io/en/stable/usage/): 全面，包括修改各种Excel格式，不过不能批量修改数据
 - :white_large_square: [xlwings](http://docs.xlwings.org/en/stable/quickstart/): 批量实时修改Excel数据，和pandas, matplotlib完美对接，只能修改个别格式
+- :heart: markdown: 用于将Markdown文本转换为HTML或其他格式。
 
 
 ## Learning Python
